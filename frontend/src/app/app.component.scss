@@ -1,26 +1,3 @@
-.loading-container {
-  display: flex;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(255, 255, 255, .5);
-  z-index: 1000;
-}
-
 .page-body {
   min-height: 100vh;
-}
-
-.sidebar-router {
-  margin-left: 15rem;
-}
-
-.header-router {
-  margin-top: 3.6rem;
-}
-
-.footer-router {
-  margin-bottom: 6rem;
 }
