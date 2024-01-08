@@ -1,5 +1,5 @@
-<div class="page-body d-flex flex-column justify-content-between">
-  <app-header *ngIf="components.header"></app-header>
+<!-- <div class="page-body d-flex flex-column justify-content-between">
+  <app-navbar *ngIf="components.header"></app-navbar>
   <div *ngIf="components.sidebar; else noSidebar" class="d-flex flex-row">
     <app-sidebar *ngIf="components.sidebar"></app-sidebar>
     <router-outlet></router-outlet>
@@ -9,4 +9,5 @@
       <router-outlet></router-outlet>
     </div>
   </ng-template>
-</div>
+</div> -->
+<app-sidebar></app-sidebar>

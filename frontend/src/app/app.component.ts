@@ -16,6 +16,7 @@ export class AppComponent {
   title = 'Prassi DTI';
 
   currentLang: any = navigator.language.split('-')[0]
+components: any;
 
   constructor(
     private translate: TranslateService,
