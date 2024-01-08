@@ -1,0 +1,478 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+:root {
+    --color-primary: #4462c3;
+    --color-primary-light: #dbdfee;
+    --color-primary-mid: #7782a0;
+    --color-primary-dark: #2e4691;
+    --color-primary-button: #9cbde7;
+    --color-primary-hover: #FBEAF0;
+    --color-primary-low-opacity: #9cbde780;
+
+    --color-secundary: #ffc653;
+    --color-secundary-light: #fff1d0;
+    --color-secundary-dark: #cb8012;
+    --color-secundary: #848484;
+
+    --color-white: #fff;
+    --color-grey: #CCC;
+    --color-black: #000;
+    --color-error: #ff2340;
+
+    --btn-primary-bg: #0d6efd;
+    --btn-secondary-bg: #6c757d;
+}
+
+  html,
+  body {
+    position: relative;
+    color: #3f4254;
+    background-color: var(--color-base);
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+  }
+
+  .bg-primary {
+    background-color: var(--color-primary) !important;
+  }
+
+  .color-primary {
+    color: var(--color-primary);
+  }
+
+  .btn-outline-primary {
+    background-color: transparent;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .btn-outline-primary.btn.disabled,
+  .btn-outline-primary.btn:disabled,
+  fieldset:disabled .btn {
+    background-color: transparent;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .btn-primary:hover {
+    background-color: transparent !important;
+    border: 1px solid var(--color-primary) !important;
+    color: var(--color-primary) !important;
+  }
+
+  .btn-primary:disabled {
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    color: var(--color-white);
+    opacity: 0.8;
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    color: var(--color-white);
+  }
+
+  .btn-underlined-primary {
+    background-color: transparent;
+    border: none;
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  .btn-underlined-primary:hover {
+    background-color: transparent;
+    border: none;
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  .btn-outline-primary:hover {
+    background-color: var(--color-primary) !important;
+    border: 1px solid var(--color-primary) !important;
+    color: var(--color-white);
+  }
+
+  .btn-error {
+    background-color: var(--color-error);
+    border: 1px solid var(--color-error);
+    color: var(--color-white);
+  }
+
+  .btn-error:hover {
+    background-color: var(--color-white) !important;
+    border: 1px solid var(--color-error) !important;
+    color: var(--color-error) !important;
+  }
+
+  .fw-500 {
+    font-weight: 500;
+  }
+
+  .fw-600 {
+    font-weight: 600;
+  }
+
+  .fw-700 {
+    font-weight: 700;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  label,
+  .mat-tab-label-content,
+  .mat-input-element,
+  .mat-sort-header-content,
+  .mat-step-text-label,
+  .mat-cell,
+  .mat-paginator-container,
+  select,
+  option,
+  input,
+  textarea,
+  button,
+  .btn,
+  th.mat-header-cell,
+  td.mat-cell,
+  td.mat-footer-cell,
+  small {
+    font-family: "Poppins", sans-serif !important;
+  }
+
+  h2 {
+    @extend .fw-500;
+  }
+
+  h3 {
+    @extend .fw-500;
+    font-size: 2.3rem;
+  }
+
+  h4 {
+    @extend .fw-700;
+  }
+
+  h5,
+  .ant-collapse-header {
+    @extend .fw-600;
+    font-size: 2.25rem;
+  }
+
+  h6 {
+    @extend .fw-600;
+    font-size: 1.8rem;
+  }
+
+  label,
+  button,
+  .btn {
+    @extend .fw-600;
+  }
+
+  .btn-check:checked+.btn,
+  .btn.active,
+  .btn.show,
+  .btn:first-child:active,
+  :not(.btn-check)+.btn:active,
+  .btn:focus {
+    border: none !important;
+  }
+
+  label {
+    font-size: .9rem;
+  }
+
+  a {
+    font-weight: 500;
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: var(--color-primary);
+  }
+
+  .cursor-pointer {
+    cursor: pointer;
+  }
+
+  .page {
+    padding: 3rem 10rem;
+  }
+
+  .container-fluid {
+    padding: 1rem 2rem;
+  }
+
+  .primary-container {
+    background-color: white;
+    padding: 1rem;
+    border-radius: .25rem;
+    box-shadow: 0px 0px 10px #00000029;
+  }
+
+  .mat-tab-body-content {
+    padding: 1rem 0rem;
+  }
+
+  .form-control {
+
+    &:read-only,
+    &:disabled {
+      background-color: #e9ecef;
+    }
+  }
+
+  .form-select {
+    &:disabled {
+      background-color: #e9ecef;
+    }
+  }
+
+  .mat-select-disabled {
+    background-color: #e9ecef !important;
+  }
+
+  .mat-tab-body-content {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+
+  table .mat-table {
+    width: 100%;
+  }
+
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  table .mat-table td,
+  table .mat-table th {
+    width: 25%;
+  }
+
+  thead,
+  tbody,
+  tfoot {
+    width: 100%;
+  }
+
+  .margin-actions-button {
+    margin-right: 0.625rem;
+  }
+
+  .mat-form-field {
+    width: 30%;
+  }
+
+  th.mat-header-cell:first-of-type,
+  td.mat-cell:first-of-type,
+  td.mat-footer-cell:first-of-type {
+    padding-left: 0rem;
+  }
+
+  th.mat-header-cell:first-of-type,
+  td.mat-cell:first-of-type,
+  td.mat-footer-cell:first-of-type {
+    padding-top: 0rem;
+  }
+
+  .ant-menu-inline.ant-menu-root .ant-menu-item,
+  .ant-menu-inline.ant-menu-root .ant-menu-submenu-title {
+    padding: 0.5rem;
+  }
+
+  .trigger {
+    font-size: 18px;
+    line-height: 64px;
+    padding: 0 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+
+  .trigger:hover {
+    color: #1890ff;
+  }
+
+  .ant-layout-sider,
+  .ant-layout-sider-trigger {
+    background-color: var(--color-white);
+    color: var(--color-black);
+  }
+
+  nz-header {
+    padding: 0;
+  }
+
+  nz-content {
+    margin: 0 1.5rem;
+  }
+
+  [nz-icon] {
+    font-size: 1.5rem !important;
+  }
+
+  button [nz-icon] {
+    margin-right: 0.5rem;
+  }
+
+  .scrollable-y {
+    overflow-y: auto;
+  }
+
+  .info-btn {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 0.5rem;
+    background-color: transparent;
+    border: none;
+  }
+
+  .info-btn [nz-icon] {
+    font-size: 20px;
+  }
+
+  .form-check-input:checked {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+
+  .form-check-input:checked:disabled {
+    background-color: var(--color-disabled);
+    border-color: var(--color-disabled);
+    opacity: 1;
+  }
+
+  .ant-slider-track,
+  .ant-slider:hover .ant-slider-track {
+    background-color: var(--color-primary);
+  }
+
+  .ant-slider-handle,
+  .ant-slider:hover .ant-slider-handle:not(.ant-tooltip-open),
+  .ant-slider-handle:focus {
+    border: 2px solid var(--color-primary);
+  }
+
+  .ant-slider-handle:focus {
+    box-shadow: 0 0 0 5px rgb(214, 45, 102, .12);
+  }
+
+  .ant-input,
+  .ant-input-affix-wrapper {
+    padding: 0rem 0rem 0rem 0.5rem;
+    border: 1px solid var(--color-disabled);
+  }
+
+  .ant-input-affix-wrapper {
+    border-radius: 0.5rem;
+  }
+
+  .btn-danger {
+    background-color: transparent;
+    color: var(--bs-btn-bg);
+    border: none;
+  }
+
+  .ant-collapse-ghost>.ant-collapse-item>.ant-collapse-content>.ant-collapse-content-box {
+    padding: 0rem;
+  }
+
+  .ant-menu-horizontal {
+    border-bottom: none;
+  }
+
+  nz-alert {
+    display: inline-block;
+    border-radius: 4px;
+  }
+
+  .ant-alert-info {
+    background-color: #EAECFF;
+    border-color: #EAECFF;
+
+    .ant-alert-message,
+    .anticon {
+      color: #2944FA;
+    }
+  }
+
+  .ant-table-footer,
+  .ant-table-thead>tr>th {
+    background: transparent;
+    border-bottom: 1px solid var(--color-disabled);
+  }
+
+  .ant-table.ant-table-bordered>.ant-table-container>.ant-table-content>table,
+  .ant-table.ant-table-bordered>.ant-table-container>.ant-table-header>table {
+    border: none;
+  }
+
+  .ant-table.ant-table-bordered>.ant-table-container>.ant-table-body>table>tbody>tr>td,
+  .ant-table.ant-table-bordered>.ant-table-container>.ant-table-body>table>tfoot>tr>td,
+  .ant-table.ant-table-bordered>.ant-table-container>.ant-table-body>table>tfoot>tr>th,
+  .ant-table.ant-table-bordered>.ant-table-container>.ant-table-body>table>thead>tr>th,
+  .ant-table.ant-table-bordered>.ant-table-container>.ant-table-content>table>tbody>tr>td,
+  .ant-table.ant-table-bordered>.ant-table-container>.ant-table-content>table>tfoot>tr>td,
+  .ant-table.ant-table-bordered>.ant-table-container>.ant-table-content>table>tfoot>tr>th,
+  .ant-table.ant-table-bordered>.ant-table-container>.ant-table-content>table>thead>tr>th,
+  .ant-table.ant-table-bordered>.ant-table-container>.ant-table-header>table>tbody>tr>td,
+  .ant-table.ant-table-bordered>.ant-table-container>.ant-table-header>table>tfoot>tr>td,
+  .ant-table.ant-table-bordered>.ant-table-container>.ant-table-header>table>tfoot>tr>th,
+  .ant-table.ant-table-bordered>.ant-table-container>.ant-table-header>table>thead>tr>th,
+  .ant-table.ant-table-bordered>.ant-table-container>.ant-table-summary>table>tbody>tr>td,
+  .ant-table.ant-table-bordered>.ant-table-container>.ant-table-summary>table>tfoot>tr>td,
+  .ant-table.ant-table-bordered>.ant-table-container>.ant-table-summary>table>tfoot>tr>th,
+  .ant-table.ant-table-bordered>.ant-table-container>.ant-table-summary>table>thead>tr>th,
+  .ant-table.ant-table-bordered>.ant-table-container {
+    border-left: none;
+    border-right: none;
+  }
+
+  .ant-switch-checked,
+  .ant-radio-inner::after {
+    background: var(--color-primary);
+  }
+
+  .ant-radio-checked .ant-radio-inner,
+  .ant-radio-input:focus+.ant-radio-inner,
+  .ant-radio-wrapper:hover .ant-radio,
+  .ant-radio:hover .ant-radio-inner {
+    border-color: var(--color-primary);
+  }
+
+  tr:nth-child(even) {
+    background-color: #F7F8FA;
+  }
+
+  input,
+  textarea,
+  select,
+  .mat-select {
+    border: 1px solid var(--color-disabled);
+  }
+
+  input:disabled,
+  .input-group:not(.has-validation)> :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating),
+  textarea:disabled,
+  select:disabled,
+  .mat-select-disabled {
+    border: 1px dotted var(--color-disabled);
+  }
+
+  .input-group:not(.has-validation)>.dropdown-toggle:nth-last-child(n+3),
+  .input-group:not(.has-validation)>.form-floating:not(:last-child)>.form-control,
+  .input-group:not(.has-validation)>.form-floating:not(:last-child)>.form-select,
+  .input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating) {
+    border-color: var(--color-disabled);
+  }

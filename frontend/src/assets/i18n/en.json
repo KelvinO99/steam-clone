@@ -1,0 +1,47 @@
+{
+  "TOAST": {
+    "INFO": {
+      "100_TITLE": "Info",
+      "100_TEXT": "Action completed with info"
+    },
+    "SUCCESS": {
+      "200_TITLE": "Success",
+      "200_TEXT": "Action completed successfully"
+    },
+    "WARNING": {
+      "300_TITLE": "Warning",
+      "300_TEXT": "Action completed with warnings"
+    },
+    "ERROR": {
+      "GENERAL_TITLE": "Error",
+      "GENERAL_TEXT": "Something went wrong",
+      "400_TITLE": "Permission denied",
+      "400_TEXT": "You do not have permission for this action",
+      "401_TITLE": "Authentication required",
+      "401_TEXT": "You must be logged in to perform this action",
+      "403_TITLE": "Forbidden",
+      "403_TEXT": "You do not have permission for this action",
+      "404_TITLE": "Not found",
+      "404_TEXT": "The requested resource was not found",
+      "405_TITLE": "Method not allowed",
+      "405_TEXT": "The requested method is not allowed",
+      "500_TITLE": "Internal server error",
+      "500_TEXT": "An internal server error occurred",
+      "503_TITLE": "Service unavailable",
+      "503_TEXT": "The service is currently unavailable",
+      "504_TITLE": "Gateway timeout",
+      "504_TEXT": "The service is currently unavailable"
+    }
+  },
+  "LEGAL_NOTES": "Legal Notes",
+  "PRIVACY": "Privacy",
+  "COOKIE": "Cookie",
+  "DELETE_CONFIRMATION": {
+    "TITLE": "Delete!",
+    "TEXT": "Are you sure you want to delete the element?",
+    "CONFIRM": "Delete",
+    "DISMISS": "Cancel"
+  },
+  "FILTER": "Filter",
+  "NO_DATA_FOUND": "No data!"
+}

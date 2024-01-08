@@ -1,0 +1,47 @@
+{
+  "TOAST": {
+    "INFO": {
+      "100_TITLE": "Info",
+      "100_TEXT": "Info message"
+    },
+    "SUCCESS": {
+      "200_TITLE": "Successo",
+      "200_TEXT": "Operazione completata con successo"
+    },
+    "WARNING": {
+      "300_TITLE": "Attenzione",
+      "300_TEXT": "Attenzione, qualcosa non va"
+    },
+    "ERROR": {
+      "GENERAL_TITLE": "Errore",
+      "GENERAL_TEXT": "Qualcosa è andato storto",
+      "400_TITLE": "Errore",
+      "400_TEXT": "Richiesta non valida",
+      "401_TITLE": "Errore",
+      "401_TEXT": "Non sei autorizzato",
+      "403_TITLE": "Errore",
+      "403_TEXT": "Accesso negato",
+      "404_TITLE": "Errore",
+      "404_TEXT": "Pagina non trovata",
+      "405_TITLE": "Errore",
+      "405_TEXT": "Metodo non consentito",
+      "500_TITLE": "Errore",
+      "500_TEXT": "Errore interno del server",
+      "503_TITLE": "Errore",
+      "503_TEXT": "Servizio non disponibile",
+      "504_TITLE": "Errore",
+      "504_TEXT": "Timeout"
+    }
+  },
+  "LEGAL_NOTES": "Note Legali",
+  "PRIVACY": "Privacy",
+  "COOKIE": "Cookie",
+  "DELETE_CONFIRMATION": {
+    "TITLE": "Elimina!",
+    "TEXT": "Sei sicuro di voler eliminare l'elemento?",
+    "CONFIRM": "Elimina",
+    "DISMISS": "Annulla"
+  },
+  "FILTER": "Ricerca",
+  "NO_DATA_FOUND": "Nessun dato trovato!"
+}

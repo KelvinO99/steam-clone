@@ -1,0 +1,11 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: sh -c "npm start"
+    ports:
+      - "4200:4200"
+    volumes:
+      - .:/app
