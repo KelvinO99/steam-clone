@@ -8,7 +8,7 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('PLACEHOLDER_TABLE_NAME', function (Blueprint $table) {
+        Schema::create('games', function (Blueprint $table) {
             $table->id();
             $table->integer('developer_id');
             $table->boolean('is_dlc');
@@ -28,6 +28,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('PLACEHOLDER_TABLE_NAME');
+        Schema::dropIfExists('games');
     }
 };

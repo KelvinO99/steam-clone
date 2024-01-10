@@ -8,19 +8,19 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('PLACEHOLDER_TABLE_NAME', function (Blueprint $table) {
+        Schema::create('games_tags', function (Blueprint $table) {
             $table->id();
             $table->integer('game_id');
             $table->integer('tag_id');
             $table->timestamps();
 
-            $table->foreignId('game')->references('id')->on('games')->onDelete('cascade')->onUpdate('cascade');
+            //$table->foreignId('game')->references('id')->on('games')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('tag')->references('id')->on('tags')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('PLACEHOLDER_TABLE_NAME');
+        Schema::dropIfExists('games_tags');
     }
 };

@@ -36,9 +36,12 @@ php artisan make:Controller nomecontroller
 Creare un Controller con le CRUD:
 php artisan make:Controller nomecontroller --resource
 
-IMPORTANTE QUANDO CAMBI LE ROUTE STOPPA IL SERVER 
+IMPORTANTE QUANDO CAMBI LE ROUTE STOPPA IL SERVER
+composer dump-autoload
+php artisan config:clear 
 php artisan route:clear 
 php artisan route:cache
+php artisan serve
 Installa jwt e cambia un fottio di cose prima di fare sto comando:
  php artisan make:controller AuthController
 

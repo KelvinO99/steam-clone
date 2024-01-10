@@ -8,14 +8,14 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('PLACEHOLDER_TABLE_NAME', function (Blueprint $table) {
+        Schema::create('reviews', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
             $table->integer('game_id');
             $table->date('date_of_review');
             $table->boolean('is_recommended');
             $table->longtext('description');
-            $table->hours_played('float');
+            $table->float('hours_played');
             $table->timestamps();
 
             $table->foreignId('game')->references('id')->on('games')->onDelete('cascade')->onUpdate('cascade');
@@ -25,7 +25,7 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('PLACEHOLDER_TABLE_NAME');
+        Schema::dropIfExists('reviews');
     }
 };
 

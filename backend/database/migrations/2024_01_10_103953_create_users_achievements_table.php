@@ -8,20 +8,20 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('PLACEHOLDER_TABLE_NAME', function (Blueprint $table) {
+        Schema::create('users_achievements', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
             $table->integer('achievement_id');
             $table->timestamps();
             
             $table->foreignId('user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('achievements')->references('id')->on('achievements')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('achievement')->references('id')->on('achievements')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('PLACEHOLDER_TABLE_NAME');
+        Schema::dropIfExists('users_achievements');
     }
 };
 

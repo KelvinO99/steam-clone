@@ -8,19 +8,21 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('images', function (Blueprint $table) {
+        Schema::create('developers', function (Blueprint $table) {
             $table->id();
-            $table->integer('game_id');
-            $table->string('image');
+            $table->integer('user_id');
+            $table->boolean('is_publisher');
+            $table->string('name');
+            $table->text('description');
             $table->timestamps();
 
-            $table->foreignId('game')->references('id')->on('games')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('images');
+        Schema::dropIfExists('developers');
     }
 };
 
