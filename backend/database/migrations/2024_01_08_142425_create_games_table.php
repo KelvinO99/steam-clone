@@ -10,12 +10,19 @@ return new class extends Migration
     {
         Schema::create('PLACEHOLDER_TABLE_NAME', function (Blueprint $table) {
             $table->id();
-            $table->string('PLACEHOLDER_COLUMN_NAME');
-            $table->integer('PLACEHOLDER_COLUMN_NAME');
-            $table->boolean('PLACEHOLDER_COLUMN_NAME');
+            $table->integer('developer_id');
+            $table->boolean('is_dlc');
+            $table->integer('parent_id');
+            $table->string('name');
+            $table->float('price');
+            $table->float('discounted_price');
+            $table->integer('discounted_percentage');
+            $table->text('short_description');
+            $table->text('long_description');
+            $table->string('pegi');
             $table->timestamps();
 
-            $table->foreignId('PLACEHOLDER_COLUMN')->references('id')->on('PLACEHOLDER_EXT_TABLE_NAME2')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('parent')->references('id')->on('games')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

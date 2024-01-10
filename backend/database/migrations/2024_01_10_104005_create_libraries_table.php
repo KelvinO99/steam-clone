@@ -10,12 +10,13 @@ return new class extends Migration
     {
         Schema::create('PLACEHOLDER_TABLE_NAME', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
             $table->integer('game_id');
-            $table->integer('tag_id');
+            $table->boolean('is_wishlisted');
             $table->timestamps();
-
+            
+            $table->foreignId('user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('game')->references('id')->on('games')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('tag')->references('id')->on('tags')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
@@ -24,3 +25,9 @@ return new class extends Migration
         Schema::dropIfExists('PLACEHOLDER_TABLE_NAME');
     }
 };
+
+/*
+    $table->string('PLACEHOLDER_COLUMN_NAME');
+    $table->integer('PLACEHOLDER_COLUMN_NAME');
+    $table->boolean('PLACEHOLDER_COLUMN_NAME');
+*/

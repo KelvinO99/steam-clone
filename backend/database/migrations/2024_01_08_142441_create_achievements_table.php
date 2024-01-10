@@ -10,12 +10,12 @@ return new class extends Migration
     {
         Schema::create('PLACEHOLDER_TABLE_NAME', function (Blueprint $table) {
             $table->id();
-            $table->string('PLACEHOLDER_COLUMN_NAME');
-            $table->integer('PLACEHOLDER_COLUMN_NAME');
-            $table->boolean('PLACEHOLDER_COLUMN_NAME');
+            $table->integer('game_id');
+            $table->string('name');
+            $table->boolean('is_achieved');
             $table->timestamps();
 
-            $table->foreignId('PLACEHOLDER_COLUMN')->references('id')->on('PLACEHOLDER_EXT_TABLE_NAME2')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('game')->references('id')->on('games')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
