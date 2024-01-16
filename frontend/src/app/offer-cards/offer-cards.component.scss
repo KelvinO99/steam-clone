@@ -1,0 +1,41 @@
+.carouselContainer{
+top: 170px;
+
+}
+.carousel-control-next {
+    position: absolute;
+    background-color: #007bff; /* Cambia colore di sfondo */
+    color: #fff; /* Cambia colore del testo */
+    height: 108px;
+    width: 45px;
+    top: 170px;
+    left: 1424px; 
+}
+
+.carousel-control-prev{
+    position: absolute;
+    background-color: #007bff;
+    color: #fff; /* Cambia colore del testo */
+    height: 108px;
+    width: 45px;
+    top: 170px;
+    left: 205px; 
+
+}
+.card-img-top{
+    height: 128px;
+    width: 128px;
+}
+
+.card-body{
+    background-image: url('https://images-ext-1.discordapp.net/external/7eB7l0xB29zq-Gj21I66XGmBVAdSW1MJ2O8jT3psHTc/https/store.akamai.steamstatic.com/public/images/v6/home/background_spotlight.jpg?format=webp');
+}
+
+.carousel-item{
+    height: 400px;
+    width: 250px;
+    left:250px;
+    top: 155px
+
+}
+
