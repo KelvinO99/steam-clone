@@ -55,11 +55,22 @@ class User extends Authenticatable implements JWTSubject
         return [];
     }
     
-    public function characters(){
+    public function UsersAchievements(){
         
-        /*return $this->hasMany(UsersAchievements::class, 'users_achievements', 'user_id');
+        return $this->hasMany(UsersAchievements::class, 'users_achievements', 'user_id');
+    }
+
+    public function Libraries(){
+
         return $this->hasOne(Libraries::class, 'libraries', 'id');
+    }
+
+    public function Reviews(){
         return $this->hasOne(Reviews::class, 'reviews', 'id');
-        return $this->hasOne(Developers::class, 'developers', 'id');*/
+    }
+
+    public function Developers(){
+
+        return $this->hasOne(Developers::class, 'developers', 'id');
     }
 }

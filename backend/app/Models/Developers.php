@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Routing\PendingSingletonResourceRegistration;
 
-class PLACEHOLDERMODEL extends Model
+class Developers extends Model
 {
     use HasFactory;
 
@@ -19,13 +19,13 @@ class PLACEHOLDERMODEL extends Model
         'description',        
     ];
 
-    public function PLACEHOLDERTABLE1(){
+    public function User(){
 
-        return $this->hasOne(PLACEHOLDERTABLE1::class, 'PLACEHOLDERORIGIN', 'PLACEHOLDERDESTINATION');
+        return $this->hasOne(User::class, 'user_id', 'id');
     }
 
-    public function PLACEHOLDERTABLE2(){
+    public function DevelopersGames(){
 
-        return $this->hasMany(PLACEHOLDERTABLE2::class, 'PLACEHOLDERORIGIN', 'PLACEHOLDERDESTINATION');   
+        return $this->hasMany(DevelopersGames::class, 'developer_id', 'id');   
     }
 }
