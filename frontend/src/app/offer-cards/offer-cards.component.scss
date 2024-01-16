@@ -1,5 +1,7 @@
 .carouselContainer {
     position: relative;
+    top: 150px;
+    margin: 100px;
 }
 
 .carousel-control-prev, .carousel-control-next {
@@ -7,6 +9,7 @@
     top: 50%;  /* Centra i pulsanti verticalmente */
     transform: translateY(-50%);
     background-color: aquamarine;
+    
 }
 
 @media (max-width: 768px) {
