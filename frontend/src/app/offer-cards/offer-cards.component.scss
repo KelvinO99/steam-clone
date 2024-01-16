@@ -1,0 +1,50 @@
+.carouselContainer {
+    position: relative;
+    top: 150px;
+    margin: 100px;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    position: absolute;
+    top: 50%;  /* Centra i pulsanti verticalmente */
+    transform: translateY(-50%);
+    background-color: aquamarine;
+    width: 45px;
+    height: 108px;
+    padding: 36px 11px;
+}
+
+@media (max-width: 768px) {
+    .carousel-control-prev, .carousel-control-next {
+        /* Modifica la posizione per schermi più piccoli */
+        top: auto;
+        bottom: 10px;  /* Sposta i pulsanti più in basso */
+    }
+
+    .carousel-control-prev {
+        left: 5px;  /* Riduci la distanza dal bordo sinistro */
+    }
+
+    .carousel-control-next {
+        right: 5px;  /* Riduci la distanza dal bordo destro */
+    }
+}
+
+
+/* git */
+.card-img-top{
+    height: 128px;
+    width: 128px;
+}
+
+.card-body{
+    background-image: url('https://images-ext-1.discordapp.net/external/7eB7l0xB29zq-Gj21I66XGmBVAdSW1MJ2O8jT3psHTc/https/store.akamai.steamstatic.com/public/images/v6/home/background_spotlight.jpg?format=webp');
+}
+
+.carousel-item{
+    height: 400px;
+    width: 250px;
+    left:250px;
+    top: 100px;
+}
+
