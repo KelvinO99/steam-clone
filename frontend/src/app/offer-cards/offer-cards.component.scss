@@ -9,7 +9,9 @@
     top: 50%;  /* Centra i pulsanti verticalmente */
     transform: translateY(-50%);
     background-color: aquamarine;
-    
+    width: 45px;
+    height: 108px;
+    padding: 36px 11px;
 }
 
 @media (max-width: 768px) {
@@ -29,6 +31,7 @@
 }
 
 
+/* git */
 .card-img-top{
     height: 128px;
     width: 128px;
