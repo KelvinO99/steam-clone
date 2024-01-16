@@ -1,27 +1,21 @@
-.carouselContainer{
-top: 170px;
-
+.carouselContainer {
+    position: relative;
 }
+
+.carousel-control-prev, .carousel-control-next {
+    position: absolute;
+    top: 50%; /* Centra verticalmente */
+    transform: translateY(-50%);
+}
+
+.carousel-control-prev {
+    left: 0;
+}
+
 .carousel-control-next {
-    position: absolute;
-    background-color: #007bff; /* Cambia colore di sfondo */
-    color: #fff; /* Cambia colore del testo */
-    height: 108px;
-    width: 45px;
-    top: 170px;
-    left: 1424px; 
+    right: 0;
 }
 
-.carousel-control-prev{
-    position: absolute;
-    background-color: #007bff;
-    color: #fff; /* Cambia colore del testo */
-    height: 108px;
-    width: 45px;
-    top: 170px;
-    left: 205px; 
-
-}
 .card-img-top{
     height: 128px;
     width: 128px;
