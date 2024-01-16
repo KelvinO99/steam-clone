@@ -1,7 +1,7 @@
 
-nav.navbar {
+/* nav.navbar {
     background-color: #171d25;
-}
+} */
 
 a.menuitem {
     color: white;
@@ -10,9 +10,20 @@ a.menuitem {
     padding-left: 7px;
     padding-right: 7px;
     padding-bottom: 7px;
+    padding-top: 40px;
     line-height: 16px;
     float: left;
-    color: #dcdedf;
+    color: #000000;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-family: "Motiva Sans", "Twemoji", "Noto Sans", Helvetica, sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+a.menuitem_user {
+    color: white;
+    display: block;
+    color: #000000;
     text-transform: uppercase;
     font-size: 16px;
     font-family: "Motiva Sans", "Twemoji", "Noto Sans", Helvetica, sans-serif;
@@ -45,7 +56,7 @@ a.submenuitem {
 .dropdown-content {
     display: none;
     position: absolute;
-    top: 100%; /* Posiziona la dropdown sotto l'elemento padre */
+    top: 100%;
     left: 0;
     background-color: #3d4450;
     min-width: 140px;
@@ -71,7 +82,7 @@ div.container-fluid {
     padding: 0;
 }
 
-.header_installsteam_btn {
+/*.header_installsteam_btn {
     display: inline-block;
     position: relative;
     height: 21px;
@@ -101,4 +112,29 @@ div.container-fluid {
     height: 21px;
     line-height: 24px;
     margin-right: 3px;
-}
+} */
+
+/* div.globalnavitem_information  {
+    display: inline-flex;
+    padding-left: 700px; 
+    padding-right: 700px;
+    font-size: 16px;
+    font-family: "Motiva Sans", "Twemoji", "Noto Sans", Helvetica, sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    
+} */
+
+/* div.navitem_user  {
+    display: flex;
+    justify-content: flex-end;
+    
+} */
+
+/* div.navitem_information {
+    text-align: center;
+    padding-top: 45px;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 7px;
+} */
