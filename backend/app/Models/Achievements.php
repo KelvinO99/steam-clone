@@ -20,11 +20,11 @@ class Achievements extends Model
 
     public function UsersAchievements(){
 
-        return $this->hasMany(UsersAchievements::class, 'id', 'achievement');
+        return $this->hasMany(UsersAchievements::class, 'achievement_id', 'id');
     }
 
     public function Games(){
 
-        return $this->hasOne(Games::class, 'PLACEHOLDERORIGIN', 'PLACEHOLDERDESTINATION');   
+        return $this->hasOne(Games::class, 'game_id', 'id');   
     }
 }

@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->integer('game_id');
-            $table->mediumblob('image');
+            $table->string('image_path')->nullable();
             $table->timestamps();
 
             $table->foreignId('game')->references('id')->on('games')->onDelete('cascade')->onUpdate('cascade');
