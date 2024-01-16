@@ -8,20 +8,20 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('PLACEHOLDER_TABLE_NAME', function (Blueprint $table) {
+        Schema::create('developers_games', function (Blueprint $table) {
             $table->id();
-            $table->string('PLACEHOLDER_COLUMN_NAME');
-            $table->integer('PLACEHOLDER_COLUMN_NAME');
-            $table->boolean('PLACEHOLDER_COLUMN_NAME');
+            $table->integer('developer_id');
+            $table->integer('game_id');
             $table->timestamps();
 
-            $table->foreignId('PLACEHOLDER_COLUMN1')->references('PLACEHOLDER_EXT_COLUMN1')->on('PLACEHOLDER_EXT_TABLE_NAME1')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('PLACEHOLDER_COLUMN2')->references('PLACEHOLDER_EXT_COLUMN2')->on('PLACEHOLDER_EXT_TABLE_NAME2')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('developer_id')->references('id')->on('developers')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('game_id')->references('id')->on('games')->onDelete('cascade')->onUpdate('cascade');
+        });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('PLACEHOLDER_TABLE_NAME');
+        Schema::dropIfExists('developers_games');
     }
 };
 
