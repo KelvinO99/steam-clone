@@ -14,7 +14,7 @@ return new class extends Migration
             $table->boolean('is_dlc');
             $table->integer('parent_id');
             $table->string('name');
-            $table->float('price');
+            $table->float('base_price');
             $table->float('discounted_price');
             $table->integer('discounted_percentage');
             $table->text('short_description');
