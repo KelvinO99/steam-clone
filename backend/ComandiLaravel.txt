@@ -59,6 +59,8 @@ https://aulab.it/guide/132/model-resource-controller-e-crud-in-laravel
 
 https://www.positronx.io/laravel-jwt-authentication-tutorial-user-login-signup-api/
 
+https://laratrust.santigarcor.me/docs/6.x/ //Ruoli User -Kel
+
 Comandi git
 git add .
 git commit -m <nomepush>

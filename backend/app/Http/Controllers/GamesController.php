@@ -11,7 +11,7 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 
 class PLACEHOLDERCONTROLLER extends Controller
 {
-     // Mostra tutti i record della tabella Games -Salvo
+     // Mostra tutti i record della tabella Games -Kelvin
      public function index(){
         $var = Games::get();
 
@@ -24,7 +24,7 @@ class PLACEHOLDERCONTROLLER extends Controller
         
     }
 
-    // Mostra un determinato record dellla tabella Games -Salvo
+    // Mostra un determinato record dellla tabella Games -Kelvin
     public function show($id){
         $var = Games::find($id);
 
@@ -35,7 +35,7 @@ class PLACEHOLDERCONTROLLER extends Controller
 
     }
     
-    // Elimina un determinato record della tabella Games -Salvo
+    // Elimina un determinato record della tabella Games -Kelvin
     public function destroy ($id){
 
         $var = Games::find( $id );
@@ -47,7 +47,7 @@ class PLACEHOLDERCONTROLLER extends Controller
         ]);
     }
 
-    // Aggiorna un determinato record della tabella Games -Salvo
+    // Aggiorna un determinato record della tabella Games -Kelvin
     public function update(Request $request): Response
     {
         $var = Games::findOrFail($request->id);
@@ -62,7 +62,7 @@ class PLACEHOLDERCONTROLLER extends Controller
         return response($var);
     }
 
-    // Aggiunge un record alla tabella Games -Salvo
+    // Aggiunge un record alla tabella Games -Kelvin
     public function store(Request $request) {
 
         // Ottieni l'utente autenticato tramite JWT
@@ -75,7 +75,16 @@ class PLACEHOLDERCONTROLLER extends Controller
 
         $validatedData = $request->validate([
             'name' => 'required|max:255',
-            '' => 'required|max:255',
+            'developer_id',
+            'is_dlc',
+            'parent_id',
+            'name',
+           'base_price',
+           'discounted_price',
+            'discounted_percentage',
+            'short_description',
+            'long_description',
+            'pegi'
         ]);
     
         $var = new Games();
