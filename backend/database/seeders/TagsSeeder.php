@@ -36,7 +36,7 @@ class TagsSeeder extends Seeder
             'Racing',
             'Free to Play',
         ];
-        for($i=0;$i<8;$i++)
+        for($i=0;$i<19;$i++)
         {
             DB::table('tags')->insert([
                 'name' => $names[random_int(0,$DIM_A-1)],//PLACEHOLDER RNGNAME FROM ARRAY

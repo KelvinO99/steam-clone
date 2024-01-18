@@ -72,7 +72,7 @@ class UsersSeeder extends Seeder
             
                 DB::table('users')->insert([
                     'username' => $randomUsername,
-                    'name' => "nome",
+                    'name' => $randomUsername,
                     'email' => $email,
                     'password' => "password",
                     'image_path' => null,

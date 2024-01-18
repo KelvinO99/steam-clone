@@ -67,7 +67,7 @@ class ReviewsSeeder extends Seeder
                 'date' => Carbon::now()->subYears(random_int(1, 10))->subDays(random_int(1, 365))->format('Y-m-d'),//PLACEHOLDER RNGBD
                 'is_recommended' => $bool = (bool)rand(0,1),//PLACEHOLDER BOOL RNG
                 'description' => $bool ? $positive[random_int(0, $DIM_A - 1)] : $negative[random_int(0, $DIM_A - 1)],
-                'hours_played' => mt_rand() / mt_getrandmax() * (0.1 - 2020),//PLACEHOLDER FLOAT RNG
+                'hours_played' => mt_rand() / mt_getrandmax() * (999 - 1) + 1,//PLACEHOLDER FLOAT RNG
             ]);
         }
     }

@@ -12,7 +12,7 @@ class UsersAchievementsSeeder extends Seeder
 {
     public function run(): void
     {
-        for($i=0;$i<1;$i++)
+        for($i=0;$i<19;$i++)
         {
             DB::table('users_achievements')->insert([
                 'user_id' => rand(1,20),//PLACEHOLDER RNG

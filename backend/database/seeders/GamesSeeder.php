@@ -41,7 +41,7 @@ class GamesSeeder extends Seeder
             DB::table('games')->insert([
                 'name' => $names[random_int(0,$DIM_A-1)],//PLACEHOLDER RNGNAME FROM ARRAY
                 'date' => Carbon::now()->subYears(random_int(1, 10))->subDays(random_int(1, 365))->format('Y-m-d'),//PLACEHOLDER RNGBD
-                'base_price' => $base_price = mt_rand() / mt_getrandmax() * (1 - 70),//PLACEHOLDER FLOAT RNG
+                'base_price' => $base_price = mt_rand() / mt_getrandmax() * (69.99 - 1) + 1,//PLACEHOLDER FLOAT RNG
                 //'parent_id' => rand(1,20),
                 'discounted_percentage' => $discounted_percentage = rand(5,90),//PLACEHOLDER RNG
                 'discounted_price' => $base_price-($base_price/$discounted_percentage),

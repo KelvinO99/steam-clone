@@ -12,7 +12,7 @@ class DevelopersSeeder extends Seeder
 {
     public function run(): void
     {
-        for($i=0;$i<20;$i++)
+        for($i=0;$i<19;$i++)
         {
             DB::table('developers')->insert([
                 'user_id' => rand(1,20),//PLACEHOLDER RNG
