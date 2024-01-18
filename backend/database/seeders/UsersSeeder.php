@@ -138,21 +138,25 @@ class UsersSeeder extends Seeder
             'user100@domain.com',
         ];
         $DIM_A = count($usernames);
-        $shuffledEmails = $emails;
-
-        for ($i = 0; $i < 2; $i++) {
-            $random = random_int(0, $DIM_A - 1);
-            $shuffledEmails = array_values($shuffledEmails); // Reset array pointer after shuffle
-            $randomEmail = $shuffledEmails[0];
-
+        foreach ($emails as $email) {
+            // Verifica se l'email è già presente nel database
+            if (DB::table('users')->where('email', $email)->exists()) {
+                continue; // Salta questa email se già usata
+            }
+    
+            // Seleziona un username casuale
+            $randomUsername = $usernames[array_rand($usernames)];
+    
             DB::table('users')->insert([
-                'username' => $usernames[$random],
+                'username' => $randomUsername,
                 'name' => "nome",
-                'email' => $randomEmail,
+                'email' => $email,
                 'password' => "password",
                 'image_path' => null,
                 'wallet' => "0",
             ]);
+    
+            // Opcional: Puoi anche rimuovere l'email dall'array se vuoi
         }
     }
 }
