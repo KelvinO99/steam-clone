@@ -15,7 +15,6 @@ class Developers extends Model
     protected $fillable = [
         'user_id',
         'is_publisher',
-        'name',
         'description',        
     ];
 

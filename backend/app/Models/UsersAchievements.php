@@ -15,6 +15,7 @@ class UsersAchievements extends Model
     protected $fillable = [
         'user_id',
         'achievements_id',
+        'is_achieved',
     ];
 
     public function User(){

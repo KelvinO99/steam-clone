@@ -10,8 +10,8 @@ return new class extends Migration
     {
         Schema::create('developers_games', function (Blueprint $table) {
             $table->id();
-            $table->integer('developer_id');
-            $table->integer('game_id');
+            //$table->integer('developer_id');
+            //$table->integer('game_id');
             $table->timestamps();
 
             $table->foreignId('developer_id')->references('id')->on('developers')->onDelete('cascade')->onUpdate('cascade');

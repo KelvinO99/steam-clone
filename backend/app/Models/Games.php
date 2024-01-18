@@ -17,11 +17,13 @@ class Games extends Model
         'is_dlc',
         'parent_id',
         'name',
+        'date',
         'base_price',
         'discounted_price',
         'discount_percentage',
         'short_description',
         'long_description',
+        'pegi_id',
     ];
 
     public function Libraries(){

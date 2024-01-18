@@ -12,7 +12,6 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id');
             $table->boolean('is_publisher');
-            $table->string('name');
             $table->text('description');
             $table->timestamps();
 

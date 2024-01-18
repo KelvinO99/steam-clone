@@ -12,7 +12,6 @@ return new class extends Migration
             $table->id();
             $table->integer('game_id');
             $table->string('name');
-            $table->boolean('is_achieved');
             $table->timestamps();
 
             $table->foreignId('game')->references('id')->on('games')->onDelete('cascade')->onUpdate('cascade');

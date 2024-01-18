@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('game_id');
-            $table->date('date_of_review');
+            $table->date('date');
             $table->boolean('is_recommended');
             $table->longtext('description');
             $table->float('hours_played');

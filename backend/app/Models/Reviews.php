@@ -15,7 +15,7 @@ class Reviews extends Model
     protected $fillable = [
         'user_id',
         'game_id',
-        'date_of_review',
+        'date',
         'is_recommended',
         'description',
         'hours_played',

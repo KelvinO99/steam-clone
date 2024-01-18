@@ -12,6 +12,8 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('achievement_id');
+            $table->boolean('is_achieved');
+            $table->datetime('date');
             $table->timestamps();
             
             $table->foreignId('user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
