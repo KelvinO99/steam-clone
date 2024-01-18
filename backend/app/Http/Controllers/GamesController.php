@@ -9,11 +9,11 @@ use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
-class PLACEHOLDERCONTROLLER extends Controller
+class GamesController extends Controller
 {
      // Mostra tutti i record della tabella Games -Kelvin
      public function index(){
-        $var = Games::get();
+        $var = Games::Paginate(3);
 
 
         return response()->json([
