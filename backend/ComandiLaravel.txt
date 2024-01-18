@@ -34,7 +34,7 @@ Creare un Controller:
 php artisan make:Controller nomecontroller
 
 Creare un Controller con le CRUD:
-php artisan make:Controller nomecontroller --resource
+php artisan make:Controller nomecontroller --resource 
 
 IMPORTANTE QUANDO CAMBI LE ROUTE STOPPA IL SERVER
 composer dump-autoload
