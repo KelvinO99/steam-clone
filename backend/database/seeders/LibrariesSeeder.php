@@ -12,11 +12,11 @@ class LibrariesSeeder extends Seeder
 {
     public function run(): void
     {
-        for($i=0;$i<8;$i++)
+        for($i=0;$i<19;$i++)
         {
             DB::table('libraries')->insert([
-                'user_id' => rand(0,20),//PLACEHOLDER RNG
-                'game_id' => rand(0,20),//PLACEHOLDER RNG
+                'user_id' => rand(1,20),//PLACEHOLDER RNG
+                'game_id' => rand(1,20),//PLACEHOLDER RNG
                 'is_wishlisted' => $bool = (bool)rand(0,1),
 
             ]);

@@ -35,10 +35,10 @@ class AchievementsSeeder extends Seeder
             'Flawless Victory' /*=> 'Win a match without losing any health'*/,
             'Time Traveler' /*=> 'Explore a time-traveling storyline'*/,
         ];
-        for($i=0;$i<8;$i++)
+        for($i=0;$i<19;$i++)
         {
             DB::table('achievements')->insert([
-                'game_id' => rand(0,20),//PLACEHOLDER RNG
+                'game_id' => rand(1,20),//PLACEHOLDER RNG
                 'name' => $names[random_int(0,$DIM_A-19)],//PLACEHOLDER RNGNAME FROM ARRAY
                 //'is_achieved' => $bool = (bool)rand(0,1),
             ]);

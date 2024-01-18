@@ -36,22 +36,19 @@ class GamesSeeder extends Seeder
             'Animal Crossing',
             'Mario Kart',
         ];
-        for($i=0;$i<8;$i++)
+        for($i=0;$i<19;$i++)
         {
             DB::table('games')->insert([
                 'name' => $names[random_int(0,$DIM_A-1)],//PLACEHOLDER RNGNAME FROM ARRAY
                 'date' => Carbon::now()->subYears(random_int(1, 10))->subDays(random_int(1, 365))->format('Y-m-d'),//PLACEHOLDER RNGBD
                 'base_price' => $base_price = mt_rand() / mt_getrandmax() * (1 - 70),//PLACEHOLDER FLOAT RNG
-                'developer' => rand(0,20),//PLACEHOLDER RNG
-                'parent' => rand(0,20),//PLACEHOLDER RNG
-                'discounted_percentage' => $discounted_percentage = rand(0,90),//PLACEHOLDER RNG
+                //'parent_id' => rand(1,20),
+                'discounted_percentage' => $discounted_percentage = rand(5,90),//PLACEHOLDER RNG
                 'discounted_price' => $base_price-($base_price/$discounted_percentage),
                 'short_description' => "pakistanilov",
                 'long_description' => "pakistanilov",
                 'is_dlc' => $bool = (bool)rand(0,1),
                 'pegi_id' => rand(0,4),
-
-
             ]);
         }
     }

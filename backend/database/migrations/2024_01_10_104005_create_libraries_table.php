@@ -10,13 +10,13 @@ return new class extends Migration
     {
         Schema::create('libraries', function (Blueprint $table) {
             $table->id();
-            //$table->integer('user_id');
-            //$table->integer('game_id');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('game_id');
             $table->boolean('is_wishlisted');
             $table->timestamps();
             
-            $table->foreignId('user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('game')->references('id')->on('games')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

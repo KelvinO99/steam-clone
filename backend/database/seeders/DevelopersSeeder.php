@@ -12,12 +12,12 @@ class DevelopersSeeder extends Seeder
 {
     public function run(): void
     {
-        for($i=0;$i<8;$i++)
+        for($i=0;$i<20;$i++)
         {
             DB::table('developers')->insert([
-                'user' => rand(0,20),//PLACEHOLDER RNG
-                'is_publisher' => $bool = (bool)rand(0,1),
-                'description' => "pakistanilov",
+                'user_id' => rand(1,20),//PLACEHOLDER RNG
+                //'is_publisher' => $bool = (bool)rand(0,1),
+                //'description' => "pakistanilov",
             ]);
         }
     }

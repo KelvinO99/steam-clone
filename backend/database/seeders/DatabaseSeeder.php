@@ -15,15 +15,15 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UsersSeeder::class, 
             DevelopersSeeder::class, 
-            GamesSeeder::class, 
-            AchievementsSeeder::class,
-            ReviewsSeeder::class, 
             TagsSeeder::class, 
+            GamesSeeder::class, 
             ImagesSeeder::class, 
             LibrariesSeeder::class, 
-            UsersAchievementsSeeder::class, 
             GamesTagsSeeder::class, 
             DevelopersGamesSeeder::class, 
+            ReviewsSeeder::class, 
+            AchievementsSeeder::class,
+            UsersAchievementsSeeder::class, 
         ]);
     }
 }
