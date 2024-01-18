@@ -42,8 +42,8 @@ class GamesSeeder extends Seeder
                 'name' => $names[random_int(0,$DIM_A-1)],//PLACEHOLDER RNGNAME FROM ARRAY
                 'date' => Carbon::now()->subYears(random_int(1, 10))->subDays(random_int(1, 365))->format('Y-m-d'),//PLACEHOLDER RNGBD
                 'base_price' => $base_price = mt_rand() / mt_getrandmax() * (1 - 70),//PLACEHOLDER FLOAT RNG
-                'developer_id' => rand(0,99),//PLACEHOLDER RNG
-                'parent_id' => rand(0,99),//PLACEHOLDER RNG
+                'developer' => rand(0,20),//PLACEHOLDER RNG
+                'parent' => rand(0,20),//PLACEHOLDER RNG
                 'discounted_percentage' => $discounted_percentage = rand(0,90),//PLACEHOLDER RNG
                 'discounted_price' => $base_price-($base_price/$discounted_percentage),
                 'short_description' => "pakistanilov",

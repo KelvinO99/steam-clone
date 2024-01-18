@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->integer('developer_id');
             $table->boolean('is_dlc');
-            $table->integer('parent_id');
+            //$table->integer('parent_id');
             $table->string('name');
             $table->date('date');
             $table->float('base_price');

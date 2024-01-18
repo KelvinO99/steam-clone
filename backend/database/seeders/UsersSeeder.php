@@ -147,16 +147,19 @@ class UsersSeeder extends Seeder
             // Seleziona un username casuale
             $randomUsername = $usernames[array_rand($usernames)];
     
-            DB::table('users')->insert([
-                'username' => $randomUsername,
-                'name' => "nome",
-                'email' => $email,
-                'password' => "password",
-                'image_path' => null,
-                'wallet' => "0",
-            ]);
+            for($i=0;$i<20;$i++)
+            {
+                DB::table('users')->insert([
+                    'username' => $randomUsername,
+                    'name' => "nome",
+                    'email' => $email,
+                    'password' => "password",
+                    'image_path' => null,
+                    'wallet' => "0",
+                ]);
     
             // Opcional: Puoi anche rimuovere l'email dall'array se vuoi
-        }
+             }
     }
+}
 }

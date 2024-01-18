@@ -10,8 +10,8 @@ return new class extends Migration
     {
         Schema::create('users_achievements', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('achievement_id');
+            //$table->integer('user_id');
+            //$table->integer('achievement_id');
             $table->boolean('is_achieved');
             $table->datetime('date');
             $table->timestamps();

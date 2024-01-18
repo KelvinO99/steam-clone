@@ -10,11 +10,11 @@ return new class extends Migration
     {
         Schema::create('games_tags', function (Blueprint $table) {
             $table->id();
-            $table->integer('game_id');
-            $table->integer('tag_id');
+            //$table->integer('game_id');
+            //$table->integer('tag_id');
             $table->timestamps();
 
-            //$table->foreignId('game')->references('id')->on('games')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('game')->references('id')->on('games')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('tag')->references('id')->on('tags')->onDelete('cascade')->onUpdate('cascade');
         });
     }

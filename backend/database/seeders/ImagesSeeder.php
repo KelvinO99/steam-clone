@@ -15,8 +15,8 @@ class ImagesSeeder extends Seeder
         for($i=0;$i<8;$i++)
         {
             DB::table('Images')->insert([
-                'game_id' => rand(0,99),//PLACEHOLDER RNG
-                'image' => "immagine qui",
+                'game' => rand(0,20),//PLACEHOLDER RNG
+                'image_path' => "immagine qui",
             ]);
         }
     }

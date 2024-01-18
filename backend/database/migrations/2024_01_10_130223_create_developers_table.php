@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('developers', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
+            //$table->integer('user_id');
             $table->boolean('is_publisher');
             $table->text('description');
             $table->timestamps();

@@ -15,8 +15,8 @@ class LibrariesSeeder extends Seeder
         for($i=0;$i<8;$i++)
         {
             DB::table('libraries')->insert([
-                'user_id' => rand(0,99),//PLACEHOLDER RNG
-                'game_id' => rand(0,99),//PLACEHOLDER RNG
+                'user_id' => rand(0,20),//PLACEHOLDER RNG
+                'game_id' => rand(0,20),//PLACEHOLDER RNG
                 'is_wishlisted' => $bool = (bool)rand(0,1),
 
             ]);

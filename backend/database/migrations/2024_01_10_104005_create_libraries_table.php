@@ -10,8 +10,8 @@ return new class extends Migration
     {
         Schema::create('libraries', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('game_id');
+            //$table->integer('user_id');
+            //$table->integer('game_id');
             $table->boolean('is_wishlisted');
             $table->timestamps();
             

@@ -15,8 +15,8 @@ class DevelopersGamesSeeder extends Seeder
         for($i=0;$i<8;$i++)
         {
             DB::table('developers_games')->insert([
-                'developer_id' => rand(0,99),//PLACEHOLDER RNG
-                'game_id' => rand(0,99),//PLACEHOLDER RNG
+                'developer_id' => rand(0,20),//PLACEHOLDER RNG
+                'game_id' => rand(0,20),//PLACEHOLDER RNG
             ]);
         }
     }
