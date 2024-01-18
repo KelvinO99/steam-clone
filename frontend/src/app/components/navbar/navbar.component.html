@@ -1,32 +1,18 @@
 <div class="container-fluid">
-    <nav class="navbar navbar-expand-lg" aria-label="Tenth navbar example">
-        <div class="collapse navbar-collapse justify-content-md-center">
-            <ul class="navbar-nav">
-
-                <div>
-                    <li class="nav-item">
-                        <a class="nav-link menuitem_user" routerLink="#"> Install Steam </a>
-                    </li>
-                </div>
-
-                <div>
-                    <li class="nav-item">
-                        <a class="nav-link menuitem_user" routerLink="#"> Login </a>
-                    </li>
-                </div>
-
-                <div>
-                    <li class="nav-item">
-                        <a class="nav-link menuitem_user" routerLink="#"> Tongue </a>
-                    </li>
-                </div>
-
-                <!-- <li class="nav-item">
-                    <a class="nav-link menuitem" routerLink="#"> <img src="#" height="44px" width="176px"> </a> logo di steam
-                </li> -->
+    <nav class="navbar navbar-expand-lg" style="background-color: #171D25;">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link menuitem p-0" routerLink="#"> <img src="https://store.cloudflare.steamstatic.com/public/shared/images/header/logo_steam.svg?t=962016" height="44px" width="176px">
+                    </a>
+                </li>
 
                 <li class="nav-item">
-                    <div class="dropdown">
+                    <div class="dropdown p-0">
                         <a class="dropbtn nav-link menuitem" routerLink="#"> Shop </a>
                         <div class="dropdown-content">
                             <a class="submenuitem" routerLink="#"> Main Page </a>
@@ -46,20 +32,31 @@
                     </div>
                 </li>
 
-                <!--  <li class="nav-item">
-                    <a class="nav-link menuitem" routerLink="#"> {{user}} </a> qui dovrà comparire il pulsante per lo user e il nome sara in base al nickname
-                    durante il login
-                </li>  -->
-
                 <li class="nav-item">
                     <a class="nav-link menuitem" routerLink="#"> Information </a>
-                    <!-- al momento del login information si dovra trasformare in chat -->
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link menuitem" routerLink="#"> Assistance </a>
                 </li>
+            </ul>
 
+            <ul class="navbar-nav pb-5" style="position: relative; right: 20rem;"> <!-- Utilizzo questa ulteriore lista per posizionare gli elementi a destra -->
+                <li class="nav-item">
+                    <a class="nav-link menuitem_user installsteam" routerLink="#"> <img src="https://store.cloudflare.steamstatic.com/public/shared/images/header/btn_header_installsteam_download.png?v=1"> Install Steam </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menuitem_user" routerLink="login"> Login </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menuitem_user" routerLink="#"> | </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menuitem_user" routerLink="#"> Tongue </a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -67,79 +64,60 @@
 
 
 
+<!--  <nav class="navbar navbar-expand-lg" aria-label="Tenth navbar example">
+            <div class="collapse navbar-collapse justify-content-md-center">
+                <ul class="navbar-nav d-flex">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-<div class="container-fluid">
-    <div class="row"> -->
-
-<!-- <div class="navitem_user">
-            <div class="col-4">
-                Install Steam
-            </div>
-            <div class="col-4">
-                Login
-            </div>
-            <div class="col-4">
-                Tongue
-            </div>
-        </div> -->
-
-<!--         <div class="globalnavitem_information">
-                <div class="col-3 navitem_information">
                     <li class="nav-item">
-                        <div class="dropdown">  
-                            <a class="dropbtn nav-link menuitem" routerLink="#"> Shop </a>
-                            <div class="dropdown-content">
-                                <a class="submenuitem" routerLink="#"> Main Page </a>
-                                <a class="submenuitem" routerLink="#"> List of discoveries </a>
-                                <a class="submenuitem" routerLink="#"> Wishlist </a>
-                            </div>
-                        </div>
+                        <a class="nav-link menuitem" routerLink="#"> <img src="#" height="44px" width="176px"> </a> logo di steam
                     </li>
-                </div>
-                <div class="col-3 navitem_information">
-                    Community
-                </div>
-                <div class="col-3 navitem_information">
-                    Information
-                </div>
-                <div class="col-3 navitem_information">
-                    Assistance
-                </div>
-        </div>
-    </div>
-</div> -->
+
+                    <div>
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <a class="dropbtn nav-link menuitem" routerLink="#"> Shop </a>
+                                <div class="dropdown-content">
+                                    <a class="submenuitem" routerLink="#"> Main Page </a>
+                                    <a class="submenuitem" routerLink="#"> List of discoveries </a>
+                                    <a class="submenuitem" routerLink="#"> Wishlist </a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <a class="dropbtn nav-link menuitem" routerLink="#"> Community </a>
+                                <div class="dropdown-content">
+                                    <a class="submenuitem" routerLink="#"> Home </a>
+                                    <a class="submenuitem" routerLink="#"> WorkShop </a>
+                                </div>
+                            </div>
+                        </li>
+                    </div>
+
+                    <li class="nav-item">
+                        <a class="nav-link menuitem" routerLink="#"> Information </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link menuitem" routerLink="#"> Assistance </a>
+                    </li>
+
+                    <div>
+                        <li class="nav-item">
+                            <a class="nav-link menuitem_user" routerLink="#"> Install Steam </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link menuitem_user" routerLink="#"> Login </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menuitem_user" routerLink="#"> Tongue </a>
+                        </li>
+                    </div>
+
+                </ul>
+            </div>
+        </nav> -->

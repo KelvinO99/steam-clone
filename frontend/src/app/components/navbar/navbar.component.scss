@@ -1,34 +1,40 @@
-
 /* nav.navbar {
     background-color: #171d25;
 } */
 
 a.menuitem {
+    display: block;
     color: white;
     display: block;
-    position: relative;
     padding-left: 7px;
     padding-right: 7px;
     padding-bottom: 7px;
-    padding-top: 40px;
-    line-height: 16px;
-    float: left;
-    color: #000000;
+    color: #ffffff;
     text-transform: uppercase;
     font-size: 16px;
     font-family: "Motiva Sans", "Twemoji", "Noto Sans", Helvetica, sans-serif;
     font-weight: 500;
     text-transform: uppercase;
 }
+
 a.menuitem_user {
-    color: white;
     display: block;
-    color: #000000;
-    text-transform: uppercase;
-    font-size: 16px;
+    color: #ffffff;
+    font-size: 11px;
     font-family: "Motiva Sans", "Twemoji", "Noto Sans", Helvetica, sans-serif;
     font-weight: 500;
-    text-transform: uppercase;
+}
+
+a.installsteam:hover {
+    background-color: #6c9018;
+    transition-duration: 250ms;
+    cursor: pointer;
+}
+
+.installsteam {
+    background-position: 10px 5px;
+    background-repeat: no-repeat;
+    background-color: #5c7e10;
 }
 
 a.submenuitem {
@@ -82,59 +88,8 @@ div.container-fluid {
     padding: 0;
 }
 
-/*.header_installsteam_btn {
-    display: inline-block;
-    position: relative;
-    height: 21px;
-    line-height: 24px;
-    margin-right: 3px;
-}
+$primary: #171D25;
 
-.header_installsteam_btn_green {
-    background-color: #5c7e10;
-}
-
-.header_installsteam_btn_content {
-    display: inline-block;
-    padding-left: 35px;
-    padding-right: 9px;
-    background-position: 10px 5px;
-    background-image: url(https://store.akamai.steamstatic.com/public/shared/images/header/btn_header_installsteam_download.png?v=1);
-    background-repeat: no-repeat;
-    text-decoration: none;
-    color: #e5e4dc;
-    font-weight: normal;
-}
-
-.header_installsteam_btn {
-    display: inline-block;
-    position: relative;
-    height: 21px;
-    line-height: 24px;
-    margin-right: 3px;
-} */
-
-/* div.globalnavitem_information  {
-    display: inline-flex;
-    padding-left: 700px; 
-    padding-right: 700px;
-    font-size: 16px;
-    font-family: "Motiva Sans", "Twemoji", "Noto Sans", Helvetica, sans-serif;
-    font-weight: 500;
-    text-transform: uppercase;
-    
-} */
-
-/* div.navitem_user  {
-    display: flex;
-    justify-content: flex-end;
-    
-} */
-
-/* div.navitem_information {
-    text-align: center;
-    padding-top: 45px;
-    padding-left: 7px;
-    padding-right: 7px;
-    padding-bottom: 7px;
-} */
+$theme-colors: (
+    "primary": $primary,
+);

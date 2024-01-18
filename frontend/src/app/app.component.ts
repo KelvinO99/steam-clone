@@ -18,7 +18,7 @@ export class AppComponent {
 components: any;
 
   constructor(
-    private _router: Router
+    public router: Router
   ) {
   }
 

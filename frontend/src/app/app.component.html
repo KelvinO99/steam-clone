@@ -11,6 +11,8 @@
       </ng-template>
 </div>
  -->
- 
+
 <app-navbar> </app-navbar>
-<router-outlet> <app-sidebar> </app-sidebar> </router-outlet>
+<router-outlet> </router-outlet>
+<app-sidebar *ngIf="router.url != '/login'"> </app-sidebar>
+<app-footer> </app-footer>

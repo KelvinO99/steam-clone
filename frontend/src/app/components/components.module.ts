@@ -13,10 +13,12 @@ import { MatInputModule } from "@angular/material/input";
 import { MatDialogModule } from "@angular/material/dialog";
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { BaseComponent } from './base/base.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     BaseComponent,
+    LoginComponent,
   ],
   imports: [
     CommonModule,
