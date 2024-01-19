@@ -1,0 +1,34 @@
+<div class="container-fluid body m-0 p-0" *ngIf="count == 0">
+    <img src="" style="width: 100wh;">
+    <div class="container-fluid formcontrol">
+        <form>
+
+            <div class="form-group emailaddress">
+                <label class="emailaddress" for="emailaddress"> Email Address </label>
+                <input type="email" class="email" aria-describedby="emailHelp" id="email">
+            </div>
+
+            <div class="form-group confirmaddress">
+                <label class="confirmaddress" for="confirmaddress"> Confirm your Address </label>
+                <input type="email" class="confirmaddress" id="confirmaddress">
+            </div>
+
+            <div class="form-group   country">
+                <label class="country" for="country"> Country of Residence </label>
+                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                    <option *ngFor="let city of country" [value]="city">{{ city }}</option>
+                </select>
+            </div>
+
+            <div class="continue">
+                <button type="submit" class="btn btn-primary continue" (click)="ControlForm(testoInserito)"> Continue </button>
+            </div>
+
+            <div class="form-check confirmage">
+                <input type="checkbox" class="form-check-input confirmage">
+                <label class="form-check-label confirmage"> I am 13 years of age or older and agree to the terms of the
+                    Steam Subscriber Agreement and the <br> Valve Privacy Policy. </label>
+            </div>
+        </form>
+    </div>
+    <div> {{ testoInserito }}</div>
