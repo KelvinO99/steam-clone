@@ -10,3 +10,27 @@
 .footergrid {
     background-color: #171a21;
 }
+
+.footeritem_separator {
+    display: block;
+    font-family: "Motiva Sans", Sans-serif;
+    font-weight: normal;
+    font-size: 13px;
+    color: #61686D;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+}
+
+.info {
+    border-top: 1px solid rgb(130, 123, 123);
+    border-bottom: 1px solid rgb(130, 123, 123);;
+    margin: auto;
+}
+
+.container-fluid {
+    display: block;
+    position: absolute;
+}
