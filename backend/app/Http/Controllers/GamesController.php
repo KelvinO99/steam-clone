@@ -13,7 +13,7 @@ class GamesController extends Controller
 {
      // Mostra tutti i record della tabella Games -Kelvin
      public function index(){
-        $var = Games::Paginate(3);
+        $var = Games::get();
 
 
         return response()->json([
@@ -93,6 +93,22 @@ class GamesController extends Controller
         $var->save();
 
         return response()->json($var, 201);
+
+    }
+
+    public function getPages(Request $request){
+
+        $skip = $request-> input('skip');
+        $take = $request-> input('take');
+
+        $total = count($list);
+
+       
+        //Featured query
+        
+        //Offer
+
+
 
     }
 }
