@@ -31,5 +31,5 @@ Route::controller(GamesController::class)->prefix('games')->group(function($rout
     Route::delete('destroy/{id}','destroy');
     Route::put('update/{id}','update');
     Route::post('store','store');
-    Route::get('getPages', 'getPages');
+    Route::get('featured', 'featured');
 });

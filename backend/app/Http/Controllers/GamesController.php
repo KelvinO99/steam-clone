@@ -68,7 +68,7 @@ class GamesController extends Controller
     public function store(Request $request) {
 
         // Ottieni l'utente autenticato tramite JWT
-        $var = JWTAuth::parseToken()->authenticate();
+        $var = auth()->User();
 
         // Se non c'è un utente autenticato, restituisci un errore
         if (!$var) {
@@ -98,15 +98,19 @@ class GamesController extends Controller
 
     }
 
-    public function getPages(Request $request){
+    public function featured(Request $request){
         //Featured query
-        $games = Tags::where('name', '=', 'Top Seller')->get();
+        $games = Tags::where('name', '=', 'Top Seller')
+        ->with(['GamesTags.Games' => function ($query) {
+            $query->select('id', 'name', 'base_price', 'discounted_price');
+        }, 'GamesTags.Games.Images'])
+        ->get();
+    
         
 
         return response()->json([
             'status'=>200,
             'games'=>$games
         ]);
-        //Offer
     }
 }
