@@ -71,3 +71,6 @@ composer require spatie/laravel-enum
 composer dump-autoload
 
 Per gli Enum, bisogna creare un file nomeEnum nella cartella Enums in App (App\Enums)
+
+Cose da ricordare:
+1) Tag Top Seller per le query
