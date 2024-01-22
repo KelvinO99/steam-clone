@@ -7,7 +7,7 @@ use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
-class PLACEHOLDERCONTROLLER extends Controller
+class UsersAchievementController extends Controller
 {
      // Mostra tutti i record della tabella UsersAchievements -Salvo
      public function index(){
@@ -64,7 +64,7 @@ class PLACEHOLDERCONTROLLER extends Controller
     public function store(Request $request) {
 
         // Ottieni l'utente autenticato tramite JWT
-        $var = JWTAuth::parseToken()->authenticate();
+        $var = auth()->user();
 
         // Se non c'è un utente autenticato, restituisci un errore
         if (!$var) {
@@ -72,13 +72,12 @@ class PLACEHOLDERCONTROLLER extends Controller
         }
 
         $validatedData = $request->validate([
-            'PLACEHOLDERCOLUMN' => 'required|max:255',
-            'PLACEHOLDERCOLUMN' => 'required|max:255',
+            'user_id' => 'required|max:255',
+            'achievement_id' => 'required|max:255',
         ]);
     
         $var = new UsersAchievements();
         $var->fill($validatedData);
-
         $var->save();
 
         return response()->json($var, 201);
