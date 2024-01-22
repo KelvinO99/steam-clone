@@ -14,17 +14,25 @@
     position: absolute;
     top: 50%;  /* Centra i pulsanti verticalmente */
     transform: translateY(-50%);
-    background-color: aquamarine;
+    background-image: linear-gradient(to left, rgba(255,0,0,0), rgb(0, 0, 0));
     width: 45px;
     height: 108px;
     padding: 36px 11px;
+}
+
+.carousel-control-prev:hover{
+    background-image: linear-gradient(to right, rgb(255, 255, 255), rgb(0, 0, 0));
+}
+
+.carousel-control-next:hover{
+    background-image: linear-gradient(to left, rgb(255, 255, 255), rgb(0, 0, 0));
 }
 
 .carousel-control-next {
     position: absolute;
     top: 50%;  /* Centra i pulsanti verticalmente */
     transform: translateY(-50%);
-    background-color: aquamarine;
+    background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(0, 0, 0));
     width: 45px;
     height: 108px;
     padding: 36px 11px;
