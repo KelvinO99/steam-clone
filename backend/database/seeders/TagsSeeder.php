@@ -30,7 +30,7 @@ class TagsSeeder extends Seeder
             'Fantasy',
             'Singleplayer',
             'Survival',
-            'Puzzle',
+            'Top Seller',
             'Casual',
             'Sports',
             'Racing',

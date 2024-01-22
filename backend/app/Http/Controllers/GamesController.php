@@ -97,18 +97,12 @@ class GamesController extends Controller
     }
 
     public function getPages(Request $request){
-
-        $skip = $request-> input('skip');
-        $take = $request-> input('take');
-
-        $total = count($list);
-
-       
         //Featured query
-        
+        $games = Games::with('GamesTags.Tags')->get();
+        return response()->json([
+            'status'=>200,
+            'games'=>$games
+        ]);
         //Offer
-
-
-
     }
 }
