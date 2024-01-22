@@ -1,0 +1,95 @@
+/* nav.navbar {
+    background-color: #171d25;
+} */
+
+a.menuitem {
+    display: block;
+    color: white;
+    display: block;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 7px;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-family: "Motiva Sans", "Twemoji", "Noto Sans", Helvetica, sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+a.menuitem_user {
+    display: block;
+    color: #ffffff;
+    font-size: 11px;
+    font-family: "Motiva Sans", "Twemoji", "Noto Sans", Helvetica, sans-serif;
+    font-weight: 500;
+}
+
+a.installsteam:hover {
+    background-color: #6c9018;
+    transition-duration: 250ms;
+    cursor: pointer;
+}
+
+.installsteam {
+    background-position: 10px 5px;
+    background-repeat: no-repeat;
+    background-color: #5c7e10;
+}
+
+a.submenuitem {
+    text-decoration: none;
+    text-transform: none;
+    font-size: 10px;
+    font-weight: 400;
+    color: #dcdedf;
+    padding: 6px 0;
+    padding-right: 15px;
+    padding-left: 15px;
+    display: block;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #3d4450;
+    min-width: 140px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #ffffff;
+    display: block;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #2c313a;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+div.container-fluid {
+    padding: 0;
+}
+
+$primary: #171D25;
+
+$theme-colors: (
+    "primary": $primary,
+);
