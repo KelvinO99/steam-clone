@@ -1,54 +1,56 @@
 <?php
+//NON ELIMINARE 
+//<PLACEHOLDER> = dati da cambiare -chris
 
 namespace App\Http\Controllers;
 
-use App\Models\UsersAchievements;
+use App\Models\Achievements;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
-class UsersAchievementController extends Controller
+class AchievementsController extends Controller
 {
-     // Mostra tutti i record della tabella UsersAchievements -Salvo
+     // Mostra tutti i record della tabella Achievements -Salvo
      public function index(){
-        $var = UsersAchievements::get();
+        $var = Achievements::get();
 
 
         return response()->json([
             'status'=>200,
-            'users_achievements'=>$var
+            'achievements'=>$var
         ]);
 
         
     }
 
-    // Mostra un determinato record dellla tabella UsersAchievements -Salvo
+    // Mostra un determinato record dellla tabella Achievements -Salvo
     public function show($id){
-        $var = UsersAchievements::find($id);
+        $var = Achievements::find($id);
 
         return response()->json([
             'status'=>200,
-            'users_achievements'=>$var
+            'achievements'=>$var
         ]);
 
     }
     
-    // Elimina un determinato record della tabella UsersAchievements -Salvo
+    // Elimina un determinato record della tabella Achievements -Salvo
     public function destroy ($id){
 
-        $var = UsersAchievements::find( $id );
+        $var = Achievements::find( $id );
         $var->delete();
         
         return response()->json([
             'status'=>200,
-            'users_achievements'=>$var
+            'achievements'=>$var
         ]);
     }
 
-    // Aggiorna un determinato record della tabella UsersAchievements -Salvo
+    // Aggiorna un determinato record della tabella Achievements -Salvo
     public function update(Request $request): Response
     {
-        $var = UsersAchievements::findOrFail($request->id);
+        $var = Achievements::findOrFail($request->id);
 
         if ($var->update($request->all()) === false) {
             return response(
@@ -60,11 +62,11 @@ class UsersAchievementController extends Controller
         return response($var);
     }
 
-    // Aggiunge un record alla tabella UsersAchievements -Salvo
+    // Aggiunge un record alla tabella Achievements -Salvo
     public function store(Request $request) {
 
         // Ottieni l'utente autenticato tramite JWT
-        $var = auth()->user();
+        $var = JWTAuth::parseToken()->authenticate();
 
         // Se non c'è un utente autenticato, restituisci un errore
         if (!$var) {
@@ -72,14 +74,14 @@ class UsersAchievementController extends Controller
         }
 
         $validatedData = $request->validate([
-            'user_id' => 'required|max:255',
-            'achievement_id' => 'required|max:255',
-            'is_achieved' => 'required',
-            'date' => 'required',
+            'game_id' => 'required|max:255',
+            'name' => 'required|max:255',
+            'image'=> 'required',
         ]);
     
-        $var = new UsersAchievements();
+        $var = new Achievements();
         $var->fill($validatedData);
+
         $var->save();
 
         return response()->json($var, 201);
