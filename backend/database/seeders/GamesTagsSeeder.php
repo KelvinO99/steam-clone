@@ -15,8 +15,8 @@ class GamesTagsSeeder extends Seeder
         for($i=0;$i<19;$i++)
         {
             DB::table('games_tags')->insert([
-                'game_id' => rand(1,20),//PLACEHOLDER RNG
-                'tag_id' => rand(1,20),//PLACEHOLDER RNG
+                'game_id' => rand(1,19),//PLACEHOLDER RNG
+                'tag_id' => rand(1,19),//PLACEHOLDER RNG
             ]);
         }
     }
