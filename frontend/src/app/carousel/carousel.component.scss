@@ -1,14 +1,26 @@
 .carouselContainer {
     position: relative;
-    top: 150px;
-    margin: 100px;
+    margin: 45px;
+    width: fit-content;
 }
 
-.carousel-container {
+.allContainer{
     position: relative;
-  }
-  
-.carousel-control-prev, .carousel-control-next {
+    width: 590px;
+    margin-left: 500px;
+}
+
+.carousel-control-prev{
+    position: absolute;
+    top: 50%;  /* Centra i pulsanti verticalmente */
+    transform: translateY(-50%);
+    background-color: aquamarine;
+    width: 45px;
+    height: 108px;
+    padding: 36px 11px;
+}
+
+.carousel-control-next {
     position: absolute;
     top: 50%;  /* Centra i pulsanti verticalmente */
     transform: translateY(-50%);
@@ -41,12 +53,3 @@
     width: 128px;
 }
 
-.card-body{
-    background-image: url('https://images-ext-1.discordapp.net/external/7eB7l0xB29zq-Gj21I66XGmBVAdSW1MJ2O8jT3psHTc/https/store.akamai.steamstatic.com/public/images/v6/home/background_spotlight.jpg?format=webp');
-}
-
-.carousel-item{
-    height: 400px;
-    width: 500px;
-    top: 100px;
-}

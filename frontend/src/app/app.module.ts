@@ -10,12 +10,14 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SpecialOffersComponent } from './special-offers/special-offers.component';
 import { OfferCardsComponent } from './offer-cards/offer-cards.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SpecialOffersComponent,
     OfferCardsComponent,
+    CarouselComponent,
   ],
   imports: [
     BrowserModule,
