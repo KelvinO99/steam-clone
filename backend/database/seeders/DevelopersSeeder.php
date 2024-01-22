@@ -15,7 +15,7 @@ class DevelopersSeeder extends Seeder
         for($i=0;$i<19;$i++)
         {
             DB::table('developers')->insert([
-                'user_id' => rand(1,20),//PLACEHOLDER RNG
+                'user_id' => rand(1,19),//PLACEHOLDER RNG
                 //'is_publisher' => $bool = (bool)rand(0,1),
                 //'description' => "pakistanilov",
             ]);

@@ -2,6 +2,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\GamesController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -21,4 +23,13 @@ Route::group([
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::get('/user-profile', [AuthController::class, 'userProfile']);    
+});
+
+Route::controller(GamesController::class)->prefix('games')->group(function($router){
+    Route::get('index', 'index');
+    Route::get('show/{id}','show');
+    Route::delete('destroy/{id}','destroy');
+    Route::put('update/{id}','update');
+    Route::post('store','store');
+    Route::get('getPages', 'getPages');
 });
