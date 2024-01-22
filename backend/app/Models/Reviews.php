@@ -22,12 +22,12 @@ class Reviews extends Model
     ];
     public function User(){
 
-        return $this->hasOne(User::class, 'user_id', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function Games(){
 
-        return $this->hasOne(Games::class, 'game_id', 'id');   
+        return $this->belongsTo(Games::class, 'game_id', 'id');   
     }
 }
 

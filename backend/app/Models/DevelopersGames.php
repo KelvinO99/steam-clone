@@ -20,11 +20,11 @@ class DevelopersGames extends Model
 
     public function Developers(){
 
-        return $this->hasOne(Developers::class, 'developer_id', 'id');
+        return $this->belongsTo(Developers::class, 'developer_id', 'id');
     }
 
     public function Games(){
 
-        return $this->hasOne(Games::class, 'game_id', 'id');   
+        return $this->belongsTo(Games::class, 'game_id', 'id');   
     }
 }
