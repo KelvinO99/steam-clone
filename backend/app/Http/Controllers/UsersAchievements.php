@@ -2,53 +2,53 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PLACEHOLDERMODEL;
+use App\Models\UsersAchievements;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
 class PLACEHOLDERCONTROLLER extends Controller
 {
-     // Mostra tutti i record della tabella PLACEHOLDERMODEL -Salvo
+     // Mostra tutti i record della tabella UsersAchievements -Salvo
      public function index(){
-        $var = PLACEHOLDERMODEl::get();
+        $var = UsersAchievements::get();
 
 
         return response()->json([
             'status'=>200,
-            'PLACEHOLDERTABLE'=>$var
+            'users_achievements'=>$var
         ]);
 
         
     }
 
-    // Mostra un determinato record dellla tabella PLACEHOLDERMODEL -Salvo
+    // Mostra un determinato record dellla tabella UsersAchievements -Salvo
     public function show($id){
-        $var = PLACEHOLDERMODEL::find($id);
+        $var = UsersAchievements::find($id);
 
         return response()->json([
             'status'=>200,
-            'PLACEHOLDERTABLE'=>$var
+            'users_achievements'=>$var
         ]);
 
     }
     
-    // Elimina un determinato record della tabella PLACEHOLDERMODEL -Salvo
+    // Elimina un determinato record della tabella UsersAchievements -Salvo
     public function destroy ($id){
 
-        $var = PLACEHOLDERMODEL::find( $id );
+        $var = UsersAchievements::find( $id );
         $var->delete();
         
         return response()->json([
             'status'=>200,
-            'PLACEHOLDERTABLE'=>$var
+            'users_achievements'=>$var
         ]);
     }
 
-    // Aggiorna un determinato record della tabella PLACEHOLDERMODEL -Salvo
+    // Aggiorna un determinato record della tabella UsersAchievements -Salvo
     public function update(Request $request): Response
     {
-        $var = PLACEHOLDERMODEL::findOrFail($request->id);
+        $var = UsersAchievements::findOrFail($request->id);
 
         if ($var->update($request->all()) === false) {
             return response(
@@ -60,7 +60,7 @@ class PLACEHOLDERCONTROLLER extends Controller
         return response($var);
     }
 
-    // Aggiunge un record alla tabella PLACEHOLDERMODEL -Salvo
+    // Aggiunge un record alla tabella UsersAchievements -Salvo
     public function store(Request $request) {
 
         // Ottieni l'utente autenticato tramite JWT
@@ -76,7 +76,7 @@ class PLACEHOLDERCONTROLLER extends Controller
             'PLACEHOLDERCOLUMN' => 'required|max:255',
         ]);
     
-        $var = new PLACEHOLDERMODEL();
+        $var = new UsersAchievements();
         $var->fill($validatedData);
 
         $var->save();
