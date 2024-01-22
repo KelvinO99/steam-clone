@@ -20,11 +20,11 @@ class Libraries extends Model
 
     public function User(){
 
-        return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->hasOne(User::class, 'id', 'user_id');
     }
 
     public function Games(){
 
-        return $this->belongsTo(Games::class, 'game_id', 'id');   
+        return $this->hasOne(Games::class, 'id', 'game_id');   
     }
 }

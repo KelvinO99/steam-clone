@@ -5,6 +5,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Games;
+use App\Models\GamesTags;
+use App\Models\Tags;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
@@ -98,7 +100,9 @@ class GamesController extends Controller
 
     public function getPages(Request $request){
         //Featured query
-        $games = Games::with('GamesTags.Tags')->get();
+        $games = Tags::where('name', '=', 'Top Seller')->get();
+        
+
         return response()->json([
             'status'=>200,
             'games'=>$games
