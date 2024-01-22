@@ -10,19 +10,19 @@ return new class extends Migration
     {
         Schema::create('games', function (Blueprint $table) {
             $table->id();
-            $table->integer('developer_id');
             $table->boolean('is_dlc');
-            $table->integer('parent_id');
+            //$table->unsignedBigInteger('parent_id');
             $table->string('name');
+            $table->date('date');
             $table->float('base_price');
             $table->float('discounted_price');
             $table->integer('discounted_percentage');
             $table->text('short_description');
             $table->text('long_description');
-            $table->string('pegi');
+            $table->integer('pegi_id');
             $table->timestamps();
 
-            $table->foreignId('parent')->references('id')->on('games')->onDelete('cascade')->onUpdate('cascade');
+            //$table->foreign('parent_id')->references('id')->on('games')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

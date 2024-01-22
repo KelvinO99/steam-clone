@@ -10,13 +10,12 @@ return new class extends Migration
     {
         Schema::create('developers', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->boolean('is_publisher');
-            $table->string('name');
-            $table->text('description');
+            $table->unsignedBigInteger('user_id');
+            $table->boolean('is_publisher')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
 
-            $table->foreignId('user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

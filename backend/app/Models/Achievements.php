@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Routing\PendingSingletonResourceRegistration;
 
+
 class Achievements extends Model
 {
     use HasFactory;
@@ -15,7 +16,6 @@ class Achievements extends Model
     protected $fillable = [
         'game_id',
         'name',
-        'is_achieved',
     ];
 
     public function UsersAchievements(){

@@ -1,0 +1,51 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Seeder;
+use Carbon\Carbon;
+
+
+class PLACEHOLDERSEEDER extends Seeder
+{
+    public function run(): void
+    {
+        $names = [
+            'PLACEHOLDERARRAYVALUE',
+            'PLACEHOLDERARRAYVALUE',
+            'PLACEHOLDERARRAYVALUE',
+            'PLACEHOLDERARRAYVALUE',
+            'PLACEHOLDERARRAYVALUE',
+            'PLACEHOLDERARRAYVALUE',
+            'PLACEHOLDERARRAYVALUE',
+            'PLACEHOLDERARRAYVALUE',
+            'PLACEHOLDERARRAYVALUE',
+            'PLACEHOLDERARRAYVALUE',
+            'PLACEHOLDERARRAYVALUE',
+            'PLACEHOLDERARRAYVALUE',
+            'PLACEHOLDERARRAYVALUE',
+            'PLACEHOLDERARRAYVALUE',
+            'PLACEHOLDERARRAYVALUE',
+            'PLACEHOLDERARRAYVALUE',
+            'PLACEHOLDERARRAYVALUE',
+            'PLACEHOLDERARRAYVALUE',
+            'PLACEHOLDERARRAYVALUE',
+            'PLACEHOLDERARRAYVALUE',
+        $DIM_A = count($names);
+        ];
+        for($i=0;$i<19;$i++)
+        {
+            DB::table('PLACEHOLDERTABLE')->insert([
+                'PLACEHOLDERCOLUMN' => $names[random_int(0,$DIM_A-1)],//PLACEHOLDER RNGNAME FROM ARRAY
+                'PLACEHOLDERCOLUMN' => Carbon::now()->subYears(random_int(1, 10))->subDays(random_int(1, 365))->format('Y-m-d'),//PLACEHOLDER RNGBD
+                'PLACEHOLDERCOLUMN' => mt_rand() / mt_getrandmax() * (1.5 - 0.3) + 0.3,//PLACEHOLDER FLOAT RNG 
+                'PLACEHOLDERCOLUMN' => rand(1,20),//PLACEHOLDER RNG
+                'PLACEHOLDERCOLUMN' => $bool = (bool)rand(0,1),//PLACEHOLDER BOOL RNG
+                'PLACEHOLDERCOLUMN' => $bool ? $positive[random_int(0, $DIM_A - 1)] : $negative[random_int(0, $DIM_A - 1)],
+
+            ]);
+        }
+    }
+}
