@@ -13,6 +13,7 @@ use App\Http\Controllers\ImagesController;
 use App\Http\Controllers\LibrariesController;
 use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\TagsController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\UsersAchievementController;
 
 /*
@@ -102,6 +103,14 @@ Route::controller(ReviewsController::class)->prefix('reviews')->group(function($
 });
 
 Route::controller(TagsController::class)->prefix('tags')->group(function($router){
+    Route::get('index','index');
+    Route::get('show/{id}','show');
+    Route::delete('destroy/{id}','destroy');
+    Route::put('update/{id}','update');
+    Route::post('store','store');
+});
+
+Route::controller(UserController::class)->prefix('users')->group(function($router){
     Route::get('index','index');
     Route::get('show/{id}','show');
     Route::delete('destroy/{id}','destroy');
