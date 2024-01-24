@@ -49,4 +49,10 @@
     height: 400px;
     width: 500px;
     top: 100px;
+    transition: opacity 0.5s;
+}
+
+.carousel-inner{
+    height: 600px;
+    width: 500px;
 }
