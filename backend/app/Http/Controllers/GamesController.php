@@ -78,14 +78,14 @@ class GamesController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|max:255',
             'developer_id',
-            'is_dlc',
+            'is_dlc' => 'boolean',
+            'date'=> 'required|date',
             'parent_id',
-            'name',
-           'base_price',
-           'discounted_price',
-            'discounted_percentage',
-            'short_description',
-            'long_description',
+            'base_price' => 'required|numeric',
+            'discounted_price'=> 'nullable|numeric',
+            'discounted_percentage'=> 'nullable|integer|min:0|max:100',
+            'short_description'=> 'required|max:255',
+            'long_description'=> 'required|max:255',
             'pegi'
         ]);
     
