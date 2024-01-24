@@ -35,6 +35,7 @@ class GamesSeeder extends Seeder
             'Counter-Strike: Global Offensive',
             'Animal Crossing',
             'Mario Kart',
+            'Mask',
         ];
         for($i=0;$i<19;$i++)
         {

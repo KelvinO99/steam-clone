@@ -13,18 +13,17 @@ class DevelopersGames extends Model
     use HasFactory;
 
     protected $fillable = [
-        'PLACEHOLDERCOLUMN',
-        'PLACEHOLDERCOLUMN',
-        'PLACEHOLDERCOLUMN',
+        'developer_id',
+        'game_id',
     ];
 
     public function Developers(){
 
-        return $this->belongsTo(Developers::class, 'developer_id', 'id');
+        return $this->hasOne(Developers::class, 'id', 'developer_id');
     }
 
     public function Games(){
 
-        return $this->belongsTo(Games::class, 'game_id', 'id');   
+        return $this->hasOne(Games::class, 'id', 'game_id');   
     }
 }

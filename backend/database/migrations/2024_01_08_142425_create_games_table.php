@@ -10,15 +10,15 @@ return new class extends Migration
     {
         Schema::create('games', function (Blueprint $table) {
             $table->id();
-            $table->boolean('is_dlc');
+            $table->boolean('is_dlc')->default(false);
             //$table->unsignedBigInteger('parent_id');
             $table->string('name');
-            $table->date('date');
-            $table->float('base_price');
-            $table->float('discounted_price');
-            $table->integer('discounted_percentage');
-            $table->text('short_description');
-            $table->text('long_description');
+            $table->date('date')->default('2000-01-01');
+            $table->float('base_price', 8, 2)->default(0.00);
+            $table->float('discounted_price', 8, 2)->default(0.00);
+            $table->integer('discounted_percentage')->default(0);
+            $table->text('short_description')->default('Descrizione breve');
+            $table->text('long_description')->default('Descrizione lunga');
             $table->integer('pegi_id');
             $table->timestamps();
 

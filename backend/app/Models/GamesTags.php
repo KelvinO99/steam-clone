@@ -19,11 +19,11 @@ class GamesTags extends Model
 
     public function Games(){
 
-        return $this->belongsTo(Games::class, 'game_id', 'id');
+        return $this->hasOne(Games::class, 'id', 'game_id');
     }
 
     public function Tags(){
 
-        return $this->belongsTo(Tags::class, 'tag_id', 'id');   
+        return $this->hasOne(Tags::class, 'id', 'tag_id');   
     }
 }

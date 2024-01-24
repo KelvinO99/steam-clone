@@ -5,6 +5,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Games;
+use App\Models\GamesTags;
+use App\Models\Tags;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
@@ -66,7 +68,7 @@ class GamesController extends Controller
     public function store(Request $request) {
 
         // Ottieni l'utente autenticato tramite JWT
-        $var = JWTAuth::parseToken()->authenticate();
+        $var = auth()->User();
 
         // Se non c'è un utente autenticato, restituisci un errore
         if (!$var) {
@@ -76,14 +78,14 @@ class GamesController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|max:255',
             'developer_id',
-            'is_dlc',
+            'is_dlc' => 'boolean',
+            'date'=> 'required|date',
             'parent_id',
-            'name',
-           'base_price',
-           'discounted_price',
-            'discounted_percentage',
-            'short_description',
-            'long_description',
+            'base_price' => 'required|numeric',
+            'discounted_price'=> 'nullable|numeric',
+            'discounted_percentage'=> 'nullable|integer|min:0|max:100',
+            'short_description'=> 'required|max:255',
+            'long_description'=> 'required|max:255',
             'pegi'
         ]);
     
@@ -96,13 +98,19 @@ class GamesController extends Controller
 
     }
 
-    public function getPages(Request $request){
+    public function featured(Request $request){
         //Featured query
-        $games = Games::with('GamesTags.Tags')->get();
+        $games = Tags::where('name', '=', 'Top Seller')
+        ->with(['GamesTags.Games' => function ($query) {
+            $query->select('id', 'name', 'base_price', 'discounted_price');
+        }, 'GamesTags.Games.Images'])
+        ->get();
+    
+        
+
         return response()->json([
             'status'=>200,
             'games'=>$games
         ]);
-        //Offer
     }
 }
