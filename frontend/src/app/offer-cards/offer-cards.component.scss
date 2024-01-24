@@ -34,13 +34,13 @@
     }
 }
 
-
-/* git */
+// Dimensioni delle immagini della card
 .card-img-top{
-    height: 128px;
-    width: 128px;
+    height: 305px;
+    width: 305px;
 }
 
+// Background della card (Colore blu)   
 .card-body{
     background-image: url('https://images-ext-1.discordapp.net/external/7eB7l0xB29zq-Gj21I66XGmBVAdSW1MJ2O8jT3psHTc/https/store.akamai.steamstatic.com/public/images/v6/home/background_spotlight.jpg?format=webp');
 }
