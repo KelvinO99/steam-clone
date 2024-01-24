@@ -1,8 +1,10 @@
 <?php
+use App\Models\Achievements;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GamesController;
+use App\Http\Controllers\AchievementsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +34,12 @@ Route::controller(GamesController::class)->prefix('games')->group(function($rout
     Route::put('update/{id}','update');
     Route::post('store','store');
     Route::get('featured', 'featured');
+});
+
+Route::controller(AchievementsController::class)->prefix('achievements')->group(function($router){
+    Route::get('index','index');
+    Route::get('show/{id}','show');
+    Route::delete('destroy/{id}','destroy');
+    Route::put('update/{id}','update');
+    Route::post('store','store');
 });

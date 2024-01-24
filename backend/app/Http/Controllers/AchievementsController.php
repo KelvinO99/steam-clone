@@ -1,6 +1,4 @@
 <?php
-//NON ELIMINARE 
-//<PLACEHOLDER> = dati da cambiare -chris
 
 namespace App\Http\Controllers;
 
