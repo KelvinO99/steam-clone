@@ -1,21 +1,18 @@
-.allContainer{
-    margin-left: 100px;
+
+
+.allContainer {
+    margin: auto; // Centra il carosello orizzontalmente
 }
 
 .carouselContainer {
-    position: relative;
-    margin: 7px;
-    width: fit-content;
+    margin: auto; // Assicura che il carosello sia centrato all'interno di .allContainer
+    width: fit-content; // Mantiene la larghezza attuale
 }
 
-.carousel-control-prev{
-    position: absolute;
-    top: 40%;  /* Centra i pulsanti verticalmente */
-    transform: translateY(-50%);
-    background-image: linear-gradient(to left, rgba(255,0,0,0), rgb(0, 0, 0));
-    width: 45px;
-    height: 108px;
-    padding: 36px 11px;
+.carousel-control-prev,
+.carousel-control-next {
+    top: 50%; // Regola questa percentuale per allineare verticalmente i pulsanti con il carosello
+    transform: translateY(-50%); // Mantiene la posizione centrale verticale
 }
 
 .carousel-control-prev:hover{
@@ -24,17 +21,6 @@
 
 .carousel-control-next:hover{
     background-image: linear-gradient(to left, rgb(255, 255, 255), rgb(0, 0, 0));
-}
-
-.carousel-control-next {
-    position: absolute;
-    top: 40%;  /* Centra i pulsanti verticalmente */
-    left: 995px;
-    transform: translateY(-50%);
-    background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(0, 0, 0));
-    width: 45px;
-    height: 108px;
-    padding: 36px 11px;
 }
 
 @media (max-width: 768px) {
