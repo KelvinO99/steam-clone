@@ -13,9 +13,8 @@ class DevelopersGames extends Model
     use HasFactory;
 
     protected $fillable = [
-        'PLACEHOLDERCOLUMN',
-        'PLACEHOLDERCOLUMN',
-        'PLACEHOLDERCOLUMN',
+        'developer_id',
+        'game_id',
     ];
 
     public function Developers(){
