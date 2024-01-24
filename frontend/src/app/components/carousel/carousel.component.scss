@@ -9,9 +9,18 @@
     width: fit-content; // Mantiene la larghezza attuale
 }
 
-.carousel-control-prev,
 .carousel-control-next {
-    top: 50%; // Regola questa percentuale per allineare verticalmente i pulsanti con il carosello
+    margin-right: 14%;
+    height: 108px;
+    width: 45px;
+    top: 25%; // Regola questa percentuale per allineare verticalmente i pulsanti con il carosello
+    transform: translateY(-50%); // Mantiene la posizione centrale verticale
+}
+.carousel-control-prev{
+    margin-left: 14%;
+    height: 108px;
+    width: 45px;
+    top: 25%; // Regola questa percentuale per allineare verticalmente i pulsanti con il carosello
     transform: translateY(-50%); // Mantiene la posizione centrale verticale
 }
 
