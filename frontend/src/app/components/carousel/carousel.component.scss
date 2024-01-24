@@ -1,0 +1,72 @@
+.carouselContainer {
+    position: relative;
+    margin: 45px;
+    width: fit-content;
+}
+
+.allContainer{
+    position: relative;
+    width: 590px;
+    margin-left: 50px;
+}
+
+.carousel-control-prev{
+    position: absolute;
+    top: 40%;  /* Centra i pulsanti verticalmente */
+    transform: translateY(-50%);
+    background-image: linear-gradient(to left, rgba(255,0,0,0), rgb(0, 0, 0));
+    width: 45px;
+    height: 108px;
+    padding: 36px 11px;
+}
+
+.carousel-control-prev:hover{
+    background-image: linear-gradient(to right, rgb(255, 255, 255), rgb(0, 0, 0));
+}
+
+.carousel-control-next:hover{
+    background-image: linear-gradient(to left, rgb(255, 255, 255), rgb(0, 0, 0));
+}
+
+.carousel-control-next {
+    position: absolute;
+    top: 40%;  /* Centra i pulsanti verticalmente */
+    left: 995px;
+    transform: translateY(-50%);
+    background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(0, 0, 0));
+    width: 45px;
+    height: 108px;
+    padding: 36px 11px;
+}
+
+@media (max-width: 768px) {
+    .carousel-control-prev, .carousel-control-next {
+        /* Modifica la posizione per schermi più piccoli */
+        top: auto;
+        bottom: 10px;  /* Sposta i pulsanti più in basso */
+    }
+
+    .carousel-control-prev {
+        left: 5px;  /* Riduci la distanza dal bordo sinistro */
+    }
+
+    .carousel-control-next {
+        right: 5px;  /* Riduci la distanza dal bordo destro */
+    }
+}
+
+.CarouselTitle{
+    font-family: "Motiva Sans", Sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0 0 10px;
+    letter-spacing: 0.03em;
+    font-weight: normal;
+    padding-top: 2px;
+}
+
+
+
+
