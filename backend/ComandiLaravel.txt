@@ -34,7 +34,7 @@ Creare un Controller:
 php artisan make:Controller nomecontroller
 
 Creare un Controller con le CRUD:
-php artisan make:Controller nomecontroller --resource
+php artisan make:Controller nomecontroller --resource 
 
 IMPORTANTE QUANDO CAMBI LE ROUTE STOPPA IL SERVER
 composer dump-autoload
@@ -59,6 +59,8 @@ https://aulab.it/guide/132/model-resource-controller-e-crud-in-laravel
 
 https://www.positronx.io/laravel-jwt-authentication-tutorial-user-login-signup-api/
 
+https://laratrust.santigarcor.me/docs/6.x/ //Ruoli User -Kel
+
 Comandi git
 git add .
 git commit -m <nomepush>
@@ -69,3 +71,6 @@ composer require spatie/laravel-enum
 composer dump-autoload
 
 Per gli Enum, bisogna creare un file nomeEnum nella cartella Enums in App (App\Enums)
+
+Cose da ricordare:
+1) Tag Top Seller per le query

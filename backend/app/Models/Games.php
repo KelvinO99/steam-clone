@@ -8,23 +8,53 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Routing\PendingSingletonResourceRegistration;
 
-class PLACEHOLDERMODEL extends Model
+class Games extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'PLACEHOLDERCOLUMN',
-        'PLACEHOLDERCOLUMN',
-        'PLACEHOLDERCOLUMN',
+        'developer_id',
+        'is_dlc',
+        'parent_id',
+        'name',
+        'date',
+        'base_price',
+        'discounted_price',
+        'discount_percentage',
+        'short_description',
+        'long_description',
+        'pegi_id',
     ];
 
-    public function PLACEHOLDERTABLE1(){
+    public function Libraries(){
 
-        return $this->PLACEHOLDERRELATIONSHIP(PLACEHOLDERTABLE1::class, 'PLACEHOLDERORIGIN', 'PLACEHOLDERDESTINATION');
+        return $this->hasMany(Libraries::class, 'game_id', 'id');
     }
 
-    public function PLACEHOLDERTABLE2(){
+    public function Achievements(){
 
-        return $this->PLACEHOLDERRELATIONSHIP(PLACEHOLDERTABLE2::class, 'PLACEHOLDERORIGIN', 'PLACEHOLDERDESTINATION');   
+        return $this->hasMany(Achievements::class, 'game_id', 'id');   
+    }
+    public function GamesTags(){
+
+        return $this->hasMany(GamesTags::class, 'game_id', 'id');
+    }
+
+    public function Reviews(){
+
+        return $this->hasMany(Reviews::class, 'game_id', 'id');   
+    }
+    public function DevelopersGames(){
+
+        return $this->hasMany(DevelopersGames::class, 'game_id', 'id');
+    }
+
+    public function Games(){
+
+        return $this->hasMany(Games::class, 'id', 'parent_id');   
+    }
+    public function Images(){
+
+        return $this->hasMany(Images::class, 'game_id', 'id');
     }
 }
