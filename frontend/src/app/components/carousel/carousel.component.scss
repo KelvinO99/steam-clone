@@ -1,13 +1,11 @@
-.carouselContainer {
-    position: relative;
-    margin: 45px;
-    width: fit-content;
+.allContainer{
+    margin-left: 100px;
 }
 
-.allContainer{
+.carouselContainer {
     position: relative;
-    width: 590px;
-    margin-left: 50px;
+    margin: 7px;
+    width: fit-content;
 }
 
 .carousel-control-prev{
@@ -55,17 +53,25 @@
     }
 }
 
+
 .CarouselTitle{
     font-family: "Motiva Sans", Sans-serif;
     font-weight: 300;
     font-size: 14px;
     text-transform: uppercase;
     color: #fff;
-    margin: 0 0 10px;
+    margin: 0; /* Rimuove tutti i margini */
     letter-spacing: 0.03em;
     font-weight: normal;
     padding-top: 2px;
+    margin-left: 8px;
 }
+
+.allContainer {
+    margin: 0; /* Rimuove tutti i margini */
+    padding: 0; /* Rimuove tutti i padding */
+}
+
 
 
 

@@ -1,3 +1,4 @@
+
 .carousel-item {
     transition: opacity 0.3s;
 }
@@ -17,15 +18,12 @@
     position: relative;
 }
 
-
 .card-body {
-
     padding-left: 50px;
     margin-left: 110px;
     color: white;
     height: 353px;
     width: 364px;
-    
     background-image: url('https://store.akamai.steamstatic.com/public/images/v6/home/background_maincap_2.jpg');
 }
 
@@ -34,6 +32,24 @@
     height: 353px;
     width: 616px;
     position: relative;
+}
+
+.card-img:hover {
+    filter: brightness(0%);
+}
+
+.card-img:hover .view-button {
+    display: block;
+}
+
+.view-button {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
 }
 
 .carousel {
@@ -46,6 +62,12 @@
     font-weight: 200;
     min-height: auto;
 }
+
+.mainDefault p {
+    margin-bottom: 0; /* Imposta il margine inferiore a 0 */
+}
+
+
 .screenshot-container {
     position: absolute;
     top: 0;
@@ -101,4 +123,30 @@
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 11px;
+}
+
+.appName{
+    max-height: 62px;
+    overflow: hidden;
+    font-size: 24px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    line-height: 26px;
+}
+
+.gamePrice{
+    font-size:11px;
+    margin-bottom: 2px;
+}
+
+.discount_price {
+    padding: 0 6px;
+    color: white;
+}
+    
+.discount_final_price {
+    padding-top: 42px;
+    padding-left: 1px;
+    font-size: 11px;
+    line-height: 12px;
 }
