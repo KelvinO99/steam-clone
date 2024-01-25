@@ -12,8 +12,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('achievement_id');
-            $table->boolean('is_achieved');
-            $table->datetime('date')->nullable();
+            $table->boolean('is_achieved')->default(false);
+            $table->datetime('date')->nullable()->default('1970-01-01'); //nullable perché puoi non aver compiuto l'achievement -chris
             $table->timestamps();
             
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
