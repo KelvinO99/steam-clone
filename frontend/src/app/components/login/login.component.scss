@@ -75,7 +75,7 @@ label.password {
     cursor: pointer;
 }
 
-.signin {
+button.signin {
     background: linear-gradient(90deg, #06BFFF 30%, #2D73FF 100%);
     width: 270px;
     background: linear-gradient(90deg, #06BFFF 0%, #2D73FF 100%);
@@ -90,7 +90,7 @@ label.password {
     cursor: pointer;
 }
 
-div.buttonlogin {
+div.signin {
     display: flex;
     justify-content: center;
     padding-top: 1rem;
