@@ -1,21 +1,25 @@
+import { MatExpansionModule } from '@angular/material/expansion';
 import { TranslateModule } from '@ngx-translate/core';
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { AbstractControl, ValidatorFn, ValidationErrors } from '@angular/forms';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
-  country: string[] = []
+  country: string[] = [];
   registerform!: FormGroup;
   count = 0;
-  inputElementEmail = document.getElementById('email') as HTMLInputElement;
-  inputElementConfirmeEmail = document.getElementById('confirmemail') as HTMLInputElement;
-  testoInserito: string = '';
+  StrongPasswordRegx: RegExp =
+    /^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\D*\d).{8,}$/;
+  showEmailError: boolean | undefined;
 
-  constructor() {
+  constructor(public authService: AuthService, private router: Router) {
     this.country = [
       'Afghanistan',
       'Aland Islands',
@@ -74,7 +78,7 @@ export class RegisterComponent {
       'Congo, the Democratic Republic of the',
       'Cook Islands',
       'Costa Rica',
-      'Cote d\'Ivoire',
+      "Cote d'Ivoire",
       'Croatia',
       'Cyprus',
       'Czech Republic',
@@ -140,7 +144,7 @@ export class RegisterComponent {
       'Kosovo',
       'Kuwait',
       'Kyrgyzstan',
-      'Lao People\'s Democratic Republic',
+      "Lao People's Democratic Republic",
       'Latvia',
       'Lebanon',
       'Lesotho',
@@ -265,20 +269,52 @@ export class RegisterComponent {
       'Western Sahara',
       'Yemen',
       'Zambia',
-      'Zimbabwe'
+      'Zimbabwe',
     ];
   }
 
   ngOnInit() {
     this.registerform = new FormGroup({
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      username: new FormControl(null, Validators.required),
-      password: new FormControl(null, Validators.required),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      username: new FormControl('', [
+        Validators.required,
+        Validators.minLength(5),
+        Validators.maxLength(30),
+      ]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8),
+        Validators.pattern(this.StrongPasswordRegx),
+      ])
     });
   }
 
-  ControlForm (testoInserito: any) {
-    this.count = 1
-    testoInserito = this.inputElementEmail;
+  controlEmailForm() {
+    const inputElementConfirmeEmail = document.getElementById('confirmaddress') as HTMLInputElement;
+    const dataConfirmEmail = inputElementConfirmeEmail.value;
+    const inputElementEmail = this.registerform.get('email')?.value;
+    const inputElementValid = this.registerform.get('email')?.valid;
+    this.showEmailError = !inputElementValid;
+
+    if (inputElementEmail != '' && dataConfirmEmail == inputElementEmail)
+      this.count = 1;
+  }
+
+  controlPasswordForm() {
+    console.log(this.registerform);
+  }
+
+  registerUser() {
+    this.authService.signUp(this.registerform.value).subscribe((res) => {
+      if (res) {
+        console.log(res);
+
+        this.registerform.reset();
+        this.router.navigate(['login']);
+      }
+    });
+
+    console.log(this.registerform);
+    
   }
 }

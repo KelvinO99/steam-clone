@@ -16,7 +16,9 @@ label {
 }
 
 input.email,
-input.confirmaddress {
+input.confirmaddress,
+input.choosepassword,
+input.confirmpassword {
     background: #32353C;
     border-radius: 0.1875rem;
     /* 3px / 16px = 0.1875rem */
@@ -96,8 +98,11 @@ div.country,
 div.emailaddress,
 div.confirmaddress,
 div.continue,
-div.confirmage {
-    padding-top: 30px;
+div.confirmage,
+div.confirmpassword,
+div.choosepassword,
+div.titlecontainer {
+    padding-top: 1.875rem;
 }
 
 input.confirmage {
@@ -119,4 +124,28 @@ input.confirmage {
 
 input:checked {
     background-color: #47bfff;
+}
+
+.title {
+    text-transform: uppercase;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 34px;
+    color: #ffffff;
+    margin-bottom: 30px;
+    font-weight: 200;
+    letter-spacing: 2px;
+}
+
+.validcontainer {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid #b44040;
+    padding: 10px;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.text {
+    color: #E9E9E9;
+    font-family: "Motiva Sans", Sans-serif;
+    font-weight: normal;
 }

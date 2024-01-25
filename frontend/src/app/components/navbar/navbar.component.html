@@ -4,6 +4,7 @@
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+<<<<<<< Updated upstream
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li class="nav-item">
@@ -67,33 +68,71 @@
 <!--  <nav class="navbar navbar-expand-lg" aria-label="Tenth navbar example">
             <div class="collapse navbar-collapse justify-content-md-center">
                 <ul class="navbar-nav d-flex">
+=======
+        <div class="w-100" id="navbarSupportedContent">
+>>>>>>> Stashed changes
 
+            <div class="top_information justify-content-end d-flex">
+                <ul class="navbar-nav">
+                    <!-- Utilizzo questa ulteriore lista per posizionare gli elementi a destra -->
                     <li class="nav-item">
-                        <a class="nav-link menuitem" routerLink="#"> <img src="#" height="44px" width="176px"> </a> logo di steam
+                        <a class="nav-link menuitem_user installsteam" routerLink=""> <img
+                                src="https://store.cloudflare.steamstatic.com/public/shared/images/header/btn_header_installsteam_download.png?v=1">
+                            Install Steam </a>
                     </li>
 
-                    <div>
-                        <li class="nav-item">
-                            <div class="dropdown">
-                                <a class="dropbtn nav-link menuitem" routerLink="#"> Shop </a>
-                                <div class="dropdown-content">
-                                    <a class="submenuitem" routerLink="#"> Main Page </a>
-                                    <a class="submenuitem" routerLink="#"> List of discoveries </a>
-                                    <a class="submenuitem" routerLink="#"> Wishlist </a>
-                                </div>
-                            </div>
-                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link menuitem_user" routerLink="login"> Login </a>
+                    </li>
 
-                        <li class="nav-item">
-                            <div class="dropdown">
-                                <a class="dropbtn nav-link menuitem" routerLink="#"> Community </a>
-                                <div class="dropdown-content">
-                                    <a class="submenuitem" routerLink="#"> Home </a>
-                                    <a class="submenuitem" routerLink="#"> WorkShop </a>
-                                </div>
+                    <li class="nav-item">
+                        <a class="nav-link menuitem_user" routerLink="#"> | </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <div class="dropdown p-0">
+                            <a class="dropbtn nav-link menuitem_user" routerLink="#"> Language </a>
+                            <div class="dropdown-content menuitem_user">
+                                <a *ngFor="let item of language" class="submenuitem" routerLink="#"> {{ item }} </a>
                             </div>
-                        </li>
-                    </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="information justify-content-center d-flex pb-3">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link menuitem p-0" href="#"> <img
+                                src="https://store.cloudflare.steamstatic.com/public/shared/images/header/logo_steam.svg?t=962016"
+                                height="44px" width="176px">
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <div class="dropdown p-0">
+                            <a class="dropbtn nav-link menuitem" routerLink="#"> Shop </a>
+                            <div class="dropdown-content">
+                                <a class="submenuitem" routerLink=""> Main Page </a>
+                                <a class="submenuitem" routerLink="#"> Discovery Queue </a>
+                                <a class="submenuitem" routerLink="#"> Wishlist </a>
+                                <a class="submenuitem" routerLink="#"> Point Shop </a>
+                                <a class="submenuitem" routerLink="#"> News </a>
+                                <a class="submenuitem" routerLink="#"> Stats </a>
+                                <a class="submenuitem" routerLink="#"> About </a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <a class="dropbtn nav-link menuitem" routerLink="#"> Community </a>
+                            <div class="dropdown-content">
+                                <a class="submenuitem" routerLink="#"> Home </a>
+                                <a class="submenuitem" routerLink="#"> WorkShop </a>
+                            </div>
+                        </div>
+                    </li>
 
                     <li class="nav-item">
                         <a class="nav-link menuitem" routerLink="#"> Information </a>
@@ -102,22 +141,9 @@
                     <li class="nav-item">
                         <a class="nav-link menuitem" routerLink="#"> Assistance </a>
                     </li>
-
-                    <div>
-                        <li class="nav-item">
-                            <a class="nav-link menuitem_user" routerLink="#"> Install Steam </a>
-                        </li>
-
-
-                        <li class="nav-item">
-                            <a class="nav-link menuitem_user" routerLink="#"> Login </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link menuitem_user" routerLink="#"> Tongue </a>
-                        </li>
-                    </div>
-
                 </ul>
+
             </div>
-        </nav> -->
+        </div>
+    </nav>
+</div>

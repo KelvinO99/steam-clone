@@ -1,34 +1,94 @@
-<div class="container-fluid body m-0 p-0" *ngIf="count == 0">
-    <img src="" style="width: 100wh;">
-    <div class="container-fluid formcontrol">
-        <form>
+<ng-template *ngIf="count == 0; then ifBlock else elseBlock "></ng-template>
 
-            <div class="form-group emailaddress">
-                <label class="emailaddress" for="emailaddress"> Email Address </label>
-                <input type="email" class="email" aria-describedby="emailHelp" id="email">
-            </div>
+<!--form per inserire la email-->
+<ng-template #ifBlock>
+    <div class="container-fluid body m-0 p-0">
+        <img src="" style="width: 100wh;">
+        <div class="container-fluid formcontrol">
+            <form [formGroup]="registerform">
 
-            <div class="form-group confirmaddress">
-                <label class="confirmaddress" for="confirmaddress"> Confirm your Address </label>
-                <input type="email" class="confirmaddress" id="confirmaddress">
-            </div>
+                <div class="validcontainer" *ngIf="showEmailError">
+                    <span class="text"> Please enter a valid email address. </span>
+                </div>
 
-            <div class="form-group   country">
-                <label class="country" for="country"> Country of Residence </label>
-                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                    <option *ngFor="let city of country" [value]="city">{{ city }}</option>
-                </select>
-            </div>
+                <div class="titlecontainer">
+                    <span class="title"> create your account </span>
+                </div>
 
-            <div class="continue">
-                <button type="submit" class="btn btn-primary continue" (click)="ControlForm(testoInserito)"> Continue </button>
-            </div>
+                <div class="form-group emailaddress">
+                    <label class="emailaddress" for="emailaddress"> Email Address </label>
+                    <input type="email" class="email" id="email" formControlName="email" ngModel required>
+                </div>
 
-            <div class="form-check confirmage">
-                <input type="checkbox" class="form-check-input confirmage">
-                <label class="form-check-label confirmage"> I am 13 years of age or older and agree to the terms of the
-                    Steam Subscriber Agreement and the <br> Valve Privacy Policy. </label>
-            </div>
-        </form>
+                <div class="form-group confirmaddress">
+                    <label class="confirmaddress" for="confirmaddress"> Confirm your Address </label>
+                    <input type="email" class="confirmaddress" id="confirmaddress">
+                </div>
+
+                <div class="form-group   country">
+                    <label class="country" for="country"> Country of Residence </label>
+                    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                        <option *ngFor="let city of country" [value]="city">{{ city }}</option>
+                    </select>
+                </div>
+
+                <div class="continue">
+                    <button type="submit" class="btn btn-primary continue" (click)="controlEmailForm()"> Continue
+                    </button>
+                </div>
+
+                <div class="form-check confirmage">
+                    <input type="checkbox" class="form-check-input confirmage">
+                    <label class="form-check-label confirmage"> I am 13 years of age or older and agree to the terms of
+                        the
+                        Steam Subscriber Agreement and the <br> Valve Privacy Policy. </label>
+                </div>
+            </form>
+        </div>
     </div>
-    <div> {{ testoInserito }}</div>
+</ng-template>
+
+<!--form per inserire la passowrd-->
+<ng-template #elseBlock>
+    <div class="container-fluid body m-0 p-0">
+        <img src="" style="width: 100wh;">
+        <div class="container-fluid formcontrol">
+            <form [formGroup]="registerform">
+
+                <div class="validcontainer">
+                    <div>
+                        <span class="text"> Please enter a valid email address. </span>
+                    </div>
+                </div>
+
+                <div class="titlecontainer">
+                    <span class="title"> create your account </span>
+                </div>
+
+                <div class="form-group emailaddress">
+                    <label class="emailaddress" for="emailaddress"> Steam Account Name </label>
+                    <input type="email" class="email" id="email" formControlName="username" required>
+                </div>
+
+                <div class="form-group choosepassword">
+                    <label class="choosepassword" for="choosepassword"> Choose Password </label>
+                    <input type="password" class="choosepassword" id="choosepassword" formControlName="password"
+                        autocomplete="off" required>
+                </div>
+
+                <div class="form-group confirmpassword">
+                    <label class="confirmpassword" for="confirmpassword"> Confirm Password </label>
+                    <input type="password" class="confirmpassword" id="confirmpassword">
+                </div>
+
+                <div class="continue">
+                    <button type="submit" class="btn btn-primary continue" (click)="registerUser()"> Done
+                    </button>
+                    <!-- <button type="submit" class="btn btn-primary continue" (click)="controlPasswordForm()"
+                        [disabled]="registerform.controls['password'].invalid"> Done
+                    </button> -->
+                </div>
+            </form>
+        </div>
+    </div>
+</ng-template>
