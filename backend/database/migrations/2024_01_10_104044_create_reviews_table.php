@@ -12,10 +12,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('game_id');
-            $table->date('date');
-            $table->boolean('is_recommended');
-            $table->longtext('description');
-            $table->float('hours_played');
+            $table->date('date')->default('1970-01-01');
+            $table->boolean('is_recommended')->default(false);
+            $table->longtext('description')->default('PLACEHOLDER');
+            $table->float('hours_played')->default(0);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');

@@ -11,8 +11,8 @@ return new class extends Migration
         Schema::create('developers', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->boolean('is_publisher')->nullable();
-            $table->text('description')->nullable();
+            $table->boolean('is_publisher')->default(false);
+            $table->text('description')->default('PLACEHOLDER');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
