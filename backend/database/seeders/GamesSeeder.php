@@ -14,41 +14,67 @@ class GamesSeeder extends Seeder
     {
         $DIM_A = 20;
         $names = [
-            'Super Mario Bros.',
-            'The Legend of Zelda',
+            'Undertale',
+            'Uncharted Lost Legacy',
             'Pac-Man',
             'Tetris',
-            'Minecraft',
+            'Terraria',
             'Fortnite',
             'Call of Duty',
-            'Assassin\'s Creed',
-            'Grand Theft Auto',
-            'Halo',
+            "Assassin's Creed 4",
+            'Grand Theft Auto V',
+            'Halo 4',
             'Final Fantasy 7 Remake Intergrade',
             'World of Warcraft',
             'Overwatch',
-            'FIFA',
-            'League of Legends',
+            'FIFA 24',
+            'PC Building Simulator',
             'Dota 2',
             'Among Us',
             'Rocket League',
             'Counter-Strike: Global Offensive',
-            'Animal Crossing',
-            'Mario Kart',
-            'Mask',
+            'Forza Horizon 5',
+            'Left 4 Dead',
+            'Hitman 3',
         ];
-        for($i=0;$i<19;$i++)
+        $dates = [
+            '2015-09-15',
+            '2017-08-22',
+            '1980-05-22',
+            '1984-06-06',
+            '2011-05-16',
+            '2017-07-25',
+            '2003-10-29',
+            '2013-10-29', 
+            '2013-09-17', 
+            '2012-11-06', 
+            '2021-06-10',
+            '2004-11-23',
+            '2016-05-24',
+            '2023-12-15',
+            '2018-03-27',
+            '2013-07-09',
+            '2018-11-16',
+            '2015-07-07',
+            '2012-08-21',
+            '2021-11-09',
+            '2008-11-17',
+            '2021-01-20',
+        ];
+        for($i=0;$i<19;$i++) //19
         {
+            $bool = (bool)rand(0,1);
             DB::table('games')->insert([
-                'name' => $names[random_int(0,$DIM_A-1)],//PLACEHOLDER RNGNAME FROM ARRAY
-                'date' => Carbon::now()->subYears(random_int(1, 10))->subDays(random_int(1, 365))->format('Y-m-d'),//PLACEHOLDER RNGBD
+                'name' => $names[$i],//PLACEHOLDER RNGNAME FROM ARRAY
+                'date' => $dates[$i],//PLACEHOLDER RNGBD
                 'base_price' => $base_price = mt_rand() / mt_getrandmax() * (69.99 - 1) + 1,//PLACEHOLDER FLOAT RNG
                 //'parent_id' => rand(1,20),
-                'discounted_percentage' => $discounted_percentage = rand(5,90),//PLACEHOLDER RNG
-                'discounted_price' => $base_price-($base_price/$discounted_percentage),
+                
+                'discounted_percentage' => $bool ? $discounted_percentage = rand(5,90) : null,//PLACEHOLDER RNG
+                'discounted_price' => $bool ? $base_price-($base_price*($discounted_percentage/100)) : null,
                 'short_description' => "pakistanilov",
                 'long_description' => "pakistanilov",
-                'is_dlc' => $bool = (bool)rand(0,1),
+                'is_dlc' => 0,
                 'pegi_id' => rand(0,4),
             ]);
         }

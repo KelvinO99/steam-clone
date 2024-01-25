@@ -14,32 +14,32 @@ class TagsSeeder extends Seeder
     {
         $DIM_A = 20;
         $names = [
-            'Action',
-            'Adventure',
-            'Indie',
-            'RPG',
-            'Simulation',
-            'Strategy',
-            'Open World',
-            'Multiplayer',
-            'Co-op',
-            'First-Person',
-            'Third-Person',
-            'Horror',
-            'Sci-fi',
-            'Fantasy',
-            'Singleplayer',
-            'Survival',
-            'Top Seller',
-            'Casual',
-            'Sports',
-            'Racing',
-            'Free to Play',
+            'Action', //1
+            'Adventure', //2
+            'Indie', //3
+            'RPG', //4
+            'Simulation', //5
+            'Strategy', //6
+            'Open World', //7
+            'Multiplayer', //8
+            'Co-op', //9
+            'First-Person', //10
+            'Third-Person', //11
+            'Horror', //12
+            'Sci-fi', //13
+            'Fantasy', //14
+            'Singleplayer', //15
+            'Survival', //16
+            'Top Seller', //17
+            'Casual', //18
+            'Sports', //19
+            'Racing', //20
+            'Free to Play', //21
         ];
-        for($i=0;$i<19;$i++)
+        for($i=0;$i<21;$i++) //19
         {
             DB::table('tags')->insert([
-                'name' => $names[random_int(0,$DIM_A-1)],//PLACEHOLDER RNGNAME FROM ARRAY
+                'name' => $names[$i],//PLACEHOLDER RNGNAME FROM ARRAY
                 'is_genre' => $bool = (bool)rand(0,1),
             ]);
         }
