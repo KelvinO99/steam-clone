@@ -1,0 +1,26 @@
+import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { User } from '../models/user.models';
+import { Observable, catchError } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class AuthService {
+  APIUrl = `${environment.api}/`
+  user: User | undefined  
+
+  constructor(private http: HttpClient) {}
+
+  signIn(user: User) {
+    return this.http.post<any>(`${this.APIUrl}/auth/login`, user).subscribe((res: any) => {
+        localStorage.setItem('access_token', res.token);
+      });
+  }
+
+  signUp(user: User): Observable<any> {
+    return this.http.post(this.APIUrl + 'auth/register', user);
+  }
+  
+}

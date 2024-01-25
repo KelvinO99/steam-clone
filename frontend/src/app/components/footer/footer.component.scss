@@ -4,7 +4,7 @@
     align-items: center;
     font-family: "Motiva Sans", Sans-serif;
     font-weight: normal;
-    font-size: 13px;
+    font-size: 0.8125rem; /* 13px / 16px = 0.8125rem */
 }
 
 .footergrid {
@@ -15,7 +15,7 @@
     display: block;
     font-family: "Motiva Sans", Sans-serif;
     font-weight: normal;
-    font-size: 13px;
+    font-size: 0.8125rem; /* 13px / 16px = 0.8125rem */
     color: #61686D;
     display: flex;
     flex-wrap: wrap;
@@ -25,8 +25,8 @@
 }
 
 .info {
-    border-top: 1px solid rgb(130, 123, 123);
-    border-bottom: 1px solid rgb(130, 123, 123);;
+    border-top: 0.0625rem solid rgb(130, 123, 123); /* 1px / 16px = 0.0625rem */
+    border-bottom: 0.0625rem solid rgb(130, 123, 123); /* 1px / 16px = 0.0625rem */
     margin: auto;
 }
 
