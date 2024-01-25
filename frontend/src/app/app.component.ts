@@ -15,9 +15,10 @@ export class AppComponent {
   title = 'Prassi DTI';
 
   currentLang: any = navigator.language.split('-')[0]
+components: any;
 
   constructor(
-    private _router: Router
+    public router: Router
   ) {
   }
 

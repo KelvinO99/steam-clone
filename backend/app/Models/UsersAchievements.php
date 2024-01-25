@@ -8,23 +8,23 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Routing\PendingSingletonResourceRegistration;
 
-class PLACEHOLDERMODEL extends Model
+class UsersAchievements extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'PLACEHOLDERCOLUMN',
-        'PLACEHOLDERCOLUMN',
-        'PLACEHOLDERCOLUMN',
+        'user_id',
+        'achievements_id',
+        'is_achieved',
     ];
 
-    public function PLACEHOLDERTABLE1(){
+    public function User(){
 
-        return $this->PLACEHOLDERRELATIONSHIP(PLACEHOLDERTABLE1::class, 'PLACEHOLDERORIGIN', 'PLACEHOLDERDESTINATION');
+        return $this->hasOne(User::class, 'id', 'user_id');
     }
 
-    public function PLACEHOLDERTABLE2(){
+    public function Achievements(){
 
-        return $this->PLACEHOLDERRELATIONSHIP(PLACEHOLDERTABLE2::class, 'PLACEHOLDERORIGIN', 'PLACEHOLDERDESTINATION');   
+        return $this->hasOne(Achievements::class, 'id', 'game_id');   
     }
 }

@@ -1,15 +1,4 @@
 <?php
-
-namespace App\Models;
-
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class Libraries extends Model
-{
-    use HasFactory;
-}
-<?php
 //NON ELIMINARE 
 //<PLACEHOLDER> = dati da cambiare -chris
 
@@ -19,23 +8,23 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Routing\PendingSingletonResourceRegistration;
 
-class PLACEHOLDERMODEL extends Model
+class Libraries extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'PLACEHOLDERCOLUMN',
-        'PLACEHOLDERCOLUMN',
-        'PLACEHOLDERCOLUMN',
+        'user_id',
+        'game_id',
+        'is_wishlisted',
     ];
 
-    public function PLACEHOLDERTABLE1(){
+    public function User(){
 
-        return $this->PLACEHOLDERRELATIONSHIP(PLACEHOLDERTABLE1::class, 'PLACEHOLDERORIGIN', 'PLACEHOLDERDESTINATION');
+        return $this->hasOne(User::class, 'id', 'user_id');
     }
 
-    public function PLACEHOLDERTABLE2(){
+    public function Games(){
 
-        return $this->PLACEHOLDERRELATIONSHIP(PLACEHOLDERTABLE2::class, 'PLACEHOLDERORIGIN', 'PLACEHOLDERDESTINATION');   
+        return $this->hasOne(Games::class, 'id', 'game_id');   
     }
 }

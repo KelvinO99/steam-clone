@@ -1,0 +1,39 @@
+<div class="container-fluid body m-0 p-0">
+    <img src="" style="width: 100wh;">
+    <div class="container-fluid formcontrol">
+        <form [formGroup]="loginform">
+            <div class="form-group">
+                <label for="exampleInputEmail1" class="login"> Log in with your account name </label>
+                <input type="username" class="login" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1" class="password"> Password </label>
+                <input type="password" class="password">
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input checkbox">
+                <label class="form-check-label remindme" for="exampleCheck1"> Remind me </label>
+            </div>
+            <div class="buttonlogin">
+                <button type="submit" class="btn btn-primary signin"> Sign In </button>
+            </div>
+        </form>
+    </div>
+
+    <div class="container-fluid footergrid">
+        <footer class="">
+            <div class="containerregister">
+                <ul class="nav register">
+                    <li class="nav-item labelregister"> Are you a new User? </li>
+                </ul>
+                <ul class="nav register">
+                    <li class="nav-item button">
+                        <div>
+                            <button (click)="goTo('register')" type="button" class="btn btn-primary buttonregister">  Create an account </button>
+                        </div>
+                    </li>
+                </ul>
+                
+            </div>
+        </footer>
+    </div>
