@@ -69,7 +69,7 @@ class GamesSeeder extends Seeder
                 'date' => $dates[$i],//PLACEHOLDER RNGBD
                 'base_price' => $base_price = mt_rand() / mt_getrandmax() * (69.99 - 1) + 1,//PLACEHOLDER FLOAT RNG
                 //'parent_id' => rand(1,20),
-                
+                'is_discounted' => $bool ? true : false,
                 'discounted_percentage' => $bool ? $discounted_percentage = rand(5,90) : null,//PLACEHOLDER RNG
                 'discounted_price' => $bool ? $base_price-($base_price*($discounted_percentage/100)) : null,
                 'short_description' => "pakistanilov",

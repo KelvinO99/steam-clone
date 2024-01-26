@@ -15,13 +15,22 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 class GamesController extends Controller
 {
      // Mostra tutti i record della tabella Games -Kelvin
-     public function index(){
-        $var = Games::get();
+     public function index(Request $request){
+        $discount = $request->input("discount");
+        $feature = $request->input("feature");
+        $games = Games::get();
 
+        if(isset($discount)){
+            $games = $games::where('is_discounted', true);
+        }
+
+        // if(isset($feature)){
+        //     $games = $games::where('isDiscounted', true);
+        // }
 
         return response()->json([
             'status'=>200,
-            'games'=>$var
+            'games'=>$games->get()
         ]);
 
         
@@ -30,7 +39,7 @@ class GamesController extends Controller
     // Mostra un determinato record dellla tabella Games -Kelvin
     public function show($id){
         $game = Games::find($id); //prendi il gioco (id)
-        $reviews = Reviews::where('game_id', $id)->pluck('is_recommended'); //prendi le review del singolo gioco
+        $reviews = Reviews::where('game_id', $id)->pluck('is_recommended'); //prendi la colonna is_recommended del singolo gioco
         $DIM_A = count($reviews); //conta quante review sono state fatte
         $positive = 0; // inizializza variabile che verrà usata subito
         for($i = 0; $i < $DIM_A-1; $i++){ 
@@ -59,13 +68,15 @@ class GamesController extends Controller
                 $string= 'Errore riferisci a chris'; //riferisci a chris
             }
 
-            return response()->json([
-            'status' => 200,
-            'game' => $game,
-            'reviews' => $reviews->toArray(),
-            'ratio' => $ratio,
-            'string' => $string
-            ]);
+        return response()->json([
+        'status' => 200,
+        'game' => $game,
+        'reviews' => $reviews->toArray(),
+        'ratio' => $ratio,
+        'string' => $string
+        ]);
+
+
     }
     // Elimina un determinato record della tabella Games -Kelvin
     public function destroy ($id){

@@ -19,6 +19,7 @@ class Games extends Model
         'name',
         'date',
         'base_price',
+        'is_discounted',
         'discounted_price',
         'discount_percentage',
         'short_description',
