@@ -2,35 +2,31 @@
     background-image: url("https://cdn.cloudflare.steamstatic.com/steam/clusters/frontpage/b2d04663fcfac09c4a6b4e15/page_bg_english.jpg?t=1706123203' ), linear-gradient( to right, rgb( 27,40,56) 50%, rgb(27,40,56) 50% ");
     height: 28.125rem;
     width: 100vw;
-    display: block;
     background-repeat: no-repeat;
     background-position: center top;
 }
 
 nav {
-    top: 24px;
+    top: 1.5rem;
     height: 35px;
     display: flex;
     background: linear-gradient(90deg, rgba(62, 103, 150, 0.919) 11.38%, rgba(58, 120, 177, 0.8) 25.23%, rgb(15, 33, 110) 100%);
     box-shadow: 0 0 3px rgba( 0, 0, 0, 0.4);
-    width: 58.75rem;
+    width: 61.197916666666664vw;
     border-radius: 1px !important;
 
 }
 
 input {
-    float: none;
     padding: 3px 4px 2px;
-    height: 30px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Aril, Helvetica, sans-serif;
     color: #c6d4df;
-    font-size: 12px;
+    font-size: 1vw;
     border-radius: 1px;
     font-style: italic;
     margin-left: 8px;
-    width: calc(100% - 25px - 8px);
+    width: 12vw;
     outline: none;
-    line-height: 26px;
     background-image: none;
     background-color: #316282;
     border-radius: 3px;
@@ -39,7 +35,7 @@ input {
     color: #fff;
     margin-bottom: 0px;
     outline: none;
-    height: 27px;
+    height: 3.8vh;
     padding: 0px 6px;
 
 }
@@ -47,9 +43,27 @@ input {
 a.nav-link {
     color: #e5e5e5;
     text-decoration: none;
-    font-size: 13px;
-    line-height: 34px;
+    font-size: 0.8463541666666666vw;
+    line-height: 2vw;
     text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
     font-weight: bold;
     cursor: pointer;
 }
+
+div.sidebar,
+div.contentcenter,
+div.right {
+    height: 100vh;
+    background-color: #1b2838;
+}
+
+div.sidebar,
+div.right {
+    min-width: auto;
+    width: 20%;
+}
+
+div.contentcenter {
+    width: 60%;
+}
+
