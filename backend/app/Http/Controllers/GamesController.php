@@ -57,22 +57,25 @@ class GamesController extends Controller
         }
         $ratio=($positive/$DIM_A)*100; //il rapporto
         switch($ratio) {               //switch case in base alle valutazioni
-            case $ratio>=0&&$ratio<=14:
-                $string= 'Extremetely Negative Reviews';
+            case $ratio>=0&&$ratio<=19:
+                $string= 'Overwhelmingly Negative Reviews';
                     break;
-            case $ratio>=15&&$ratio<=44:
-                $string= 'Negative Reviews';
+            case $ratio>=20&&$ratio<=39:
+                $string= 'Mostly Negative Reviews';
                     break;
-            case $ratio>=45&&$ratio<=54:
+            case $ratio>=40&&$ratio<=69:
                 $string= 'Mixed Reviews';
                     break;
-            case $ratio>=55&&$ratio<= 84:
-                $string= 'Positive Reviews';
+            case $ratio>=70&&$ratio<=79:
+                $string= 'Mostly Positive Reviews';
                     break;
-            case $ratio>=85&&$ratio<=100:
-                $string= 'Extremetely Positive Reviews';
+            case $ratio>=80&&$ratio<=94:
+                $string= 'Very Positive Reviews';
+                    break;
+            case $ratio>=95&&$ratio<=100:
+                $string= 'Overwhelmingly Positive Reviews';
             default:
-                $string= 'Errore riferisci a chris'; //riferisci a chris
+                $string= 'Errore'; //riferisci a chris
             }
 
         return response()->json([

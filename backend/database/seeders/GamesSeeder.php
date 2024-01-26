@@ -30,13 +30,14 @@ class GamesSeeder extends Seeder
             'FIFA 24',
             'PC Building Simulator',
             'Dota 2',
-            'Among Us',
+            'Steam Deck',
             'Rocket League',
             'Counter-Strike: Global Offensive',
             'Forza Horizon 5',
             'Left 4 Dead',
             'Hitman 3',
         ];
+
         $dates = [
             '2015-09-15',
             '2017-08-22',
@@ -60,6 +61,7 @@ class GamesSeeder extends Seeder
             '2021-11-09',
             '2008-11-17',
             '2021-01-20',
+            '2022-01-01',
         ];
         for($i=0;$i<19;$i++) //19
         {
