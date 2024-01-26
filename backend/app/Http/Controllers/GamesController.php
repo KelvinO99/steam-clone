@@ -77,13 +77,23 @@ class GamesController extends Controller
             default:
                 $string= 'Errore'; //riferisci a chris
             }
+        $discounted_percentage = Games::find($id)->pluck('discounted_percentage')->first();
+        if($discounted_percentage>60)
+        {
+            $special_offer=true;
+        }
+        else
+        {   
+            $special_offer=false;
+        }
 
         return response()->json([
         'status' => 200,
         'game' => $game,
         'reviews' => $reviews->toArray(),
         'ratio' => $ratio,
-        'string' => $string
+        'string' => $string,
+        'special_offer' => $special_offer
         ]);
 
 

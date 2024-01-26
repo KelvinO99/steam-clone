@@ -31,7 +31,7 @@ class UsersSeeder extends Seeder
             'Marilisa',
             'Nelluccio',
             'Maradona',
-            'Treviso Scottona',
+            'Treviso Scotto',
             'Il Fine Settimana',
             'Ultimo',
         ];
