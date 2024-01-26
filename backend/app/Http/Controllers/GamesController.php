@@ -104,7 +104,7 @@ class GamesController extends Controller
 
         if ($var->update($request->all()) === false) {
             return response(
-                "not real {$request->id}",
+                "unreal {$request->id}",
                 Response::HTTP_BAD_REQUEST
             );
         }
