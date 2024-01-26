@@ -56,3 +56,69 @@
     height: 600px;
     width: 500px;
 }
+
+.col-md-4 .card:nth-child(1) .card-title{
+    display:none;
+   }
+   
+   .col-md-4 .card:nth-child(3) .card-title{
+    display:none;
+   }
+
+.col-md-4 .card img{
+width:100% !important;
+}
+
+/* Card text */
+.carouselContainer app-offer-cards #carouselcenter #carousel .carousel-inner .carousel-item .container-fluid .row .col-md-12 .row .col-md-4 .card .card-body .card-text{
+    width:54% !important;
+   }
+   
+   /* Card text */
+   .col-md-4 .card .card-text{
+    min-height:31px;
+    transform:translatex(-10px) translatey(-9px);
+    padding-top:0px;
+   }
+   
+   /* Card body */
+   .col-md-4 .card .card-body{
+    height:41px !important;
+   }
+   
+   .col-md-8 .card img{
+    width:100% !important;
+   }
+   
+
+   /* Heading */
+.col-md-8 .card h5{
+    font-size:16px;
+   }
+   
+   /* Paragraph */
+   .col-md-8 .card p{
+    font-size:12px;
+   }
+   
+/* Card body */
+.col-md-8 .card .card-body{
+    min-height:103px;
+   }
+   
+.col-md-8 .card .card-body{
+    background-size:auto;
+    transform:translatex(0px) translatey(0px);
+    background-position-y:100%;
+}
+
+#carousel .carousel-item .container-fluid{
+    padding-top:0px;
+    padding-left:0px;
+   }
+   
+   /* Carousel inner */
+   #carousel .carousel-inner{
+    width:100%;
+   }
+   

@@ -7,7 +7,8 @@
 .allContainer{
     position: relative;
     width: 800px;
-    margin-left: 500px;
+    margin-left:346px !important;
+    transform:translatex(0px) translatey(0px);
 }
 
 .carousel-control-prev{
@@ -61,3 +62,21 @@
     width: 128px;
 }
 
+#carousel .col-md-8{
+    padding-left:0px;
+    max-width:307px;
+   }
+   
+   @media (min-width:768px){
+   
+    /* Column 8/12 */
+#carousel .col-md-8{
+width:307px;
+}
+    
+   }
+
+.col-md-4 .card img{
+width:100% !important;
+}
+   
