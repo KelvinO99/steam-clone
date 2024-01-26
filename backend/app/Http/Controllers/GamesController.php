@@ -33,7 +33,7 @@ class GamesController extends Controller
             },'GamesTags.Games.Images']);
         }
 
-        $games = $games->get(); // Execute the query and get the results
+    $games = $games->get()/*->pluck('')*/; // Execute the query and get the results
         //$tags = $tags->get();
 
         return response()->json([
