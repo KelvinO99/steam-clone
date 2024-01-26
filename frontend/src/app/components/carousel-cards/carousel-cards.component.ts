@@ -1,11 +1,11 @@
 import { Component, Renderer2, ElementRef, AfterViewInit } from '@angular/core';
 
 @Component({
-  selector: 'app-offer-cards',
-  templateUrl: './offer-cards.component.html',
-  styleUrls: ['./offer-cards.component.scss']
+  selector: 'app-carousel-cards',
+  templateUrl: './carousel-cards.component.html',
+  styleUrls: ['./carousel-cards.component.scss']
 })
-export class OfferCardsComponent implements AfterViewInit {
+export class CarouselCardsComponent implements AfterViewInit {
   constructor(private renderer: Renderer2, private el: ElementRef) {}
 
   ngAfterViewInit() {

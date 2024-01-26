@@ -1,3 +1,8 @@
+/* Carousel */
+.carousel {
+    height: 452px;
+    width: 950px;
+}
 
 .carousel-item {
     transition: opacity 0.3s;
@@ -14,10 +19,7 @@
     margin: 100px;
 }
 
-.carousel-container { 
-    position: relative;
-}
-
+/* Card */
 .card-body {
     padding-left: 50px;
     margin-left: 110px;
@@ -34,29 +36,17 @@
     position: relative;
 }
 
-.card-img:hover {
-    filter: brightness(0%);
+.card-img:hover{
+    filter: brightness(75%);
 }
 
-.card-img:hover .view-button {
+.card-img:hover{
     display: block;
+
 }
 
-.view-button {
-    display: none;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-}
 
-.carousel {
-    height: 452px;
-    width: 950px;
-}
-
+/* Main Default */
 .mainDefault{
     font-size: 21px;
     font-weight: 200;
@@ -64,10 +54,10 @@
 }
 
 .mainDefault p {
-    margin-bottom: 0; /* Imposta il margine inferiore a 0 */
+    margin-bottom: 0; /*margine inferiore a 0 */
 }
 
-
+/* Screenshot Container */
 .screenshot-container {
     position: absolute;
     top: 0;
@@ -87,6 +77,7 @@
     opacity: 1;
 }
 
+/* Additional */
 .additional{
     margin: 3px 0;
     display: inline-block;
@@ -106,6 +97,7 @@
     font-size: 11px;
 }
 
+/* Tag */
 .tag{
     margin: 3px 0;
     display: inline-block;
@@ -123,8 +115,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 11px;
+    font-weight: 400;
 }
 
+/* App Name */
 .appName{
     max-height: 62px;
     overflow: hidden;
@@ -133,20 +127,22 @@
     padding-top: 4px;
     line-height: 26px;
 }
-
-.gamePrice{
-    font-size:11px;
-    margin-bottom: 2px;
-}
-
-.discount_price {
-    padding: 0 6px;
-    color: white;
-}
     
-.discount_final_price {
-    padding-top: 42px;
-    padding-left: 1px;
+.final_price {
+    display: flex;
+    justify-content:last baseline;
     font-size: 11px;
     line-height: 12px;
+    position:relative;
+    top:40px;
+    left:-11px;
+    font-weight: 400;
+}
+
+/* Platforms */
+#carousel .card .platforms{
+    margin-left:0px;
+    position:relative;
+    top:19px;
+    left:285px;
 }

@@ -8,13 +8,13 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { ComponentsModule } from './components/components.module';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { ActivatedRoute, Router } from '@angular/router';
-import { OfferCardsComponent } from './components/offer-cards/offer-cards.component';
+import { CarouselCardsComponent } from './components/carousel-cards/carousel-cards.component';
 import { CarouselComponent } from './components/carousel/carousel.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    OfferCardsComponent,
+    CarouselCardsComponent,
     CarouselComponent,
   ],
   imports: [

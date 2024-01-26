@@ -10,42 +10,22 @@
 }
 
 .carousel-control-next {
-    margin-right: 14%;
+    right:auto !important;
+    left:1222px;
     height: 108px;
     width: 45px;
     top: 25%; // Regola questa percentuale per allineare verticalmente i pulsanti con il carosello
     transform: translateY(-50%); // Mantiene la posizione centrale verticale
+    background: linear-gradient( to right, rgba( 0, 0, 0, 0) 15%,rgba( 0, 0, 0, 0.3) 95%);
 }
 .carousel-control-prev{
-    margin-left: 14%;
+    right:auto !important;
+    left:227px;
     height: 108px;
     width: 45px;
     top: 25%; // Regola questa percentuale per allineare verticalmente i pulsanti con il carosello
     transform: translateY(-50%); // Mantiene la posizione centrale verticale
-}
-
-.carousel-control-prev:hover{
-    background-image: linear-gradient(to right, rgb(255, 255, 255), rgb(0, 0, 0));
-}
-
-.carousel-control-next:hover{
-    background-image: linear-gradient(to left, rgb(255, 255, 255), rgb(0, 0, 0));
-}
-
-@media (max-width: 768px) {
-    .carousel-control-prev, .carousel-control-next {
-        /* Modifica la posizione per schermi più piccoli */
-        top: auto;
-        bottom: 10px;  /* Sposta i pulsanti più in basso */
-    }
-
-    .carousel-control-prev {
-        left: 5px;  /* Riduci la distanza dal bordo sinistro */
-    }
-
-    .carousel-control-next {
-        right: 5px;  /* Riduci la distanza dal bordo destro */
-    }
+    background: linear-gradient( to left, rgba( 0, 0, 0, 0) 5%,rgba( 0, 0, 0, 0.3) 95%);
 }
 
 
