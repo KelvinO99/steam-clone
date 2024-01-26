@@ -43,7 +43,6 @@ Route::controller(GamesController::class)->prefix('games')->group(function($rout
     Route::delete('destroy/{id}','destroy');
     Route::put('update/{id}','update');
     Route::post('store','store');
-    Route::get('featured', 'featured');
 });
 
 Route::controller(AchievementsController::class)->prefix('achievements')->group(function($router){

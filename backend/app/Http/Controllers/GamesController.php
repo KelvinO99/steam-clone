@@ -14,26 +14,33 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 
 class GamesController extends Controller
 {
-     // Mostra tutti i record della tabella Games -Kelvin
-     public function index(Request $request){
+    public function index(Request $request)
+    {
+        $games_tags = GamesTags::query();
         $discount = $request->input("discount");
-        $feature = $request->input("feature");
-        $games = Games::get();
+        $feature = $request->input("featured");
+        $games = Games::query(); // Start building the query
+        $tags = Tags::query();
 
-        if(isset($discount)){
-            $games = $games::where('is_discounted', true);
+        if (isset($discount)) {
+            $games->where('is_discounted', true);
+        }
+        if (isset($feature)) {
+             //$tags->where('name', 'Top Seller');
+             $games = Tags::where('name', '=', 'Top Seller')->with(['GamesTags.Games' => function ($query)
+            {
+                $query->select('id', 'name', 'base_price', 'discounted_price');
+            },'GamesTags.Games.Images']);
         }
 
-        // if(isset($feature)){
-        //     $games = $games::where('isDiscounted', true);
-        // }
+        $games = $games->get(); // Execute the query and get the results
+        //$tags = $tags->get();
 
         return response()->json([
-            'status'=>200,
-            'games'=>$games->get()
+            'status' => 200,
+            'games' => $games,
+            //'games_tags' => $games_tags
         ]);
-
-        
     }
 
     // Mostra un determinato record dellla tabella Games -Kelvin
@@ -137,21 +144,5 @@ class GamesController extends Controller
 
         return response()->json($var, 201);
 
-    }
-
-    public function featured(Request $request){
-        //Featured query
-        $games = Tags::where('name', '=', 'Top Seller')
-        ->with(['GamesTags.Games' => function ($query) {
-            $query->select('id', 'name', 'base_price', 'discounted_price');
-        }, 'GamesTags.Games.Images'])
-        ->get();
-    
-        
-
-        return response()->json([
-            'status'=>200,
-            'games'=>$games
-        ]);
     }
 }

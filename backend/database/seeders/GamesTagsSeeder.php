@@ -172,7 +172,7 @@ class GamesTagsSeeder extends Seeder
         ]);
         DB::table('games_tags')->insert([
             'game_id' => '19',
-            'tag_id' => '21',
+            'tag_id' => '17',
         ]);
         /*DB::table('games_tags')->insert([
             'game_id' => '20',
