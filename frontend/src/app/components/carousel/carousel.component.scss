@@ -11,7 +11,7 @@
 
 .carousel-control-next {
     right:auto !important;
-    left:1222px;
+    left:82%;
     height: 108px;
     width: 45px;
     top: 25%; // Regola questa percentuale per allineare verticalmente i pulsanti con il carosello
@@ -20,7 +20,7 @@
 }
 .carousel-control-prev{
     right:auto !important;
-    left:227px;
+    left:15%;
     height: 108px;
     width: 45px;
     top: 25%; // Regola questa percentuale per allineare verticalmente i pulsanti con il carosello
@@ -33,7 +33,7 @@
     position: relative;
     left: 18%;
     font-family: "Motiva Sans", Sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 14px;
     text-transform: uppercase;
     color: #fff;
