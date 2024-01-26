@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Games;
 use App\Models\GamesTags;
+use App\Models\Reviews;
 use App\Models\Tags;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
@@ -28,15 +29,44 @@ class GamesController extends Controller
 
     // Mostra un determinato record dellla tabella Games -Kelvin
     public function show($id){
-        $var = Games::find($id);
+        $game = Games::find($id); //prendi il gioco (id)
+        $reviews = Reviews::where('game_id', $id)->pluck('is_recommended'); //prendi le review del singolo gioco
+        $DIM_A = count($reviews); //conta quante review sono state fatte
+        $positive = 0; // inizializza variabile che verrà usata subito
+        for($i = 0; $i < $DIM_A-1; $i++){ 
+            if($reviews[$i] == 1)         //ciclo for che conta quante review sono positive
+            {                             //per fare un rapporto
+                $positive++;
+            }
+        }
+        $ratio=($positive/$DIM_A)*100; //il rapporto
+        switch($ratio) {               //switch case in base alle valutazioni
+            case $ratio>=0&&$ratio<=14:
+                $string= 'Extremetely Negative Reviews';
+                    break;
+            case $ratio>=15&&$ratio<=44:
+                $string= 'Negative Reviews';
+                    break;
+            case $ratio>=45&&$ratio<=54:
+                $string= 'Mixed Reviews';
+                    break;
+            case $ratio>=55&&$ratio<= 84:
+                $string= 'Positive Reviews';
+                    break;
+            case $ratio>=85&&$ratio<=100:
+                $string= 'Extremetely Positive Reviews';
+            default:
+                $string= 'Errore riferisci a chris'; //riferisci a chris
+            }
 
-        return response()->json([
-            'status'=>200,
-            'games'=>$var
-        ]);
-
+            return response()->json([
+            'status' => 200,
+            'game' => $game,
+            'reviews' => $reviews->toArray(),
+            'ratio' => $ratio,
+            'string' => $string
+            ]);
     }
-    
     // Elimina un determinato record della tabella Games -Kelvin
     public function destroy ($id){
 
