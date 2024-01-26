@@ -1,57 +1,46 @@
-
-
 .allContainer {
-    margin: auto; // Centra il carosello orizzontalmente
+    margin: 0; /* Rimuove tutti i margini */
+    padding: 0; /* Rimuove tutti i padding */
 }
 
 .carouselContainer {
-    margin: auto; // Assicura che il carosello sia centrato all'interno di .allContainer
-    width: fit-content; // Mantiene la larghezza attuale
+    margin: 0; /* Rimuove tutti i margini */
+    width: fit-content; /* Mantiene la larghezza attuale */
+    position: relative;
+    left: 19%;
 }
 
 .carousel-control-next {
     right:auto !important;
-    left:82%;
-    height: 108px;
-    width: 45px;
+    left:82vw;
+    height: 6.75em; /* 108px / 16px */
+    width: 4em; /* 45px / 16px */
     top: 25%; // Regola questa percentuale per allineare verticalmente i pulsanti con il carosello
     transform: translateY(-50%); // Mantiene la posizione centrale verticale
     background: linear-gradient( to right, rgba( 0, 0, 0, 0) 15%,rgba( 0, 0, 0, 0.3) 95%);
 }
 .carousel-control-prev{
     right:auto !important;
-    left:15%;
-    height: 108px;
-    width: 45px;
+    left:15vw;
+    height: 6.75em; /* 108px / 16px */
+    width: 4em; /* 45px / 16px */
     top: 25%; // Regola questa percentuale per allineare verticalmente i pulsanti con il carosello
     transform: translateY(-50%); // Mantiene la posizione centrale verticale
     background: linear-gradient( to left, rgba( 0, 0, 0, 0) 5%,rgba( 0, 0, 0, 0.3) 95%);
 }
 
-
 .CarouselTitle{
     position: relative;
-    left: 18%;
+    left: 18vw;
     font-family: "Motiva Sans", Sans-serif;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 0.875em; /* 14px / 16px */
     text-transform: uppercase;
     color: #fff;
     margin: 0; /* Rimuove tutti i margini */
     letter-spacing: 0.03em;
     font-weight: normal;
-    padding-top: 2px;
-    margin-left: 8px;
-    margin-bottom: 7px;
-   
+    padding-top: 0.125em; /* 2px / 16px */
+    margin-left: 0.5em; /* 8px / 16px */
+    margin-bottom: 0.4375em; /* 7px / 16px */
 }
-
-.allContainer {
-    margin: 0; /* Rimuove tutti i margini */
-    padding: 0; /* Rimuove tutti i padding */
-}
-
-
-
-
-
