@@ -10,8 +10,7 @@ class RolesTableSeeder extends Seeder
 
     // User, Dveloper/Publisher, SuperAdmin
     public function run()
-    {
-
+    {        
         Role::firstOrCreate(['name' => 'user'], [
             'display_name' => 'User',
             'description' => 'Un semplice Utente'

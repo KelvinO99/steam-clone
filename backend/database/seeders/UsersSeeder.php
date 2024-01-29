@@ -84,7 +84,7 @@ class UsersSeeder extends Seeder
             ]);
 
             // Assegna un ruolo casuale all'utente
-            $user->attachRole('superadmin');
+            $user->addRole($ruoli->random());
                 
     
             // Opcional: Puoi anche rimuovere l'email dall'array se vuoi
