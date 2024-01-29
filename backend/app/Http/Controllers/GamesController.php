@@ -22,7 +22,7 @@ class GamesController extends Controller
         $special_offer = $request->input("special_offer");
         $game = Games::query(); // Start building the query
         $discounted_percentage = Games::query()->value('discounted_percentage');
-        $tags = Tags::query();
+        
 
 //ISSET CODE
         if ($discount) {
@@ -30,22 +30,27 @@ class GamesController extends Controller
         }
 
         if ($feature) {
-             //$tags->where('name', 'Top Seller');
-             $game = Tags::where('name', '=', 'Top Seller')->with(['GamesTags.Games' => function ($query)
-            {
-                $query->select('id', 'name', 'base_price', 'discounted_price');
-            },'GamesTags.Games.Images']);
+              $game->select('games.id', 'games.name', 'games.base_price', 'games.discounted_price')
+                                    ->join('games_tags', 'games.id', '=', 'games_tags.game_id')
+                                    ->join('tags', 'games_tags.tag_id', '=', 'tags.id')
+                                    ->where('tags.name', 'Top Seller')
+                                    ->with('images');
         }
 
         if ($special_offer) {
            $game->where('discounted_percentage','>', '60');
         }
 
-        //if (isset($discounted_percentage)) {
-            //$game = Games::where('','>',
+        
 //ISSET CODE
 
-       
+       /*if($game == null) {
+        return response()->json([
+            'status' => 404,
+            'games' => "Not found",
+            //'games_tags' => $games_tags
+        ]);
+       }*/
         return response()->json([
             'status' => 200,
             'games' => $game->get(),
