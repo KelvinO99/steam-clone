@@ -35,6 +35,8 @@ class TagsSeeder extends Seeder
             'Sports', //19
             'Racing', //20
             'Free to Play', //21
+            'VR'//22
+            
         ];
         for($i=0;$i<21;$i++) //19
         {

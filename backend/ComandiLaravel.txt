@@ -79,3 +79,6 @@ $user->hasRole(['nomeruolo1', 'nomeruolo2']);
 
 Cose da ricordare:
 1) Tag Top Seller per le query
+
+casomai non funzionasse la search:
+php artisan key:generate

@@ -75,6 +75,7 @@ class LibrariesController extends Controller
             'user_id' => 'required|max:255',
             'game_id' => 'required|max:255',
             'is_wishlisted' => 'required',
+            'is_owned' => 'required',
         ]);
     
         $var = new Libraries();
