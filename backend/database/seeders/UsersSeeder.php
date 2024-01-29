@@ -6,6 +6,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
+use App\Models\User;
+use App\Models\Role;
 
 
 class UsersSeeder extends Seeder
@@ -57,6 +59,10 @@ class UsersSeeder extends Seeder
             'user19@domain.com',
             'user20@domain.com',
         ];
+
+        // Assicurati che i ruoli siano già stati creati nel database
+        $ruoli = Role::all();
+
         $DIM_A = count($usernames);
         for($i=0;$i<20;$i++)
         {
@@ -80,7 +86,7 @@ class UsersSeeder extends Seeder
                 ]);
     
             // Opcional: Puoi anche rimuovere l'email dall'array se vuoi
-             }
+            }
     }
 }
 }

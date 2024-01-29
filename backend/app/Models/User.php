@@ -23,6 +23,7 @@ class User extends Authenticatable implements JWTSubject, LaratrustUser
         'username',
         'email',
         'password',
+        //'role'
     ];
     /**
      * The attributes that should be hidden for arrays.
