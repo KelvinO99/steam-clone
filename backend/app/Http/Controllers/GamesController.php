@@ -16,12 +16,10 @@ class GamesController extends Controller
 {
     public function index(Request $request)
     {
-        $games_tags = GamesTags::query();
         $discount = $request->input("discount");
         $feature = $request->input("featured");
         $special_offer = $request->input("special_offer");
         $game = Games::query(); // Start building the query
-        $discounted_percentage = Games::query()->value('discounted_percentage');
         
 
 //ISSET CODE
@@ -41,20 +39,11 @@ class GamesController extends Controller
            $game->where('discounted_percentage','>', '60');
         }
 
-        
 //ISSET CODE
 
-       /*if($game == null) {
-        return response()->json([
-            'status' => 404,
-            'games' => "Not found",
-            //'games_tags' => $games_tags
-        ]);
-       }*/
         return response()->json([
             'status' => 200,
             'games' => $game->get(),
-            //'games_tags' => $games_tags
         ]);
     }
 
