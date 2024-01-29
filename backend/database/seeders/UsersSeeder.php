@@ -64,7 +64,7 @@ class UsersSeeder extends Seeder
         $ruoli = Role::all();
 
         $DIM_A = count($usernames);
-        for($i=0;$i<20;$i++)
+        for($i=0;$i<19;$i++)
         {
             foreach ($emails as $email) {
             // Verifica se l'email è già presente nel database
@@ -76,14 +76,16 @@ class UsersSeeder extends Seeder
             $randomUsername = $usernames[array_rand($usernames)];
     
             
-                DB::table('users')->insert([
-                    'username' => $randomUsername,
-                    //'name' => $randomUsername,
-                    'email' => $email,
-                    'password' => "password",
-                    'image_path' => "image_path",
-                    'wallet' => "0",
-                ]);
+            $user = User::create([
+                'username' => $randomUsername,
+                'email' => $email,
+                'password' => 'password',
+                'wallet' => 0,
+            ]);
+
+            // Assegna un ruolo casuale all'utente
+            $user->attachRole('superadmin');
+                
     
             // Opcional: Puoi anche rimuovere l'email dall'array se vuoi
             }
