@@ -19,26 +19,39 @@ class GamesController extends Controller
         $games_tags = GamesTags::query();
         $discount = $request->input("discount");
         $feature = $request->input("featured");
-        $games = Games::query(); // Start building the query
+        $special_offer = $request->input("special_offer");
+        $game = Games::query(); // Start building the query
+        $discounted_percentage = Games::query()->value('discounted_percentage');
         $tags = Tags::query();
 
+//ISSET CODE
         if (isset($discount)) {
-            $games->where('is_discounted', true);
+            $game->where('is_discounted', true);
         }
+
         if (isset($feature)) {
              //$tags->where('name', 'Top Seller');
-             $games = Tags::where('name', '=', 'Top Seller')->with(['GamesTags.Games' => function ($query)
+             $game = Tags::where('name', '=', 'Top Seller')->with(['GamesTags.Games' => function ($query)
             {
                 $query->select('id', 'name', 'base_price', 'discounted_price');
             },'GamesTags.Games.Images']);
         }
 
-    $games = $games->get()/*->pluck('')*/; // Execute the query and get the results
-        //$tags = $tags->get();
+        if (isset($special_offer)) {
+           $game = Games::where('discounted_percentage','>', '60');
+        }
 
+        //if (isset($discounted_percentage)) {
+            //$game = Games::where('','>',
+//ISSET CODE
+
+        $game = $game->get()/*->pluck('')*/; // Execute the query and get the results
+        //$discounted_percentage = $discounted_percentage->get();
+
+       
         return response()->json([
             'status' => 200,
-            'games' => $games,
+            'games' => $game,
             //'games_tags' => $games_tags
         ]);
     }
@@ -77,15 +90,6 @@ class GamesController extends Controller
             default:
                 $string= 'Errore'; //riferisci a chris
             }
-        $discounted_percentage = Games::find($id)->pluck('discounted_percentage')->first();
-        if($discounted_percentage>60)
-        {
-            $special_offer=true;
-        }
-        else
-        {   
-            $special_offer=false;
-        }
 
         return response()->json([
         'status' => 200,
@@ -93,7 +97,6 @@ class GamesController extends Controller
         'reviews' => $reviews->toArray(),
         'ratio' => $ratio,
         'string' => $string,
-        'special_offer' => $special_offer
         ]);
 
 

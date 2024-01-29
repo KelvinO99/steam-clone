@@ -21,7 +21,7 @@ class Games extends Model
         'base_price',
         'is_discounted',
         'discounted_price',
-        'discount_percentage',
+        'discounted_percentage',
         'short_description',
         'long_description',
         'pegi_id',
