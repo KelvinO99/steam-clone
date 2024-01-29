@@ -1,14 +1,17 @@
 <?php
 namespace App\Models;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use Laratrust\Contracts\LaratrustUser;
+use Laratrust\Traits\HasRolesAndPermissions;
 
-class User extends Authenticatable implements JWTSubject
+class User extends Authenticatable implements JWTSubject, LaratrustUser
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, HasRolesAndPermissions; // Aggiunto il trait di Laratrust -Salvo
+
     /**
      * The attributes that are mass assignable.
      *
@@ -19,6 +22,7 @@ class User extends Authenticatable implements JWTSubject
         'username',
         'email',
         'password',
+        //'role'
     ];
     /**
      * The attributes that should be hidden for arrays.
@@ -72,5 +76,10 @@ class User extends Authenticatable implements JWTSubject
     public function Developers(){
 
         return $this->hasOne(Developers::class, 'developers', 'id');
+    }
+
+    public function Images(){
+
+        return $this->hasOne(Images::class, 'images', 'id');
     }
 }

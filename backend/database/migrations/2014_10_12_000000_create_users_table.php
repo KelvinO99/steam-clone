@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('password')->default('PLACEHOLDER');
             $table->string('image_path')->default('PLACEHOLDER');
             $table->float('wallet')->default(0.00);
+            //$table->string('role')->default('user');
             $table->rememberToken();
             $table->timestamps();
         });
