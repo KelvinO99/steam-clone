@@ -122,3 +122,90 @@ width:100% !important;
     width:100%;
    }
    
+/* Column 8/12 */
+#carousel .col-md-8{
+    max-width:800px;
+   }
+   
+   @media (min-width:768px){
+   
+    /* Column 8/12 */
+    #carousel .col-md-8{
+     width:318px;
+    }
+    
+   }
+
+   /* Column 8/12 */
+#carousel .col-md-8{
+    transform:translatex(0px) translatey(0px);
+   }
+   
+   #carousel .col-md-6{
+    display:flex;
+   }
+   
+   @media (min-width:768px){
+   
+    /* Column 8/12 */
+    #carousel .col-md-8{
+     width:703px !important;
+    }
+    
+   }
+
+   /* Column 8/12 */
+#carousel .col-md-8{
+    display:flex;
+   }
+   
+   /* Carousel inner */
+   #carousel .carousel-inner{
+    width:222% !important;
+   }
+   
+   @media (min-width:768px){
+   
+    /* Column 6/12 */
+    app-root app-carousel .allContainer .carouselContainer app-offer-cards #carouselcenter #carousel .carousel-inner .carousel-item .container-fluid .row .col-md-8 .col-md-6{
+     width:47% !important;
+    }
+    
+    /* Column 8/12 */
+    #carouselcenter #carousel .carousel-inner .carousel-item .container-fluid .row .col-md-8{
+     width:697px !important;
+    }
+    
+   }
+
+   /* Row */
+.carousel-item .row{
+    width:1060px;
+    transform:translatex(0px) translatey(0px);
+   }
+   
+/* Column 8/12 */
+.carousel-item .col-md-8{
+ transform:translatex(0px) translatey(0px);
+}
+
+/* Column 4/12 */
+.carousel-item .col-md-4{
+ transform:translatex(-62px) translatey(0px);
+ max-width:324px;
+}
+
+@media (min-width:768px){
+
+ /* Column 6/12 */
+ .carousel-item .col-md-6{
+  width:317px;
+ }
+ 
+ /* Column 4/12 */
+ .carousel-item .col-md-4{
+  width:313px;
+ }
+ 
+}   
+

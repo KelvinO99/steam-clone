@@ -6,7 +6,8 @@
 
 .allContainer{
     position: relative;
-    width: 800px;
+    width:1024px !important;
+    left:-1px;
     margin-left:346px !important;
     transform:translatex(0px) translatey(0px);
 }
