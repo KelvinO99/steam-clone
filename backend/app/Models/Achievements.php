@@ -27,4 +27,9 @@ class Achievements extends Model
 
         return $this->hasOne(Games::class, 'game_id', 'id');   
     }
+
+    public function Images(){
+
+        return $this->hasOne(Images::class, 'images', 'id');
+    }
 }

@@ -14,11 +14,23 @@ class Images extends Model
 
     protected $fillable = [
         'game_id',
+        'user_id',
+        'achievement_id',
         'image_path',
     ];
 
     public function Games(){
 
         return $this->hasOne(Games::class, 'game_id', 'id');
+    }
+
+    public function Users(){
+
+        return $this->hasOne(User::class, 'user_id', 'id');
+    }
+
+    public function Achievements(){
+
+        return $this->hasOne(Achievements::class, 'achievement_id', 'id');
     }
 }
