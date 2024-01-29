@@ -25,11 +25,11 @@ class GamesController extends Controller
         $tags = Tags::query();
 
 //ISSET CODE
-        if (isset($discount)) {
+        if ($discount) {
             $game->where('is_discounted', true);
         }
 
-        if (isset($feature)) {
+        if ($feature) {
              //$tags->where('name', 'Top Seller');
              $game = Tags::where('name', '=', 'Top Seller')->with(['GamesTags.Games' => function ($query)
             {
@@ -37,21 +37,18 @@ class GamesController extends Controller
             },'GamesTags.Games.Images']);
         }
 
-        if (isset($special_offer)) {
-           $game = Games::where('discounted_percentage','>', '60');
+        if ($special_offer) {
+           $game->where('discounted_percentage','>', '60');
         }
 
         //if (isset($discounted_percentage)) {
             //$game = Games::where('','>',
 //ISSET CODE
 
-        $game = $game->get()/*->pluck('')*/; // Execute the query and get the results
-        //$discounted_percentage = $discounted_percentage->get();
-
        
         return response()->json([
             'status' => 200,
-            'games' => $game,
+            'games' => $game->get(),
             //'games_tags' => $games_tags
         ]);
     }

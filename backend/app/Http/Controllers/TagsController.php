@@ -13,10 +13,9 @@ class TagsController extends Controller
      public function index(Request $request){
 
         $category = $request->input("category");
-        $tag = Tags::query();
 
         if (isset($category)) {
-            $tag->where('is_genre', true);
+            $tag = Tags::where('is_genre', true);
         }
 
         $tag = Tags::get();
