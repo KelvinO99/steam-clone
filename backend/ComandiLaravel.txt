@@ -72,5 +72,10 @@ composer dump-autoload
 
 Per gli Enum, bisogna creare un file nomeEnum nella cartella Enums in App (App\Enums)
 
+Per controllare i ruoli nell'utente:
+$user->hasRole('nomeruolo');
+Oppure, se ha più ruoli:
+$user->hasRole(['nomeruolo1', 'nomeruolo2']);
+
 Cose da ricordare:
 1) Tag Top Seller per le query

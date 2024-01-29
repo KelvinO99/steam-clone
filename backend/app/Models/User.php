@@ -1,14 +1,18 @@
 <?php
 namespace App\Models;
+
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use Laratrust\Traits\HasRolesAndPermissions;
+use Laratrust\Contracts\LaratrustUser;
 
-class User extends Authenticatable implements JWTSubject
+class User extends Authenticatable implements JWTSubject, LaratrustUser
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, HasRolesAndPermissions; // Aggiunto il trait di Laratrust -Salvo
+
     /**
      * The attributes that are mass assignable.
      *
