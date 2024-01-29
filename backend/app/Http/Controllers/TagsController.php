@@ -13,17 +13,17 @@ class TagsController extends Controller
      public function index(Request $request){
 
         $category = $request->input("category");
+        $tag = Tags::query(); // Start building the query
 
-        if (isset($category)) {
+        if ($category) {
             $tag = Tags::where('is_genre', true);
         }
 
-        $tag = Tags::get();
+       //$tag = Tags::get();
 
         return response()->json([
             'status' => 200,
-            'tags' => $tag,
-
+            'tags' => $tag->get()
         ]);
 
         
