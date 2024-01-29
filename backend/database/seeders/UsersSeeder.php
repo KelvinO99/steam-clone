@@ -75,7 +75,6 @@ class UsersSeeder extends Seeder
                     //'name' => $randomUsername,
                     'email' => $email,
                     'password' => "password",
-                    'image_path' => "image_path",
                     'wallet' => "0",
                 ]);
     

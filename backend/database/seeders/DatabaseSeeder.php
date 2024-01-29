@@ -17,13 +17,13 @@ class DatabaseSeeder extends Seeder
             DevelopersSeeder::class, 
             TagsSeeder::class, 
             GamesSeeder::class, 
-            ImagesSeeder::class, 
             LibrariesSeeder::class, 
             GamesTagsSeeder::class, 
-            DevelopersGamesSeeder::class, 
             ReviewsSeeder::class, 
             AchievementsSeeder::class,
             UsersAchievementsSeeder::class, 
+            ImagesSeeder::class, 
+            DevelopersGamesSeeder::class, 
         ]);
     }
 }
