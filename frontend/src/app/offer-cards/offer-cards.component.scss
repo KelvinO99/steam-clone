@@ -18,6 +18,10 @@
     padding: 36px 11px;
 }
 
+#bello{
+    background-color: aquamarine;
+}
+
 @media (max-width: 768px) {
     .carousel-control-prev, .carousel-control-next {
         /* Modifica la posizione per schermi più piccoli */
@@ -43,6 +47,10 @@
 // Background della card (Colore blu)   
 .card-body{
     background-image: url('https://images-ext-1.discordapp.net/external/7eB7l0xB29zq-Gj21I66XGmBVAdSW1MJ2O8jT3psHTc/https/store.akamai.steamstatic.com/public/images/v6/home/background_spotlight.jpg?format=webp');
+}
+
+#daily{
+    background-color: #abdaf4;
 }
 
 .carousel-item{
