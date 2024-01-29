@@ -74,3 +74,6 @@ Per gli Enum, bisogna creare un file nomeEnum nella cartella Enums in App (App\E
 
 Cose da ricordare:
 1) Tag Top Seller per le query
+
+casomai non funzionasse la search:
+php artisan key:generate

@@ -59,7 +59,7 @@ class ReviewsSeeder extends Seeder
             'This game is a prime example of rushed development, unfinished and sloppy.',
             'I can\'t believe I fell for the hype, this game is a disaster.'
         ];
-        for($i=0;$i<8;$i++)
+        for($i=0;$i<299;$i++)
         {
             DB::table('reviews')->insert([
                 'user_id' => rand(1,19),//PLACEHOLDER RNG

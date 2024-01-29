@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Games;
 use App\Models\GamesTags;
+use App\Models\Reviews;
 use App\Models\Tags;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
@@ -13,30 +14,95 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 
 class GamesController extends Controller
 {
-     // Mostra tutti i record della tabella Games -Kelvin
-     public function index(){
-        $var = Games::get();
+    public function index(Request $request)
+    {
+        $games_tags = GamesTags::query();
+        $discount = $request->input("discount");
+        $feature = $request->input("featured");
+        $special_offer = $request->input("special_offer");
+        $game = Games::query(); // Start building the query
+        $discounted_percentage = Games::query()->value('discounted_percentage');
+        
 
+//ISSET CODE
+        if ($discount) {
+            $game->where('is_discounted', true);
+        }
 
-        return response()->json([
-            'status'=>200,
-            'games'=>$var
-        ]);
+        if ($feature) {
+              $game->select('games.id', 'games.name', 'games.base_price', 'games.discounted_price')
+                                    ->join('games_tags', 'games.id', '=', 'games_tags.game_id')
+                                    ->join('tags', 'games_tags.tag_id', '=', 'tags.id')
+                                    ->where('tags.name', 'Top Seller')
+                                    ->with('images');
+        }
+
+        if ($special_offer) {
+           $game->where('discounted_percentage','>', '60');
+        }
 
         
+//ISSET CODE
+
+       /*if($game == null) {
+        return response()->json([
+            'status' => 404,
+            'games' => "Not found",
+            //'games_tags' => $games_tags
+        ]);
+       }*/
+        return response()->json([
+            'status' => 200,
+            'games' => $game->get(),
+            //'games_tags' => $games_tags
+        ]);
     }
 
     // Mostra un determinato record dellla tabella Games -Kelvin
     public function show($id){
-        $var = Games::find($id);
+        $game = Games::find($id); //prendi il gioco (id)
+        $reviews = Reviews::where('game_id', $id)->pluck('is_recommended'); //prendi la colonna is_recommended del singolo gioco
+        $DIM_A = count($reviews); //conta quante review sono state fatte
+        $positive = 0; // inizializza variabile che verrà usata subito
+        for($i = 0; $i < $DIM_A-1; $i++){ 
+            if($reviews[$i] == 1)         //ciclo for che conta quante review sono positive
+            {                             //per fare un rapporto
+                $positive++;
+            }
+        }
+        $ratio=($positive/$DIM_A)*100; //il rapporto
+        switch($ratio) {               //switch case in base alle valutazioni
+            case $ratio>=0&&$ratio<=19:
+                $string= 'Overwhelmingly Negative Reviews';
+                    break;
+            case $ratio>=20&&$ratio<=39:
+                $string= 'Mostly Negative Reviews';
+                    break;
+            case $ratio>=40&&$ratio<=69:
+                $string= 'Mixed Reviews';
+                    break;
+            case $ratio>=70&&$ratio<=79:
+                $string= 'Mostly Positive Reviews';
+                    break;
+            case $ratio>=80&&$ratio<=94:
+                $string= 'Very Positive Reviews';
+                    break;
+            case $ratio>=95&&$ratio<=100:
+                $string= 'Overwhelmingly Positive Reviews';
+            default:
+                $string= 'Errore'; //riferisci a chris
+            }
 
         return response()->json([
-            'status'=>200,
-            'games'=>$var
+        'status' => 200,
+        'game' => $game,
+        'reviews' => $reviews->toArray(),
+        'ratio' => $ratio,
+        'string' => $string,
         ]);
 
+
     }
-    
     // Elimina un determinato record della tabella Games -Kelvin
     public function destroy ($id){
 
@@ -56,7 +122,7 @@ class GamesController extends Controller
 
         if ($var->update($request->all()) === false) {
             return response(
-                "not real {$request->id}",
+                "unreal {$request->id}",
                 Response::HTTP_BAD_REQUEST
             );
         }
@@ -96,21 +162,5 @@ class GamesController extends Controller
 
         return response()->json($var, 201);
 
-    }
-
-    public function featured(Request $request){
-        //Featured query
-        $games = Tags::where('name', '=', 'Top Seller')
-        ->with(['GamesTags.Games' => function ($query) {
-            $query->select('id', 'name', 'base_price', 'discounted_price');
-        }, 'GamesTags.Games.Images'])
-        ->get();
-    
-        
-
-        return response()->json([
-            'status'=>200,
-            'games'=>$games
-        ]);
     }
 }
