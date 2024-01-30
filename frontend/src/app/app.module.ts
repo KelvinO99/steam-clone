@@ -9,8 +9,7 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { ComponentsModule } from './components/components.module';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CarouselCardsComponent } from './components/carousel-cards/carousel-cards.component';
-import { CarouselComponent } from './components/carousel/carousel.component'
+
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -18,8 +17,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    CarouselCardsComponent,
-    CarouselComponent,
     NavbarComponent,
     FooterComponent
   ],
