@@ -1,0 +1,32 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('developers', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->boolean('is_publisher')->default(false);
+            $table->text('description')->default('PLACEHOLDER');
+            $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('developers');
+    }
+};
+
+/*
+    $table->string('PLACEHOLDER_COLUMN_NAME');
+    $table->integer('PLACEHOLDER_COLUMN_NAME');
+    $table->boolean('PLACEHOLDER_COLUMN_NAME');
+*/

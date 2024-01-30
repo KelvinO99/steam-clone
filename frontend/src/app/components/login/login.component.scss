@@ -1,0 +1,144 @@
+.body {
+    margin: 0;
+    background-image: url('https://store.cloudflare.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask.jpg');
+    height: 100vh;
+}
+
+.formcontrol {
+    background-color: #181a21;
+    display: flex;
+    justify-content: center;
+    width: 30rem;
+    height: 18rem;
+    margin-top: 5rem;
+    border-radius: 4px;
+}
+
+label.login {
+    font-family: "Motiva Sans", Sans-serif;
+    color: #1999ff;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: .02em;
+    padding-top: 1rem;
+    user-select: none;
+}
+
+input.login {
+    outline: none;
+    border-radius: 2px;
+    color: #fff;
+    padding: 10px;
+    background-color: #32353c;
+    font-size: 15px;
+    border: 1px solid #32353c;
+    width: 400px;
+}
+
+input.password {
+    outline: none;
+    border-radius: 2px;
+    color: #fff;
+    padding: 10px;
+    background-color: #32353c;
+    font-size: 15px;
+    border: 1px solid #32353c;
+    width: 400px
+}
+
+label.password {
+    font-size: 12px;
+    color: #afafaf;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    user-select: none;
+}
+
+.remindme {
+    color: #afafaf;
+    font-size: 12px;
+    user-select: none;
+    font-weight: normal;
+    margin-top: 10px;
+    padding-left: 7px;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+    margin-top: 10px;
+    border-radius: 2px;
+    border-style: solid;
+    border-color: #32353c;
+    background-color: #32353c;
+    cursor: pointer;
+}
+
+button.signin {
+    background: linear-gradient(90deg, #06BFFF 30%, #2D73FF 100%);
+    width: 270px;
+    background: linear-gradient(90deg, #06BFFF 0%, #2D73FF 100%);
+    border-radius: 2px;
+    border: none;
+    outline: none;
+    padding: 12px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+div.signin {
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+}
+
+
+.footergrid {
+    background-color: #171a21;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 12rem;
+}
+
+.container-fluid {
+    display: block;
+}
+
+.register {
+    display: flex;
+    justify-content: center;
+}
+
+.buttonregister {
+    padding: 0 20px;
+    font-size: 15px;
+    line-height: 30px;
+    background: linear-gradient(to right, #47bfff 5%, #1a44c2 60%);
+    background-position: 25%;
+    background-size: 330% 100%;
+    font-family: "Motiva Sans", Sans-serif;
+    font-weight: normal;
+    border-radius: 2px;
+}
+
+.labelregister {
+    font-size: 20px;
+    font-weight: 800;
+    color: white;
+    padding: 0;
+    margin: 0;
+    font-family: "Motiva Sans", Sans-serif;
+}
+
+li.button {
+    padding-top: 20px;
+}
+
+.containerregister {
+    padding-top: 35px;
+}

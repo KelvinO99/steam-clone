@@ -1,0 +1,29 @@
+<?php
+//NON ELIMINARE 
+//<PLACEHOLDER> = dati da cambiare -chris
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Routing\PendingSingletonResourceRegistration;
+
+class DevelopersGames extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'developer_id',
+        'game_id',
+    ];
+
+    public function Developers(){
+
+        return $this->hasOne(Developers::class, 'id', 'developer_id');
+    }
+
+    public function Games(){
+
+        return $this->hasOne(Games::class, 'id', 'game_id');   
+    }
+}
