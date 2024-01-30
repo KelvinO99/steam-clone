@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reviews;
+use App\Models\Role;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
@@ -70,12 +71,23 @@ class ReviewsController extends Controller
         if (!$var) {
             return response()->json(['message' => 'Non autorizzato'], 401);
         }
+        
+        if($var->hasRole('developer/publisher')){
+            return response()->json(['message'=> 'Non hai il permesso necessario'],401);
+        }
+
+        // Controlla se l'utente ha già pubblicato una recensione per questo gioco -Salvo
+        $existingReview = Reviews::where('user_id', $var->id)->where('game_id', $request->game_id)->first();
+
+        if ($existingReview){
+            return response()->json(['message' => 'Hai già pubblicato una recensione per questo gioco.'], 403);
+        }
 
         $validatedData = $request->validate([
             'user_id' => 'required|max:255',
             'game_id' => 'required|max:255',
             'data_of_review' => 'required|max:255',
-            'is_recommended' => 'required',
+            //'is_recommended' => 'required',
             'description' => 'required|max:255',
             'hours_played' => 'required|max:255',
         ]);

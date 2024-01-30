@@ -10,13 +10,20 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 class TagsController extends Controller
 {
      // Mostra tutti i record della tabella Tags -Salvo
-     public function index(){
-        $var = Tags::get();
+     public function index(Request $request){
 
+        $category = $request->input("category");
+        $tag = Tags::query(); // Start building the query
+
+        if ($category) {
+            $tag = Tags::where('is_genre', true);
+        }
+
+       //$tag = Tags::get();
 
         return response()->json([
-            'status'=>200,
-            'tags'=>$var
+            'status' => 200,
+            'tags' => $tag->get()
         ]);
 
         

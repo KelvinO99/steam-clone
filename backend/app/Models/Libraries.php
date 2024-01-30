@@ -16,6 +16,7 @@ class Libraries extends Model
         'user_id',
         'game_id',
         'is_wishlisted',
+        'is_owned',
     ];
 
     public function User(){

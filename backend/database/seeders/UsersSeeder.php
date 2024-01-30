@@ -6,6 +6,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
+use App\Models\User;
+use App\Models\Role;
 
 
 class UsersSeeder extends Seeder
@@ -13,27 +15,27 @@ class UsersSeeder extends Seeder
     public function run(): void
     {
         $usernames = [
-            'SteamGamer123',
-            'TechNinja87',
-            'QuantumExplorer',
-            'CyberPioneer',
-            'CodeMaverick',
-            'PixelWarriorX',
-            'GalacticGamer',
-            'SteamEngineer42',
-            'VirtualVoyager',
-            'DigitalMaestro',
-            'NeonNomad',
-            'ByteBard',
-            'CosmicCrafter',
-            'EpicPilot99',
-            'FuturePhoenix',
-            'QuantumQuasar',
-            'BinaryBuccaneer',
-            'TechnoTrailblazer',
-            'SyntheticSniper',
-            'RocketRiderX',
-            'CyberneticSpectre',
+            'Chris',
+            'Kelvin',
+            'Salvo',
+            'Mike',
+            'Giulio',
+            'Federico',
+            'Dio',
+            'Andrea Di Pre',
+            'Ace Gamer',
+            'Yotobi',
+            'Raiden',
+            'Midna',
+            'YutuboAncheIo',
+            'Me lo Scordo Domenico',
+            'Francesco Di Natale',
+            'Marilisa',
+            'Nelluccio',
+            'Maradona',
+            'Treviso Scotto',
+            'Il Fine Settimana',
+            'Ultimo',
         ];
         $emails = [
             'user1@domain.com',
@@ -57,8 +59,12 @@ class UsersSeeder extends Seeder
             'user19@domain.com',
             'user20@domain.com',
         ];
+
+        // Assicurati che i ruoli siano già stati creati nel database
+        $ruoli = Role::all();
+
         $DIM_A = count($usernames);
-        for($i=0;$i<20;$i++)
+        for($i=0;$i<19;$i++)
         {
             foreach ($emails as $email) {
             // Verifica se l'email è già presente nel database
@@ -70,17 +76,19 @@ class UsersSeeder extends Seeder
             $randomUsername = $usernames[array_rand($usernames)];
     
             
-                DB::table('users')->insert([
-                    'username' => $randomUsername,
-                    //'name' => $randomUsername,
-                    'email' => $email,
-                    'password' => "password",
-                    'image_path' => "image_path",
-                    'wallet' => "0",
-                ]);
+            $user = User::create([
+                'username' => $randomUsername,
+                'email' => $email,
+                'password' => 'password',
+                'wallet' => 0,
+            ]);
+
+            // Assegna un ruolo casuale all'utente
+            $user->addRole($ruoli->random());
+                
     
             // Opcional: Puoi anche rimuovere l'email dall'array se vuoi
-             }
+            }
     }
 }
 }
