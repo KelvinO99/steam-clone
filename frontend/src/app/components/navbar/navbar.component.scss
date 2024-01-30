@@ -2,32 +2,26 @@
     background-color: #171d25;
 } */
 
-a.menuitem {
-    display: block;
+.menuitem {
     color: white;
     display: block;
     padding-left: 0.4375rem;
-    /* 7px / 16px = 0.4375rem */
     padding-right: 0.4375rem;
-    /* 7px / 16px = 0.4375rem */
     padding-bottom: 0.4375rem;
-    /* 7px / 16px = 0.4375rem */
     color: #ffffff;
     text-transform: uppercase;
-    font-size: 1rem;
-    /* 16px / 16px = 1rem */
+    font-size: 1vw;
     font-family: "Motiva Sans", "Twemoji", "Noto Sans", Helvetica, sans-serif;
     font-weight: 500;
     text-transform: uppercase;
 }
 
 a.menuitem_user {
-    display: block;
     color: #ffffff;
-    font-size: 0.6875rem;
-    /* 11px / 16px = 0.6875rem */
+    font-size: 0.7vw;
     font-family: "Motiva Sans", "Twemoji", "Noto Sans", Helvetica, sans-serif;
     font-weight: 500;
+    padding-left: 1rem;
 }
 
 a.installsteam:hover {
@@ -37,25 +31,26 @@ a.installsteam:hover {
 }
 
 .installsteam {
-    background-position: 0.625rem 0.3125rem;
-    /* 10px / 16px = 0.625rem, 5px / 16px = 0.3125rem */
     background-repeat: no-repeat;
+    background-position: 10px 5px;
+    background-position-x: 10px;
+    background-position-y: 5px;
     background-color: #5c7e10;
+    transition-duration: 250ms;
+    padding-left: 35px;
+    padding-right: 9px;
+    cursor: pointer;
 }
 
 a.submenuitem {
     text-decoration: none;
     text-transform: none;
     font-size: 0.625rem;
-    /* 10px / 16px = 0.625rem */
     font-weight: 400;
     color: #dcdedf;
     padding: 0.375rem 0;
-    /* 6px / 16px = 0.375rem */
     padding-right: 0.9375rem;
-    /* 15px / 16px = 0.9375rem */
     padding-left: 0.9375rem;
-    /* 15px / 16px = 0.9375rem */
     display: block;
 }
 
@@ -72,11 +67,9 @@ a.submenuitem {
 .dropdown-content {
     display: none;
     position: absolute;
-    top: 100%;
     left: 0;
     background-color: #3d4450;
     min-width: 12rem;
-    /* 140px / 16px = 8.75rem */
     z-index: 1;
 }
 
@@ -99,11 +92,34 @@ div.container-fluid {
     padding: 0;
 }
 
-div.top_information {
-    padding-right: 10rem;
-}
-
 div.dropdown-content.menuitem_user {
     position: absolute;
     left: -70px;
+}
+
+div.left,
+div.contentcenter,
+div.right {
+    background-color: #1b2838;
+}
+
+div.left,
+div.right {
+    min-width: auto;
+    width: 20%;
+}
+
+div.contentcenter {
+    width: 60%;
+}
+
+li {
+    display: inline-block;
+}
+
+ul.firstlist {
+    display: flex;
+    justify-content: end;
+    align-items: baseline;
+    padding-top: 0.4rem;
 }
