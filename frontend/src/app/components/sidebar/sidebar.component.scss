@@ -1,0 +1,36 @@
+a.sidebar_item {
+  line-height: 2.188782489740082vh;
+  margin:  0.27359781121751026vh 0;
+  display: block;
+  width: fit-content;
+  color: #7A8B9D;
+  font-size: 0.78125vw;
+  font-family: "Motiva Sans", Sans-serif;
+  font-weight: normal;
+  font-weight: 550;
+}
+
+.sidebar_header.pad {
+  margin-top:  3.076923076923077vh;
+}
+
+.sidebar_header {
+  line-height: 2.188782489740082vh;
+  margin: 0.957592339261286vh 0;
+  color: #536f86;
+  font-size: 0.9114583333333334vw;
+  text-transform: uppercase;
+  font-family: "Motiva Sans", Sans-serif;
+  font-weight: normal;
+  font-weight: bolder;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #66c0f4;
+}
+
+div.sidebar_main {
+  background-color: #1b2838;
+  height: 100vh;
+}

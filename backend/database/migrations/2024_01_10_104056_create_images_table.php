@@ -10,11 +10,11 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->integer('game_id');
-            $table->string('image');
+            $table->unsignedBigInteger('game_id');
+            $table->string('image_path')->default('PLACEHOLDER');
             $table->timestamps();
 
-            $table->foreignId('game')->references('id')->on('games')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

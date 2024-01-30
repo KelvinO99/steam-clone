@@ -17,6 +17,7 @@ return new class extends Migration
 
             $table->foreignId('PLACEHOLDER_COLUMN1')->references('PLACEHOLDER_EXT_COLUMN1')->on('PLACEHOLDER_EXT_TABLE_NAME1')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('PLACEHOLDER_COLUMN2')->references('PLACEHOLDER_EXT_COLUMN2')->on('PLACEHOLDER_EXT_TABLE_NAME2')->onDelete('cascade')->onUpdate('cascade');
+        });
     }
 
     public function down(): void

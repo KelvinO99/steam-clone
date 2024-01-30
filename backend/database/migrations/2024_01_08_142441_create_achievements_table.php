@@ -10,12 +10,11 @@ return new class extends Migration
     {
         Schema::create('achievements', function (Blueprint $table) {
             $table->id();
-            $table->integer('game_id');
-            $table->string('name');
-            $table->boolean('is_achieved');
+            $table->unsignedBigInteger('game_id');
+            $table->string('name')->default('PLACEHOLDER');
             $table->timestamps();
 
-            $table->foreignId('game')->references('id')->on('games')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

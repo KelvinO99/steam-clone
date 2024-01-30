@@ -10,8 +10,8 @@ return new class extends Migration
     {
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->boolean('is_genre');
+            $table->string('name')->default('PLACEHOLDER');
+            $table->boolean('is_genre')->default(false);
             $table->timestamps();
 
         });

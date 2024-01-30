@@ -10,16 +10,16 @@ return new class extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('game_id');
-            $table->date('date_of_review');
-            $table->boolean('is_recommended');
-            $table->longtext('description');
-            $table->float('hours_played');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('game_id');
+            $table->date('date')->default('1970-01-01');
+            $table->boolean('is_recommended')->default(false);
+            $table->longtext('description')->default('PLACEHOLDER');
+            $table->float('hours_played')->default(0);
             $table->timestamps();
 
-            $table->foreignId('game')->references('id')->on('games')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

@@ -10,12 +10,14 @@ return new class extends Migration
     {
         Schema::create('users_achievements', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('achievement_id');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('achievement_id');
+            $table->boolean('is_achieved')->default(false);
+            $table->datetime('date')->nullable()->default('1970-01-01'); //nullable perché puoi non aver compiuto l'achievement -chris
             $table->timestamps();
             
-            $table->foreignId('user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('achievement')->references('id')->on('achievements')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('achievement_id')->references('id')->on('achievements')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
