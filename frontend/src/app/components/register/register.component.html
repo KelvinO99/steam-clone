@@ -4,43 +4,46 @@
 <ng-template #ifBlock>
     <div class="container-fluid body m-0 p-0">
         <img src="" style="width: 100wh;">
-        <div class="container-fluid formcontrol">
-            <form [formGroup]="registerform">
+        <div class="container-fluid formGroup">
+            <form [formGroup]="registerForm">
 
-                <div class="validcontainer" *ngIf="showEmailError">
-                    <span class="text"> Please enter a valid email address. </span>
+                <div class="containerError">
+                    <span class="text"
+                        *ngIf="!registerForm.controls['email'].pristine && registerForm.controls['email'].invalid">
+                        Please enter a valid email address. </span> <br>
+                    <span class="text" *ngIf="!showEmailConfirmError"> Please enter a confirm email address. </span>
                 </div>
 
-                <div class="titlecontainer">
+
+                <div class="titleContainer">
                     <span class="title"> create your account </span>
                 </div>
 
-                <div class="form-group emailaddress">
-                    <label class="emailaddress" for="emailaddress"> Email Address </label>
-                    <input type="email" class="email" id="email" formControlName="email" ngModel required>
+                <div class="form-group">
+                    <label class="email"> Email Address </label>
+                    <input type="email" class="form-control" formControlName="email" required>
                 </div>
 
-                <div class="form-group confirmaddress">
-                    <label class="confirmaddress" for="confirmaddress"> Confirm your Address </label>
-                    <input type="email" class="confirmaddress" id="confirmaddress">
+                <div class="form-group">
+                    <label class="confirmEmail"> Confirm your Address </label>
+                    <input type="email" class="form-control" [formControl]="confirmEmail" required>
                 </div>
 
-                <div class="form-group   country">
-                    <label class="country" for="country"> Country of Residence </label>
-                    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                <div class="form-group">
+                    <label class="country"> Country of Residence </label>
+                    <select class="form-select-sm" aria-label=".form-select-sm example">
                         <option *ngFor="let city of country" [value]="city">{{ city }}</option>
                     </select>
                 </div>
 
-                <div class="continue">
-                    <button type="submit" class="btn btn-primary continue" (click)="controlEmailForm()"> Continue
+                <div class="emailButton">
+                    <button type="submit" class="btn btn-primary" (click)="controlEmailForm()"> Continue
                     </button>
                 </div>
 
-                <div class="form-check confirmage">
-                    <input type="checkbox" class="form-check-input confirmage">
-                    <label class="form-check-label confirmage"> I am 13 years of age or older and agree to the terms of
-                        the
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input">
+                    <label class="form-check-label"> I am 13 years of age or older and agree to the terms of the
                         Steam Subscriber Agreement and the <br> Valve Privacy Policy. </label>
                 </div>
             </form>
@@ -53,7 +56,7 @@
     <div class="container-fluid body m-0 p-0">
         <img src="" style="width: 100wh;">
         <div class="container-fluid formcontrol">
-            <form [formGroup]="registerform">
+            <form [formGroup]="registerForm">
 
                 <div class="validcontainer">
                     <div>
@@ -85,7 +88,7 @@
                     <button type="submit" class="btn btn-primary continue" (click)="registerUser()"> Done
                     </button>
                     <!-- <button type="submit" class="btn btn-primary continue" (click)="controlPasswordForm()"
-                        [disabled]="registerform.controls['password'].invalid"> Done
+                        [disabled]="registerForm.controls['password'].invalid"> Done
                     </button> -->
                 </div>
             </form>

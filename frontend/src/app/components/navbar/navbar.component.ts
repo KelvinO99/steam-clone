@@ -35,4 +35,5 @@ export class NavbarComponent {
     'Tiếng Việt (Vietnamese)',
     'Українська (Ukrainian)',
   ];
+authService: any;
 }

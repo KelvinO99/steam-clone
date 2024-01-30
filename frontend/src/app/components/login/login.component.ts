@@ -19,9 +19,13 @@ export class LoginComponent implements OnInit {
       password: new FormControl(null, Validators.required),
     });
   }
-
+  
   goTo(destination: string): void {
     this.router.navigate(['register']);
+  }
+
+  goToHome(destination: string): void {
+    this.router.navigate(['']);
   }
 
   login() {
