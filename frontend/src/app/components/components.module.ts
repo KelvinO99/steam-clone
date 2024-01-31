@@ -28,6 +28,7 @@ import { ProductBannersComponent } from '../product-banners/product-banners.comp
     HomeComponent,
     StoreComponent,
     SidebarComponent,
+    ProductBannersComponent,
   ],
   imports: [
     CommonModule,
