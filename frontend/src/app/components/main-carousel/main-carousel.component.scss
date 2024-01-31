@@ -13,7 +13,6 @@
     position: absolute;
     transform:translatex(0px) translatey(0px);
     margin-left:0px;
-    width:54px !important;
     right: -0.4vw;
     height: 6.75em;
     width: 4em;
@@ -25,7 +24,6 @@
 .carousel-control-prev{
     position: absolute;
     padding-right:11px !important;
-    width:53px !important;
     left: -3.5vw;
     height: 6.75em;
     width: 4em;
@@ -49,8 +47,8 @@
 
 .carousel {
     width: 55.808vw;
-    box-shadow:0px 0px 27px 0px black;
     height:23.8vw;
+    box-shadow:0px 0px 27px 0px black;
     border-radius: 1.5%;
     margin: 0;
     padding: 0;
@@ -82,8 +80,8 @@
     position: relative;
     right: -8vw;
     color: white;
-    height: 353px;
-    width: 296.9px;
+    height: 23.83vw;
+    width: 20.04vw;
     background-image: url('https://store.akamai.steamstatic.com/public/images/v6/home/background_maincap_2.jpg');
     margin: 0;
     padding: 0;
@@ -91,8 +89,8 @@
 
 .card-img {
     cursor: pointer;
-    height: 353px;
-    width: 550px;
+    height: 23.83vw;
+    width: 37.13vw;
     position: relative;
     margin: 0;
     padding: 0;
@@ -254,9 +252,8 @@
     border-top-left-radius:0%;
     border-top-right-radius:0%;
     border-bottom-left-radius:0%;
-    left:121px;
     border-bottom-right-radius:0%;
-    width:310px;
+
    }
    
    /* Card body */
@@ -270,7 +267,6 @@
     border-top-right-radius:0%;
     border-bottom-left-radius:0%;
     border-bottom-right-radius:0%;
-    height:352px;
    }
    
    
