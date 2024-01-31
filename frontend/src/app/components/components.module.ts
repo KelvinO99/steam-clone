@@ -20,7 +20,7 @@ import { StoreComponent } from './store/store.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProductBannersComponent } from '../product-banners/product-banners.component';
 
-import { CarouselComponent } from './carousel/carousel.component';
+import { MainCarouselComponent } from './main-carousel/main-carousel.component';
 @NgModule({
   declarations: [
     BaseComponent,
@@ -30,7 +30,7 @@ import { CarouselComponent } from './carousel/carousel.component';
     StoreComponent,
     SidebarComponent,
     ProductBannersComponent,
-    CarouselComponent,
+    MainCarouselComponent,
   ],
   imports: [
     CommonModule,
