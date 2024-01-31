@@ -18,6 +18,7 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { StoreComponent } from './store/store.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { ProductBannersComponent } from '../product-banners/product-banners.component';
 
 @NgModule({
   declarations: [
