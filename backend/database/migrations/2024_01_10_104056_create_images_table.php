@@ -10,9 +10,9 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('game_id');
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('achievement_id');
+            $table->unsignedBigInteger('game_id') ->default(1);
+            $table->unsignedBigInteger('user_id')->default(1);
+            $table->unsignedBigInteger('achievement_id')->default(2);
             $table->string('image_path')->default('PLACEHOLDER');
             $table->timestamps();
 

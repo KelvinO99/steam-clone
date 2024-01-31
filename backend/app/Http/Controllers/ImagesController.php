@@ -64,24 +64,25 @@ class ImagesController extends Controller
     public function store(Request $request) {
 
         // Ottieni l'utente autenticato tramite JWT
-        $var = JWTAuth::parseToken()->authenticate();
+        $logged = JWTAuth::parseToken()->authenticate();
 
         // Se non c'è un utente autenticato, restituisci un errore
-        if (!$var) {
+        if (!$logged) {
             return response()->json(['message' => 'Non autorizzato'], 401);
         }
 
-        $validatedData = $request->validate([
-            'game_id' => 'required|max:255',
-            'image_path' => 'required|max:255',
+        $request->validate([
+            'image' => 'required|image|max:4096', //fa caricare l'immagine allo user -kel
         ]);
+
+        $path = $request->file('image')->store('images', 'public');
     
-        $var = new Images();
-        $var->fill($validatedData);
+        $image = new Images();
+        $image->image_path = $path;
 
-        $var->save();
+        $image->save();
 
-        return response()->json($var, 201);
+        return response()->json($image, 201);
 
     }
 }
