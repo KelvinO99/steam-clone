@@ -4,29 +4,36 @@
         <div class="left">
         </div>
 
-        <div class="contentcenter">
+        <div class="contentCenter">
             <!-- Prima lista -->
-                <ul class="firstlist">
+            <ul class="firstList">
                 <li class="nav-item">
-                    <a class="nav-link menuitem_user installsteam" routerLink=""> <img
+                    <a class="nav-link menuItemUser installSteam" routerLink=""> <img
                             src="https://store.cloudflare.steamstatic.com/public/shared/images/header/btn_header_installsteam_download.png?v=1">
                         Install Steam </a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link menuitem_user" routerLinkActive="active"
-                        routerLink="/login">Sign in</a>
+                <li class="nav-item" *ngIf="!loggedIn">
+                    <a class="nav-link menuItemUser" routerLinkActive="active" routerLink="/login"> login </a>
+                </li>
+
+                <li class="nav-item" *ngIf="loggedIn">
+                    <a class="nav-link menuItemUser" routerLinkActive="active"> {{ username}} </a>
+                </li>
+
+                <li class="nav-item" *ngIf="loggedIn == true">
+                    <a class="nav-link menuItemUser" routerLinkActive="active" (click)="logout()"> logout </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menuitem_user" routerLink="#"> | </a>
+                    <a class="nav-link menuItemUser"> | </a>
                 </li>
 
                 <li class="nav-item">
                     <div class="dropdown p-0">
-                        <a class="dropbtn nav-link menuitem_user" routerLink="#"> Language </a>
-                        <div class="dropdown-content menuitem_user">
-                            <a *ngFor="let item of language" class="submenuitem" routerLink="#"> {{ item }}
+                        <a class="dropbtn nav-link menuItemUser"> Language </a>
+                        <div class="dropdown-content language">
+                            <a *ngFor="let item of language" class="subMenuItem"> {{ item }}
                             </a>
                         </div>
                     </div>
@@ -34,41 +41,44 @@
             </ul>
 
             <!-- Seconda lista -->
-            <ul class="secondlist">
+            <ul class="secondList">
                 <li class="nav-item">
-                    <a class="nav-link menuitem p-0" href="#"> <img
+                    <a class="nav-link menuItem p-0" href="#"> <img
                             src="https://store.cloudflare.steamstatic.com/public/shared/images/header/logo_steam.svg?t=962016"
                             height="44px" width="176px">
                     </a>
                 </li>
                 <li class="nav-item">
                     <div class="dropdown p-0">
-                        <a class="dropbtn nav-link menuitem" routerLink="#"> Shop </a>
-                        <div class="dropdown-content">
-                            <a class="submenuitem" routerLink=""> Main Page </a>
-                            <a class="submenuitem" routerLink="#"> Discovery Queue </a>
-                            <a class="submenuitem" routerLink="#"> Wishlist </a>
-                            <a class="submenuitem" routerLink="#"> Point Shop </a>
-                            <a class="submenuitem" routerLink="#"> News </a>
-                            <a class="submenuitem" routerLink="#"> Stats </a>
-                            <a class="submenuitem" routerLink="#"> About </a>
+                        <a class="dropbtn nav-link menuItem" routerLink="#"> Shop </a>
+                        <div class="dropdown-content shop">
+                            <a class="subMenuItem" routerLink=""> Main Page </a>
+                            <a class="subMenuItem" routerLink="#"> Discovery Queue </a>
+                            <a class="subMenuItem" routerLink="#"> Wishlist </a>
+                            <a class="subMenuItem" routerLink="#"> Point Shop </a>
+                            <a class="subMenuItem" routerLink="#"> News </a>
+                            <a class="subMenuItem" routerLink="#"> Stats </a>
+                            <a class="subMenuItem" routerLink="#"> About </a>
                         </div>
                     </div>
                 </li>
                 <li class="nav-item">
                     <div class="dropdown">
-                        <a class="dropbtn nav-link menuitem" routerLink="#"> Community </a>
-                        <div class="dropdown-content">
-                            <a class="submenuitem" routerLink="#"> Home </a>
-                            <a class="submenuitem" routerLink="#"> WorkShop </a>
+                        <a class="dropbtn nav-link menuItem" routerLink="#"> Community </a>
+                        <div class="dropdown-content community">
+                            <a class="subMenuItem" routerLink="#"> Home </a>
+                            <a class="subMenuItem" routerLink="#"> Discussion </a>
+                            <a class="subMenuItem" routerLink="#"> WorkShop </a>
+                            <a class="subMenuItem" routerLink="#"> Market </a>
+                            <a class="subMenuItem" routerLink="#"> Broadcast </a>
                         </div>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menuitem" routerLink="#"> Information </a>
+                    <a class="nav-link menuItem" routerLink="#"> About </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menuitem" routerLink="#"> Assistance </a>
+                    <a class="nav-link menuItem" routerLink="#"> Support </a>
                 </li>
             </ul>
         </div>

@@ -16,8 +16,12 @@
     registerForm!: FormGroup;
     confirmEmail!: FormControl
     count = 0;
+
+    //password validator
     StrongPasswordRegx: RegExp =
       /^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\D*\d).{8,}$/;
+    
+    //controllo degli errori
     showEmailError = true;
     showEmailConfirmError = true;
     showDivError = true
@@ -72,8 +76,22 @@
     }
 
     controlEmailForm() {
-      const emailControl = this.registerForm.get('email');
-      const confirmEmailControl = document.getElementById('confirmEmail') as HTMLInputElement;
+
+      //quando entrambi i campi sono vuoti mi visualizza i due errori
+      if (this.registerForm.controls['email'].invalid && this.confirmEmail.invalid) { 
+        this.showEmailError = false;
+        this.showEmailConfirmError = false;
+        this.showDivError = false;
+      }
+      else if(this.registerForm.controls['email'].valid && this.confirmEmail.invalid) {
+        this.showEmailError = true;
+        this.showEmailConfirmError = false;
+        this.showDivError = false;
+      }
+
+      else {
+        this.count = 1
+      }
     }
 
     controlPasswordForm() {

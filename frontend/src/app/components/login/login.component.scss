@@ -14,7 +14,7 @@
     border-radius: 4px;
 }
 
-label.login {
+label.username {
     font-family: "Motiva Sans", Sans-serif;
     color: #1999ff;
     font-weight: 500;
@@ -25,7 +25,7 @@ label.login {
     user-select: none;
 }
 
-input.login {
+input.form-control {
     outline: none;
     border-radius: 2px;
     color: #fff;
@@ -36,7 +36,7 @@ input.login {
     width: 400px;
 }
 
-input.password {
+input.form-control {
     outline: none;
     border-radius: 2px;
     color: #fff;
@@ -55,7 +55,7 @@ label.password {
     user-select: none;
 }
 
-.remindme {
+.form-check-label {
     color: #afafaf;
     font-size: 12px;
     user-select: none;
@@ -75,7 +75,7 @@ label.password {
     cursor: pointer;
 }
 
-button.signin {
+button.signIn {
     background: linear-gradient(90deg, #06BFFF 30%, #2D73FF 100%);
     width: 270px;
     background: linear-gradient(90deg, #06BFFF 0%, #2D73FF 100%);
@@ -90,7 +90,7 @@ button.signin {
     cursor: pointer;
 }
 
-div.signin {
+div.signIn {
     display: flex;
     justify-content: center;
     padding-top: 1rem;
@@ -114,7 +114,7 @@ div.signin {
     justify-content: center;
 }
 
-.buttonregister {
+button.signUp {
     padding: 0 20px;
     font-size: 15px;
     line-height: 30px;
@@ -139,6 +139,6 @@ li.button {
     padding-top: 20px;
 }
 
-.containerregister {
+.containerRegister {
     padding-top: 35px;
 }

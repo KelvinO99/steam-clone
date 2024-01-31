@@ -20,9 +20,7 @@ label {
     vertical-align: top;
 }
 
-.form-control,
-input.choosepassword,
-input.confirmpassword {
+.form-control {
     background: #32353C;
     border-radius: 0.1875rem;
     /* 3px / 16px = 0.1875rem */
@@ -96,9 +94,8 @@ div.country {
 div.form-check,
 div.form-group,
 div.emailButton,
-div.confirmpassword,
-div.choosepassword,
-div.titleContainer {
+div.titleContainer,
+div.signUp {
     padding-top: 1.875rem;
 }
 

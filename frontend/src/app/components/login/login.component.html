@@ -1,35 +1,35 @@
 <div class="container-fluid body m-0 p-0">
     <img src="" style="width: 100wh;">
     <div class="container-fluid formcontrol">
-        <form [formGroup]="loginform">
+        <form [formGroup]="loginForm">
             <div class="form-group">
-                <label class="login"> Log in with your account name </label>
-                <input type="username" class="login" aria-describedby="emailHelp">
+                <label class="username"> Log in with your account name </label>
+                <input type="username" class="form-control" formControlName="username" autocomplete="off" required>
             </div>
             <div class="form-group">
                 <label class="password"> Password </label>
-                <input type="password" class="password">
+                <input type="password" class="form-control" formControlName="password" autocomplete="off" required>
             </div>
             <div class="form-check">
                 <input type="checkbox" class="form-check-input checkbox">
-                <label class="form-check-label remindme"> Remind me </label>
+                <label class="form-check-label"> Remind me </label>
             </div>
-            <div class="signin">
-                <button type="submit" class="btn btn-primary signin" (click)="goToHome('')"> Sign In </button>
+            <div class="signIn">
+                <button type="submit" class="btn btn-primary signIn" (click)="loginUser()"> Sign In </button>
             </div>
         </form>
     </div>
 
     <div class="container-fluid footergrid">
         <footer class="">
-            <div class="containerregister">
+            <div class="containerRegister">
                 <ul class="nav register">
                     <li class="nav-item labelregister"> Are you a new User? </li>
                 </ul>
                 <ul class="nav register">
                     <li class="nav-item button">
                         <div>
-                            <button (click)="goTo('register')" type="button" class="btn btn-primary buttonregister">
+                            <button (click)="goTo('register')" type="button" class="btn btn-primary signUp">
                                 Create an account </button>
                         </div>
                     </li>

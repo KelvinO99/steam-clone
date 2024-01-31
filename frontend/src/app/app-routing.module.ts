@@ -8,11 +8,14 @@ import { AuthGuard } from './shared/services/auth.guard';
 import { User } from './shared/services/user.service';
 
 const routes: Routes = [
-  { path: '', component: StoreComponent },
-  { path: '', redirectTo: '/log-in', pathMatch: 'full' },
+  
+  { path: '', redirectTo: 'home/store', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent,
+  children:[
+    { path: 'store', component: StoreComponent },
+  ] },
   { path: 'user-profile/:id', component: User, canActivate: [AuthGuard] },
 ];
 

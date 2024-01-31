@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user.models';
-import { Observable, catchError } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -13,14 +13,30 @@ export class AuthService {
     throw new Error('Method not implemented.');
   }
   APIUrl = `${environment.api}/`
-  user: User | undefined  
+  user: User | undefined 
+  private loggedInSubject = new BehaviorSubject<boolean>(false);
+  loggedIn$ = this.loggedInSubject.asObservable();
+ 
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.checkLoggedIn();
+  }
+
+  checkLoggedIn() {
+    let token = localStorage.getItem('access_token');
+    if (token) {
+      this.loggedInSubject.next(true);
+    } else {
+      this.loggedInSubject.next(false);
+    }
+  }
 
   signIn(user: User) {
-    return this.http.post<any>(`${this.APIUrl}/auth/login`, user).subscribe((res: any) => {
-        localStorage.setItem('access_token', res.token);
-      });
+    return this.http.post<any>(`${this.APIUrl}auth/login`, user).pipe(tap( res => {
+        localStorage.setItem('access_token', res.access_token);
+        localStorage.setItem('user_profile_obj', res.user);
+        localStorage.setItem('user_profile_username', res.user['username']);
+      }));
   }
 
   signUp(user: User): Observable<any> {
@@ -29,6 +45,10 @@ export class AuthService {
 
   getToken() {
     return localStorage.getItem('access_token');
+  }
+
+  getUsername() {
+    return localStorage.getItem('user_profile_username');
   }
 
   get isLoggedIn(): boolean {

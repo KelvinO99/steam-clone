@@ -7,10 +7,10 @@
         <div class="container-fluid formGroup">
             <form [formGroup]="registerForm">
 
-                <div class="containerError">
+                <div class="containerError" *ngIf="!showDivError">
                     <span class="text"
-                        *ngIf="!registerForm.controls['email'].pristine && registerForm.controls['email'].invalid">
-                        Please enter a valid email address. </span> <br>
+                        *ngIf="!showEmailError">
+                        Please enter a valid email address.  <br> </span>
                     <span class="text" *ngIf="!showEmailConfirmError"> Please enter a confirm email address. </span>
                 </div>
 
@@ -55,37 +55,37 @@
 <ng-template #elseBlock>
     <div class="container-fluid body m-0 p-0">
         <img src="" style="width: 100wh;">
-        <div class="container-fluid formcontrol">
+        <div class="container-fluid formGroup">
             <form [formGroup]="registerForm">
 
-                <div class="validcontainer">
+                <div class="containerError">
                     <div>
                         <span class="text"> Please enter a valid email address. </span>
                     </div>
                 </div>
 
-                <div class="titlecontainer">
+                <div class="titleContainer">
                     <span class="title"> create your account </span>
                 </div>
 
-                <div class="form-group emailaddress">
-                    <label class="emailaddress" for="emailaddress"> Steam Account Name </label>
-                    <input type="email" class="email" id="email" formControlName="username" required>
+                <div class="form-group">
+                    <label class="emailaddress"> Steam Account Name </label>
+                    <input type="username" class="form-control" formControlName="username" required>
                 </div>
 
-                <div class="form-group choosepassword">
-                    <label class="choosepassword" for="choosepassword"> Choose Password </label>
-                    <input type="password" class="choosepassword" id="choosepassword" formControlName="password"
+                <div class="form-group">
+                    <label class="choosepassword"> Choose Password </label>
+                    <input type="password" class="form-control" formControlName="password"
                         autocomplete="off" required>
                 </div>
 
-                <div class="form-group confirmpassword">
-                    <label class="confirmpassword" for="confirmpassword"> Confirm Password </label>
-                    <input type="password" class="confirmpassword" id="confirmpassword">
+                <div class="form-group">
+                    <label class="confirmpassword"> Confirm Password </label>
+                    <input type="password" class="form-control" id="confirmPassword" autocomplete="off" required>
                 </div>
 
-                <div class="continue">
-                    <button type="submit" class="btn btn-primary continue" (click)="registerUser()"> Done
+                <div class="signUp">
+                    <button type="submit" class="btn btn-primary" (click)="registerUser()"> Done
                     </button>
                     <!-- <button type="submit" class="btn btn-primary continue" (click)="controlPasswordForm()"
                         [disabled]="registerForm.controls['password'].invalid"> Done
