@@ -18,7 +18,7 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { StoreComponent } from './store/store.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-
+import { CarouselComponent } from './carousel/carousel.component';
 @NgModule({
   declarations: [
     BaseComponent,
@@ -27,6 +27,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     HomeComponent,
     StoreComponent,
     SidebarComponent,
+    CarouselComponent,
   ],
   imports: [
     CommonModule,
