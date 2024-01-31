@@ -42,6 +42,9 @@ class AuthController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function register(Request $request) {
+
+        $is_developer = $request->input('is_developer');
+
         $validator = Validator::make($request->all(), [
             // 'name' => 'required|string|between:5,30',
             'username' => 'required|string|between:5,30|unique:users',
@@ -55,6 +58,20 @@ class AuthController extends Controller
                     $validator->validated(),
                     ['password' => bcrypt($request->password)]
                 ));
+                
+
+        // Da qui si assegnerà il ruolo base di User
+        $userRole = \App\Models\Role::where('name', 'user')->first(); // Qui metto il nome esatto del ruolo (In questo caso, user)
+        $user->addRole($userRole); // Qui aggiungo il ruolo con addRole(nomeruolo) E NON attachRole()
+
+        
+        if ($is_developer) {
+            $user_id->
+            $validator
+        };
+
+
+
         return response()->json([
             'message' => 'User successfully registered',
             'user' => $user
