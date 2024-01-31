@@ -50,6 +50,10 @@
 }
 
 #daily{
+    background: linear-gradient( to bottom, #ffffff 5%, #abdaf4 95%);
+}
+
+#daily{
     background-color: #abdaf4;
 }
 
@@ -288,4 +292,127 @@ width:100% !important;
     font-family:Motiva Sans, sans-serif;
    }
    
+   /* Card img top */
+.container-fluid .row .col-md-4 .card .card-img-top{
+    border-top-left-radius:0px;
+    border-top-right-radius:0px;
+   }
    
+   /* Carousel inner */
+   #carousel .carousel-inner{
+    transform:translatex(0px) translatey(0px);
+   }
+   
+   #carousel .carousel-item .container-fluid .row{
+    border-width:0px;
+   }
+
+   
+   /* Division */
+.card-body > div{
+    display:inline-flex;
+    width:246px;
+    height:33px;
+   }
+   
+   /* Paragraph */
+   #carousel .card-body div p{
+    position:relative;
+    top:-4px;
+    margin-bottom:0px;
+   }
+   
+   .allContainer .carouselContainer app-offer-cards #carouselcenter #carousel .carousel-inner .carousel-item .container-fluid .row .col-md-8 .col-md-6 .card .card-body div div{
+    width:69px !important;
+   }
+   
+   /* Division */
+   #carousel .card-body div div{
+    transform:translatex(0px) translatey(0px);
+   }
+   
+   /* Paragraph */
+   #carousel .card-body div p{
+    width:35px;
+    left:22px;
+    min-height:19px;
+    top:-1px !important;
+   }
+   
+   /* Paragraph */
+   .allContainer .carouselContainer app-offer-cards #carouselcenter #carousel .carousel-inner .carousel-item .container-fluid .row .col-md-8 .col-md-6 .card .card-body div div p{
+    bottom:auto !important;
+   }
+/* Carousel inner */
+#carousel .carousel-inner{
+    transform:translatex(0px) translatey(0px);
+   }
+   
+   /* Paragraph */
+   #carousel .carousel-item .container-fluid .row .col-md-8 .col-md-6 .card .card-body div div p{
+    top:-7px !important;
+   }
+   
+   /* Paragraph */
+   .allContainer .carouselContainer app-offer-cards #carouselcenter #carousel .carousel-inner .carousel-item .container-fluid .row .col-md-8 .col-md-6 .card .card-body div div p{
+    bottom:auto !important;
+   }
+   
+   /* Division */
+   #carousel .card-body div div{
+    height:34px;
+   }
+   
+   /* Heading */
+   #carousel div h4{
+    position:relative;
+    top:3px;
+   }
+   
+   /* Paragraph */
+#carousel .card-body div p{
+    width:45px !important;
+   }
+   
+   /* Paragraph */
+   #carousel div p:nth-child(1){
+    left:25px !important;
+   }
+   
+/* Paragraph */
+.allContainer .carouselContainer app-offer-cards #carouselcenter #carousel .carousel-inner .carousel-item .container-fluid .row .col-md-8 .col-md-6 .card .card-body div div p:nth-child(1){
+    top:0px !important;
+    bottom:auto !important;
+   }
+      
+
+   /* Paragraph */
+#carousel .card-body div p:nth-child(2){
+    left:18px !important;
+   }
+   
+   /* Paragraph */
+   .allContainer .carouselContainer app-offer-cards #carouselcenter #carousel .carousel-inner .carousel-item .container-fluid .row .col-md-8 .col-md-6 .card .card-body div div p:nth-child(2){
+    right:auto !important;
+   }
+   
+   /* Paragraph */
+   #carousel .carousel-item .container-fluid .row .col-md-8 .col-md-6 .card .card-body div div p:nth-child(1){
+    left:21px !important;
+   }
+   
+   /* Paragraph */
+   .allContainer .carouselContainer app-offer-cards #carouselcenter #carousel .carousel-inner .carousel-item .container-fluid .row .col-md-8 .col-md-6 .card .card-body div div p:nth-child(1){
+    right:auto !important;
+   }
+   
+   /* Card body */
+.container-fluid .row .col-md-4 .card .card-body{
+    min-height:53px;
+   }
+   
+   /* Card text */
+   .row .col-md-4 .card .card-body .card-text{
+    position:relative;
+    top:6px;
+   }
