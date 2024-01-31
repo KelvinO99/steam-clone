@@ -20,6 +20,7 @@ import { StoreComponent } from './store/store.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProductBannersComponent } from '../product-banners/product-banners.component';
 
+import { CarouselComponent } from './carousel/carousel.component';
 @NgModule({
   declarations: [
     BaseComponent,
@@ -29,6 +30,7 @@ import { ProductBannersComponent } from '../product-banners/product-banners.comp
     StoreComponent,
     SidebarComponent,
     ProductBannersComponent,
+    CarouselComponent,
   ],
   imports: [
     CommonModule,
