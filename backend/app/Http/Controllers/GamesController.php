@@ -4,6 +4,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Developers;
 use App\Models\Games;
 use App\Models\GamesTags;
 use App\Models\Reviews;
@@ -17,7 +18,7 @@ class GamesController extends Controller
     public function index(Request $request)
     {
         $discount = $request->input("discount");
-        $feature = $request->input("featured");
+        $featured = $request->input("featured");
         $special_offer = $request->input("special_offer");
         $game = Games::query(); // Start building the query
         
@@ -27,7 +28,7 @@ class GamesController extends Controller
             $game->where('is_discounted', true);
         }
 
-        if ($feature) {
+        if ($featured) {
               $game->select('games.id', 'games.name', 'games.base_price', 'games.discounted_price')
                                     ->join('games_tags', 'games.id', '=', 'games_tags.game_id')
                                     ->join('tags', 'games_tags.tag_id', '=', 'tags.id')
@@ -49,8 +50,24 @@ class GamesController extends Controller
 
     // Mostra un determinato record dellla tabella Games -Kelvin
     public function show($id){
-        $game = Games::find($id); //prendi il gioco (id)
+        $game = Games::where('id', $id)->with(['DevelopersGames.Developers' => function ($q){
+            $q->select('id','user_id', 'is_publisher')->with(['User' => function ($q2){
+                $q2->select('id', 'username');
+        }]);
+    }])->first(); 
+    // $devPublish = $game->DevelopersGames->pluck('Developers.is_publisher');
+    // $devName = $game->DevelopersGames->pluck('Developers.User.username');
+    // for ($i = 0; $i < count($devPublish); $i++) {
+    // $dev['isPublisher'] = $devPublish;}
+    //  $dev['username'] = $devName;
+
+
+    //return $game;
+
+
+//REVIEWS FUNCTION        
         $reviews = Reviews::where('game_id', $id)->pluck('is_recommended'); //prendi la colonna is_recommended del singolo gioco
+
         $DIM_A = count($reviews); //conta quante review sono state fatte
         $positive = 0; // inizializza variabile che verrà usata subito
         for($i = 0; $i < $DIM_A-1; $i++){ 
@@ -81,13 +98,38 @@ class GamesController extends Controller
             default:
                 $string= 'Errore'; //riferisci a chris
             }
+//REVIEWS FUNCTION        
+
+
+//DEVELOPERS FUNCTION
+        
+    //     $developer = Developers::select('developers.*', 'users.username as user_name')
+    // ->join('developers_games', 'developers.id', '=', 'developers_games.developer_id')
+    // ->join('games', 'games.id', '=', 'developers_games.game_id')
+    // ->join('users', 'users.id', '=', 'developers.user_id') // Join with the users table
+    // ->where('developers_games.game_id', '=', $id)
+    // ->get();
+
+    // $dev = Developers::with('DevelopersGames.Games')->with('User')->get();
+
+//DEVELOPERS FUNCTION
+
+
+//TAGS FUNCTION
+        
+         
+
+
+//TAGS FUNCTION
+
 
         return response()->json([
         'status' => 200,
         'game' => $game,
-        'reviews' => $reviews->toArray(),
+        //'reviews' => $reviews->toArray(),
+        // 'developer' => $dev,
         'ratio' => $ratio,
-        'string' => $string,
+        'string' => $string
         ]);
 
 

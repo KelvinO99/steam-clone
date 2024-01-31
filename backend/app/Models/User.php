@@ -75,7 +75,7 @@ class User extends Authenticatable implements JWTSubject, LaratrustUser
 
     public function Developers(){
 
-        return $this->hasOne(Developers::class, 'developers', 'id');
+        return $this->hasOne(Developers::class, 'user_id', 'id');
     }
 
     public function Images(){

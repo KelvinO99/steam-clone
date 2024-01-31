@@ -82,3 +82,6 @@ Cose da ricordare:
 
 casomai non funzionasse la search:
 php artisan key:generate
+
+comando laratrust:
+composer require santigarcor/laratrust
