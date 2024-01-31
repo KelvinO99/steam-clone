@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Developers;
 use Illuminate\Support\Facades\Validator;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Facades\JWTFactory;
@@ -42,8 +43,11 @@ class AuthController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function register(Request $request) {
+
+        // Richiede in input se sei un developer
+        $is_developer = $request->input('is_developer');
+
         $validator = Validator::make($request->all(), [
-            // 'name' => 'required|string|between:5,30',
             'username' => 'required|string|between:5,30|unique:users',
             'email' => 'required|string|email|max:100|unique:users',
             'password' => 'required|string|confirmed|min:8',
@@ -55,6 +59,35 @@ class AuthController extends Controller
                     $validator->validated(),
                     ['password' => bcrypt($request->password)]
                 ));
+                
+
+        // Da qui si assegnerà il ruolo base di User
+        $userRole = \App\Models\Role::where('name', 'user')->first(); // Qui metto il nome esatto del ruolo (In questo caso, user)
+        $user->addRole($userRole); // Qui aggiungo il ruolo con addRole(nomeruolo) E NON attachRole()
+
+        
+        if ($is_developer) {
+            $validator = Validator::make($request->all(), [
+                'is_publisher' => 'required|boolean',
+                'description' => 'string|nullable',
+            ]);
+            if($validator->fails()){
+                return response()->json($validator->errors()->toJson(), 400);
+            }
+
+            $developer = Developers::create([
+                'user_id' => $user->id,
+                'is_publisher' => $request->is_publisher,
+                'description' => $request->description
+            ]);
+
+            // Da qui si assegnerà il ruolo base di User
+            $developerRole = \App\Models\Role::where('name', 'developer/publisher')->first(); // Qui metto il nome esatto del ruolo (In questo caso, developer)
+            $user->addRoles([$userRole, $developerRole]); // Qui aggiungo il ruolo con addRole(nomeruolo) E NON attachRole()
+        };
+
+
+
         return response()->json([
             'message' => 'User successfully registered',
             'user' => $user
