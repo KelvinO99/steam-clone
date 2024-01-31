@@ -32,32 +32,4 @@ class UserController extends Controller
         ]);
 
     }
-    
-    // Elimina un determinato record della tabella User -Salvo
-    /*public function destroy ($id){
-
-        $var = User::find( $id );
-        $var->delete();
-        
-        return response()->json([
-            'status'=>200,
-            'users'=>$var
-        ]);
-    }*/
-
-    // Aggiorna un determinato record della tabella User -Salvo
-    /*public function update(Request $request): Response
-    {
-        $var = User::findOrFail($request->id);
-
-        if ($var->update($request->all()) === false) {
-            return response(
-                "not real {$request->id}",
-                Response::HTTP_BAD_REQUEST
-            );
-        }
-
-        return response($var);
-    }*/
-
 }
