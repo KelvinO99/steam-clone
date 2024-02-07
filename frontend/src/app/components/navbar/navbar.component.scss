@@ -2,7 +2,7 @@
     background-color: #171d25;
 } */
 
-.menuitem {
+.menuItem {
     color: white;
     display: block;
     padding-left: 0.4375rem;
@@ -16,42 +16,44 @@
     text-transform: uppercase;
 }
 
-a.menuitem_user {
+a.menuItemUser {
     color: #ffffff;
     font-size: 0.7vw;
     font-family: "Motiva Sans", "Twemoji", "Noto Sans", Helvetica, sans-serif;
     font-weight: 500;
     padding-left: 1rem;
+    cursor: pointer;
 }
 
-a.installsteam:hover {
+a.installSteam:hover {
     background-color: #6c9018;
     transition-duration: 250ms;
     cursor: pointer;
 }
 
-.installsteam {
+a.installSteam {
     background-repeat: no-repeat;
-    background-position: 10px 5px;
     background-position-x: 10px;
     background-position-y: 5px;
     background-color: #5c7e10;
     transition-duration: 250ms;
-    padding-left: 35px;
+    padding: 3%;
+    padding-left: 15px;
     padding-right: 9px;
     cursor: pointer;
 }
 
-a.submenuitem {
+a.subMenuItem {
     text-decoration: none;
     text-transform: none;
-    font-size: 0.625rem;
-    font-weight: 400;
+    font-weight: normal;
+    font-size: 12px;
     color: #dcdedf;
     padding: 0.375rem 0;
     padding-right: 0.9375rem;
     padding-left: 0.9375rem;
     display: block;
+    cursor: pointer;
 }
 
 .dropdown {
@@ -64,13 +66,26 @@ a.submenuitem {
     text-decoration: none;
 }
 
-.dropdown-content {
+.dropdown-content.shop,
+.dropdown-content.community,
+.dropdown-content.language {
     display: none;
     position: absolute;
     left: 0;
     background-color: #3d4450;
-    min-width: 12rem;
     z-index: 1;
+}
+
+.dropdown-content.shop {
+    min-width: 10vw;
+}
+
+.dropdown-content.community {
+    min-width: 5rem;
+}
+
+.dropdown-content.language {
+    min-width: 13vw;
 }
 
 .dropdown-content a {
@@ -92,15 +107,15 @@ div.container-fluid {
     padding: 0;
 }
 
-div.dropdown-content.menuitem_user {
+div.dropdown-content.menuItemUser {
     position: absolute;
     left: -70px;
 }
 
 div.left,
-div.contentcenter,
+div.contentCenter,
 div.right {
-    background-color: #1b2838;
+    background-color: #171d25;
 }
 
 div.left,
@@ -109,7 +124,7 @@ div.right {
     width: 20%;
 }
 
-div.contentcenter {
+div.contentCenter {
     width: 60%;
 }
 
@@ -117,9 +132,13 @@ li {
     display: inline-block;
 }
 
-ul.firstlist {
+ul.firstList {
     display: flex;
     justify-content: end;
     align-items: baseline;
     padding-top: 0.4rem;
+}
+
+ul.secondList {
+    padding-bottom: 20px;
 }

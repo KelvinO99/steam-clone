@@ -4,6 +4,11 @@
     height: 100vh;
 }
 
+.formGroup {
+    display: flex;
+    justify-content: center;
+}
+
 label {
     font-size: 0.875rem;
     /* 14px / 16px = 0.875rem */
@@ -15,10 +20,7 @@ label {
     vertical-align: top;
 }
 
-input.email,
-input.confirmaddress,
-input.choosepassword,
-input.confirmpassword {
+.form-control {
     background: #32353C;
     border-radius: 0.1875rem;
     /* 3px / 16px = 0.1875rem */
@@ -54,7 +56,7 @@ select {
     /* 304px / 16px = 19rem */
 }
 
-button.continue {
+button.btn {
     border-radius: 2px;
     border: none;
     padding: 1px;
@@ -81,31 +83,23 @@ button.continue {
     cursor: pointer;
 }
 
-button.continue:hover {
+button.btn:hover {
     color: #fff;
-}
-
-.formcontrol {
-    display: flex;
-    justify-content: center;
 }
 
 div.country {
     padding: 0;
 }
 
-div.country,
-div.emailaddress,
-div.confirmaddress,
-div.continue,
-div.confirmage,
-div.confirmpassword,
-div.choosepassword,
-div.titlecontainer {
+div.form-check,
+div.form-group,
+div.emailButton,
+div.titleContainer,
+div.signUp {
     padding-top: 1.875rem;
 }
 
-input.confirmage {
+input.form-check-input {
     display: inline;
     width: 18px;
     height: 18px;
@@ -136,7 +130,7 @@ input:checked {
     letter-spacing: 2px;
 }
 
-.validcontainer {
+.containerError {
     background-color: rgba(0, 0, 0, 0.5);
     border: 2px solid #b44040;
     padding: 10px;
