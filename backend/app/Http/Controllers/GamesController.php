@@ -203,9 +203,10 @@ class GamesController extends Controller
             'discounted_percentage'=> 'nullable|integer|min:0|max:100',
             'short_description'=> 'required|max:255',
             'long_description'=> 'required|max:255',
-            'pegi'
+            'pegi_id'
         ]);
-    
+        
+        
         $var = new Games();
         $var->fill($validatedData);
 

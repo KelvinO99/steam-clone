@@ -63,22 +63,25 @@ class ImagesController extends Controller
     // Aggiunge un record alla tabella Images -Salvo
     public function store(Request $request) {
 
+        $userImg = $request->input("user");
+        $achievementImg = $request->input("achievement");
+        $gameImg = $request->input("game");
+
         // Ottieni l'utente autenticato tramite JWT
-        $logged = JWTAuth::parseToken()->authenticate();
+        $user = JWTAuth::parseToken()->authenticate();
 
         // Se non c'è un utente autenticato, restituisci un errore
-        if (!$logged) {
+        if (!$user) {
             return response()->json(['message' => 'Non autorizzato'], 401);
         }
 
         $request->validate([
             'image' => 'required|image|max:4096', //fa caricare l'immagine allo user -kel
         ]);
-
-        $path = $request->file('image')->store('images', 'public');
-    
-        $image = new Images();
-        $image->image_path = $path;
+        
+        $path = $request->file('image')->store('images', 'public'); //salva l'immagine e la fa diventare un path salvabile -kel
+        $image = new Images(); //crea record images -kel
+        $image->image_path = $path; //salva il record -kel
 
         $image->save();
 
