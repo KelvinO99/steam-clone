@@ -75,7 +75,6 @@ class ReviewsController extends Controller
         if($var->hasRole('developer/publisher')){
             return response()->json(['message'=> 'Non hai il permesso necessario'],401);
         }
-
         // Controlla se l'utente ha già pubblicato una recensione per questo gioco -Salvo
         $existingReview = Reviews::where('user_id', $var->id)->where('game_id', $request->game_id)->first();
 
@@ -86,18 +85,18 @@ class ReviewsController extends Controller
         $validatedData = $request->validate([
             'user_id' => 'required|max:255',
             'game_id' => 'required|max:255',
-            'data_of_review' => 'required|max:255',
-            //'is_recommended' => 'required',
+            'date_of_review' => 'required|max:255',
+            'is_recommended' => 'required',
             'description' => 'required|max:255',
             'hours_played' => 'required|max:255',
         ]);
-    
-        $var = new Reviews();
-        $var->fill($validatedData);
 
-        $var->save();
+        $review = new Reviews();
+        $review->fill($validatedData);
 
-        return response()->json($var, 201);
+        $review->save();
+
+        return response()->json($review, 201);
 
     }
 }
