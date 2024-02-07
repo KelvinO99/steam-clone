@@ -6,6 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Routing\PendingSingletonResourceRegistration;
 
 class Images extends Model
@@ -14,8 +15,6 @@ class Images extends Model
 
     protected $fillable = [
         'game_id',
-        'user_id',
-        'achievement_id',
         'image_path',
     ];
 
@@ -26,11 +25,11 @@ class Images extends Model
 
     public function Users(){
 
-        return $this->hasOne(User::class, 'image_id', 'id');
+        return $this->BelongsTo(User::class, 'image_id', 'id');
     }
 
     public function Achievements(){
 
-        return $this->hasOne(Achievements::class, 'image_id', 'id');
+        return $this->belongsTo(Achievements::class, 'image_id', 'id');
     }
 }

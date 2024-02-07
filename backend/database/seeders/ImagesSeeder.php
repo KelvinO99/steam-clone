@@ -12,7 +12,7 @@ class ImagesSeeder extends Seeder
 {
     public function run(): void
     {
-        for($i=0;$i<19;$i++)
+        for($i=0;$i<20;$i++)
         {
             DB::table('images')->insert([
                 'game_id' => rand(1,19),//PLACEHOLDER RNG
