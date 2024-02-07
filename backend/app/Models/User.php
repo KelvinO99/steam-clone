@@ -80,6 +80,6 @@ class User extends Authenticatable implements JWTSubject, LaratrustUser
 
     public function Images(){
 
-        return $this->hasOne(Images::class, 'images', 'id');
+        return $this->hasOne(Images::class, 'image_id', 'id');
     }
 }

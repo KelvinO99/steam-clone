@@ -80,6 +80,7 @@ class UsersSeeder extends Seeder
                 'username' => $randomUsername,
                 'email' => $email,
                 'password' => 'password',
+                'image_id' => ($i+1),
                 'wallet' => 0,
             ]);
 

@@ -16,8 +16,8 @@ class ImagesSeeder extends Seeder
         {
             DB::table('images')->insert([
                 'game_id' => rand(1,19),//PLACEHOLDER RNG
-                'user_id' => rand(1,19),
-                'achievement_id' => rand(1,19),
+                //'user_id' => rand(1,19),
+                //'achievement_id' => rand(1,19),
                 'image_path' => "immagine qui",
             ]);
         }

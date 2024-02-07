@@ -26,11 +26,11 @@ class Images extends Model
 
     public function Users(){
 
-        return $this->hasOne(User::class, 'user_id', 'id');
+        return $this->hasOne(User::class, 'image_id', 'id');
     }
 
     public function Achievements(){
 
-        return $this->hasOne(Achievements::class, 'achievement_id', 'id');
+        return $this->hasOne(Achievements::class, 'image_id', 'id');
     }
 }

@@ -30,6 +30,6 @@ class Achievements extends Model
 
     public function Images(){
 
-        return $this->hasOne(Images::class, 'images', 'id');
+        return $this->hasOne(Images::class, 'image_id', 'id');
     }
 }
