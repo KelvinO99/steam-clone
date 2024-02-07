@@ -34,7 +34,7 @@
     "ng2-currency-mask": "^13.0.3",
     "ngx-lottie": "^10.0.0",
     "ngx-translate": "^0.0.1-security",
-    "npm-install-peers": "^1.2.2",
+    "npm-install-peers": "^1.2.1",
     "rxjs": "~7.5.0",
     "sweetalert2": "^11.6.8",
     "zone.js": "~0.11.4"

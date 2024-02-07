@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,6 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
+  token!: string;
+  username: string | null | undefined;
+
+constructor(public authService: AuthService) {}
+
   language: string[] = [
     '繁體中文 (Traditional Chinese)',
     '日本語 (Japanese)',
@@ -35,4 +42,20 @@ export class NavbarComponent {
     'Tiếng Việt (Vietnamese)',
     'Українська (Ukrainian)',
   ];
+
+  ngOnInit(): void {
+    // Sottoscrizione all'observable per aggiornare il nome utente quando lo stato di accesso cambia
+    this.authService.loggedIn$.subscribe(loggedIn => {
+      if (loggedIn) {
+        this.username = localStorage.getItem('user_profile_username');
+      } else {
+        this.username = null;
+      }
+    });
+  }
+
+  logout() {
+    this.authService.doLogout();
+  }
 }
+
