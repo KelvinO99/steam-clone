@@ -12,9 +12,11 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('game_id');
             $table->string('name')->default('PLACEHOLDER');
+            $table->unsignedBigInteger('image_id')->default('0');
             $table->timestamps();
 
             $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('image_id')->references('id')->on('images');
         });
     }
 
