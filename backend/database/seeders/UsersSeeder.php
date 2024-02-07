@@ -57,7 +57,6 @@ class UsersSeeder extends Seeder
             'user17@domain.com',
             'user18@domain.com',
             'user19@domain.com',
-            'user20@domain.com',
         ];
 
         // Assicurati che i ruoli siano già stati creati nel database
