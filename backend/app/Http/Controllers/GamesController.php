@@ -50,11 +50,18 @@ class GamesController extends Controller
 
     // Mostra un determinato record dellla tabella Games -Kelvin
     public function show($id){
+
+
+//DEVELOPERS FUNCTION
+
         $game = Games::where('id', $id)->with(['DevelopersGames.Developers' => function ($q){
             $q->select('id','user_id', 'is_publisher')->with(['User' => function ($q2){
                 $q2->select('id', 'username');
         }]);
     }])->first(); 
+
+
+
     // $devPublish = $game->DevelopersGames->pluck('Developers.is_publisher');
     // $devName = $game->DevelopersGames->pluck('Developers.User.username');
     // for ($i = 0; $i < count($devPublish); $i++) {
@@ -64,8 +71,20 @@ class GamesController extends Controller
 
     //return $game;
 
+//DEVELOPERS FUNCTION    
 
-//REVIEWS FUNCTION        
+
+//TAGS FUNCTION
+
+    $tag = Games::where('id', $id)->with(['GamesTags.Tags' => function ($q) {
+        $q->select('id', 'name', 'is_genre');
+    }])->first()->GamesTags->pluck('Tags');
+
+//TAGS FUNCTION
+
+
+//REVIEWS FUNCTION 
+
         $reviews = Reviews::where('game_id', $id)->pluck('is_recommended'); //prendi la colonna is_recommended del singolo gioco
 
         $DIM_A = count($reviews); //conta quante review sono state fatte
@@ -98,10 +117,17 @@ class GamesController extends Controller
             default:
                 $string= 'Errore'; //riferisci a chris
             }
+
+        $users_reviews = Games::where('id', $id)->with(['Reviews.User' => function ($q) {
+            $q->select('id', 'username');
+        }])->first()->Reviews;
+
+        /*->select('id', 'user_id', 'game_id', 'date_of_review',* 'is_recommended', 'description', 'hours_played')*/
+
 //REVIEWS FUNCTION        
 
 
-//DEVELOPERS FUNCTION
+//DEPRECATED DEVELOPERS FUNCTION
         
     //     $developer = Developers::select('developers.*', 'users.username as user_name')
     // ->join('developers_games', 'developers.id', '=', 'developers_games.developer_id')
@@ -112,24 +138,18 @@ class GamesController extends Controller
 
     // $dev = Developers::with('DevelopersGames.Games')->with('User')->get();
 
-//DEVELOPERS FUNCTION
-
-
-//TAGS FUNCTION
-        
-         
-
-
-//TAGS FUNCTION
+//DEPRECATED DEVELOPERS FUNCTION
 
 
         return response()->json([
         'status' => 200,
-        'game' => $game,
+        'game' => $game, //game+dev info output
+        'tags' => $tag,
+        'ratio' => $ratio,
+        'evaluation' => $string,
+        'users_reviews' => $users_reviews
         //'reviews' => $reviews->toArray(),
         // 'developer' => $dev,
-        'ratio' => $ratio,
-        'string' => $string
         ]);
 
 
