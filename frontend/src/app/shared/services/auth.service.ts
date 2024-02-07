@@ -36,6 +36,7 @@ export class AuthService {
         localStorage.setItem('access_token', res.access_token);
         localStorage.setItem('user_profile_obj', res.user);
         localStorage.setItem('user_profile_username', res.user['username']);
+        this.loggedInSubject.next(true);
       }));
   }
 
@@ -57,10 +58,9 @@ export class AuthService {
   }
 
   doLogout() {
-    let removeToken = localStorage.removeItem('access_token');
-    if (removeToken == null) {
-      this.router.navigate(['login']);
-    }
-  }
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('user_profile_username');
+    this.loggedInSubject.next(false); // Notifica agli osservatori che l'utente non è loggato
+  } 
   
 }

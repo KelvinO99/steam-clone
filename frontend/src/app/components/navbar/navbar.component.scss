@@ -22,6 +22,7 @@ a.menuItemUser {
     font-family: "Motiva Sans", "Twemoji", "Noto Sans", Helvetica, sans-serif;
     font-weight: 500;
     padding-left: 1rem;
+    cursor: pointer;
 }
 
 a.installSteam:hover {
@@ -52,6 +53,7 @@ a.subMenuItem {
     padding-right: 0.9375rem;
     padding-left: 0.9375rem;
     display: block;
+    cursor: pointer;
 }
 
 .dropdown {

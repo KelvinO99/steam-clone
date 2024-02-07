@@ -69,6 +69,9 @@
           Validators.required,
           Validators.minLength(8),
           Validators.pattern(this.StrongPasswordRegx),
+        ]),
+        password_confirmation: new FormControl('', [
+          Validators.required,
         ])
       });
 

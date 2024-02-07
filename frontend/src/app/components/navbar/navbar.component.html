@@ -13,16 +13,23 @@
                         Install Steam </a>
                 </li>
 
-                <li class="nav-item" *ngIf="!loggedIn">
-                    <a class="nav-link menuItemUser" routerLinkActive="active" routerLink="/login"> login </a>
+                <li class="nav-item" *ngIf="!(authService.loggedIn$ | async)">
+                    <a class="nav-link menuItemUser" routerLinkActive="active" routerLink="/login"> Login </a>
                 </li>
-
-                <li class="nav-item" *ngIf="loggedIn">
-                    <a class="nav-link menuItemUser" routerLinkActive="active"> {{ username}} </a>
-                </li>
-
-                <li class="nav-item" *ngIf="loggedIn == true">
-                    <a class="nav-link menuItemUser" routerLinkActive="active" (click)="logout()"> logout </a>
+            
+                <li class="nav-item" *ngIf="authService.loggedIn$ | async">
+                    <div class="dropdown p-0">
+                        <a class="dropbtn nav-link menuItemUser"> {{ username }} </a>
+                        <div class="dropdown-content shop">
+                            <a class="subMenuItem"> Show my profile </a>
+                            <a class="subMenuItem"> Account details: {{ username }} </a>
+                            <a class="subMenuItem"> Preference of the Shop </a>
+                            <a class="subMenuItem"> View my Wallet </a>
+                            <a class="subMenuItem"> Chsnge the Language </a>
+                            <a class="subMenuItem"> Stats </a>
+                            <a class="subMenuItem" (click)="logout()"> Log out of the account... </a>
+                        </div>
+                    </div>
                 </li>
 
                 <li class="nav-item">
@@ -50,35 +57,35 @@
                 </li>
                 <li class="nav-item">
                     <div class="dropdown p-0">
-                        <a class="dropbtn nav-link menuItem" routerLink="#"> Shop </a>
+                        <a class="dropbtn nav-link menuItem"> Shop </a>
                         <div class="dropdown-content shop">
                             <a class="subMenuItem" routerLink=""> Main Page </a>
-                            <a class="subMenuItem" routerLink="#"> Discovery Queue </a>
-                            <a class="subMenuItem" routerLink="#"> Wishlist </a>
-                            <a class="subMenuItem" routerLink="#"> Point Shop </a>
-                            <a class="subMenuItem" routerLink="#"> News </a>
-                            <a class="subMenuItem" routerLink="#"> Stats </a>
-                            <a class="subMenuItem" routerLink="#"> About </a>
+                            <a class="subMenuItem"> Discovery Queue </a>
+                            <a class="subMenuItem"> Wishlist </a>
+                            <a class="subMenuItem"> Point Shop </a>
+                            <a class="subMenuItem"> News </a>
+                            <a class="subMenuItem"> Stats </a>
+                            <a class="subMenuItem"> About </a>
                         </div>
                     </div>
                 </li>
                 <li class="nav-item">
                     <div class="dropdown">
-                        <a class="dropbtn nav-link menuItem" routerLink="#"> Community </a>
+                        <a class="dropbtn nav-link menuItem"> Community </a>
                         <div class="dropdown-content community">
-                            <a class="subMenuItem" routerLink="#"> Home </a>
-                            <a class="subMenuItem" routerLink="#"> Discussion </a>
-                            <a class="subMenuItem" routerLink="#"> WorkShop </a>
-                            <a class="subMenuItem" routerLink="#"> Market </a>
-                            <a class="subMenuItem" routerLink="#"> Broadcast </a>
+                            <a class="subMenuItem"> Home </a>
+                            <a class="subMenuItem"> Discussion </a>
+                            <a class="subMenuItem"> WorkShop </a>
+                            <a class="subMenuItem"> Market </a>
+                            <a class="subMenuItem"> Broadcast </a>
                         </div>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menuItem" routerLink="#"> About </a>
+                    <a class="nav-link menuItem"> About </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menuItem" routerLink="#"> Support </a>
+                    <a class="nav-link menuItem"> Support </a>
                 </li>
             </ul>
         </div>
