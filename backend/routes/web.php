@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SearchController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/search', 'SearchController@search')/*->name('search')*/;
+
+Route::get('/search', [SearchController::class, 'search']);
+
+/*
+Route::controller(SearchController::class)->prefix('search')->group(function($router){
+
+    Route::get('/search', 'SearchController@search')->name('search');
+
+});
+*/

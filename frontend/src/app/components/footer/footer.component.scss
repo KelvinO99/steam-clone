@@ -1,0 +1,36 @@
+.footeritem {
+    color: #C6D4DF;
+    display: flex;
+    align-items: center;
+    font-family: "Motiva Sans", Sans-serif;
+    font-weight: normal;
+    font-size: 0.8125rem; /* 13px / 16px = 0.8125rem */
+}
+
+.footergrid {
+    background-color: #171a21;
+}
+
+.footeritem_separator {
+    display: block;
+    font-family: "Motiva Sans", Sans-serif;
+    font-weight: normal;
+    font-size: 0.8125rem; /* 13px / 16px = 0.8125rem */
+    color: #61686D;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+}
+
+.info {
+    border-top: 0.0625rem solid rgb(130, 123, 123); /* 1px / 16px = 0.0625rem */
+    border-bottom: 0.0625rem solid rgb(130, 123, 123); /* 1px / 16px = 0.0625rem */
+    margin: auto;
+}
+
+.container-fluid {
+    display: block;
+    position: absolute;
+}

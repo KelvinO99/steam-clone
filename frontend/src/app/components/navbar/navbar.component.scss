@@ -1,0 +1,125 @@
+/* nav.navbar {
+    background-color: #171d25;
+} */
+
+.menuitem {
+    color: white;
+    display: block;
+    padding-left: 0.4375rem;
+    padding-right: 0.4375rem;
+    padding-bottom: 0.4375rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 1vw;
+    font-family: "Motiva Sans", "Twemoji", "Noto Sans", Helvetica, sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+a.menuitem_user {
+    color: #ffffff;
+    font-size: 0.7vw;
+    font-family: "Motiva Sans", "Twemoji", "Noto Sans", Helvetica, sans-serif;
+    font-weight: 500;
+    padding-left: 1rem;
+}
+
+a.installsteam:hover {
+    background-color: #6c9018;
+    transition-duration: 250ms;
+    cursor: pointer;
+}
+
+.installsteam {
+    background-repeat: no-repeat;
+    background-position: 10px 5px;
+    background-position-x: 10px;
+    background-position-y: 5px;
+    background-color: #5c7e10;
+    transition-duration: 250ms;
+    padding-left: 35px;
+    padding-right: 9px;
+    cursor: pointer;
+}
+
+a.submenuitem {
+    text-decoration: none;
+    text-transform: none;
+    font-size: 0.625rem;
+    font-weight: 400;
+    color: #dcdedf;
+    padding: 0.375rem 0;
+    padding-right: 0.9375rem;
+    padding-left: 0.9375rem;
+    display: block;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 0;
+    background-color: #3d4450;
+    min-width: 12rem;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #ffffff;
+    display: block;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #2c313a;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+div.container-fluid {
+    padding: 0;
+}
+
+div.dropdown-content.menuitem_user {
+    position: absolute;
+    left: -70px;
+}
+
+div.left,
+div.contentcenter,
+div.right {
+    background-color: #1b2838;
+}
+
+div.left,
+div.right {
+    min-width: auto;
+    width: 20%;
+}
+
+div.contentcenter {
+    width: 60%;
+}
+
+li {
+    display: inline-block;
+}
+
+ul.firstlist {
+    display: flex;
+    justify-content: end;
+    align-items: baseline;
+    padding-top: 0.4rem;
+}
