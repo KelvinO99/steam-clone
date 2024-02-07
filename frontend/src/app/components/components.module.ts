@@ -21,6 +21,11 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProductBannersComponent } from '../product-banners/product-banners.component';
 
 import { MainCarouselComponent } from './main-carousel/main-carousel.component';
+import { UpdatesOfferCardsComponent } from './updates-offer-cards/updates-offer-cards.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+
 @NgModule({
   declarations: [
     BaseComponent,
@@ -31,6 +36,7 @@ import { MainCarouselComponent } from './main-carousel/main-carousel.component';
     SidebarComponent,
     ProductBannersComponent,
     MainCarouselComponent,
+    UpdatesOfferCardsComponent,
   ],
   imports: [
     CommonModule,
@@ -47,7 +53,11 @@ import { MainCarouselComponent } from './main-carousel/main-carousel.component';
     MatDialogModule,
     FormsModule,
     SweetAlert2Module,
+    MatCardModule,
+    MatButtonModule,
+    MatGridListModule,
   ],
   exports: [CommonModule, TranslateModule, BaseComponent],
 })
 export class ComponentsModule {}
+export class CardFancyExample {}
