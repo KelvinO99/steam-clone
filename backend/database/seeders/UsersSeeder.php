@@ -64,6 +64,7 @@ class UsersSeeder extends Seeder
         $ruoli = Role::all();
 
         $DIM_A = count($usernames);
+        $j=0;
         for($i=0;$i<19;$i++)
         {
             foreach ($emails as $email) {
@@ -75,12 +76,12 @@ class UsersSeeder extends Seeder
             // Seleziona un username casuale
             $randomUsername = $usernames[array_rand($usernames)];
     
-            
+            $j++;
             $user = User::create([
                 'username' => $randomUsername,
                 'email' => $email,
                 'password' => 'password',
-                'image_id' => ($i+1),
+                'image_id' => $j,
                 'wallet' => 0,
             ]);
 
