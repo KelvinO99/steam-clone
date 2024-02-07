@@ -10,15 +10,11 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('game_id') ->default(null);
-            //$table->unsignedBigInteger('user_id')->default(1);
-            //$table->unsignedBigInteger('achievement_id')->default(2);
+            $table->unsignedBigInteger('game_id')->nullable()->default(null);
             $table->string('image_path')->default('PLACEHOLDER');
             $table->timestamps();
 
             $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade')->onUpdate('cascade');
-            //$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            //$table->foreign('achievement_id')->references('id')->on('achievements')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
@@ -27,9 +23,3 @@ return new class extends Migration
         Schema::dropIfExists('images');
     }
 };
-
-/*
-    $table->string('PLACEHOLDER_COLUMN_NAME');
-    $table->integer('PLACEHOLDER_COLUMN_NAME');
-    $table->boolean('PLACEHOLDER_COLUMN_NAME');
-*/

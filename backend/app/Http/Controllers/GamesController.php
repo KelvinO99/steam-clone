@@ -9,6 +9,7 @@ use App\Models\Games;
 use App\Models\GamesTags;
 use App\Models\Reviews;
 use App\Models\Tags;
+use App\Http\Controllers\ImagesController;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
@@ -206,10 +207,10 @@ class GamesController extends Controller
             'pegi_id'
         ]);
         
-        
+
         $var = new Games();
         $var->fill($validatedData);
-
+        
         $var->save();
 
         return response()->json($var, 201);

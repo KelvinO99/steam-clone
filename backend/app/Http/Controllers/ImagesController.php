@@ -85,6 +85,8 @@ class ImagesController extends Controller
 
         $image->save();
 
+        
+
         return response()->json($image, 201);
 
     }
