@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reviews;
+use App\Models\Games;
 use App\Models\Role;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
@@ -10,28 +11,41 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 
 class ReviewsController extends Controller
 {
-     // Mostra tutti i record della tabella Reviews -Salvo
-     public function index(){
-        $var = Reviews::get();
+     public function index(Request $request){
 
+        $skip = $request->input("skip");
+        $take = $request->input("take");
+        $users_reviews = Reviews::with(['User' => function ($q) {
+            $q->select('id', 'username');
+        }])->get();
 
+        $users_reviews = $users_reviews->skip($skip)->take($take);
+        
         return response()->json([
-            'status'=>200,
-            'reviews'=>$var
-        ]);
+            'status' => 200,
+            'users_reviews' => $users_reviews
 
+        ]);
         
     }
 
-    // Mostra un determinato record dellla tabella Reviews -Salvo
-    public function show($id){
-        $var = Reviews::find($id);
+    //la funzione sottostante è stata sovrascritta e in ciò ha il
+    //ruolo speciale di index + in base al gioco + utente associato
+    public function show($id, Request $request){
 
+        $skip = $request->input("skip");
+        $take = $request->input("take");
+        $users_reviews = Reviews::where('game_id', $id)->with(['User' => function ($q) {
+            $q->select('id', 'username');
+        }])->get();
+
+        $users_reviews = $users_reviews->skip($skip)->take($take);
+        
         return response()->json([
-            'status'=>200,
-            'reviews'=>$var
-        ]);
+            'status' => 200,
+            'users_reviews' => $users_reviews
 
+        ]);
     }
     
     // Elimina un determinato record della tabella Reviews -Salvo
