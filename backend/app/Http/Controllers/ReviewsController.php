@@ -65,18 +65,19 @@ class ReviewsController extends Controller
     public function store(Request $request) {
 
         // Ottieni l'utente autenticato tramite JWT
-        $var = JWTAuth::parseToken()->authenticate();
+        $user = JWTAuth::parseToken()->authenticate();
 
         // Se non c'è un utente autenticato, restituisci un errore
-        if (!$var) {
+        if (!$user) {
             return response()->json(['message' => 'Non autorizzato'], 401);
         }
         
-        if($var->hasRole('developer/publisher')){
+        if($user->hasRole('developer/publisher')){
             return response()->json(['message'=> 'Non hai il permesso necessario'],401);
         }
+        
         // Controlla se l'utente ha già pubblicato una recensione per questo gioco -Salvo
-        $existingReview = Reviews::where('user_id', $var->id)->where('game_id', $request->game_id)->first();
+        $existingReview = Reviews::where('user_id', $user->id)->where('game_id', $request->game_id)->first();
 
         if ($existingReview){
             return response()->json(['message' => 'Hai già pubblicato una recensione per questo gioco.'], 403);
