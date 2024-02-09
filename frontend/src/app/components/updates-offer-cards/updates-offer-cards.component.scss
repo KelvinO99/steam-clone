@@ -1,12 +1,12 @@
 .bigCard{
-    width: 25.28vw;
-    height: 26.64vw;
+    width: 23.28vw;
+    height: 24.64vw;
     position: relative;
     top: 13.1%;
 }
 .bigCardBody{  
-    width: 25.28vw;
-    height: 4.16vw;
+    width: 23.28vw;
+    height: 2.16vw;
     background: linear-gradient( 135deg, rgba(37,49,63,1) 5%,rgba(54,97,125,1) 95%);
     background-image: linear-gradient(135deg, rgb(37, 49, 63) 5%, rgb(54, 97, 125) 95%);
     background-position-x: initial;
@@ -55,48 +55,48 @@
 }
 
 .smallCard{
-    width: 11.57vw;
-    height: 12.17vw;
+    width: 10.57vw;
+    height: 11.17vw;
     display: inline-block;
     margin: 0.33vw;
     top: -195.4%;
 }
 
 .smallCard2{
-    width: 11.57vw;
-    height: 12.17vw;
+    width: 10.57vw;
+    height: 11.17vw;
     display: inline-block;
     margin: 0.33vw;
     top: -195.4%;
 }
 
 .smallCard3{
-    width: 11.57vw;
-    height: 12.17vw;
+    width: 10.57vw;
+    height: 11.17vw;
     display: inline-block;
     margin: 0.33vw;
     top: -195.4%;
 }
 
 .smallCard4{
-    width: 11.57vw;
-    height: 12.17vw;
+    width: 10.57vw;
+    height: 11.17vw;
     display: inline-block;
     margin: 0.33vw;
     
 }
 
 .smallCard5{
-    width: 11.57vw;
-    height: 12.17vw;
+    width: 10.57vw;
+    height: 11.17vw;
     display: inline-block;
     margin: 0.33vw;
     
 }
 
 .smallCard6{
-    width: 11.57vw;
-    height: 12.17vw;
+    width: 10.57vw;
+    height: 11.17vw;
     display: inline-block;
     margin: 0.33vw;
     
@@ -104,8 +104,8 @@
 
 
 .cardBody{  
-    width: 11.57vw;
-    height: 2.88vw;
+    width: 10.62vw;
+    height: 2.9vw;
     background: linear-gradient( 135deg, rgba(37,49,63,1) 5%,rgba(54,97,125,1) 95%);
     background-image: linear-gradient(135deg, rgb(37, 49, 63) 5%, rgb(54, 97, 125) 95%);
     background-position-x: initial;
@@ -120,31 +120,3 @@
     bottom: 1.1vw;
     right: 1.16vw;
 }
-
-/* Mat focus indicator */
-.allCardsContainer .smallCards .mat-focus-indicator{
-    transform:translatex(26.64vw) translatey(-22.89vw);
-    height: 15.05vw;
-    top: -0.47vw;
-    left: -1.07vw;
-   }
-   
-   /* Card body */
-   .smallCards .mat-focus-indicator .cardBody{
-    min-height: 3.08vw;
-    width: 11.70vw;
-   }
-   
-   /* Image */
-   .smallCards .mat-focus-indicator img{
-    width: 11.94vw;
-    transform:translatex(-0.27vw) translatey(0vw);
-    padding-right: 0.20vw;
-    position:relative;
-    left:0.20vw;
-   }
-
-   /* Big card body */
-.allCardsContainer .bigCard .bigCardBody{
-    min-height: 5.08vw;
-   }
