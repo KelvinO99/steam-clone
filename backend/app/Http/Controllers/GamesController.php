@@ -21,6 +21,11 @@ class GamesController extends Controller
         $discount = $request->input("discount");
         $featured = $request->input("featured");
         $special_offer = $request->input("special_offer");
+
+        $skip = $request->input("skip", 0); //skip
+                                            //and   (function)
+        $take = $request->input("take", 1);//take
+
         $game = Games::query(); // Start building the query
         
 
@@ -40,8 +45,9 @@ class GamesController extends Controller
         if ($special_offer) {
            $game->where('discounted_percentage','>', '60');
         }
-
 //ISSET CODE
+
+        $game->skip($skip)->take($take)->get();//skip and take (function)
 
         return response()->json([
             'status' => 200,
@@ -54,7 +60,6 @@ class GamesController extends Controller
 
 
 //DEVELOPERS FUNCTION
-
         $game = Games::where('id', $id)->with(['DevelopersGames.Developers' => function ($q){
             $q->select('id','user_id', 'is_publisher')->with(['User' => function ($q2){
                 $q2->select('id', 'username');
@@ -71,21 +76,17 @@ class GamesController extends Controller
 
 
     //return $game;
-
 //DEVELOPERS FUNCTION    
 
 
 //TAGS FUNCTION
-
-    $tag = Games::where('id', $id)->with(['GamesTags.Tags' => function ($q) {
-        $q->select('id', 'name', 'is_genre');
-    }])->first()->GamesTags->pluck('Tags');
-
+        $tag = Games::where('id', $id)->with(['GamesTags.Tags' => function ($q) {
+            $q->select('id', 'name', 'is_genre');
+        }])->first()->GamesTags->pluck('Tags');
 //TAGS FUNCTION
 
 
 //REVIEWS FUNCTION 
-
         $reviews = Reviews::where('game_id', $id)->pluck('is_recommended'); //prendi la colonna is_recommended del singolo gioco
 
         $DIM_A = count($reviews); //conta quante review sono state fatte
@@ -106,7 +107,7 @@ class GamesController extends Controller
                     break;
             case $ratio>=40&&$ratio<=69:
                 $string= 'Mixed Reviews';
-                    break;
+                    break;                                  //tutto questo non è simmetrico!!
             case $ratio>=70&&$ratio<=79:
                 $string= 'Mostly Positive Reviews';
                     break;
@@ -114,22 +115,23 @@ class GamesController extends Controller
                 $string= 'Very Positive Reviews';
                     break;
             case $ratio>=95&&$ratio<=100:
-                $string= 'Overwhelmingly Positive Reviews';
+                $string= 'Overwhelmingly Positive Reviews'; 
             default:
-                $string= 'Errore'; //riferisci a chris
+                $string= 'Error'; //riferisci a chris
             }
 
         $users_reviews = Games::where('id', $id)->with(['Reviews.User' => function ($q) {
             $q->select('id', 'username');
         }])->first()->Reviews;
 
-        /*->select('id', 'user_id', 'game_id', 'date_of_review',* 'is_recommended', 'description', 'hours_played')*/
-
+        $skip = $users_reviews->input("skip", 0); //skip
+                                                  //and   (function)
+        $take = $users_reviews->input("take", 1); //take
 //REVIEWS FUNCTION        
 
 
-//DEPRECATED DEVELOPERS FUNCTION
-        
+
+//DEPRECATED DEVELOPERS FUNCTION  
     //     $developer = Developers::select('developers.*', 'users.username as user_name')
     // ->join('developers_games', 'developers.id', '=', 'developers_games.developer_id')
     // ->join('games', 'games.id', '=', 'developers_games.game_id')
@@ -138,9 +140,9 @@ class GamesController extends Controller
     // ->get();
 
     // $dev = Developers::with('DevelopersGames.Games')->with('User')->get();
-
 //DEPRECATED DEVELOPERS FUNCTION
 
+        $users_reviews->skip($skip)->take($take)->get();//skip and take (function)
 
         return response()->json([
         'status' => 200,
