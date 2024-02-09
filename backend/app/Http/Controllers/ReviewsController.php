@@ -84,7 +84,6 @@ class ReviewsController extends Controller
         }
 
         $validatedData = $request->validate([
-            'user_id' => 'required|max:255',
             'game_id' => 'required|max:255',
             'date_of_review' => 'required|max:255',
             'is_recommended' => 'required',
@@ -93,6 +92,7 @@ class ReviewsController extends Controller
         ]);
 
         $review = new Reviews();
+        $review->user_id = $user->id;
         $review->fill($validatedData);
 
         $review->save();
