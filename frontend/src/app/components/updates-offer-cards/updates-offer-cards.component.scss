@@ -6,7 +6,7 @@
 }
 .bigCardBody{  
     width: 23.28vw;
-    height: 2.16vw;
+    height: 4.3vw;
     background: linear-gradient( 135deg, rgba(37,49,63,1) 5%,rgba(54,97,125,1) 95%);
     background-image: linear-gradient(135deg, rgb(37, 49, 63) 5%, rgb(54, 97, 125) 95%);
     background-position-x: initial;
@@ -28,7 +28,7 @@
     font-size: 1.00vw;
      line-height: 1.00vw;
     height: 3.62vw;
-    padding: 0.27vw;
+    padding: 1vw;
     text-align: right;
     display: flex;
     flex-direction: row;
@@ -54,35 +54,37 @@
     bottom: 5%;
 }
 
+.smallCards{
+    position:absolute;
+    left: 44.2%;
+    top: 79.5rem;
+}
 .smallCard{
     width: 10.57vw;
     height: 11.17vw;
     display: inline-block;
-    margin: 0.33vw;
-    top: -195.4%;
+    margin-right:0.44rem;
 }
 
 .smallCard2{
     width: 10.57vw;
     height: 11.17vw;
     display: inline-block;
-    margin: 0.33vw;
-    top: -195.4%;
+    margin-right:0.44rem;
 }
 
 .smallCard3{
     width: 10.57vw;
     height: 11.17vw;
     display: inline-block;
-    margin: 0.33vw;
-    top: -195.4%;
+    margin-right:0.44rem;
 }
 
 .smallCard4{
     width: 10.57vw;
     height: 11.17vw;
     display: inline-block;
-    margin: 0.33vw;
+    margin-right:0.44rem;
     
 }
 
@@ -90,7 +92,8 @@
     width: 10.57vw;
     height: 11.17vw;
     display: inline-block;
-    margin: 0.33vw;
+    margin-right:0.44rem;
+    bottom: 2.9rem;
     
 }
 
@@ -98,7 +101,7 @@
     width: 10.57vw;
     height: 11.17vw;
     display: inline-block;
-    margin: 0.33vw;
+
     
 }
 
