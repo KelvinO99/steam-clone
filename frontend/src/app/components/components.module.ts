@@ -18,8 +18,10 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { StoreComponent } from './store/store.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { CarouselComponent } from './carousel/carousel.component';
+import { ProductBannersComponent } from './product-banners/product-banners.component';
+import { MainCarouselComponent } from './main-carousel/main-carousel.component';
 import { OfferCardsComponent } from './offer-cards/offer-cards.component';
+import { CarouselComponent } from './carousel/carousel.component';
 @NgModule({
   declarations: [
     BaseComponent,
@@ -28,8 +30,10 @@ import { OfferCardsComponent } from './offer-cards/offer-cards.component';
     HomeComponent,
     StoreComponent,
     SidebarComponent,
+    MainCarouselComponent,
+    OfferCardsComponent,
+    ProductBannersComponent,
     CarouselComponent,
-    OfferCardsComponent
   ],
   imports: [
     CommonModule,
