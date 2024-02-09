@@ -24,7 +24,7 @@ class GamesController extends Controller
 
         $skip = $request->input("skip", 0); //skip
                                             //and   (function)
-        $take = $request->input("take", 1);//take
+        $take = $request->input("take", 1); //take
 
         $game = Games::query(); // Start building the query
         
@@ -127,6 +127,12 @@ class GamesController extends Controller
         $skip = $users_reviews->input("skip", 0); //skip
                                                   //and   (function)
         $take = $users_reviews->input("take", 1); //take
+
+        //PER IL FUTURO ME CHE LEGGE STO CODICE SENZA CAPIRE UN CAZZO:
+        //c'è bisogno di users_reviews perché è una roba apparte che ha il compito
+        //di filtrare tutto per lo scopo di visualizzare utenti e review che fanno
+        //invece review solo per contare se è recommended. è tutto ok!!
+
 //REVIEWS FUNCTION        
 
 
