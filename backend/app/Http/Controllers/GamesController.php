@@ -24,7 +24,7 @@ class GamesController extends Controller
 
         $skip = $request->input("skip", 0); //skip
                                             //and   (function)
-        $take = $request->input("take", 1);//take
+        $take = $request->input("take", 1); //take
 
         $game = Games::query(); // Start building the query
         
@@ -120,13 +120,14 @@ class GamesController extends Controller
                 $string= 'Error'; //riferisci a chris
             }
 
-        $users_reviews = Games::where('id', $id)->with(['Reviews.User' => function ($q) {
-            $q->select('id', 'username');
-        }])->first()->Reviews;
-
-        $skip = $users_reviews->input("skip", 0); //skip
+        //$skip = $users_reviews->input("skip", 0); //skip
                                                   //and   (function)
-        $take = $users_reviews->input("take", 1); //take
+        //$take = $users_reviews->input("take", 1); //take
+
+        //PER IL FUTURO CHE LEGGO STO CODICE SENZA CAPIRE:
+        //c'è bisogno di users_reviews perché è una roba apparte che ha il compito
+        //di filtrare tutto per lo scopo di visualizzare utenti e review che fanno
+        //invece review solo per contare se è recommended. è tutto ok!!
 //REVIEWS FUNCTION        
 
 
@@ -142,7 +143,6 @@ class GamesController extends Controller
     // $dev = Developers::with('DevelopersGames.Games')->with('User')->get();
 //DEPRECATED DEVELOPERS FUNCTION
 
-        $users_reviews->skip($skip)->take($take)->get();//skip and take (function)
 
         return response()->json([
         'status' => 200,
@@ -150,7 +150,6 @@ class GamesController extends Controller
         'tags' => $tag,
         'ratio' => $ratio,
         'evaluation' => $string,
-        'users_reviews' => $users_reviews
         //'reviews' => $reviews->toArray(),
         // 'developer' => $dev,
         ]);
