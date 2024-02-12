@@ -1,3 +1,6 @@
+.allCardsContainer{
+    display: flex;
+}
 .bigCard{
     width: 23.28vw;
     height: 24.64vw;
@@ -55,14 +58,15 @@
 }
 
 .smallCards{
-    position:absolute;
-    left: 44.2%;
-    top: 79.5rem;
+    position:relative;
+    left: 1%;
+    top: 3rem;
 }
 .smallCard{
     width: 10.57vw;
     height: 11.17vw;
     display: inline-block;
+    position: static;
     margin-right:0.44rem;
 }
 
@@ -78,6 +82,7 @@
     height: 11.17vw;
     display: inline-block;
     margin-right:0.44rem;
+    position: absolute;
 }
 
 .smallCard4{
@@ -85,6 +90,7 @@
     height: 11.17vw;
     display: inline-block;
     margin-right:0.44rem;
+    position: static;
     
 }
 
@@ -101,6 +107,7 @@
     width: 10.57vw;
     height: 11.17vw;
     display: inline-block;
+    position: absolute;
 
     
 }
