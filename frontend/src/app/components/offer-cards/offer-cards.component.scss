@@ -61,7 +61,8 @@
     height: 400px;
     width: 500px;
     top: 100px;
-    transition: opacity 0.5s;
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Regola la durata della transizione a piacimento */  
 }
 
 .carousel-inner{
@@ -530,3 +531,50 @@ width:100% !important;
    }
    
    
+   /* Division */
+#daily > div{
+    position:relative;
+    top:-52px;
+    left:150px;
+   }
+   
+   /* Card body */
+   #daily .card-body{
+    transform:translatex(-149px) translatey(52px);
+    left:149px;
+   }
+   
+/* Paragraph */
+.allContainer .carouselContainer app-offer-cards #carouselcenter #offerCarousel .carousel-inner .carousel-item .container-fluid .row .col-md-4 .card #daily div div p{
+    top:-7px !important;
+    bottom:auto !important;
+   }
+   
+   /* Column 4/12 */
+#offerCarousel .carousel-item .col-md-4{
+    left:63px;
+   }
+   
+   @media (min-width:768px){
+   
+    /* Column 4/12 */
+    #offerCarousel .carousel-item .col-md-4{
+     width:316px;
+    }
+    
+   }
+
+   /* Card */
+#offerCarousel .col-md-4:nth-child(1) .card:nth-child(3){
+    top:-3px;
+   }
+   
+   /* Card */
+   #offerCarousel .carousel-item:nth-child(3) .col-md-4:nth-child(2) .card:nth-child(3){
+    top:-3px;
+   }
+   
+   /* Card */
+   #offerCarousel .col-md-4:nth-child(3) .card:nth-child(3){
+    top:-3px;
+   }
