@@ -63,7 +63,7 @@ class ImagesController extends Controller
     // Aggiunge un record alla tabella Images -Salvo
     public function store(Request $request) {
 
-        $userImg = $request->input("user");
+        /*$userImg = $request->input("user");
         $achievementImg = $request->input("achievement");
         $gameImg = $request->input("game");
 
@@ -74,9 +74,9 @@ class ImagesController extends Controller
         if (!$user) {
             return response()->json(['message' => 'Non autorizzato'], 401);
         }
-
+*/
         $request->validate([
-            'image' => 'required|image|max:4096', //fa caricare l'immagine allo user -kel
+            'image' => 'required|image|max:4096', //verifica che l'immagine rispetti queste -kel
         ]);
         
         $path = $request->file('image')->store('images', 'public'); //salva l'immagine e la fa diventare un path salvabile -kel
@@ -86,7 +86,7 @@ class ImagesController extends Controller
         $image->save();
 
         
-        return $image;
+        return $image->id;
         //return response()->json($image->id, 201);
 
     }
