@@ -169,18 +169,54 @@ class GamesController extends Controller
     }
 
     // Aggiorna un determinato record della tabella Games -Kelvin
-    public function update(Request $request): Response
+    public function update(Request $request)
     {
-        $var = Games::findOrFail($request->id);
+        $user = auth()->User();
 
-        if ($var->update($request->all()) === false) {
+        if (!$user) {
+            return response()->json(['message' => 'Non autorizzato'], 401);
+        }
+
+        if(!$user->hasRole('developer/publisher')){
+            return response()->json(['message' => 'Non autorizzato, non sei un dev'], 401);
+        }
+
+        $name = $request->input('name');
+        $is_dlc = $request->input('is_dlc');
+        $date = $request->input('date');
+        $parent_id = $request->input('parent_id');
+        $base_price = $request->input('base_price');
+        $discounted_price = $request->input('discounted_price');
+        $discounted_percentage = $request->input('discounted_percentage');
+        $short_description = $request->input('short_description');
+        $long_description = $request->input('long_description');
+        $pegi_id = $request->input('pegi_id');
+
+        $game = Games::findOrFail($request->id);
+
+        if ($game->update($request->all()) === false) {
             return response(
                 "unreal {$request->id}",
                 Response::HTTP_BAD_REQUEST
             );
         }
 
-        return response($var);
+        if($name) $game->update(['name' => $name]);
+        if($is_dlc) {
+            $game->update(['is_dlc'=> $is_dlc]);
+            if($is_dlc) {
+                $game->update(['parent_id'=> $parent_id]);
+            }
+        }
+        if($date) $game->update(['date'=> $date]);
+        if($base_price) $game->update(['base_price'=> $base_price]);
+        if($discounted_price) $game->update(['discounted_price'=> $discounted_price]);
+        if($discounted_percentage) $game->update(['discounted_percentage'=> $discounted_percentage]);
+        if($short_description) $game->update(['short_description'=> $short_description]);
+        if($long_description) $game->update(['long_description'=> $long_description]);
+        if($pegi_id) $game->update(['pegi_id'=> $pegi_id]);
+        
+        return response()->json($game, 201);
     }
 
     // Aggiunge un record alla tabella Games -Kelvin
@@ -197,9 +233,9 @@ class GamesController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|max:255',
             'developer_id',
-            'is_dlc' => 'boolean',
+            'is_dlc' => 'boolean|required',
             'date'=> 'required|date',
-            'parent_id',
+            'parent_id'=> 'required',
             'base_price' => 'required|numeric',
             'discounted_price'=> 'nullable|numeric',
             'discounted_percentage'=> 'nullable|integer|min:0|max:100',
