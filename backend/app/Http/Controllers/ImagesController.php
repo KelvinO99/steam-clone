@@ -61,7 +61,7 @@ class ImagesController extends Controller
     }
 
     // Aggiunge un record alla tabella Images -Salvo
-    public function store(Request $request) {
+    public function store($request) {
 
         /*$userImg = $request->input("user");
         $achievementImg = $request->input("achievement");
@@ -76,7 +76,7 @@ class ImagesController extends Controller
         }
 */
         $request->validate([
-            'image' => 'required|image|max:4096', //verifica che l'immagine rispetti queste -kel
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096', //verifica che l'immagine rispetti queste -kel
         ]);
         
         $path = $request->file('image')->store('images', 'public'); //salva l'immagine e la fa diventare un path salvabile -kel

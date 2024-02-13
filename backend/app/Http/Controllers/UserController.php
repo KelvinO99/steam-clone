@@ -46,6 +46,7 @@ class UserController extends Controller
         $password = $request->input("password");
         $email = $request->input("email");
         $wallet = $request->input("wallet");
+        $profile_pic = $request->input("profile_pic");
         
         $query = User::where('id', $user->id)->first();
 
@@ -53,27 +54,22 @@ class UserController extends Controller
         if($password) $query->update(['password' => bcrypt($password)]);
         if($email) $query->update(['email' => $email]);
         if($wallet) $query->increment('wallet', $wallet);
-        if ($request->hasFile('profile_pic')) {
-            // Validate the file
-            $request->validate([
-                'profile_pic' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        if ($profile_pic) {
+            $profile_pic->validate([
+                'profile_pic' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
             ]);
-    
-            // Retrieve the profile picture file from the request
-            $profilePicFile = $request->file('profile_pic');
+            return 'non può entrare';
+            $profile_pic = $request->file('profile_pic');
             
-            // Instantiate the ImagesController and upload the file
             $imgCtrl = new ImagesController();
-            $img_id = $imgCtrl->store($profilePicFile);
+            $img_id = $imgCtrl->store($profile_pic);
             
-            // Add the image id to the updates
-            if($img_id) {
-                $updates['img_id'] = $img_id;
-            }
-
-        if($user->hasRole('developer/publisher')){
-            $pazzia = 'fr';
+            if($img_id) $query->update(['img_id'=> $img_id]);
         }
+
+       /* if($user->hasRole('developer/publisher')){
+            $pazzia = 'fr';
+        }*/
         return response()->json([
             'status'=>200,
             'users'=>$query,
