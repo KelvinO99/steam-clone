@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Controllers\UserController;
 use App\Models\Images;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
+use Illuminate\Http\UploadedFile;
 
 class ImagesController extends Controller
 {
@@ -61,33 +62,20 @@ class ImagesController extends Controller
     }
 
     // Aggiunge un record alla tabella Images -Salvo
-    public function store($request) {
-
-        /*$userImg = $request->input("user");
-        $achievementImg = $request->input("achievement");
-        $gameImg = $request->input("game");
-
-        // Ottieni l'utente autenticato tramite JWT
-        $user = JWTAuth::parseToken()->authenticate();
-
-        // Se non c'è un utente autenticato, restituisci un errore
-        if (!$user) {
-            return response()->json(['message' => 'Non autorizzato'], 401);
-        }
-*/
-        $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096', //verifica che l'immagine rispetti queste -kel
-        ]);
+    public function store(Request $request) {
         
-        $path = $request->file('image')->store('images', 'public'); //salva l'immagine e la fa diventare un path salvabile -kel
+    if ($request->hasFile('profile_pic')) {
+        $file = $request->file('profile_pic');
+        $filename = time().'.'.$file->getClientOriginalExtension();
+        $path = $file->storeAs('profile_pictures', $filename, 'public');
+    }
+
+         //salva l'immagine e la fa diventare un path salvabile -kel
         $image = new Images(); //crea record images -kel
         $image->image_path = $path; //salva il record -kel
-
         $image->save();
-
         
-        return $image->id;
-        //return response()->json($image->id, 201);
+        return $image;
 
     }
 }

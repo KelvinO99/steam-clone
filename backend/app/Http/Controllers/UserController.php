@@ -56,9 +56,11 @@ class UserController extends Controller
     if ($email) $query->update(['email' => $email]);
     if ($wallet) $query->increment('wallet', $wallet);
 
-    if ($request->hasFile('profile_pic')) {
-        $profile_pic = $request->file('profile_pic');
+   /* if ($request->hasFile('profile_pic')) {        
 
+       $file = app(ImagesController::class)->store($request);
+       $query->update(['img_id' => $file]);
+        
         // Genera un nome unico per l'immagine
         $imageName = uniqid('profile_pic_') . '.' . $profile_pic->getClientOriginalExtension();
 
@@ -66,10 +68,18 @@ class UserController extends Controller
         $profile_pic->storeAs('public/profile_pics', $imageName);
 
         // Aggiorna il campo img_id nel database con il nome dell'immagine
-        $query->update(['img_id' => $imageName]);
+        
+    }*/
+    if ($request->hasFile('profile_pic')) {
+        // Here you would pass the part of the request that contains the image to the ImagesController
+        $imagesController = new \App\Http\Controllers\ImagesController();
+        $image = $imagesController->store($request);
+        $query->update(['image_id' => $image->id]) ;
+        $query->save();
     }
 
-    return response()->json(['message' => 'Profilo aggiornato con successo']);
+    return response()->json(['message' => 'Profilo aggiornato con successo',
+    'users'=>$user,]);
 }
     
     
