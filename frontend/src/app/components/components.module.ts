@@ -18,9 +18,8 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { StoreComponent } from './store/store.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { OfferCardsComponent } from './offer-cards/offer-cards.component';
-
-import { MainCarouselComponent } from './main-carousel/main-carousel.component';
+import { OfferCardsComponent } from 'src/app/components/offer-cards/offer-cards.component';
+import { CarouselComponent } from 'src/app/components/carousel/carousel.component';
 @NgModule({
   declarations: [
     BaseComponent,
@@ -29,7 +28,7 @@ import { MainCarouselComponent } from './main-carousel/main-carousel.component';
     HomeComponent,
     StoreComponent,
     SidebarComponent,
-    MainCarouselComponent,
+    CarouselComponent,
     OfferCardsComponent,
   ],
   imports: [
