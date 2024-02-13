@@ -83,7 +83,7 @@ class AuthController extends Controller
 
             // Da qui si assegnerà il ruolo base di User
             $developerRole = \App\Models\Role::where('name', 'developer/publisher')->first(); // Qui metto il nome esatto del ruolo (In questo caso, developer)
-            $user->addRoles([$userRole, $developerRole]); // Qui aggiungo il ruolo con addRole(nomeruolo) E NON attachRole()
+            $user->addRole($developerRole); // Qui aggiungo il ruolo con addRole(nomeruolo) E NON attachRole()
         };
 
 
