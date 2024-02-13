@@ -221,18 +221,22 @@ class GamesController extends Controller
 
     // Aggiunge un record alla tabella Games -Kelvin
     public function store(Request $request) {
-
         // Ottieni l'utente autenticato tramite JWT
-        $var = auth()->User();
+        $user = auth()->User();
 
         // Se non c'è un utente autenticato, restituisci un errore
-        if (!$var) {
+        if (!$user) {
             return response()->json(['message' => 'Non autorizzato'], 401);
         }
 
+        if(!$user->hasRole('developer/publisher')){
+            return response()->json(['message' => 'Non autorizzato, non sei un dev'], 401);
+        }
+
+
+
         $validatedData = $request->validate([
             'name' => 'required|max:255',
-            'developer_id',
             'is_dlc' => 'boolean|required',
             'date'=> 'required|date',
             'parent_id'=> 'required',
@@ -243,14 +247,21 @@ class GamesController extends Controller
             'long_description'=> 'required|max:255',
             'pegi_id' => 'required',
         ]);
-        
 
-        $var = new Games();
-        $var->fill($validatedData);
-        
-        $var->save();
 
-        return response()->json($var, 201);
+        $game = new Games();
+        $game->fill($validatedData);
+        
+        if ($request->hasFile('game_img')) {
+            // Here you would pass the part of the request that contains the image to the ImagesController
+            $imagesController = new ImagesController();
+            $imagesController->store($request);
+        }
+    
+
+        $game->save();
+
+        return $game;
 
     }
 }

@@ -63,15 +63,20 @@ class ImagesController extends Controller
 
     // Aggiunge un record alla tabella Images -Salvo
     public function store(Request $request) {
-        
-    if ($request->hasFile('profile_pic')) {
-        $file = $request->file('profile_pic');
-        $filename = time().'.'.$file->getClientOriginalExtension();
-        $path = $file->storeAs('profile_pictures', $filename, 'public');
-    }
-
-         //salva l'immagine e la fa diventare un path salvabile -kel
+    
         $image = new Images(); //crea record images -kel
+
+        if ($request->hasFile('profile_pic')) {
+            $file = $request->file('profile_pic');
+            $filename = time().'.'.$file->getClientOriginalExtension();
+            $path = $file->storeAs('profile_pictures', $filename, 'public');
+        }
+        if ($request->hasFile('game_img')) {
+            $file = $request->file('game_img');
+            $filename = time().'.'.$file->getClientOriginalExtension();
+            $path = $file->storeAs('game_Imgs', $filename, 'public');
+            $ima
+        }
         $image->image_path = $path; //salva il record -kel
         $image->save();
         
