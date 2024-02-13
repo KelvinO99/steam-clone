@@ -50,7 +50,7 @@
 }
 
 #daily{
-    background: linear-gradient( to bottom, #ffffff 5%, #abdaf4 95%);
+    background: linear-gradient( to bottom, #BCE1F6 5%, #abdaf4 95%);
 }
 
 #daily{
@@ -66,10 +66,7 @@
 }
 
 .carousel-item:not(.active) {
-    position: absolute;
     opacity: 0;
-    margin: 0;
-    padding: 0;
 }
 
 .carousel-inner{
@@ -585,3 +582,19 @@ width:100% !important;
    #offerCarousel .col-md-4:nth-child(3) .card:nth-child(3){
     top:-3px;
    }
+/* Button */
+#offerCarousel .carousel-indicators button{
+    width:15px;
+    height:9px;
+    border-width: 1px;
+    border-radius: 2px;
+    background-color: #606974;
+   }
+   
+/* Carousel indicators */
+#offerCarousel .carousel-indicators{
+    top:541px;
+    bottom:auto !important;
+   }
+   
+   
