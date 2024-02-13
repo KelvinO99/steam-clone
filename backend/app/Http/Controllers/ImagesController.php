@@ -75,7 +75,7 @@ class ImagesController extends Controller
             $file = $request->file('game_img');
             $filename = time().'.'.$file->getClientOriginalExtension();
             $path = $file->storeAs('game_Imgs', $filename, 'public');
-            $ima
+
         }
         $image->image_path = $path; //salva il record -kel
         $image->save();
