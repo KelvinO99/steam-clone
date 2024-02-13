@@ -35,47 +35,42 @@ class UserController extends Controller
 
     }
 
-    public function update(Request $request){
-        $user = auth()->User();
-        // Se non c'è un utente autenticato, restituisci un errore
-        if (!$user) {
-            return response()->json(['message' => 'Non autorizzato'], 401);
-        }
+    public function update(Request $request)
+{
+    $user = auth()->user();
 
-        $username = $request->input("username");
-        $password = $request->input("password");
-        $email = $request->input("email");
-        $wallet = $request->input("wallet");
-        $profile_pic = $request->input("profile_pic");
-        
-        $query = User::where('id', $user->id)->first();
-
-        if($username) $query->update(['username' => $username]);
-        if($password) $query->update(['password' => bcrypt($password)]);
-        if($email) $query->update(['email' => $email]);
-        if($wallet) $query->increment('wallet', $wallet);
-        if ($profile_pic) {
-            $profile_pic->validate([
-                'profile_pic' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
-            ]);
-            return 'non può entrare';
-            $profile_pic = $request->file('profile_pic');
-            
-            $imgCtrl = new ImagesController();
-            $img_id = $imgCtrl->store($profile_pic);
-            
-            if($img_id) $query->update(['img_id'=> $img_id]);
-        }
-
-       /* if($user->hasRole('developer/publisher')){
-            $pazzia = 'fr';
-        }*/
-        return response()->json([
-            'status'=>200,
-            'users'=>$query,
-        ]);
-
+    // Se non c'è un utente autenticato, restituisci un errore
+    if (!$user) {
+        return response()->json(['message' => 'Non autorizzato'], 401);
     }
+
+    $username = $request->input("username");
+    $password = $request->input("password");
+    $email = $request->input("email");
+    $wallet = $request->input("wallet");
+
+    $query = User::where('id', $user->id)->first();
+
+    if ($username) $query->update(['username' => $username]);
+    if ($password) $query->update(['password' => bcrypt($password)]);
+    if ($email) $query->update(['email' => $email]);
+    if ($wallet) $query->increment('wallet', $wallet);
+
+    if ($request->hasFile('profile_pic')) {
+        $profile_pic = $request->file('profile_pic');
+
+        // Genera un nome unico per l'immagine
+        $imageName = uniqid('profile_pic_') . '.' . $profile_pic->getClientOriginalExtension();
+
+        // Salva l'immagine nello storage nella directory desiderata
+        $profile_pic->storeAs('public/profile_pics', $imageName);
+
+        // Aggiorna il campo img_id nel database con il nome dell'immagine
+        $query->update(['img_id' => $imageName]);
+    }
+
+    return response()->json(['message' => 'Profilo aggiornato con successo']);
+}
     
     
 }
