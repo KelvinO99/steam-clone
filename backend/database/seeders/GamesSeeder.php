@@ -16,7 +16,7 @@ class GamesSeeder extends Seeder
         $names = [
             'Undertale',
             'Uncharted Lost Legacy',
-            'Pac-Man',
+            'Hitman 3',
             'Tetris',
             'Terraria',
             'Fortnite',
@@ -35,7 +35,7 @@ class GamesSeeder extends Seeder
             'Counter-Strike: Global Offensive',
             'Forza Horizon 5',
             'Left 4 Dead',
-            'Hitman 3',
+            'Hitman 3 World\'s Assassination',
         ];
 
         $dates = [
@@ -63,20 +63,20 @@ class GamesSeeder extends Seeder
             '2021-01-20',
             '2022-01-01',
         ];
-        for($i=0;$i<19;$i++) //19
+        for($i=0;$i<22;$i++) // 0/<19 = fa 20 cicli
         {
             $bool = (bool)rand(0,1);
             DB::table('games')->insert([
                 'name' => $names[$i],//PLACEHOLDER RNGNAME FROM ARRAY
                 'date' => $dates[$i],//PLACEHOLDER RNGBD
                 'base_price' => $base_price = mt_rand() / mt_getrandmax() * (69.99 - 1) + 1,//PLACEHOLDER FLOAT RNG
-                //'parent_id' => rand(1,20),
+                'is_dlc' => $i === 21 ? true : false,
+                'parent_id' => $i === 21 ? 3 : null,
                 'is_discounted' => $bool ? true : false,
                 'discounted_percentage' => $bool ? $discounted_percentage = rand(5,90) : null,//PLACEHOLDER RNG
                 'discounted_price' => $bool ? $base_price-($base_price*($discounted_percentage/100)) : null,
                 'short_description' => "pakistanilov",
                 'long_description' => "pakistanilov",
-                'is_dlc' => 0,
                 'pegi_id' => rand(0,4),
             ]);
         }
