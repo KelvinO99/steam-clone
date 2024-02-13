@@ -1,27 +1,26 @@
-a.sidebar_item {
-  display: block;
-  color: #7A8B9D;
-  font-size: 14px;
-  font-family: "Motiva Sans", Sans-serif;
-  font-weight: normal;
-  font-weight: 550;
+.container-fluid {
+  background-color: #1b2838;
 }
 
-.sidebar_header {
+.header {
   color: #536f86;
+}
+
+.item {
+  color: #7A8B9D;
+}
+/* .header {
+  color:#536f86 !important;
+  line-height: 16px;
   font-size: 14px;
   text-transform: uppercase;
   font-family: "Motiva Sans", Sans-serif;
   font-weight: normal;
   font-weight: bolder;
-}
+} */
 
-a:hover {
-  text-decoration: none;
-  color: #66c0f4;
-}
-
-div.sidebar_main {
-  background-color: #1b2838;
-  height: 100vh;
-}
+  /* a:hover {
+    text-decoration: none;
+    color: #66c0f4;
+    cursor: pointer;
+  }  */

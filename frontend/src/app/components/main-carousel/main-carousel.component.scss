@@ -1,4 +1,4 @@
-.allContainer{
+/* .allContainer{
     position: relative;
     top: 3vw;
 }
@@ -202,7 +202,6 @@
     font-weight: 400;
 }
 
-/* Platforms */
 #carousel .card .platforms{
     margin-left:0px;
     position:relative;
@@ -210,14 +209,14 @@
     left:17.8vw;
 }
 
-/* Final price */
+
 .row .col-6 .card-body .mainDefault .final_price{
     top:1.9vw;
     left:0vw;
    }
    
    
-/* Card */
+
 #carousel .carousel-item .card{
     border-width:0px;
     border-top-left-radius:0px;
@@ -226,19 +225,19 @@
     border-bottom-right-radius:0px;
    }
    
-   /* Column 6/12 */
+
    #carousel .card .col-6{
     border-width:0px;
     border-top-left-radius:0px;
     border-top-right-radius:0px;
    }
    
-   /* Heading */
+
    app-root app-store .container-fluid .row .contentcenter app-carousel .allContainer .carouselContainer #carouselcenter #carousel .carousel-inner .carousel-item .card .row .col-6 .card-body h5{
     width:95% !important;
    }
    
-   /* Card img */
+
    #carousel .card .card-img{
     border-top-left-radius:0px;
     border-top-right-radius:0px;
@@ -246,7 +245,7 @@
     border-bottom-right-radius:0px;
    }
    
-   /* Card body */
+
    #carousel .card .card-body{
     border-width:0px;
     border-top-left-radius:0%;
@@ -256,12 +255,12 @@
 
    }
    
-   /* Card body */
+
    app-root app-store .container-fluid .row .contentcenter app-carousel .allContainer .carouselContainer #carouselcenter #carousel .carousel-inner .carousel-item .card .row .col-6 .card-body{
     right:auto !important;
    }
    
-   /* Carousel */
+
    #carousel{
     border-top-left-radius:0%;
     border-top-right-radius:0%;
@@ -269,4 +268,4 @@
     border-bottom-right-radius:0%;
    }
    
-   
+    */
