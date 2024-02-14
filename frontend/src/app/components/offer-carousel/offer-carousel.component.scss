@@ -1,0 +1,32 @@
+/* Carousel base class */
+.carousel {
+    margin-bottom: 4rem;
+  }
+  /* Since positioning the image, we need to help out the caption */
+  .carousel-caption {
+    bottom: 3rem;
+  }
+  
+  /* Declare heights because of positioning of img element */
+  .carousel-item {
+    height: 32rem;
+  }
+
+  .carousel-control-prev {
+    height: 8rem;
+    width: 3rem;
+  }
+
+  .carousel-control-next {
+    height: 8rem;
+    width: 3rem;
+  }
+
+.mat-card {
+  width: 100vw;
+  border-radius: 0px;
+}
+
+.main {
+  height: 50vh;
+}
