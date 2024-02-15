@@ -12,6 +12,30 @@ class ImagesSeeder extends Seeder
 {
     public function run(): void
     {
+        $image_path = [
+            'undertale.png',
+            'PLACEHOLDER',
+            'PLACEHOLDER',
+            'PLACEHOLDER',
+            'PLACEHOLDER',
+            'PLACEHOLDER',
+            'PLACEHOLDER',
+            'PLACEHOLDER',
+            'PLACEHOLDER',
+            'PLACEHOLDER',
+            'PLACEHOLDER',
+            'PLACEHOLDER',
+            'PLACEHOLDER',
+            'PLACEHOLDER',
+            'PLACEHOLDER',
+            'PLACEHOLDER',
+            'PLACEHOLDER',
+            'PLACEHOLDER',
+            'PLACEHOLDER',
+            'PLACEHOLDER',
+
+        ];
+
         for($i=0;$i<19;$i++)
         {
             if($i == 0)  DB::table('images')->insert(['image_path' => "images\Users\Default.jpg",]);
@@ -20,7 +44,7 @@ class ImagesSeeder extends Seeder
                 'game_id' => rand(1,19),//PLACEHOLDER RNG
                 //'user_id' => rand(1,19),
                 //'achievement_id' => rand(1,19),
-                'image_path' => "immagine qui",
+                'image_path' => $image_path[$i],
             ]);
         }
         }
