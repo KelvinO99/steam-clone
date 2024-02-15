@@ -14,11 +14,12 @@ class LibrariesSeeder extends Seeder
     {
         for($i=0;$i<19;$i++)
         {
+            $bool = (bool)rand(0,1);
             DB::table('libraries')->insert([
                 'user_id' => rand(1,19),//PLACEHOLDER RNG
                 'game_id' => rand(1,19),//PLACEHOLDER RNG
-                'is_wishlisted' => $bool = (bool)rand(0,1),
-                'is_owned'=> $bool = (bool)rand(0,1),
+                'is_wishlisted' => $bool,
+                'is_owned'=> !$bool
 
             ]);
         }

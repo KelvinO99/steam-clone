@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('game_id');
+            $table->unsignedBigInteger('game_id')->nullable()->default(null);
             $table->string('image_path')->default('PLACEHOLDER');
             $table->timestamps();
 
@@ -23,9 +23,3 @@ return new class extends Migration
         Schema::dropIfExists('images');
     }
 };
-
-/*
-    $table->string('PLACEHOLDER_COLUMN_NAME');
-    $table->integer('PLACEHOLDER_COLUMN_NAME');
-    $table->boolean('PLACEHOLDER_COLUMN_NAME');
-*/

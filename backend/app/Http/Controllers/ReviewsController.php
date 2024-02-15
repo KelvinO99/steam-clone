@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reviews;
+use App\Models\Games;
 use App\Models\Role;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
@@ -10,28 +11,41 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 
 class ReviewsController extends Controller
 {
-     // Mostra tutti i record della tabella Reviews -Salvo
-     public function index(){
-        $var = Reviews::get();
+     public function index(Request $request){
 
+        $skip = $request->input("skip");
+        $take = $request->input("take");
+        $users_reviews = Reviews::with(['User' => function ($q) {
+            $q->select('id', 'username');
+        }])->get();
 
+        $users_reviews = $users_reviews->skip($skip)->take($take);
+        
         return response()->json([
-            'status'=>200,
-            'reviews'=>$var
-        ]);
+            'status' => 200,
+            'users_reviews' => $users_reviews
 
+        ]);
         
     }
 
-    // Mostra un determinato record dellla tabella Reviews -Salvo
-    public function show($id){
-        $var = Reviews::find($id);
+    //la funzione sottostante è stata sovrascritta e in ciò ha il
+    //ruolo speciale di index + in base al gioco + utente associato
+    public function show($id, Request $request){
 
+        $skip = $request->input("skip");
+        $take = $request->input("take");
+        $users_reviews = Reviews::where('game_id', $id)->with(['User' => function ($q) {
+            $q->select('id', 'username');
+        }])->get();
+
+        $users_reviews = $users_reviews->skip($skip)->take($take);
+        
         return response()->json([
-            'status'=>200,
-            'reviews'=>$var
-        ]);
+            'status' => 200,
+            'users_reviews' => $users_reviews
 
+        ]);
     }
     
     // Elimina un determinato record della tabella Reviews -Salvo
@@ -65,39 +79,39 @@ class ReviewsController extends Controller
     public function store(Request $request) {
 
         // Ottieni l'utente autenticato tramite JWT
-        $var = JWTAuth::parseToken()->authenticate();
+        $user = JWTAuth::parseToken()->authenticate();
 
         // Se non c'è un utente autenticato, restituisci un errore
-        if (!$var) {
+        if (!$user) {
             return response()->json(['message' => 'Non autorizzato'], 401);
         }
         
-        if($var->hasRole('developer/publisher')){
+        if($user->hasRole('developer/publisher')){
             return response()->json(['message'=> 'Non hai il permesso necessario'],401);
         }
-
+        
         // Controlla se l'utente ha già pubblicato una recensione per questo gioco -Salvo
-        $existingReview = Reviews::where('user_id', $var->id)->where('game_id', $request->game_id)->first();
+        $existingReview = Reviews::where('user_id', $user->id)->where('game_id', $request->game_id)->first();
 
         if ($existingReview){
             return response()->json(['message' => 'Hai già pubblicato una recensione per questo gioco.'], 403);
         }
 
         $validatedData = $request->validate([
-            'user_id' => 'required|max:255',
             'game_id' => 'required|max:255',
-            'data_of_review' => 'required|max:255',
-            //'is_recommended' => 'required',
+            'date_of_review' => 'required|max:255',
+            'is_recommended' => 'required',
             'description' => 'required|max:255',
             'hours_played' => 'required|max:255',
         ]);
-    
-        $var = new Reviews();
-        $var->fill($validatedData);
 
-        $var->save();
+        $review = new Reviews();
+        $review->user_id = $user->id;
+        $review->fill($validatedData);
 
-        return response()->json($var, 201);
+        $review->save();
+
+        return response()->json($review, 201);
 
     }
 }

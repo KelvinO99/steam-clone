@@ -10,13 +10,19 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 class LibrariesController extends Controller
 {
      // Mostra tutti i record della tabella Libraries -Salvo
-     public function index(){
-        $var = Libraries::get();
+     public function index(Request $request){
+        $is_owned = $request->input("is_owned");
+        $is_wishlisted = $request->input("is_wishlisted");
+        $library = Libraries::query();
 
+        if($is_owned) $library->where('is_owned', '1'); 
 
+        if($is_wishlisted) $library->where('is_wishlisted', '1');
+
+        
         return response()->json([
             'status'=>200,
-            'libraries'=>$var
+            'libraries'=>$library->get()
         ]);
 
         

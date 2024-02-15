@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('games', function (Blueprint $table) {
             $table->id();
             $table->boolean('is_dlc')->default(false);
-            //$table->unsignedBigInteger('parent_id');
+            $table->unsignedBigInteger('parent_id')->nullable()->default(null);
             $table->string('name')->default('PLACEHOLDER');
             $table->date('date')->default('1970-01-01');
             $table->float('base_price', 8, 2)->default(0.00);
@@ -20,10 +20,10 @@ return new class extends Migration
             $table->integer('discounted_percentage')->default(0)->nullable();   //è scontato un gioco -chris
             $table->text('short_description')->default('Descrizione breve');
             $table->text('long_description')->default('Descrizione lunga');
-            $table->integer('pegi_id')->default('0');
+            $table->integer('pegi_id')->default(null);
             $table->timestamps();
 
-            //$table->foreign('parent_id')->references('id')->on('games')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('parent_id')->references('id')->on('games')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

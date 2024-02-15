@@ -57,13 +57,13 @@ class UsersSeeder extends Seeder
             'user17@domain.com',
             'user18@domain.com',
             'user19@domain.com',
-            'user20@domain.com',
         ];
 
         // Assicurati che i ruoli siano già stati creati nel database
         $ruoli = Role::all();
 
         $DIM_A = count($usernames);
+        $j=0;
         for($i=0;$i<19;$i++)
         {
             foreach ($emails as $email) {
@@ -75,11 +75,12 @@ class UsersSeeder extends Seeder
             // Seleziona un username casuale
             $randomUsername = $usernames[array_rand($usernames)];
     
-            
+            $j++;
             $user = User::create([
                 'username' => $randomUsername,
                 'email' => $email,
                 'password' => 'password',
+                'image_id' => 1,
                 'wallet' => 0,
             ]);
 
