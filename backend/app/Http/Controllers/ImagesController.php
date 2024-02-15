@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\UserController;
 use App\Models\Images;
+use App\Models\Games;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
@@ -75,8 +76,10 @@ class ImagesController extends Controller
             $file = $request->file('game_img');
             $filename = time().'.'.$file->getClientOriginalExtension();
             $path = $file->storeAs('game_Imgs', $filename, 'public');
+            $image->game_id = $request->game_id;
 
         }
+
         $image->image_path = $path; //salva il record -kel
         $image->save();
         

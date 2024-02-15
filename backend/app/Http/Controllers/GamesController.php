@@ -252,11 +252,11 @@ class GamesController extends Controller
         $game->fill($validatedData);
         
         if ($request->hasFile('game_img')) {
-            // Here you would pass the part of the request that contains the image to the ImagesController
+            $request->game_id = $game->id;
             $imagesController = new ImagesController();
             $imagesController->store($request);
+          
         }
-    
 
         $game->save();
 
