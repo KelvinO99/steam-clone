@@ -253,6 +253,7 @@ class GamesController extends Controller
         $game->save();
         if ($request->hasFile('game_imgs')) {
             $request->game_id = $game->id;
+            $request->game_name = $game->name;
             $imagesController = new ImagesController();
             $imagesController->store($request);
           

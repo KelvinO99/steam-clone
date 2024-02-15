@@ -75,33 +75,27 @@ class ImagesController extends Controller
             $image->save();
             return $image;
         }
+        
         if ($request->hasFile('game_imgs')) {
-            $files = $request->file('game_imgs'); 
-            foreach ($files as $file) {
-                // Create a new image record
-                $image = new Images(); // Assuming Images is your model
-        
-                // Store the file in the 'game_images' directory within the 'public' disk
-                // Laravel will automatically generate a unique file name
-                $path = $file->store('game_images', 'public');
-        
-                // Assign the generated path (which includes the generated file name) to your model
-                $image->game_id = $request->game_id; // Ensure you validate and sanitize this!
-                $image->image_path = $path;
-        
-                // Save the new image record to the database
-                $image->save();
+            $files = $request->file('game_imgs');
+            $game_name = $request->game_name; 
+            $i = 1;
+            foreach($files as $file){
+             if($i == 25)return response()->json(['message'=>'image limit reached',]);
+            
+             $image = new Images(); //crea record images -kel
+             $filename =$game_name.$i.'.'.$file->getClientOriginalExtension();
+             $path = $file->storeAs( 'game_images/'.$game_name, $filename, 'public');
+             $image->game_id = $request->game_id;
+             $image->image_path = $path; //salva il record -kel
+             $image->save();
+             $i++;
             }
-            return response()->json([
-                'status'=>200,
-                'message'=>'ok',
-            ]);
+            
+            return response()->json(['status'=>200,'message'=>'ok',]);
         } 
         
-        return response()->json([
-            'status'=>500,
-            'messaggio'=>'riferisci a kel',
-        ]);;
+        return response()->json(['status'=>500, 'messaggio'=>'riferisci a kel',]);
 
     }
 }
