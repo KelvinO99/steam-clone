@@ -112,7 +112,6 @@
     
 }
 
-
 .cardBody{  
     width: 10.62vw;
     height: 2.9vw;
@@ -126,9 +125,7 @@
     background-origin: initial;
     background-clip: initial;
     color: white;
-    position: absolute;
+    position: relative;
     bottom: 1.1vw;
     right: 1.16vw;
 }
-
-// CardBody - bigCardBody da fare in absolute.
