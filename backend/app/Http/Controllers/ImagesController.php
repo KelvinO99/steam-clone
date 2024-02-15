@@ -65,25 +65,43 @@ class ImagesController extends Controller
     // Aggiunge un record alla tabella Images -Salvo
     public function store(Request $request) {
 
+
         if ($request->hasFile('profile_pic')) {
             $image = new Images(); //crea record images -kel
             $file = $request->file('profile_pic');
             $filename = time().'.'.$file->getClientOriginalExtension();
             $path = $file->storeAs('profile_pictures', $filename, 'public');
+            $image->image_path = $path; //salva il record -kel
+            $image->save();
+            return $image;
         }
-        if ($request->hasFile('game_img')) {
-            $image = new Images(); //crea record images -kel
-            $file = $request->file('game_img');
-            $filename = time().'.'.$file->getClientOriginalExtension();
-            $path = $file->storeAs('game_Imgs', $filename, 'public');
-            $image->game_id = $request->game_id;
-
-        }
-
-        $image->image_path = $path; //salva il record -kel
-        $image->save();
+        if ($request->hasFile('game_imgs')) {
+            $files = $request->file('game_imgs'); 
+            foreach ($files as $file) {
+                // Create a new image record
+                $image = new Images(); // Assuming Images is your model
         
-        return $image;
+                // Store the file in the 'game_images' directory within the 'public' disk
+                // Laravel will automatically generate a unique file name
+                $path = $file->store('game_images', 'public');
+        
+                // Assign the generated path (which includes the generated file name) to your model
+                $image->game_id = $request->game_id; // Ensure you validate and sanitize this!
+                $image->image_path = $path;
+        
+                // Save the new image record to the database
+                $image->save();
+            }
+            return response()->json([
+                'status'=>200,
+                'message'=>'ok',
+            ]);
+        } 
+        
+        return response()->json([
+            'status'=>500,
+            'messaggio'=>'riferisci a kel',
+        ]);;
 
     }
 }

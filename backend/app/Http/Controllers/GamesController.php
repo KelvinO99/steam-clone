@@ -251,7 +251,7 @@ class GamesController extends Controller
         $game = new Games();
         $game->fill($validatedData);
         $game->save();
-        if ($request->hasFile('game_img')) {
+        if ($request->hasFile('game_imgs')) {
             $request->game_id = $game->id;
             $imagesController = new ImagesController();
             $imagesController->store($request);
