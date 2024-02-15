@@ -20,13 +20,13 @@ class ReviewsController extends Controller
         }])->get();
 
         $users_reviews = $users_reviews->skip($skip)->take($take);
-        
+
         return response()->json([
             'status' => 200,
             'users_reviews' => $users_reviews
 
         ]);
-        
+
     }
 
     //la funzione sottostante è stata sovrascritta e in ciò ha il
@@ -40,20 +40,20 @@ class ReviewsController extends Controller
         }])->get();
 
         $users_reviews = $users_reviews->skip($skip)->take($take);
-        
+
         return response()->json([
             'status' => 200,
             'users_reviews' => $users_reviews
 
         ]);
     }
-    
+
     // Elimina un determinato record della tabella Reviews -Salvo
     public function destroy ($id){
 
         $var = Reviews::find( $id );
         $var->delete();
-        
+
         return response()->json([
             'status'=>200,
             'reviews'=>$var
@@ -85,11 +85,11 @@ class ReviewsController extends Controller
         if (!$user) {
             return response()->json(['message' => 'Non autorizzato'], 401);
         }
-        
+
         if($user->hasRole('developer/publisher')){
             return response()->json(['message'=> 'Non hai il permesso necessario'],401);
         }
-        
+
         // Controlla se l'utente ha già pubblicato una recensione per questo gioco -Salvo
         $existingReview = Reviews::where('user_id', $user->id)->where('game_id', $request->game_id)->first();
 
@@ -98,11 +98,11 @@ class ReviewsController extends Controller
         }
 
         $validatedData = $request->validate([
-            'game_id' => 'required|max:255',
-            'date_of_review' => 'required|max:255',
-            'is_recommended' => 'required',
-            'description' => 'required|max:255',
-            'hours_played' => 'required|max:255',
+            'game_id' => 'required',
+            'date_of_review' => 'required',
+            'is_recommended' => 'required|boolean',
+            'description' => 'required|string|max:2048',
+            'hours_played' => 'required|float',
         ]);
 
         $review = new Reviews();

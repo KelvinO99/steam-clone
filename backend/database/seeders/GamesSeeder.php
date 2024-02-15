@@ -35,7 +35,7 @@ class GamesSeeder extends Seeder
             'Counter-Strike: Global Offensive',
             'Forza Horizon 5',
             'Left 4 Dead',
-            'Hitman 3 World\'s Assassination',
+            'Hitman 3 World Of Assassination',
         ];
 
         $dates = [
@@ -46,9 +46,9 @@ class GamesSeeder extends Seeder
             '2011-05-16',
             '2017-07-25',
             '2003-10-29',
-            '2013-10-29', 
-            '2013-09-17', 
-            '2012-11-06', 
+            '2013-10-29',
+            '2013-09-17',
+            '2012-11-06',
             '2021-06-10',
             '2004-11-23',
             '2016-05-24',
