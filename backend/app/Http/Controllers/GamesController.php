@@ -1,5 +1,5 @@
 <?php
-//NON ELIMINARE 
+//NON ELIMINARE
 //<PLACEHOLDER> = dati da cambiare -chris
 
 namespace App\Http\Controllers;
@@ -27,7 +27,7 @@ class GamesController extends Controller
         $take = $request->input("take", 1); //take
 
         $game = Games::query(); // Start building the query
-        
+
 
 //ISSET CODE
         if ($discount) {
@@ -64,7 +64,7 @@ class GamesController extends Controller
             $q->select('id','user_id', 'is_publisher')->with(['User' => function ($q2){
                 $q2->select('id', 'username');
         }]);
-    }])->first(); 
+    }])->first();
 
 
 
@@ -76,7 +76,7 @@ class GamesController extends Controller
 
 
     //return $game;
-//DEVELOPERS FUNCTION    
+//DEVELOPERS FUNCTION
 
 
 //TAGS FUNCTION
@@ -86,12 +86,12 @@ class GamesController extends Controller
 //TAGS FUNCTION
 
 
-//REVIEWS FUNCTION 
+//REVIEWS FUNCTION
         $reviews = Reviews::where('game_id', $id)->pluck('is_recommended'); //prendi la colonna is_recommended del singolo gioco
 
         $DIM_A = count($reviews); //conta quante review sono state fatte
         $positive = 0; // inizializza variabile che verrà usata subito
-        for($i = 0; $i < $DIM_A-1; $i++){ 
+        for($i = 0; $i < $DIM_A-1; $i++){
             if($reviews[$i] == 1)         //ciclo for che conta quante review sono positive
             {                             //per fare un rapporto
                 $positive++;
@@ -115,7 +115,7 @@ class GamesController extends Controller
                 $string= 'Very Positive Reviews';
                     break;
             case $ratio>=95&&$ratio<=100:
-                $string= 'Overwhelmingly Positive Reviews'; 
+                $string= 'Overwhelmingly Positive Reviews';
             default:
                 $string= 'Error'; //riferisci a chris
             }
@@ -128,11 +128,11 @@ class GamesController extends Controller
         //c'è bisogno di users_reviews perché è una roba apparte che ha il compito
         //di filtrare tutto per lo scopo di visualizzare utenti e review che fanno
         //invece review solo per contare se è recommended. è tutto ok!!
-//REVIEWS FUNCTION        
+//REVIEWS FUNCTION
 
 
 
-//DEPRECATED DEVELOPERS FUNCTION  
+//DEPRECATED DEVELOPERS FUNCTION
     //     $developer = Developers::select('developers.*', 'users.username as user_name')
     // ->join('developers_games', 'developers.id', '=', 'developers_games.developer_id')
     // ->join('games', 'games.id', '=', 'developers_games.game_id')
@@ -161,7 +161,7 @@ class GamesController extends Controller
 
         $var = Games::find( $id );
         $var->delete();
-        
+
         return response()->json([
             'status'=>200,
             'games'=>$var
@@ -215,7 +215,7 @@ class GamesController extends Controller
         if($short_description) $game->update(['short_description'=> $short_description]);
         if($long_description) $game->update(['long_description'=> $long_description]);
         if($pegi_id) $game->update(['pegi_id'=> $pegi_id]);
-        
+
         return response()->json($game, 201);
     }
 
@@ -235,15 +235,15 @@ class GamesController extends Controller
 
 
         $validatedData = $request->validate([
-            'name' => 'required|max:255',
-            'is_dlc' => 'boolean|required',
+            'name' => 'required|string|max:100',
             'date'=> 'required|date',
-            'parent_id'=> 'nullable',
+            'is_dlc' => 'boolean|required',
+            'parent_id'=> 'required|integer|nullable',
             'base_price' => 'required|numeric',
             'discounted_price'=> 'nullable|numeric',
             'discounted_percentage'=> 'nullable|integer|min:0|max:100',
-            'short_description'=> 'required|max:255',
-            'long_description'=> 'required|max:255',
+            'short_description'=> 'required|string|max:2048',
+            'long_description'=> 'required|string|max:4096',
             'pegi_id' => 'required',
         ]);
 
@@ -256,7 +256,7 @@ class GamesController extends Controller
             $request->game_name = $game->name;
             $imagesController = new ImagesController();
             $imagesController->store($request);
-          
+
         }
 
 
