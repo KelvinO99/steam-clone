@@ -39,7 +39,7 @@ class GamesController extends Controller
                                     ->join('games_tags', 'games.id', '=', 'games_tags.game_id')
                                     ->join('tags', 'games_tags.tag_id', '=', 'tags.id')
                                     ->where('tags.name', 'Top Seller')
-                                    ->with('images');
+                                    ->with('images.image_path');
         }
 
         if ($special_offer) {
@@ -250,7 +250,7 @@ class GamesController extends Controller
 
         $game = new Games();
         $game->fill($validatedData);
-        
+        $game->save();
         if ($request->hasFile('game_img')) {
             $request->game_id = $game->id;
             $imagesController = new ImagesController();
@@ -258,9 +258,8 @@ class GamesController extends Controller
           
         }
 
-        $game->save();
 
-        return $game;
+        return response()->json($game, 201);;
 
     }
 }
