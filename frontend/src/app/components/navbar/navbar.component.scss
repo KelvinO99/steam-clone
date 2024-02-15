@@ -40,15 +40,17 @@ a.subMenuItem {
     position: absolute;
     left: 0;
     background-color: #3d4450;
+    box-shadow: 3px 3px 5px -3px #000;
+    text-align: left;
     z-index: 10;
 }
 
 .dropdown-content.shop {
-    min-width: 10vw;
+    min-width: 150px;
 }
 
 .dropdown-content.community {
-    min-width: 5rem;
+    min-width: 80px;
 }
 
 .dropdown-content.language {

@@ -4,11 +4,21 @@
 
 .header {
   color: #536f86;
+  font-size: 14px;
+  font-weight: bolder;
 }
 
-.item {
+a.item {
   color: #7A8B9D;
+  font-size: 12px;
+  font-weight: bolder;
 }
+
+li {
+  line-height: 1.2;
+}
+
+
 /* .header {
   color:#536f86 !important;
   line-height: 16px;
