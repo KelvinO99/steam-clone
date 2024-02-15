@@ -64,15 +64,15 @@ class ImagesController extends Controller
 
     // Aggiunge un record alla tabella Images -Salvo
     public function store(Request $request) {
-    
-        $image = new Images(); //crea record images -kel
 
         if ($request->hasFile('profile_pic')) {
+            $image = new Images(); //crea record images -kel
             $file = $request->file('profile_pic');
             $filename = time().'.'.$file->getClientOriginalExtension();
             $path = $file->storeAs('profile_pictures', $filename, 'public');
         }
         if ($request->hasFile('game_img')) {
+            $image = new Images(); //crea record images -kel
             $file = $request->file('game_img');
             $filename = time().'.'.$file->getClientOriginalExtension();
             $path = $file->storeAs('game_Imgs', $filename, 'public');
