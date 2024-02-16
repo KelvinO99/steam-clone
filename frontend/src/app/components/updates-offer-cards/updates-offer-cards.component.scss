@@ -1,15 +1,15 @@
-.allCardsContainer{
-    display: flex;
+.bigCard, .smallCard, .smallCard2, .smallCard3, .smallCard4, .smallCard5, .smallCard6 {
+    border-radius: 0; /* Rimuove lo smussamento dei contorni */
 }
+
 .bigCard{
-    width: 23.28vw;
-    height: 24.64vw;
+    width: 346.2144px; /* 23.28vw */
+    height: 365.1712px; /* 24.64vw */
     position: relative;
-    top: 13.1%;
 }
 .bigCardBody{  
-    width: 23.28vw;
-    height: 4.3vw;
+    width: 346.2144px; /* 23.28vw */
+    height: 50px; /* 4.3vw */
     background: linear-gradient( 135deg, rgba(37,49,63,1) 5%,rgba(54,97,125,1) 95%);
     background-image: linear-gradient(135deg, rgb(37, 49, 63) 5%, rgb(54, 97, 125) 95%);
     background-position-x: initial;
@@ -21,37 +21,34 @@
     background-clip: initial;
     color: white;
     position: relative;
-    bottom: 1.1vw;
-    right: 1.1vw;
+    bottom: 16px;
+    right: 16px;
 }
 
 .bigFinalPrice{    
     color: #BEEE11;
-    line-height: 1.07vw;
-    font-size: 1.00vw;
-     line-height: 1.00vw;
-    height: 3.62vw;
-    padding: 1vw;
+    line-height: 15.9216px;
+    font-size: 14.88px; 
+    height: 53.7856px; 
     text-align: right;
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: end;
     position: relative;
-    top: 13%;
+    top: 16px;
+    right: 13px;
 }
 
 .finalPrice{    
     color: white;
-    line-height: 1.07vw;
-    font-size: 1.00vw;
-     line-height: 1.00vw;
-    height: 3.62vw;
-    padding: 1.00vw;
+    line-height: 15.9216px; /* 1.07vw */
+    font-size: 14.88px; /* 1.00vw */
+    line-height: 14.88px; /* 1.00vw */
+    height: 53.7856px; /* 3.62vw */
+    padding: 14.88px; /* 1.00vw */
     text-align: right;
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: end;
     position: relative;
     bottom: 5%;
@@ -59,62 +56,64 @@
 
 .smallCards{
     position:relative;
-    left: 1%;
-    top: 3rem;
+    left: 1%
 }
 .smallCard{
-    width: 10.57vw;
-    height: 11.17vw;
-    display: inline-block;
-    position: static;
-    margin-right:0.44rem;
+    width: 157.3576px; /* 10.57vw */
+    height: 165.9636px; /* 11.17vw */
+    position: relative;
+    margin: 5px;
+    left: 345px;
+    bottom: 369px;
 }
 
 .smallCard2{
-    width: 10.57vw;
-    height: 11.17vw;
-    display: inline-block;
-    margin-right:0.44rem;
+    width: 157.3576px; /* 10.57vw */
+    height: 165.9636px; /* 11.17vw */
+    position: relative;
+    margin: 5px;
+    left: 510px;
+    bottom: 540px;
 }
 
 .smallCard3{
-    width: 10.57vw;
-    height: 11.17vw;
-    display: inline-block;
-    margin-right:0.44rem;
-    position: absolute;
+    width: 157.3576px; /* 10.57vw */
+    height: 165.9636px; /* 11.17vw */
+    position: relative;
+    margin: 5px;
+    left: 675px;
+    bottom: 710px;
 }
 
 .smallCard4{
-    width: 10.57vw;
-    height: 11.17vw;
-    display: inline-block;
-    margin-right:0.44rem;
-    position: static;
-    
+    width: 157.3576px; /* 10.57vw */
+    height: 165.9636px; /* 11.17vw */
+    position: relative;
+    margin: 5px;
+    left: 352px;
+    bottom: 673px;
 }
 
 .smallCard5{
-    width: 10.57vw;
-    height: 11.17vw;
-    display: inline-block;
-    margin-right:0.44rem;
-    bottom: 2.9rem;
-    
+    width: 157.3576px; /* 10.57vw */
+    height: 165.9636px; /* 11.17vw */
+    position: relative;
+    margin: 5px;
+    left:518px;
+    bottom: 844px;
 }
 
 .smallCard6{
-    width: 10.57vw;
-    height: 11.17vw;
-    display: inline-block;
-    position: absolute;
-
-    
+    width: 157.3576px; /* 10.57vw */
+    height: 165.9636px; /* 11.17vw */
+    position: relative;
+    margin: 5px;
+    left:682px;
+    bottom: 1014px;
 }
-
 .cardBody{  
-    width: 10.62vw;
-    height: 2.9vw;
+    width: 157.7616px; /* 10.62vw */
+    height: 40px; /* 2.9vw */
     background: linear-gradient( 135deg, rgba(37,49,63,1) 5%,rgba(54,97,125,1) 95%);
     background-image: linear-gradient(135deg, rgb(37, 49, 63) 5%, rgb(54, 97, 125) 95%);
     background-position-x: initial;
@@ -126,6 +125,6 @@
     background-clip: initial;
     color: white;
     position: relative;
-    bottom: 1.1vw;
-    right: 1.16vw;
+    bottom: 16.368px; /* 1.1vw */
+    right: 17.2608px; /* 1.16vw */
 }
