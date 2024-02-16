@@ -8,14 +8,16 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
+[x: string]: any;
   token!: string;
   username: string | null | undefined;
-  size!: string;
+  col_8!: string;
+  col_2!: string;
+  justify_content!: string
   screenWidth = window.screen.width;
 
-  constructor(public authService: AuthService) {
+  constructor(public authService: AuthService, public router: Router) {
     this.onResize();
-    /* this.size = "col-xl-8" */
   }
 
   language: string[] = [
@@ -55,10 +57,29 @@ export class NavbarComponent {
   }
 
   updateSize() {
-    if (this.screenWidth >= 1200) {
-      this.size = 'col-8 p-0 m-0';
-    } else if (this.screenWidth < 1200) {
-      this.size = 'col-xl-8 p-0 m-0';
+    if (this.screenWidth < 768) {
+      this.col_8 = 'col-xs-8 p-0 m-0';
+      this.col_2 = 'd-none';
+      this.justify_content = 'row p-0 w-100 d-flex justify-content-start'
+
+    } else if ((this.screenWidth >= 768) && (this.screenWidth < 992)) {
+      this.col_8 = 'col-sm-8 p-0 m-0';
+      this.col_2 = 'd-none';
+      this.justify_content = 'row p-0 w-100 d-flex justify-content-start'
+    }
+
+    else if ((this.screenWidth >= 992) && (this.screenWidth < 1200)) {
+      this.col_8 = 'col-md-8 p-0 m-0';
+      this.col_2 = 'col-md-2 p-0 m-0';
+      this.justify_content = 'row p-0 w-100 d-flex justify-content-center'
+
+    }
+
+    else if (this.screenWidth >= 1200) {
+      this.col_8 = 'col-lg-8 p-0 m-0';
+      this.col_2 = 'col-lg-2 p-0 m-0';
+      this.justify_content = 'row p-0 w-100 d-flex justify-content-center'
+
     }
   }
 
