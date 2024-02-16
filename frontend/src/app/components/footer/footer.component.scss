@@ -21,7 +21,7 @@ ul {
     border-width: 1px !important;
 }
 
-@media only screen and (min-width: 992px) and (min-width:  1200px){
+@media only screen and (min-width: 1200px) and (min-width:  992px) and (min-width: 768px)  and (min-width: 600px){
     $size: 1;
     .col-1 {
         max-width: 9.996rem;

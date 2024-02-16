@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
@@ -10,8 +10,13 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 export class NavbarComponent {
   token!: string;
   username: string | null | undefined;
+  size!: string;
+  screenWidth = window.screen.width;
 
-constructor(public authService: AuthService) {}
+  constructor(public authService: AuthService) {
+    this.onResize();
+    /* this.size = "col-xl-8" */
+  }
 
   language: string[] = [
     '繁體中文 (Traditional Chinese)',
@@ -43,9 +48,23 @@ constructor(public authService: AuthService) {}
     'Українська (Ukrainian)',
   ];
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event?: undefined) {
+    this.screenWidth = window.innerWidth;
+    this.updateSize();
+  }
+
+  updateSize() {
+    if (this.screenWidth >= 1200) {
+      this.size = 'col-8 p-0 m-0';
+    } else if (this.screenWidth < 1200) {
+      this.size = 'col-xl-8 p-0 m-0';
+    }
+  }
+
   ngOnInit(): void {
     // Sottoscrizione all'observable per aggiornare il nome utente quando lo stato di accesso cambia
-    this.authService.loggedIn$.subscribe(loggedIn => {
+    this.authService.loggedIn$.subscribe((loggedIn) => {
       if (loggedIn) {
         this.username = localStorage.getItem('user_profile_username');
       } else {
@@ -58,4 +77,3 @@ constructor(public authService: AuthService) {}
     this.authService.doLogout();
   }
 }
-
