@@ -31,7 +31,8 @@ class GamesController extends Controller
 
 //ISSET CODE
         if ($discount) {
-            $game->where('is_discounted', true);
+            $game->where('is_discounted', true)
+            ->with('images.image_path');
         }
 
         if ($featured) {
@@ -43,7 +44,8 @@ class GamesController extends Controller
         }
 
         if ($special_offer) {
-           $game->where('discounted_percentage','>', '60');
+           $game->where('discounted_percentage','>', '60')
+           ->with('images.image_path');
         }
 //ISSET CODE
 
