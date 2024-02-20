@@ -1,11 +1,10 @@
-/* img {
-    background-color: black;
+.body {
     background-image: url("https://cdn.cloudflare.steamstatic.com/steam/clusters/frontpage/7be61b8b8a22e67b940d5cd3/page_bg_italian.jpg?t=1707523392");
     background-repeat: no-repeat;
     background-position: center top;
-    max-width: 120rem;
-    max-height: 30rem !important;
-} */
+    max-width: 100vw;
+    min-height: 30rem !important;
+}
 
 /* img {
     background-image: url("../../../assets/image/img1.jpg");
@@ -108,7 +107,8 @@
 }
 
 @media only screen and (max-width: 62.5rem) {
-    app-sidebar {
+    app-sidebar,
+    .col2 {
         display: none;
     }
 }
