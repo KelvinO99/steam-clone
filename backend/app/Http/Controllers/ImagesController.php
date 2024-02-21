@@ -21,7 +21,7 @@ class ImagesController extends Controller
             'images'=>$var
         ]);
 
-        
+
     }
 
     // Mostra un determinato record dellla tabella Images -Salvo
@@ -34,13 +34,13 @@ class ImagesController extends Controller
         ]);
 
     }
-    
+
     // Elimina un determinato record della tabella Images -Salvo
     public function destroy ($id){
 
         $var = Images::find( $id );
         $var->delete();
-        
+
         return response()->json([
             'status'=>200,
             'images'=>$var
@@ -75,26 +75,26 @@ class ImagesController extends Controller
             $image->save();
             return $image;
         }
-        
+
         if ($request->hasFile('game_imgs')) {
             $files = $request->file('game_imgs');
-            $game_name = $request->game_name; 
+            $game_name = $request->game_name;
             $i = 0;
             foreach($files as $file){
              if($i == 24)return response()->json(['message'=>'image limit reached',]);
-            
+
              $image = new Images(); //crea record images -kel
-             $filename =$game_name.$i.'.'.$file->getClientOriginalExtension();
+             $filename =$game_name.'_'.$i.'.'.$file->getClientOriginalExtension();
              $path = $file->storeAs( 'game_images/'.$game_name, $filename, 'public');
              $image->game_id = $request->game_id;
              $image->image_path = $path; //salva il record -kel
              $image->save();
              $i++;
             }
-            
+
             return response()->json(['status'=>200,'message'=>'ok',]);
-        } 
-        
+        }
+
         return response()->json(['status'=>500, 'messaggio'=>'riferisci a kel',]);
 
     }
