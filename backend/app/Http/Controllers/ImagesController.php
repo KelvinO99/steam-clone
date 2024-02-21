@@ -13,12 +13,12 @@ class ImagesController extends Controller
 {
      // Mostra tutti i record della tabella Images -Salvo
      public function index(){
-        $var = Images::get();
+        $image = Images::get();
 
 
         return response()->json([
             'status'=>200,
-            'images'=>$var
+            'images'=>$image
         ]);
 
 
@@ -26,11 +26,11 @@ class ImagesController extends Controller
 
     // Mostra un determinato record dellla tabella Images -Salvo
     public function show($id){
-        $var = Images::find($id);
+        $image = Images::find($id);
 
         return response()->json([
             'status'=>200,
-            'images'=>$var
+            'images'=>$image
         ]);
 
     }
@@ -38,28 +38,44 @@ class ImagesController extends Controller
     // Elimina un determinato record della tabella Images -Salvo
     public function destroy ($id){
 
-        $var = Images::find( $id );
-        $var->delete();
+        $image = Images::find( $id );
+        $image->delete();
 
         return response()->json([
             'status'=>200,
-            'images'=>$var
+            'images'=>$image
         ]);
     }
 
     // Aggiorna un determinato record della tabella Images -Salvo
     public function update(Request $request): Response
     {
-        $var = Images::findOrFail($request->id);
+       if($request->img_id){
+        $image = Images::findOrFail($request->img_id);
+        $file = $request->file('game_img');
+        $file->storeas();
+       }
 
-        if ($var->update($request->all()) === false) {
-            return response(
-                "not real {$request->id}",
-                Response::HTTP_BAD_REQUEST
-            );
+       if ($request->hasFile('game_imgs')){
+
+        $files = $request->file('game_imgs');
+        $game_name = $request->game_name;
+        $query = Images::query();
+        
+        $i = $query->where(game_id == $request->id)->count();
+        
+        foreach($files as $file){
+         if($i == 24)return response()->json(['message'=>'image limit reached',]);
+         $image = new Images(); //crea record images -kel
+         $filename =$game_name.'_'.$i.'.'.$file->getClientOriginalExtension();
+         $path = $file->storeAs( 'game_images/'.$game_name, $filename, 'public');
+         $image->game_id = $request->game_id;
+         $image->image_path = $path; //salva il record -kel
+         $image->save();
+         $i++;
         }
 
-        return response($var);
+        return response($image);
     }
 
     // Aggiunge un record alla tabella Images -Salvo

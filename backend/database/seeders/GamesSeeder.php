@@ -29,7 +29,7 @@ class GamesSeeder extends Seeder
             'Overwatch 2',
             'EA SPORTS FC™ 24',
             'PC Building Simulator',
-            'Dota 2',
+            'Persona 5 Royal',
             'Steam Deck',
             'Rocket League',
             'Counter-Strike 2',

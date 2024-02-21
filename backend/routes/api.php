@@ -81,7 +81,7 @@ Route::controller(ImagesController::class)->prefix('images')->group(function($ro
     Route::get('index','index');
     Route::get('show/{id}','show');
     Route::delete('destroy/{id}','destroy');
-    Route::put('update/{id}','update');
+    Route::put('update','update');
     Route::post('store','store');
 });
 
