@@ -79,9 +79,9 @@ class ImagesController extends Controller
         if ($request->hasFile('game_imgs')) {
             $files = $request->file('game_imgs');
             $game_name = $request->game_name; 
-            $i = 1;
+            $i = 0;
             foreach($files as $file){
-             if($i == 25)return response()->json(['message'=>'image limit reached',]);
+             if($i == 24)return response()->json(['message'=>'image limit reached',]);
             
              $image = new Images(); //crea record images -kel
              $filename =$game_name.$i.'.'.$file->getClientOriginalExtension();
