@@ -19,7 +19,7 @@ class TagsController extends Controller
                                             //and   (function)
         $take = $request->input("take", 1); //take
 
-        $game = Tags::query(); // Start building the query
+        $tag = Tags::query(); // Start building the query
 
         if ($category) {
             $tag = Tags::where('is_genre', true);
@@ -27,7 +27,7 @@ class TagsController extends Controller
 
        //$tag = Tags::get();
 
-       $game->skip($skip)->take($take)->get();//skip and take (function)
+       $tag->skip($skip)->take($take)->get();//skip and take (function)
 
         return response()->json([
             'status' => 200,
