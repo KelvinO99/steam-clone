@@ -205,6 +205,11 @@ class GamesController extends Controller
             );
         }
 
+        // Controlla che il gioco non abbia lo stesso nome di un'altro - Salvo
+        if (Games::where('name', $game['name'])->exists()) {
+            return response()->json(['message' => 'Un gioco con lo stesso nome esiste già'], 409);
+        }
+
         if($name) $game->update(['name' => $name]);
         if($is_dlc) {
             $game->update(['is_dlc'=> $is_dlc]);
@@ -243,7 +248,6 @@ class GamesController extends Controller
             return response()->json(['message' => 'Non autorizzato, non sei un dev'], 401);
         }
 
-
         $validatedData = $request->validate([
             'name' => 'required|string|max:100',
             'date'=> 'required|date',
@@ -258,6 +262,11 @@ class GamesController extends Controller
         ]);
 
 
+        // Controlla che il gioco non abbia lo stesso nome di un'altro - Salvo
+        if (Games::where('name', $validatedData['name'])->exists()) {
+            return response()->json(['message' => 'Un gioco con lo stesso nome esiste già'], 409);
+        }
+    
         $game = new Games();
         $game->fill($validatedData);
         $game->save();
