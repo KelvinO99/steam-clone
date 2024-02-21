@@ -14,28 +14,28 @@ class GamesSeeder extends Seeder
     {
         $DIM_A = 20;
         $names = [
-            'Undertale',
-            'Uncharted Lost Legacy',
-            'Hitman 3',
-            'Tetris® Effect: Connected',
-            'Terraria',
-            'Fortnite',
-            'Call of Duty 2 Black Ops 2',
-            "Assassin's Creed 4",
-            'Grand Theft Auto V',
-            'Halo: The Master Chief Collection',
-            'Final Fantasy 7 Remake Intergrade',
-            'Minecraft',
-            'Overwatch 2',
-            'EA SPORTS FC™ 24',
-            'PC Building Simulator',
-            'Persona 5 Royal',
-            'Steam Deck',
-            'Rocket League',
-            'Counter-Strike 2',
-            'Forza Horizon 5',
-            'Left 4 Dead 2',
-            'Hitman 3 - Seven Deadly Sins Collection',
+            'Undertale',                               //1
+            'Uncharted Lost Legacy',                   //2
+            'Hitman 3',                                //3
+            'Tetris® Effect: Connected',               //4
+            'Terraria',                                //5
+            'Fortnite',                                //6
+            'Call of Duty 2 Black Ops 2',              //7
+            "Assassin's Creed 4",                      //8
+            'Grand Theft Auto V',                      //9
+            'Halo: The Master Chief Collection',       //10
+            'Final Fantasy 7 Remake Intergrade',       //11
+            'Minecraft',                               //12
+            'Overwatch 2',                             //13
+            'EA SPORTS FC™ 24',                        //14
+            'PC Building Simulator',                   //15
+            'Persona 5 Royal',                         //16
+            'Steam Deck',                              //17
+            'Rocket League',                           //18
+            'Counter-Strike 2',                        //19
+            'Forza Horizon 5',                         //20
+            'Left 4 Dead 2',                           //21
+            'Hitman 3 - Seven Deadly Sins Collection', //22
         ];
 
         $dates = [
