@@ -63,7 +63,7 @@ class GamesSeeder extends Seeder
             '2021-01-20',
             '2022-01-01',
         ];
-        for($i=0;$i<22;$i++) // 0/<19 = fa 20 cicli
+        for($i=0;$i<22;$i++)
         {
             $bool = (bool)rand(0,1);
             DB::table('games')->insert([
