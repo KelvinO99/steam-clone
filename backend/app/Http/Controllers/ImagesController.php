@@ -63,7 +63,7 @@ class ImagesController extends Controller
         $query = Images::query();
         
         $i = $query->where(game_id == $request->id)->count();
-        
+
         foreach($files as $file){
          if($i == 24)return response()->json(['message'=>'image limit reached',]);
          $image = new Images(); //crea record images -kel
@@ -74,10 +74,9 @@ class ImagesController extends Controller
          $image->save();
          $i++;
         }
-
         return response($image);
+     }
     }
-
     // Aggiunge un record alla tabella Images -Salvo
     public function store(Request $request) {
 
