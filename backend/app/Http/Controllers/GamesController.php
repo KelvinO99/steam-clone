@@ -183,6 +183,7 @@ class GamesController extends Controller
             return response()->json(['message' => 'Non autorizzato, non sei un dev'], 401);
         }
 
+        $imagesController = new ImagesController();
         $name = $request->input('name');
         $is_dlc = $request->input('is_dlc');
         $date = $request->input('date');
@@ -193,7 +194,6 @@ class GamesController extends Controller
         $short_description = $request->input('short_description');
         $long_description = $request->input('long_description');
         $pegi_id = $request->input('pegi_id');
-        $add_imgs = $request->input('add_imgs');
         $img_id = $request->input('img_id');
 
         $game = Games::findOrFail($request->id);
@@ -206,7 +206,7 @@ class GamesController extends Controller
         }
 
         // Controlla che il gioco non abbia lo stesso nome di un'altro - Salvo
-        if (Games::where('name', $game['name'])->exists()) {
+        if (Games::where('name', $name)->exists()) {
             return response()->json(['message' => 'Un gioco con lo stesso nome esiste già'], 409);
         }
 
@@ -224,12 +224,10 @@ class GamesController extends Controller
         if($short_description) $game->update(['short_description'=> $short_description]);
         if($long_description) $game->update(['long_description'=> $long_description]);
         if($pegi_id) $game->update(['pegi_id'=> $pegi_id]);
-        if ($add_imgs) {
+        if ($img_id || $request->hasFile('game_imgs')){
             $request->game_name = $game->name;
-            $imagesController = new ImagesController();
             $imagesController->update($request);
-
-        }
+        } 
 
         return response()->json($game, 201);
     }

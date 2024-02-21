@@ -48,22 +48,20 @@ class ImagesController extends Controller
     }
 
     // Aggiorna un determinato record della tabella Images -Salvo
-    public function update(Request $request): Response
+    public function update(Request $request)
     {
        if($request->img_id){
-        $image = Images::findOrFail($request->img_id);
+        $image = Images::find($request->img_id);
         $file = $request->file('game_img');
-        $file->storeas();
+        $file->storeas($image->image_path, 'public');
        }
 
        if ($request->hasFile('game_imgs')){
 
         $files = $request->file('game_imgs');
-        $game_name = $request->game_name;
-        $query = Images::query();
-        
-        $i = $query->where($request->game_id == $request->id)->count();
+        $game_name = str_replace(' ', '_',$request->game_name);
 
+        $i = Images::where('game_id', $request->game_id)->count();
         foreach($files as $file){
          if($i == 24)return response()->json(['message'=>'image limit reached',]);
          $image = new Images(); //crea record images -kel
@@ -74,8 +72,8 @@ class ImagesController extends Controller
          $image->save();
          $i++;
         }
-        return response($image);
      }
+     return response($image);
     }
     // Aggiunge un record alla tabella Images -Salvo
     public function store(Request $request) {
