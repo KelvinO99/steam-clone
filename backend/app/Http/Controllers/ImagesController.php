@@ -62,7 +62,7 @@ class ImagesController extends Controller
         $game_name = $request->game_name;
         $query = Images::query();
         
-        $i = $query->where(game_id == $request->id)->count();
+        $i = $query->where($request->game_id == $request->id)->count();
 
         foreach($files as $file){
          if($i == 24)return response()->json(['message'=>'image limit reached',]);
@@ -93,12 +93,13 @@ class ImagesController extends Controller
 
         if ($request->hasFile('game_imgs')) {
             $files = $request->file('game_imgs');
-            $game_name = $request->game_name;
+            $game_name = str_replace(' ', '_',$request->game_name);
             $i = 0;
             foreach($files as $file){
              if($i == 24)return response()->json(['message'=>'image limit reached',]);
 
              $image = new Images(); //crea record images -kel
+
              $filename =$game_name.'_'.$i.'.'.$file->getClientOriginalExtension();
              $path = $file->storeAs( 'game_images/'.$game_name, $filename, 'public');
              $image->game_id = $request->game_id;
