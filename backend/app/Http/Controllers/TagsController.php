@@ -15,11 +15,19 @@ class TagsController extends Controller
         $category = $request->input("category");
         $tag = Tags::query(); // Start building the query
 
+        $skip = $request->input("skip", 0); //skip
+                                            //and   (function)
+        $take = $request->input("take", 1); //take
+
+        $tag = Tags::query(); // Start building the query
+
         if ($category) {
             $tag = Tags::where('is_genre', true);
         }
 
        //$tag = Tags::get();
+
+       $tag->skip($skip)->take($take)->get();//skip and take (function)
 
         return response()->json([
             'status' => 200,
