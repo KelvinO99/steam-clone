@@ -19,7 +19,7 @@ class AchievementsController extends Controller
             'achievements'=>$var
         ]);
 
-        
+
     }
 
     // Mostra un determinato record dellla tabella Achievements -Salvo
@@ -32,13 +32,13 @@ class AchievementsController extends Controller
         ]);
 
     }
-    
+
     // Elimina un determinato record della tabella Achievements -Salvo
     public function destroy ($id){
 
         $var = Achievements::find( $id );
         $var->delete();
-        
+
         return response()->json([
             'status'=>200,
             'achievements'=>$var
@@ -72,11 +72,11 @@ class AchievementsController extends Controller
         }
 
         $validatedData = $request->validate([
-            'game_id' => 'required|max:255',
-            'name' => 'required|max:255',
-            'image'=> 'required',
+            'game_id' => 'required|integer',
+            'name' => 'required|string|between:1,100',
+            'image'=> 'required|string',
         ]);
-    
+
         $var = new Achievements();
         $var->fill($validatedData);
 

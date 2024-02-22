@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Images;
+use App\Models\Games;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
@@ -12,70 +13,108 @@ class ImagesController extends Controller
 {
      // Mostra tutti i record della tabella Images -Salvo
      public function index(){
-        $var = Images::get();
+        $image = Images::get();
 
 
         return response()->json([
             'status'=>200,
-            'images'=>$var
+            'images'=>$image
         ]);
 
-        
+
     }
 
     // Mostra un determinato record dellla tabella Images -Salvo
     public function show($id){
-        $var = Images::find($id);
+        $image = Images::find($id);
 
         return response()->json([
             'status'=>200,
-            'images'=>$var
+            'images'=>$image
         ]);
 
     }
-    
+
     // Elimina un determinato record della tabella Images -Salvo
     public function destroy ($id){
 
-        $var = Images::find( $id );
-        $var->delete();
-        
+        $image = Images::find( $id );
+        $image->delete();
+
         return response()->json([
             'status'=>200,
-            'images'=>$var
+            'images'=>$image
         ]);
     }
 
     // Aggiorna un determinato record della tabella Images -Salvo
-    public function update(Request $request): Response
+    public function update(Request $request)
     {
-        $var = Images::findOrFail($request->id);
+       if($request->img_id){
+        $image = Images::find($request->img_id);
+        if($image->game_id != $request->id) return response()->json([ 'messaggio'=>'immagine non appartiene al gioco',]);
+        
+        $game_name = str_replace(' ', '_',$request->game_name);
+        $file = $request->file('game_img');
+        $oldFileName = pathinfo($image->image_path, PATHINFO_FILENAME);
+        $newFileName = $oldFileName . '.' . $file->getClientOriginalExtension();
+        Storage::delete('public/' . $image->image_path);
+        $path = $file->storeas('game_images/'.$game_name, $newFileName, 'public');
+        $image->update(['image_path'=> $path]);
+       }
 
-        if ($var->update($request->all()) === false) {
-            return response(
-                "not real {$request->id}",
-                Response::HTTP_BAD_REQUEST
-            );
+       if ($request->hasFile('game_imgs')){
+        $files = $request->file('game_imgs');
+        $game_name = str_replace(' ', '_',$request->game_name);
+        $i = Images::where('game_id', $request->game_id)->count();
+        foreach($files as $file){
+         if($i == 24)return response()->json(['message'=>'image limit reached',]);
+         $image = new Images(); //crea record images -kel
+         $filename =$game_name.'_'.$i.'.'.$file->getClientOriginalExtension();
+         $path = $file->storeAs( 'game_images/'.$game_name, $filename, 'public');
+         $image->game_id = $request->game_id;
+         $image->image_path = $path; //salva il record -kel
+         $image->save();
+         $i++;
         }
-
-        return response($var);
+     }
+     return response($image);
     }
-
     // Aggiunge un record alla tabella Images -Salvo
     public function store(Request $request) {
-        
-    if ($request->hasFile('profile_pic')) {
-        $file = $request->file('profile_pic');
-        $filename = time().'.'.$file->getClientOriginalExtension();
-        $path = $file->storeAs('profile_pictures', $filename, 'public');
-    }
 
-         //salva l'immagine e la fa diventare un path salvabile -kel
-        $image = new Images(); //crea record images -kel
-        $image->image_path = $path; //salva il record -kel
-        $image->save();
-        
-        return $image;
+
+        if ($request->hasFile('profile_pic')) {
+            $image = new Images(); //crea record images -kel
+            $file = $request->file('profile_pic');
+            $filename = time().'.'.$file->getClientOriginalExtension();
+            $path = $file->storeAs('profile_pictures', $filename, 'public');
+            $image->image_path = $path; //salva il record -kel
+            $image->save();
+            return $image;
+        }
+
+        if ($request->hasFile('game_imgs')) {
+            $files = $request->file('game_imgs');
+            $game_name = str_replace(' ', '_',$request->game_name);
+            $i = 0;
+            foreach($files as $file){
+             if($i == 24)return response()->json(['message'=>'image limit reached',]);
+
+             $image = new Images(); //crea record images -kel
+
+             $filename =$game_name.'_'.$i.'.'.$file->getClientOriginalExtension();
+             $path = $file->storeAs( 'game_images/'.$game_name, $filename, 'public');
+             $image->game_id = $request->game_id;
+             $image->image_path = $path; //salva il record -kel
+             $image->save();
+             $i++;
+            }
+
+            return response()->json(['status'=>200,'message'=>'ok',]);
+        }
+
+        return response()->json(['status'=>500, 'messaggio'=>'errore',]);
 
     }
 }

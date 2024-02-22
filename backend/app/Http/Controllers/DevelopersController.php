@@ -19,7 +19,7 @@ class DevelopersController extends Controller
             'developers'=>$var
         ]);
 
-        
+
     }
 
     // Mostra un determinato record dellla tabella Developers -Salvo
@@ -32,13 +32,13 @@ class DevelopersController extends Controller
         ]);
 
     }
-    
+
     // Elimina un determinato record della tabella Developers -Salvo
     public function destroy ($id){
 
         $var = Developers::find( $id );
         $var->delete();
-        
+
         return response()->json([
             'status'=>200,
             'developers'=>$var
@@ -72,11 +72,11 @@ class DevelopersController extends Controller
         }
 
         $validatedData = $request->validate([
-            'user_id' => 'required|max:255',
-            'is_publisher' => 'required',
-            'description' => 'required|max:255',
+            'user_id' => 'required',
+            'is_publisher' => 'required|boolean',
+            'description' => 'required|string|max:2048',
         ]);
-    
+
         $var = new Developers();
         $var->fill($validatedData);
 

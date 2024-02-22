@@ -15,17 +15,17 @@ class LibrariesController extends Controller
         $is_wishlisted = $request->input("is_wishlisted");
         $library = Libraries::query();
 
-        if($is_owned) $library->where('is_owned', '1'); 
+        if($is_owned) $library->where('is_owned', '1');
 
         if($is_wishlisted) $library->where('is_wishlisted', '1');
 
-        
+
         return response()->json([
             'status'=>200,
             'libraries'=>$library->get()
         ]);
 
-        
+
     }
 
     // Mostra un determinato record dellla tabella Libraries -Salvo
@@ -38,13 +38,13 @@ class LibrariesController extends Controller
         ]);
 
     }
-    
+
     // Elimina un determinato record della tabella Libraries -Salvo
     public function destroy ($id){
 
         $var = Libraries::find( $id );
         $var->delete();
-        
+
         return response()->json([
             'status'=>200,
             'libraries'=>$var
@@ -78,12 +78,23 @@ class LibrariesController extends Controller
         }
 
         $validatedData = $request->validate([
-            'user_id' => 'required|max:255',
-            'game_id' => 'required|max:255',
-            'is_wishlisted' => 'required',
-            'is_owned' => 'required',
+            'user_id' => 'required|integer',
+            'game_id' => 'required|integer',
+            //'is_wishlisted' => 'required|boolean',
+            'is_wishlisted' => [
+                'required',
+                'boolean',
+                function ($attribute, $value, $fail) use ($request) {
+                    // Custom validation rule
+                    if (($value == 1 && $request->input('is_owned') == 1) ||
+                        ($value == 0 && $request->input('is_owned') == 0)) {
+                        $fail("If $attribute is 1, is_owned must be 0 and vice versa.");
+                    }
+                },
+            ],
+            'is_owned' => 'required|boolean',
         ]);
-    
+
         $var = new Libraries();
         $var->fill($validatedData);
 

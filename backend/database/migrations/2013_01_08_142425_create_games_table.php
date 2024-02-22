@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('games', function (Blueprint $table) {
             $table->id();
-            $table->boolean('is_dlc')->default(false);
+            $table->boolean('is_dlc');
             $table->unsignedBigInteger('parent_id')->nullable()->default(null);
             $table->string('name')->default('PLACEHOLDER');
             $table->date('date')->default('1970-01-01');

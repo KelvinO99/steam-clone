@@ -1,5 +1,5 @@
 <?php
-//NON ELIMINARE 
+//NON ELIMINARE
 //<PLACEHOLDER> = dati da cambiare -chris
 
 namespace App\Models;
@@ -31,5 +31,8 @@ class Images extends Model
     public function Achievements(){
 
         return $this->belongsTo(Achievements::class, 'image_id', 'id');
+    }
+    public function Tags(){
+        return $this->hasOne(Images::class,'image_id','id');
     }
 }

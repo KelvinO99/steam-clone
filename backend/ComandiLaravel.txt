@@ -45,8 +45,11 @@ php artisan serve
 Installa jwt e cambia un fottio di cose prima di fare sto comando:
  php artisan make:controller AuthController
 
- Genera la secret key nel file env
- php artisan jwt:secret
+Installare JWT:
+composer require tymon/jwt-auth
+
+Genera la secret key nel file env
+php artisan jwt:secret
 
 C'è tutto:
 https://www.heinsoe.com/blog/85

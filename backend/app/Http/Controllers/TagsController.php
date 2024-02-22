@@ -15,18 +15,26 @@ class TagsController extends Controller
         $category = $request->input("category");
         $tag = Tags::query(); // Start building the query
 
+        $skip = $request->input("skip", 0); //skip
+                                            //and   (function)
+        $take = $request->input("take", 1); //take
+
+        $tag = Tags::query(); // Start building the query
+
         if ($category) {
             $tag = Tags::where('is_genre', true);
         }
 
        //$tag = Tags::get();
 
+       $tag->skip($skip)->take($take)->get();//skip and take (function)
+
         return response()->json([
             'status' => 200,
             'tags' => $tag->get()
         ]);
 
-        
+
     }
 
     // Mostra un determinato record dellla tabella Tags -Salvo
@@ -39,13 +47,13 @@ class TagsController extends Controller
         ]);
 
     }
-    
+
     // Elimina un determinato record della tabella Tags -Salvo
     public function destroy ($id){
 
         $var = Tags::find( $id );
         $var->delete();
-        
+
         return response()->json([
             'status'=>200,
             'tags'=>$var
@@ -79,10 +87,10 @@ class TagsController extends Controller
         }
 
         $validatedData = $request->validate([
-            'name' => 'required|max:255',
-            'is_genre' => 'required',
+            'name' => 'required|max:100',
+            'is_genre' => 'required|boolean',
         ]);
-    
+
         $var = new Tags();
         $var->fill($validatedData);
 
