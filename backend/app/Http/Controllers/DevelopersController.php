@@ -9,27 +9,39 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 
 class DevelopersController extends Controller
 {
+    
      // Mostra tutti i record della tabella Developers -Salvo
      public function index(){
-        $var = Developers::get();
+
+        try{
+            $var = Developers::get();
 
 
-        return response()->json([
-            'status'=>200,
-            'developers'=>$var
-        ]);
-
+            return response()->json([
+                'status'=>200,
+                'developers'=>$var
+            ]);
+    
+        }catch(\Exception $e){
+            return $e;
+        }
 
     }
 
     // Mostra un determinato record dellla tabella Developers -Salvo
     public function show($id){
-        $var = Developers::find($id);
 
-        return response()->json([
-            'status'=>200,
-            'developers'=>$var
-        ]);
+        try{
+            $var = Developers::find($id);
+
+            return response()->json([
+                'status'=>200,
+                'developers'=>$var
+            ]);
+            
+        }catch(\Exception $e){
+            return $e;
+        }
 
     }
 
