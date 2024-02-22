@@ -7,7 +7,7 @@ import { GameService } from 'src/app/shared/services/game.service';
   styleUrls: ['./offer-carousel.component.scss']
 })
 export class OfferCarouselComponent {
-  games: any
+  game: any
   col_10!: string;
   col_4!: string;
   col_1!: string;
@@ -20,16 +20,15 @@ export class OfferCarouselComponent {
    }
 
   ngOnInit(){
-    console.log(this.games.images);
-    
+    this.getBestSellingGames()
   }
 
   getBestSellingGames() {
-    this.gameService.getBestSellingGames().subscribe({
+    this.gameService.getBestSellingGames({skip: this.skip, take: this.take}).subscribe({
       next: (res: any) => {
         {
-          this.games = res;
-          console.log(this.games);
+          this.game = res
+          console.log(res.games[1].images[0].image_path);
           
           
         }

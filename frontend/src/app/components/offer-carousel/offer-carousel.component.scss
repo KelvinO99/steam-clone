@@ -44,7 +44,14 @@ div.row.ps-2 {
 .carousel-control-prev {
   width: 3rem;
   max-height: 20vh;
-  background: linear-gradient(to left, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0.3) 95%);
+}
+
+.carousel-control-prev {
+  background: linear-gradient(to left, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0.5) 95%);
+}
+
+.carousel-control-next {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0.5) 95%);
 }
 
 .mat-card {
