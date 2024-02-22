@@ -53,7 +53,7 @@ class TagsSeeder extends Seeder
             'SteamVR Collectibles',//37
             'Valve Anti-Cheat enabled',//38
 
-            
+
         ];
 
         $isgenre = [
@@ -73,7 +73,7 @@ class TagsSeeder extends Seeder
             true,
             false,
             false,
-            true,
+            false,
             false,
             true,
             true,
@@ -104,6 +104,7 @@ class TagsSeeder extends Seeder
             DB::table('tags')->insert([
                 'name' => $names[$i],//PLACEHOLDER RNGNAME FROM ARRAY
                 'is_genre' => $isgenre[$i],
+                'image_id' => 1, //DA CAMBIARE AL PIU' PRESTO 
             ]);
         }
     }
