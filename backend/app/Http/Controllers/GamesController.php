@@ -70,9 +70,12 @@ class GamesController extends Controller
                 ->take($take)
                 ->get();
 
+        $total_count = $game->count();
+
         return response()->json([
                 'status' => 200,
-            'games' => $game,
+                'total_count' => $total_count,
+                'games' => $game,
             ]);
 
         }catch(\Exception $e){
