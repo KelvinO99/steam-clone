@@ -12,13 +12,16 @@ export class OfferCarouselComponent {
   col_4!: string;
   col_1!: string;
   screenWidth = window.screen.width;
+  skip: number = 0;
+  take: number = 5;
 
   constructor(public gameService: GameService) {
     
    }
 
   ngOnInit(){
-
+    console.log(this.games.images);
+    
   }
 
   getBestSellingGames() {
