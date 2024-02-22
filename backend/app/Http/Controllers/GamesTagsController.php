@@ -19,7 +19,7 @@ class GamesTagsController extends Controller
             'games_tags'=>$var
         ]);
 
-        
+
     }
 
     // Mostra un determinato record dellla tabella GamesTags -Salvo
@@ -32,13 +32,13 @@ class GamesTagsController extends Controller
         ]);
 
     }
-    
+
     // Elimina un determinato record della tabella GamesTags -Salvo
     public function destroy ($id){
 
         $var = GamesTags::find( $id );
         $var->delete();
-        
+
         return response()->json([
             'status'=>200,
             'games_tags'=>$var
@@ -72,10 +72,10 @@ class GamesTagsController extends Controller
         }
 
         $validatedData = $request->validate([
-            'game_id' => 'required|max:255',
-            'tag_id' => 'required|max:255',
+            'game_id' => 'required|integer',
+            'tag_id' => 'required|integer',
         ]);
-    
+
         $var = new GamesTags();
         $var->fill($validatedData);
 

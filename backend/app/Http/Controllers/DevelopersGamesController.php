@@ -19,7 +19,7 @@ class DevelopersGamesController extends Controller
             'developers_games'=>$var
         ]);
 
-        
+
     }
 
     // Mostra un determinato record dellla tabella DevelopersGames -Salvo
@@ -32,13 +32,13 @@ class DevelopersGamesController extends Controller
         ]);
 
     }
-    
+
     // Elimina un determinato record della tabella DevelopersGames -Salvo
     public function destroy ($id){
 
         $var = DevelopersGames::find( $id );
         $var->delete();
-        
+
         return response()->json([
             'status'=>200,
             'developers_games'=>$var
@@ -72,10 +72,10 @@ class DevelopersGamesController extends Controller
         }
 
         $validatedData = $request->validate([
-            'developer_id' => 'required|max:255',
-            'game_id' => 'required|max:255',
+            'developer_id' => 'required|integer',
+            'game_id' => 'required|integer',
         ]);
-    
+
         $var = new DevelopersGames();
         $var->fill($validatedData);
 
