@@ -23,6 +23,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 /* import { ProductBannersComponent } from '../product-banners/product-banners.component';
 import { MainCarouselComponent } from './main-carousel/main-carousel.component'; */
 import { MatCardModule} from '@angular/material/card';
+import { CategoryCarouselComponent } from './category-carousel/category-carousel.component';
+import { ProductBannersComponent } from './product-banners/product-banners.component';
 @NgModule({
   declarations: [
     BaseComponent,
@@ -33,7 +35,9 @@ import { MatCardModule} from '@angular/material/card';
     SidebarComponent,
    /*  ProductBannersComponent, */
     /* MainCarouselComponent, */
-    OfferCarouselComponent
+    OfferCarouselComponent,
+   CategoryCarouselComponent,
+   ProductBannersComponent
 
   ],
   imports: [
