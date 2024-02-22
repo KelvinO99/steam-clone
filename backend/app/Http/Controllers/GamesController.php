@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Developers;
 use App\Models\Games;
+use App\Models\Images;
 use App\Models\GamesTags;
 use App\Models\Reviews;
 use App\Models\Tags;
@@ -27,6 +28,8 @@ class GamesController extends Controller
         $take = $request->input("take", 1); //take
 
         $game = Games::query(); // Start building the query
+        $image = Images::query();
+        $game->with('images');
 
 
 //ISSET CODE
@@ -49,11 +52,22 @@ class GamesController extends Controller
         }
 //ISSET CODE
 
-        $game->skip($skip)->take($take)->get();//skip and take (function)
+
+        //$game = Games::whereHas('images');
+
+        //$game->skip($skip)->take($take)->get();//skip and take (function)
+
+        $game = Games::with(['images' => function ($query) {
+            $query->select('id', 'game_id', 'image_path');
+
+        }])
+             ->skip($skip)
+             ->take($take)
+             ->get();
 
         return response()->json([
             'status' => 200,
-            'games' => $game->get(),
+            'games' => $game,
         ]);
     }
 
@@ -227,7 +241,7 @@ class GamesController extends Controller
         if ($img_id || $request->hasFile('game_imgs')){
             $request->game_name = $game->name;
             $imagesController->update($request);
-        } 
+        }
 
         return response()->json($game, 201);
     }
@@ -264,7 +278,7 @@ class GamesController extends Controller
         if (Games::where('name', $validatedData['name'])->exists()) {
             return response()->json(['message' => 'Un gioco con lo stesso nome esiste già'], 409);
         }
-    
+
         $game = new Games();
         $game->fill($validatedData);
         $game->save();
