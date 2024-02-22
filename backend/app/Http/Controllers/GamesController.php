@@ -15,6 +15,8 @@ use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
+
+
 class GamesController extends Controller
 {
     public function index(Request $request)
@@ -187,6 +189,7 @@ class GamesController extends Controller
     // Aggiorna un determinato record della tabella Games -Kelvin
     public function update(Request $request)
     {
+
         $user = auth()->User();
 
         if (!$user) {

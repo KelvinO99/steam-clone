@@ -88,7 +88,8 @@ class ImagesController extends Controller
             $image = new Images(); //crea record images -kel
             $file = $request->file('profile_pic');
             $filename = time().'.'.$file->getClientOriginalExtension();
-            $path = $file->storeAs('profile_pictures', $filename, 'public');
+            $file->storeAs('profile_pictures', $filename, 'public');
+            $path = 'http://localhost:8000/storage/app/public/game_images/'.$filename;
             $image->image_path = $path; //salva il record -kel
             $image->save();
             return $image;
@@ -104,7 +105,8 @@ class ImagesController extends Controller
              $image = new Images(); //crea record images -kel
 
              $filename =$game_name.'_'.$i.'.'.$file->getClientOriginalExtension();
-             $path = $file->storeAs( 'game_images/'.$game_name, $filename, 'public');
+             $file->storeAs( 'game_images/'.$game_name, $filename, 'public');
+             $path = 'http://localhost:8000/storage/app/public/game_images/'.$filename;
              $image->game_id = $request->game_id;
              $image->image_path = $path; //salva il record -kel
              $image->save();
