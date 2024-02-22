@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Images;
 use App\Models\Games;
 use Illuminate\Http\Response;
@@ -51,9 +51,14 @@ class ImagesController extends Controller
     public function update(Request $request)
     {
        if($request->img_id){
+        $game_name = str_replace(' ', '_',$request->game_name);
         $image = Images::find($request->img_id);
         $file = $request->file('game_img');
-        $file->storeas($image->image_path, 'public');
+        $oldFileName = pathinfo($image->image_path, PATHINFO_FILENAME);
+        $newFileName = $oldFileName . '.' . $file->getClientOriginalExtension();
+        Storage::delete('public/' . $image->image_path);
+        $path = $file->storeas('game_images/'.$game_name, $newFileName, 'public');
+        $image->update(['image_path'=> $path]);
        }
 
        if ($request->hasFile('game_imgs')){
