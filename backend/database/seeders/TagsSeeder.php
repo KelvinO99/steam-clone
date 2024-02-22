@@ -51,7 +51,7 @@ class TagsSeeder extends Seeder
             'Remote Play on TV',//35
             'Remote Play Together',//36
             'SteamVR Collectibles',//37
-            'Valve Anti-Cheat enabled',//38
+            'Offerta',//38
 
 
         ];
@@ -95,7 +95,7 @@ class TagsSeeder extends Seeder
             false,
             false,
             false,
-            false,
+            true,
 
 
         ];
