@@ -268,8 +268,8 @@ class GamesController extends Controller
             'base_price' => 'required|numeric',
             'discounted_price'=> 'nullable|numeric',
             'discounted_percentage'=> 'nullable|integer|min:0|max:100',
-            'short_description'=> 'required|string|max:2048',
-            'long_description'=> 'required|string|max:4096',
+            'short_description'=> 'required|string|max:1024',
+            'long_description'=> 'required|string|max:8192',
             'pegi_id' => 'required',
         ]);
 
