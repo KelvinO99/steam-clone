@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Images;
 use App\Models\Games;
 use Illuminate\Http\Response;
@@ -52,15 +52,20 @@ class ImagesController extends Controller
     {
        if($request->img_id){
         $image = Images::find($request->img_id);
+        if($image->game_id != $request->id) return response()->json([ 'messaggio'=>'immagine non appartiene al gioco',]);
+        
+        $game_name = str_replace(' ', '_',$request->game_name);
         $file = $request->file('game_img');
-        $file->storeas($image->image_path, 'public');
+        $oldFileName = pathinfo($image->image_path, PATHINFO_FILENAME);
+        $newFileName = $oldFileName . '.' . $file->getClientOriginalExtension();
+        Storage::delete('public/' . $image->image_path);
+        $path = $file->storeas('game_images/'.$game_name, $newFileName, 'public');
+        $image->update(['image_path'=> $path]);
        }
 
        if ($request->hasFile('game_imgs')){
-
         $files = $request->file('game_imgs');
         $game_name = str_replace(' ', '_',$request->game_name);
-
         $i = Images::where('game_id', $request->game_id)->count();
         foreach($files as $file){
          if($i == 24)return response()->json(['message'=>'image limit reached',]);
@@ -109,7 +114,7 @@ class ImagesController extends Controller
             return response()->json(['status'=>200,'message'=>'ok',]);
         }
 
-        return response()->json(['status'=>500, 'messaggio'=>'riferisci a kel',]);
+        return response()->json(['status'=>500, 'messaggio'=>'errore',]);
 
     }
 }
