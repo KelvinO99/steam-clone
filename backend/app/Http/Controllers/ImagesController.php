@@ -76,7 +76,9 @@ class ImagesController extends Controller
         if($request->img_id){
             $image = Images::find($request->img_id);
             if($image->game_id != $request->id) return response()->json([ 'messaggio'=>'immagine non appartiene al gioco',]);
-            $game_name = preg_replace('/_+/', '_', strtolower(preg_replace('/[\s\\\/:*?"<>|\0\n\r\t\x0B]+/', '_', $request->game_name)));
+            $game_name = str_replace([' ', '\\', '/', ':', '*', '?', '"', '<', '>', '|', "\0", "\n", "\r", "\t", "\x0B"], '_', $request->game_name);            
+            $game_name = strtolower($game_name);
+            $game_name = preg_replace('/_+/', '_', $game_name);
             $file = $request->file('game_img');
             $oldFileName = pathinfo($image->image_path, PATHINFO_FILENAME);
             $newFileName = $oldFileName . '.' . $file->getClientOriginalExtension();
@@ -87,7 +89,9 @@ class ImagesController extends Controller
 
         if ($request->hasFile('game_imgs')){
             $files = $request->file('game_imgs');
-            $game_name = preg_replace('/_+/', '_', strtolower(preg_replace('/[\s\\\/:*?"<>|\0\n\r\t\x0B]+/', '_', $request->game_name)));
+            $game_name = str_replace([' ', '\\', '/', ':', '*', '?', '"', '<', '>', '|', "\0", "\n", "\r", "\t", "\x0B"], '_', $request->game_name);
+            $game_name = strtolower($game_name);           
+            $game_name = preg_replace('/_+/', '_', $game_name); 
             $i = Images::where('game_id', $request->game_id)->count();
             foreach($files as $file){
             if($i == 24)return response()->json(['message'=>'image limit reached',]);
@@ -108,6 +112,8 @@ class ImagesController extends Controller
         }
 
     }
+
+
     // Aggiunge un record alla tabella Images -Salvo
     public function store(Request $request) {
         $request->validate([
