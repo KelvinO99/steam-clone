@@ -5,15 +5,19 @@ import { environment } from 'src/environments/environment';
 
 //richiamo URL
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GameService {
-  APIUrl=`${environment.api}/`;
+  APIUrl = `${environment.api}/`;
 
   constructor(private http: HttpClient) {}
 
-  getUpdates(params?: {}){
-    return this.http.get<any>(`${URL}`); 
-
+  getBestSellingGames(params : {}) {
+    return this.http.get<any>(`${this.APIUrl}games/index`,{params});
   }
-}
+
+    getUpdates(params?: {}){
+      return this.http.get<any>(`${URL}`); 
+      }
+  }
+

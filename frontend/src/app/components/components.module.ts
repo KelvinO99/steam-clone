@@ -20,12 +20,12 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { StoreComponent } from './store/store.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+/* import { ProductBannersComponent } from '../product-banners/product-banners.component';
+import { MainCarouselComponent } from './main-carousel/main-carousel.component'; */
+import { MatCardModule} from '@angular/material/card';
 import { ProductBannersComponent } from './product-banners/product-banners.component';
 import { UpdatesOfferCardsComponent } from './updates-offer-cards/updates-offer-cards.component';
 import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
-import { MatGridListModule } from '@angular/material/grid-list';
-
 @NgModule({
   declarations: [
     BaseComponent,
@@ -36,6 +36,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     SidebarComponent,
     ProductBannersComponent,
     UpdatesOfferCardsComponent,
+    OfferCarouselComponent,
   ],
   imports: [
     CommonModule,
@@ -54,7 +55,6 @@ import { MatGridListModule } from '@angular/material/grid-list';
     SweetAlert2Module,
     MatCardModule,
     MatButtonModule,
-    MatGridListModule,
   ],
   exports: [CommonModule, TranslateModule, BaseComponent],
 })
