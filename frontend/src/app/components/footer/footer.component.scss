@@ -1,10 +1,121 @@
+.container-fluid {
+    background-color: #171a21;
+}
+
+.footeritem_separator {
+    font-family: "Motiva Sans", Sans-serif;
+    font-weight: normal;
+    font-size: 0.8125rem;
+    color: #61686D;
+}
+
 .footeritem {
+    color: #C6D4DF;
+    font-family: "Motiva Sans", Sans-serif;
+    font-weight: normal;
+    font-size: 0.8125rem;
+}
+
+ul {
+    border-color: #363c44 !important;
+    border-width: 1px !important;
+}
+
+@media only screen and ((min-width: 1200px)  and (min-width:  992px) and (min-width: 768px)  and (min-width: 600px)) {
+    .col-xs-1,
+    .col-sm-1,
+    .col-md-1,
+    .col-lg-1,
+    .col-1 {
+        max-width: 9.996rem;
+    }
+
+    .col-xs-2,
+    .col-sm-2,
+    .col-md-2,
+    .col-lg-2,
+    .col-2 {
+        max-width: 19.992rem;
+    }
+
+    .col-xs-3,
+    .col-sm-3,
+    .col-md-3,
+    .col-lg-3 {
+        max-width: 30rem;
+    }
+
+    .col-xs-4,
+    .col-sm-4,
+    .col-md-4,
+    .col-lg-4 {
+        max-width: 39.996rem;
+    }
+
+    .col-xs-5,
+    .col-sm-5,
+    .col-md-5,
+    .col-lg-5 {
+        max-width: 49.992rem;
+    }
+
+    .col-xs-6,
+    .col-sm-6,
+    .col-md-6,
+    .col-lg-6 {
+        max-width: 60rem;
+    }
+
+    .col-xs-7,
+    .col-sm-7,
+    .col-md-7,
+    .col-lg-7 {
+        max-width: 69.996rem;
+    }
+
+    .col-xs-8,
+    .col-sm-8,
+    .col-md-8,
+    .col-lg-8 {
+        max-width: 79.992rem;
+    }
+
+    .col-xs-9,
+    .col-sm-9,
+    .col-md-9,
+    .col-lg-9 {
+        max-width: 90rem;
+    }
+
+    .col-xs-10,
+    .col-sm-10,
+    .col-md-10,
+    .col-lg-10 {
+        max-width: 99.996rem;
+    }
+
+    .col-xs-11,
+    .col-sm-11,
+    .col-md-11,
+    .col-lg-11 {
+        max-width: 109.992rem;
+    }
+
+    .col-xs-12,
+    .col-sm-12,
+    .col-md-12,
+    .col-lg-12 {
+        max-width: 120rem;
+    }
+}
+
+/* .footeritem {
     color: #C6D4DF;
     display: flex;
     align-items: center;
     font-family: "Motiva Sans", Sans-serif;
     font-weight: normal;
-    font-size: 0.8125rem; /* 13px / 16px = 0.8125rem */
+    font-size: 0.8125rem;
 }
 
 .footergrid {
@@ -15,7 +126,7 @@
     display: block;
     font-family: "Motiva Sans", Sans-serif;
     font-weight: normal;
-    font-size: 0.8125rem; /* 13px / 16px = 0.8125rem */
+    font-size: 0.8125rem;
     color: #61686D;
     display: flex;
     flex-wrap: wrap;
@@ -25,8 +136,8 @@
 }
 
 .info {
-    border-top: 0.0625rem solid rgb(130, 123, 123); /* 1px / 16px = 0.0625rem */
-    border-bottom: 0.0625rem solid rgb(130, 123, 123); /* 1px / 16px = 0.0625rem */
+    border-top: 0.0625rem solid rgb(130, 123, 123);
+    border-bottom: 0.0625rem solid rgb(130, 123, 123);
     margin: auto;
 }
 
@@ -34,3 +145,4 @@
     display: block;
     position: absolute;
 }
+ */

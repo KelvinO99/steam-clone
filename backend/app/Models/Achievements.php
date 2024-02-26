@@ -16,6 +16,8 @@ class Achievements extends Model
     protected $fillable = [
         'game_id',
         'name',
+        'image_id',
+
     ];
 
     public function UsersAchievements(){
@@ -26,5 +28,10 @@ class Achievements extends Model
     public function Games(){
 
         return $this->hasOne(Games::class, 'game_id', 'id');   
+    }
+
+    public function Images(){
+
+        return $this->hasOne(Images::class, 'image_id', 'id');
     }
 }

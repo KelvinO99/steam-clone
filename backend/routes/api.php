@@ -41,7 +41,7 @@ Route::controller(GamesController::class)->prefix('games')->group(function($rout
     Route::get('index', 'index');
     Route::get('show/{id}','show');
     Route::delete('destroy/{id}','destroy');
-    Route::put('update/{id}','update');
+    Route::post('update/{id}','update');
     Route::post('store','store');
 });
 
@@ -81,7 +81,7 @@ Route::controller(ImagesController::class)->prefix('images')->group(function($ro
     Route::get('index','index');
     Route::get('show/{id}','show');
     Route::delete('destroy/{id}','destroy');
-    Route::put('update/{id}','update');
+    Route::post('update','update');
     Route::post('store','store');
 });
 
@@ -113,7 +113,7 @@ Route::controller(UserController::class)->prefix('users')->group(function($route
     Route::get('index','index');
     Route::get('show/{id}','show');
     Route::delete('destroy/{id}','destroy');
-    Route::put('update/{id}','update');
+    Route::put('update','update');
     Route::post('store','store');
 });
 

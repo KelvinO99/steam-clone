@@ -1,3 +1,8 @@
+Sintassi Laravel:
+Model = ::
+Var = ->
+
+
 Creare un progetto laravel da cmd
 composer create-project laravel/laravel example-app
 
@@ -34,19 +39,22 @@ Creare un Controller:
 php artisan make:Controller nomecontroller
 
 Creare un Controller con le CRUD:
-php artisan make:Controller nomecontroller --resource 
+php artisan make:Controller nomecontroller --resource
 
 IMPORTANTE QUANDO CAMBI LE ROUTE STOPPA IL SERVER
 composer dump-autoload
-php artisan config:clear 
-php artisan route:clear 
+php artisan config:clear
+php artisan route:clear
 php artisan route:cache
 php artisan serve
 Installa jwt e cambia un fottio di cose prima di fare sto comando:
  php artisan make:controller AuthController
 
- Genera la secret key nel file env
- php artisan jwt:secret
+Installare JWT:
+composer require tymon/jwt-auth
+
+Genera la secret key nel file env
+php artisan jwt:secret
 
 C'è tutto:
 https://www.heinsoe.com/blog/85
@@ -82,3 +90,16 @@ Cose da ricordare:
 
 casomai non funzionasse la search:
 php artisan key:generate
+
+comando laratrust:
+composer require santigarcor/laratrust
+
+TUTTO:
+php artisan migrate:fresh
+php artisan db:seed
+composer dump-autoload
+php artisan config:clear
+php artisan route:clear
+php artisan route:cache
+php artisan serve
+

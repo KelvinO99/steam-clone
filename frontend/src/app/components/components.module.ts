@@ -1,3 +1,5 @@
+import { OfferCarouselComponent } from './offer-carousel/offer-carousel.component';
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
@@ -19,7 +21,6 @@ import { HomeComponent } from './home/home.component';
 import { StoreComponent } from './store/store.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProductBannersComponent } from './product-banners/product-banners.component';
-import { MainCarouselComponent } from './main-carousel/main-carousel.component';
 import { UpdatesOfferCardsComponent } from './updates-offer-cards/updates-offer-cards.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
@@ -34,7 +35,6 @@ import { MatGridListModule } from '@angular/material/grid-list';
     StoreComponent,
     SidebarComponent,
     ProductBannersComponent,
-    MainCarouselComponent,
     UpdatesOfferCardsComponent,
   ],
   imports: [

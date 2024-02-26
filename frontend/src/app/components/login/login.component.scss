@@ -1,23 +1,27 @@
 .body {
-    margin: 0;
     background-image: url('https://store.cloudflare.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask.jpg');
-    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .formcontrol {
     background-color: #181a21;
-    display: flex;
-    justify-content: center;
-    width: 30rem;
-    height: 18rem;
-    margin-top: 5rem;
+    width: 28rem;
+    height: 22rem;
     border-radius: 4px;
+}
+
+p {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 800;
 }
 
 label.username {
     font-family: "Motiva Sans", Sans-serif;
     color: #1999ff;
-    font-weight: 500;
+    font-weight: 505;
     text-transform: uppercase;
     font-size: 12px;
     letter-spacing: .02em;
@@ -60,8 +64,6 @@ label.password {
     font-size: 12px;
     user-select: none;
     font-weight: normal;
-    margin-top: 10px;
-    padding-left: 7px;
 }
 
 .checkbox {
@@ -97,17 +99,12 @@ div.signIn {
 }
 
 
-.footergrid {
+/* .footergrid {
     background-color: #171a21;
-    position: absolute;
     bottom: 0;
     width: 100%;
     height: 12rem;
-}
-
-.container-fluid {
-    display: block;
-}
+} */
 
 .register {
     display: flex;
@@ -126,7 +123,7 @@ button.signUp {
     border-radius: 2px;
 }
 
-.labelregister {
+.labelRegister {
     font-size: 20px;
     font-weight: 800;
     color: white;
@@ -135,10 +132,114 @@ button.signUp {
     font-family: "Motiva Sans", Sans-serif;
 }
 
+.containerRegister {
+    background-color: #181A21;
+}
+
 li.button {
     padding-top: 20px;
 }
 
 .containerRegister {
     padding-top: 35px;
+}
+
+@media only screen and (max-width: 62.5rem) {
+    form.formcontrol {
+        background-color: initial;
+        width: initial !important;
+        height: initial !important;
+        border-radius: 0;
+    }
+    p {
+        text-align: center;
+    }
+}
+
+@media only screen and ((min-width: 1200px)  and (min-width:  992px) and (min-width: 768px)  and (min-width: 600px)) {
+    .col-xs-1,
+    .col-sm-1,
+    .col-md-1,
+    .col-lg-1,
+    .col-1 {
+        max-width: 9.996rem;
+    }
+
+    .col-xs-2,
+    .col-sm-2,
+    .col-md-2,
+    .col-lg-2,
+    .col-2 {
+        max-width: 19.992rem;
+    }
+
+    .col-xs-3,
+    .col-sm-3,
+    .col-md-3,
+    .col-lg-3 {
+        max-width: 30rem;
+    }
+
+    .col-xs-4,
+    .col-sm-4,
+    .col-md-4,
+    .col-lg-4 {
+        max-width: 39.996rem;
+    }
+
+    .col-xs-5,
+    .col-sm-5,
+    .col-md-5,
+    .col-lg-5 {
+        max-width: 49.992rem;
+    }
+
+    .col-xs-6,
+    .col-sm-6,
+    .col-md-6,
+    .col-lg-6 {
+        max-width: 60rem;
+    }
+
+    .col-xs-7,
+    .col-sm-7,
+    .col-md-7,
+    .col-lg-7 {
+        max-width: 69.996rem;
+    }
+
+    .col-xs-8,
+    .col-sm-8,
+    .col-md-8,
+    .col-lg-8 {
+        max-width: 79.992rem;
+    }
+
+    .col-xs-9,
+    .col-sm-9,
+    .col-md-9,
+    .col-lg-9 {
+        max-width: 90rem;
+    }
+
+    .col-xs-10,
+    .col-sm-10,
+    .col-md-10,
+    .col-lg-10 {
+        max-width: 99.996rem;
+    }
+
+    .col-xs-11,
+    .col-sm-11,
+    .col-md-11,
+    .col-lg-11 {
+        max-width: 109.992rem;
+    }
+
+    .col-xs-12,
+    .col-sm-12,
+    .col-md-12,
+    .col-lg-12 {
+        max-width: 120rem;
+    }
 }

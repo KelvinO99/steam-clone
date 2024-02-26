@@ -22,6 +22,8 @@ class User extends Authenticatable implements JWTSubject, LaratrustUser
         'username',
         'email',
         'password',
+        'image_id',
+        'wallet',
         //'role'
     ];
     /**
@@ -75,11 +77,11 @@ class User extends Authenticatable implements JWTSubject, LaratrustUser
 
     public function Developers(){
 
-        return $this->hasOne(Developers::class, 'developers', 'id');
+        return $this->hasOne(Developers::class, 'user_id', 'id');
     }
 
     public function Images(){
 
-        return $this->hasOne(Images::class, 'images', 'id');
+        return $this->hasOne(Images::class, 'image_id', 'id');
     }
 }

@@ -1,5 +1,5 @@
 <?php
-//NON ELIMINARE 
+//NON ELIMINARE
 //<PLACEHOLDER> = dati da cambiare -chris
 
 namespace App\Models;
@@ -34,7 +34,7 @@ class Games extends Model
 
     public function Achievements(){
 
-        return $this->hasMany(Achievements::class, 'game_id', 'id');   
+        return $this->hasMany(Achievements::class, 'game_id', 'id');
     }
     public function GamesTags(){
 
@@ -43,7 +43,7 @@ class Games extends Model
 
     public function Reviews(){
 
-        return $this->hasMany(Reviews::class, 'game_id', 'id');   
+        return $this->hasMany(Reviews::class, 'game_id', 'id');
     }
     public function DevelopersGames(){
 
@@ -52,10 +52,10 @@ class Games extends Model
 
     public function Games(){
 
-        return $this->hasMany(Games::class, 'id', 'parent_id');   
+        return $this->hasMany(Games::class, 'id', 'parent_id');
     }
     public function Images(){
 
-        return $this->hasMany(Images::class, 'game_id', 'id');
+    return $this->hasMany(Images::class, 'game_id', 'id');
     }
 }

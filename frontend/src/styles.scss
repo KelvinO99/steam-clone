@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+
 :root {
     --color-primary: #4462c3;
     --color-primary-light: #dbdfee;
@@ -34,8 +35,8 @@
 
   body {
     margin: 0;
-    min-height: 100vh;;
-    background-color: #1b2838;
+    min-height: 100vh;
+    background-color: #1B2838;
   }
 
   .bg-primary {
