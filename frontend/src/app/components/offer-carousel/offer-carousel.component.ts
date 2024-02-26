@@ -13,7 +13,7 @@ export class OfferCarouselComponent {
   col_1!: string;
   screenWidth = window.screen.width;
   skip: number = 0;
-  take: number = 5;
+  take: number = 1;
 
   constructor(public gameService: GameService) {
     
@@ -28,7 +28,7 @@ export class OfferCarouselComponent {
       next: (res: any) => {
         {
           this.game = res
-          console.log(res.games[1].images[0].image_path);
+          console.log(this.game);
           
           
         }
