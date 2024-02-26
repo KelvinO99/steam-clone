@@ -13,7 +13,7 @@ export class GameService {
   constructor(private http: HttpClient) {}
 
   getUpdates(params?: {}){
-    return this.http.get<any>(`${URL})
+    return this.http.get<any>(`${URL}`); 
 
   }
 }
