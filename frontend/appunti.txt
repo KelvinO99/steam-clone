@@ -1,0 +1,15 @@
+base responsive
+
+<div class="container-fluid p-0 m-0 min-vh-100 d-block">
+	<div class="row w-100">
+		<div class="col-xl-3 d-flex justify-content-center p-0 m-0">
+                  content left
+		</div>
+		<div class="col-xl-6 d-flex justify-content-center p-0 m-0">
+                  content center
+            </div>
+		<div class="col-xl-3 d-flex justify-content-center p-0 m-0">
+				  content right
+		</div>
+	</div>
+</div>

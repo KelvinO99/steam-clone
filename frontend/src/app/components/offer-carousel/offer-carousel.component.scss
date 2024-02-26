@@ -1,0 +1,136 @@
+/* .img {
+  background-image: url("https://cdn.cloudflare.steamstatic.com/steam/spotlights/2690f9471176e481867dab8e/spotlight_image_english.jpg?t=1706918822");
+  background-size: contain;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+} */
+
+.price {
+  background-image: url('../../../assets/image/background_spotlight.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-right: 2rem;
+}
+
+div.row.ps-2 {
+  max-width: 10rem;
+}
+
+.carousel {
+  margin-bottom: 4rem;
+}
+
+.orizontalImg {
+  max-height: 8rem;
+  background-size: cover;
+}
+
+.carousel-caption {
+  bottom: 3rem;
+}
+
+
+.carousel-item {
+  height: 32rem;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+  width: 3rem;
+  max-height: 20vh;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0.3) 95%);
+}
+
+.mat-card {
+  /* width: 100vw; */ 
+  border-radius: 0px;
+  /* background-image: url("../../../assets/image/background_spotlight.jpg"); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  padding: 0;
+}
+
+.orizontal {
+  height: 9.75rem;
+}
+
+.titleScount {
+  color: #BEEE11;
+  font-size: 15px;
+  font-family: "Motiva Sans", Sans-serif;
+  font-weight: 300;
+}
+
+.scount {
+  max-width: 5rem;
+  font-weight: 500;
+  color: #BEEE11;
+  background: #4c6b22;
+  display: inline-block;
+}
+
+.scount_2 {
+  background-color: #344654;
+  font-weight: normal;
+}
+
+.titleScount_2 {
+  font-size: 11px;
+  color: #738895;
+  text-decoration: line-through;
+}
+
+div.col-1 {
+  max-height: 55vh;
+}
+
+#myCarousel {
+  max-height: 55vh;
+}
+
+.buttonBotton {
+  width: 15px;
+  height: 9px;
+  border-width: 1px;
+  border-radius: 2px;
+  background-color: #606974;
+}
+
+p.title {
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 14px;
+}
+
+p.subTitle {
+  color: #acdbf5;
+  font-size: 12px;
+}
+
+/* 
+.orizontal {
+  height: 10.8rem;
+}
+ */
+@media only screen and (max-width: 62.5rem) {
+
+  div.arrow,
+  button {
+    display: none !important;
+    max-height: 10rem;
+  }
+
+  .main {
+    justify-content: center;
+  }
+
+  .mat-card {
+    max-height: 12rem;
+  }
+
+  .orizontal {
+    max-height: 5.313rem;
+  }
+}

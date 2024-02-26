@@ -1,5 +1,5 @@
 <?php
-//NON ELIMINARE 
+//NON ELIMINARE
 //<PLACEHOLDER> = dati da cambiare -chris
 
 namespace App\Models;
@@ -20,5 +20,8 @@ class Tags extends Model
     public function GamesTags(){
 
         return $this->hasMany(GamesTags::class, 'tag_id', 'id');
+    }
+    public function Images(){
+        return $this->hasOne(Images::class,'image_id','id');
     }
 }

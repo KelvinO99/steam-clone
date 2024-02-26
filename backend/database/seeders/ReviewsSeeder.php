@@ -34,7 +34,7 @@ class ReviewsSeeder extends Seeder
             'The voice acting is exceptional, bringing characters to life.',
             'Thought-provoking themes explored throughout the game.',
             'Outstanding replay value – you\'ll want to experience it again and again.',
-            'This game is a testament to the developers\' dedication and creativity.',
+            'Filippo.',
         ];
         $negative = [
             'This game is a complete disaster, couldn\'t even get past the first level.',
@@ -57,7 +57,7 @@ class ReviewsSeeder extends Seeder
             'Uninspired and generic, there\'s nothing memorable about this game.',
             'The dialogue is cringe-worthy, characters are poorly written.',
             'This game is a prime example of rushed development, unfinished and sloppy.',
-            'I can\'t believe I fell for the hype, this game is a disaster.'
+            'Filippo.'
         ];
         for($i=0;$i<299;$i++)
         {
@@ -66,7 +66,7 @@ class ReviewsSeeder extends Seeder
                 'game_id' => rand(1,19),//PLACEHOLDER RNG
                 'date' => Carbon::now()->subYears(random_int(1, 10))->subDays(random_int(1, 365))->format('Y-m-d'),//PLACEHOLDER RNGBD
                 'is_recommended' => $bool = (bool)rand(0,1),//PLACEHOLDER BOOL RNG
-                'description' => $bool ? $positive[random_int(0, $DIM_A - 1)] : $negative[random_int(0, $DIM_A - 1)],
+                'description' => $bool ? $positive[random_int(0, $DIM_A )] : $negative[random_int(0, $DIM_A )],
                 'hours_played' => mt_rand() / mt_getrandmax() * (999 - 1) + 1,//PLACEHOLDER FLOAT RNG
             ]);
         }

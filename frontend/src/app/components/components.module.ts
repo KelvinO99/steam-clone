@@ -1,3 +1,5 @@
+import { OfferCarouselComponent } from './offer-carousel/offer-carousel.component';
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
@@ -18,9 +20,9 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { StoreComponent } from './store/store.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { ProductBannersComponent } from '../product-banners/product-banners.component';
-
-import { MainCarouselComponent } from './main-carousel/main-carousel.component';
+/* import { ProductBannersComponent } from '../product-banners/product-banners.component';
+import { MainCarouselComponent } from './main-carousel/main-carousel.component'; */
+import { MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [
     BaseComponent,
@@ -29,8 +31,10 @@ import { MainCarouselComponent } from './main-carousel/main-carousel.component';
     HomeComponent,
     StoreComponent,
     SidebarComponent,
-    ProductBannersComponent,
-    MainCarouselComponent,
+   /*  ProductBannersComponent, */
+    /* MainCarouselComponent, */
+    OfferCarouselComponent
+
   ],
   imports: [
     CommonModule,
@@ -47,6 +51,8 @@ import { MainCarouselComponent } from './main-carousel/main-carousel.component';
     MatDialogModule,
     FormsModule,
     SweetAlert2Module,
+    MatCardModule,
+    MatCardModule
   ],
   exports: [CommonModule, TranslateModule, BaseComponent],
 })

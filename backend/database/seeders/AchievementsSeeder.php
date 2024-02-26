@@ -61,14 +61,15 @@ class AchievementsSeeder extends Seeder
         ];
         $bool=false;
         $j=0;
-        for($i=0;$i<38;$i++) //39
+        for($i=0;$i<38;$i++) //38
         {
             $bool ? $bool=false : $bool=true;
             $bool ? $j++ : null;
             DB::table('achievements')->insert([
                 'game_id' => $j,//PLACEHOLDER RNG
                 'name' => $names[$i],//PLACEHOLDER RNGNAME FROM ARRAY
-                //'is_achieved' => $bool = (bool)rand(0,1), perché è tolta dalle migrations bo
+                //'is_achieved' => $bool = (bool)rand(0,1), //perché è tolta dalle migrations bo
+                'image_id' => $j,
             ]);
         }
     }

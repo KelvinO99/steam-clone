@@ -12,8 +12,10 @@ return new class extends Migration
             $table->id();
             $table->string('name')->default('PLACEHOLDER');
             $table->boolean('is_genre')->default(false);
+            $table->unsignedBigInteger('image_id')->nullable()->default(1);
             $table->timestamps();
 
+            $table->foreign('image_id')->references('id')->on('images');
         });
     }
 
