@@ -30,7 +30,7 @@ export class StoreComponent {
     if (this.screenWidth < 768) {
       this.col_8 = 'col-xs-8 p-0 m-0';
       this.col_2 = 'col-xs-2 p-0 m-0';
-      this.col_12 = 'col-xs-12 p-0 m-0'
+      this.col_12 = 'col-xs-12 p-0 m-0';
 
     } else if (this.screenWidth >= 768 && this.screenWidth < 992) {
       this.col_8 = 'col-sm-8 p-0 m-0';
