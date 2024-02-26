@@ -76,7 +76,7 @@ class ImagesController extends Controller
         if($request->img_id){
             $image = Images::find($request->img_id);
             if($image->game_id != $request->id) return response()->json([ 'messaggio'=>'immagine non appartiene al gioco',]);
-            
+
             $game_name = str_replace(' ', '_',$request->game_name);
             $file = $request->file('game_img');
             $oldFileName = pathinfo($image->image_path, PATHINFO_FILENAME);
