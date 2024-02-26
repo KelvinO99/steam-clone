@@ -34,6 +34,9 @@ class GamesController extends Controller
 
             $game = Games::query(); // Start building the query
             $image = Images::query();
+
+            $total = $game->count();
+
             $game->with('images');
 
 
@@ -70,11 +73,12 @@ class GamesController extends Controller
                 ->take($take)
                 ->get();
 
-        $total_count = $game->count();
+        $count = $game->count();
 
         return response()->json([
                 'status' => 200,
-                'total_count' => $total_count,
+                'total'=> $total,
+                'count' => $count,
                 'games' => $game,
             ]);
 

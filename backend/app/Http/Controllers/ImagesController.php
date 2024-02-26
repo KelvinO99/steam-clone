@@ -66,7 +66,12 @@ class ImagesController extends Controller
     // Aggiorna un determinato record della tabella Images -Salvo
     public function update(Request $request)
     {
-
+        $request->validate([
+            'game_name' => 'string|max:255',
+            'game_id' => 'integer',
+            'profile_pic' => 'nullable|file|image|max:10240', // max 10MB
+            'game_imgs.*' => 'nullable|file|image|max:10240', // max 10MB for each game image
+        ]);
         try{
         if($request->img_id){
             $image = Images::find($request->img_id);
@@ -106,7 +111,12 @@ class ImagesController extends Controller
     }
     // Aggiunge un record alla tabella Images -Salvo
     public function store(Request $request) {
-
+        $request->validate([
+            'game_name' => 'string|max:255',
+            'game_id' => 'integer',
+            'profile_pic' => 'nullable|file|image|max:10240', // max 10MB
+            'game_imgs.*' => 'nullable|file|image|max:10240', // max 10MB for each game image
+        ]);
         try{
             if ($request->hasFile('profile_pic')) {
                 $image = new Images(); //crea record images -kel
