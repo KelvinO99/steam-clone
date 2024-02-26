@@ -11,7 +11,7 @@ use Carbon\Carbon;
 class ImagesSeeder extends Seeder
 {
     public function run(): void
-    {/*
+    {
         $image_path = [
             'http://localhost:8000/storage/app/public/game_images/undertale/undertale_0',
             'http://localhost:8000/storage/app/public/game_images/undertale/undertale_1',
@@ -130,7 +130,7 @@ class ImagesSeeder extends Seeder
             //'http://localhost:8000/storage/app/public/game_images/',
 
         ];
-        */
+
         for($i=5;$i<111;$i++) //110 cicli games_images + 10 users_images, si inizia da 5 e finisce 125 pk num<5 / 5 fa meno di 1 e gli array su php iniziano da 1 porcacciodio
         {
             if($i >= 110)  DB::table('images')->insert(['image_path' => "images\Users\Default.jpg",]);
