@@ -271,6 +271,7 @@ class GamesController extends Controller
             if($long_description) $game->update(['long_description'=> $long_description]);
             if($pegi_id) $game->update(['pegi_id'=> $pegi_id]);
             if ($img_id || $request->hasFile('game_imgs')){
+                $request->game_id = $game->id;
                 $request->game_name = $game->name;
                 $imagesController->update($request);
             }
