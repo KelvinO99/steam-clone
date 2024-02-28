@@ -1,0 +1,42 @@
+collegamento al frontend con git:
+scarica tutti i pacchetti
+npm Install
+
+avviare l'applicazione angular
+ng serve/npm start
+
+
+collegamento al backend con git:
+i comandi da eseguire:
+
+composer i
+composer dump-autoload
+
+modificare file env
+DB_DATABASE=steam
+
+eseguire tutti questi comandi
+php artisan migrate:fresh
+php artisan db:seed
+php artisan config:clear
+php artisan route:clear
+php artisan route:cache
+
+Genera la secret key nel file env
+php artisan jwt:secret
+
+avviare il SERVER
+php artisan serve
+
+
+mergare nel develop:
+nel proprio branch eseguire questi comandi
+git add .
+git commit -m "message"
+git push
+
+entro nel develop 
+git pull
+
+rientrare nel branch
+git merge develop

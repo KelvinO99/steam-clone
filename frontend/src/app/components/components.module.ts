@@ -24,6 +24,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { MainCarouselComponent } from './main-carousel/main-carousel.component'; */
 import { MatCardModule} from '@angular/material/card';
 import { ProductBannersComponent } from './product-banners/product-banners.component';
+import { GameDataComponent } from './game-data/game-data.component';
+import {MatTabsModule} from '@angular/material/tabs';
 @NgModule({
   declarations: [
     BaseComponent,
@@ -35,7 +37,8 @@ import { ProductBannersComponent } from './product-banners/product-banners.compo
    /*  ProductBannersComponent, */
     /* MainCarouselComponent, */
     OfferCarouselComponent,
-   ProductBannersComponent
+   ProductBannersComponent,
+   GameDataComponent
 
   ],
   imports: [
@@ -54,7 +57,8 @@ import { ProductBannersComponent } from './product-banners/product-banners.compo
     FormsModule,
     SweetAlert2Module,
     MatCardModule,
-    MatCardModule
+    MatCardModule,
+    MatTabsModule,
   ],
   exports: [CommonModule, TranslateModule, BaseComponent],
 })
