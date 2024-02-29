@@ -17,7 +17,7 @@ class GamesSeeder extends Seeder
             'Undertale',                               //1
             'Uncharted: The Legacy Collection',        //2
             'Hitman 3',                                //3
-            'Tetris® Effect: Connected',               //4
+            'Tetris Effect: Connected',               //4
             'Terraria',                                //5
             'Fortnite',                                //6
             'Call of Duty 2 Black Ops 2',              //7
