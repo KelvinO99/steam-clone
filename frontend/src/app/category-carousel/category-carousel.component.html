@@ -1,0 +1,84 @@
+<!-- SFOGLIA PER CATEGORIA -->
+<div>
+    <p style="color: white; top:31px; position:relative; font-family:Motiva Sans, sans-serif !important; font-size:14px !important;">SFOGLIA PER CATEGORIA</p>
+</div>
+
+<!-- Container di tutto il carosello -->
+<div class="allContainer">
+    
+    <a class="carousel-control-prev" href="#categoryCarousel" role="button" data-bs-slide="prev" data-target="#categoryCarousel">
+        <span class="carousel-control-prev-icon" aria-hidden="true" style="transform:scale(1.97) !important;"></span>
+        <span class="visually-hidden">Previous</span>
+    </a>
+
+    <div class="carouselContainer">
+        
+        <div id="carouselcenter">
+
+            <div id="categoryCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#categoryCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#categoryCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#categoryCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="card">
+                                    <img src="https://store.steampowered.com/categories/homepageimage/category/racing?cc=us&l=italian" type="button" alt="photo 2" class="cardImages">
+                                    <div id="corse"></div>
+                                </div>
+
+                                <div class="card">
+                                    <img src="https://store.steampowered.com/categories/homepageimage/category/exploration_open_world?cc=us&l=italian" type="button" alt="photo 2" class="cardImages">
+                                    <div id="corse"></div>
+                                </div>
+
+                                <div class="card">
+                                    <img src="https://store.steampowered.com/categories/homepageimage/category/strategy_cities_settlements?cc=us&l=italian" type="button" alt="photo 2" class="cardImages">
+                                    <div id="corse"></div>
+                                </div>
+
+                                <div class="card">
+                                    <img src="https://store.steampowered.com/categories/homepageimage/category/strategy?cc=us&l=italian" alt="photo 2" type="button" class="cardImages">
+                                    <div id="corse"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="carousel-item active">
+                        <div class="container-fluid">
+                            <div class="row">
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="carousel-item active">
+                        <div class="row">
+                            
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    
+    </div>
+    
+    <a class="carousel-control-next" href="#categoryCarousel" role="button" data-bs-slide="next" data-target="#categoryCarousel">
+        <span class="carousel-control-next-icon" aria-hidden="true" style="transform:scale(1.97) !important;"></span>
+        <span class="visually-hidden">Next</span>
+    </a>
+
+</div>
+
+<div *ngfor="let im of image">
+    <img [src]="im" alt="">
+</div>

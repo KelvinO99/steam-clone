@@ -1,0 +1,168 @@
+.carouselContainer {
+    position: relative;
+    margin: 45px;
+    width: fit-content;
+}
+
+.allContainer{
+    position: relative;
+    width:1024px !important;
+    transform:translatex(0px) translatey(0px);
+    left:-45px !important;
+}
+
+.card{
+    width: 225.6px;
+    height: 223.81px;
+    background-color: black;
+}
+
+.carousel-control-prev{
+    position: absolute;
+    top: 50%;  /* Centra i pulsanti verticalmente */
+    transform: translateY(-50%);
+    background-image: linear-gradient(to left, rgba(255,0,0,0), rgb(0, 0, 0));
+    width: 45px;
+    height: 108px;
+    padding: 36px 11px;
+}
+
+.carousel-control-prev:hover{
+    background-image: linear-gradient(to right, rgba(212, 212, 212, 0.449), rgb(255,0,0,0));
+}
+
+.carousel-control-next:hover{
+    background-image: linear-gradient(to left, rgb(212, 212, 212, 0.449), rgb(255,0,0,0));
+}
+
+.carousel-control-next {
+    position: absolute;
+    top: 50%;  /* Centra i pulsanti verticalmente */
+    transform: translateY(-50%);
+    background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(0, 0, 0));
+    width: 45px;
+    height: 108px;
+    padding: 36px 11px;
+}
+
+@media (max-width: 768px) {
+    .carousel-control-prev, .carousel-control-next {
+        /* Modifica la posizione per schermi più piccoli */
+        top: auto;
+        bottom: 10px;  /* Sposta i pulsanti più in basso */
+    }
+
+    .carousel-control-prev {
+        left: 5px;  /* Riduci la distanza dal bordo sinistro */
+    }
+
+    .carousel-control-next {
+        right: 5px;  /* Riduci la distanza dal bordo destro */
+    }
+}
+
+
+/* git */
+.card-img-top{
+    height: 128px;
+    width: 128px;
+}
+
+.carousel-container {
+    position: relative;
+}
+
+
+@media (max-width: 768px) {
+    .carousel-control-prev, .carousel-control-next {
+        /* Modifica la posizione per schermi più piccoli */
+        top: auto;
+        bottom: 10px;  /* Sposta i pulsanti più in basso */
+    }
+
+    .carousel-control-prev {
+        left: 5px;  /* Riduci la distanza dal bordo sinistro */
+    }
+
+    .carousel-control-next {
+        right: 5px;  /* Riduci la distanza dal bordo destro */
+    }
+}
+
+.carousel-item{
+    height: 255.81px;
+    width: 940px;
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Regola la durata della transizione a piacimento */  
+}
+
+.carousel-item:not(.active) {
+    opacity: 0;
+}
+
+.carousel-inner{
+    height: 255.81px;
+    max-width: 940px;
+}
+
+/* Button */
+#categoryCarousel .carousel-indicators button{
+    width:15px;
+    height:9px;
+    border-width: 1px;
+    border-radius: 2px;
+    background-color: #606974;
+   }
+
+/* Carousel indicators */
+#categoryCarousel .carousel-indicators{
+    top:270px;
+    bottom:auto !important;
+   }
+
+
+/* Carousel item */
+#categoryCarousel .carousel-item{
+    width:940px !important;
+   }
+
+.cardImages{
+    width: 225.6px;
+    height: 223.81px;
+}
+
+#categoryCarousel .carousel-item .card{
+    transform:translatex(0px) translatey(0px);
+    border-top-left-radius:0px;
+    border-top-right-radius:0px;
+    border-bottom-left-radius:0px;
+    border-bottom-right-radius:0px;
+   }
+   
+   /* Image */
+   #categoryCarousel .card img{
+    position:relative;
+    left:-13px;
+   }
+   
+   /* Row */
+#categoryCarousel .carousel-item .container-fluid .row{
+    width:958px;
+    position:relative;
+    left:-18px;
+   }
+   
+/* Card */
+#categoryCarousel .carousel-item .card{
+    margin-right: 10px;
+   }
+   
+#corse{
+    background: linear-gradient(rgba(0, 0, 0, 0), rgb(139, 0, 0)) 100%;
+    /* z-index: 999999999 !important; */
+    width: 225.6px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}

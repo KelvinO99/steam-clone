@@ -1,5 +1,7 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, NgModule } from '@angular/core';
 import { GameService } from 'src/app/shared/services/game.service';
+import { CommonModule } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-offer-carousel',
