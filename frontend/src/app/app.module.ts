@@ -17,7 +17,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './shared/services/authconfig.interceptor.service';
-import { CategoryCarouselComponent } from './category-carousel/category-carousel.component';
+import { CategoryCarouselComponent } from './components/category-carousel/category-carousel.component';
 
 @NgModule({
   declarations: [
