@@ -26,6 +26,7 @@ import { MatCardModule} from '@angular/material/card';
 import { ProductBannersComponent } from './product-banners/product-banners.component';
 import { UpdatesOfferCardsComponent } from './updates-offer-cards/updates-offer-cards.component';
 import {MatButtonModule} from '@angular/material/button';
+
 @NgModule({
   declarations: [
     BaseComponent,

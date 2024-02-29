@@ -16,8 +16,8 @@ export class GameService {
     return this.http.get<any>(`${this.APIUrl}games/index`,{params});
   }
 
-    getUpdates(params?: {}){
-      return this.http.get<any>(`${URL}`); 
-      }
+  getUpdates(params?: {}){
+    return this.http.get<any>(`${this.APIUrl}`,{params}); 
   }
+ }
 
