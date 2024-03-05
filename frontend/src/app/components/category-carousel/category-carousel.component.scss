@@ -30,6 +30,7 @@
 .categoryHover:hover{    
     transform: scale(1.05);
     z-index: 2;
+    filter: brightness(1.30);
 }
 
 .carousel-control-prev{
@@ -313,4 +314,17 @@
     font-size:14px !important;
     top: 140px !important;
     left: 45px;
+}
+
+.categoryText{
+    position: relative;
+    font-family: "Motiva Sans", Sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-shadow: 0 1px 3px rgb(0 0 0 / 50%);
+    letter-spacing: 0.1ch;
+    color: white;
+    text-align: center;
+    left: -13px;
+    bottom: 45px;
 }
