@@ -11,82 +11,84 @@ use App\Models\GamesTags;
 use App\Models\Reviews;
 use App\Models\Tags;
 use App\Http\Controllers\ImagesController;
+use Carbon\Carbon;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Support\Facades\DB;
-
-
+use Illuminate\Support\Facades\Log;
 
 class GamesController extends Controller
 {
     public function index(Request $request)
     {
 
-        try{
-            $discount = $request->input("discount");
-            $featured = $request->input("featured");
-            $special_offer = $request->input("special_offer");
+        try {
+            $discount = $request->input("discount"); // GIOCHI CON SCONTO
+            $featured = $request->input("featured"); // GIOCHI TOP SELLER
+            $special_offer = $request->input("special_offer"); // GIOCHI CON SCONTO SUPERIORE AL 60%
+            $most_reviewed = $request->input("most_reviewed"); // CALCOLO TRA NUMERO RECENSIONI E DATA DI USCITA
+            $best_seller = $request->input("best_seller"); // CALCOLO SUL NUMERO DI COPIE ACQUISTATE
+            $incoming = $request->input("incoming"); // CALCOLO SUL NUMERO DI COPIE ACQUISTATE
+            $skip = $request->input("skip");
+            $take = $request->input("take");
+            $today = Carbon::now();
 
-            $skip = $request->input("skip", 0); //skip
-                                                //and   (function)
-            $take = $request->input("take", 1); //take
-
-            $game = Games::query(); // Start building the query
-            $image = Images::query();
+            $game = Games::with('GamesTags.Tags')
+                ->select('id', 'name', 'date', 'base_price', 'is_discounted', 'discounted_price', 'discounted_percentage', 'created_at', 'updated_at')
+                ->with('images');
 
             $total = $game->count();
 
-            $game->with('images');
-
-
-    //ISSET CODE
-            if ($discount) {
-                $game->where('is_discounted', true)
-                ->with('images.image_path');
+            //ISSET CODE
+            if ($discount == true) {
+                $game->where('is_discounted', 1);
             }
 
-            if ($featured) {
+            if ($most_reviewed == true) {
+                $game->whereHas('Reviews')
+                    ->withCount('Reviews')
+                    ->orderBy('Reviews_count', 'desc')
+                    ->orderBy('date', 'desc');
+            }
+
+            if ($best_seller == true) {
+                $game->whereHas('Libraries')
+                    ->withCount('Libraries')
+                    ->orderBy('Libraries_count', 'desc');
+            }
+
+            if ($featured == true) {
                 $game->select('games.id', 'games.name', 'games.base_price', 'games.discounted_price')
-                                        ->join('games_tags', 'games.id', '=', 'games_tags.game_id')
-                                        ->join('tags', 'games_tags.tag_id', '=', 'tags.id')
-                                        ->where('tags.name', 'Top Seller')
-                                        ->with('images.image_path');
+                    ->join('games_tags', 'games.id', '=', 'games_tags.game_id')
+                    ->join('tags', 'games_tags.tag_id', '=', 'tags.id')
+                    ->where('tags.name', 'Top Seller');
             }
 
-            if ($special_offer) {
-            $game->where('discounted_percentage','>', '60')
-            ->with('images.image_path');
+            if ($special_offer == true) {
+                $game->where('discounted_percentage', '>', '60');
             }
-    //ISSET CODE
 
+            if ($incoming == true) {
+                $game->where('date', '>', $today);
+            }
+            //ISSET CODE
 
-            //$game = Games::whereHas('images');
+            if (isset($skip)) {
+                $game = $game->skip($skip)->take($take);
+            }
 
-            //$game->skip($skip)->take($take)->get();//skip and take (function)
+            $count = $game->count();
 
-            $game = Games::with(['images' => function ($query) {
-                $query->select('id', 'game_id', 'image_path');
-
-            }])
-                ->skip($skip)
-                ->take($take)
-                ->get();
-
-        $count = $game->count();
-
-        return response()->json([
+            return response()->json([
                 'status' => 200,
-                'total'=> $total,
+                'total' => $total,
                 'count' => $count,
-                'games' => $game,
+                'games' => $game->get(),
             ]);
-
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             return $e;
         }
-
-
     }
 
     // Mostra un determinato record dellla tabella Games -Kelvin
