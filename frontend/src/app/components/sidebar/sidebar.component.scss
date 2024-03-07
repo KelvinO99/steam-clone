@@ -38,7 +38,7 @@ li {
 }
 
 
-/* .header {
+.header {
   color:#536f86 !important;
   line-height: 16px;
   font-size: 14px;
@@ -46,10 +46,11 @@ li {
   font-family: "Motiva Sans", Sans-serif;
   font-weight: normal;
   font-weight: bolder;
-} */
+  cursor: none;
+}
 
-  /* a:hover {
+  a:hover {
     text-decoration: none;
     color: #66c0f4;
     cursor: pointer;
-  }  */
+  } 

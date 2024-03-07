@@ -20,16 +20,15 @@ export class OfferCarouselComponent {
    }
 
   ngOnInit(){
-    this.getBestSellingGames()
+    this.getGames()
   }
 
-  getBestSellingGames() {
-    this.gameService.getBestSellingGames({skip: this.skip, take: this.take}).subscribe({
+  getGames() {
+    this.gameService.getGames({skip: this.skip, take: this.take}).subscribe({
       next: (res: any) => {
         {
           this.game = res
           console.log(this.game);
-          
           
         }
       }

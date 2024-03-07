@@ -38,7 +38,7 @@ Route::group([
 });
 
 Route::controller(GamesController::class)->prefix('games')->group(function($router){
-    Route::get('index', 'index');
+     
     Route::get('show/{id}','show');
     Route::delete('destroy/{id}','destroy');
     Route::post('update/{id}','update');
