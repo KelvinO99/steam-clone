@@ -1,0 +1,74 @@
+::ng-deep .mat-tab-label {
+    color: #4f94bc;
+    opacity: initial !important;
+    font-weight: normal !important;
+    font-size: 13px;
+    cursor: pointer;
+
+    .mat-tab-label-0-0 {
+        padding: 0 !important;
+    }
+}
+
+/* mat-card-header {
+    background-image: url("https://cdn.cloudflare.steamstatic.com/steam/apps/2275020/capsule_184x69.jpg?t=1709222621");
+    width: 184px;
+    height: 69px;
+    padding: 0;
+    margin: 0;
+} */
+
+mat-card {
+    background: #202d39;
+    background: rgba(0, 0, 0, 0.2);
+}
+.title {
+    color: #c7d5e0;
+    font-size: 1.25em;
+}
+
+.price {
+    color: #BEEE11;
+    line-height: 16px;
+    font-size: 15px;
+}
+
+img.opacity {
+    opacity: 0.3;
+}
+
+span.tags {
+    color: #384959;
+}
+
+span.free {
+    color: white; 
+    font-size: 15px;
+}
+
+span.discount {
+    font-size: 15px;
+    color: #BEEE11;
+}
+
+span.basePriceDiscount {
+    color: #738895; 
+    font-size: 11px; 
+    text-decoration: line-through
+}
+
+div.discountPercentage {
+    font-size: 16px; 
+    align-items: center; 
+    display: flex; 
+    padding: 0 4px; 
+    border-radius: 1px; 
+    font-weight: 500; 
+    color: #BEEE11;
+    background: #4c6b22;
+}
+
+span.basePrice {
+    color: white;
+    font-size: 15px;
+}
