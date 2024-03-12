@@ -3,7 +3,63 @@
     <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
       <mat-tab label="New & Trending">
 
-        <mat-card class="p-0">
+        <mat-card class="p-0" *ngFor="let item of most_reviewed_game.games">
+          <div class="container p-0">
+            
+              <mat-card-content>
+                <div class="row">
+                <div class="col-3">
+                  <img [src]="item.images[0].image_path"
+                  width="184px" height="69px">
+                </div>
+  
+                <div class="col-3 p-0 p-0">
+
+                  <div class="row d-flex">
+                    <div class="col-12 p-0"> 
+
+                      <span class="title"> Titolo Gioco </span>
+                      
+                    </div>
+                  </div>
+
+                  <div class="row d-flex">
+                    <div class="col-12 p-0"> 
+
+                      <span> Platform </span>
+                      
+                    </div>
+                  </div>
+
+                  <div class="row d-flex">
+                    <div class="col-12 p-0"> 
+
+                      <span> Tags </span>
+                      
+                    </div>
+                  </div>
+
+                </div>
+  
+                <div class="col-3 p-0">
+                  
+
+                </div>
+  
+                <div class="col-3 p-0 d-flex align-items-center">
+
+                  <span style="color: white; font-size: 15px;"> Free to Play</span>
+
+                </div>
+              </div>
+              </mat-card-content>
+     
+          </div>
+        </mat-card>
+         
+      </mat-tab>
+      <mat-tab label="Top Sellers">
+        <mat-card class="p-0" *ngFor="let item of best_seller_game.games">
           <div class="container p-0">
             
               <mat-card-content>
@@ -56,8 +112,9 @@
      
           </div>
         </mat-card>
-
-        <mat-card class="p-0">
+      </mat-tab>
+      <mat-tab label="Popular Upcoming">
+        <mat-card class="p-0" *ngFor="let item of incoming_game.games">
           <div class="container p-0">
             
               <mat-card-content>
@@ -88,20 +145,21 @@
                   <div class="row d-flex">
                     <div class="col-12 p-0"> 
 
-                      <span class="tags"> </span>
+                      <span> Tags </span>
                       
                     </div>
                   </div>
 
                 </div>
   
-                <div class="col-3 p-0 d-flex justify-content-center align-items-center">
+                <div class="col-3 p-0">
+                  
 
                 </div>
   
-                <div class="col-3 p-0 d-flex align-items-center justify-content-end px-5">
+                <div class="col-3 p-0 d-flex align-items-center">
 
-                  <span class="price"> 39,59$ </span>
+                  <span style="color: white; font-size: 15px;"> Free to Play</span>
 
                 </div>
               </div>
@@ -109,11 +167,62 @@
      
           </div>
         </mat-card>
-         
       </mat-tab>
-      <mat-tab label="Top Sellers">Content 2</mat-tab>
-      <mat-tab label="Popular Upcoming">Content 3</mat-tab>
-      <mat-tab label="Specials">Content 4</mat-tab>
+      <mat-tab label="Specials offer">
+        <mat-card class="p-0" *ngFor="let item of discount_game.games">
+          <div class="container p-0">
+            
+              <mat-card-content>
+                <div class="row">
+                <div class="col-3">
+                  <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/2275020/capsule_184x69.jpg?t=1709222621"
+                  width="184px" height="69px">
+                </div>
+  
+                <div class="col-3 p-0 p-0">
+
+                  <div class="row d-flex">
+                    <div class="col-12 p-0"> 
+
+                      <span class="title"> Titolo Gioco </span>
+                      
+                    </div>
+                  </div>
+
+                  <div class="row d-flex">
+                    <div class="col-12 p-0"> 
+
+                      <span> Platform </span>
+                      
+                    </div>
+                  </div>
+
+                  <div class="row d-flex">
+                    <div class="col-12 p-0"> 
+
+                      <span> Tags </span>
+                      
+                    </div>
+                  </div>
+
+                </div>
+  
+                <div class="col-3 p-0">
+                  
+
+                </div>
+  
+                <div class="col-3 p-0 d-flex align-items-center">
+
+                  <span style="color: white; font-size: 15px;"> Free to Play</span>
+
+                </div>
+              </div>
+              </mat-card-content>
+     
+          </div>
+        </mat-card>
+      </mat-tab>
     </mat-tab-group>
   </div>
 </div>
