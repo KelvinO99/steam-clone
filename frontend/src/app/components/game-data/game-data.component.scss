@@ -32,3 +32,43 @@ mat-card {
     line-height: 16px;
     font-size: 15px;
 }
+
+img.opacity {
+    opacity: 0.3;
+}
+
+span.tags {
+    color: #384959;
+}
+
+span.free {
+    color: white; 
+    font-size: 15px;
+}
+
+span.discount {
+    font-size: 15px;
+    color: #BEEE11;
+}
+
+span.basePriceDiscount {
+    color: #738895; 
+    font-size: 11px; 
+    text-decoration: line-through
+}
+
+div.discountPercentage {
+    font-size: 16px; 
+    align-items: center; 
+    display: flex; 
+    padding: 0 4px; 
+    border-radius: 1px; 
+    font-weight: 500; 
+    color: #BEEE11;
+    background: #4c6b22;
+}
+
+span.basePrice {
+    color: white;
+    font-size: 15px;
+}
