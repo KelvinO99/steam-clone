@@ -570,7 +570,7 @@ class GamesSeeder extends Seeder
                 'parent_id' => $i === 21 ? 3 : null,
                 'is_discounted' => $bool ? true : false,
                 'discounted_percentage' => $bool ? $discounted_percentage = rand(5,90) : null,//PLACEHOLDER RNG
-                'discounted_price' => $bool ? round($base_price[$i]-($base_price[$i]*($discounted_percentage/100))) : null,
+                'discounted_price' => $bool ? number_format($base_price[$i]-($base_price[$i]*($discounted_percentage/100)), 2, '.', ''): null,
                 'short_description' => $short_description[$i],
                 'long_description' => $long_description[$i],
                 'pegi_id' => rand(0,4),
