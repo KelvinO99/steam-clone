@@ -12,12 +12,9 @@ export class GameService {
 
   constructor(private http: HttpClient) {}
 
-  getBestSellingGames(params : {}) {
+  getBestSellingGames(params? : {}) {
     return this.http.get<any>(`${this.APIUrl}games/index`,{params});
   }
 
-  getUpdatesAndOffers(params?: {}){
-    return this.http.get<any>(`${this.APIUrl}offerta/index`,{params}); 
-  }
  }
 

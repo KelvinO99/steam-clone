@@ -17,14 +17,16 @@ export class UpdatesOfferCardsComponent {
   }
 
   ngOnInit(){
-
+    this.getUpdatesAndOffers();
   }
 
 getUpdatesAndOffers(){
-  this.gameService.getUpdatesAndOffers().subscribe({
-    next: (res: any) => {
+  this.gameService.getBestSellingGames({discount: true,}).subscribe({
+    next: (res: any) => {0
       
       this.games = res;
+      console.log('ciao');
+      
       console.log(this.games);
     }
   })

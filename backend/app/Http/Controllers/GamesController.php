@@ -30,7 +30,7 @@ class GamesController extends Controller
 
             $skip = $request->input("skip", 0); //skip
                                                 //and   (function)
-            $take = $request->input("take", 1); //take
+            $take = $request->input("take", 999); //take
 
             $game = Games::query(); // Start building the query
             $image = Images::query();
@@ -41,7 +41,7 @@ class GamesController extends Controller
 
 
     //ISSET CODE
-            if ($discount) {
+            if (isset($discount)) {
                 $game->where('is_discounted', true)
                 ->with('images.image_path');
             }

@@ -1,55 +1,58 @@
-.allCards{
-    margin-top: 3rem;
+.allCards {
+    margin-top: 0.5625rem; /* 9% */
 }
 
 .bigCard, .smallCard, .smallCard2, .smallCard3, .smallCard4, .smallCard5, .smallCard6 {
     border-radius: 0; /* Rimuove lo smussamento dei contorni */
 }
 
-.bigCard{
-    width: 346.2144px; /* 23.28vw */
-    height: 365.1712px; /* 24.64vw */
-    position: relative;
-}
-.bigCardBody{  
-    width: 346.2144px; /* 23.28vw */
-    height: 50px; /* 4.3vw */
-    background: linear-gradient( 135deg, rgba(37,49,63,1) 5%,rgba(54,97,125,1) 95%);
-    background-image: linear-gradient(135deg, rgb(37, 49, 63) 5%, rgb(54, 97, 125) 95%);
-    background-position-x: initial;
-    background-position-y: initial;
-    background-size: initial;
-    background-repeat: initial;
-    background-attachment: initial;
-    background-origin: initial;
-    background-clip: initial;
-    color: white;
-    position: relative;
-    bottom: 16px;
-    right: 16px;
+.bigCard {
+    width: 21.6384rem; /* 346.2144px / 16px */
+    height: 22.8232rem; /* 365.1712px / 16px */
+    left: 4.375rem; /* 70px / 16px */
 }
 
-.bigFinalPrice{    
+.bigCardBody {  
+    width: 21.6384rem; /* 346.2144px / 16px */
+    height: 3.125rem; /* 50px / 16px */
+    background: linear-gradient(135deg, rgba(37,49,63,1) 5%, rgba(54,97,125,1) 95%);
+    color: white;
+    position: relative;
+    bottom: 1rem; /* 16px / 16px */
+    right: 1rem; /* 16px / 16px */
+}
+
+.updateTitle {
+    color: white;
+    left: 0.425rem; /* 6.8% */
+    line-height: 0.9951rem; /* 15.9216px / 16px */
+    font-size: 0.93rem; /* 14.88px / 16px */
+    text-align: right;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.bigFinalPrice {    
     color: #BEEE11;
-    line-height: 15.9216px;
-    font-size: 14.88px; 
-    height: 53.7856px; 
+    line-height: 0.9951rem; /* 15.9216px / 16px */
+    font-size: 0.93rem; /* 14.88px / 16px */
+    height: 3.3616rem; /* 53.7856px / 16px */
     text-align: right;
     display: flex;
     flex-direction: row;
     justify-content: end;
     position: relative;
-    top: 16px;
-    right: 13px;
+    top: 1rem; /* 16px / 16px */
+    right: 0.8125rem; /* 13px / 16px */
 }
 
-.finalPrice{    
+.finalPrice {    
     color: white;
-    line-height: 15.9216px; /* 1.07vw */
-    font-size: 14.88px; /* 1.00vw */
-    line-height: 14.88px; /* 1.00vw */
-    height: 53.7856px; /* 3.62vw */
-    padding: 14.88px; /* 1.00vw */
+    line-height: 0.9951rem; /* 15.9216px / 16px */
+    font-size: 0.93rem; /* 14.88px / 16px */
+    height: 3.3616rem; /* 53.7856px / 16px */
+    padding: 0.93rem; /* 14.88px / 16px */
     text-align: right;
     display: flex;
     flex-direction: row;
@@ -58,77 +61,68 @@
     bottom: 5%;
 }
 
-.smallCards{
-    position:relative;
-    left: 1%
-}
-.smallCard{
-    width: 157.3576px; /* 10.57vw */
-    height: 165.9636px; /* 11.17vw */
+.smallCards {
     position: relative;
-    margin: 5px;
-    left: 340px;
-    bottom: 369px;
+    left: 0.90625rem; /* 14.5% */
 }
 
-.smallCard2{
-    width: 157.3576px; /* 10.57vw */
-    height: 165.9636px; /* 11.17vw */
-    position: relative;
-    margin: 5px;
-    left: 502px;
-    bottom: 540px;
+.smallCard {
+    width: 9.8355rem; /* 157.3576px / 16px */
+    height: 10.3727rem; /* 165.9636px / 16px */
+    margin-right: 0.21875rem; /* 3.5px / 16px */
+    justify-content: start;
 }
 
-.smallCard3{
-    width: 157.3576px; /* 10.57vw */
-    height: 165.9636px; /* 11.17vw */
-    position: relative;
-    margin: 5px;
-    left: 665px;
-    bottom: 710px;
+.smallCard2 {
+    width: 9.8355rem; /* 157.3576px / 16px */
+    height: 10.3727rem; /* 165.9636px / 16px */
+    margin-right: 0.25rem; /* 4px / 16px */
+    justify-content: center;
 }
 
-.smallCard4{
-    width: 157.3576px; /* 10.57vw */
-    height: 165.9636px; /* 11.17vw */
+.smallCard3 {
+    width: 9.8355rem; /* 157.3576px / 16px */
+    height: 10.3727rem; /* 165.9636px / 16px */
     position: relative;
-    margin: 5px;
-    left: 348px;
-    bottom: 673px;
+    margin-right: 0.21875rem; /* 3.5px / 16px */
+    display: inline-block;
 }
 
-.smallCard5{
-    width: 157.3576px; /* 10.57vw */
-    height: 165.9636px; /* 11.17vw */
+.lowCards {
     position: relative;
-    margin: 5px;
-    left:509px;
-    bottom: 844px;
+    left: 0.125rem; /* 2% */
 }
 
-.smallCard6{
-    width: 157.3576px; /* 10.57vw */
-    height: 165.9636px; /* 11.17vw */
+.smallCard4 {
+    width: 9.8355rem; /* 157.3576px / 16px */
+    height: 10.3727rem; /* 165.9636px / 16px */
     position: relative;
-    margin: 5px;
-    left:671px;
-    bottom: 1014px;
+    margin-right: 0.21875rem; /* 3.5px / 16px */
+    bottom: 0.1875rem; /* 3px / 16px */
 }
-.cardBody{  
-    width: 157.7616px; /* 10.62vw */
-    height: 40px; /* 2.9vw */
-    background: linear-gradient( 135deg, rgba(37,49,63,1) 5%,rgba(54,97,125,1) 95%);
-    background-image: linear-gradient(135deg, rgb(37, 49, 63) 5%, rgb(54, 97, 125) 95%);
-    background-position-x: initial;
-    background-position-y: initial;
-    background-size: initial;
-    background-repeat: initial;
-    background-attachment: initial;
-    background-origin: initial;
-    background-clip: initial;
+
+.smallCard5 {
+    width: 9.8355rem; /* 157.3576px / 16px */
+    height: 10.3727rem; /* 165.9636px / 16px */
+    position: relative;
+    margin-right: 0.25rem; /* 4px / 16px */
+    bottom: 0.1875rem; /* 3px / 16px */
+}
+
+.smallCard6 {
+    width: 9.8355rem; /* 157.3576px / 16px */
+    height: 10.3727rem; /* 165.9636px / 16px */
+    position: relative;
+    display: inline-block;
+    bottom: 0.1875rem; /* 3px / 16px */
+}
+
+.cardBody {  
+    width: 9.8601rem; /* 157.7616px / 16px */
+    height: 2.5rem; /* 40px / 16px */
+    background: linear-gradient(135deg, rgba(37,49,63,1) 5%, rgba(54,97,125,1) 95%);
     color: white;
     position: relative;
-    bottom: 16.368px; /* 1.1vw */
-    right: 17.2608px; /* 1.16vw */
+    bottom: 1.023rem; /* 16.368px / 16px */
+    right: 1rem; /* 16px / 16px */
 }
