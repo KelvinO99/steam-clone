@@ -76,7 +76,7 @@ class ImagesController extends Controller
         if($request->img_id){
             $image = Images::find($request->img_id);
             if($image->game_id != $request->id) return response()->json([ 'messaggio'=>'immagine non appartiene al gioco',]);
-            $game_name = str_replace([' ', '\\', '/', ':', '*', '?', '"', '<', '>', '|', "\0", "\n", "\r", "\t", "\x0B", "-"], '_', $request->game_name);
+            $game_name = str_replace([' ', '\\', '/', ':', '*', '?', '"', '<', '>', '|', "\0", "\n", "\r", "\t", "\x0B", "-","™"], '_', $request->game_name);
             $game_name = strtolower($game_name);
             $game_name = preg_replace('/_+/', '_', $game_name);
             $file = $request->file('game_img');
@@ -89,7 +89,7 @@ class ImagesController extends Controller
 
         if ($request->hasFile('game_imgs')){
             $files = $request->file('game_imgs');
-            $game_name = str_replace([' ', '\\', '/', ':', '*', '?', '"', '<', '>', '|', "\0", "\n", "\r", "\t", "\x0B", "-"], '_', $request->game_name);
+            $game_name = str_replace([' ', '\\', '/', ':', '*', '?', '"', '<', '>', '|', "\0", "\n", "\r", "\t", "\x0B", "-","™"], '_', $request->game_name);
             $game_name = strtolower($game_name);
             $game_name = preg_replace('/_+/', '_', $game_name);
             $i = Images::where('game_id', $request->game_id)->count();
@@ -143,9 +143,9 @@ class ImagesController extends Controller
 
                 $image = new Images(); //crea record images -kel
 
-                $filename =$game_name.'_'.$i.'.'.$file->getClientOriginalExtension();
-                $file->storeAs( 'game_images/'.$game_name, $filename, 'public');
-                $path = 'http://localhost:8000/storage/app/public/game_images/'.$filename;
+                $filename =$game_name.'_'.$i.'.'.$file->getClientOriginalExtension(); //assegna il nome del file in base al nome del gioco, numero della richiesta e l'estensione -kel
+                $file->storeAs( 'game_images/'.$game_name, $filename, 'public'); //salva immagine -kel
+                $path = 'http://localhost:8000/storage/app/public/game_images/'.$filename; //crea il path da inserire nel database
                 $image->game_id = $request->game_id;
                 $image->image_path = $path; //salva il record -kel
                 $image->save();
