@@ -10,8 +10,7 @@ export class GameService {
 
   constructor(private http: HttpClient) {}
 
-  getBestSellingGames(params : {}) {
-    return this.http.get<any>(`${this.APIUrl}games/index`,{params});
-  }
+      getGames(params : {}) {
+      return this.http.get<any>(`${this.APIUrl}games/index`,{params});
+    }
 }
-
