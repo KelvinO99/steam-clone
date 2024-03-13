@@ -131,7 +131,7 @@ class ImagesSeeder extends Seeder
 
         ];
 
-        for($i=5;$i<111;$i++) //110 cicli games_images + 10 users_images, si inizia da 5 e finisce 125 pk num<5 / 5 fa meno di 1 e gli array su php iniziano da 1 porcacciodio
+        for($i=0;$i<111;$i++) //110 cicli games_images + 10 users_images, si inizia da 5 e finisce 125 pk num<5 / 5 fa meno di 1 e gli array su php iniziano da 1 porcacciodio
         {
             if($i >= 110)  DB::table('images')->insert(['image_path' => "images\Users\Default.jpg",]);
             if($i < 5){
@@ -144,6 +144,8 @@ class ImagesSeeder extends Seeder
             if($i > 5 && $i < 110){
                 $j = floor(($i+5)/ 5);
                 DB::table("images")->insert([
+                    'image_path' => $image_path[$i],
+                    'game_id' => $j,
                     'image_path' => $image_path[$i],
                     'game_id' => $j,
                 ]);
@@ -166,5 +168,5 @@ class ImagesSeeder extends Seeder
                 ]);
             }*/
         }
-    }
 }
+
