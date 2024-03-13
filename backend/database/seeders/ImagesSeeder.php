@@ -146,8 +146,6 @@ class ImagesSeeder extends Seeder
                 DB::table("images")->insert([
                     'image_path' => $image_path[$i],
                     'game_id' => $j,
-                    'image_path' => $image_path[$i],
-                    'game_id' => $j,
                 ]);
             } 
             }
