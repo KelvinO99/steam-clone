@@ -3,7 +3,7 @@
     <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
       <mat-tab label="New & Trending">
 
-        <mat-card class="p-0" *ngFor="let item of most_reviewed_game.games">
+        <mat-card class="p-0" *ngFor="let item of most_reviewed_game.games" (click)="goTo('../game/' + item.id)">
           <div class="container p-0">
 
             <mat-card-content class="mb-2" >
@@ -70,7 +70,7 @@
 
       </mat-tab>
       <mat-tab label="Top Sellers">
-        <mat-card class="p-0" *ngFor="let item of best_seller_game.games">
+        <mat-card class="p-0" *ngFor="let item of best_seller_game.games"  (click)="goTo('../game/' + item.id)">
           <div class="container p-0">
 
             <mat-card-content class="mb-2">
@@ -136,7 +136,7 @@
         </mat-card>
       </mat-tab>
       <mat-tab label="Popular Upcoming">
-        <mat-card class="p-0" *ngFor="let item of incoming_game.games">
+        <mat-card class="p-0" *ngFor="let item of incoming_game.games"  (click)="goTo('../game/' + item.id)">
           <div class="container p-0">
 
             <mat-card-content class="mb-2">
@@ -202,7 +202,7 @@
         </mat-card>
       </mat-tab>
       <mat-tab label="Specials offer">
-        <mat-card class="p-0" *ngFor="let item of discount_game.games">
+        <mat-card class="p-0" *ngFor="let item of discount_game.games"  (click)="goTo('../game/' + item.id)">
           <div class="container p-0">
 
             <mat-card-content class="mb-2">
@@ -270,9 +270,3 @@
     </mat-tab-group>
   </div>
 </div>
-
-<!-- <mat-card-content class="mb-2" class="m-0">
-                  <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/2275020/capsule_184x69.jpg?t=1709222621"
-                    width="184px" height="69px">
-                    <span> ciao </span>
-                </mat-card-content> -->

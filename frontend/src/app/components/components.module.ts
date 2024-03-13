@@ -24,8 +24,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { MainCarouselComponent } from './main-carousel/main-carousel.component'; */
 import { MatCardModule} from '@angular/material/card';
 import { ProductBannersComponent } from './product-banners/product-banners.component';
-import { GameDataComponent } from './game-data/game-data.component';
+import { GameTableComponent } from './store/game-table/game-table.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { GameComponent } from './game/game.component';
 @NgModule({
   declarations: [
     BaseComponent,
@@ -38,7 +39,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     /* MainCarouselComponent, */
     OfferCarouselComponent,
    ProductBannersComponent,
-   GameDataComponent
+   GameTableComponent,
+   GameComponent
 
   ],
   imports: [

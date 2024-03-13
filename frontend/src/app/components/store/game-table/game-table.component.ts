@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { GameService } from 'src/app/shared/services/game.service';
 
 @Component({
-  selector: 'app-game-data',
-  templateUrl: './game-data.component.html',
-  styleUrls: ['./game-data.component.scss']
+  selector: 'app-game-table',
+  templateUrl: './game-table.component.html',
+  styleUrls: ['./game-table.component.scss']
 })
-export class GameDataComponent {
+export class GameTableComponent {
   discount_game: any
   incoming_game: any
   best_seller_game: any
@@ -18,7 +19,7 @@ export class GameDataComponent {
   discount: boolean = false
   most_reviewed: boolean = false
 
-  constructor(public gameService: GameService){}
+  constructor(public gameService: GameService, public router: Router){}
 
   ngOnInit(){
     this.getIncoming()
@@ -77,6 +78,12 @@ export class GameDataComponent {
         }
       }
     })
+  }
+
+  goTo(path: string) {
+    this.router.navigate([path])
+    console.log(path);
+    
   }
 
 }
