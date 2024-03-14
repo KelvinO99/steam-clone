@@ -537,20 +537,20 @@ class GamesSeeder extends Seeder
             29.99,
             33.99,
             9.75,
-            0,
+            0.00,
             59.99,
             39.99,
             29.98,
             39.99,
             79.99,
             69.420,
-            0,
+            0.00,
             69.99,
             19.99,
             59.99,
             369,99,
-            0,
-            0,
+            0.00,
+            0.00,
             29.99,
             9,75,
             9.99,
@@ -562,6 +562,7 @@ class GamesSeeder extends Seeder
             {
                 $bool=0;
             }
+
             DB::table('games')->insert([
                 'name' => $names[$i],//PLACEHOLDER RNGNAME FROM ARRAY
                 'date' => $dates[$i],//PLACEHOLDER RNGBD

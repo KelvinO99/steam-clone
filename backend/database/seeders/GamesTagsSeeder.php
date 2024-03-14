@@ -71,6 +71,10 @@ class GamesTagsSeeder extends Seeder
             'tag_id' => '1',
         ]);
         DB::table('games_tags')->insert([
+            'game_id' => '6',
+            'tag_id' => '21',
+        ]);
+        DB::table('games_tags')->insert([
             'game_id' => '7',
             'tag_id' => '1',
         ]);
@@ -127,6 +131,10 @@ class GamesTagsSeeder extends Seeder
             'tag_id' => '14',
         ]);
         DB::table('games_tags')->insert([
+            'game_id' => '13',
+            'tag_id' => '21',
+        ]);
+        DB::table('games_tags')->insert([
             'game_id' => '14',
             'tag_id' => '5',
         ]);
@@ -174,6 +182,27 @@ class GamesTagsSeeder extends Seeder
             'game_id' => '19',
             'tag_id' => '17',
         ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '19',
+            'tag_id' => '21',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '20',
+            'tag_id' => '20',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '20',
+            'tag_id' => '5',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '21',
+            'tag_id' => '9',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '21',
+            'tag_id' => '1',
+        ]);
+        //Hitman DLC manca pk è un dlc
         /*DB::table('games_tags')->insert([
             'game_id' => '20',
             'tag_id' => '7',
