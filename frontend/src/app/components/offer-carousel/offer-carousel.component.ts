@@ -15,23 +15,24 @@ export class OfferCarouselComponent {
   col_1!: string;
   screenWidth = window.screen.width;
   skip: number = 0;
-  take: number = 1;
+  take: number = 22;
+  discount: boolean = false
 
   constructor(public gameService: GameService) {
     
    }
 
   ngOnInit(){
-    this.getBestSellingGames()
+    this.getDiscount()
   }
 
-  getBestSellingGames() {
-    this.gameService.getBestSellingGames({skip: this.skip, take: this.take}).subscribe({
+  getDiscount() {
+    this.gameService.getGames({skip: this.skip, take: this.take, discount: this.discount = true}).subscribe({
       next: (res: any) => {
         {
           this.game = res
+          console.log("getDiscount");
           console.log(this.game);
-          
           
         }
       }

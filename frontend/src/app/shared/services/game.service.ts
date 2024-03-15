@@ -17,7 +17,7 @@ export class GameService {
   getGenres(params?: {}){
     return this.http.get<any>(`${URL}/tags/index`,{params})
   }
-  getBestSellingGames(params : {}) {
+  getGames(params : {}) {
     return this.http.get<any>(`${this.APIUrl}games/index`,{params});
   }
 

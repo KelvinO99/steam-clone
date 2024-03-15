@@ -2,7 +2,6 @@
 /node_modules
 /public/build
 /public/hot
-/storage/app/NONGAMESIMGS
 /storage/*.key
 /vendor
 .env

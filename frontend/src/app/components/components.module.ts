@@ -25,6 +25,8 @@ import { MainCarouselComponent } from './main-carousel/main-carousel.component';
 import { MatCardModule} from '@angular/material/card';
 import { ProductBannersComponent } from './product-banners/product-banners.component';
 import { CategoryCarouselComponent } from './category-carousel/category-carousel.component';
+import { GameDataComponent } from './game-data/game-data.component';
+import {MatTabsModule} from '@angular/material/tabs';
 @NgModule({
   declarations: [
     BaseComponent,
@@ -37,7 +39,8 @@ import { CategoryCarouselComponent } from './category-carousel/category-carousel
     /* MainCarouselComponent, */
     OfferCarouselComponent,
    ProductBannersComponent,
-   CategoryCarouselComponent
+   CategoryCarouselComponent,
+   GameDataComponent
 
   ],
   imports: [
@@ -56,7 +59,8 @@ import { CategoryCarouselComponent } from './category-carousel/category-carousel
     FormsModule,
     SweetAlert2Module,
     MatCardModule,
-    MatCardModule
+    MatCardModule,
+    MatTabsModule,
   ],
   exports: [CommonModule, TranslateModule, BaseComponent],
 })

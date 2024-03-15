@@ -6,28 +6,22 @@
 
 .allContainer{
     position: relative;
-    width:1024px !important;
+    width:1034px !important;
     top: 100px;
 }
 
 .card{
-    width: 225.6px;
     height: 223.81px;
     background-color: rgba(0, 0, 0, 0);
     border: 0px;
-    margin-right: 10px;
-    transition: 1s;
+    transition: 0.2s;
 }
 
-.categoryHover{
-    width: 225.6px;
-    height: 223.81px;
-    border: 0px;
-    margin-right: 10px;
-    transition: 0.3s;
+.col-3{
+    padding: 0px;
 }
 
-.categoryHover:hover{    
+.card:hover{    
     transform: scale(1.05);
     z-index: 2;
     filter: brightness(1.30);
@@ -61,55 +55,21 @@
     padding: 36px 11px;
 }
 
-@media (max-width: 768px) {
-    .carousel-control-prev, .carousel-control-next {
-        /* Modifica la posizione per schermi più piccoli */
-        top: auto;
-        bottom: 10px;  /* Sposta i pulsanti più in basso */
-    }
-
-    .carousel-control-prev {
-        left: 5px;  /* Riduci la distanza dal bordo sinistro */
-    }
-
-    .carousel-control-next {
-        right: 5px;  /* Riduci la distanza dal bordo destro */
-    }
-}
-
-
 /* git */
-.card-img-top{
+/* .card-img-top{
     height: 128px;
     width: 128px;
-}
+} */
 
 .carousel-container {
     position: relative;
 }
 
-
-@media (max-width: 768px) {
-    .carousel-control-prev, .carousel-control-next {
-        /* Modifica la posizione per schermi più piccoli */
-        top: auto;
-        bottom: 10px;  /* Sposta i pulsanti più in basso */
-    }
-
-    .carousel-control-prev {
-        left: 5px;  /* Riduci la distanza dal bordo sinistro */
-    }
-
-    .carousel-control-next {
-        right: 5px;  /* Riduci la distanza dal bordo destro */
-    }
-}
-
 .carousel-item{
-    height: 255.81px;
+/*     height: 255.81px;
     width: 940px;
     opacity: 0;
-    transition: opacity 0.3s ease; /* Regola la durata della transizione a piacimento */  
+    transition: opacity 0.3s ease; */ /* Regola la durata della transizione a piacimento */  
 }
 
 .carousel-item:not(.active) {
@@ -132,178 +92,110 @@
 
 /* Carousel indicators */
 #categoryCarousel .carousel-indicators{
-    top:270px;
+    top:246px;
     bottom:auto !important;
    }
 
 
 /* Carousel item */
-#categoryCarousel .carousel-item{
+/* #categoryCarousel .carousel-item{
     width:940px !important;
-   }
+   } */
 
 .cardImages{
-    width: 225.6px;
+/*   
     height: 223.81px;
-    pointer-events: none;
+    pointer-events: none; */
 }
 
-#categoryCarousel .carousel-item .card{
+/* #categoryCarousel .carousel-item .card{
     transform:translatex(0px) translatey(0px);
     border-top-left-radius:0px;
     border-top-right-radius:0px;
     border-bottom-left-radius:0px;
     border-bottom-right-radius:0px;
-   }
+   } */
    
    /* Image */
-   #categoryCarousel .card img{
+ /*   #categoryCarousel .card img{
     position:relative;
-    left:-13px;
-   }
+   } */
    
    /* Row */
-#categoryCarousel .carousel-item .container-fluid .row{
+/* #categoryCarousel .carousel-item .container-fluid .row{
     width:958px;
     position:relative;
     left:-18px;
    }
+ */
+
+#action,
+#indie,
+#adventure,
+#rpg,
+#simulation,
+#strategy,
+#open_world,
+#horror,
+#sci_fi,
+#fantasy,
+#sports,
+#racing {
+    width: 97%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    pointer-events: none;
+}
+
+
    
 #racing{
     background: linear-gradient(rgba(0, 0, 0, 0), rgb(0,139,139)) 100%;
-    /* z-index: 999999999 !important; */
-    width: 225.6px;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: -13px;
-    pointer-events: none;
 }
 
-#action{
+#action {
     background: linear-gradient(rgba(0, 0, 0, 0), rgb(139,0,0)) 100%;
-    /* z-index: 999999999 !important; */
-    width: 225.6px;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: -13px;
-    pointer-events: none;
 }
-
-/* #action:hover{    
-    transform: scale(1.3);
-    z-index: 2;
-} */
-
 #indie{
     background: linear-gradient(rgba(0, 0, 0, 0), rgb(0,0,139)) 100%;
-    /* z-index: 999999999 !important; */
-    width: 225.6px;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: -13px;
-    pointer-events: none;
 }
 
 #adventure{
     background: linear-gradient(rgba(0, 0, 0, 0), rgb(139,0,139)) 100%;
-    /* z-index: 999999999 !important; */
-    width: 225.6px;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: -13px;
-    pointer-events: none;
+
 }
 
 #rpg{
     background: linear-gradient(rgba(0, 0, 0, 0), rgb(233,140,0)) 100%;
-    /* z-index: 999999999 !important; */
-    width: 225.6px;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: -13px;
-    pointer-events: none;
 }
 
 #simulation{
     background: linear-gradient(rgba(0, 0, 0, 0), rgb(139,0,139)) 100%;
-    /* z-index: 999999999 !important; */
-    width: 225.6px;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: -13px;
-    pointer-events: none;
 }
 
 #strategy{
     background: linear-gradient(rgba(0, 0, 0, 0), rgb(184,134,11)) 100%;
-    /* z-index: 999999999 !important; */
-    width: 225.6px;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: -13px;
-    pointer-events: none;
 }
 
 #open_world{
     background: linear-gradient(rgba(0, 0, 0, 0), rgb(0,0,139)) 100%;
-    /* z-index: 999999999 !important; */
-    width: 225.6px;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: -13px;
-    pointer-events: none;
 }
 
 #horror{
     background: linear-gradient(rgba(0, 0, 0, 0), rgb(139,0,0)) 100%;
-    /* z-index: 999999999 !important; */
-    width: 225.6px;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: -13px;
-    pointer-events: none;
 }
 
 #sci_fi{
     background: linear-gradient(rgba(0, 0, 0, 0), rgb(184,134,11)) 100%;
-    /* z-index: 999999999 !important; */
-    width: 225.6px;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: -13px;
-    pointer-events: none;
 }
 
 #fantasy{
     background: linear-gradient(rgba(0, 0, 0, 0), rgb(233,140,0)) 100%;
-    /* z-index: 999999999 !important; */
-    width: 225.6px;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: -13px;
-    pointer-events: none;
 }
 
 #sports{
     background: linear-gradient(rgba(0, 0, 0, 0), rgb(0,100,0)) 100%;
-    /* z-index: 999999999 !important; */
-    width: 225.6px;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: -13px;
-    pointer-events: none;
 }
 
 #category_header{
@@ -325,6 +217,5 @@
     letter-spacing: 0.1ch;
     color: white;
     text-align: center;
-    left: -13px;
     bottom: 45px;
 }

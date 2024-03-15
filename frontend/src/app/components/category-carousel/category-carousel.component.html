@@ -1,27 +1,209 @@
 <!-- SFOGLIA PER CATEGORIA -->
-<div id="category_header">
-    <p>SFOGLIA PER CATEGORIA</p>
-</div>
 
 <!-- Container di tutto il carosello -->
-<div class="allContainer">
+<div class="container-fluid p-0 pt-5">
     
-    <a class="carousel-control-prev" href="#categoryCarousel" role="button" data-bs-slide="prev" data-target="#categoryCarousel">
+    <div id="categoryCarousel" class="carousel slide carousel-fade main" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#categoryCarousel" data-bs-slide-to="0" class="active"
+                aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#categoryCarousel" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#categoryCarousel" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="row">
+            <div class="col-1">
+
+                <button class="carousel-control-prev m-auto" type="button" data-bs-target="#categoryCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+
+            </div>
+            <div class="col-10">
+                <div class="row">
+                    <div class="container p-0">
+                        <div class="carousel-inner justify-content-center">
+                          <div class="carousel-item active h-50">
+                            <div class="row">
+                              <div class="col-3 p-0 d-flex justify-content-center">
+                                    <div class="card px-1" type="button">
+                                        <img src="..\..\..\assets\image\category\1-action.png" type="button"
+                                        alt="photo 2" class="cardImages">
+                                    <div id="action"></div>
+                                    <div class="categoryText">
+                                        <span>AZIONE</span>
+                                    </div>
+                                </div>
+                              </div>
+            
+                              <div class="col-3 p-0 d-flex justify-content-center">
+                                    <div class="card px-1" type="button">
+                                        <img src="..\..\..\assets\image\category\2-adventure.png" type="button"
+                                            alt="photo 2" class="cardImages">
+                                        <div id="adventure"></div>
+                                        <div class="categoryText">
+                                            <span>AVVENTURA</span>
+                                        </div>
+                                    </div>
+                              </div>
+            
+                              <div class="col-3 p-0 d-flex justify-content-center">
+                                    <div class="card px-1" type="button">
+                                        <img src="..\..\..\assets\image\category\3-indie.png" type="button"
+                                        alt="photo 2" class="cardImages">
+                                    <div id="indie"></div>
+                                    <div class="categoryText">
+                                        <span>INDIE</span>
+                                    </div>
+                                    </div>
+                              </div>
+                              <div class="col-3 p-0 d-flex justify-content-center">
+                                    <div class="card px-1" type="button">
+                                        <img src="..\..\..\assets\image\category\4-rpg.png" alt="photo 2"
+                                        type="button" class="cardImages">
+                                    <div id="rpg"></div>
+                                    <div class="categoryText">
+                                        <span>GIOCHI DI RUOLO</span>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="carousel-item h-50">
+                            <div class="row">
+                              <div class="col-3 p-0 d-flex justify-content-center">
+                                    <div class="card px-1" type="button">
+                                        <img src="..\..\..\assets\image\category\5-simulation.png" type="button"
+                                        alt="photo 2" class="cardImages">
+                                    <div id="simulation"></div>
+                                    <div class="categoryText">
+                                        <span>SIMULAZIONE</span>
+                                    </div>
+                                </div>
+                              </div>
+            
+                              <div class="col-3 p-0 d-flex justify-content-center">
+                                    <div class="card px-1" type="button">
+                                        <img src="..\..\..\assets\image\category\6-strategy.png" type="button"
+                                        alt="photo 2" class="cardImages">
+                                    <div id="strategy"></div>
+                                    <div class="categoryText">
+                                        <span>STRATEGIA</span>
+                                    </div>
+                                    </div>
+                              </div>
+            
+                              <div class="col-3 p-0 d-flex justify-content-center">
+                                    <div class="card px-1" type="button">
+                                        <img src="..\..\..\assets\image\category\7-open_world.png" type="button"
+                                        alt="photo 2" class="cardImages">
+                                    <div id="open_world"></div>
+                                    <div class="categoryText">
+                                        <span>MONDO APERTO</span>
+                                    </div>
+                                    </div>
+                              </div>
+                              <div class="col-3 p-0 d-flex justify-content-center">
+                                    <div class="card px-1" type="button">
+                                        <img src="..\..\..\assets\image\category\8-horror.png" alt="photo 2"
+                                        type="button" class="cardImages">
+                                    <div id="horror"></div>
+                                    <div class="categoryText">
+                                        <span>HORROR</span>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="carousel-item h-50">
+                            <div class="row">
+                              <div class="col-3 p-0 d-flex justify-content-center">
+                                    <div class="card px-1" type="button">
+                                        <img src="..\..\..\assets\image\category\9-sci_fi.png" type="button"
+                                        alt="photo 2" class="cardImages">
+                                    <div class="hoverSaturation" id="sci_fi"></div>
+                                    <div class="categoryText">
+                                        <span>SCI-FI</span>
+                                    </div>
+                                </div>
+                              </div>
+            
+                              <div class="col-3 p-0 d-flex justify-content-center">
+                                    <div class="card px-1" type="button">
+                                        <img src="..\..\..\assets\image\category\10-fantasy.png" type="button"
+                                        alt="photo 2" class="cardImages">
+                                    <div id="fantasy"></div>
+                                    <div class="categoryText">
+                                        <span>FANTASIA</span>
+                                    </div>
+                                    </div>
+                              </div>
+            
+                              <div class="col-3 p-0 d-flex justify-content-center">
+                                    <div class="card px-1" type="button">
+                                        <img src="..\..\..\assets\image\category\11-sports.png" type="button"
+                                        alt="photo 2" class="cardImages">
+                                    <div id="sports"></div>
+                                    <div class="categoryText">
+                                        <span>TUTTI GLI SPORT</span>
+                                    </div>
+                                    </div>
+                              </div>
+                              <div class="col-3 p-0 d-flex justify-content-center">
+                                    <div class="card px-1" type="button">
+                                        <img src="..\..\..\assets\image\category\12-racing.png" alt="photo 2"
+                                        type="button" class="cardImages">
+                                    <div id="racing"></div>
+                                    <div class="categoryText">
+                                        <span>CORSE</span>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+            <div class="col-1">
+
+                <button class="carousel-control-next align-items-center m-auto" type="button"
+                    data-bs-target="#categoryCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="allContainer">
+
+    <a class="carousel-control-prev" href="#categoryCarousel" role="button" data-bs-slide="prev"
+        data-target="#categoryCarousel">
         <span class="carousel-control-prev-icon" aria-hidden="true" style="transform:scale(1.97) !important;"></span>
         <span class="visually-hidden">Previous</span>
     </a>
 
     <div class="carouselContainer">
-        
+
         <div id="carouselcenter">
 
             <div id="categoryCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#categoryCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#categoryCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#categoryCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
+
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#categoryCarousel" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#categoryCarousel" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#categoryCarousel" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="container-fluid">
@@ -29,7 +211,8 @@
                                 <div class="col-3">
                                     <div class="categoryHover">
                                         <div class="card" type="button">
-                                            <img src="..\..\..\assets\image\category\1-action.png" type="button" alt="photo 2" class="cardImages">
+                                            <img src="..\..\..\assets\image\category\1-action.png" type="button"
+                                                alt="photo 2" class="cardImages">
                                             <div id="action"></div>
                                             <div class="categoryText">
                                                 <span>AZIONE</span>
@@ -41,7 +224,8 @@
                                 <div class="col-3">
                                     <div class="categoryHover">
                                         <div class="card" type="button">
-                                            <img src="..\..\..\assets\image\category\2-adventure.png" type="button" alt="photo 2" class="cardImages">
+                                            <img src="..\..\..\assets\image\category\2-adventure.png" type="button"
+                                                alt="photo 2" class="cardImages">
                                             <div id="adventure"></div>
                                             <div class="categoryText">
                                                 <span>AVVENTURA</span>
@@ -53,7 +237,8 @@
                                 <div class="col-3">
                                     <div class="categoryHover">
                                         <div class="card" type="button">
-                                            <img src="..\..\..\assets\image\category\3-indie.png" type="button" alt="photo 2" class="cardImages">
+                                            <img src="..\..\..\assets\image\category\3-indie.png" type="button"
+                                                alt="photo 2" class="cardImages">
                                             <div id="indie"></div>
                                             <div class="categoryText">
                                                 <span>INDIE</span>
@@ -65,7 +250,8 @@
                                 <div class="col-3">
                                     <div class="categoryHover">
                                         <div class="card" type="button">
-                                            <img src="..\..\..\assets\image\category\4-rpg.png" alt="photo 2" type="button" class="cardImages">
+                                            <img src="..\..\..\assets\image\category\4-rpg.png" alt="photo 2"
+                                                type="button" class="cardImages">
                                             <div id="rpg"></div>
                                             <div class="categoryText">
                                                 <span>GIOCHI DI RUOLO</span>
@@ -75,99 +261,122 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                     <div class="carousel-item active">
                         <div class="container-fluid">
                             <div class="row">
 
-                                <div class="categoryHover">
-                                    <div class="card" type="button">
-                                        <img src="..\..\..\assets\image\category\5-simulation.png" type="button" alt="photo 2" class="cardImages">
-                                        <div id="simulation"></div>
-                                        <div class="categoryText">
-                                            <span>SIMULAZIONE</span>
-                                        </div>
-                                    </div>                                    
-                                </div>
-
-                                <div class="categoryHover">
-                                    <div class="card" type="button">
-                                        <img src="..\..\..\assets\image\category\6-strategy.png" type="button" alt="photo 2" class="cardImages">
-                                        <div id="strategy"></div>
-                                        <div class="categoryText">
-                                            <span>STRATEGIA</span>
-                                        </div>
-                                    </div>                                    
-                                </div>
-
-                                <div class="categoryHover">
-                                    <div class="card" type="button">
-                                        <img src="..\..\..\assets\image\category\7-open_world.png" type="button" alt="photo 2" class="cardImages">
-                                        <div id="open_world"></div>
-                                        <div class="categoryText">
-                                            <span>MONDO APERTO</span>
+                                <div class="col-3">
+                                    <div class="categoryHover">
+                                        <div class="card" type="button">
+                                            <img src="..\..\..\assets\image\category\5-simulation.png" type="button"
+                                                alt="photo 2" class="cardImages">
+                                            <div id="simulation"></div>
+                                            <div class="categoryText">
+                                                <span>SIMULAZIONE</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="categoryHover">
-                                    <div class="card" type="button">
-                                        <img src="..\..\..\assets\image\category\8-horror.png" alt="photo 2" type="button" class="cardImages">
-                                        <div id="horror"></div>
-                                        <div class="categoryText">
-                                            <span>HORROR</span>
+                                <div class="col-3">
+                                    <div class="categoryHover">
+                                        <div class="card" type="button">
+                                            <img src="..\..\..\assets\image\category\6-strategy.png" type="button"
+                                                alt="photo 2" class="cardImages">
+                                            <div id="strategy"></div>
+                                            <div class="categoryText">
+                                                <span>STRATEGIA</span>
+                                            </div>
                                         </div>
-                                    </div>                                    
+                                    </div>
+                                </div>
+
+                                <div class="col-3">
+                                    <div class="categoryHover">
+                                        <div class="card" type="button">
+                                            <img src="..\..\..\assets\image\category\7-open_world.png" type="button"
+                                                alt="photo 2" class="cardImages">
+                                            <div id="open_world"></div>
+                                            <div class="categoryText">
+                                                <span>MONDO APERTO</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-3">
+                                    <div class="categoryHover">
+                                        <div class="card" type="button">
+                                            <img src="..\..\..\assets\image\category\8-horror.png" alt="photo 2"
+                                                type="button" class="cardImages">
+                                            <div id="horror"></div>
+                                            <div class="categoryText">
+                                                <span>HORROR</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>
                         </div>
-                        
+
                     </div>
-                    
+
                     <div class="carousel-item active">
                         <div class="container-fluid">
                             <div class="row">
-
-                                <div class="categoryHover">
-                                    <div class="card" type="button">
-                                        <img src="..\..\..\assets\image\category\9-sci_fi.png" type="button" alt="photo 2" class="cardImages">
-                                        <div class="hoverSaturation" id="sci_fi"></div>
-                                        <div class="categoryText">
-                                            <span>SCI-FI</span>
-                                        </div>
-                                    </div>                                    
-                                </div>
-
-                                <div class="categoryHover">
-                                    <div class="card" type="button">
-                                        <img src="..\..\..\assets\image\category\10-fantasy.png" type="button" alt="photo 2" class="cardImages">
-                                        <div id="fantasy"></div>
-                                        <div class="categoryText">
-                                            <span>FANTASIA</span>
+                                <div class="col-3">
+                                    <div class="categoryHover">
+                                        <div class="card" type="button">
+                                            <img src="..\..\..\assets\image\category\9-sci_fi.png" type="button"
+                                                alt="photo 2" class="cardImages">
+                                            <div class="hoverSaturation" id="sci_fi"></div>
+                                            <div class="categoryText">
+                                                <span>SCI-FI</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="categoryHover">
-                                    <div class="card" type="button">
-                                        <img src="..\..\..\assets\image\category\11-sports.png" type="button" alt="photo 2" class="cardImages">
-                                        <div id="sports"></div>
-                                        <div class="categoryText">
-                                            <span>TUTTI GLI SPORT</span>
+                                <div class="col-3">
+                                    <div class="categoryHover">
+                                        <div class="card" type="button">
+                                            <img src="..\..\..\assets\image\category\10-fantasy.png" type="button"
+                                                alt="photo 2" class="cardImages">
+                                            <div id="fantasy"></div>
+                                            <div class="categoryText">
+                                                <span>FANTASIA</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="categoryHover">
-                                    <div class="card" type="button">
-                                        <img src="..\..\..\assets\image\category\12-racing.png" alt="photo 2" type="button" class="cardImages">
-                                        <div id="racing"></div>
-                                        <div class="categoryText">
-                                            <span>CORSE</span>
+                                <div class="col-3">
+                                    <div class="categoryHover">
+                                        <div class="card" type="button">
+                                            <img src="..\..\..\assets\image\category\11-sports.png" type="button"
+                                                alt="photo 2" class="cardImages">
+                                            <div id="sports"></div>
+                                            <div class="categoryText">
+                                                <span>TUTTI GLI SPORT</span>
+                                            </div>
                                         </div>
-                                    </div>                                    
+                                    </div>
+                                </div>
+
+                                <div class="col-3">
+                                    <div class="categoryHover">
+                                        <div class="card" type="button">
+                                            <img src="..\..\..\assets\image\category\12-racing.png" alt="photo 2"
+                                                type="button" class="cardImages">
+                                            <div id="racing"></div>
+                                            <div class="categoryText">
+                                                <span>CORSE</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>
@@ -179,10 +388,11 @@
             </div>
 
         </div>
-    
+
     </div>
-    
-    <a class="carousel-control-next" href="#categoryCarousel" role="button" data-bs-slide="next" data-target="#categoryCarousel">
+
+    <a class="carousel-control-next" href="#categoryCarousel" role="button" data-bs-slide="next"
+        data-target="#categoryCarousel">
         <span class="carousel-control-next-icon" aria-hidden="true" style="transform:scale(1.97) !important;"></span>
         <span class="visually-hidden">Next</span>
     </a>
@@ -191,4 +401,4 @@
 
 <div *ngfor="let im of image">
     <img [src]="im" alt="">
-</div>
+</div> -->
