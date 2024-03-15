@@ -1,0 +1,84 @@
+
+.card{
+  background-color: rgba(0, 0, 0, 0);
+  border: 0px;
+  transition: 0.2s;
+}
+
+.col-3{
+  padding: 0px;
+}
+
+.carousel-control-prev{
+  position: absolute;
+  top: 50%;  /* Centra i pulsanti verticalmente */
+  transform: translateY(-50%);
+  background-image: linear-gradient(to left, rgba(255,0,0,0), rgb(0, 0, 0));
+  width: 45px;
+  height: 108px;
+  padding: 36px 11px;
+}
+
+.carousel-control-prev:hover{
+  background-image: linear-gradient(to right, rgba(212, 212, 212, 0.449), rgb(255,0,0,0));
+}
+
+.carousel-control-next:hover{
+  background-image: linear-gradient(to left, rgb(212, 212, 212, 0.449), rgb(255,0,0,0));
+}
+
+.carousel-control-next {
+  position: absolute;
+  top: 50%;  /* Centra i pulsanti verticalmente */
+  transform: translateY(-50%);
+  background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(0, 0, 0));
+  width: 45px;
+  height: 108px;
+  padding: 36px 11px;
+}
+
+.carousel-item:not(.active) {
+  opacity: 0;
+}
+
+.carousel-inner{
+  height: 100%;
+  max-width: 940px;
+}
+
+/* Button */
+#myCarousel .carousel-indicators button{
+  width:15px;
+  height:9px;
+  border-width: 1px;
+  border-radius: 2px;
+  background-color: #606974;
+ }
+
+/* Carousel indicators */
+#myCarousel .carousel-indicators{
+  top: 105%;
+  bottom:auto !important;
+ }
+
+#category_header{
+  color: white; 
+  top:31px;
+  position:relative; 
+  font-family:Motiva Sans, sans-serif !important; 
+  font-size:14px !important;
+  top: 140px !important;
+  left: 45px;
+}
+
+.categoryText{
+  position: relative;
+  font-family: "Motiva Sans", Sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  text-shadow: 0 1px 3px rgb(0 0 0 / 50%);
+  letter-spacing: 0.1ch;
+  color: white;
+  text-align: center;
+  bottom: 45px;
+}
