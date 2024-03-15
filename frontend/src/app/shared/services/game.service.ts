@@ -1,6 +1,9 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+
+//Variabile per il richiamo dell'API
+const URL: string = `${environment.api}`;
 
 @Injectable({
   providedIn: 'root',
@@ -8,9 +11,15 @@ import { environment } from 'src/environments/environment';
 export class GameService {
   APIUrl = `${environment.api}/`;
 
-  constructor(private http: HttpClient) {}
+  //Costruttore per il client HTTP
+  constructor(public http: HttpClient) { }
 
-      getGames(params : {}) {
-      return this.http.get<any>(`${this.APIUrl}games/index`,{params});
-    }
+  getGenres(params?: {}){
+    return this.http.get<any>(`${URL}/tags/index`,{params})
+  }
+  getGames(params : {}) {
+    return this.http.get<any>(`${this.APIUrl}games/index`,{params});
+  }
+
 }
+
