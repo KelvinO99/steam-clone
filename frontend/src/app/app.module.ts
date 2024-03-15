@@ -18,11 +18,13 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './shared/services/authconfig.interceptor.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
+
   ],
   imports: [
     BrowserModule,
