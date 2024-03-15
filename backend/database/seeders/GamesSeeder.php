@@ -90,7 +90,7 @@ class GamesSeeder extends Seeder
         ];
 
         $long_description = [
-//PER IL FRONT-END CHE POTREBBE LEGGE: METTETE "ABOUT THIS GAME"
+//"ABOUT THIS GAME"
 //1
             'Welcome to UNDERTALE. In this RPG, you control a human who falls underground into the world of monsters. Now you must find your way out... or stay trapped forever.
 
