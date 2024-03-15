@@ -57,11 +57,11 @@
                     <div>
                       <div class="d-flex justify-content-end">
                         <span class="basePriceDiscount"  *ngIf="item.discounted_price != null && item.base_price > 0 ">
-                          {{item.base_price  + "$"}} </span>
+                          {{item.base_price.toFixed(2) + "$"}} </span>
                       </div>
                       <div>
-                        <span class="discount"  *ngIf="item.discounted_price != null"> {{item.discounted_price  + "$"}} </span>
-                        <span class="basePrice" *ngIf="item.discounted_price == null && item.base_price > 0 "> {{item.base_price + "$"}} </span>
+                        <span class="discount"  *ngIf="item.discounted_price != null"> {{item.discounted_price.toFixed(2) + "$"}} </span>
+                        <span class="basePrice" *ngIf="item.discounted_price == null && item.base_price > 0 "> {{item.base_price.toFixed(2) + "$"}} </span>
                       </div>
                     </div>
   
@@ -124,11 +124,11 @@
                     <div>
                       <div class="d-flex justify-content-end">
                         <span class="basePriceDiscount"  *ngIf="item.discounted_price != null && item.base_price > 0 ">
-                          {{item.base_price}}$ </span>
+                          {{item.base_price.toFixed(2) + "$"}} </span>
                       </div>
                       <div>
-                        <span class="discount"  *ngIf="item.discounted_price != null"> {{item.discounted_price}}$ </span>
-                        <span class="basePrice" *ngIf="item.discounted_price == null && item.base_price > 0 "> {{item.base_price}}$ </span>
+                        <span class="discount"  *ngIf="item.discounted_price != null"> {{item.discounted_price.toFixed(2) + "$"}} </span>
+                        <span class="basePrice" *ngIf="item.discounted_price == null && item.base_price > 0 "> {{item.base_price.toFixed(2) + "$"}} </span>
                       </div>
                     </div>
   
@@ -182,7 +182,7 @@
                   <div class="col-4 p-0 d-flex justify-content-end align-items-center">
                     <div class="discountPercentage"  *ngIf="item.discounted_percentage != null"> {{item.discounted_percentage}}% </div>
                   </div>
-  
+
                   <div class="col-2 p-0 d-flex align-items-center justify-content-center price">
   
                     <span class="free" *ngIf="item.base_price == 0"> Free to Play</span>
@@ -190,11 +190,11 @@
                     <div>
                       <div class="d-flex justify-content-end">
                         <span class="basePriceDiscount"  *ngIf="item.discounted_price != null && item.base_price > 0 ">
-                          {{item.base_price}}$ </span>
+                          {{item.base_price.toFixed(2) + "$"}} </span>
                       </div>
                       <div>
-                        <span class="discount"  *ngIf="item.discounted_price != null"> {{item.discounted_price}}$ </span>
-                        <span class="basePrice" *ngIf="item.discounted_price == null && item.base_price > 0 "> {{item.base_price}}$ </span>
+                        <span class="discount"  *ngIf="item.discounted_price != null"> {{item.discounted_price.toFixed(2) + "$"}} </span>
+                        <span class="basePrice" *ngIf="item.discounted_price == null && item.base_price > 0 "> {{item.base_price.toFixed(2) + "$"}} </span>
                       </div>
                     </div>
   
@@ -256,11 +256,11 @@
                     <div>
                       <div class="d-flex justify-content-end">
                         <span class="basePriceDiscount"  *ngIf="item.discounted_price != null && item.base_price > 0 ">
-                          {{item.base_price}}$ </span>
+                          {{item.base_price.toFixed(2) + "$"}} </span>
                       </div>
                       <div>
-                        <span class="discount"  *ngIf="item.discounted_price != null"> {{item.discounted_price}}$ </span>
-                        <span class="basePrice" *ngIf="item.discounted_price == null && item.base_price > 0 "> {{item.base_price}}$ </span>
+                        <span class="discount"  *ngIf="item.discounted_price != null"> {{item.discounted_price.toFixed(2) + "$"}} </span>
+                        <span class="basePrice" *ngIf="item.discounted_price == null && item.base_price > 0 "> {{item.base_price.toFixed(2) + "$"}} </span>
                       </div>
                     </div>
   

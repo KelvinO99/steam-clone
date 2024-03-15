@@ -12,6 +12,8 @@ export class GameTableComponent {
   incoming_game: any
   best_seller_game: any
   most_reviewed_game: any
+  price: any
+
   skip: number = 0;
   take: number = 10;
   incoming: boolean = false
@@ -43,10 +45,11 @@ export class GameTableComponent {
   }
 
   getBestSeller() {
-    this.gameService.getGames({skip: this.skip, take: this.take, best_seller: this.best_seller = true}).subscribe({
+    this.gameService.getGames({skip: this.skip, take: this.take, discount: this.discount = true}).subscribe({
       next: (res: any) => {
         {
           this.best_seller_game = res
+          
           console.log("getBestSeller")
           console.log(this.best_seller_game);
           
@@ -56,7 +59,7 @@ export class GameTableComponent {
   }
 
   getDiscount() {
-    this.gameService.getGames({skip: this.skip, take: this.take, special_offer: this.special_offer = true}).subscribe({
+    this.gameService.getGames({skip: this.skip, take: this.take, discount: this.discount = true}).subscribe({
       next: (res: any) => {
         {
           this.discount_game = res
