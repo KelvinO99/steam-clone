@@ -55,23 +55,6 @@
     padding: 36px 11px;
 }
 
-/* git */
-/* .card-img-top{
-    height: 128px;
-    width: 128px;
-} */
-
-.carousel-container {
-    position: relative;
-}
-
-.carousel-item{
-/*     height: 255.81px;
-    width: 940px;
-    opacity: 0;
-    transition: opacity 0.3s ease; */ /* Regola la durata della transizione a piacimento */  
-}
-
 .carousel-item:not(.active) {
     opacity: 0;
 }
@@ -95,39 +78,6 @@
     top:246px;
     bottom:auto !important;
    }
-
-
-/* Carousel item */
-/* #categoryCarousel .carousel-item{
-    width:940px !important;
-   } */
-
-.cardImages{
-/*   
-    height: 223.81px;
-    pointer-events: none; */
-}
-
-/* #categoryCarousel .carousel-item .card{
-    transform:translatex(0px) translatey(0px);
-    border-top-left-radius:0px;
-    border-top-right-radius:0px;
-    border-bottom-left-radius:0px;
-    border-bottom-right-radius:0px;
-   } */
-   
-   /* Image */
- /*   #categoryCarousel .card img{
-    position:relative;
-   } */
-   
-   /* Row */
-/* #categoryCarousel .carousel-item .container-fluid .row{
-    width:958px;
-    position:relative;
-    left:-18px;
-   }
- */
 
 #action,
 #indie,
