@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Seeder\GamesTagsSeeder;
 use Carbon\Carbon;
 
 
@@ -12,7 +13,6 @@ class GamesSeeder extends Seeder
 {
     public function run(): void
     {
-        $DIM_A = 20;
         $names = [
             'Undertale',                               //1
             'Uncharted: The Legacy Collection',        //2
@@ -20,7 +20,7 @@ class GamesSeeder extends Seeder
             'Tetris Effect: Connected',                //4
             'Terraria',                                //5
             'Fortnite',                                //6
-            'Call of Duty 2 Black Ops 2',              //7
+            'Call of Duty Black Ops 2',                //7
             "Assassin's Creed 4",                      //8
             'Grand Theft Auto V',                      //9
             'Halo: The Master Chief Collection',       //10
@@ -36,33 +36,39 @@ class GamesSeeder extends Seeder
             'Forza Horizon 5',                         //20
             'Left 4 Dead 2',                           //21
             'Hitman 3 - Seven Deadly Sins Collection', //22
+            'Grand Theft Auto VI',                   //23
         ];
 
         $dates = [
             '2015-09-15',
-            '2017-08-22',
-            '1980-05-22',
-            '1984-06-06',
+            '2022-01-28',
+            '2021-01-20',
+            '2018-11-09',
             '2011-05-16',
-            '2017-07-25',
-            '2003-10-29',
+            '2017-07-21',
+            '2012-11-12',
             '2013-10-29',
-            '2013-09-17',
-            '2012-11-06',
-            '2021-06-10',
-            '2004-11-23',
-            '2016-05-24',
-            '2023-12-15',
+            '2015-09-17',
+            '2014-11-11',
+            '2020-04-10',
+            '2011-11-18',
+            '2022-10-04',
+            '2023-07-29',
             '2018-03-27',
-            '2013-07-09',
-            '2021-11-16',
+            '2019-10-31',
+            '2022-02-25',
             '2015-07-07',
             '2012-08-21',
-            '2021-11-09',
-            '2008-11-17',
-            '2021-01-20',
-            '2022-01-01',
+            '2021-11-05',
+            '2009-11-17',
+            '2021-03-30',
+            '2025-09-16',
         ];
+        $carbonDates = [];
+        foreach ($dates as $dateString) {
+            $carbonDates[] = Carbon::parse($dateString);
+        }
+        //$carbonDates[sizeof($carbonDates)] = Carbon::parse($dates[sizeof($dates) -1]);
 
         $short_description = [
             'Experience unique RPG elements where your choices matter, in a world where you can spare your foes.',
@@ -87,10 +93,11 @@ class GamesSeeder extends Seeder
             'Race through the vibrant and ever-evolving landscapes of Mexico in this open-world driving adventure.',
             'Survive the zombie apocalypse as you and your friends face off against hordes of zombies in this co-op horror FPS.',
             'Explore the dark mind of Agent 47 with themed expansion packs that explore the seven deadly sins.',
+            'GTA VI',
         ];
 
         $long_description = [
-//PER IL FRONT-END CHE POTREBBE LEGGE: METTETE "ABOUT THIS GAME"
+//"ABOUT THIS GAME"
 //1
             'Welcome to UNDERTALE. In this RPG, you control a human who falls underground into the world of monsters. Now you must find your way out... or stay trapped forever.
 
@@ -530,6 +537,8 @@ class GamesSeeder extends Seeder
             Seven Deadly Sins is a 7-part expansion for HITMAN 3 that will be released over time. Each of the seven content packs introduces a new contract, unique suit and sin-themed item that can be used across the World of Assassination.
 
             This pack includes access to all seven content packs, as they become available. ',
+//23
+            "GTA VI",
         ];
         $base_price = [
             9.99,
@@ -537,31 +546,49 @@ class GamesSeeder extends Seeder
             29.99,
             33.99,
             9.75,
-            0,
+            0.00,
             59.99,
             39.99,
             29.98,
             39.99,
             79.99,
             69.420,
-            0,
+            0.00,
             69.99,
             19.99,
             59.99,
-            369,99,
-            0,
-            0,
+            369.99,
+            0.00,
+            0.00,
             29.99,
-            9,75,
+            9.75,
             9.99,
+            89.00,
+            123,
         ];
-        for($i=0;$i<22;$i++) // 0 ; <22
+
+        DB::table('tags')->insert([
+            'id' => 104,
+            'name' => 'Free To Play',
+            'is_genre' => false,
+            'image_id' => 1,
+        ]);
+        DB::table('tags')->insert([
+            'id' => 105,
+            'name' => 'Upcoming',
+            'is_genre' => false,
+            'image_id' => 1,
+        ]);
+
+        $currentDate = Carbon::now();
+        for($i=0;$i<sizeof($names);$i++) // 0 ; <22
         {
             $bool = (bool)rand(0,1);
             if($base_price[$i]==0)
             {
                 $bool=0;
             }
+
             DB::table('games')->insert([
                 'name' => $names[$i],//PLACEHOLDER RNGNAME FROM ARRAY
                 'date' => $dates[$i],//PLACEHOLDER RNGBD
@@ -575,6 +602,23 @@ class GamesSeeder extends Seeder
                 'long_description' => $long_description[$i],
                 'pegi_id' => rand(0,4),
             ]);
+
+
+            if($base_price[$i]==0)
+            {
+                DB::table('games_tags')->insert([
+                    'game_id' => $i+1,
+                    'tag_id' => '104',
+                ]);
+            }
+
+            if($carbonDates[$i]->isFuture())
+            {
+                DB::table('games_tags')->insert([
+                    'game_id' => $i+1,
+                    'tag_id' => '105',
+                ]);
+            }
         }
     }
 }

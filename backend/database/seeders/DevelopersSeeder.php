@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 
+//use Illuminate\Database\UsersSeeder;
 
 class DevelopersSeeder extends Seeder
 {
