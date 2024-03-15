@@ -25,6 +25,7 @@ import { MainCarouselComponent } from './main-carousel/main-carousel.component';
 import { MatCardModule} from '@angular/material/card';
 import { ProductBannersComponent } from './product-banners/product-banners.component';
 import { GameTableComponent } from './store/game-table/game-table.component';
+import { CategoryCarouselComponent } from './category-carousel/category-carousel.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { GameComponent } from './game/game.component';
 @NgModule({
@@ -40,7 +41,8 @@ import { GameComponent } from './game/game.component';
     OfferCarouselComponent,
    ProductBannersComponent,
    GameTableComponent,
-   GameComponent
+   GameComponent,
+   CategoryCarouselComponent,
 
   ],
   imports: [
