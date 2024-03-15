@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Seeder\GamesTagsSeeder;
 use Carbon\Carbon;
 
 
@@ -12,7 +13,6 @@ class GamesSeeder extends Seeder
 {
     public function run(): void
     {
-        $DIM_A = 20;
         $names = [
             'Undertale',                               //1
             'Uncharted: The Legacy Collection',        //2
@@ -36,6 +36,7 @@ class GamesSeeder extends Seeder
             'Forza Horizon 5',                         //20
             'Left 4 Dead 2',                           //21
             'Hitman 3 - Seven Deadly Sins Collection', //22
+            'Grand Theft Auto VI'                      //23
         ];
 
         $dates = [
@@ -62,6 +63,7 @@ class GamesSeeder extends Seeder
             '2008-11-17',
             '2021-01-20',
             '2022-01-01',
+            '2025-09-13',
         ];
 
         $short_description = [
@@ -87,6 +89,7 @@ class GamesSeeder extends Seeder
             'Race through the vibrant and ever-evolving landscapes of Mexico in this open-world driving adventure.',
             'Survive the zombie apocalypse as you and your friends face off against hordes of zombies in this co-op horror FPS.',
             'Explore the dark mind of Agent 47 with themed expansion packs that explore the seven deadly sins.',
+            'GTA VI',
         ];
 
         $long_description = [
@@ -530,6 +533,8 @@ class GamesSeeder extends Seeder
             Seven Deadly Sins is a 7-part expansion for HITMAN 3 that will be released over time. Each of the seven content packs introduces a new contract, unique suit and sin-themed item that can be used across the World of Assassination.
 
             This pack includes access to all seven content packs, as they become available. ',
+//23
+            "GTA VI",
         ];
         $base_price = [
             9.99,
@@ -554,13 +559,25 @@ class GamesSeeder extends Seeder
             29.99,
             9,75,
             9.99,
+            89.00,
         ];
-        for($i=0;$i<22;$i++) // 0 ; <22
+        for($i=0;$i<sizeof($names);$i++) // 0 ; <22
         {
             $bool = (bool)rand(0,1);
             if($base_price[$i]==0)
             {
                 $bool=0;
+                DB::table('games_tags')->insert([
+                    'game_id' => $i,
+                    'tag_id' => '21',
+                ]);
+            }
+            if(Carbon::now()->lte($dates[$i]))
+            {
+                DB::table('games_tags')->insert([
+                    'game_id' => $i,
+                    'tag_id' => '39',
+                ]);
             }
 
             DB::table('games')->insert([

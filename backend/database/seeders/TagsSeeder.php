@@ -52,6 +52,7 @@ class TagsSeeder extends Seeder
             'Remote Play Together',//36
             'SteamVR Collectibles',//37
             'Offerta',//38
+            'Upcoming'//39
 
 
         ];
@@ -104,7 +105,7 @@ class TagsSeeder extends Seeder
             DB::table('tags')->insert([
                 'name' => $names[$i],//PLACEHOLDER RNGNAME FROM ARRAY
                 'is_genre' => $isgenre[$i],
-                'image_id' => 1, //DA CAMBIARE AL PIU' PRESTO 
+                'image_id' => 1, //DA CAMBIARE AL PIU' PRESTO
             ]);
         }
     }
