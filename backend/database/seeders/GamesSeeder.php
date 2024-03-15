@@ -17,7 +17,7 @@ class GamesSeeder extends Seeder
             'Undertale',                               //1
             'Uncharted: The Legacy Collection',        //2
             'Hitman 3',                                //3
-            'Tetris Effect: Connected',               //4
+            'Tetris Effect: Connected',                //4
             'Terraria',                                //5
             'Fortnite',                                //6
             'Call of Duty 2 Black Ops 2',              //7
@@ -531,18 +531,46 @@ class GamesSeeder extends Seeder
 
             This pack includes access to all seven content packs, as they become available. ',
         ];
+        $base_price = [
+            9.99,
+            49.99,
+            29.99,
+            33.99,
+            9.75,
+            0,
+            59.99,
+            39.99,
+            29.98,
+            39.99,
+            79.99,
+            69.420,
+            0,
+            69.99,
+            19.99,
+            59.99,
+            369,99,
+            0,
+            0,
+            29.99,
+            9,75,
+            9.99,
+        ];
         for($i=0;$i<22;$i++) // 0 ; <22
         {
             $bool = (bool)rand(0,1);
+            if($base_price[$i]==0)
+            {
+                $bool=0;
+            }
             DB::table('games')->insert([
                 'name' => $names[$i],//PLACEHOLDER RNGNAME FROM ARRAY
                 'date' => $dates[$i],//PLACEHOLDER RNGBD
-                'base_price' => $base_price = mt_rand() / mt_getrandmax() * (69.99 - 1) + 1,//PLACEHOLDER FLOAT RNG
+                'base_price' => $base_price[$i], /*= mt_rand() / mt_getrandmax() * (69.99 - 1) + 1,*/
                 'is_dlc' => $i === 21 ? true : false,
                 'parent_id' => $i === 21 ? 3 : null,
                 'is_discounted' => $bool ? true : false,
                 'discounted_percentage' => $bool ? $discounted_percentage = rand(5,90) : null,//PLACEHOLDER RNG
-                'discounted_price' => $bool ? $base_price-($base_price*($discounted_percentage/100)) : null,
+                'discounted_price' => $bool ? number_format($base_price[$i]-($base_price[$i]*($discounted_percentage/100)), 2, '.', ''): null,
                 'short_description' => $short_description[$i],
                 'long_description' => $long_description[$i],
                 'pegi_id' => rand(0,4),
