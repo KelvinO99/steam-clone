@@ -1,0 +1,221 @@
+.carouselContainer {
+    position: relative;
+    margin: 45px;
+    width: fit-content;
+}
+
+.allContainer{
+    position: relative;
+    width:1034px !important;
+    top: 100px;
+}
+
+.card{
+    height: 223.81px;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0px;
+    transition: 0.2s;
+}
+
+.col-3{
+    padding: 0px;
+}
+
+.card:hover{    
+    transform: scale(1.05);
+    z-index: 2;
+    filter: brightness(1.30);
+}
+
+.carousel-control-prev{
+    position: absolute;
+    top: 50%;  /* Centra i pulsanti verticalmente */
+    transform: translateY(-50%);
+    background-image: linear-gradient(to left, rgba(255,0,0,0), rgb(0, 0, 0));
+    width: 45px;
+    height: 108px;
+    padding: 36px 11px;
+}
+
+.carousel-control-prev:hover{
+    background-image: linear-gradient(to right, rgba(212, 212, 212, 0.449), rgb(255,0,0,0));
+}
+
+.carousel-control-next:hover{
+    background-image: linear-gradient(to left, rgb(212, 212, 212, 0.449), rgb(255,0,0,0));
+}
+
+.carousel-control-next {
+    position: absolute;
+    top: 50%;  /* Centra i pulsanti verticalmente */
+    transform: translateY(-50%);
+    background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(0, 0, 0));
+    width: 45px;
+    height: 108px;
+    padding: 36px 11px;
+}
+
+/* git */
+/* .card-img-top{
+    height: 128px;
+    width: 128px;
+} */
+
+.carousel-container {
+    position: relative;
+}
+
+.carousel-item{
+/*     height: 255.81px;
+    width: 940px;
+    opacity: 0;
+    transition: opacity 0.3s ease; */ /* Regola la durata della transizione a piacimento */  
+}
+
+.carousel-item:not(.active) {
+    opacity: 0;
+}
+
+.carousel-inner{
+    height: 100%;
+    max-width: 940px;
+}
+
+/* Button */
+#categoryCarousel .carousel-indicators button{
+    width:15px;
+    height:9px;
+    border-width: 1px;
+    border-radius: 2px;
+    background-color: #606974;
+   }
+
+/* Carousel indicators */
+#categoryCarousel .carousel-indicators{
+    top:246px;
+    bottom:auto !important;
+   }
+
+
+/* Carousel item */
+/* #categoryCarousel .carousel-item{
+    width:940px !important;
+   } */
+
+.cardImages{
+/*   
+    height: 223.81px;
+    pointer-events: none; */
+}
+
+/* #categoryCarousel .carousel-item .card{
+    transform:translatex(0px) translatey(0px);
+    border-top-left-radius:0px;
+    border-top-right-radius:0px;
+    border-bottom-left-radius:0px;
+    border-bottom-right-radius:0px;
+   } */
+   
+   /* Image */
+ /*   #categoryCarousel .card img{
+    position:relative;
+   } */
+   
+   /* Row */
+/* #categoryCarousel .carousel-item .container-fluid .row{
+    width:958px;
+    position:relative;
+    left:-18px;
+   }
+ */
+
+#action,
+#indie,
+#adventure,
+#rpg,
+#simulation,
+#strategy,
+#open_world,
+#horror,
+#sci_fi,
+#fantasy,
+#sports,
+#racing {
+    width: 97%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    pointer-events: none;
+}
+
+
+   
+#racing{
+    background: linear-gradient(rgba(0, 0, 0, 0), rgb(0,139,139)) 100%;
+}
+
+#action {
+    background: linear-gradient(rgba(0, 0, 0, 0), rgb(139,0,0)) 100%;
+}
+#indie{
+    background: linear-gradient(rgba(0, 0, 0, 0), rgb(0,0,139)) 100%;
+}
+
+#adventure{
+    background: linear-gradient(rgba(0, 0, 0, 0), rgb(139,0,139)) 100%;
+
+}
+
+#rpg{
+    background: linear-gradient(rgba(0, 0, 0, 0), rgb(233,140,0)) 100%;
+}
+
+#simulation{
+    background: linear-gradient(rgba(0, 0, 0, 0), rgb(139,0,139)) 100%;
+}
+
+#strategy{
+    background: linear-gradient(rgba(0, 0, 0, 0), rgb(184,134,11)) 100%;
+}
+
+#open_world{
+    background: linear-gradient(rgba(0, 0, 0, 0), rgb(0,0,139)) 100%;
+}
+
+#horror{
+    background: linear-gradient(rgba(0, 0, 0, 0), rgb(139,0,0)) 100%;
+}
+
+#sci_fi{
+    background: linear-gradient(rgba(0, 0, 0, 0), rgb(184,134,11)) 100%;
+}
+
+#fantasy{
+    background: linear-gradient(rgba(0, 0, 0, 0), rgb(233,140,0)) 100%;
+}
+
+#sports{
+    background: linear-gradient(rgba(0, 0, 0, 0), rgb(0,100,0)) 100%;
+}
+
+#category_header{
+    color: white; 
+    top:31px;
+    position:relative; 
+    font-family:Motiva Sans, sans-serif !important; 
+    font-size:14px !important;
+    top: 140px !important;
+    left: 45px;
+}
+
+.categoryText{
+    position: relative;
+    font-family: "Motiva Sans", Sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-shadow: 0 1px 3px rgb(0 0 0 / 50%);
+    letter-spacing: 0.1ch;
+    color: white;
+    text-align: center;
+    bottom: 45px;
+}
