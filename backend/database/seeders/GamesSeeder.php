@@ -561,23 +561,27 @@ class GamesSeeder extends Seeder
             9.99,
             89.00,
         ];
+
+        DB::table('tags')->insert([
+            'id' => 104,
+            'name' => 'Free To Play',
+            'is_genre' => false,
+            'image_id' => 1,
+        ]);
+        DB::table('tags')->insert([
+            'id' => 105,
+            'name' => 'Upcoming',
+            'is_genre' => false,
+            'image_id' => 1,
+        ]);
+
+        $currentDate = Carbon::now()->startOfDay();
         for($i=0;$i<sizeof($names);$i++) // 0 ; <22
         {
             $bool = (bool)rand(0,1);
             if($base_price[$i]==0)
             {
                 $bool=0;
-                DB::table('games_tags')->insert([
-                    'game_id' => $i,
-                    'tag_id' => '21',
-                ]);
-            }
-            if(Carbon::now()->lte($dates[$i]))
-            {
-                DB::table('games_tags')->insert([
-                    'game_id' => $i,
-                    'tag_id' => '39',
-                ]);
             }
 
             DB::table('games')->insert([
@@ -593,6 +597,24 @@ class GamesSeeder extends Seeder
                 'long_description' => $long_description[$i],
                 'pegi_id' => rand(0,4),
             ]);
+
+
+            if($base_price[$i]==0)
+            {
+                DB::table('games_tags')->insert([
+                    'game_id' => $i+1,
+                    'tag_id' => '104',
+                ]);
+            }
+            $gameDate = Carbon::parse($dates[$i])->startOfDay();
+            if($gameDate->isFuture())
+            {
+                DB::table('games_tags')->insert([
+                    'game_id' => $i+1,
+                    'tag_id' => '105',
+                ]);
+            }
+
         }
     }
 }
