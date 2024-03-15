@@ -36,7 +36,7 @@ class GamesSeeder extends Seeder
             'Forza Horizon 5',                         //20
             'Left 4 Dead 2',                           //21
             'Hitman 3 - Seven Deadly Sins Collection', //22
-            'Grand Theft Auto VI'                      //23
+            'Grand Theft Auto VI',                   //23
         ];
 
         $dates = [
@@ -65,6 +65,11 @@ class GamesSeeder extends Seeder
             '2022-01-01',
             '2025-09-13',
         ];
+        $carbonDates = [];
+        foreach ($dates as $dateString) {
+            $carbonDates[] = Carbon::parse($dateString);
+        }
+        //$carbonDates[sizeof($carbonDates)] = Carbon::parse($dates[sizeof($dates) -1]);
 
         $short_description = [
             'Experience unique RPG elements where your choices matter, in a world where you can spare your foes.',
@@ -553,13 +558,14 @@ class GamesSeeder extends Seeder
             69.99,
             19.99,
             59.99,
-            369,99,
+            369.99,
             0.00,
             0.00,
             29.99,
-            9,75,
+            9.75,
             9.99,
             89.00,
+            123,
         ];
 
         DB::table('tags')->insert([
@@ -575,8 +581,8 @@ class GamesSeeder extends Seeder
             'image_id' => 1,
         ]);
 
-        $currentDate = Carbon::now()->startOfDay();
-        for($i=0;$i<sizeof($names);$i++) // 0 ; <22
+        $currentDate = Carbon::now();
+        for($i=0;$i<23;$i++) // 0 ; <22
         {
             $bool = (bool)rand(0,1);
             if($base_price[$i]==0)
@@ -606,14 +612,34 @@ class GamesSeeder extends Seeder
                     'tag_id' => '104',
                 ]);
             }
-            $gameDate = Carbon::parse($dates[$i])->startOfDay();
-            if($gameDate->isFuture())
+
+            $gameYear = $carbonDates[$i+1]->year;
+            $gameMonth = $carbonDates[$i]->month;
+            $gameDay = $carbonDates[$i]->day;
+
+            $currentYear = $currentDate->year;
+            $currentMonth = $currentDate->month;   //da mettere prima del ciclo
+            $currentDay = $currentDate->day;
+
+            /*dump($gameYear);
+            dump($gameMonth);
+            dump($gameDay);
+            dump($currentYear);
+            dump($currentMonth);
+            dump($currentDay);*/
+
+            dump($gameYear);
+            dump($currentYear);
+
+            if($gameYear>$currentYear)
             {
                 DB::table('games_tags')->insert([
                     'game_id' => $i+1,
                     'tag_id' => '105',
                 ]);
             }
+            dump($gameYear>$currentYear);
+
 
         }
     }
