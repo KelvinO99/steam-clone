@@ -18,6 +18,7 @@ export class GameTableComponent {
   best_seller: boolean = false
   discount: boolean = false
   most_reviewed: boolean = false
+  special_offer: boolean = true
 
   constructor(public gameService: GameService, public router: Router){}
 
@@ -55,7 +56,7 @@ export class GameTableComponent {
   }
 
   getDiscount() {
-    this.gameService.getGames({skip: this.skip, take: this.take, discount: this.discount = true}).subscribe({
+    this.gameService.getGames({skip: this.skip, take: this.take, special_offer: this.special_offer = true}).subscribe({
       next: (res: any) => {
         {
           this.discount_game = res

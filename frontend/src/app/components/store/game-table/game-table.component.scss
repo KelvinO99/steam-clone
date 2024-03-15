@@ -10,6 +10,10 @@
     }
 }
 
+div.price {
+    padding-right: 15px !important;
+}
+
 /* mat-card-header {
     background-image: url("https://cdn.cloudflare.steamstatic.com/steam/apps/2275020/capsule_184x69.jpg?t=1709222621");
     width: 184px;
@@ -25,7 +29,7 @@ mat-card {
 }
 .title {
     color: #c7d5e0;
-    font-size: 1.25em;
+    font-size: 15px;
 }
 
 .price {

@@ -1,52 +1,31 @@
 <div class="container-fluid p-0 m-0 min-vh-100">
 
     <div class="row p-0 w-100 d-flex justify-content-center">
-        <div class="col-xs-2    col-sm-2	col-md-2	col-lg-2	col-xl-2	col-xxl-2   p-0 m-0">
+        <div [class]="col_2">
 
             <app-sidebar> </app-sidebar>
 
         </div>
-        <div class="col-xs-8    col-sm-8	col-md-8	col-lg-8	col-xl-8	col-xxl-8 pb-5">
+        <div [class]="col_8">
 
-            <div class="container-fluid mb-2 mt-4">
-                <div class="container d-flex justify-content-center">
-                    <nav class="navbar navbar-expand">
-                        <div class="container">
+            <div class="container-fluid mb-2 mt-4 px-0">
+                <div class="row">
+                    <div class="col-1 p-0">
 
-                            <div class="collapse navbar-collapse">
-                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    </div>
 
-                                    <li class="nav-item">
-                                        <div class="dropdown p-0">
-                                            <a class="dropbtn nav-link pb-0"> Your Store </a>
-                                            <div class="dropdown-content store">
-                                                <a class="subMenuItem" routerLink=""> Main Page </a>
-                                                <a class="subMenuItem"> Discovery Queue </a>
-                                                <a class="subMenuItem"> Wishlist </a>
-                                                <a class="subMenuItem"> Point store </a>
-                                                <a class="subMenuItem"> News </a>
-                                                <a class="subMenuItem"> Stats </a>
-                                                <a class="subMenuItem"> About </a>
-                                            </div>
-                                        </div>
-                                    </li>
+                    <div class="col-10 p-0">
+                        <div class="container d-flex justify-content-center p-0">
+                            <nav class="navbar navbar-expand">
+                                <div class="container">
 
-                                    
-                                    <li class="nav-item">
-                                        <div class="dropdown p-0">
-                                            <a class="dropbtn nav-link pb-0"> New & Noteworthy </a>
-                                            <div class="dropdown-content noteworthy">
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <a class="subMenuItem" routerLink=""> Main Page </a>
-                                                        <a class="subMenuItem"> Discovery Queue </a>
-                                                        <a class="subMenuItem"> Wishlist </a>
-                                                        <a class="subMenuItem"> Point store </a>
-                                                        <a class="subMenuItem"> News </a>
-                                                        <a class="subMenuItem"> Stats </a>
-                                                        <a class="subMenuItem"> About </a>
-                                                    </div>
-                                                    <div class="col">
+                                    <div class="collapse navbar-collapse">
+                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                                            <li class="nav-item">
+                                                <div class="dropdown p-0">
+                                                    <a class="dropbtn nav-link pb-0"> Your Store </a>
+                                                    <div class="dropdown-content store">
                                                         <a class="subMenuItem" routerLink=""> Main Page </a>
                                                         <a class="subMenuItem"> Discovery Queue </a>
                                                         <a class="subMenuItem"> Wishlist </a>
@@ -56,41 +35,76 @@
                                                         <a class="subMenuItem"> About </a>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </li>
+                                            </li>
 
-                                    <li class="nav-item">
-                                        <a class="nav-link" routerLink="#"> Categrories </a>
-                                    </li>
 
-                                    <li class="nav-item">
-                                        <a class="nav-link" routerLink="#"> Point Shop </a>
-                                    </li>
+                                            <li class="nav-item">
+                                                <div class="dropdown p-0">
+                                                    <a class="dropbtn nav-link pb-0"> New & Noteworthy </a>
+                                                    <div class="dropdown-content noteworthy">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <a class="subMenuItem" routerLink=""> Main Page </a>
+                                                                <a class="subMenuItem"> Discovery Queue </a>
+                                                                <a class="subMenuItem"> Wishlist </a>
+                                                                <a class="subMenuItem"> Point store </a>
+                                                                <a class="subMenuItem"> News </a>
+                                                                <a class="subMenuItem"> Stats </a>
+                                                                <a class="subMenuItem"> About </a>
+                                                            </div>
+                                                            <div class="col">
+                                                                <a class="subMenuItem" routerLink=""> Main Page </a>
+                                                                <a class="subMenuItem"> Discovery Queue </a>
+                                                                <a class="subMenuItem"> Wishlist </a>
+                                                                <a class="subMenuItem"> Point store </a>
+                                                                <a class="subMenuItem"> News </a>
+                                                                <a class="subMenuItem"> Stats </a>
+                                                                <a class="subMenuItem"> About </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
 
-                                    <li class="nav-item">
-                                        <a class="nav-link" routerLink="#"> News </a>
-                                    </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" routerLink="#"> Categrories </a>
+                                            </li>
 
-                                    <li class="nav-item">
-                                        <a class="nav-link" routerLink="#"> Labs </a>
-                                    </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" routerLink="#"> Point Shop </a>
+                                            </li>
 
-                                </ul>
-                                <form role="search">
-                                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                                </form>
-                            </div>
+                                            <li class="nav-item">
+                                                <a class="nav-link" routerLink="#"> News </a>
+                                            </li>
+
+                                            <li class="nav-item">
+                                                <a class="nav-link" routerLink="#"> Labs </a>
+                                            </li>
+
+                                        </ul>
+                                        <form role="search">
+                                            <input class="form-control" type="search" placeholder="Search"
+                                                aria-label="Search">
+                                        </form>
+                                    </div>
+                                </div>
+                            </nav>
                         </div>
-                    </nav>
+                    </div>
+
+                    <div class="col-1 p-0">
+
+                    </div>
                 </div>
             </div>
-            <app-product-banners></app-product-banners>
+
             <app-offer-carousel> </app-offer-carousel>
+            <app-product-banners></app-product-banners>
             <app-game-table> </app-game-table>
             <app-category-carousel></app-category-carousel>
         </div>
-        <div class="col-xs-2    col-sm-2	col-md-2	col-lg-2	col-xl-2	col-xxl-2   p-0 m-0">
+        <div [class]="col_2">
 
 
 
