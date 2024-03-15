@@ -612,34 +612,13 @@ class GamesSeeder extends Seeder
                 ]);
             }
 
-            $gameYear = $carbonDates[$i]->year;
-            $gameMonth = $carbonDates[$i]->month;
-            $gameDay = $carbonDates[$i]->day;
-
-            $currentYear = $currentDate->year;
-            $currentMonth = $currentDate->month;   //da mettere prima del ciclo
-            $currentDay = $currentDate->day;
-
-            /*dump($gameYear);
-            dump($gameMonth);
-            dump($gameDay);
-            dump($currentYear);
-            dump($currentMonth);
-            dump($currentDay);*/
-
-            dump($gameYear);
-            dump($currentYear);
-
-            if($gameYear>$currentYear)
+            if($carbonDates[$i]->isFuture())
             {
                 DB::table('games_tags')->insert([
                     'game_id' => $i+1,
                     'tag_id' => '105',
                 ]);
             }
-            dump($gameYear>$currentYear);
-
-
         }
     }
 }
