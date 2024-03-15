@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 
+use Illuminate\Database\Seeder\developer_id;
+
 
 class DevelopersGamesSeeder extends Seeder
 {

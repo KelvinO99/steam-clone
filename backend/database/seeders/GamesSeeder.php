@@ -581,7 +581,7 @@ class GamesSeeder extends Seeder
         ]);
 
         $currentDate = Carbon::now();
-        for($i=0;$i<23;$i++) // 0 ; <22
+        for($i=0;$i<sizeof($names);$i++) // 0 ; <22
         {
             $bool = (bool)rand(0,1);
             if($base_price[$i]==0)
