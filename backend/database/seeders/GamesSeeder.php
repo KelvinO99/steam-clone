@@ -21,7 +21,7 @@ class GamesSeeder extends Seeder
             'Terraria',                                //5
             'Fortnite',                                //6
             'Call of Duty Black Ops 2',                //7
-            "Assassin's Creed 4",                      //8
+            'Assassin\'s Creed 4',                      //8
             'Grand Theft Auto V',                      //9
             'Halo: The Master Chief Collection',       //10
             'Final Fantasy 7 Remake Intergrade',       //11
@@ -36,7 +36,24 @@ class GamesSeeder extends Seeder
             'Forza Horizon 5',                         //20
             'Left 4 Dead 2',                           //21
             'Hitman 3 - Seven Deadly Sins Collection', //22
-            'Grand Theft Auto VI',                   //23
+            'Grand Theft Auto VI',                     //23
+            'Resident Evil 4',                         //24
+            'Mortal Kombat 1',                         //25
+            'Red Dead Redemption 2',                   //26
+            'God Of War',                              //27
+            'Tom Clancy\'s Rainbow Six Siege',         //28
+            'Dead Space',                              //29
+            'Grounded',                                //30
+            'Cyberpunk 2077',                          //31
+            'Sea Of Thieves',                          //32
+            'Sekiro Shadows Die Twice',                //33
+            'Monster Hunter Rise',                     //34
+            'Assassin\'s Creed Valhalla',              //35
+            'Persona 3 Reload',                        //36
+            'Horizon Forbidden West',                  //37
+            'Baldur\'s Gate 3',                        //38
+            'Elden Ring',                              //39
+            'PLACEHOLDER DLC CB2077',                        //40
         ];
 
         $dates = [
@@ -63,6 +80,24 @@ class GamesSeeder extends Seeder
             '2009-11-17',
             '2021-03-30',
             '2025-09-16',
+            '2021-05-20',  // Resident Evil 4
+            '2023-09-19',  // Mortal Kombat (2023)
+            '2023-10-24',  // Dead Space (Remake) !!!
+            '2018-04-20',  // God Of War
+            '2015-12-01',  // Tom Clancy's Rainbow Six Siege
+            '2008-10-14',  // Dead Space !!!
+            '2020-07-28',  // Grounded
+            '2020-12-10',  // Cyberpunk 2077
+            '2018-06-03',  // Sea Of Thieves
+            '2019-03-22',  // Sekiro Shadows Die Twice
+            '2021-03-26',  // Monster Hunter Rise
+            '2022-12-06',  // Assassin's Creed Valhalla !!!
+            '2022-06-14',  // Persona 3 Remake !!!
+            '2023-04-18',  // Horizon Forbidden West !!!
+            '2022-08-30',  // Baldur's Gate 3 !!!
+            '2022-02-25',  // Elden Ring
+            '2016-06-14',  // Dead By Daylight !!!
+
         ];
         $carbonDates = [];
         foreach ($dates as $dateString) {
@@ -94,6 +129,23 @@ class GamesSeeder extends Seeder
             'Survive the zombie apocalypse as you and your friends face off against hordes of zombies in this co-op horror FPS.',
             'Explore the dark mind of Agent 47 with themed expansion packs that explore the seven deadly sins.',
             'GTA VI',
+            "Survive a terrifying rural village filled with unimaginable horrors as Leon S. Kennedy. Experience the groundbreaking third-person shooter that redefined the survival horror genre.", // Resident Evil 4
+            "Relive the origins of the legendary fighting franchise in this groundbreaking reboot. Experience bone-crushing battles, iconic characters, and visceral fatalities reimagined with cutting-edge graphics and gameplay.", // Mortal Kombat 1
+            "Immerse yourself in the epic tale of outlaw Arthur Morgan and the Van der Linde gang as they rob, steal, and fight their way across America's heartland in the dying days of the Wild West.", // Red Dead Redemption 2
+            "Embark on a breathtaking journey with Kratos and his son Atreus as they venture into the Norse realms, battling gods and monsters in a deeply emotional and visually stunning action-adventure.", // God Of War
+            "Lead an elite team of counter-terrorist operators in intense, strategic multiplayer battles. With destructible environments and a thriving community, every match is a new challenge.", // Tom Clancy's Rainbow Six Siege
+            "Unearth the horrifying truth behind the mysterious Necromorph outbreak aboard the USG Ishimura. In this sci-fi survival horror, strategic dismemberment is your only hope for survival.", // Dead Space
+            "Shrink down to the size of an ant and explore a backyard teeming with danger and discovery. Build shelters, craft tools, and battle giant insects in this whimsical survival adventure.", // Grounded
+            "Enter the neon-lit streets of Night City in this sprawling open-world RPG. Customize your cybernetic mercenary and carve your own path through a world filled with intrigue and danger.", // Cyberpunk 2077
+            "Set sail on the high seas in this swashbuckling multiplayer adventure. Crew up with friends, plunder treasure, and engage in epic naval battles in a vast and unpredictable world.", // Sea Of Thieves
+            "Become the 'One-Armed Wolf' and embark on a relentless journey of revenge in feudal Japan. Master the 'way of the shinobi' and confront powerful foes in this punishing action RPG.", // Sekiro Shadows Die Twice
+            "Hunt ferocious monsters and forge your legend in the breathtaking landscapes of Kamura Village. With new gameplay mechanics and seamless online multiplayer, the hunt has never been more thrilling.", // Monster Hunter Rise
+            "Step into the shoes of a master assassin in this captivating action-adventure set in exotic lands. Unravel ancient mysteries, forge alliances, and become a legend in the world of espionage.", // Assassin's Creed Valhalla
+            "Experience the acclaimed JRPG with enhanced visuals and new features. Balance school life with battling malevolent entities in a captivating tale of friendship, loss, and self-discovery.", // Persona 3 Reload
+            "Embark on an epic quest across the vibrant and dangerous landscapes of post-apocalyptic America. Uncover the mysteries of the Old Ones and confront towering machines in this breathtaking sequel.", // Horizon Forbidden West
+            "Journey into the iconic Dungeons & Dragons universe in this ambitious RPG adventure. Forge alliances, explore vast dungeons, and face off against unimaginable evil in a world of magic and mystery.", // Baldur's Gate 3
+            "Discover a vast, seamless world filled with dark fantasy and rich lore. From the minds of Hidetaka Miyazaki and George R.R. Martin comes an epic action RPG where your choices shape the fate of the realm.", // Elden Ring
+            "Enter the realm of the Entity and experience asymmetrical multiplayer horror at its finest. Play as either a ruthless killer or a survivor, each with their own unique abilities and objectives.", // Dead By Daylight
         ];
 
         $long_description = [
@@ -538,7 +590,459 @@ class GamesSeeder extends Seeder
 
             This pack includes access to all seven content packs, as they become available. ',
 //23
-            "GTA VI",
+            'GTA VI',
+//24
+            'Notes:
+
+            Items contained in this set can be purchased individually. Please take care to avoid duplicate purchases.
+            Please update Resident Evil 4 to the latest patch before playing Separate Ways or using the Extra DLC Pack.
+
+            Resident Evil 4 Gold Edition includes Resident Evil 4 and two additional items of content: Separate Ways, where you experience the story through Ada Wong\'s perspective, and the Extra DLC Pack, which contains additional character outfits as well as useful weapons and items.
+
+            Resident Evil 4:
+            6 years have passed since the biological disaster in Raccoon City. Leon S. Kennedy tracks the president\'s missing daughter to a secluded European village, where there is something terribly wrong with the villagers.
+
+            Featuring modernized gameplay, a reimagined storyline, and vividly detailed graphics, Resident Evil 4 marks the rebirth of an industry juggernaut. Relive the nightmare that revolutionized survival horror.
+
+            Separate Ways:
+            Play as Ada Wong in this additional scenario, filling in unanswered questions posed in the main story. With her mission to retrieve the Amber looming over her, which path will she choose?
+
+            Extra DLC Pack:
+
+            Leon & Ashley Costumes: \'Casual\'
+            Leon & Ashley Costumes: \'Romantic\'
+            Leon Costume & Filter: \'Hero\'
+            Leon Costume & Filter: \'Villain\'
+            Leon Accessory: \'Sunglasses (Sporty)\'
+            Deluxe Weapon: \'Sentinel Nine\'
+            Deluxe Weapon: \'Skull Shaker\'
+            \'Original Ver.\' Soundtrack Swap
+            Treasure Map: Expansion
+            About This Game
+            Survival is just the beginning.
+
+            Six years have passed since the biological disaster in Raccoon City.
+            Agent Leon S. Kennedy, one of the survivors of the incident, has been sent to rescue the president\'s kidnapped daughter.
+            He tracks her to a secluded European village, where there is something terribly wrong with the locals.
+            And the curtain rises on this story of daring rescue and grueling horror where life and death, terror and catharsis intersect.
+
+            Featuring modernized gameplay, a reimagined storyline, and vividly detailed graphics,
+            Resident Evil 4 marks the rebirth of an industry juggernaut.
+
+            Relive the nightmare that revolutionized survival horror.',
+//25
+            'It\’s In Our Blood!
+            Discover a reborn Mortal Kombat™ Universe created by the Fire God Liu Kang.
+            New Origins
+            Reflecting Fire God Liu Kang\’s vision of perfection, Mortal Kombat 1\’s brand new universe is familiar, yet radically altered.
+            Invasions
+            Invasions is a dynamic single player campaign with a variety of distinct challenges. With built in progression and RPG mechanics, mixed with MK1\’s incredible fighting action, Invasions provides deep, and engaging challenges, and a ton of rewards along the way.
+            Kameos
+            Kameos dramatically enhance every fight, assisting teammates with their own Special Moves, Throws and defensive Breakers.',
+//26
+            'America, 1899.
+
+            Arthur Morgan and the Van der Linde gang are outlaws on the run. With federal agents and the best bounty hunters in the nation massing on their heels, the gang must rob, steal and fight their way across the rugged heartland of America in order to survive. As deepening internal divisions threaten to tear the gang apart, Arthur must make a choice between his own ideals and loyalty to the gang who raised him.
+
+            Now featuring additional Story Mode content and a fully-featured Photo Mode, Red Dead Redemption 2 also includes free access to the shared living world of Red Dead Online, where players take on an array of roles to carve their own unique path on the frontier as they track wanted criminals as a Bounty Hunter, create a business as a Trader, unearth exotic treasures as a Collector or run an underground distillery as a Moonshiner and much more.
+
+            With all new graphical and technical enhancements for deeper immersion, Red Dead Redemption 2 for PC takes full advantage of the power of the PC to bring every corner of this massive, rich and detailed world to life including increased draw distances; higher quality global illumination and ambient occlusion for improved day and night lighting; improved reflections and deeper, higher resolution shadows at all distances; tessellated tree textures and improved grass and fur textures for added realism in every plant and animal.
+
+            Red Dead Redemption 2 for PC also offers HDR support, the ability to run high-end display setups with 4K resolution and beyond, multi-monitor configurations, widescreen configurations, faster frame rates and more.',
+            //27
+            'Enter the Norse realm
+            His vengeance against the Gods of Olympus years behind him, Kratos now lives as a man in the realm of Norse Gods and monsters. It is in this harsh, unforgiving world that he must fight to survive… and teach his son to do the same.
+
+            Grasp a second chance
+            Kratos is a father again. As mentor and protector to Atreus, a son determined to earn his respect, he is forced to deal with and control the rage that has long defined him while out in a very dangerous world with his son.
+
+            Journey to a dark, elemental world of fearsome creatures
+            From the marble and columns of ornate Olympus to the gritty forests, mountains and caves of pre-Viking Norse lore, this is a distinctly new realm with its own pantheon of creatures, monsters and gods.
+
+            Engage in visceral, physical combat
+            With an over the shoulder camera that brings the player closer to the action than ever before, fights in God of War™ mirror the pantheon of Norse creatures Kratos will face: grand, gritty and grueling. A new main weapon and new abilities retain the defining spirit of the God of War series while presenting a vision of conflict that forges new ground in the genre.
+            PC FEATURES
+
+            High Fidelity Graphics
+            Striking visuals enhanced on PC. Enjoy true 4K resolution, on supported devices, [MU1] with unlocked framerates for peak performance. Dial in your settings via a wide range of graphical presets and options including higher resolution shadows, improved screen space reflections, the addition of GTAO and SSDO, and much more.
+
+            NVIDIA® DLSS and Reflex Support
+            Quality meets performance. Harness the AI power of NVIDIA Deep Learning Super Sampling (DLSS) to boost frame rates and generate beautiful, sharp images on select Nvidia GPUs. Utilize NVIDIA Reflex low latency technology allowing you to react quicker and hit harder combos with the responsive gameplay you crave on GeForce GPUs.
+
+            Controls Customization
+            Play your way. With support for the DUALSHOCK®4 and DUALSENSE® wireless controllers, a wide range of other gamepads, and fully customizable bindings for mouse and keyboard, you have the power to fine-tune every action to match your playstyle.
+
+            Ultra-wide Support
+            Immerse yourself like never before. Journey through the Norse realms taking in breathtaking vistas in panoramic widescreen. With 21:9 ultra-widescreen support, God of War™ presents a cinema quality experience that further expands the original seamless theatrical vision.
+            Mature Content Description
+
+            The developers describe the content like this:
+
+            Gameplay consists of frequent combat scenarios with characters punching and kicking or using their axe to slash/stab/impale enemies. Some larger enemies are opened up to intense finishing moves showing enemies being ripped apart, dismembered, or decapitated.
+
+            Strong Language is used in the dialogue.',
+//28
+            'Technical Test Server
+
+
+
+            This is the Technical Test Server client for Tom Clancy\'s Rainbow Six Siege. This platform will be used to test new features in a controlled environment that allows the development team to iterate without impacting the live game.
+
+            Please note :
+            - The T.T.S. client is built off of several different builds at various stages of development, and may not represent the overall quality of the game.
+            - Features seen on the T.T.S. might never make it in the final game: various components are still in conceptual stages and might be discarded throughout the development process. Certain ideas that were postponed or cancelled might also be found in the T.T.S. as a result.
+            - You need to own a version of the game (Standard, Gold, Complete or Starter Edition) to unlock this product
+            - The TTS will only function during specific timeframes.
+            About This Game
+            “One of the best first-person shooters ever made. 10/10” – GameSpot
+
+            Tom Clancy\'s Rainbow Six® Siege is an elite, realistic, tactical team-based shooter where superior planning and execution triumph. It features 5v5 attack vs. defense gameplay and intense close-quarters combat in destructible environments.
+
+
+            Engage in a brand-new style of assault using an unrivaled level of destruction and gadgetry.
+            On defense, coordinate with your team to transform your environments into strongholds. Trap, fortify and create defensive systems to prevent being breached by the enemy.
+            On attack, lead your team through narrow corridors, barricaded doorways and reinforced walls. Combine tactical maps, observation drones, rappelling and more to plan, attack and defuse every situation.
+
+
+            Choose from dozens of highly trained, Special Forces operators from around the world. Deploy the latest technology to track enemy movement. Shatter walls to open new lines of fire. Breach ceilings and floors to create new access points. Employ every weapon and gadget from your deadly arsenal to locate, manipulate and destroy your enemies and the environment around them.
+
+
+            Experience new strategies and tactics as Rainbow Six Siege evolves over time. Change the rules of Siege with every update that includes new operators, weapons, gadgets and maps. Evolve alongside the ever-changing landscape with your friends and become the most experienced and dangerous operators out there.
+
+
+            Compete against others from around the world in ranked match play. Grab your best squad and join the competitive community in weekly tournaments or watch the best professional teams battle it out in the Rainbow Six Siege Pro League.',
+//29
+            'Dead Space Digital Deluxe Edition
+
+            The Dead Space Digital Deluxe Edition includes the base game and 5 exclusive cosmetics (3 Unique Suits and 2 Suit Textures). It’s everything you need to look your best while surviving the horrors aboard the USG Ishimura.
+
+            READ MORE
+            About This Game
+            The sci-fi survival-horror classic Dead Space™ returns, completely rebuilt from the ground up to offer a deeper, more immersive experience. This remake brings jaw-dropping visual fidelity, suspenseful atmospheric audio, and improvements to gameplay while staying faithful to the original game’s thrilling vision.
+
+            Isaac Clarke is an everyman engineer on a mission to repair a vast mining ship, the USG Ishimura, only to discover something has gone horribly wrong. The ship\'s crew has been slaughtered and Isaac’s beloved partner, Nicole, is lost somewhere on board.
+
+            Now alone and armed with only his engineering tools and skills, Isaac races to find Nicole as the nightmarish mystery of what happened aboard the Ishimura unravels around him. Trapped with hostile creatures called Necromorphs, Isaac faces a battle for survival, not only against the escalating terrors of the ship but against his own crumbling sanity.
+
+            IMMERSE YOURSELF IN NEXT-GEN SCI-FI HORROR
+
+
+
+            A sci-fi horror classic returns fully rebuilt from the ground up with elevated visual fidelity and 3D atmospheric audio. From the frighteningly detailed rooms and workspaces of a slaughtered crew to the eerie atmospheric sounds of a desolate spaceship, you’ll explore a stunning sci-fi setting full of unpredictable and tense moments without interruption.
+
+            UNRAVEL THE MYSTERY ABOARD THE USG ISHIMURA
+
+
+
+            What starts as a routine repair mission for engineer Isaac Clarke and the crew of the USG Kellion quickly turns into a battle for survival as the truth behind the horrors onboard begins to unravel. Following an expanded narrative experience, uncover the dark secrets behind the events aboard the USG Ishimura through the final logs of the ill-fated crew and your encounters with the few survivors that remain.
+
+            IMPROVISE TO SURVIVE
+
+
+
+            Confront the nightmare aboard the USG Ishimura with genre-defining strategic gameplay. Repurpose and upgrade Isaac’s engineering tools to creatively defeat enemies with precision.',
+//30
+            'The world is a vast, beautiful, and dangerous place – especially when you have been shrunk to the size of an ant. Explore, build and survive together in this first-person, multiplayer, survival adventure. Can you thrive alongside the hordes of giant insects, fighting to survive the perils of the backyard?
+
+
+            Uncover the mysteries while playing through the story!
+
+            How did you wind up so small? Who did this to you? How do you go home? These are all answers you will uncover as you play through the story.
+
+
+            Solo or with friends – anytime!
+
+            You can face the backyard alone or together, online, with up to three friends. Not only that, but with the Shared Worlds feature, you can continue to play in your shared world even if the original host is not on, with all your progression saving!
+
+
+            Nowhere is safe – not even your base!
+
+            Creatures can be found roaming the yard in a multitude of environments, such as the depths of the pond, the caverns of the termite den, and even the sweltering heat found in the sandbox. You can even attract them to different places in the yard by activating the MIX.R devices. However, the more you interfere with the creatures in the yard, the higher the chance that they come knocking at your own door, so you better prepare.
+
+
+            Play true to your playstyle!
+
+            Use the in-game customization systems such as Mutations and Milk Molars to activate the bonuses and perks you want for your character. Not only that, but craft and upgrade your armor and weapons to give your character the stats and advantages you need in order to take on the perils of the backyard.
+
+
+            It’s time to go big, or never go home!',
+//31
+            'Cyberpunk 2077 is an open-world, action-adventure RPG set in the megalopolis of Night City, where you play as a cyberpunk mercenary wrapped up in a do-or-die fight for survival. Improved and featuring all-new free additional content, customize your character and playstyle as you take on jobs, build a reputation, and unlock upgrades. The relationships you forge and the choices you make will shape the story and the world around you. Legends are made here. What will yours be?
+
+
+
+            IMMERSE YOURSELF WITH UPDATE 2.1
+            Night City feels more alive than ever with the free Update 2.1! Take a ride on the fully functional NCART metro system, listen to music as you explore the city with the Radioport, hang out with your partner in V’s apartment, compete in replayable races, ride new vehicles, enjoy improved bike combat and handling, discover hiddens secrets and much, much more!
+
+
+
+            CREATE YOUR OWN CYBERPUNK
+            Become an urban outlaw equipped with cybernetic enhancements and build your legend on the streets of Night City.
+
+
+
+            EXPLORE THE CITY OF THE FUTURE
+            Night City is packed to the brim with things to do, places to see, and people to meet. And it’s up to you where to go, when to go, and how to get there.
+
+
+
+            BUILD YOUR LEGEND
+            Go on daring adventures and build relationships with unforgettable characters whose fates are shaped by the choices you make.
+
+
+
+
+            EQUIPPED WITH IMPROVEMENTS
+            Experience Cyberpunk 2077 with a host of changes and improvements to gameplay and economy, the city, map usage, and more.
+
+
+
+            CLAIM EXCLUSIVE ITEMS
+            Claim in-game swag & digital goodies inspired by CD PROJEKT RED games as part of the My Rewards program.',
+//32
+            'The Sea of Thieves: 2024 Premium Edition contains the full game, the Dark Warsmith Ship Set (with Collector\'s Figurehead and Sails), Dark Warsmith Costume, Diabolical Dog, Ocean Crawler cosmetics, Collector\'s Thunderous Fury Figurehead and Sails, the Shrouded Ghost Hunter Blunderbuss, 10,000 Gold and access to digital bonus content.
+
+
+
+            The Sea of Thieves: 2024 Deluxe Edition contains the full game, Ocean Crawler cosmetics, Collector\'s Thunderous Fury Figurehead and Sails, the Shrouded Ghost Hunter Blunderbuss, 10,000 Gold and access to digital bonus content.
+
+            About This Game
+            Sea of Thieves is a smash-hit pirate adventure game, offering the quintessential pirate experience of plundering lost treasures, intense battles, vanquishing sea monsters and more.
+
+            Additional digital bonuses* include access to the Sea of Thieves Original Soundtrack – 2024 Edition, the Sea of Thieves: Athena\'s Fortune audiobook and The Rough Guide to Sea of Thieves eBook.
+
+            * Available to download from www.seaofthieves.com/bonuses (website login required) or via Steam.',
+//33
+            'This Game of the Year Edition now includes bonus content*:
+
+            - Reflection and Gauntlet of Strength - new boss challenge modes
+            - Remnants - leave messages and recordings of your actions that other players can view and rate
+            - 3 unlockable cosmetic skins
+
+            Game of the Year - The Game Awards 2019
+            Best Action Game of 2019 - IGN
+            Over 50 awards and nominations
+
+            Carve your own clever path to vengeance in the critically acclaimed adventure from developer FromSoftware, creators of the Dark Souls series.
+
+            In Sekiro™: Shadows Die Twice you are the \'one-armed wolf\', a disgraced and disfigured warrior rescued from the brink of death. Bound to protect a young lord who is the descendant of an ancient bloodline, you become the target of many vicious enemies, including the dangerous Ashina clan. When the young lord is captured, nothing will stop you on a perilous quest to regain your honor, not even death itself.
+
+            Explore late 1500s Sengoku Japan, a brutal period of constant life and death conflict, as you come face to face with larger than life foes in a dark and twisted world. Unleash an arsenal of deadly prosthetic tools and powerful ninja abilities while you blend stealth, vertical traversal, and visceral head to head combat in a bloody confrontation.
+
+            Take Revenge. Restore Your Honor. Kill Ingeniously.
+
+            *Download required.
+
+            Internet connection required for asynchronous Multiplayer.',
+//34
+            'Rise to the challenge and join the hunt! In Monster Hunter Rise, the latest installment in the award-winning and top-selling Monster Hunter series, you’ll become a hunter, explore brand new maps and use a variety of weapons to take down fearsome monsters as part of an all-new storyline. The PC release also comes packed with a number of additional visual and performance enhancing optimizations.
+
+
+            Ferocious monsters with unique ecologies
+            Hunt down a plethora of monsters with distinct behaviors and deadly ferocity. From classic returning monsters to all-new creatures inspired by Japanese folklore, including the flagship wyvern Magnamalo, you’ll need to think on your feet and master their unique tendencies if you hope to reap any of the rewards!
+
+
+            Choose your weapon and show your skills
+            Wield 14 different weapon types that offer unique gameplay styles, both up-close and from long range. Charge up and hit hard with the devastating Great Sword; dispatch monsters in style using the elegant Long Sword; become a deadly maelstrom of blades with the speedy Dual Blades; charge forth with the punishing Lance; or take aim from a distance with the Bow and Bowguns. These are just a few of the weapon types available in the game, meaning you’re sure to find the play style that suits you best.
+
+
+            Hunt, gather and craft your way to the top of the food chain
+            Each monster you hunt will provide materials that allow you to craft new weapons and armor and upgrade your existing gear. Go back out on the field and hunt even fiercer monsters and earn even better rewards! You can change your weapon at any of the Equipment Boxes any time, so the possibilities are limitless!
+
+
+            Hunt solo or team up to take monsters down
+            The Hunter Hub offers multiplayer quests where up to four players can team up to take on targets together. Difficulty scaling ensures that whether you go solo or hit the hunt as a full four-person squad, it’s always a fair fight.
+
+
+            Stunning visuals, unlocked framerate and other PC optimizations
+            Enjoy beautiful graphics at up 4K resolution, HDR with support for features including ultrawide monitors and an unlocked frame rate make to make this a truly immersive monster-hunting experience. Hunters will also get immediate access to a number of free title updates that include new monsters, quests, gear and more.
+
+
+            Enjoy an exciting new storyline set in Kamura Village
+            This serene locale is inhabited by a colorful cast of villagers who have long lived in fear of the Rampage - a catastrophic event where countless monsters attack the village all at once. 50 years after the last Rampage, you must work together with the villagers to face this trial.
+
+
+            Experience new hunting actions with the Wirebug
+            Wirebugs are an integral part of your hunter’s toolkit. The special silk they shoot out can be used to zip up walls and across maps, and can even be used to pull off special attacks unique to each of the 14 weapon types in the game.
+
+
+            Buddies are here to help
+            The Palico Felyne friends you already know and love from previous Monster Hunter adventures are joined by the brand new Palamute Canyne companions!
+
+
+            Wreak havoc by controlling monsters
+            Control raging monsters using Wyvern Riding and dish out massive damage to your targets!
+
+
+            Fend off hordes of monsters in The Rampage
+            Protect Kamura Village from hordes of monsters in an all-new quest type! Prepare for monster hunting on a scale like never before!',
+//35
+            'Become Eivor, a legendary Viking raider on a quest for glory.
+
+            - Lead epic Viking raids against Saxon troops and fortresses.
+            - Relive the visceral fighting style of the Vikings as you dual-wield powerful weapons.
+            - Challenge yourself with the most varied collection of enemies ever in Assassin\'s Creed.
+            - Shape the growth of your character and your clan\'s settlement with every choice you make.
+            - Explore a Dark Age open world, from the harsh shores of Norway to the beautiful kingdoms of England.
+
+            Includes the Forgotten Saga, a FREE new rogue-lite game mode for all Assassin\'s Creed® Valhalla players.',
+//36
+            'Digital Deluxe Edition
+
+            Digital Premium Edition
+
+            About This Game
+            Step into the shoes of a transfer student thrust into an unexpected fate when entering the hour "hidden" between one day and the next. Awaken an incredible power and chase the mysteries of the Dark Hour, fight for your friends, and leave a mark on their memories forever.
+
+            Persona 3 Reload is a captivating reimagining of the genre-defining RPG, reborn for the modern era.
+
+            Key Features:
+            - Experience the pivotal game of the Persona series faithfully remade with cutting-edge graphics, modernized quality-of-life features, and signature stylish UI.
+
+            -Fully immerse yourself in an emotional, gripping journey with new scenes, character interactions, and additional voiceover.
+
+            - Choose how to meaningfully spend each day through various activities, from exploring the Port Island to forging genuine bonds with beloved characters.
+
+            - Build and command your optimal team to take down otherworldly Shadows and climb closer to the truth.
+
+            ---
+            Persona 3 Reload Digital Deluxe Edition includes:
+
+                Base Game
+                Digital Artbook: Filled with 64 pages of character art, concept art, backgrounds and other illustrations from the game!
+                Digital Soundtrack: Listen to newly arranged tracks from the original Persona 3 plus all-new tracks from Persona 3 Reload, presented by the Atlus sound team for a total of 60 new songs.
+
+
+            ---
+            Persona 3 Reload Digital Premium Edition includes:
+
+                Base Game
+                Digital Artbook
+                Digital Soundtrack
+                Persona 3 Reload DLC Pack: P5R Phantom Thieves Costume Set, P5R Shujin Academy Costume Set, P5R Persona Set 1, P5R Persona Set 2 , P5R BGM Set, P4G Yasogami High Costume Set, P4G Persona Set',
+//37
+            'About This Game
+
+
+            Join Aloy as she braves a majestic but dangerous new frontier that holds mysterious new threats. This Complete Edition allows you to enjoy the critically acclaimed Horizon Forbidden West on PC in its entirety with bonus content, including the Burning Shores story expansion that picks up after the main game.
+
+            Explore distant lands, fight bigger and more awe-inspiring machines, and encounter astonishing new tribes as you return to the far-future, post-apocalyptic world of Horizon.
+
+            The land is dying. Vicious storms and an unstoppable blight ravage the scattered remnants of humanity while fearsome new machines prowl their borders, and life on Earth is hurtling toward another extinction.
+
+            It\'s up to Aloy to uncover the secrets behind these threats and restore order and balance to the world. Along the way, she must reunite with old friends, forge alliances with warring new factions and unravel the legacy of the ancient past.
+
+                See every gameplay detail with Ultrawide 21:9 and Super Ultrawide 32:9 resolutions, as well as 48:9 triple monitor support.*
+                Witness the Forbidden West coming to life, with NVIDIA DLSS 3 upscaling and frame generation, image enhancing NVIDIA DLAA and latency reducing NVIDIA Reflex. AMD FSR and Intel XeSS are also supported.**
+                Customize graphic settings to your preference, with the potential for unlocked frame rates.**
+                Take control with full support for the DualSense™ controller, including haptic feedback and adaptive trigger functionality.***
+
+
+            * Compatible PC and 4K display device required.
+            ** Compatible PC required.
+            *** Wired connection required to experience the full range of in-game controller features.',
+//38
+            'Gather your party and return to the Forgotten Realms in a tale of fellowship and betrayal, sacrifice and survival, and the lure of absolute power.
+
+            Mysterious abilities are awakening inside you, drawn from a mind flayer parasite planted in your brain. Resist, and turn darkness against itself. Or embrace corruption, and become ultimate evil.
+
+            From the creators of Divinity: Original Sin 2 comes a next-generation RPG, set in the world of Dungeons & Dragons.
+
+
+
+
+
+            Choose from 12 classes and 11 races from the D&D Player\'s Handbook and create your own identity, or play as an Origin hero with a hand-crafted background. Or tangle with your inner corruption as the Dark Urge, a fully customisable Origin hero with its own unique mechanics and story. Whoever you choose to be, adventure, loot, battle and romance your way across the Forgotten Realms and beyond. Gather your party. Take the adventure online as a party of up to four.
+
+
+
+            Abducted, infected, lost. You are turning into a monster, but as the corruption inside you grows, so does your power. That power may help you to survive, but there will be a price to pay, and more than any ability, the bonds of trust that you build within your party could be your greatest strength. Caught in a conflict between devils, deities, and sinister otherworldly forces, you will determine the fate of the Forgotten Realms together.
+
+
+
+
+            Forged with the new Divinity 4.0 engine, Baldur’s Gate 3 gives you unprecedented freedom to explore, experiment, and interact with a thriving world filled with characters, dangers, and deceit. A grand, cinematic narrative brings you closer to your characters than ever before. From shadow-cursed forests, to the magical caverns of the Underdark, to the sprawling city of Baldur’s Gate itself, your actions define the adventure, but your choices define your legacy. You will be remembered.
+
+
+
+            The Forgotten Realms are a vast, detailed, and diverse world, and there are secrets to be discovered all around you – verticality is a vital part of exploration. Sneak, dip, shove, climb, and jump as you journey from the depths of the Underdark to the glittering rooftops of Baldur’s Gate. Every choice you make drives your story forward, each decision leaving your mark on the world. Define your legacy, nurture relationships and create enemies, and solve problems your way. No two playthroughs will ever be the same.
+
+
+                allows you to combine your forces in combat and simultaneously attack enemies, or split your party to each follow your own quests and agendas. Concoct the perfect plan together… or introduce an element of chaos when your friends least expect it. Relationships are complicated. Especially when you’ve got a parasite in your brain.
+
+
+
+                7 unique Origin heroes offer a hand-crafted experience, each with their own unique traits, agenda, and outlook on the world. Their stories intersect with the overarching narrative, and your choices will determine whether those stories end in redemption, salvation, domination, or one of many other outcomes. Play as an Origin and enjoy their stories, or recruit them to fight alongside you.
+
+
+
+                based on the D&D 5e ruleset. Team-based initiative, advantage and disadvantage, and roll modifiers join an advanced AI, expanded environmental interactions, and a new fluidity in combat that rewards strategy and foresight. Three difficulty settings allow you to customise the challenge of combat. Enable weighted dice to help sway the battle, or play on Tactician mode for a hardcore experience.
+
+
+
+                featuring 31 subraces on top of the 11 races (Human, Githyanki, Half-Orc, Dwarf, Elf, Drow, Tiefling, Halfling, Half Elf, Gnome, Dragonborn), with 46 subclasses branching out of the 12 classes. Over 600 spells and actions offer near-limitless freedom of interactivity in a hand-crafted world where exploration is rewarded, and player agency defines the journey. Our unique Character Creator features unprecedented depth of character, with reactivity that ensures whomever you are, you will leave a unique legacy behind you, all the way up to Level 12. Over 174 hours of cinematics ensure that no matter the choices you make, the cinematic experience follows your journey – every playthrough, a new cinematic journey.
+
+
+
+                With the looming threat of war heading to Baldur’s Gate, and a mind flayer invasion on the horizon, friendships – though not necessary – are bound to be forged on your journey. What becomes of them is up to you, as you enter real, vibrant relationships with those you meet along the way. Each companion has their own moral compass and will react to the choices you make throughout your journey. At what cost will you stick to your ideals? Will you allow love to shape your actions? The relationships made on the road to Baldur’s Gate act as moments of respite at camp as much as they add weight to the many decisions you make on your adventure.
+
+
+
+                so that when you hit ‘go live’, your stream isn’t interrupted by a bear, swear, or lack of underwear. Baldur’s Gate 3 has 3 different levels of streamer-friendly customisation. You can disable nudity and explicit content separately (or together), and you can enable Twitch integration to interact directly with your audience, just as we do at our Panel From Hell showcases! You’ll be able to stream Baldur’s Gate 3 without any problems, regardless of how you play, thanks to these options.',
+//39
+            'Purchase now and get the following bonus content for the expansion:
+
+                ELDEN RING Shadow of the Erdtree Bonus Gesture
+
+            This is a Gesture that can be used in-game for Shadow of the Erdtree content.
+
+            *Bonus content will be available in-game when the expansion releases.
+            *The player can also unlock this later in the expansion.
+
+            ELDEN RING Shadow of the Erdtree Edition
+
+
+
+            ELDEN RING Shadow of the Erdtree Edition includes:
+
+                ELDEN RING
+                ELDEN RING Shadow of the Erdtree expansion
+
+
+            *Shadow of the Erdtree content will be available when the expansion releases.
+
+            ELDEN RING Shadow of the Erdtree Deluxe Edition
+
+
+
+            ELDEN RING Shadow of the Erdtree Deluxe Edition includes:
+
+                ELDEN RING
+                ELDEN RING Shadow of the Erdtree expansion
+                ELDEN RING Digital Artbook & Original Soundtrack
+                ELDEN RING Shadow of the Erdtree Artbook & Soundtrack
+
+
+            *Shadow of the Erdtree content will be available when the expansion releases.
+
+            About This Game
+
+
+            THE NEW FANTASY ACTION RPG.
+            Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between.
+            • A Vast World Full of Excitement
+            A vast world where open fields with a variety of situations and huge dungeons with complex and three-dimensional designs are seamlessly connected. As you explore, the joy of discovering unknown and overwhelming threats await you, leading to a high sense of accomplishment.
+            • Create your Own Character
+            In addition to customizing the appearance of your character, you can freely combine the weapons, armor, and magic that you equip. You can develop your character according to your play style, such as increasing your muscle strength to become a strong warrior, or mastering magic.
+            • An Epic Drama Born from a Myth
+            A multilayered story told in fragments. An epic drama in which the various thoughts of the characters intersect in the Lands Between.
+            • Unique Online Play that Loosely Connects You to Others
+            In addition to multiplayer, where you can directly connect with other players and travel together, the game supports a unique asynchronous online element that allows you to feel the presence of others.',
+
+//40
+
+            'PLACEHOLDER'
+
         ];
         $base_price = [
             9.99,
@@ -564,7 +1068,23 @@ class GamesSeeder extends Seeder
             9.75,
             9.99,
             89.00,
-            123,
+            29.99,                         // Resident Evil 4
+            29.99,                         // Mortal Kombat 1
+            49.99,                         // Red Dead Redemption 2
+            39.99,                         // God Of War
+            19.99,                         // Tom Clancy's Rainbow Six Siege
+            29.99,                         // Dead Space
+            29.99,                         // Grounded
+            59.99,                         // Cyberpunk 2077
+            39.99,                         // Sea Of Thieves
+            49.99,                         // Sekiro Shadows Die Twice
+            59.99,                         // Monster Hunter Rise
+            49.99,                         // Assassin's Creed Valhalla
+            39.99,                         // Persona 3 Reload
+            69.99,                         // Horizon Forbidden West
+            59.99,                         // Baldur's Gate 3
+            69.99,                         // Elden Ring
+            9.99,                          // PLACEHOLDER DLC CB2077
         ];
 
         DB::table('tags')->insert([

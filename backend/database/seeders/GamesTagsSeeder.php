@@ -24,7 +24,7 @@ class GamesTagsSeeder extends Seeder
     {
         DB::table('games_tags')->insert([
             'game_id' => '1',
-            'tag_id' => '1',
+            'tag_id' => '4',
         ]);
         DB::table('games_tags')->insert([
             'game_id' => '1',
@@ -33,10 +33,6 @@ class GamesTagsSeeder extends Seeder
         DB::table('games_tags')->insert([
             'game_id' => '1',
             'tag_id' => '6',
-        ]);
-        DB::table('games_tags')->insert([
-            'game_id' => '1',
-            'tag_id' => '14',
         ]);
         DB::table('games_tags')->insert([
             'game_id' => '2',
@@ -52,6 +48,10 @@ class GamesTagsSeeder extends Seeder
         ]);
         DB::table('games_tags')->insert([
             'game_id' => '3',
+            'tag_id' => '1',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '3',
             'tag_id' => '6',
         ]);
         DB::table('games_tags')->insert([
@@ -60,11 +60,15 @@ class GamesTagsSeeder extends Seeder
         ]);
         DB::table('games_tags')->insert([
             'game_id' => '5',
-            'tag_id' => '18',
+            'tag_id' => '1',
         ]);
         DB::table('games_tags')->insert([
             'game_id' => '5',
-            'tag_id' => '7',
+            'tag_id' => '2',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '5',
+            'tag_id' => '3',
         ]);
         DB::table('games_tags')->insert([
             'game_id' => '6',
@@ -77,6 +81,10 @@ class GamesTagsSeeder extends Seeder
         DB::table('games_tags')->insert([
             'game_id' => '7',
             'tag_id' => '1',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '7',
+            'tag_id' => '10',
         ]);
         DB::table('games_tags')->insert([
             'game_id' => '8',
@@ -116,7 +124,7 @@ class GamesTagsSeeder extends Seeder
         ]);
         DB::table('games_tags')->insert([
             'game_id' => '12',
-            'tag_id' => '4',
+            'tag_id' => '1',
         ]);
         DB::table('games_tags')->insert([
             'game_id' => '12',
@@ -128,7 +136,7 @@ class GamesTagsSeeder extends Seeder
         ]);
         DB::table('games_tags')->insert([
             'game_id' => '13',
-            'tag_id' => '14',
+            'tag_id' => '8',
         ]);
         /*DB::table('games_tags')->insert([
             'game_id' => '13',
@@ -156,7 +164,7 @@ class GamesTagsSeeder extends Seeder
         ]);
         DB::table('games_tags')->insert([
             'game_id' => '16',
-            'tag_id' => '5',
+            'tag_id' => '6',
         ]);
         DB::table('games_tags')->insert([
             'game_id' => '18',
@@ -180,19 +188,39 @@ class GamesTagsSeeder extends Seeder
         ]);*/
         DB::table('games_tags')->insert([
             'game_id' => '20',
-            'tag_id' => '20',
+            'tag_id' => '5',
         ]);
         DB::table('games_tags')->insert([
             'game_id' => '20',
-            'tag_id' => '5',
+            'tag_id' => '20',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '21',
+            'tag_id' => '1',
         ]);
         DB::table('games_tags')->insert([
             'game_id' => '21',
             'tag_id' => '9',
         ]);
         DB::table('games_tags')->insert([
-            'game_id' => '21',
+            'game_id' => '22',
             'tag_id' => '1',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '22',
+            'tag_id' => '2',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '23',
+            'tag_id' => '1',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '23',
+            'tag_id' => '11',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '23',
+            'tag_id' => '17',
         ]);
         //Hitman DLC manca pk è un dlc
         /*DB::table('games_tags')->insert([
