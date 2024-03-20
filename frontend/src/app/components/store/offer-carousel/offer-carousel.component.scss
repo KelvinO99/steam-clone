@@ -1,25 +1,42 @@
-
 .card{
   background-color: rgba(0, 0, 0, 0);
   border: 0px;
   transition: 0.2s;
-  height: 15rem;
-  width: 99%;
   border-radius: 0;
 }
 
-.col-3{
-  padding: 0px;
+
+.card:hover{    
+  transform: scale(1.05);
+  z-index: 2;
+  filter: brightness(1.10);
 }
 
-.carousel-control-prev{
-  position: absolute;
-  top: 50%;  /* Centra i pulsanti verticalmente */
-  transform: translateY(-50%);
-  background-image: linear-gradient(to left, rgba(255,0,0,0), rgb(0, 0, 0));
-  width: 45px;
-  height: 108px;
-  padding: 36px 11px;
+.carousel-control-prev-icon {
+  background-image: url(../../../../assets/image/category/arrow-left.png);
+}
+
+.carousel-control-next-icon {
+  background-image: url(../../../../assets/image/category/arrow-right.png);
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4rem;
+    max-width: 100%;
+    height: auto;
+}
+
+
+.carousel-control-prev {
+    background-image: linear-gradient(to left, rgba(255,0,0,0), rgb(0, 0, 0));
+}
+
+.carousel-control-next {
+    background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(0, 0, 0));
 }
 
 .carousel-control-prev:hover{
@@ -30,27 +47,27 @@
   background-image: linear-gradient(to left, rgb(212, 212, 212, 0.449), rgb(255,0,0,0));
 }
 
-.carousel-control-next {
-  position: absolute;
-  top: 50%;  /* Centra i pulsanti verticalmente */
-  transform: translateY(-50%);
-  background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(0, 0, 0));
-  width: 45px;
-  height: 108px;
-  padding: 36px 11px;
-}
-
 .carousel-item:not(.active) {
   opacity: 0;
 }
 
 .carousel-inner{
-  height: 100%;
-  max-width: 940px;
+  height: auto;
+  max-width: 100%;
 }
 
-/* Button */
-#myCarousel .carousel-indicators button{
+div.text {
+  width: 100%;
+  height: 30%;
+  position: absolute;
+  bottom: 0;
+  pointer-events: none;
+  background-image: url(../../../../assets/image/background_spotlight.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#offerCarousel .carousel-indicators button{
   width:15px;
   height:9px;
   border-width: 1px;
@@ -58,30 +75,31 @@
   background-color: #606974;
  }
 
-/* Carousel indicators */
-#myCarousel .carousel-indicators{
-  top: 105%;
+#offerCarousel .carousel-indicators{
   bottom:auto !important;
- }
-
-#category_header{
-  color: white; 
-  top:31px;
-  position:relative; 
-  font-family:Motiva Sans, sans-serif !important; 
-  font-size:14px !important;
-  top: 140px !important;
-  left: 45px;
 }
 
 .categoryText{
   position: relative;
   font-family: "Motiva Sans", Sans-serif;
-  font-size: 16px;
+  font-size:  1vw;
   font-weight: bold;
   text-shadow: 0 1px 3px rgb(0 0 0 / 50%);
   letter-spacing: 0.1ch;
   color: white;
   text-align: center;
   bottom: 45px;
+  text-transform: uppercase;
+}
+
+.img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+@media only screen and (min-width: 1200px) {
+  .categoryText {
+      font-size: 16px;
+  }
 }

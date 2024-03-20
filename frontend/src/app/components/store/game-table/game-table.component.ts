@@ -12,6 +12,7 @@ export class GameTableComponent {
   incoming_game: any;
   best_seller_game: any;
   most_reviewed_game: any;
+  specia_offer: any;
   
   skip: number = 0;
   take: number = 10;
@@ -21,7 +22,7 @@ export class GameTableComponent {
   ngOnInit() {
     this.getMostReviewed();
   }
-
+  
   loadData(tab: string) {
     switch (tab) {
       case 'New & Trending':
@@ -30,11 +31,11 @@ export class GameTableComponent {
       case 'Top Sellers':
         this.getBestSeller();
         break;
-      case 'Popular Upcoming':
+      case 'Incoming':
         this.getIncoming();
         break;
       case 'Specials offer':
-        this.getDiscount();
+        this.getSpecialOffer();
         break;
     }
   }
@@ -90,6 +91,20 @@ export class GameTableComponent {
       })
       .subscribe((res: any) => {
         this.most_reviewed_game = res;
+        console.log('getMostReviewed');
+        console.log(this.most_reviewed_game);
+      });
+  }
+
+  getSpecialOffer() {
+    this.gameService
+      .getGames({
+        skip: this.skip,
+        take: this.take,
+        special_offer: true, // Imposta il flag a true
+      })
+      .subscribe((res: any) => {
+        this.specia_offer = res;
         console.log('getMostReviewed');
         console.log(this.most_reviewed_game);
       });

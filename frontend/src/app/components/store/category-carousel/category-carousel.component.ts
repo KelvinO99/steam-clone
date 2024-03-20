@@ -10,7 +10,7 @@ export class CategoryCarouselComponent {
 
   category: boolean = false;
   genres: any;
-  image: string[] = ['../../../assets/image/category/1-action.png','../../../assets/image/category/2-adventure.png'];
+ /*  carousel = new bootstrap.Caroyus */
 
   constructor(public gameService: GameService) {
   }
