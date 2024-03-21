@@ -30,7 +30,6 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { UpdatesOfferCardsComponent } from './updates-offer-cards/updates-offer-cards.component';
 import {MatButtonModule} from '@angular/material/button';
 import { MainCarouselComponent } from './main-carousel/main-carousel.component';
-import { UpdateOfferCardsV2Component } from './update-offer-cards-v2/update-offer-cards-v2.component';
 
 @NgModule({
   declarations: [
@@ -43,12 +42,10 @@ import { UpdateOfferCardsV2Component } from './update-offer-cards-v2/update-offe
     ProductBannersComponent,
     UpdatesOfferCardsComponent,
     OfferCarouselComponent,
-   ProductBannersComponent,
-   CategoryCarouselComponent,
-   GameDataComponent
-
+    ProductBannersComponent,
+    CategoryCarouselComponent,
+    GameDataComponent,
     MainCarouselComponent,
-    UpdateOfferCardsV2Component,
   ],
   imports: [
     CommonModule,

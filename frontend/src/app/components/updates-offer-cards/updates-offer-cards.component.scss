@@ -1,32 +1,32 @@
 .allCards {
-    margin-top: 0.5625rem; /* 9% */
+    margin-top: 6rem;
 }
 
 .bigCard, .smallCard, .smallCard2, .smallCard3, .smallCard4, .smallCard5, .smallCard6 {
-    border-radius: 0; /* Rimuove lo smussamento dei contorni */
+    border-radius: 0;
 }
 
 .bigCard {
-    width: 21.6384rem; /* 346.2144px / 16px */
-    height: 22.8232rem; /* 365.1712px / 16px */
-    left: 4.375rem; /* 70px / 16px */
+    width: 21.6384rem;
+    height: 22.8232rem;
+    left: 4.375rem;
 }
 
 .bigCardBody {  
-    width: 21.6384rem; /* 346.2144px / 16px */
-    height: 3.125rem; /* 50px / 16px */
+    width: 21.6384rem;
+    height: 3.125rem;
     background: linear-gradient(135deg, rgba(37,49,63,1) 5%, rgba(54,97,125,1) 95%);
     color: white;
     position: relative;
-    bottom: 1rem; /* 16px / 16px */
-    right: 1rem; /* 16px / 16px */
+    bottom: 1rem;
+    right: 1rem;
 }
 
 .updateTitle {
     color: white;
-    left: 0.425rem; /* 6.8% */
-    line-height: 0.9951rem; /* 15.9216px / 16px */
-    font-size: 0.93rem; /* 14.88px / 16px */
+    left: 4.3rem;
+    line-height: 0.9951rem;
+    font-size: 0.93rem;
     text-align: right;
     display: flex;
     flex-direction: row;
@@ -35,24 +35,24 @@
 
 .bigFinalPrice {    
     color: #BEEE11;
-    line-height: 0.9951rem; /* 15.9216px / 16px */
-    font-size: 0.93rem; /* 14.88px / 16px */
-    height: 3.3616rem; /* 53.7856px / 16px */
+    line-height: 0.9951rem;
+    font-size: 0.93rem;
+    height: 3.3616rem;
     text-align: right;
     display: flex;
     flex-direction: row;
     justify-content: end;
     position: relative;
-    top: 1rem; /* 16px / 16px */
-    right: 0.8125rem; /* 13px / 16px */
+    top: 1rem;
+    right: 0.8125rem;
 }
 
 .finalPrice {    
     color: white;
-    line-height: 0.9951rem; /* 15.9216px / 16px */
-    font-size: 0.93rem; /* 14.88px / 16px */
-    height: 3.3616rem; /* 53.7856px / 16px */
-    padding: 0.93rem; /* 14.88px / 16px */
+    line-height: 0.9951rem;
+    font-size: 0.93rem;
+    height: 3.3616rem;
+    padding: 0.93rem;
     text-align: right;
     display: flex;
     flex-direction: row;
@@ -63,66 +63,74 @@
 
 .smallCards {
     position: relative;
-    left: 0.90625rem; /* 14.5% */
+    left: 26.3rem;
+    bottom: 22.8rem;
 }
 
 .smallCard {
-    width: 9.8355rem; /* 157.3576px / 16px */
-    height: 10.3727rem; /* 165.9636px / 16px */
-    margin-right: 0.21875rem; /* 3.5px / 16px */
-    justify-content: start;
+    width: 9.8355rem;
+    height: 10.3727rem;
+    position: relative;
+    margin-right: 0.25rem;
 }
 
 .smallCard2 {
-    width: 9.8355rem; /* 157.3576px / 16px */
-    height: 10.3727rem; /* 165.9636px / 16px */
-    margin-right: 0.25rem; /* 4px / 16px */
-    justify-content: center;
+    width: 9.8355rem;
+    height: 10.3727rem;
+    position: relative;
+    margin-right: 0.25rem;
+    bottom: 10.4rem;
+    left: 10rem;
 }
 
 .smallCard3 {
-    width: 9.8355rem; /* 157.3576px / 16px */
-    height: 10.3727rem; /* 165.9636px / 16px */
+    width: 9.8355rem;
+    height: 10.3727rem;
     position: relative;
-    margin-right: 0.21875rem; /* 3.5px / 16px */
     display: inline-block;
+    bottom: 20.77rem;
+    left: 20rem;
 }
 
 .lowCards {
     position: relative;
-    left: 0.125rem; /* 2% */
+    left: 0.8rem;
+    bottom: 20.8rem;
 }
 
 .smallCard4 {
-    width: 9.8355rem; /* 157.3576px / 16px */
-    height: 10.3727rem; /* 165.9636px / 16px */
+    width: 9.8355rem;
+    height: 10.3727rem;
     position: relative;
-    margin-right: 0.21875rem; /* 3.5px / 16px */
-    bottom: 0.1875rem; /* 3px / 16px */
+    margin-right: 0.15rem;
+    bottom: 0.1875rem;
 }
 
 .smallCard5 {
-    width: 9.8355rem; /* 157.3576px / 16px */
-    height: 10.3727rem; /* 165.9636px / 16px */
+    width: 9.8355rem;
+    height: 10.3727rem;
     position: relative;
-    margin-right: 0.25rem; /* 4px / 16px */
-    bottom: 0.1875rem; /* 3px / 16px */
+    margin-right: 0.15rem;
+    bottom: 0.1875rem;
 }
 
 .smallCard6 {
-    width: 9.8355rem; /* 157.3576px / 16px */
-    height: 10.3727rem; /* 165.9636px / 16px */
+    width: 9.8355rem;
+    height: 10.3727rem;
     position: relative;
-    display: inline-block;
-    bottom: 0.1875rem; /* 3px / 16px */
+    bottom: 0.1875rem;
 }
 
 .cardBody {  
-    width: 9.8601rem; /* 157.7616px / 16px */
-    height: 2.5rem; /* 40px / 16px */
+    width: 9.8601rem;
+    height: 2.5rem;
     background: linear-gradient(135deg, rgba(37,49,63,1) 5%, rgba(54,97,125,1) 95%);
     color: white;
     position: relative;
-    bottom: 1.023rem; /* 16.368px / 16px */
-    right: 1rem; /* 16px / 16px */
+    bottom: 1.023rem;
+    right: 1rem;
+}
+
+#allCardsContainer{
+    height: 430px;
 }
