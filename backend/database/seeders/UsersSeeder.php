@@ -76,10 +76,10 @@ class UsersSeeder extends Seeder
 
             $j++;
             $user = User::create([
-                'username' => $randomUsername,
+                'username' => $usernames[$j],
                 'email' => $email,
                 'password' => 'password',
-                'image_id' => 1,
+                'image_id' => 111, //da cambiare ogni volta che si aggiungono giochi/achievements images
                 'wallet' => 0,
             ]);
 
