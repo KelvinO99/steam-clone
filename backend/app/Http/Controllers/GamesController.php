@@ -26,10 +26,10 @@ class GamesController extends Controller
         try {
             $discount = $request->input("discount"); // GIOCHI CON SCONTO
             $featured = $request->input("featured"); // GIOCHI TOP SELLER
-            $special_offer = $request->input("special_offer"); // GIOCHI CON SCONTO SUPERIORE AL 60%
+            $special_offer = $request->input("special_offer"); // GIOCHI CON SCONTO SUPERIORE AL 50%
             $most_reviewed = $request->input("most_reviewed"); // CALCOLO TRA NUMERO RECENSIONI E DATA DI USCITA
             $best_seller = $request->input("best_seller"); // CALCOLO SUL NUMERO DI COPIE ACQUISTATE
-            $upcoming = $request->input("incoming"); // CALCOLO SUL NUMERO DI COPIE ACQUISTATE
+            $upcoming = $request->input("upcoming"); // CALCOLO SUL NUMERO DI COPIE ACQUISTATE
             $skip = $request->input("skip");
             $take = $request->input("take");
             $today = Carbon::now();
