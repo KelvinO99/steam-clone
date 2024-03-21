@@ -12,7 +12,6 @@ class TagsSeeder extends Seeder
 {
     public function run(): void
     {
-        $DIM_A = 30;
         $names = [
             'Action', //1
             'Adventure', //2
@@ -34,25 +33,23 @@ class TagsSeeder extends Seeder
             'Casual', //18
             'Sports', //19
             'Racing', //20
-            'Free to Play', //21
-            'VR',//22
-            'Steam Deck',//23
-            'Steam Achievements',//24
-            'Full controller support',//25
-            'Steam Cloud',//26
-            'Mods',//27
-            'Steam Workshop',//28
-            'In-App Purchases',//29
-            'Partial Controller Support',//30
-            'Cross-Platform Multiplayer',//31
-            'Steam Trading Cards',//32
-            'Captions available',//33
-            'Steam Leaderboards',//34
-            'Remote Play on TV',//35
-            'Remote Play Together',//36
-            'SteamVR Collectibles',//37
-            'Offerta',//38
-
+            'VR',//21
+            'Steam Deck',//22
+            'Steam Achievements',//23
+            'Full controller support',//24
+            'Steam Cloud',//25
+            'Mods',//26
+            'Steam Workshop',//27
+            'In-App Purchases',//28
+            'Partial Controller Support',//29
+            'Cross-Platform Multiplayer',//30
+            'Steam Trading Cards',//31
+            'Captions available',//32
+            'Steam Leaderboards',//33
+            'Remote Play on TV',//34
+            'Remote Play Together',//35
+            'SteamVR Collectibles',//36
+            'Offerta',//37
 
         ];
 
@@ -99,12 +96,12 @@ class TagsSeeder extends Seeder
 
 
         ];
-        for($i=0;$i<21;$i++) //19
+        for($i=0;$i<sizeof($names);$i++) //19
         {
             DB::table('tags')->insert([
                 'name' => $names[$i],//PLACEHOLDER RNGNAME FROM ARRAY
                 'is_genre' => $isgenre[$i],
-                'image_id' => 1, //DA CAMBIARE AL PIU' PRESTO 
+                //'image_id' => 1, //DA CAMBIARE AL PIU' PRESTO
             ]);
         }
     }

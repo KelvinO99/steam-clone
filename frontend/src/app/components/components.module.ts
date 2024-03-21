@@ -1,4 +1,4 @@
-import { OfferCarouselComponent } from './offer-carousel/offer-carousel.component';
+import { OfferCarouselComponent } from './store/offer-carousel/offer-carousel.component';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -23,14 +23,15 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 /* import { ProductBannersComponent } from '../product-banners/product-banners.component';
 import { MainCarouselComponent } from './main-carousel/main-carousel.component'; */
 import { MatCardModule} from '@angular/material/card';
-import { ProductBannersComponent } from './product-banners/product-banners.component';
-import { CategoryCarouselComponent } from './category-carousel/category-carousel.component';
-import { GameDataComponent } from './game-data/game-data.component';
+import { ProductBannersComponent } from './store/product-banners/product-banners.component';
+import { GameTableComponent } from './store/game-table/game-table.component';
+import { CategoryCarouselComponent } from './store/category-carousel/category-carousel.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { UpdatesOfferCardsComponent } from './updates-offer-cards/updates-offer-cards.component';
 import {MatButtonModule} from '@angular/material/button';
 import { MainCarouselComponent } from './main-carousel/main-carousel.component';
 
+import { GameComponent } from './game/game.component';
 @NgModule({
   declarations: [
     BaseComponent,
@@ -42,10 +43,11 @@ import { MainCarouselComponent } from './main-carousel/main-carousel.component';
     ProductBannersComponent,
     UpdatesOfferCardsComponent,
     OfferCarouselComponent,
-    ProductBannersComponent,
-    CategoryCarouselComponent,
-    GameDataComponent,
-    MainCarouselComponent,
+   ProductBannersComponent,
+   GameTableComponent,
+   GameComponent,
+   CategoryCarouselComponent,
+
   ],
   imports: [
     CommonModule,

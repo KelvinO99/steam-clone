@@ -12,7 +12,6 @@ class AchievementsSeeder extends Seeder
 {
     public function run(): void
     {
-        $DIM_A = 20;
         $names = [
             'Master Miner - Collect all rare minerals and resources in the game.',
             'Master Explorer - Discover all hidden locations in the game world.',
@@ -61,7 +60,7 @@ class AchievementsSeeder extends Seeder
         ];
         $bool=false;
         $j=0;
-        for($i=0;$i<38;$i++) //38
+        for($i=0;$i<sizeof($names);$i++) //38
         {
             $bool ? $bool=false : $bool=true;
             $bool ? $j++ : null;

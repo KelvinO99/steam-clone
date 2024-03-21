@@ -15,7 +15,7 @@ return new class extends Migration
             $table->unsignedBigInteger('image_id')->nullable()->default(1);
             $table->timestamps();
 
-            $table->foreign('image_id')->references('id')->on('images');
+            // $table->foreign('image_id')->references('id')->on('images');
         });
     }
 
