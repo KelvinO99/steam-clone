@@ -29,13 +29,13 @@ mat-card {
 }
 .title {
     color: #c7d5e0;
-    font-size: 15px;
+    font-size: 0.78125vw;
 }
 
 .price {
     color: #BEEE11;
     line-height: 16px;
-    font-size: 15px;
+    font-size: 0.78125vw;
 }
 
 img.opacity {
@@ -44,26 +44,27 @@ img.opacity {
 
 span.tags {
     color: #384959;
+    font-size: 0.72vw;
 }
 
 span.free {
     color: white; 
-    font-size: 15px;
+    font-size: 0.78125vw;
 }
 
 span.discount {
-    font-size: 15px;
+    font-size: 0.78125vw;
     color: #BEEE11;
 }
 
 span.basePriceDiscount {
     color: #738895; 
-    font-size: 11px; 
+    font-size: 0.57vw; 
     text-decoration: line-through
 }
 
 div.discountPercentage {
-    font-size: 16px; 
+    font-size: 0.83vw; 
     align-items: center; 
     display: flex; 
     padding: 0 4px; 
@@ -75,6 +76,29 @@ div.discountPercentage {
 
 span.basePrice {
     color: white;
-    font-size: 15px;
+    font-size: 0.78125vw;
+}
+
+@media only screen and (min-width: 1200px) {
+
+    .price,
+    .title,
+    span.free,
+    span.discount,
+    span.basePrice {
+        font-size: 15px;
+    }
+
+    div.discountPercentage {
+        font-size: 16px;
+    }
+
+    span.basePriceDiscount {
+        font-size: 11px;
+    }
+
+    span.tags {
+        font-size: 14px;
+    }
 }
 
