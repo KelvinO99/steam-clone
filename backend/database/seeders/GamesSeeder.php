@@ -53,7 +53,7 @@ class GamesSeeder extends Seeder
             'Horizon Forbidden West',                  //37
             'Baldur\'s Gate 3',                        //38
             'Elden Ring',                              //39
-            'PLACEHOLDER DLC CB2077',                        //40
+            'Cyberpunk 2077: Phantom Liberty',         //40
         ];
 
         $dates = [
@@ -156,6 +156,7 @@ class GamesSeeder extends Seeder
             ((Healthy Dog\'s Warning: Game contains imagery that may be harmful to players with photosensitive epilepsy or similar condition.))
             features:
 
+                https.efvfgbfgb.com
                 Killing is unnecessary: negotiate out of danger using the unique battle system.
                 Time your attacks for extra damage, then dodge enemy attacks in a style reminiscent of top-down shooters.
                 Original art and soundtrack brimming with personality.
@@ -443,17 +444,7 @@ class GamesSeeder extends Seeder
 
             Creatures can be battled or befriended, depending on how you play. The world of Minecraft allows for epic adventures, quiet meditations, and everything in between. You can even share your creations with other players, or play in community worlds!',
 //13
-            '"Overwatch 2, Blizzard Entertainment\'s vibrant sequel to the original team-based shooter, steps onto the battlefield with a fresh coat of paint and a truckload of upgrades. This iteration isn\'t just a simple facelift; it\'s a full-on evolution, pushing the boundaries of team play and hero dynamics. At its core, Overwatch 2 maintains the beloved fast-paced, character-driven action, but with significant enhancements that redefine the experience.
-
-            The game introduces new maps, heroes, and a revamped PvP experience, focusing heavily on cooperative PvE story missions – a first for the series. These missions dive deeper into the rich lore of the Overwatch universe, giving players a chance to explore the backstories and motivations of their favorite heroes. It\'s not just about the shooting (though, let\'s be real, that\'s a big part); it\'s about immersing yourself in a world where every character has a story worth telling.
-
-            Graphically, Overwatch 2 is a feast for the eyes. The updated engine showcases more detailed environments, dynamic weather effects, and enhanced character models, all while maintaining that signature Overwatch style – colorful, lively, and just a touch whimsical. The visual improvements are not just for show; they also impact gameplay, with environmental effects influencing strategy and tactics.
-
-            On the competitive front, Overwatch 2 overhauls the PvP experience. The game shifts to a 5v5 format, intensifying the action and requiring more strategic thinking. This change, controversial as it may be, encourages players to adapt and rethink their approach to team composition and map control. New modes and maps are introduced, each designed to test players\' abilities and teamwork.
-
-            Overwatch 2 is not just a sequel; it\'s a statement. It\'s Blizzard\'s commitment to evolving the series while staying true to what fans loved about the original. Whether you\'re here for the lore, the competitive scene, or just the sheer joy of pulling off the perfect combo with your friends, Overwatch 2 promises an experience that\'s both familiar and fresh, challenging and rewarding.
-
-            As developers, we must appreciate the technical prowess behind Overwatch 2. The seamless integration of new gameplay mechanics with the existing framework demonstrates Blizzard\'s dedication to innovation without alienating the core player base. It\'s a delicate balance, but one that Overwatch 2 seems to navigate with grace and confidence.",',
+            'no text',
 //14
             'FIFA 24 emerges as the latest installment in EA Sports\' long-standing football simulation series, bringing with it a wave of improvements, innovations, and the ever-present promise of the most authentic football experience you can get without actually lacing up your boots. This year\'s edition focuses on deepening the immersion, refining gameplay mechanics, and expanding the wealth of content that fans have come to expect.
 

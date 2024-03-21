@@ -254,9 +254,9 @@ class GamesController extends Controller
             }
 
             // Controlla che il gioco non abbia lo stesso nome di un'altro - Salvo
-            if (Games::where('name', $name)->exists()) {
+            /*if (Games::where('name', $name)->exists()) {
                 return response()->json(['message' => 'Un gioco con lo stesso nome esiste già'], 409);
-            }
+            }*/
 
             if($name) $game->update(['name' => $name]);
             if($is_dlc) {
