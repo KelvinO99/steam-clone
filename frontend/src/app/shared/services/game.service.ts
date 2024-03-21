@@ -21,5 +21,10 @@ export class GameService {
     return this.http.get<any>(`${this.APIUrl}games/index`,{params});
   }
 
+  showGame(id: number){
+    return this.http.get<any>(`${this.APIUrl}games/show/${id}`);
+  }
+
 }
+
 

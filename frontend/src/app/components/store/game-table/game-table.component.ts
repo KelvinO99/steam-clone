@@ -1,24 +1,28 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { GameService } from 'src/app/shared/services/game.service';
 
 @Component({
-  selector: 'app-game-data',
-  templateUrl: './game-data.component.html',
-  styleUrls: ['./game-data.component.scss']
+  selector: 'app-game-table',
+  templateUrl: './game-table.component.html',
+  styleUrls: ['./game-table.component.scss']
 })
-export class GameDataComponent {
+export class GameTableComponent {
   discount_game: any
   incoming_game: any
   best_seller_game: any
   most_reviewed_game: any
+  price: any
+
   skip: number = 0;
   take: number = 10;
   incoming: boolean = false
   best_seller: boolean = false
   discount: boolean = false
   most_reviewed: boolean = false
+  special_offer: boolean = true
 
-  constructor(public gameService: GameService){}
+  constructor(public gameService: GameService, public router: Router){}
 
   ngOnInit(){
     this.getIncoming()
@@ -41,10 +45,11 @@ export class GameDataComponent {
   }
 
   getBestSeller() {
-    this.gameService.getGames({skip: this.skip, take: this.take, best_seller: this.best_seller = true}).subscribe({
+    this.gameService.getGames({skip: this.skip, take: this.take, discount: this.discount = true}).subscribe({
       next: (res: any) => {
         {
           this.best_seller_game = res
+          
           console.log("getBestSeller")
           console.log(this.best_seller_game);
           
@@ -77,6 +82,12 @@ export class GameDataComponent {
         }
       }
     })
+  }
+
+  goTo(path: string) {
+    this.router.navigate([path])
+    console.log(path);
+    
   }
 
 }
