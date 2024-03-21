@@ -28,6 +28,7 @@ import { GameTableComponent } from './store/game-table/game-table.component';
 import { CategoryCarouselComponent } from './store/category-carousel/category-carousel.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { GameComponent } from './game/game.component';
+import { DataGameComponent } from './game/data-game/data-game.component';
 @NgModule({
   declarations: [
     BaseComponent,
@@ -43,6 +44,7 @@ import { GameComponent } from './game/game.component';
    GameTableComponent,
    GameComponent,
    CategoryCarouselComponent,
+   DataGameComponent,
 
   ],
   imports: [

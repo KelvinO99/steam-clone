@@ -15,30 +15,47 @@ export class OfferCarouselComponent {
   col_1!: string;
   screenWidth = window.screen.width;
   skip: number = 0;
-  take: number = 22;
-  discount_game: any;
+  take: number = 3;
+  itemsPerPage = 3; 
+  pages: number[] = []; 
+  currentIndex = 0; 
 
   constructor(public gameService: GameService) {
     
    }
 
   ngOnInit(){
-    this.getDiscount()
+    this.getUpdatesAndOffers()
   }
+ 
+getUpdatesAndOffers(){ 
+  this.gameService.getGames({discount: true}).subscribe({ 
+    next: (res: any) => { 
+ 
+      this.game = res.games; 
+      const pageCount = Math.ceil(this.game.length / this.itemsPerPage); 
+      this.pages = Array.from({ length: pageCount }, (_, i) => i + 1); 
+    } 
+  }) 
+}
 
-  getDiscount() {
-    this.gameService
-      .getGames({
-        skip: this.skip,
-        take: this.take,
-        discount: true, // Imposta il flag a true
-      })
-      .subscribe((res: any) => {
-        this.discount_game = res;
-        console.log('getDiscount');
-        console.log(this.discount_game);
-      });
-  }
+  getCardsForPage(index: number): any[] { 
+    const start = index * this.itemsPerPage; 
+    const end = start + this.itemsPerPage; 
+    return this.game.slice(start, end); 
+  } 
+ 
+  prevPage(): void { 
+    if (this.currentIndex > 0) { 
+      this.currentIndex--; 
+    } 
+  } 
+ 
+  nextPage(): void { 
+    if (this.currentIndex < this.pages.length - 1) { 
+      this.currentIndex++; 
+    } 
+  } 
 
   @HostListener('window:resize', ['$event'])
   onResize(event?: undefined) {

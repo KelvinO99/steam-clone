@@ -31,10 +31,10 @@ export class GameTableComponent {
       case 'Top Sellers':
         this.getBestSeller();
         break;
-      case 'Incoming':
+      case 'Upcoming':
         this.getIncoming();
         break;
-      case 'Specials offer':
+      case 'Specials offers':
         this.getSpecialOffer();
         break;
     }
@@ -105,8 +105,8 @@ export class GameTableComponent {
       })
       .subscribe((res: any) => {
         this.specia_offer = res;
-        console.log('getMostReviewed');
-        console.log(this.most_reviewed_game);
+        console.log('getSpecialOffer');
+        console.log(this.specia_offer);
       });
   }
 
