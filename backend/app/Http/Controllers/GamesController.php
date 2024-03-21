@@ -66,7 +66,7 @@ class GamesController extends Controller
             }
 
             if ($special_offer == true) {
-                $game->where('discounted_percentage', '>', '60');
+                $game->where('discounted_percentage', '>', '50');
             }
 
             if ($incoming == true) {

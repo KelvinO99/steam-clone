@@ -6,6 +6,8 @@ import { HomeComponent } from './components/home/home.component';
 import { StoreComponent } from './components/store/store.component';
 import { AuthGuard } from './shared/services/auth.guard';
 import { User } from './shared/services/user.service';
+import { GameTableComponent } from './components/store/game-table/game-table.component';
+import { GameComponent } from './components/game/game.component';
 
 const routes: Routes = [
   
@@ -17,7 +19,9 @@ const routes: Routes = [
     { path: 'store', component: StoreComponent },
   ] },
   { path: 'user-profile/:id', component: User, canActivate: [AuthGuard] },
+  { path: 'game/:id', component: GameComponent}
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
