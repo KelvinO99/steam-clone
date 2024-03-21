@@ -16,7 +16,7 @@ export class OfferCarouselComponent {
   screenWidth = window.screen.width;
   skip: number = 0;
   take: number = 22;
-  discount: boolean = false
+  discount_game: any;
 
   constructor(public gameService: GameService) {
     
@@ -27,16 +27,17 @@ export class OfferCarouselComponent {
   }
 
   getDiscount() {
-    this.gameService.getGames({skip: this.skip, take: this.take, discount: this.discount = true}).subscribe({
-      next: (res: any) => {
-        {
-          this.game = res
-          console.log("getDiscount");
-          console.log(this.game);
-          
-        }
-      }
-    })
+    this.gameService
+      .getGames({
+        skip: this.skip,
+        take: this.take,
+        discount: true, // Imposta il flag a true
+      })
+      .subscribe((res: any) => {
+        this.discount_game = res;
+        console.log('getDiscount');
+        console.log(this.discount_game);
+      });
   }
 
   @HostListener('window:resize', ['$event'])
