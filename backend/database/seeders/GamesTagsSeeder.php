@@ -222,16 +222,194 @@ class GamesTagsSeeder extends Seeder
             'game_id' => '23',
             'tag_id' => '17',
         ]);
-        //Hitman DLC manca pk è un dlc
-        /*DB::table('games_tags')->insert([
-            'game_id' => '20',
+        DB::table('games_tags')->insert([
+            'game_id' => '24',
+            'tag_id' => '1',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '24',
+            'tag_id' => '12',
+        ]);
+
+        DB::table('games_tags')->insert([
+            'game_id' => '25',
+            'tag_id' => '1',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '26',
+            'tag_id' => '1',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '26',
+            'tag_id' => '2',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '26',
+            'tag_id' => '7',
+        ]);
+
+        DB::table('games_tags')->insert([
+            'game_id' => '27',
+            'tag_id' => '1',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '27',
+            'tag_id' => '2',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '27',
+            'tag_id' => '14',
+        ]);
+
+        DB::table('games_tags')->insert([
+            'game_id' => '28',
+            'tag_id' => '1',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '28',
+            'tag_id' => '8',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '28',
+            'tag_id' => '10',
+        ]);
+
+        DB::table('games_tags')->insert([
+            'game_id' => '29',
+            'tag_id' => '1',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '29',
+            'tag_id' => '12',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '29',
+            'tag_id' => '13',
+        ]);
+
+        DB::table('games_tags')->insert([
+            'game_id' => '30',
+            'tag_id' => '2',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '30',
+            'tag_id' => '16',
+        ]);
+
+        DB::table('games_tags')->insert([
+            'game_id' => '31',
+            'tag_id' => '1',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '31',
+            'tag_id' => '4',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '31',
+            'tag_id' => '13',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '31',
+            'tag_id' => '7',
+        ]);
+
+        DB::table('games_tags')->insert([
+            'game_id' => '32',
+            'tag_id' => '2',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '32',
+            'tag_id' => '8',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '32',
+            'tag_id' => '7',
+        ]);
+
+        DB::table('games_tags')->insert([
+            'game_id' => '33',
+            'tag_id' => '1',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '33',
+            'tag_id' => '2',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '33',
+            'tag_id' => '15',
+        ]);
+
+        DB::table('games_tags')->insert([
+            'game_id' => '34',
+            'tag_id' => '1',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '34',
+            'tag_id' => '2',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '34',
+            'tag_id' => '14',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '34',
+            'tag_id' => '8',
+        ]);
+
+        DB::table('games_tags')->insert([
+            'game_id' => '35',
+            'tag_id' => '1',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '35',
+            'tag_id' => '2',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '35',
+            'tag_id' => '7',
+        ]);
+
+        DB::table('games_tags')->insert([
+            'game_id' => '36',
+            'tag_id' => '4',
+        ]);
+
+        DB::table('games_tags')->insert([
+            'game_id' => '37',
+            'tag_id' => '1',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '37',
+            'tag_id' => '2',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '37',
             'tag_id' => '7',
         ]);
         DB::table('games_tags')->insert([
-            'game_id' => '20',
-            'tag_id' => '20',
-        ]);*/
+            'game_id' => '38',
+            'tag_id' => '4',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '38',
+            'tag_id' => '11',
+        ]);
 
-
+        DB::table('games_tags')->insert([
+            'game_id' => '39',
+            'tag_id' => '1',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '39',
+            'tag_id' => '2',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '39',
+            'tag_id' => '4',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '39',
+            'tag_id' => '7',
+        ]);
     }
 }
