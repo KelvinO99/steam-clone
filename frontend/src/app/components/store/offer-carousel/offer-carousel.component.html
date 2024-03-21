@@ -1,11 +1,24 @@
 <div class="container-fluid d-block mt-5 px-0">
+
+    <div class="row pb-3">
+
+        <div class="col-1 p-0"></div>
+
+        <div class="col-10 p-0">
+            <p class="titles"> special offer </p>
+        </div>
+
+        <div class="col-1"></div>
+
+    </div>
+
   <div id="offerCarousel" class="carousel slide carousel-fade main" data-bs-ride="carousel">
       <div class="row justify-content-center">
 
           <div class="col-1 p-0">
 
               <button class="carousel-control-prev m-auto" type="button" data-bs-target="#offerCarousel"
-                  data-bs-slide="prev">
+                  data-bs-slide="prev" (click)="prevPage()">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Previous</span>
               </button>
@@ -15,13 +28,12 @@
           <div class="col-10 d-flex justify-content-center px-0">
               <div class="carousel-inner">
 
-                  <div class="carousel-item active d-block">
+                  <div class="carousel-item" *ngFor="let page of pages; let i = index" [class.active]="currentIndex === i">
                       <div class="row">
 
-                          <div class="col-4">
+                          <div class="col-4 px-1"  *ngFor="let card of getCardsForPage(i)">
                               <div class="card">
-                                  <img class="img" 
-                                  src="https://web.archive.org/web/20240313111837im_/https://cdn.akamai.steamstatic.com/steam/spotlights/222fcf1735e29bb17fe04e02/spotlight_image_english.jpg?t=1709744833">
+                                <img class="img" [src]="card.images[0]?.image_path">
 
                                   <div class="container text"> 
                                     
@@ -30,7 +42,7 @@
                           </div>
 
 
-                          <div class="col-4">
+                          <!-- <div class="col-4">
                             <div class="card">
                                 <img class="img" 
                                 src="https://web.archive.org/web/20240313111837im_/https://cdn.akamai.steamstatic.com/steam/spotlights/222fcf1735e29bb17fe04e02/spotlight_image_english.jpg?t=1709744833">
@@ -51,7 +63,7 @@
                                 
                               </div>
                           </div>
-                      </div>
+                      </div> -->
 
                       </div>
                   </div>
@@ -61,7 +73,7 @@
           <div class="col-1 p-0">
 
               <button class="carousel-control-next align-items-center m-auto" type="button"
-                  data-bs-target="#offerCarousel" data-bs-slide="next">
+                  data-bs-target="#offerCarousel" data-bs-slide="next" (click)="nextPage()">
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Next</span>
               </button>
@@ -69,7 +81,7 @@
           </div>
 
       </div>
-      <div class="row">
+      <!-- <div class="row">
 
           <div class="col">
 
@@ -84,6 +96,6 @@
 
           </div>
 
-      </div>
+      </div> -->
   </div>
 </div>
