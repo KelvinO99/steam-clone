@@ -19,7 +19,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->default('PLACEHOLDER');
             $table->float('wallet')->default(0.00);
-            $table->unsignedBigInteger('image_id'); //NON SI METTE NULL VAFFANCUKLO
+            $table->unsignedBigInteger('image_id')->nullable()->default(111); //NON SI METTE NULL VAFFANCUKLO
             //$table->string('role')->default('user');
             $table->rememberToken();
             $table->timestamps();
