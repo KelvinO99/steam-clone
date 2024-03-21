@@ -21,7 +21,7 @@ class GamesSeeder extends Seeder
             'Terraria',                                //5
             'Fortnite',                                //6
             'Call of Duty Black Ops 2',                //7
-            'Assassin\'s Creed 4',                      //8
+            'Assassin\'s Creed 4',                     //8
             'Grand Theft Auto V',                      //9
             'Halo: The Master Chief Collection',       //10
             'Final Fantasy 7 Remake Intergrade',       //11
