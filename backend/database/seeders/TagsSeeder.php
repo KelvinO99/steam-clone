@@ -49,8 +49,7 @@ class TagsSeeder extends Seeder
             'Remote Play on TV',//34
             'Remote Play Together',//35
             'SteamVR Collectibles',//36
-            'Offerta',//37
-
+            'Offerta',//37                  //perché in italiano?? e poi a che serve?????? :o:O
         ];
 
         $isgenre = [

@@ -26,10 +26,10 @@ class GamesController extends Controller
         try {
             $discount = $request->input("discount"); // GIOCHI CON SCONTO
             $featured = $request->input("featured"); // GIOCHI TOP SELLER
-            $special_offer = $request->input("special_offer"); // GIOCHI CON SCONTO SUPERIORE AL 60%
+            $special_offer = $request->input("special_offer"); // GIOCHI CON SCONTO SUPERIORE AL 50%
             $most_reviewed = $request->input("most_reviewed"); // CALCOLO TRA NUMERO RECENSIONI E DATA DI USCITA
             $best_seller = $request->input("best_seller"); // CALCOLO SUL NUMERO DI COPIE ACQUISTATE
-            $incoming = $request->input("incoming"); // CALCOLO SUL NUMERO DI COPIE ACQUISTATE
+            $upcoming = $request->input("upcoming"); // CALCOLO SUL NUMERO DI COPIE ACQUISTATE
             $skip = $request->input("skip");
             $take = $request->input("take");
             $today = Carbon::now();
@@ -41,35 +41,35 @@ class GamesController extends Controller
             $total = $game->count();
 
             //ISSET CODE
-            if ($discount == true) {
+            if ($discount) {
                 $game->where('is_discounted', 1);
             }
 
-            if ($most_reviewed == true) {
+            if ($most_reviewed) {
                 $game->whereHas('Reviews')
                     ->withCount('Reviews')
                     ->orderBy('Reviews_count', 'desc')
                     ->orderBy('date', 'desc');
             }
 
-            if ($best_seller == true) {
+            if ($best_seller) {
                 $game->whereHas('Libraries')
                     ->withCount('Libraries')
                     ->orderBy('Libraries_count', 'desc');
             }
 
-            if ($featured == true) {
+            if ($featured) {
                 $game->select('games.id', 'games.name', 'games.base_price', 'games.discounted_price')
                     ->join('games_tags', 'games.id', '=', 'games_tags.game_id')
                     ->join('tags', 'games_tags.tag_id', '=', 'tags.id')
                     ->where('tags.name', 'Top Seller');
             }
 
-            if ($special_offer == true) {
+            if ($special_offer) {
                 $game->where('discounted_percentage', '>', '50');
             }
 
-            if ($incoming == true) {
+            if ($upcoming) {
                 $game->where('date', '>', $today);
             }
             //ISSET CODE
@@ -254,9 +254,9 @@ class GamesController extends Controller
             }
 
             // Controlla che il gioco non abbia lo stesso nome di un'altro - Salvo
-            if (Games::where('name', $name)->exists()) {
+            /*if (Games::where('name', $name)->exists()) {
                 return response()->json(['message' => 'Un gioco con lo stesso nome esiste già'], 409);
-            }
+            }*/
 
             if($name) $game->update(['name' => $name]);
             if($is_dlc) {
