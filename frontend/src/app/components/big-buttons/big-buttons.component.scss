@@ -1,0 +1,28 @@
+.container-fluid{
+    margin-top: 8vh;
+}
+
+.bigButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 58px;
+    width: 229px;
+    font-family: "Motiva Sans", Sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    text-align: center;
+    background: linear-gradient(90deg, #06BFFF 0%, #2D73FF 100%);
+    border-radius: 3px;
+    box-shadow: 0 0 4px #000;
+    cursor:pointer;
+    margin: 0.5vh;
+}
+
+.bigButton:hover {
+    filter: brightness(1.20);
+}

@@ -32,6 +32,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { MainCarouselComponent } from './main-carousel/main-carousel.component';
 
 import { GameComponent } from './game/game.component';
+import { BigButtonsComponent } from './big-buttons/big-buttons.component';
 @NgModule({
   declarations: [
     BaseComponent,
@@ -47,6 +48,7 @@ import { GameComponent } from './game/game.component';
    GameTableComponent,
    GameComponent,
    CategoryCarouselComponent,
+   BigButtonsComponent,
 
   ],
   imports: [

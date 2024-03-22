@@ -52,6 +52,7 @@ img {
 }
 
 .updateTitle{
+  margin-top: 8vh;
   color: white;
   position: relative; 
   left: 110px;
@@ -93,7 +94,7 @@ img {
 
 /* Span Tag */
 #carouselExampleControls .price .d-flex span{
-  font-size:10px;
+  font-size:11px;
   text-decoration:line-through;
  }
 
@@ -101,12 +102,12 @@ img {
 .card-body .d-flex div div .ng-star-inserted{
   position:relative;
   top:-7px !important;
+  font-size: 15px;
  }
  
  /* Star Unknowned */
  .card-body .d-flex div .d-flex .ng-star-inserted{
   top:-2px !important;
-  left:4px;
  }
  
  /* Star Unknowned */

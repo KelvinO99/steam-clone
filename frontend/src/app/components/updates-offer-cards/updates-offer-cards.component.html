@@ -20,7 +20,7 @@
                                         <span class="free" *ngIf="card.base_price == 0">Free to Play</span>
                                         <div>
                                             <div class="d-flex justify-content-end">
-                                                <span class="basePriceDiscount"
+                                                <span class="basePriceDiscount" style="color:#738895"
                                                     *ngIf="card.discounted_price != null && card.base_price > 0">
                                                     {{ card.base_price.toFixed(2) + "$" }}
                                                 </span>
