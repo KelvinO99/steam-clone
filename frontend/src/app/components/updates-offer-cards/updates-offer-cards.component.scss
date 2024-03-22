@@ -1,0 +1,126 @@
+.carousel-container {
+  display: flex;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-control-prev {
+  left: 0;
+}
+
+.carousel-control-next {
+  right: 0; 
+}
+
+.square-card {
+  width: 250px; 
+  height: 200px; 
+  margin: 5px;
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  z-index: 2;
+  filter: brightness(1.30);
+}
+
+img {
+  width: 100%;
+  height: 135px;
+}
+
+.card-body{
+  background-image: url(../../../assets/image/background_spotlight.jpg) ;
+  height: 1rem !important;
+}
+
+.square-card .card-body h5,
+.square-card .card-body .card-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; 
+}
+
+#carouselExampleControls .flex-wrap .ng-star-inserted{
+  background-color: transparent;
+}
+
+.updateTitle{
+  margin-top: 8vh;
+  color: white;
+  position: relative; 
+  left: 110px;
+}
+
+.discountPercentage {
+  font-size: 0.83vw; 
+  align-items: end; 
+  display: flex;
+  justify-content: center;
+  padding: 0 4px; 
+  border-radius: 1px; 
+  font-weight: 500; 
+  color: #BEEE11;
+  background-color: green;
+  width: 3rem;
+  height: 2.1rem;
+
+}
+
+.price {
+
+  display: flex;
+  font-size: 13px; 
+  background-color: #344654;
+  width: 3.2rem;
+  height: 2.1rem;
+  color: #BEEE11;
+  font-size: 0.78125vw;
+
+}
+
+.test1{
+  display:flex;
+  justify-content: flex-end;
+}
+
+//-------PRICE TAG NON TOCCARE PORCO DIO-------
+
+/* Span Tag */
+#carouselExampleControls .price .d-flex span{
+  font-size:11px;
+  text-decoration:line-through;
+ }
+
+/* Star Unknowned */
+.card-body .d-flex div div .ng-star-inserted{
+  position:relative;
+  top:-7px !important;
+  font-size: 15px;
+ }
+ 
+ /* Star Unknowned */
+ .card-body .d-flex div .d-flex .ng-star-inserted{
+  top:-2px !important;
+ }
+ 
+ /* Star Unknowned */
+ app-root .ng-star-inserted .ng-star-inserted .container-fluid .d-flex .m-0 app-updates-offer-cards .container-fluid .row #carouselExampleControls .carousel-inner .carousel-item .flex-wrap .ng-star-inserted .card-body .d-flex div .d-flex .ng-star-inserted{
+  bottom:auto !important;
+ }
+
+ div.text {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  pointer-events: none;
+  background-image: url(../../../assets/image/background_spotlight.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
