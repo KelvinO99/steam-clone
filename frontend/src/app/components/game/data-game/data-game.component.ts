@@ -11,13 +11,13 @@ export class DataGameComponent {
 
   routeId!: number;
   game!: any;
+  offset = 1;
 
   constructor(public route: ActivatedRoute, public gameService: GameService){}
 
 
   ngOnInit() {
     this.routeId = this.route.snapshot.params['id'];
-    console.log(this.routeId);
     this.showGame();
   }
 
