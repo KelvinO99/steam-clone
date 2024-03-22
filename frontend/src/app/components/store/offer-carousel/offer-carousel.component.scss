@@ -87,8 +87,6 @@ div.text {
 
 .img {
   max-width: 100%;
-  height: 220px;
-  object-fit: fill;
 }
 
 
@@ -105,4 +103,55 @@ div.text {
   font-family: "Motiva Sans", Sans-serif;
   font-weight: 600;
   color: #ffffff;
+}
+
+@media only screen and ((min-width: 1200px) and (min-width: 992px) and (min-width: 768px) and (min-width: 600px)) {
+
+  .col-1 {
+      max-width: 9.996rem;
+  }
+
+  .col-2 {
+      max-width: 19.992rem;
+  }
+
+  .col-3 {
+      max-width: 30rem;
+  }
+
+  .col-4 {
+      max-width: 39.996rem;
+  }
+
+  .col-5 {
+      max-width: 49.992rem;
+  }
+
+  .col-6 {
+      max-width: 60rem;
+  }
+
+  .col-7 {
+      max-width: 69.996rem;
+  }
+
+  .col-8 {
+      max-width: 79.992rem;
+  }
+
+  .col-9 {
+      max-width: 90rem;
+  }
+
+  .col-10 {
+      max-width: 99.996rem;
+  }
+
+  .col-11 {
+      max-width: 109.992rem;
+  }
+
+  .col-12 {
+      max-width: 120rem;
+  }
 }

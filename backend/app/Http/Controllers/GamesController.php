@@ -96,7 +96,7 @@ class GamesController extends Controller
 
         try{
     //DEVELOPERS FUNCTION
-            $game = Games::where('id', $id)->with(['DevelopersGames.Developers' => function ($q){
+            $game = Games::where('id', $id)->with('Images')->with(['DevelopersGames.Developers' => function ($q){
                 $q->select('id','user_id', 'is_publisher')->with(['User' => function ($q2){
                     $q2->select('id', 'username');
             }]);
