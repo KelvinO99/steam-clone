@@ -1,136 +1,125 @@
-.allCards {
-    margin-top: 6rem;
+.carousel-container {
+  display: flex;
 }
 
-.bigCard, .smallCard, .smallCard2, .smallCard3, .smallCard4, .smallCard5, .smallCard6 {
-    border-radius: 0;
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.bigCard {
-    width: 21.6384rem;
-    height: 22.8232rem;
-    left: 4.375rem;
+.carousel-control-prev {
+  left: 0;
 }
 
-.bigCardBody {  
-    width: 21.6384rem;
-    height: 3.125rem;
-    background: linear-gradient(135deg, rgba(37,49,63,1) 5%, rgba(54,97,125,1) 95%);
-    color: white;
-    position: relative;
-    bottom: 1rem;
-    right: 1rem;
+.carousel-control-next {
+  right: 0; 
 }
 
-.updateTitle {
-    color: white;
-    left: 4.3rem;
-    line-height: 0.9951rem;
-    font-size: 0.93rem;
-    text-align: right;
-    display: flex;
-    flex-direction: row;
-    position: relative;
+.square-card {
+  width: 250px; 
+  height: 200px; 
+  margin: 5px;
+  transition: 0.2s;
 }
 
-.bigFinalPrice {    
-    color: #BEEE11;
-    line-height: 0.9951rem;
-    font-size: 0.93rem;
-    height: 3.3616rem;
-    text-align: right;
-    display: flex;
-    flex-direction: row;
-    justify-content: end;
-    position: relative;
-    top: 1rem;
-    right: 0.8125rem;
+.card:hover {
+  transform: scale(1.05);
+  z-index: 2;
+  filter: brightness(1.30);
 }
 
-.finalPrice {    
-    color: white;
-    line-height: 0.9951rem;
-    font-size: 0.93rem;
-    height: 3.3616rem;
-    padding: 0.93rem;
-    text-align: right;
-    display: flex;
-    flex-direction: row;
-    justify-content: end;
-    position: relative;
-    bottom: 5%;
+img {
+  width: 100%;
+  height: 135px;
 }
 
-.smallCards {
-    position: relative;
-    left: 26.3rem;
-    bottom: 22.8rem;
+.card-body{
+  background-image: url(../../../assets/image/background_spotlight.jpg) ;
+  height: 1rem !important;
 }
 
-.smallCard {
-    width: 9.8355rem;
-    height: 10.3727rem;
-    position: relative;
-    margin-right: 0.25rem;
+.square-card .card-body h5,
+.square-card .card-body .card-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; 
 }
 
-.smallCard2 {
-    width: 9.8355rem;
-    height: 10.3727rem;
-    position: relative;
-    margin-right: 0.25rem;
-    bottom: 10.4rem;
-    left: 10rem;
+#carouselExampleControls .flex-wrap .ng-star-inserted{
+  background-color: transparent;
 }
 
-.smallCard3 {
-    width: 9.8355rem;
-    height: 10.3727rem;
-    position: relative;
-    display: inline-block;
-    bottom: 20.77rem;
-    left: 20rem;
+.updateTitle{
+  color: white;
+  position: relative; 
+  left: 110px;
 }
 
-.lowCards {
-    position: relative;
-    left: 0.8rem;
-    bottom: 20.8rem;
+.discountPercentage {
+  font-size: 0.83vw; 
+  align-items: end; 
+  display: flex;
+  justify-content: center;
+  padding: 0 4px; 
+  border-radius: 1px; 
+  font-weight: 500; 
+  color: #BEEE11;
+  background-color: green;
+  width: 3rem;
+  height: 2.1rem;
+
 }
 
-.smallCard4 {
-    width: 9.8355rem;
-    height: 10.3727rem;
-    position: relative;
-    margin-right: 0.15rem;
-    bottom: 0.1875rem;
+.price {
+
+  display: flex;
+  font-size: 13px; 
+  background-color: #344654;
+  width: 3.2rem;
+  height: 2.1rem;
+  color: #BEEE11;
+  font-size: 0.78125vw;
+
 }
 
-.smallCard5 {
-    width: 9.8355rem;
-    height: 10.3727rem;
-    position: relative;
-    margin-right: 0.15rem;
-    bottom: 0.1875rem;
+.test1{
+  display:flex;
+  justify-content: flex-end;
 }
 
-.smallCard6 {
-    width: 9.8355rem;
-    height: 10.3727rem;
-    position: relative;
-    bottom: 0.1875rem;
-}
+//-------PRICE TAG NON TOCCARE PORCO DIO-------
 
-.cardBody {  
-    width: 9.8601rem;
-    height: 2.5rem;
-    background: linear-gradient(135deg, rgba(37,49,63,1) 5%, rgba(54,97,125,1) 95%);
-    color: white;
-    position: relative;
-    bottom: 1.023rem;
-    right: 1rem;
-}
+/* Span Tag */
+#carouselExampleControls .price .d-flex span{
+  font-size:10px;
+  text-decoration:line-through;
+ }
 
-#allCardsContainer{
-    height: 430px;
+/* Star Unknowned */
+.card-body .d-flex div div .ng-star-inserted{
+  position:relative;
+  top:-7px !important;
+ }
+ 
+ /* Star Unknowned */
+ .card-body .d-flex div .d-flex .ng-star-inserted{
+  top:-2px !important;
+  left:4px;
+ }
+ 
+ /* Star Unknowned */
+ app-root .ng-star-inserted .ng-star-inserted .container-fluid .d-flex .m-0 app-updates-offer-cards .container-fluid .row #carouselExampleControls .carousel-inner .carousel-item .flex-wrap .ng-star-inserted .card-body .d-flex div .d-flex .ng-star-inserted{
+  bottom:auto !important;
+ }
+
+ div.text {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  pointer-events: none;
+  background-image: url(../../../assets/image/background_spotlight.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
