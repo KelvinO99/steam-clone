@@ -11,6 +11,11 @@
     cursor: pointer;
 }
 
+.nav-link.active {
+    color: #1a9fff;
+    text-decoration: underline;
+}
+
 div.action {
     padding-left: 7rem !important;
     padding-bottom: 4rem !important;

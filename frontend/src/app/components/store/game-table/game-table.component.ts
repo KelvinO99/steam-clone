@@ -9,7 +9,7 @@ import { GameService } from 'src/app/shared/services/game.service';
 })
 export class GameTableComponent {
   discount_game: any;
-  incoming_game: any;
+  upcoming_game: any;
   best_seller_game: any;
   most_reviewed_game: any;
   specia_offer: any;
@@ -32,7 +32,7 @@ export class GameTableComponent {
         this.getBestSeller();
         break;
       case 'Upcoming':
-        this.getIncoming();
+        this.getUpcoming();
         break;
       case 'Specials offers':
         this.getSpecialOffer();
@@ -40,7 +40,7 @@ export class GameTableComponent {
     }
   }
 
-  getIncoming() {
+  getUpcoming() {
     this.gameService
       .getGames({
         skip: this.skip,
@@ -48,9 +48,9 @@ export class GameTableComponent {
         incoming: true, // Imposta il flag a true
       })
       .subscribe((res: any) => {
-        this.incoming_game = res;
+        this.upcoming_game = res;
         console.log('getIncoming');
-        console.log(this.incoming_game);
+        console.log(this.upcoming_game);
       });
   }
 
