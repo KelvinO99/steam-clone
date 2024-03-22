@@ -123,6 +123,111 @@ class ImagesSeeder extends Seeder
             'http://localhost:8000/storage/game_images/hitman_3_seven_deadly_sins_collection/hitman_3_seven_deadly_sins_collection_2.jpg',
             'http://localhost:8000/storage/game_images/hitman_3_seven_deadly_sins_collection/hitman_3_seven_deadly_sins_collection_3.jpg',
             'http://localhost:8000/storage/game_images/hitman_3_seven_deadly_sins_collection/hitman_3_seven_deadly_sins_collection_4.jpg',
+            'http://localhost:8000/storage/game_images/grand_theft_auto_vi/grand_theft_auto_vi_0.jpg',
+            'http://localhost:8000/storage/game_images/grand_theft_auto_vi/grand_theft_auto_vi_1.jpg',
+            'http://localhost:8000/storage/game_images/grand_theft_auto_vi/grand_theft_auto_vi_2.jpg',
+            'http://localhost:8000/storage/game_images/grand_theft_auto_vi/grand_theft_auto_vi_3.jpg',
+            'http://localhost:8000/storage/game_images/grand_theft_auto_vi/grand_theft_auto_vi_4.jpg',
+            'http://localhost:8000/storage/game_images/resident_evil_4/resident_evil_4_0.jpg',
+            'http://localhost:8000/storage/game_images/resident_evil_4/resident_evil_4_1.jpg',
+            'http://localhost:8000/storage/game_images/resident_evil_4/resident_evil_4_2.jpg',
+            'http://localhost:8000/storage/game_images/resident_evil_4/resident_evil_4_3.jpg',
+            'http://localhost:8000/storage/game_images/resident_evil_4/resident_evil_4_4.jpg',
+            'http://localhost:8000/storage/game_images/mortal_kombat_1/mortal_kombat_1_0.jpg',
+            'http://localhost:8000/storage/game_images/mortal_kombat_1/mortal_kombat_1_1.jpg',
+            'http://localhost:8000/storage/game_images/mortal_kombat_1/mortal_kombat_1_2.jpg',
+            'http://localhost:8000/storage/game_images/mortal_kombat_1/mortal_kombat_1_3.jpg',
+            'http://localhost:8000/storage/game_images/mortal_kombat_1/mortal_kombat_1_4.jpg',
+            'http://localhost:8000/storage/game_images/red_dead_redemption_2/red_dead_redemption_2_0.jpg',
+            'http://localhost:8000/storage/game_images/red_dead_redemption_2/red_dead_redemption_2_1.jpg',
+            'http://localhost:8000/storage/game_images/red_dead_redemption_2/red_dead_redemption_2_2.jpg',
+            'http://localhost:8000/storage/game_images/red_dead_redemption_2/red_dead_redemption_2_3.jpg',
+            'http://localhost:8000/storage/game_images/red_dead_redemption_2/red_dead_redemption_2_4.jpg',
+            'http://localhost:8000/storage/game_images/god_of_war/god_of_war_0.jpg',
+            'http://localhost:8000/storage/game_images/god_of_war/god_of_war_1.jpg',
+            'http://localhost:8000/storage/game_images/god_of_war/god_of_war_2.jpg',
+            'http://localhost:8000/storage/game_images/god_of_war/god_of_war_3.jpg',
+            'http://localhost:8000/storage/game_images/god_of_war/god_of_war_4.jpg',
+            'http://localhost:8000/storage/game_images/tom_clancys_rainbow_six_siege/tom_clancys_rainbow_six_siege_0.jpg',
+            'http://localhost:8000/storage/game_images/tom_clancys_rainbow_six_siege/tom_clancys_rainbow_six_siege_1.jpg',
+            'http://localhost:8000/storage/game_images/tom_clancys_rainbow_six_siege/tom_clancys_rainbow_six_siege_2.jpg',
+            'http://localhost:8000/storage/game_images/tom_clancys_rainbow_six_siege/tom_clancys_rainbow_six_siege_3.jpg',
+            'http://localhost:8000/storage/game_images/tom_clancys_rainbow_six_siege/tom_clancys_rainbow_six_siege_4.jpg',
+            'http://localhost:8000/storage/game_images/dead_space/dead_space_0.jpg',
+            'http://localhost:8000/storage/game_images/dead_space/dead_space_1.jpg',
+            'http://localhost:8000/storage/game_images/dead_space/dead_space_2.jpg',
+            'http://localhost:8000/storage/game_images/dead_space/dead_space_3.jpg',
+            'http://localhost:8000/storage/game_images/dead_space/dead_space_4.jpg',
+            'http://localhost:8000/storage/game_images/grounded/grounded_0.jpg',
+            'http://localhost:8000/storage/game_images/grounded/grounded_1.jpg',
+            'http://localhost:8000/storage/game_images/grounded/grounded_2.jpg',
+            'http://localhost:8000/storage/game_images/grounded/grounded_3.jpg',
+            'http://localhost:8000/storage/game_images/grounded/grounded_4.jpg',
+            'http://localhost:8000/storage/game_images/cyberpunk_2077/cyberpunk_2077_0.jpg',
+            'http://localhost:8000/storage/game_images/cyberpunk_2077/cyberpunk_2077_1.jpg',
+            'http://localhost:8000/storage/game_images/cyberpunk_2077/cyberpunk_2077_2.jpg',
+            'http://localhost:8000/storage/game_images/cyberpunk_2077/cyberpunk_2077_3.jpg',
+            'http://localhost:8000/storage/game_images/cyberpunk_2077/cyberpunk_2077_4.jpg',
+            'http://localhost:8000/storage/game_images/sea_of_thieves/sea_of_thieves_0.jpg',
+            'http://localhost:8000/storage/game_images/sea_of_thieves/sea_of_thieves_1.jpg',
+            'http://localhost:8000/storage/game_images/sea_of_thieves/sea_of_thieves_2.jpg',
+            'http://localhost:8000/storage/game_images/sea_of_thieves/sea_of_thieves_3.jpg',
+            'http://localhost:8000/storage/game_images/sea_of_thieves/sea_of_thieves_4.jpg',
+            'http://localhost:8000/storage/game_images/sekiro_shadows_die_twice/sekiro_shadows_die_twice_0.jpg',
+            'http://localhost:8000/storage/game_images/sekiro_shadows_die_twice/sekiro_shadows_die_twice_1.jpg',
+            'http://localhost:8000/storage/game_images/sekiro_shadows_die_twice/sekiro_shadows_die_twice_2.jpg',
+            'http://localhost:8000/storage/game_images/sekiro_shadows_die_twice/sekiro_shadows_die_twice_3.jpg',
+            'http://localhost:8000/storage/game_images/sekiro_shadows_die_twice/sekiro_shadows_die_twice_4.jpg',
+            'http://localhost:8000/storage/game_images/monster_hunter_rise/monster_hunter_rise_0.jpg',
+            'http://localhost:8000/storage/game_images/monster_hunter_rise/monster_hunter_rise_1.jpg',
+            'http://localhost:8000/storage/game_images/monster_hunter_rise/monster_hunter_rise_2.jpg',
+            'http://localhost:8000/storage/game_images/monster_hunter_rise/monster_hunter_rise_3.jpg',
+            'http://localhost:8000/storage/game_images/monster_hunter_rise/monster_hunter_rise_4.jpg',
+            'http://localhost:8000/storage/game_images/assassins_creed_valhalla/assassins_creed_valhalla_0.jpg',
+            'http://localhost:8000/storage/game_images/assassins_creed_valhalla/assassins_creed_valhalla_1.jpg',
+            'http://localhost:8000/storage/game_images/assassins_creed_valhalla/assassins_creed_valhalla_2.jpg',
+            'http://localhost:8000/storage/game_images/assassins_creed_valhalla/assassins_creed_valhalla_3.jpg',
+            'http://localhost:8000/storage/game_images/assassins_creed_valhalla/assassins_creed_valhalla_4.jpg',
+            'http://localhost:8000/storage/game_images/persona_3_reload/persona_3_reload_0.jpg',
+            'http://localhost:8000/storage/game_images/persona_3_reload/persona_3_reload_1.jpg',
+            'http://localhost:8000/storage/game_images/persona_3_reload/persona_3_reload_2.jpg',
+            'http://localhost:8000/storage/game_images/persona_3_reload/persona_3_reload_3.jpg',
+            'http://localhost:8000/storage/game_images/persona_3_reload/persona_3_reload_4.jpg',
+            'http://localhost:8000/storage/game_images/horizon_forbidden_west/horizon_forbidden_west_0.jpg',
+            'http://localhost:8000/storage/game_images/horizon_forbidden_west/horizon_forbidden_west_1.jpg',
+            'http://localhost:8000/storage/game_images/horizon_forbidden_west/horizon_forbidden_west_2.jpg',
+            'http://localhost:8000/storage/game_images/horizon_forbidden_west/horizon_forbidden_west_3.jpg',
+            'http://localhost:8000/storage/game_images/horizon_forbidden_west/horizon_forbidden_west_4.jpg',
+            'http://localhost:8000/storage/game_images/baldurs_gate_3/baldurs_gate_3_0.jpg',
+            'http://localhost:8000/storage/game_images/baldurs_gate_3/baldurs_gate_3_1.jpg',
+            'http://localhost:8000/storage/game_images/baldurs_gate_3/baldurs_gate_3_2.jpg',
+            'http://localhost:8000/storage/game_images/baldurs_gate_3/baldurs_gate_3_3.jpg',
+            'http://localhost:8000/storage/game_images/baldurs_gate_3/baldurs_gate_3_4.jpg',
+            'http://localhost:8000/storage/game_images/elden_ring/elden_ring_0.jpg',
+            'http://localhost:8000/storage/game_images/elden_ring/elden_ring_1.jpg',
+            'http://localhost:8000/storage/game_images/elden_ring/elden_ring_2.jpg',
+            'http://localhost:8000/storage/game_images/elden_ring/elden_ring_3.jpg',
+            'http://localhost:8000/storage/game_images/elden_ring/elden_ring_4.jpg',
+            'http://localhost:8000/storage/game_images/cyberpunk_2077_phantom_liberty/cyberpunk_2077_phantom_liberty_0.jpg',
+            'http://localhost:8000/storage/game_images/cyberpunk_2077_phantom_liberty/cyberpunk_2077_phantom_liberty_1.jpg',
+            'http://localhost:8000/storage/game_images/cyberpunk_2077_phantom_liberty/cyberpunk_2077_phantom_liberty_2.jpg',
+            'http://localhost:8000/storage/game_images/cyberpunk_2077_phantom_liberty/cyberpunk_2077_phantom_liberty_3.jpg',
+            'http://localhost:8000/storage/game_images/cyberpunk_2077_phantom_liberty/cyberpunk_2077_phantom_liberty_4.jpg',
+            /*'debug_purpose',
+            'debug_purpose',
+            'debug_purpose',
+            'debug_purpose',
+            'debug_purpose',
+            'debug_purpose',
+            'debug_purpose',
+            'debug_purpose',
+            'debug_purpose',
+            'debug_purpose',
+            'debug_purpose',
+            'debug_purpose',
+            'debug_purpose',
+            'debug_purpose',
+            'debug_purpose',*/
             //'http://localhost:8000/storage/game_images/',
             //'http://localhost:8000/storage/game_images/',
             //'http://localhost:8000/storage/game_images/',
@@ -130,25 +235,21 @@ class ImagesSeeder extends Seeder
             //'http://localhost:8000/storage/game_images/',
 
         ];
-
-        for($i=0;$i<sizeof($image_path);$i++) //110 cicli games_images + 10 users_images, si inizia da 5 e finisce 125 pk num<5 / 5 fa meno di 1 e gli array su php iniziano da 1
+        $const_img = 5;
+        for($i=0;$i<sizeof($image_path)+1;$i++) //n$image_path cicli games_images + ($+1) users_images
         {
-            if($i >= 110)  DB::table('images')->insert(['image_path' => "images\Users\Default.jpg",]);
-            if($i < 5){
-                $j = 1;
-                DB::table("images")->insert([
-                'image_path' => $image_path[$i],
-                'game_id' => $j,
-                ]);
+            if($i >= sizeof($image_path)){
+                DB::table('images')->insert(['image_path' => 'http://localhost:8000/storage/user_images/Default.png',]);
+                DB::table('images')->insert(['image_path' => 'http://localhost:8000/storage/achievement_images/default.png',]);
             }
-            if($i > 5 && $i < 110){
-                $j = floor(($i+5)/ 5);
-                DB::table("images")->insert([
+            if($i < sizeof($image_path)){
+                $j = floor(($i+$const_img) / $const_img);
+                DB::table('images')->insert([
                     'image_path' => $image_path[$i],
                     'game_id' => $j,
                 ]);
             }
-            }
+        }
 
 
 

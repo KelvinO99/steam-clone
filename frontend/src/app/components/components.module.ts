@@ -27,8 +27,11 @@ import { ProductBannersComponent } from './store/product-banners/product-banners
 import { GameTableComponent } from './store/game-table/game-table.component';
 import { CategoryCarouselComponent } from './store/category-carousel/category-carousel.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { UpdatesOfferCardsComponent } from './updates-offer-cards/updates-offer-cards.component';
+import {MatButtonModule} from '@angular/material/button';
+import { MainCarouselComponent } from './main-carousel/main-carousel.component';
+
 import { GameComponent } from './game/game.component';
-import { DataGameComponent } from './game/data-game/data-game.component';
 @NgModule({
   declarations: [
     BaseComponent,
@@ -37,14 +40,13 @@ import { DataGameComponent } from './game/data-game/data-game.component';
     HomeComponent,
     StoreComponent,
     SidebarComponent,
-   /*  ProductBannersComponent, */
-    /* MainCarouselComponent, */
+    ProductBannersComponent,
+    UpdatesOfferCardsComponent,
     OfferCarouselComponent,
    ProductBannersComponent,
    GameTableComponent,
    GameComponent,
    CategoryCarouselComponent,
-   DataGameComponent,
 
   ],
   imports: [
@@ -65,7 +67,9 @@ import { DataGameComponent } from './game/data-game/data-game.component';
     MatCardModule,
     MatCardModule,
     MatTabsModule,
+    MatButtonModule,
   ],
   exports: [CommonModule, TranslateModule, BaseComponent],
 })
 export class ComponentsModule {}
+export class CardFancyExample {}
