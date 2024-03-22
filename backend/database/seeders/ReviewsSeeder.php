@@ -58,12 +58,13 @@ class ReviewsSeeder extends Seeder
             'This game is a prime example of rushed development, unfinished and sloppy.',
             'Filippo.'
         ];
+
         for($i=0;$i<sizeof($positive)*15;$i++)
         {
             DB::table('reviews')->insert([
                 'user_id' => rand(1,19),//PLACEHOLDER RNG
                 'game_id' => rand(1,19),//PLACEHOLDER RNG
-                'date' => Carbon::now()->subYears(random_int(1, 10))->subDays(random_int(1, 365))->format('Y-m-d'),//PLACEHOLDER RNGBD
+                'date' => Carbon::now()->subYears(random_int(1, 10))->subDays(random_int(1, 365))->format('Y-m-d'),
                 'is_recommended' => $bool = (bool)rand(0,1),//PLACEHOLDER BOOL RNG
                 'description' => $bool ? $positive[random_int( 0, sizeof($positive)-1 )] : $negative[random_int( 0, sizeof($negative)-1 )],
                 'hours_played' => mt_rand() / mt_getrandmax() * (999 - 1) + 1,//PLACEHOLDER FLOAT RNG
