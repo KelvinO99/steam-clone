@@ -1149,6 +1149,8 @@ class GamesSeeder extends Seeder
                 else $j++;
                 $i=0;
             }
+            //dump('i = '.$i);
+            //dump('j = '.$j);
         }
     }
 }
