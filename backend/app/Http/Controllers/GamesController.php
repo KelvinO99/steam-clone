@@ -123,12 +123,13 @@ class GamesController extends Controller
 
 
     //REVIEWS FUNCTION
-            $reviews = Reviews::where('game_id', $id)->pluck('is_recommended'); //prendi la colonna is_recommended del singolo gioco
+            $positive_reviews = Reviews::where('game_id', $id)->pluck('is_recommended'); //prendi la colonna is_recommended del singolo gioco
 
-            $DIM_A = count($reviews); //conta quante review sono state fatte
+            $DIM_A = count($positive_reviews); //conta quante review sono state fatte
             $positive = 0; // inizializza variabile che verrà usata subito
+     
             for($i = 0; $i < $DIM_A-1; $i++){
-                if($reviews[$i] == 1)         //ciclo for che conta quante review sono positive
+                if($positive_reviews[$i] == 1)         //ciclo for che conta quante review sono positive
                 {                             //per fare un rapporto
                     $positive++;
                 }
@@ -156,6 +157,16 @@ class GamesController extends Controller
                     $string= 'Error'; //riferisci a chris
                 }
 
+            $reviews = Reviews::where('game_id', $id)->get();
+
+            $images = Images::where('game_id', $id)->pluck('image_path');
+
+            $dlc = Games::where('parent_id', $id)
+            ->select('id', 'name', 'date', 'base_price', 'is_discounted', 'discounted_price', 'discounted_percentage', 'short_description')
+            ->with(['images' => function ($q) {
+                $q->select('id', 'game_id', 'image_path')->first(); 
+            }])
+            ->get();
             //$skip = $users_reviews->input("skip", 0); //skip
                                                     //and   (function)
             //$take = $users_reviews->input("take", 1); //take
@@ -183,20 +194,21 @@ class GamesController extends Controller
             return response()->json([
             'status' => 200,
             'game' => $game, //game+dev info output
+            'images'=>$images,
             'tags' => $tag,
+            'reviews'=>$reviews,
             'ratio' => $ratio,
             'evaluation' => $string,
-            //'reviews' => $reviews->toArray(),
-            // 'developer' => $dev,
+            'dlc'=>$dlc,
             ]);
 
         }catch(\Exception $e){
             return $e;
         }
-
-
-
     }
+
+
+    
     // Elimina un determinato record della tabella Games -Kelvin
     public function destroy ($id){
 
