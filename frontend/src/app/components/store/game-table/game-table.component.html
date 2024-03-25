@@ -131,7 +131,7 @@
 
         </mat-tab>
 
-        <mat-tab label="Incoming">
+        <mat-tab label="Upcoming">
 
           <mat-card class="p-0" *ngFor="let item of incoming_game?.games" (click)="goTo('../game/' + item.id)">
             <div class="container p-0">
@@ -151,7 +151,8 @@
                     <div class="row d-flex">
                       <div class="col-12 p-0">
                         <span>
-                          <img src="https://store.cloudflare.steamstatic.com/public/images/v6/icon_platform_win.png?v=3" class="opacity img-fluid">
+                          <img src="https://store.cloudflare.steamstatic.com/public/images/v6/icon_platform_win.png?v=3"
+                            class="opacity img-fluid">
                         </span>
                       </div>
                     </div>
@@ -163,7 +164,8 @@
                   </div>
 
                   <div class="col-4 p-0 d-flex justify-content-end m-auto">
-                    <div class="discountPercentage" *ngIf="item.discounted_percentage != null">{{item.discounted_percentage}}%</div>
+                    <div class="discountPercentage" *ngIf="item.discounted_percentage != null">
+                      {{item.discounted_percentage}}%</div>
                   </div>
 
                   <div class="col-2 p-0 d-flex m-auto justify-content-center price">
@@ -175,12 +177,15 @@
                         </span>
                       </div>
                       <div>
-                        <span class="discount" *ngIf="item.discounted_price != null">{{item.discounted_price.toFixed(2) + "$"}}</span>
-                        <span class="basePrice" *ngIf="item.discounted_price == null && item.base_price > 0 ">{{item.base_price.toFixed(2) + "$"}}</span>
+                        <span class="discount" *ngIf="item.discounted_price != null">{{item.discounted_price.toFixed(2)
+                          + "$"}}</span>
+                        <span class="basePrice"
+                          *ngIf="item.discounted_price == null && item.base_price > 0 ">{{item.base_price.toFixed(2) +
+                          "$"}}</span>
                       </div>
                     </div>
                   </div>
-                  
+
                 </div>
               </mat-card-content>
             </div>
@@ -188,8 +193,7 @@
 
         </mat-tab>
 
-        <mat-tab label="Specials offer">
-
+        <mat-tab label="Special offers">
           <mat-card class="p-0" *ngFor="let item of specia_offer?.games" (click)="goTo('../game/' + item.id)">
             <div class="container p-0">
               <mat-card-content class="mb-2">

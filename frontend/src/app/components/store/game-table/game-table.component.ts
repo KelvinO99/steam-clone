@@ -35,7 +35,7 @@ export class GameTableComponent {
         this.getIncoming();
         break;
       case 'Specials offer':
-        this.getSpecialOffer();
+        this.getSpecialOffer(); 
         break;
     }
   }
