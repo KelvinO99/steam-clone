@@ -1,5 +1,5 @@
 <?php
-//NON ELIMINARE 
+//NON ELIMINARE
 //<PLACEHOLDER> = dati da cambiare -chris
 
 namespace App\Models;
@@ -20,12 +20,10 @@ class Libraries extends Model
     ];
 
     public function User(){
-
-        return $this->hasOne(User::class, 'id', 'user_id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function Games(){
-
-        return $this->hasOne(Games::class, 'id', 'game_id');   
+        return $this->belongsTo(Games::class, 'game_id', 'id');
     }
 }

@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use App\Models\Developers;
 use App\Models\DevelopersGames;
 use App\Models\Games;
+use App\Models\Libraries;
 use App\Models\User;
 use App\Models\Images;
 use App\Models\Reviews;
@@ -166,10 +167,10 @@ class GamesController extends Controller
             }])
             ->get();
 
-            $game_id = 1; // Example game ID
-            $no_users_ownership = User::whereHas('libraries', function ($query) use ($game_id) {
-                 $query->where('game_id', $game_id);
-                })->count();
+
+            //$no_users_ownership = User::where('id', $id)->withCount('libraries')->first();
+
+            $no_users_ownership = 
 
             return response()->json([
             'status' => 200,
