@@ -79,23 +79,23 @@ class GamesSeeder extends Seeder
             '2009-11-17',
             '2021-03-30',
             '2025-09-16',
-            '2021-05-20',  // Resident Evil 4
-            '2023-09-19',  // Mortal Kombat (2023)
-            '2023-10-24',  // Dead Space (Remake) !!!
-            '2018-04-20',  // God Of War
+            '2023-03-24',  // Resident Evil 4
+            '2023-09-19',  // Mortal Kombat 1(2023)
+            '2019-12-05',  // Red Dead Redemption
+            '2022-01-14',  // God Of War
             '2015-12-01',  // Tom Clancy's Rainbow Six Siege
-            '2008-10-14',  // Dead Space !!!
-            '2020-07-28',  // Grounded
+            '2023-01-27',  // Dead Space
+            '2022-09-27',  // Grounded
             '2020-12-10',  // Cyberpunk 2077
-            '2018-06-03',  // Sea Of Thieves
-            '2019-03-22',  // Sekiro Shadows Die Twice
-            '2021-03-26',  // Monster Hunter Rise
+            '2020-06-03',  // Sea Of Thieves
+            '2019-03-21',  // Sekiro Shadows Die Twice
+            '2022-01-12',  // Monster Hunter Rise
             '2022-12-06',  // Assassin's Creed Valhalla !!!
-            '2022-06-14',  // Persona 3 Remake !!!
-            '2023-04-18',  // Horizon Forbidden West !!!
-            '2022-08-30',  // Baldur's Gate 3 !!!
+            '2024-02-02',  // Persona 3 Remake !!!
+            '2024-03-21',  // Horizon Forbidden West !!!
+            '2023-08-03',  // Baldur's Gate 3 !!!
             '2022-02-25',  // Elden Ring
-            '2016-06-14',  // Dead By Daylight !!!
+            '2023-07-26',  // Dead By Daylight !!!
 
         ];
         $carbonDates = [];

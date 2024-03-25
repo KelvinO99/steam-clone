@@ -74,7 +74,7 @@ class ReviewsSeeder extends Seeder
             $release_date = $game->date;
 
             while($release_date>$date_random){
-                $date_random = Carbon::now()->subYears(random_int(0, 5))->subDays(random_int(1, 365))->format('Y-m-d');
+                $date_random = Carbon::parse($release_date)->addDays(rand(0, Carbon::parse('today')->diffInDays($release_date)));
                 dump($date_random);
             }
 
