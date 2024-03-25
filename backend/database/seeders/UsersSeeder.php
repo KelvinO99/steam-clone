@@ -35,6 +35,17 @@ class UsersSeeder extends Seeder
             'Maradona',
             'Treviso Scotto',
             'Il Fine Settimana',
+            'Filippo',
+            'Enrico',
+            'Fabiano',
+            '_/XXgamerXX\_',
+            'EternaLoveFan69',
+            'Alcoria',
+            'Gricone',
+            'Vitale',
+            'Booleano',
+            'SixNove',
+            'Nicolò',
             'Ultimo',
         ];
         $emails = [
