@@ -55,7 +55,6 @@ class GamesSeeder extends Seeder
             'Elden Ring',                              //39
             'Cyberpunk 2077: Phantom Liberty',         //40
         ];
-
         $dates = [
             '2015-09-15',
             '2022-01-28',
@@ -103,8 +102,6 @@ class GamesSeeder extends Seeder
         foreach ($dates as $dateString) {
             $carbonDates[] = Carbon::parse($dateString);
         }
-        //$carbonDates[sizeof($carbonDates)] = Carbon::parse($dates[sizeof($dates) -1]);
-
         $short_description = [
             'Experience unique RPG elements where your choices matter, in a world where you can spare your foes.',
             'Join Chloe and Nadine in a thrilling hunt for an ancient Indian artifact across mountains and ruins.',
@@ -147,7 +144,6 @@ class GamesSeeder extends Seeder
             "Discover a vast, seamless world filled with dark fantasy and rich lore. From the minds of Hidetaka Miyazaki and George R.R. Martin comes an epic action RPG where your choices shape the fate of the realm.", // Elden Ring
             "Enter the realm of the Entity and experience asymmetrical multiplayer horror at its finest. Play as either a ruthless killer or a survivor, each with their own unique abilities and objectives.", // Dead By Daylight
         ];
-
         $long_description = [
 //"ABOUT THIS GAME"
 //1
@@ -1077,6 +1073,14 @@ class GamesSeeder extends Seeder
             69.99,                         // Elden Ring
             9.99,                          // PLACEHOLDER DLC CB2077
         ];
+        $dlcs = [
+            22,
+            40,
+        ];
+        $parent_id = [
+            3,
+            31,
+        ];
 
         DB::table('tags')->insert([
             'id' => 104,
@@ -1091,8 +1095,7 @@ class GamesSeeder extends Seeder
             'image_id' => 1,
         ]);
 
-        $currentDate = Carbon::now();
-        for($i=0;$i<sizeof($names);$i++) // 0 ; <22
+        for($i=0;$i<40;$i++) // 0 ; <22
         {
             $bool = (bool)rand(0,1);
             if($base_price[$i]==0)
@@ -1104,8 +1107,8 @@ class GamesSeeder extends Seeder
                 'name' => $names[$i],//PLACEHOLDER RNGNAME FROM ARRAY
                 'date' => $dates[$i],//PLACEHOLDER RNGBD
                 'base_price' => $base_price[$i], /*= mt_rand() / mt_getrandmax() * (69.99 - 1) + 1,*/
-                'is_dlc' => $i === 21 ? true : false,
-                'parent_id' => $i === 21 ? 3 : null,
+                'is_dlc' => false,
+                'parent_id' => null,
                 'is_discounted' => $bool ? true : false,
                 'discounted_percentage' => $bool ? $discounted_percentage = rand(5,90) : null,//PLACEHOLDER RNG
                 'discounted_price' => $bool ? number_format($base_price[$i]-($base_price[$i]*($discounted_percentage/100)), 2, '.', ''): null,
@@ -1129,6 +1132,22 @@ class GamesSeeder extends Seeder
                     'game_id' => $i+1,
                     'tag_id' => '105',
                 ]);
+            }
+        }
+        $j=0;
+        for($i=0;$i<sizeof($names)+1;$i++) // 0 ; <22
+        {
+            if ($i == $dlcs[$j]) {
+                dump('ciao sto aggiungendo il gioco id = '.$dlcs[$j]);
+                DB::table('games')
+                    ->where('id', $i) // Select the record with the given id
+                    ->update([
+                        'is_dlc' => true, // Update the is_dlc field
+                        'parent_id' => $parent_id[$j], // Update the parent_id field
+                    ]);
+                if(sizeof($dlcs)-1==$j) return;
+                else $j++;
+                $i=0;
             }
         }
     }

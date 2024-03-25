@@ -42,25 +42,52 @@ class ReviewsController extends Controller
     public function show($id, Request $request){
 
         try{
+            $is_recommended = $request->input("is_recommended");
             $skip = $request->input("skip");
             $take = $request->input("take");
-            $users_reviews = Reviews::where('game_id', $id)->with(['User' => function ($q) {
-                $q->select('id', 'username');
-            }])->get();
+
+
+            $total = Reviews::where('game_id', $id)->count();
+
+            $query = Reviews::with(['User' => function ($q) {
+                    $q->select('id', 'username');
+                }])
+                ->where('game_id', $id);
+
+
+            if ($is_recommended !== null) {
+                $query->where('is_recommended', $is_recommended);
+            }
+
+            $users_reviews = $query->get();
+
+            $count = $users_reviews->count();
+
+            if ($is_recommended !== null) {
+                $users_reviews = $users_reviews->where('is_recommended', $is_recommended);
+            }
+
+
+            $isRecommendedCounts['all'] = $total;
+            $isRecommendedCounts[1] = Reviews::where('game_id', $id)->where('is_recommended', 1)->count();
+            $isRecommendedCounts[0] = Reviews::where('game_id', $id)->where('is_recommended', 0)->count();
+
+
 
             $users_reviews = $users_reviews->skip($skip)->take($take);
 
             return response()->json([
                 'status' => 200,
-                'users_reviews' => $users_reviews
+                'total' => $total,
+                'count' => $count,
+                'is_recommended_count' => $isRecommendedCounts,
+                'users_reviews' => $users_reviews,
 
             ]);
 
-        }catch(\Exception $e){
+        } catch(\Exception $e){
             return $e;
         }
-
-
     }
 
     // Elimina un determinato record della tabella Reviews -Salvo
