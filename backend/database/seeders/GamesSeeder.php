@@ -1145,11 +1145,12 @@ class GamesSeeder extends Seeder
                         'is_dlc' => true, // Update the is_dlc field
                         'parent_id' => $parent_id[$j], // Update the parent_id field
                     ]);
-                $j++;
+                if(sizeof($dlcs)-1==$j) return;
+                else $j++;
                 $i=0;
             }
-            dump('i = '.$i);
-            dump('j = '.$j);
+            //dump('i = '.$i);
+            //dump('j = '.$j);
         }
     }
 }
