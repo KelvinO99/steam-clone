@@ -6,7 +6,8 @@
                 <div *ngFor="let page of pages; let i = index" class="carousel-item"
                     [class.active]="currentIndex === i">
                     <div class="d-flex flex-wrap justify-content-center">
-                        <div *ngFor="let card of getCardsForPage(i)" class="card square-card">
+                        <div class="card square-card" *ngFor="let card of getCardsForPage(i)"
+                            (click)="goTo('../game/' + card.id)">
                             <img [src]="card.images[0]?.image_path" class="img-fluid">
                             <div class="card-body">
                                 <span class="test1">
@@ -45,77 +46,3 @@
         </div>
     </div>
 </div>
-
-<!-- <div class="container-fluid p-0">
-    <div class="row">
-        <div class="row">
-            <div class="col-4">
-                <div class="card">
-                    <img class="img"
-                        src="https://web.archive.org/web/20240313111837im_/https://cdn.akamai.steamstatic.com/steam/spotlights/222fcf1735e29bb17fe04e02/spotlight_image_english.jpg?t=1709744833">
-
-                     <div class="container text">
-
-                        </div> 
-                </div>
-            </div>
-
-            <div class="col-4">
-                <div class="card">
-                    <img class="img"
-                        src="https://web.archive.org/web/20240313111837im_/https://cdn.akamai.steamstatic.com/steam/spotlights/222fcf1735e29bb17fe04e02/spotlight_image_english.jpg?t=1709744833">
-
-                  <div class="container text">
-            
-                                    </div> 
-                </div>
-            </div>
-
-            <div class="col-4">
-                <div class="card">
-                    <img class="img"
-                        src="https://web.archive.org/web/20240313111837im_/https://cdn.akamai.steamstatic.com/steam/spotlights/222fcf1735e29bb17fe04e02/spotlight_image_english.jpg?t=1709744833">
-
-                  <div class="container text">
-            
-                                    </div> 
-                </div>
-            </div>
-
-        </div>
-        <div class="row">
-            <div class="col-4">
-                <div class="card">
-                    <img class="img"
-                        src="https://web.archive.org/web/20240313111837im_/https://cdn.akamai.steamstatic.com/steam/spotlights/222fcf1735e29bb17fe04e02/spotlight_image_english.jpg?t=1709744833">
-
-                    <div class="container text">
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-4">
-                <div class="card">
-                    <img class="img"
-                        src="https://web.archive.org/web/20240313111837im_/https://cdn.akamai.steamstatic.com/steam/spotlights/222fcf1735e29bb17fe04e02/spotlight_image_english.jpg?t=1709744833">
-
-                    <div class="container text">
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-4">
-                <div class="card">
-                    <img class="img"
-                        src="https://web.archive.org/web/20240313111837im_/https://cdn.akamai.steamstatic.com/steam/spotlights/222fcf1735e29bb17fe04e02/spotlight_image_english.jpg?t=1709744833">
-
-                    <div class="container text">
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div> -->

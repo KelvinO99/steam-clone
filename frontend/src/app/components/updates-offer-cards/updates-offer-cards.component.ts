@@ -1,5 +1,6 @@
 import { GameService } from 'src/app/shared/services/game.service';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-updates-offer-cards',
@@ -15,7 +16,7 @@ export class UpdatesOfferCardsComponent {
   pages: number[] = [];
   currentIndex = 0;
 
-  constructor(public gameService:GameService) {
+  constructor(public gameService:GameService, public router: Router) {
 
   }
 
@@ -49,6 +50,11 @@ getUpdatesAndOffers(){
     if (this.currentIndex < this.pages.length - 1) {
       this.currentIndex++;
     }
+  }
+
+  goTo(path: string) {
+    this.router.navigate([path]);
+    console.log(path);
   }
 
 }
