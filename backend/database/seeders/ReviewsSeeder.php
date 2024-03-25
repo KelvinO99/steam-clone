@@ -73,9 +73,12 @@ class ReviewsSeeder extends Seeder
             $game = Games::find($gameid_random);
             $release_date = $game->date;
 
+            if($release_date>Carbon::now()){
+                continue;
+            }
+
             while($release_date>$date_random){
                 $date_random = Carbon::parse($release_date)->addDays(rand(0, Carbon::parse('today')->diffInDays($release_date)));
-                dump($date_random);
             }
 
             DB::table('reviews')->insert([
