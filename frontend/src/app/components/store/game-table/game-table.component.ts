@@ -45,7 +45,7 @@ export class GameTableComponent {
       .getGames({
         skip: this.skip,
         take: this.take,
-        incoming: true, // Imposta il flag a true
+        upcoming: true, // Imposta il flag a true
       })
       .subscribe((res: any) => {
         this.upcoming_game = res;

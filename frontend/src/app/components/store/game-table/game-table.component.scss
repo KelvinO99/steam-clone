@@ -8,25 +8,27 @@
     .mat-tab-label-0-0 {
         padding: 0 !important;
     }
+
 }
+
+mat-card {
+    background: #202d39;
+    background: rgba(0, 0, 0, 0.2);
+    transition: 0.2s !important;
+    cursor: pointer;
+}
+
+mat-card:hover {
+    transform: scale(1.02) !important;
+    z-index: 2 !important;
+    cursor: pointer;
+}
+
 
 div.price {
     padding-right: 15px !important;
 }
 
-/* mat-card-header {
-    background-image: url("https://cdn.cloudflare.steamstatic.com/steam/apps/2275020/capsule_184x69.jpg?t=1709222621");
-    width: 184px;
-    height: 69px;
-    padding: 0;
-    margin: 0;
-} */
-
-mat-card {
-    background: #202d39;
-    background: rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-}
 .title {
     color: #c7d5e0;
     font-size: 0.78125vw;

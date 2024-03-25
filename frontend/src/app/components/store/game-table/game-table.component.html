@@ -34,7 +34,10 @@
                     </div>
                     <div class="row d-flex">
                       <div class="col-12 p-0">
-                        <span class="tags" *ngFor="let tag of item.games_tags">{{tag.tags.name + ", "}}</span>
+                        <span class="tags" *ngFor="let tag of item.games_tags.slice(0, 2); let last = last">
+                          {{tag.tags.name}}{{last ? '' : ', '}}
+                        </span>
+                        
                       </div>
                     </div>
                   </div>
@@ -96,7 +99,10 @@
                     </div>
                     <div class="row d-flex">
                       <div class="col-12 p-0">
-                        <span class="tags" *ngFor="let tag of item.games_tags">{{tag.tags.name + ", "}}</span>
+                        <span class="tags" *ngFor="let tag of item.games_tags.slice(0, 2); let last = last">
+                          {{tag.tags.name}}{{last ? '' : ', '}}
+                        </span>
+                        
                       </div>
                     </div>
                   </div>
@@ -157,7 +163,10 @@
                     </div>
                     <div class="row d-flex">
                       <div class="col-12 p-0">
-                        <span class="tags" *ngFor="let tag of item.games_tags">{{tag.tags.name + ", "}}</span>
+                        <span class="tags" *ngFor="let tag of item.games_tags.slice(0, 2); let last = last">
+                          {{tag.tags.name}}{{last ? '' : ', '}}
+                        </span>
+                        
                       </div>
                     </div>
                   </div>
@@ -215,7 +224,7 @@
                     </div>
                     <div class="row d-flex">
                       <div class="col-12 p-0">
-                        <span class="tags" *ngFor="let tag of item.games_tags">{{tag.tags.name + ", "}}</span>
+                        <span class="tags" *ngFor="let tag of item.games_tags.slice(0, 2)">{{tag.tags.name + ", "}}</span>
                       </div>
                     </div>
                   </div>
