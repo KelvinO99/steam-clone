@@ -68,7 +68,7 @@ class ReviewsSeeder extends Seeder
         for($i=0;$i<sizeof($positive)*15;$i++)
         {
             $gameid_random = rand(1,40);
-            $date_random = Carbon::now()->subYears(random_int(0, 5))->subDays(random_int(1, 365))->format('Y-m-d');
+            $reviews_date = Carbon::now()->subYears(random_int(0, 5))->subDays(random_int(1, 365))->format('Y-m-d');
 
             $game = Games::find($gameid_random);
             $release_date = $game->date;
@@ -77,14 +77,14 @@ class ReviewsSeeder extends Seeder
                 continue;
             }
 
-            while($release_date>$date_random){
-                $date_random = Carbon::parse($release_date)->addDays(rand(0, Carbon::parse('today')->diffInDays($release_date)));
+            while($release_date>$reviews_date){
+                $reviews_date = Carbon::parse($release_date)->addDays(rand(0, Carbon::parse('today')->diffInDays($release_date)));
             }
 
             DB::table('reviews')->insert([
                 'user_id' => rand(1,19),//PLACEHOLDER RNG
                 'game_id' => $gameid_random,
-                'date' => $date_random,
+                'date' => $reviews_date,
                 'is_recommended' => $bool = (bool)rand(0,1),//PLACEHOLDER BOOL RNG
                 'description' => $bool ? $positive[random_int( 0, sizeof($positive)-1 )] : $negative[random_int( 0, sizeof($negative)-1 )],
                 'hours_played' => mt_rand() / mt_getrandmax() * (999 - 1) + 1,//PLACEHOLDER FLOAT RNG

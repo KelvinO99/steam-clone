@@ -5,18 +5,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Developers;
+use App\Models\DevelopersGames;
 use App\Models\Games;
+use App\Models\Libraries;
+use App\Models\User;
 use App\Models\Images;
-use App\Models\GamesTags;
 use App\Models\Reviews;
-use App\Models\Tags;
 use App\Http\Controllers\ImagesController;
 use Carbon\Carbon;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
-use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 
 class GamesController extends Controller
 {
@@ -127,7 +126,7 @@ class GamesController extends Controller
 
             $DIM_A = count($positive_reviews); //conta quante review sono state fatte
             $positive = 0; // inizializza variabile che verrà usata subito
-     
+
             for($i = 0; $i < $DIM_A-1; $i++){
                 if($positive_reviews[$i] == 1)         //ciclo for che conta quante review sono positive
                 {                             //per fare un rapporto
@@ -154,7 +153,7 @@ class GamesController extends Controller
                 case $ratio>=95&&$ratio<=100:
                     $string= 'Overwhelmingly Positive Reviews';
                 default:
-                    $string= 'Error'; //riferisci a chris
+                    $string= 'Error'; //riferisci a chri
                 }
 
             $reviews = Reviews::where('game_id', $id)->get();
@@ -164,42 +163,25 @@ class GamesController extends Controller
             $dlc = Games::where('parent_id', $id)
             ->select('id', 'name', 'date', 'base_price', 'is_discounted', 'discounted_price', 'discounted_percentage', 'short_description')
             ->with(['images' => function ($q) {
-                $q->select('id', 'game_id', 'image_path')->first(); 
+                $q->select('id', 'game_id', 'image_path')->first();
             }])
             ->get();
-            //$skip = $users_reviews->input("skip", 0); //skip
-                                                    //and   (function)
-            //$take = $users_reviews->input("take", 1); //take
-
-            //PER IL FUTURO CHE LEGGO STO CODICE SENZA CAPIRE:
-            //c'è bisogno di users_reviews perché è una roba apparte che ha il compito
-            //di filtrare tutto per lo scopo di visualizzare utenti e review che fanno
-            //invece review solo per contare se è recommended. è tutto ok!!
-    //REVIEWS FUNCTION
 
 
+            //$no_users_ownership = User::where('id', $id)->withCount('libraries')->first();
 
-    //DEPRECATED DEVELOPERS FUNCTION
-        //     $developer = Developers::select('developers.*', 'users.username as user_name')
-        // ->join('developers_games', 'developers.id', '=', 'developers_games.developer_id')
-        // ->join('games', 'games.id', '=', 'developers_games.game_id')
-        // ->join('users', 'users.id', '=', 'developers.user_id') // Join with the users table
-        // ->where('developers_games.game_id', '=', $id)
-        // ->get();
-
-        // $dev = Developers::with('DevelopersGames.Games')->with('User')->get();
-    //DEPRECATED DEVELOPERS FUNCTION
-
+            $no_users_ownership = 
 
             return response()->json([
             'status' => 200,
             'game' => $game, //game+dev info output
-            'images'=>$images,
+            'images' => $images,
             'tags' => $tag,
-            'reviews'=>$reviews,
+            'reviews' => $reviews,
             'ratio' => $ratio,
             'evaluation' => $string,
-            'dlc'=>$dlc,
+            'dlc' => $dlc,
+            'no_users_ownership' => $no_users_ownership,
             ]);
 
         }catch(\Exception $e){
@@ -208,7 +190,7 @@ class GamesController extends Controller
     }
 
 
-    
+
     // Elimina un determinato record della tabella Games -Kelvin
     public function destroy ($id){
 
