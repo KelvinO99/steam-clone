@@ -170,7 +170,7 @@ class GamesController extends Controller
 
             //$no_users_ownership = User::where('id', $id)->withCount('libraries')->first();
 
-            $no_users_ownership = 
+            $no_users_ownership = Libraries::where('game_id', $id)->count();
 
             return response()->json([
             'status' => 200,
