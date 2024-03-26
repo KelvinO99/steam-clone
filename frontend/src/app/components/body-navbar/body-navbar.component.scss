@@ -24,7 +24,7 @@ input {
 
 }
 
-a.nav-link {
+span.nav-link {
     color: #e5e5e5;
     text-decoration: none;
     font-size: 12px;
@@ -36,6 +36,7 @@ a.nav-link {
 .dropdown {
     position: relative;
     display: inline-block;
+    padding-bottom: -10px;
 }
 
 .dropbtn {
@@ -45,22 +46,19 @@ a.nav-link {
 
 .dropdown-content.store,
 .dropdown-content.noteworthy {
-    display: none;
     position: absolute;
     left: 0;
     background: linear-gradient(90deg, rgba(33, 162, 255, 0.1) 1.89%, rgba(50, 50, 51, 0) 50%), linear-gradient(180deg, #575860 11.6%, #3A4852 54.73%, #2C2D34 100%);
     text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
     box-shadow: 0 0 12px #000000;
     text-align: left;
-    opacity: 1;
-    z-index: 10;
+    z-index: 2;
 }
 
 .dropdown-content a {
     color: #ffffff;
     display: block;
     text-decoration: none;
-    transition: background-color 0.3s;
 }
 
 .dropdown-content a:hover {
@@ -72,9 +70,6 @@ a.nav-link {
 }
 
 a.subMenuItem {
-    text-decoration: none;
-    text-transform: none;
-    font-weight: normal;
     font-size: 12px;
     color: #dcdedf;
     padding: 0.375rem 0;
@@ -83,15 +78,41 @@ a.subMenuItem {
     cursor: pointer;
 }
 
+.dropdown-content {
+    display: block;
+    /* Imposta l'opacità iniziale a 0 */
+    opacity: 0;
+    /* Nascondi l'elemento senza cambiare il layout */
+    visibility: hidden;
+    /* Aggiungi transizione per un'apertura graduale */
+    transition: opacity 0.6s ease, visibility 0s linear 0.3s;
+}
+
+.dropdown:hover .dropdown-content {
+    /* Mostra l'elemento */
+    opacity: 1;
+    /* Assicurati che sia visibile */
+    visibility: visible;
+    /* Resetta il ritardo della visibilità */
+    transition-delay: 0s;
+}
+
 
 .dropdown-content.store {
     min-width: 200px;
     position: absolute;
-    left: -12px;
+    left: -4px;
+    top: 25px;
 }
 
 .dropdown-content.noteworthy {
     min-width: 300px;
     position: absolute;
-    left: -12px;
+    left: -10px;
+    top: 25px;
 }
+
+form {
+    padding-bottom: 3px;
+} 
+
