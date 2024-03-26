@@ -14,6 +14,7 @@ class UsersSeeder extends Seeder
 {
     public function run(): void
     {
+        // 32
         $usernames = [
             'Chris',
             'Kelvin',
@@ -68,6 +69,19 @@ class UsersSeeder extends Seeder
             'user17@domain.com',
             'user18@domain.com',
             'user19@domain.com',
+            'user20@domain.com',
+            'user21@domain.com',
+            'user22@domain.com',
+            'user23@domain.com',
+            'user24@domain.com',
+            'user25@domain.com',
+            'user26@domain.com',
+            'user27@domain.com',
+            'user28@domain.com',
+            'user29@domain.com',
+            'user30@domain.com',
+            'user31@domain.com',
+            'user32@domain.com',
         ];
 
         // Assicurati che i ruoli siano già stati creati nel database
@@ -87,7 +101,7 @@ class UsersSeeder extends Seeder
 
             $j++;
             $user = User::create([
-                'username' => $usernames[$j],
+                'username' => $usernames[$i],
                 'email' => $email,
                 'password' => 'password',
                 'image_id' => 111, //da cambiare ogni volta che si aggiungono giochi/achievements images
