@@ -8,25 +8,27 @@
     .mat-tab-label-0-0 {
         padding: 0 !important;
     }
+
 }
+
+mat-card {
+    background: #202d39;
+    background: rgba(0, 0, 0, 0.2);
+    transition: 0.2s !important;
+    cursor: pointer;
+}
+
+mat-card:hover {
+    transform: scale(1.02) !important;
+    z-index: 2 !important;
+    cursor: pointer;
+}
+
 
 div.price {
     padding-right: 15px !important;
 }
 
-/* mat-card-header {
-    background-image: url("https://cdn.cloudflare.steamstatic.com/steam/apps/2275020/capsule_184x69.jpg?t=1709222621");
-    width: 184px;
-    height: 69px;
-    padding: 0;
-    margin: 0;
-} */
-
-mat-card {
-    background: #202d39;
-    background: rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-}
 .title {
     color: #c7d5e0;
     font-size: 0.78125vw;
@@ -40,6 +42,12 @@ mat-card {
 
 img.opacity {
     opacity: 0.3;
+}
+
+img.game {
+    height: 69px;
+    width: 95%;
+    object-fit: fill;
 }
 
 span.tags {
@@ -99,6 +107,57 @@ span.basePrice {
 
     span.tags {
         font-size: 14px;
+    }
+}
+
+@media only screen and ((min-width: 1200px) and (min-width: 992px) and (min-width: 768px) and (min-width: 600px)) {
+
+    .col-1 {
+        max-width: 9.996rem;
+    }
+
+    .col-2 {
+        max-width: 19.992rem;
+    }
+
+    .col-3 {
+        max-width: 30rem;
+    }
+
+    .col-4 {
+        max-width: 39.996rem;
+    }
+
+    .col-5 {
+        max-width: 49.992rem;
+    }
+
+    .col-6 {
+        max-width: 60rem;
+    }
+
+    .col-7 {
+        max-width: 69.996rem;
+    }
+
+    .col-8 {
+        max-width: 79.992rem;
+    }
+
+    .col-9 {
+        max-width: 90rem;
+    }
+
+    .col-10 {
+        max-width: 99.996rem;
+    }
+
+    .col-11 {
+        max-width: 109.992rem;
+    }
+
+    .col-12 {
+        max-width: 120rem;
     }
 }
 

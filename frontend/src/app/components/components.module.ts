@@ -24,12 +24,14 @@ import { MatCardModule} from '@angular/material/card';
 import { ProductBannersComponent } from './store/product-banners/product-banners.component';
 import { GameTableComponent } from './store/game-table/game-table.component';
 import { CategoryCarouselComponent } from './store/category-carousel/category-carousel.component';
-import {MatTabsModule} from '@angular/material/tabs';
-import { UpdatesOfferCardsComponent } from './updates-offer-cards/updates-offer-cards.component';
-import {MatButtonModule} from '@angular/material/button';
-import { GameComponent } from './game/game.component';
-import { BigButtonsComponent } from './big-buttons/big-buttons.component';
-import { SteamDeckComponent } from './steam-deck/steam-deck.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { UpdatesOfferCardsComponent } from './store/updates-offer-cards/updates-offer-cards.component';
+import { MatButtonModule } from '@angular/material/button';
+import { DataGameComponent } from './game-page/header-data-game/header-data-game.component';
+import { BigButtonsComponent } from './store/big-buttons/big-buttons.component';
+import { GameComponent } from './game-page/game-page.component';
+import { BodyDataGameComponent } from './game-page/body-data-game/body-data-game.component';
+import { BodyNavbarComponent } from './body-navbar/body-navbar.component';
 @NgModule({
   declarations: [
     BaseComponent,
@@ -41,12 +43,14 @@ import { SteamDeckComponent } from './steam-deck/steam-deck.component';
     ProductBannersComponent,
     UpdatesOfferCardsComponent,
     OfferCarouselComponent,
-   ProductBannersComponent,
-   GameTableComponent,
-   GameComponent,
-   CategoryCarouselComponent,
-   BigButtonsComponent,
-   SteamDeckComponent,
+    ProductBannersComponent,
+    GameTableComponent,
+    CategoryCarouselComponent,
+    DataGameComponent,
+    BigButtonsComponent,
+    GameComponent,
+    BodyDataGameComponent,
+    BodyNavbarComponent
 
   ],
   imports: [

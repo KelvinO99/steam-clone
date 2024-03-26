@@ -1,0 +1,109 @@
+<!-- <div class="container-fluid p-0 d-block">
+    <div class="row">
+        <div class="col-1 p-0">
+
+        </div>
+        <div class="col-10 p-0">
+            <p class="updateTitle">AGGIORNAMENTI E OFFERTE</p>
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div *ngFor="let page of pages; let i = index" class="carousel-item"
+                        [class.active]="currentIndex === i">
+                        <div class="d-flex flex-wrap justify-content-center">
+                            <div *ngFor="let card of getCardsForPage(i)" class="card square-card">
+                                <img [src]="card.images[0]?.image_path" class="img-fluid">
+                                <div class="card-body">
+                                    <span class="test1">
+                                        <div
+                                            class="col-2 p-0 d-flex justify-content-center align-items-center discountPercentage">
+                                            <h3 class="m-0" *ngIf="card.discounted_percentage != null">
+                                                {{ card.discounted_percentage }}%
+                                            </h3>
+                                        </div>
+                                        <div class="col-2 d-flex justify-content-center price">
+                                            <span class="free" *ngIf="card.base_price == 0">Free to Play</span>
+                                            <div>
+                                                <div class="d-flex justify-content-end">
+                                                    <span class="basePriceDiscount" style="color:#738895"
+                                                        *ngIf="card.discounted_price != null && card.base_price > 0">
+                                                        {{ card.base_price.toFixed(2) + "$" }}
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <span class="discount" *ngIf="card.discounted_price != null">
+                                                        {{ card.discounted_price.toFixed(2) + "$" }}
+                                                    </span>
+                                                    <span class="basePrice"
+                                                        *ngIf="card.discounted_price == null && card.base_price > 0">
+                                                        {{ card.base_price.toFixed(2) + "$" }}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-1 p-0">
+            
+        </div>
+    </div>
+</div> -->
+
+<div class="container-fluid p-0 pt-5">
+
+    <div class="row pb-3">
+
+        <div class="col-1 p-0"></div>
+
+        <div class="col-10 p-0">
+            <p class="titles"> Updates and Offers </p>
+        </div>
+
+        <div class="col-1"></div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-1 p-0">
+
+        </div>
+
+        <div class="col-10 p-0">
+
+            <div class="row">
+                <div class="col-4 py-1" *ngFor="let item of games">
+                    <div class="card p-0 border-0" (click)="goTo('../game/' + item.id)">
+                        <img class="img" [src]="item.images[0]?.image_path">
+
+                        <div class="container text py-2">
+                            <div class="row">
+                                <div class="col-12 d-flex justify-content-end">
+                                    <div class="discountPercentage px-2">
+                                        <span class="discountPercentage"> {{ item.discounted_percentage }}% </span>
+                                    </div>
+                                    <div class="price px-2">
+                                            <div class="col d-flex justify-content-end">
+                                                <span class="basePrice"> {{ item.base_price.toFixed(2) + "$" }} </span>
+                                            </div>
+                                            <div class="col d-flex justify-content-end">
+                                                <span class="discountPrice"> {{ item.discounted_price.toFixed(2) + "$" }} </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-1 p-0">
+
+            </div>
+        </div>
+    </div>
+</div>

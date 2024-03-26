@@ -3,9 +3,9 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Route } from '@angular/router';
 
 @Component({
-  selector: 'app-game',
-  templateUrl: './game.component.html',
-  styleUrls: ['./game.component.scss']
+  selector: 'app-game-page',
+  templateUrl: './game-page.component.html',
+  styleUrls: ['./game-page.component.scss']
 })
 export class GameComponent {
   routeId!: number;
