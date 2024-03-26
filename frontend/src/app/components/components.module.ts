@@ -20,13 +20,16 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { StoreComponent } from './store/store.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-/* import { ProductBannersComponent } from '../product-banners/product-banners.component';
-import { MainCarouselComponent } from './main-carousel/main-carousel.component'; */
 import { MatCardModule} from '@angular/material/card';
 import { ProductBannersComponent } from './store/product-banners/product-banners.component';
 import { GameTableComponent } from './store/game-table/game-table.component';
 import { CategoryCarouselComponent } from './store/category-carousel/category-carousel.component';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
+import { UpdatesOfferCardsComponent } from './store/updates-offer-cards/updates-offer-cards.component';
+import { MatButtonModule } from '@angular/material/button';
+import { DataGameComponent } from './game/data-game/data-game.component';
+import { BigButtonsComponent } from './store/big-buttons/big-buttons.component';
+
 import { GameComponent } from './game/game.component';
 @NgModule({
   declarations: [
@@ -36,13 +39,15 @@ import { GameComponent } from './game/game.component';
     HomeComponent,
     StoreComponent,
     SidebarComponent,
-   /*  ProductBannersComponent, */
-    /* MainCarouselComponent, */
+    ProductBannersComponent,
+    UpdatesOfferCardsComponent,
     OfferCarouselComponent,
-   ProductBannersComponent,
-   GameTableComponent,
-   GameComponent,
-   CategoryCarouselComponent,
+    ProductBannersComponent,
+    GameTableComponent,
+    GameComponent,
+    CategoryCarouselComponent,
+    DataGameComponent,
+    BigButtonsComponent,
 
   ],
   imports: [
@@ -63,7 +68,9 @@ import { GameComponent } from './game/game.component';
     MatCardModule,
     MatCardModule,
     MatTabsModule,
+    MatButtonModule,
   ],
   exports: [CommonModule, TranslateModule, BaseComponent],
 })
 export class ComponentsModule {}
+export class CardFancyExample {}

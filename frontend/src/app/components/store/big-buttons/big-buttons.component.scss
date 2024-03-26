@@ -1,0 +1,40 @@
+.title{
+    font-family: "Motiva Sans", Sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-left:20px;
+    letter-spacing: 0.03em;
+    font-weight: normal;
+}
+
+.bigButtons {
+    width: 90%;
+    height: 58px;
+    font-family: "Motiva Sans", sans-serif;;
+    font-weight: 600;
+    font-size: 16px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    text-align: center;
+    background: linear-gradient(90deg, #06BFFF 0%, #2D73FF 100%);
+    border-radius: 3px;
+    box-shadow: 0 0 4px #000;
+    cursor:pointer;
+
+}
+
+.bigButton:hover {
+    filter: brightness(1.20);
+}
+
+.titles {
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-family: "Motiva Sans", Sans-serif;
+    font-weight: 600;
+    color: #ffffff;
+}

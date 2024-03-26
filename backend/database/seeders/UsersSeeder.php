@@ -62,32 +62,31 @@ class UsersSeeder extends Seeder
         // Assicurati che i ruoli siano già stati creati nel database
         $ruoli = Role::all();
 
-        $DIM_A = count($usernames);
         $j=0;
-        for($i=0;$i<19;$i++)
+        for($i=0;$i<sizeof($usernames);$i++)
         {
             foreach ($emails as $email) {
             // Verifica se l'email è già presente nel database
             if (DB::table('users')->where('email', $email)->exists()) {
                 continue; // Salta questa email se già usata
             }
-    
+
             // Seleziona un username casuale
             $randomUsername = $usernames[array_rand($usernames)];
-    
+
             $j++;
             $user = User::create([
-                'username' => $randomUsername,
+                'username' => $usernames[$j],
                 'email' => $email,
                 'password' => 'password',
-                'image_id' => 1,
+                'image_id' => 111, //da cambiare ogni volta che si aggiungono giochi/achievements images
                 'wallet' => 0,
             ]);
 
             // Assegna un ruolo casuale all'utente
             $user->addRole($ruoli->random());
-                
-    
+
+
             // Opcional: Puoi anche rimuovere l'email dall'array se vuoi
             }
     }

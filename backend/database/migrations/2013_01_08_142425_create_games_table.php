@@ -13,7 +13,7 @@ return new class extends Migration
             $table->boolean('is_dlc');
             $table->unsignedBigInteger('parent_id')->nullable()->default(null);
             $table->string('name')->default('PLACEHOLDER');
-            $table->date('date')->default('1970-01-01');
+            $table->string('date')->default('1970-01-01');
             $table->float('base_price', 8, 2)->default(0.00);
             $table->boolean('is_discounted')->default(false);
             $table->float('discounted_price', 8, 2)->default(0.00)->nullable(); //nullable perché non sempre
