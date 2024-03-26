@@ -1,0 +1,136 @@
+.card {
+    background: linear-gradient(-60deg, rgba(226, 244, 255, 0.3) 5%, rgba(84, 107, 115, 0.3) 95%);
+    border-radius: 4px;
+}
+
+div.discountPercentage {
+    align-items: center;
+    display: flex;
+    border-radius: 1px;
+    background: #4c6b22;
+    border-radius: 2px;
+}
+
+span.discountPercentage {
+    font-size: 26px;
+    font-family: "Motiva Sans", sans-serif;
+    ;
+    font-weight: 500;
+    color: #BEEE11;
+    line-height: 34px;
+}
+
+span.discountPrice {
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    ;
+    color: #BEEE11;
+}
+
+div.price {
+    background-color: #344654;
+    border-radius: 2px;
+}
+
+span.basePrice {
+    font-size: 11px;
+    line-height: 12px;
+    color: #738895;
+    text-decoration: line-through;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.titles {
+    font-size: 21px;
+    color: white;
+}
+
+div.bottom {
+    background: linear-gradient(to right, #75b022 5%, #588a1b 95%);
+}
+
+span.bottom {
+    font-size: 15px;
+    color: #d2efa9;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+}
+
+.firstLine,
+.secondLine,
+.thirdLine {
+    background-color: rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+.row.firstLine {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+span.login {
+    color: white;
+    font-size: 16px;
+}
+
+span.loginText {
+    font-size: 14px;
+    color: #acb2b8;
+}
+
+div.SignIn {
+    border-radius: 2px;
+    border: none;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none !important;
+    color: #67c1f5 !important;
+    background: rgba(103, 193, 245, 0.2);
+}
+
+div.bottomSecondLine {
+    background: rgba(103, 193, 245, 0.2);
+    font-size: 12px;
+    color: #67c1f5 !important;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.textSecondLine {
+    font-size: 12px;
+    color: #8f98a0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+img.icon {
+    background-color: black;
+    height: 22px;
+    width: 40px;
+}
+
+span.basePriceNotDiscount {
+    color: white;
+}
+
+div.basePriceNotDiscount {
+    background-color: black;
+}
+
+div.textLanguage {
+    font-size: 11px;
+    color: #b0aeac;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div.language {
+    font-size: 11px;
+    color: #8f98a0;
+}
+
+div.borderStyle {
+    border-bottom-color: #585a5e;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+}
+
+.true {
+    font-weight: bold;
+    color: #67c1f5;
+}

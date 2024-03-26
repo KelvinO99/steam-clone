@@ -6,7 +6,7 @@
         <div class="col-10">
             <div class="container-fluid p-0">
                 <div class="row">
-                    <p class="search p-0"> All Games > {{game.tags[1].name}} > PlayStation Studios™ Franchise > {{game.game.name}} </p>
+                    <p class="search p-0"> All Games > {{game.tags[1].name}} > {{game.game.developers_games[0].developers.user.username}} > {{game.game.name}} </p>
                 </div>
                 <div class="row">
                     <p class="titles"> {{game.game.name}} </p>
@@ -52,7 +52,7 @@
                     <div class="col-4">
 
                         <div class="row pb-2">
-                            <img class="img-fluid px-0" [src]="game.game.images[0].image_path">
+                            <img class="img-fluid imgSm px-0" [src]="game.game.images[0].image_path">
                         </div>
 
                         <div class="row">
@@ -64,16 +64,25 @@
                                 <span class="text"> all reviews </span>
                             </div>
                             <div class="col-8 px-0">
-                                <span class="evaluation px-0"> {{game.evaluation}} </span>
+                                <span class="evaluation px-0"> {{game.evaluation}} </span> <span class="text px-0"> ({{game.positive + game.negative}}) </span>
                             </div>
                         </div>
-
-                        <div class="row pt-2">
+                       
+                        <div class="row">
                             <div class="col-4 px-0 d-flex justify-content-start">
                                 <span class="text"> release date </span>
                             </div>
                             <div class="col-8 px-0">
-                                <span class="date px-0"> {{game.game.date}} </span>
+                                <span class="date px-0"> {{ game.game.date | date:'dd MMM, yyyy' }} </span>
+                            </div>
+                        </div>
+
+                        <div class="row pt-3">
+                            <div class="col-4 px-0 d-flex justify-content-start">
+                                <span class="text"> developers </span>
+                            </div>
+                            <div class="col-8 px-0">
+                                <span class="date px-0"> {{game.game.developers_games[0].developers.user.username}} </span>
                             </div>
                         </div>
 

@@ -31,38 +31,14 @@
                   <div class="carousel-item" *ngFor="let page of pages; let i = index" [class.active]="currentIndex === i">
                       <div class="row">
 
-                          <div class="col-4 px-1"  *ngFor="let card of getCardsForPage(i)">
+                          <div class="col-4 px-1"  *ngFor="let card of getCardsForPage(i)" (click)="goTo('../game/' + card.id)">
                               <div class="card">
                                 <img class="img" [src]="card.images[0]?.image_path">
 
                                     <div class="container text"> 
                                     </div>
                               </div>
-                          </div>5
-
-
-                          <!-- <div class="col-4">
-                            <div class="card">
-                                <img class="img" 
-                                src="https://web.archive.org/web/20240313111837im_/https://cdn.akamai.steamstatic.com/steam/spotlights/222fcf1735e29bb17fe04e02/spotlight_image_english.jpg?t=1709744833">
-
-                                <div class="container text"> 
-                                  
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="col-4">
-                          <div class="card">
-                              <img class="img" 
-                              src="https://web.archive.org/web/20240313111837im_/https://cdn.akamai.steamstatic.com/steam/spotlights/222fcf1735e29bb17fe04e02/spotlight_image_english.jpg?t=1709744833">
-
-                              <div class="container text"> 
-                                
-                              </div>
                           </div>
-                      </div> -->
 
                       </div>
                   </div>
@@ -80,21 +56,5 @@
           </div>
 
       </div>
-      <!-- <div class="row">
-
-          <div class="col">
-
-              <div class="carousel-indicators pt-3">
-                  <button type="button" data-bs-target="#offerCarousel" data-bs-slide-to="0" class="active"
-                      aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#offerCarousel" data-bs-slide-to="1"
-                      aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#offerCarousel" data-bs-slide-to="2"
-                      aria-label="Slide 3"></button>
-              </div>
-
-          </div>
-
-      </div> -->
   </div>
 </div>

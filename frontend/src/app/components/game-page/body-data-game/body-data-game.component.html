@@ -1,4 +1,4 @@
-<div class="container-fluid p-0 pt-5 pb-5">
+<div class="container-fluid body p-0 my-5">
     <div class="row">
 
         <div class="col-1">
@@ -11,14 +11,193 @@
 
                     <div class="col-8">
                         <div class="card">
-                            
+
+                            <div class="row pt-3 px-3   ">
+                                <div class="col-8">
+                                    <span class="titles"> Buy {{game.game.name}} </span>
+                                </div>
+                                <div class="col-4">
+                                    <img>
+                                </div>
+                            </div>
+
+                            <div class="row  pt-2 pt-2 px-2">
+                                <div class="col-12">
+                                    <span class="true"> </span>
+                                </div>
+                            </div>
+
+                            <div class="row p-1">
+                                <div class="col-12 d-flex justify-content-end">
+
+                                    <div class="discountPercentage px-2 border-black border border-2" *ngIf="game.game.discounted_percentage != null">
+                                        <span class="discountPercentage"> {{ game.game.discounted_percentage }}% </span>
+                                    </div>
+
+                                    <div class="price px-2 border-black border border-2"  *ngIf="game.game.discounted_price != null && game.game.base_price > 0 ">
+                                        <div class="col d-flex justify-content-end pt-1">
+                                            <span class="basePrice"> {{ game.game.base_price.toFixed(2) + "$" }} </span>
+                                        </div>
+                                        <div class="col d-flex justify-content-end">
+                                            <span class="discountPrice"> {{ game.game.discounted_price.toFixed(2) + "$"
+                                                }} </span>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="price px-2 border-black border border-2 basePriceNotDiscount"  *ngIf="game.game.discounted_price == null && game.game.base_price > 0 ">
+                                        <div class="col d-flex justify-content-end py-2">
+                                            <span class="basePriceNotDiscount"> {{ game.game.base_price.toFixed(2) + "$"
+                                                }} </span>
+                                        </div>
+                                        
+                                    </div>
+
+                                    
+
+                                    <div class="bottom px-2 d-flex align-items-center border-black border border-3">
+                                        <span class="bottom"> Add to Cart </span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
                     <div class="col-4">
+                        <div class="row firstLine mb-2">
+                            <div class="p-3 firstLine">
+                                <span class="login"> Is this game relevant to you? </span>
+                            </div>
+                            <div class="px-3 pt-3">
+                                <span class="loginText"> Sign in to see reasons why you may or may not like this based
+                                    on your games, friends, and curators you follow. </span>
+                            </div>
+                            <div class="px-3 py-3 justify-content-center d-flex">
+                                <div class="SignIn py-1 px-5">
+                                    Sign In
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row secondLine mb-2">
+                            <div class="py-2">
+                                <div class="bottomSecondLine mb-1 px-2">
+                                    <!-- <img src="https://store.akamai.steamstatic.com/public/images/v6/ico/ico_coop.png"
+                                        class="icon"> --> Online Co-op
+                                </div>
+                                <div class="bottomSecondLine mb-1 px-2">
+                                    <!-- <img src="https://store.akamai.steamstatic.com/public/images/v6/ico/ico_multiPlayer.png"
+                                        class="icon"> --> Shared/Split Screen Co-op
+                                </div>
+                                <div class="bottomSecondLine mb-1 px-2">
+                                    <!-- <img src="https://store.akamai.steamstatic.com/public/images/v6/ico/ico_achievements.png"
+                                        class="icon"> --> Steam Achievements
+                                </div>
+                                <div class="bottomSecondLine mb-1 px-2">
+                                    <!-- <img src="https://store.akamai.steamstatic.com/public/images/v6/ico/ico_multiPlayer.png"
+                                        class="icon"> --> Steam Trading Cards
+                                </div>
+                                <div class="bottomSecondLine mb-1 px-2">
+                                    <!-- <img src="https://store.akamai.steamstatic.com/public/images/v6/ico/ico_remote_play_together.png"
+                                        class="icon"> --> Remote Play Together
+                                </div>
+                            </div>
+
+                            <span class="textSecondLine"> Full Controller Support </span>
+                            <div class="py-2">
+                                <div class="bottomSecondLine mb-1 px-2"> Xbox Controllers </div>
+                                <div class="bottomSecondLine mb-1 px-2"> DualShock Controllers (USB Only) </div>
+                                <div class="bottomSecondLine mb-1 px-2"> DualSense Controllers (USB Only) </div>
+                            </div>
+                        </div>
+
+                        <div class="row thirdLine mb-2 py-2 px-2">
+                            <div class="language p-0"> Languages: </div>     
+                            <div class="d-flex borderStyle p-0">
+                                <div class="col">
+                                </div>
+                                <div class="col d-flex justify-content-center p-0 textLanguage">
+                                    Interface
+                                </div>
+                                <div class="col d-flex justify-content-center  p-0 textLanguage">
+                                    Full Audio
+                                </div>
+                                <div class="col d-flex justify-content-center  p-0 textLanguage">
+                                    Subtitles
+                                </div>
+                            </div>
+                            <div class="d-flex borderStyle p-0 py-1">
+                                <div class="col textLanguage d-flex justify-content-start">
+                                    English 
+                                </div>
+                                <div class="col d-flex justify-content-center p-0 textLanguage">
+                                    <span class="true"> ✔ </span>
+                                </div>
+                                <div class="col d-flex justify-content-center  p-0 textLanguage">
+                                    <span class="true"> ✔ </span>
+                                </div>
+                                <div class="col d-flex justify-content-center  p-0 textLanguage">
+                                    <span class="true"> ✔ </span>
+                                </div>
+                            </div>
+                            <div class="d-flex borderStyle p-0 py-1">
+                                <div class="col textLanguage d-flex justify-content-start">
+                                    French
+                                </div>
+                                <div class="col d-flex justify-content-center p-0 textLanguage">
+                                    <span class="true"> ✔ </span>
+                                </div>
+                                <div class="col d-flex justify-content-center  p-0 textLanguage">
+                                    <span class="true"> ✔ </span>
+                                </div>
+                                <div class="col d-flex justify-content-center  p-0 textLanguage">
+                                    <span class="true"> ✔ </span>
+                                </div>
+                            </div>
+                            <div class="d-flex borderStyle p-0 py-1">
+                                <div class="col textLanguage d-flex justify-content-start">
+                                    Italian 
+                                </div>
+                                <div class="col d-flex justify-content-center p-0 textLanguage">
+                                    <span class="true"> ✔ </span>
+                                </div>
+                                <div class="col d-flex justify-content-center  p-0 textLanguage">
+                                    <span class="true"> ✔ </span>
+                                </div>
+                                <div class="col d-flex justify-content-center  p-0 textLanguage">
+                                    <span class="true"> ✔ </span>
+                                </div>
+                            </div>
+                            <div class="d-flex borderStyle p-0 py-1">
+                                <div class="col textLanguage d-flex justify-content-start">
+                                    German 
+                                </div>
+                                <div class="col d-flex justify-content-center p-0 textLanguage">
+                                    <span class="true"> ✔ </span>
+                                </div>
+                                <div class="col d-flex justify-content-center  p-0 textLanguage">
+                                    <span class="true"> ✔ </span>
+                                </div>
+                                <div class="col d-flex justify-content-center  p-0 textLanguage">
+                                    <span class="true"> ✔ </span>
+                                </div>
+                            </div>
+                            <div class="d-flex p-0 py-1">
+                                <div class="col textLanguage d-flex justify-content-start">
+                                    Japanese 
+                                </div>
+                                <div class="col d-flex justify-content-center p-0 textLanguage">
+                                    <span class="true"> ✔ </span>
+                                </div>
+                                <div class="col d-flex justify-content-center  p-0 textLanguage">
+                                    <span class="true"> ✔ </span>
+                                </div>
+                                <div class="col d-flex justify-content-center  p-0 textLanguage">
+                                    <span class="true"> ✔ </span>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
-
                 </div>
             </div>
         </div>
