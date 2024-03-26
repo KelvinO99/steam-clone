@@ -1111,8 +1111,48 @@ class GamesSeeder extends Seeder
             40.19,                         // The Last Of Us Part I
         ];
         $pegi_id = [ 
-            2,
-            3,
+            12,     // Undertale
+            16,     // Uncharted: The Legacy Collection
+            18,     // Hitman 3
+            3,      // Tetris Effect: Connected
+            12,     // Terraria
+            12,     // Fortnite
+            18,     // Call of Duty Black Ops 2
+            18,     // Assassin's Creed 4
+            18,     // Grand Theft Auto V
+            16,     // Halo: The Master Chief Collection
+            16,     // Final Fantasy 7 Remake Intergrade
+            7,      // Minecraft
+            12,     // Overwatch 2
+            3,      // EA SPORTS FC™ 24
+            3,      // PC Building Simulator
+            18,     // Persona 5 Royal
+            0,      // Steam Deck
+            3,      // Rocket League
+            3,      // Counter-Strike 2
+            12,     // Forza Horizon 5
+            18,     // Left 4 Dead 2
+            18,     // Hitman 3 - Seven Deadly Sins Collection
+            18,     // Grand Theft Auto VI
+            18,     // Resident Evil 4
+            18,     // Mortal Kombat 1
+            18,     // Red Dead Redemption 2
+            18,     // God Of War
+            18,     // Tom Clancy's Rainbow Six Siege
+            18,     // Dead Space
+            7,      // Grounded
+            18,     // Cyberpunk 2077
+            12,     // Sea Of Thieves
+            18,     // Sekiro Shadows Die Twice
+            12,     // Monster Hunter Rise
+            18,     // Assassin's Creed Valhalla
+            16,     // Persona 3 Reload
+            16,     // Horizon Forbidden West
+            16,     // Baldur's Gate 3
+            16,     // Elden Ring
+            18,     // Cyberpunk 2077: Phantom Liberty
+            0,      // Valve Index
+            18      // The Last Of Us Part I
         ];
         $dlcs = [
             22,
