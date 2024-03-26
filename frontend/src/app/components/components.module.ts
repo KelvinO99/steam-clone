@@ -29,6 +29,7 @@ import { UpdatesOfferCardsComponent } from './updates-offer-cards/updates-offer-
 import {MatButtonModule} from '@angular/material/button';
 import { GameComponent } from './game/game.component';
 import { BigButtonsComponent } from './big-buttons/big-buttons.component';
+import { SteamDeckComponent } from './steam-deck/steam-deck.component';
 @NgModule({
   declarations: [
     BaseComponent,
@@ -45,6 +46,7 @@ import { BigButtonsComponent } from './big-buttons/big-buttons.component';
    GameComponent,
    CategoryCarouselComponent,
    BigButtonsComponent,
+   SteamDeckComponent,
 
   ],
   imports: [

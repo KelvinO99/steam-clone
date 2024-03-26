@@ -8,6 +8,7 @@ import { AuthGuard } from './shared/services/auth.guard';
 import { User } from './shared/services/user.service';
 import { GameTableComponent } from './components/store/game-table/game-table.component';
 import { GameComponent } from './components/game/game.component';
+import { SteamDeckComponent } from './components/steam-deck/steam-deck.component';
 
 const routes: Routes = [
   
@@ -19,7 +20,9 @@ const routes: Routes = [
     { path: 'store', component: StoreComponent },
   ] },
   { path: 'user-profile/:id', component: User, canActivate: [AuthGuard] },
-  { path: 'game/:id', component: GameComponent}
+  { path: 'game/:id', component: GameComponent},
+  { path: 'steam-deck', component: SteamDeckComponent },
+
 ];
 
 
