@@ -65,7 +65,7 @@ class ReviewsSeeder extends Seeder
         //$this->call(GamesSeeder::class);
         //$gameSeeder = GamesSeeder::class;
 
-        for($i=0;$i<sizeof($positive)*15;$i++)
+        for($i=0;$i<sizeof($positive)*150;$i++)
         {
             $gameid_random = rand(1,40);
             $reviews_date = Carbon::now()->subYears(random_int(0, 5))->subDays(random_int(1, 365))->format('Y-m-d');

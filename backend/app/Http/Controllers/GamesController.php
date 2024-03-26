@@ -126,11 +126,16 @@ class GamesController extends Controller
 
             $DIM_A = count($positive_reviews); //conta quante review sono state fatte
             $positive = 0; // inizializza variabile che verrà usata subito
+            $negative = 0;
 
             for($i = 0; $i < $DIM_A-1; $i++){
                 if($positive_reviews[$i] == 1)         //ciclo for che conta quante review sono positive
                 {                             //per fare un rapporto
                     $positive++;
+                }
+                else
+                {
+                    $negative++;
                 }
             }
             $ratio=($positive/$DIM_A)*100; //il rapporto
@@ -177,6 +182,8 @@ class GamesController extends Controller
             'images' => $images,
             'tags' => $tag,
             'reviews' => $reviews,
+            'positive' => $positive,
+            'negative' => $negative,
             'ratio' => $ratio,
             'evaluation' => $string,
             'dlc' => $dlc,
