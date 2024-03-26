@@ -1,114 +1,38 @@
-<div class="container-fluid p-0 m-0 min-vh-100">
+<div class="container-fluid body">
 
-    <div class="row p-0 w-100 d-flex justify-content-center">
-        <div [class]="col_2">
+    <div class="row p-0 d-flex justify-content-center">
+        <div class="col-2 d-flex justify-content-end">
 
             <app-sidebar> </app-sidebar>
 
         </div>
-        <div [class]="col_8">
+        <div class="col-8">
+            
+                <div class="container-fluid mb-2 mt-4 px-0">
+                    <div class="row">
+                        <div class="col-1 p-0">
 
-            <div class="container-fluid mb-2 mt-4 px-0">
-                <div class="row">
-                    <div class="col-1 p-0">
+                        </div>
 
-                    </div>
+                        <div class="col-10 p-0">
+                            <app-body-navbar> </app-body-navbar>
+                        </div>
 
-                    <div class="col-10 p-0">
-                        <div class="container d-flex justify-content-center p-0">
-                            <nav class="navbar navbar-expand">
-                                <div class="container">
+                        <div class="col-1 p-0">
 
-                                    <div class="collapse navbar-collapse">
-                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-                                            <li class="nav-item">
-                                                <div class="dropdown p-0">
-                                                    <a class="dropbtn nav-link pb-0"> Your Store </a>
-                                                    <div class="dropdown-content store">
-                                                        <a class="subMenuItem" routerLink=""> Home </a>
-                                                        <a class="subMenuItem"> Community Recommendations </a>
-                                                        <a class="subMenuItem"> Recently Viewed </a>
-                                                        <a class="subMenuItem"> Steam Cutrator </a>
-                                                    </div>
-                                                </div>
-                                            </li>
-
-
-                                            <li class="nav-item">
-                                                <div class="dropdown p-0">
-                                                    <a class="dropbtn nav-link pb-0"> New & Noteworthy </a>
-                                                    <div class="dropdown-content noteworthy">
-                                                        <div class="row">
-                                                            <div class="col">
-                                                                <a class="subMenuItem" routerLink=""> Main Page </a>
-                                                                <a class="subMenuItem"> Top Seller </a>
-                                                                <a class="subMenuItem"> Most Played </a>
-                                                                <a class="subMenuItem"> New Releases </a>
-                                                                <a class="subMenuItem"> Upcoming Releases </a>
-                                                                <a class="subMenuItem"> Recently Updated </a>
-                                                            </div>
-                                                            5
-                                                            <div class="col">
-                                                                <a class="subMenuItem" routerLink=""> Main Page </a>
-                                                                <a class="subMenuItem"> Discovery Queue </a>
-                                                                <a class="subMenuItem"> Wishlist </a>
-                                                                <a class="subMenuItem"> Point store </a>
-                                                                <a class="subMenuItem"> News </a>
-                                                                <a class="subMenuItem"> Stats </a>
-                                                                <a class="subMenuItem"> About </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-
-                                            <li class="nav-item">
-                                                <a class="nav-link" routerLink="#"> Categrories </a>
-                                            </li>
-
-                                            <li class="nav-item">
-                                                <a class="nav-link" routerLink="#"> Point Shop </a>
-                                            </li>
-
-                                            <li class="nav-item">
-                                                <a class="nav-link" routerLink="#"> News </a>
-                                            </li>
-
-                                            <li class="nav-item">
-                                                <a class="nav-link" routerLink="#"> Labs </a>
-                                            </li>
-
-                                        </ul>
-                                        <form role="search">
-                                            <input class="form-control" type="search" placeholder="Search"
-                                                aria-label="Search">
-                                        </form>
-                                    </div>
-                                </div>
-                            </nav>
                         </div>
                     </div>
-
-                    <div class="col-1 p-0">
-
-                    </div>
                 </div>
+
+                <app-offer-carousel> </app-offer-carousel>
+                <app-product-banners></app-product-banners>
+                <app-category-carousel></app-category-carousel>
+                <app-big-buttons></app-big-buttons>
+                <app-game-table> </app-game-table>
+                <app-updates-offer-cards> </app-updates-offer-cards>
+
             </div>
-
-            <app-offer-carousel> </app-offer-carousel>
-            <app-product-banners></app-product-banners>
-            <app-category-carousel></app-category-carousel>
-            <app-updates-offer-cards></app-updates-offer-cards>
-            <app-big-buttons></app-big-buttons>
-            <app-game-table> </app-game-table>
-
-
-        </div>
-        <div [class]="col_2">
-
-
-
+            <div class="col-2">
+            </div>
         </div>
     </div>
-</div>

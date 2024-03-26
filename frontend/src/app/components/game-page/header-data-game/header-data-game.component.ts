@@ -1,22 +1,23 @@
-import { GameService } from 'src/app/shared/services/game.service';
 import { Component } from '@angular/core';
-import { ActivatedRoute, Route } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { GameService } from 'src/app/shared/services/game.service';
 
 @Component({
-  selector: 'app-game',
-  templateUrl: './game.component.html',
-  styleUrls: ['./game.component.scss']
+  selector: 'app-header-data-game',
+  templateUrl: './header-data-game.component.html',
+  styleUrls: ['./header-data-game.component.scss']
 })
-export class GameComponent {
+export class DataGameComponent {
+
   routeId!: number;
   game!: any;
+  offset = 1;
 
   constructor(public route: ActivatedRoute, public gameService: GameService){}
 
 
   ngOnInit() {
     this.routeId = this.route.snapshot.params['id'];
-    console.log(this.routeId);
     this.showGame();
   }
 
@@ -26,9 +27,9 @@ export class GameComponent {
         {
           this.game = res
           console.log(this.game);
-          
         }
       }
     })
   }
+
 }
