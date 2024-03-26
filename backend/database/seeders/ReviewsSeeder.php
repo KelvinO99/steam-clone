@@ -68,14 +68,14 @@ class ReviewsSeeder extends Seeder
         $const_rev = (sizeof($positive)+sizeof($negative))*70;
 
         dump('--|Reputazione|--');
-        $luck = 22;//rand(1,40);
+        $luck = rand(1,42);
         dump('Il gioco id: '.$luck.' è stato scelto come gioco piaciuto');
-        $badluck = rand(1,40);
+        $badluck = rand(1,42);
         dump('Il gioco id: '.$badluck.' è stato scelto come gioco odiato');
 
         for($i=0;$i<$const_rev;$i++)
         {
-            $gameid_random = rand(1,40);
+            $gameid_random = rand(1,42);
 
             $reviews_date = Carbon::now()->subYears(random_int(0, 5))->subDays(random_int(1, 365))->format('Y-m-d');
 
