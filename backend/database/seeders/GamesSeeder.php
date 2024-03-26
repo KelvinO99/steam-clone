@@ -1110,6 +1110,10 @@ class GamesSeeder extends Seeder
             1079,                          // Valve Index
             40.19,                         // The Last Of Us Part I
         ];
+        $pegi_id = [ 
+            2,
+            3,
+        ];
         $dlcs = [
             22,
             40,
@@ -1151,7 +1155,7 @@ class GamesSeeder extends Seeder
                 'discounted_price' => $bool ? number_format($base_price[$i]-($base_price[$i]*($discounted_percentage/100)), 2, '.', ''): null,
                 'short_description' => $short_description[$i],
                 'long_description' => $long_description[$i],
-                'pegi_id' => rand(0,4),
+                'pegi_id' => $pegi_id[$i],
             ]);
 
 
