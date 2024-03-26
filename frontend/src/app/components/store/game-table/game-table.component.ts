@@ -9,7 +9,7 @@ import { GameService } from 'src/app/shared/services/game.service';
 })
 export class GameTableComponent {
   discount_game: any;
-  incoming_game: any;
+  upcoming_game: any;
   best_seller_game: any;
   most_reviewed_game: any;
   specia_offer: any;
@@ -31,26 +31,26 @@ export class GameTableComponent {
       case 'Top Sellers':
         this.getBestSeller();
         break;
-      case 'Incoming':
-        this.getIncoming();
+      case 'Upcoming':
+        this.getUpcoming();
         break;
-      case 'Specials offer':
+      case 'Specials offers':
         this.getSpecialOffer();
         break;
     }
   }
 
-  getIncoming() {
+  getUpcoming() {
     this.gameService
       .getGames({
         skip: this.skip,
         take: this.take,
-        incoming: true, // Imposta il flag a true
+        upcoming: true, // Imposta il flag a true
       })
       .subscribe((res: any) => {
-        this.incoming_game = res;
+        this.upcoming_game = res;
         console.log('getIncoming');
-        console.log(this.incoming_game);
+        console.log(this.upcoming_game);
       });
   }
 
@@ -105,8 +105,8 @@ export class GameTableComponent {
       })
       .subscribe((res: any) => {
         this.specia_offer = res;
-        console.log('getMostReviewed');
-        console.log(this.most_reviewed_game);
+        console.log('getSpecialOffer');
+        console.log(this.specia_offer);
       });
   }
 

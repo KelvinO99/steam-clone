@@ -20,19 +20,18 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { StoreComponent } from './store/store.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-/* import { ProductBannersComponent } from '../product-banners/product-banners.component';
-import { MainCarouselComponent } from './main-carousel/main-carousel.component'; */
 import { MatCardModule} from '@angular/material/card';
 import { ProductBannersComponent } from './store/product-banners/product-banners.component';
 import { GameTableComponent } from './store/game-table/game-table.component';
 import { CategoryCarouselComponent } from './store/category-carousel/category-carousel.component';
-import {MatTabsModule} from '@angular/material/tabs';
-import { UpdatesOfferCardsComponent } from './updates-offer-cards/updates-offer-cards.component';
-import {MatButtonModule} from '@angular/material/button';
-import { MainCarouselComponent } from './main-carousel/main-carousel.component';
-
-import { GameComponent } from './game/game.component';
-import { BigButtonsComponent } from './big-buttons/big-buttons.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { UpdatesOfferCardsComponent } from './store/updates-offer-cards/updates-offer-cards.component';
+import { MatButtonModule } from '@angular/material/button';
+import { DataGameComponent } from './game-page/header-data-game/header-data-game.component';
+import { BigButtonsComponent } from './store/big-buttons/big-buttons.component';
+import { GameComponent } from './game-page/game-page.component';
+import { BodyDataGameComponent } from './game-page/body-data-game/body-data-game.component';
+import { BodyNavbarComponent } from './body-navbar/body-navbar.component';
 @NgModule({
   declarations: [
     BaseComponent,
@@ -44,11 +43,14 @@ import { BigButtonsComponent } from './big-buttons/big-buttons.component';
     ProductBannersComponent,
     UpdatesOfferCardsComponent,
     OfferCarouselComponent,
-   ProductBannersComponent,
-   GameTableComponent,
-   GameComponent,
-   CategoryCarouselComponent,
-   BigButtonsComponent,
+    ProductBannersComponent,
+    GameTableComponent,
+    CategoryCarouselComponent,
+    DataGameComponent,
+    BigButtonsComponent,
+    GameComponent,
+    BodyDataGameComponent,
+    BodyNavbarComponent
 
   ],
   imports: [
