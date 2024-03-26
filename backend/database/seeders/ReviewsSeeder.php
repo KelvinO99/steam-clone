@@ -68,7 +68,7 @@ class ReviewsSeeder extends Seeder
         $const_rev = (sizeof($positive)+sizeof($negative))*70;
 
         dump('--|Reputazione|--');
-        $luck = rand(1,40);
+        $luck = 22;//rand(1,40);
         dump('Il gioco id: '.$luck.' è stato scelto come gioco piaciuto');
         $badluck = rand(1,40);
         dump('Il gioco id: '.$badluck.' è stato scelto come gioco odiato');
@@ -103,20 +103,31 @@ class ReviewsSeeder extends Seeder
 
         $rep_const_rev = $const_rev/10;
 
+        $game = Games::find($luck);
+        $release_date = $game->date;
         for($j=0;$j<$rep_const_rev;$j++) //luck gen
-            {
-                $rng = rand(1,6);
-                DB::table('reviews')->insert([
-                    'user_id' => rand(1,19),//PLACEHOLDER RNG
-                    'game_id' => $luck,
-                    'date' => $reviews_date,
-                    'is_recommended' => $rng !== 1 ? 1 : 0,
-                    'description' => $rng !== 1 ? $positive[random_int( 0, sizeof($positive)-1 )] : $negative[random_int( 0, sizeof($negative)-1 )],
-                    'hours_played' => mt_rand() / mt_getrandmax() * (999 - 1) + 1,
-                ]);
+        {
+            if($release_date>Carbon::now()){
+                continue;
             }
+            $rng = rand(1,6);
+            DB::table('reviews')->insert([
+                'user_id' => rand(1,19),//PLACEHOLDER RNG
+                'game_id' => $luck,
+                'date' => $reviews_date,
+                'is_recommended' => $rng !== 1 ? 1 : 0,
+                'description' => $rng !== 1 ? $positive[random_int( 0, sizeof($positive)-1 )] : $negative[random_int( 0, sizeof($negative)-1 )],
+                'hours_played' => mt_rand() / mt_getrandmax() * (999 - 1) + 1,
+            ]);
+        }
+
+        $game = Games::find($badluck);
+        $release_date = $game->date;
         for($j=0;$j<$rep_const_rev;$j++) //badluck gen
         {
+            if($release_date>Carbon::now()){
+                continue;
+            }
             $rng = rand(1,6);
             DB::table('reviews')->insert([
                 'user_id' => rand(1,19),//PLACEHOLDER RNG

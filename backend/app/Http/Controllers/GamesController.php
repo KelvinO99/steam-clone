@@ -122,47 +122,62 @@ class GamesController extends Controller
 
 
     //REVIEWS FUNCTION
-            $positive_reviews = Reviews::where('game_id', $id)->pluck('is_recommended'); //prendi la colonna is_recommended del singolo gioco
+            $no_reviews = Reviews::where('game_id', $id)->pluck('is_recommended'); //prendi la colonna is_recommended del singolo gioco
 
-            $DIM_A = count($positive_reviews); //conta quante review sono state fatte
-            $positive = 0; // inizializza variabile che verrà usata subito
-            $negative = 0;
+            $cond = count($no_reviews); //conta quante review sono state fatte
+            if($cond == 0)
+            {
+                $positive = 0;
+                $negative = 0;
+                $ratio = 0;
+                $string = 'Error';
+                $reviews = 'No Reviews';
 
-            for($i = 0; $i < $DIM_A-1; $i++){
-                if($positive_reviews[$i] == 1)         //ciclo for che conta quante review sono positive
-                {                             //per fare un rapporto
-                    $positive++;
-                }
-                else
-                {
-                    $negative++;
-                }
             }
-            $ratio=($positive/$DIM_A)*100; //il rapporto
-            switch($ratio) {               //switch case in base alle valutazioni
-                case $ratio>=0&&$ratio<=19:
-                    $string= 'Overwhelmingly Negative Reviews';
-                        break;
-                case $ratio>=20&&$ratio<=39:
-                    $string= 'Mostly Negative Reviews';
-                        break;
-                case $ratio>=40&&$ratio<=69:
-                    $string= 'Mixed Reviews';
-                        break;                                  //tutto questo non è simmetrico!!
-                case $ratio>=70&&$ratio<=79:
-                    $string= 'Mostly Positive Reviews';
-                        break;
-                case $ratio>=80&&$ratio<=94:
-                    $string= 'Very Positive Reviews';
-                        break;
-                case $ratio>=95&&$ratio<=100:
-                    $string= 'Overwhelmingly Positive Reviews';
-                default:
-                    $string= 'Error'; //riferisci a chri
+            else
+            {
+
+                $positive = 0;
+                                    // inizializza variabile che verrà usata subito
+                $negative = 0;
+                for($i = 0; $i < $cond-1; $i++){
+                    if($no_reviews[$i] == 1)         //ciclo for che conta quante review sono positive
+                    {                             //per fare un rapporto
+                        $positive++;
+                    }
+                    else
+                    {
+                        $negative++;
+                    }
                 }
+                $ratio=($positive/$cond)*100; //il rapporto
+                switch($ratio) {               //switch case in base alle valutazioni
+                    case $ratio>=0&&$ratio<=19:
+                        $string= 'Overwhelmingly Negative Reviews';
+                            break;
+                    case $ratio>=20&&$ratio<=39:
+                        $string= 'Mostly Negative Reviews';
+                            break;
+                    case $ratio>=40&&$ratio<=69:
+                        $string= 'Mixed Reviews';
+                            break;                                  //tutto questo non è simmetrico!!
+                    case $ratio>=70&&$ratio<=79:
+                        $string= 'Mostly Positive Reviews';
+                            break;
+                    case $ratio>=80&&$ratio<=94:
+                        $string= 'Very Positive Reviews';
+                            break;
+                    case $ratio>=95&&$ratio<=100:
+                        $string= 'Overwhelmingly Positive Reviews';
+                    default:
+                        $string= 'Error'; //riferisci a chri
+                    }
 
-            $reviews = Reviews::where('game_id', $id)->get();
+                $reviews = Reviews::where('game_id', $id)->get();
 
+            }
+
+    //REVIEWS FUNCTION
             $images = Images::where('game_id', $id)->pluck('image_path');
 
             $dlc = Games::where('parent_id', $id)
