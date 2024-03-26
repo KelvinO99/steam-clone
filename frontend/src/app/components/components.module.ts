@@ -27,10 +27,10 @@ import { CategoryCarouselComponent } from './store/category-carousel/category-ca
 import { MatTabsModule } from '@angular/material/tabs';
 import { UpdatesOfferCardsComponent } from './store/updates-offer-cards/updates-offer-cards.component';
 import { MatButtonModule } from '@angular/material/button';
-import { DataGameComponent } from './game/data-game/data-game.component';
+import { DataGameComponent } from './game-page/header-data-game/header-data-game.component';
 import { BigButtonsComponent } from './store/big-buttons/big-buttons.component';
-
-import { GameComponent } from './game/game.component';
+import { GameComponent } from './game-page/game-page.component';
+import { BodyDataGameComponent } from './game-page/body-data-game/body-data-game.component';
 @NgModule({
   declarations: [
     BaseComponent,
@@ -44,10 +44,11 @@ import { GameComponent } from './game/game.component';
     OfferCarouselComponent,
     ProductBannersComponent,
     GameTableComponent,
-    GameComponent,
     CategoryCarouselComponent,
     DataGameComponent,
     BigButtonsComponent,
+    GameComponent,
+    BodyDataGameComponent
 
   ],
   imports: [
