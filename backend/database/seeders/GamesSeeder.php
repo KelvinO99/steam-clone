@@ -54,6 +54,7 @@ class GamesSeeder extends Seeder
             'Baldur\'s Gate 3',                        //38
             'Elden Ring',                              //39
             'Cyberpunk 2077: Phantom Liberty',         //40
+            'Valve Index'
         ];
         $dates = [
             '2015-09-15',

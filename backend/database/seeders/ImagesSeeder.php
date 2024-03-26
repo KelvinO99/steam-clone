@@ -58,7 +58,7 @@ class ImagesSeeder extends Seeder
 
 
         ];
-        $const_img = 5;
+        $const_img = 6;
         for($i=0;$i<sizeof($image_path)+1;$i++) //n$image_path cicli games_images + ($+1) users_images
         {
             if($i >= sizeof($image_path)){
