@@ -181,11 +181,11 @@ class GamesController extends Controller
             'game' => $game, //game+dev info output
             'images' => $images,
             'tags' => $tag,
-            'reviews' => $reviews,
             'positive' => $positive,
             'negative' => $negative,
             'ratio' => $ratio,
             'evaluation' => $string,
+            'reviews' => $reviews,
             'dlc' => $dlc,
             'no_users_ownership' => $no_users_ownership,
             ]);
