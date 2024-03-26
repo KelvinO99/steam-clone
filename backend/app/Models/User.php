@@ -43,7 +43,7 @@ class User extends Authenticatable implements JWTSubject, LaratrustUser
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    
+
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
      *
@@ -60,15 +60,15 @@ class User extends Authenticatable implements JWTSubject, LaratrustUser
     public function getJWTCustomClaims() { //
         return [];
     }
-    
+
     public function UsersAchievements(){
-        
+
         return $this->hasMany(UsersAchievements::class, 'users_achievements', 'user_id');
     }
 
     public function Libraries(){
 
-        return $this->hasOne(Libraries::class, 'libraries', 'id');
+        return $this->hasMany(Libraries::class, 'libraries', 'id');
     }
 
     public function Reviews(){
