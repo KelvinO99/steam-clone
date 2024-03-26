@@ -52,7 +52,10 @@ class ImagesSeeder extends Seeder
             'http://localhost:8000/storage/game_images/horizon_forbidden_west/horizon_forbidden_west',
             'http://localhost:8000/storage/game_images/baldurs_gate_3/baldurs_gate_3',
             'http://localhost:8000/storage/game_images/elden_ring/elden_ring',
-            'http://localhost:8000/storage/game_images/cyberpunk_2077_phantom_liberty/cyberpunk_2077_phantom_liberty'
+            'http://localhost:8000/storage/game_images/cyberpunk_2077_phantom_liberty/cyberpunk_2077_phantom_liberty',
+            'http://localhost:8000/storage/game_images/valve_index/valve_index',
+            'http://localhost:8000/storage/game_images/the_last_of_us_part_i/the_last_of_us_part_i',
+
 
             //'http://localhost:8000/storage/game_images/',
 

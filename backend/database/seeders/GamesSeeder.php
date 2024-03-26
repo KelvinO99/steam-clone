@@ -54,7 +54,8 @@ class GamesSeeder extends Seeder
             'Baldur\'s Gate 3',                        //38
             'Elden Ring',                              //39
             'Cyberpunk 2077: Phantom Liberty',         //40
-            'Valve Index'
+            'Valve Index',                             //41
+            'The Last Of Us Part I'                    //42
         ];
         $dates = [
             '2015-09-15',
@@ -91,13 +92,14 @@ class GamesSeeder extends Seeder
             '2020-06-03',  // Sea Of Thieves
             '2019-03-21',  // Sekiro Shadows Die Twice
             '2022-01-12',  // Monster Hunter Rise
-            '2022-12-06',  // Assassin's Creed Valhalla !!!
-            '2024-02-02',  // Persona 3 Remake !!!
-            '2024-03-21',  // Horizon Forbidden West !!!
-            '2023-08-03',  // Baldur's Gate 3 !!!
+            '2022-12-06',  // Assassin's Creed Valhalla
+            '2024-02-02',  // Persona 3 Remake
+            '2024-03-21',  // Horizon Forbidden West
+            '2023-08-03',  // Baldur's Gate 3
             '2022-02-25',  // Elden Ring
-            '2023-07-26',  // Dead By Daylight !!!
-
+            '2023-07-26',  // Dead By Daylight
+            '1970-01-01',  // Valve Index
+            '2023-03-28',  // The Last Of Us Part 1
         ];
         $carbonDates = [];
         foreach ($dates as $dateString) {
@@ -120,7 +122,7 @@ class GamesSeeder extends Seeder
             'Experience the authenticity and emotion of football with advanced gameplay mechanics and immersive modes.',
             'Learn how to build and grow your very own computer repair enterprise, diagnosing, fixing, and building PCs.',
             'Immerse yourself in the captivating story of a group of troubled high school students with hidden powers.',
-            'Experience your entire Steam library on the go with this powerful, portable PC gaming device.',
+            'steam_deck_short_description',
             'Experience the thrilling combination of arcade-style soccer and vehicular mayhem, with easy-to-understand controls.',
             'Dive back into the fast-paced world of counter-terrorism operations in this iconic first-person shooter.',
             'Race through the vibrant and ever-evolving landscapes of Mexico in this open-world driving adventure.',
@@ -144,6 +146,8 @@ class GamesSeeder extends Seeder
             "Journey into the iconic Dungeons & Dragons universe in this ambitious RPG adventure. Forge alliances, explore vast dungeons, and face off against unimaginable evil in a world of magic and mystery.", // Baldur's Gate 3
             "Discover a vast, seamless world filled with dark fantasy and rich lore. From the minds of Hidetaka Miyazaki and George R.R. Martin comes an epic action RPG where your choices shape the fate of the realm.", // Elden Ring
             "Enter the realm of the Entity and experience asymmetrical multiplayer horror at its finest. Play as either a ruthless killer or a survivor, each with their own unique abilities and objectives.", // Dead By Daylight
+            "valve_index_short_description",
+            "Experience the emotional storytelling and unforgettable characters in The Last of Us™, winner of over 200 Game of the Year awards.", //The Last Of Us Part 1
         ];
         $long_description = [
 //"ABOUT THIS GAME"
@@ -441,7 +445,7 @@ class GamesSeeder extends Seeder
 
             Creatures can be battled or befriended, depending on how you play. The world of Minecraft allows for epic adventures, quiet meditations, and everything in between. You can even share your creations with other players, or play in community worlds!',
 //13
-            'no text',
+            'image only',
 //14
             'FIFA 24 emerges as the latest installment in EA Sports\' long-standing football simulation series, bringing with it a wave of improvements, innovations, and the ever-present promise of the most authentic football experience you can get without actually lacing up your boots. This year\'s edition focuses on deepening the immersion, refining gameplay mechanics, and expanding the wealth of content that fans have come to expect.
 
@@ -505,7 +509,7 @@ class GamesSeeder extends Seeder
                 Includes over 40 items of previously released downloadable content
                 Choose between Japanese and English VO',
 //17
-            'fa tutto il front-end',
+            'steam_deck_long_description',
 //18
             'PLAY ROCKET LEAGUE FOR FREE!
             Download and compete in the high-octane hybrid of arcade-style soccer and vehicular mayhem! customize your car, hit the field, and compete in one of the most critically acclaimed sports games of all time! Download and take your shot!
@@ -1029,7 +1033,37 @@ class GamesSeeder extends Seeder
 
 //40
 
-            'PLACEHOLDER'
+            'image only',
+
+//41
+
+            'valve_index_long_description',
+
+//42
+
+            'Experience the emotional storytelling and unforgettable characters in The Last of Us™, winner of over 200 Game of the Year awards.
+
+            In a ravaged civilization, where infected and hardened survivors run rampant, Joel, a weary protagonist, is hired to smuggle 14-year-old Ellie out of a military quarantine zone. However, what starts as a small job soon transforms into a brutal cross-country journey.
+
+
+            Includes the complete The Last of Us single-player story and celebrated prequel chapter, Left Behind, which explores the events that changed the lives of Ellie and her best friend Riley forever.
+            Built for PC
+
+            The Last of Us Part I PC release brings with it plenty of PC features to bring Joel and Ellie’s tense and unforgettable journey to life. This version of The Last of Us Part I is optimized for PC with PC-centric quality-of-life enhancements. Part I will feature AMD FSR 2.2 support*, Nvidia DLSS Super Resolution support*, VSync and frame rate cap options, and a host of features designed specifically for PC, including adjustable Texture Quality, Shadows, Reflections, Ambient Occlusion, and more.
+
+            Through the experiences of Joel and Ellie, PC players can fully immerse themselves in beautiful yet haunting environments in stunning detail with true 4K resolutions**. From the harsh, oppressive streets of the Boston QZ to the overgrown and abandoned homes of Bill’s Town to so much more, embark on a beautiful journey across the United States of America with Ultra-Wide Monitor Support for both 21:9 Ultrawide and 32:9 Super Ultrawide aspect ratios.
+
+            Experience all these locations, stealthily sneaking through abandoned homes and cities (and picking their drawers and cabinets clean looking for supplies) or engage in tense, captivating action with 3D audio support to better hear the rustle of leaves, the crack of glass, or the footfalls of enemies trying to ambush you***.
+            AMD Fidelity FX Super Resolution 2
+
+            Supercharge your framerates and fight for survival as Joel and Ellie with next-level temporal upscaling technology from AMD. FSR 2 uses cutting-edge algorithms to boost your framerates and deliver high-quality, high-resolution game experiences in The Last of Us Part I across a wide range of compatible graphics cards.
+            Peripheral Support
+
+            The Last of Us Part I on PC features DualSense support through a wired connection so players can feel the impact of battle, the rumble of a tank rolling by, and so much more through haptic feedback and dynamic triggers. With support for the DualShock 4 controller, a wide range of other gamepads, and keyboard and mouse, players can adjust their playstyle to suit their preferences. The PC release includes a number of new control customization options including full control remapping, primary and secondary bindings for keyboard and mouse control, an adaptive mode that allows players to combine keyboard and controller inputs, and more. Part I’s PC launch will also include The Last of Us Part I’s suite of accessibility features so that players can adjust the experience to suit their needs and preferences.
+
+            * Compatible PC and graphics card required for enhanced graphics.
+            ** Compatible PC, graphics card, and 4K display device required.
+            *** 3D Audio requires stereo headphones or compatible speakers.',
 
         ];
         $base_price = [
@@ -1072,7 +1106,9 @@ class GamesSeeder extends Seeder
             69.99,                         // Horizon Forbidden West
             59.99,                         // Baldur's Gate 3
             69.99,                         // Elden Ring
-            9.99,                          // PLACEHOLDER DLC CB2077
+            29.99,                         // DLC CB2077
+            1079,                          // Valve Index
+            40.19,                         // The Last Of Us Part I
         ];
         $dlcs = [
             22,
@@ -1096,7 +1132,7 @@ class GamesSeeder extends Seeder
             'image_id' => 1,
         ]);
 
-        for($i=0;$i<40;$i++) // 0 ; <22
+        for($i=0;$i<42;$i++) // 0 ; <22
         {
             $bool = (bool)rand(0,1);
             if($base_price[$i]==0)
