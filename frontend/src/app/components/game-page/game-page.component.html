@@ -22,8 +22,9 @@
                 </div>
             </div>
 
-            <app-header-data-game> </app-header-data-game>
-            <app-body-data-game></app-body-data-game>
+            <app-header-data-game [game]="game"> </app-header-data-game>
+            <app-body-data-game [game]="game"></app-body-data-game>
+            <app-reviews [game]="game"> </app-reviews>
 
         </div>
         <div class="col-2">

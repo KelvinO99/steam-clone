@@ -61,6 +61,7 @@ span.bottom {
 .fourLine {
     background-color: rgba(0, 0, 0, 0.2);
     background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
+    border-radius: 5px;
 }
 
 .row.firstLine {
@@ -74,6 +75,7 @@ span.login {
 
 span.loginText {
     font-size: 14px;
+    line-height: 24px;
     color: #acb2b8;
 }
 
@@ -159,7 +161,6 @@ div.longDescription {
 span.review {
     color: #acb2b8;
     font-size: 12px;
-    line-height: 24px;
     font-family: sans-serif;
 }
 
@@ -167,4 +168,19 @@ div.about {
     border-bottom-style: solid;
     border-bottom-color: #585a5e;
     border-bottom-width: 1px;
+}
+
+.user {
+    color: white;
+    font-size: 12px;
+}
+
+img.pegi {
+    max-width: 30%;
+    height: auto;
+}
+
+span.pegi {
+    font-size: 12px;
+    color: #c6d4df;
 }

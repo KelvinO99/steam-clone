@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GameService } from 'src/app/shared/services/game.service';
 
@@ -9,7 +9,7 @@ import { GameService } from 'src/app/shared/services/game.service';
 })
 export class BodyDataGameComponent {
   routeId!: number;
-  game!: any;
+  @Input() game!: any;
   languages!: any;
   offset = 1;
 
@@ -18,26 +18,14 @@ export class BodyDataGameComponent {
 
   ngOnInit() {
     this.routeId = this.route.snapshot.params['id'];
-    this.showGame();
     this.showGameLanguages();
   }
-
-  showGame() {
-    this.gameService.showGame(this.routeId).subscribe({
-      next: (res: any) => {
-        {
-          this.game = res
-          console.log(this.game);
-        }
-      }
-    })
-  }
-
+  
   showGameLanguages() {
     this.gameService.showGameLanguages(this.routeId).subscribe({
       next: (res: any) => {
         {
-          this.languages = res
+          this.languages = res.games_languages
           console.log(this.languages);
         }
       }
