@@ -96,22 +96,30 @@ class UsersSeeder extends Seeder
                 continue; // Salta questa email se già usata
             }
 
+            $ruoliRandom = rand(1,2);
+
             // Seleziona un username casuale
             $randomUsername = $usernames[array_rand($usernames)];
 
-            $j++;
             $user = User::create([
-                'username' => $usernames[$i],
+                'username' => $usernames[$j],
                 'email' => $email,
                 'password' => 'password',
                 'image_id' => 111, //da cambiare ogni volta che si aggiungono giochi/achievements images
                 'wallet' => 0,
             ]);
 
-            // Assegna un ruolo casuale all'utente
-            $user->addRole($ruoli->random());
+            // Il primo utente avrà il super admin
+            if($j == 0){
+                $user->addRole((3));
+            }
+            else{
+                // Assegna un ruolo casuale all'utente
+                $user->addRole(($ruoliRandom));
+            }
 
-
+            $j++;
+            
             // Opcional: Puoi anche rimuovere l'email dall'array se vuoi
             }
     }
