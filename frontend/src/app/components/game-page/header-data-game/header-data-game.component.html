@@ -1,4 +1,4 @@
-<div class="container-fluid body p-0">
+<div class="container-fluid body p-0 d-block">
     <div class="row justify-content-center d-flex">
         <div class="col-1">
 
@@ -6,7 +6,7 @@
         <div class="col-10">
             <div class="container-fluid p-0">
                 <div class="row">
-                    <p class="search p-0"> All Games > {{game.tags[1].name}} > {{game.game.developers_games[0].developers.user.username}} > {{game.game.name}} </p>
+                    <p class="search p-0"> All Games > {{game.tags[0].name}} > {{game.game.developers_games[0].developers.user.username}} > {{game.game.name}} </p>
                 </div>
                 <div class="row">
                     <p class="titles"> {{game.game.name}} </p>
@@ -18,7 +18,7 @@
                                 <div class="row">
                                     <div class="col-12 p-0">
                                         <div id="custCarousel" class="carousel-fade carousel" data-bs-ride="carousel">
-                                            <!-- slides -->
+                                           
                                             <div class="carousel-inner">
                                                 <ng-container *ngFor="let item of game.game.images.slice(1, 5); let i = index;">
                                                   <div class="carousel-item" [class.active]="i === 0">

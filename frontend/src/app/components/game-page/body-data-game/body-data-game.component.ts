@@ -10,6 +10,7 @@ import { GameService } from 'src/app/shared/services/game.service';
 export class BodyDataGameComponent {
   routeId!: number;
   game!: any;
+  languages!: any;
   offset = 1;
 
   constructor(public route: ActivatedRoute, public gameService: GameService){}
@@ -18,6 +19,7 @@ export class BodyDataGameComponent {
   ngOnInit() {
     this.routeId = this.route.snapshot.params['id'];
     this.showGame();
+    this.showGameLanguages();
   }
 
   showGame() {
@@ -26,6 +28,17 @@ export class BodyDataGameComponent {
         {
           this.game = res
           console.log(this.game);
+        }
+      }
+    })
+  }
+
+  showGameLanguages() {
+    this.gameService.showGameLanguages(this.routeId).subscribe({
+      next: (res: any) => {
+        {
+          this.languages = res
+          console.log(this.languages);
         }
       }
     })

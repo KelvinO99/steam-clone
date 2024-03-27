@@ -56,7 +56,6 @@ span.nav-link {
 }
 
 .dropdown-content a {
-    color: #ffffff;
     display: block;
     text-decoration: none;
 }
@@ -71,7 +70,18 @@ span.nav-link {
 
 a.subMenuItem {
     font-size: 12px;
-    color: #dcdedf;
+    color: #ffffff;
+    font-weight: 400;
+    padding: 0.375rem 0;
+    padding-right: 0.9375rem;
+    padding-left: 0.9375rem;
+    cursor: pointer;
+}
+
+a.subMenuItemTitle {
+    font-size: 11px;
+    color: #2ebfff;
+    font-weight: 800;
     padding: 0.375rem 0;
     padding-right: 0.9375rem;
     padding-left: 0.9375rem;
@@ -116,3 +126,8 @@ form {
     padding-bottom: 3px;
 } 
 
+.borderStyle {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(52,52,64,1) 21%, rgba(99,111,119,0.433006478958771) 100%, rgba(57,84,89,1) 100%);;
+}

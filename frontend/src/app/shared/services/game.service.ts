@@ -25,6 +25,10 @@ export class GameService {
     return this.http.get<any>(`${this.APIUrl}games/show/${id}`);
   }
 
+  showGameLanguages(id: number){
+    return this.http.get<any>(`${this.APIUrl}games_languages/show/${id}`);
+  }
+
 }
 
 

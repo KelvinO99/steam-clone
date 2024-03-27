@@ -126,12 +126,45 @@ div.language {
 }
 
 div.borderStyle {
-    border-bottom-color: #585a5e;
-    border-bottom: 1px;
-    border-bottom-style: solid;
+    border-top-color: #585a5e;
+    border-top: 1px;
+    border-top-style: solid;
 }
 
 .true {
     font-weight: bold;
     color: #67c1f5;
+}
+
+span.about {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    color: white;
+}
+
+span.longDescription {
+    color: #acb2b8;
+    text-transform: none;
+    font-size: 14px;
+    line-height: 24px;
+    font-family: sans-serif;
+}
+
+div.longDescription {
+    overflow: auto;
+    max-height: 350px   ;
+}
+
+span.review {
+    color: #acb2b8;
+    font-size: 12px;
+    line-height: 24px;
+    font-family: sans-serif;
+}
+
+div.about {
+    border-bottom-style: solid;
+    border-bottom-color: #585a5e;
+    border-bottom-width: 1px;
 }
