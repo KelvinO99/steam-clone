@@ -18,7 +18,7 @@ class LanguagesSeeder extends Seeder
             "French",
             "Italian",
             "German",
-            "Spanish - Spain",
+            "Spanish",
             "Bulgarian",
             "Danish",
             "Greek",
