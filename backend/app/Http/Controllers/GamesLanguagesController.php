@@ -27,8 +27,9 @@ class GamesLanguagesController extends Controller
 
         $gameLanguages = [];
 
-        for ($i = 0; $i <= 4; $i++) {
-            $gameLanguage = GamesLanguages::where('game_id', $id + $i)
+        for ($i = 0; $i <= 5; $i++) {
+            $gameLanguage = GamesLanguages::where('language_id', $i)
+                ->where('game_id', $id)
                 ->with('language')
                 ->first();
 
