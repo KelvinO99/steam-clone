@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PLACEHOLDERMODEL;
+use App\Models\Languages;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
-class PLACEHOLDERCONTROLLER extends Controller
+class LanguagesController extends Controller
 {
 
      public function index(){
-        $var = PLACEHOLDERMODEl::get();
+        $var = Languages::get();
 
 
         return response()->json([
             'status'=>200,
-            'PLACEHOLDERTABLE'=>$var
+            'languages'=>$var
         ]);
 
 
@@ -24,11 +24,11 @@ class PLACEHOLDERCONTROLLER extends Controller
 
 
     public function show($id){
-        $var = PLACEHOLDERMODEL::find($id);
+        $var = Languages::find($id);
 
         return response()->json([
             'status'=>200,
-            'PLACEHOLDERTABLE'=>$var
+            'languages'=>$var
         ]);
 
     }
@@ -36,19 +36,19 @@ class PLACEHOLDERCONTROLLER extends Controller
 
     public function destroy ($id){
 
-        $var = PLACEHOLDERMODEL::find( $id );
+        $var = Languages::find( $id );
         $var->delete();
 
         return response()->json([
             'status'=>200,
-            'PLACEHOLDERTABLE'=>$var
+            'languages'=>$var
         ]);
     }
 
 
     public function update(Request $request): Response
     {
-        $var = PLACEHOLDERMODEL::findOrFail($request->id);
+        $var = Languages::findOrFail($request->id);
 
         if ($var->update($request->all()) === false) {
             return response(
@@ -60,7 +60,7 @@ class PLACEHOLDERCONTROLLER extends Controller
         return response($var);
     }
 
-    
+
     public function store(Request $request) {
 
         // Ottieni l'utente autenticato tramite JWT
@@ -72,11 +72,11 @@ class PLACEHOLDERCONTROLLER extends Controller
         }
 
         $validatedData = $request->validate([
-            'PLACEHOLDERCOLUMN' => 'required|max:255',
-            'PLACEHOLDERCOLUMN' => 'required|max:255',
+            'name' => 'required|max:255',
+            //'PLACEHOLDERCOLUMN' => 'required|max:255',
         ]);
 
-        $var = new PLACEHOLDERMODEL();
+        $var = new Languages();
         $var->fill($validatedData);
 
         $var->save();

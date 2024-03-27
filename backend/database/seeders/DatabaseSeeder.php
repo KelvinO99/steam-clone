@@ -21,10 +21,12 @@ class DatabaseSeeder extends Seeder
             DevelopersSeeder::class,
             LibrariesSeeder::class,
             GamesTagsSeeder::class,
+            LanguagesSeeder::class,
             ReviewsSeeder::class,
             AchievementsSeeder::class,
             UsersAchievementsSeeder::class,
             DevelopersGamesSeeder::class,
+            GamesLanguagesSeeder::class,
         ]);
     }
 }
