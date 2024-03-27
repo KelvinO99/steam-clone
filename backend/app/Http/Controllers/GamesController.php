@@ -202,7 +202,7 @@ class GamesController extends Controller
                               ->where('is_owned', true)
                               ->count();
 
-            $pegi_img =images::where('image_path', 'http://localhost:8000/storage/pegi_images/pegi_'.$game->pegi_id.'.png')->first();
+            $pegi_img =images::where('image_path', 'http://localhost:8000/storage/pegi_images/pegi_'.$game->pegi_id.'.jpg')->first();
 
             return response()->json([
             'status' => 200,
