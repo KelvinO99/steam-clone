@@ -194,6 +194,8 @@ class GamesController extends Controller
                               ->where('is_owned', true)
                               ->count();
 
+            $pegi_img =images::where('image_path', 'http://localhost:8000/storage/pegi_images/pegi_'.$game->pegi_id.'.png')->first();
+
             return response()->json([
             'status' => 200,
             'game' => $game, //game+dev info output
@@ -206,6 +208,7 @@ class GamesController extends Controller
             'reviews' => $reviews,
             'dlc' => $dlc,
             'no_users_ownership' => $no_users_ownership,
+            'pegi_img'=>$pegi_img,
             ]);
 
         }catch(\Exception $e){
