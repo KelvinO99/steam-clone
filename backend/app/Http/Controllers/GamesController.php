@@ -173,8 +173,11 @@ class GamesController extends Controller
                         $string= 'Error'; //riferisci a chri
                     }
 
-                $reviews = Reviews::where('game_id', $id)->get();
-
+                $reviews = Reviews::where('game_id', $id)
+                                    ->with(['User'=>  function ($q){
+                                        $q->select('id', 'username');
+                                    }])
+                                    ->get();
             }
 
     //REVIEWS FUNCTION
