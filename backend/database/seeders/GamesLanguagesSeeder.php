@@ -152,15 +152,23 @@ class GamesLanguagesSeeder extends Seeder
 
         for($i=1;$i<=42;$i++)
         {
-            for($j=1;$j<=5;$j++)
+            DB::table('games_languages')->insert([
+                'game_id' => $i,
+                'language_id' => 1,
+                'interface' => 1,
+                'full_audio' => 1,
+                'subtitles' => 1,
+            ]);
+
+            for($j=2;$j<=5;$j++)
             {
-                //rand(1,);
+                $rng = rand(0,1);
                 DB::table('games_languages')->insert([
                     'game_id' => $i,
                     'language_id' => $j,
-                    'interface' => 1,
-                    'full_audio' => 1,
-                    'subtitles' => 1,
+                    'interface' => $rng,
+                    'subtitles' => $rng == 1 ? rand(0,1) : 0,
+                    'full_audio' => $rng == 1 ? rand(0,1) : 0,
                 ]);
             }
         }
