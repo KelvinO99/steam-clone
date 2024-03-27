@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('discounted_percentage')->default(0)->nullable();   //è scontato un gioco -chris
             $table->text('short_description')->default('Descrizione breve');
             $table->text('long_description')->default('Descrizione lunga');
+            
             $table->integer('pegi_id')->default(null);
             $table->timestamps();
 
