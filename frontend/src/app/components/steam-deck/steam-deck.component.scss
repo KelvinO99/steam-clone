@@ -1,9 +1,57 @@
-.mainHeader{
-    height: 175vh;
-    width: 9463213123vh;
-    display: flex;
-    justify-content: start;
+.test1{
+    background-color: rgb(228, 228, 228);
+
+}
+
+.test2{
+    width: 1200px;
+    height:750px;
     background-image: url(../../../assets/steamdeck/sd_header1.png);
     background-repeat: no-repeat;
 }
 
+.test3{
+    background-color: rgb(228, 228, 228);
+    height: 2000vh;
+
+}
+
+.sd_logo{
+    height: 90px;
+    width: 300px;
+    margin-left: 35%;
+    display: flex;
+    justify-content: center;
+    margin-top: 6%;
+}
+
+.headerTextHeadline {
+    margin-top: 2%;
+    color: #FFFFFF;
+    font-size: 3.5em;
+    font-weight: 800;
+    line-height: 1.15em;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.headerText {
+    color: #ffffff;
+    font-size: 1.05em;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30%;
+}
+
+.priceSection{
+    background-color: rgb(255, 255, 255);
+    height: 802px;
+    width: 1200px;
+
+
+
+}
