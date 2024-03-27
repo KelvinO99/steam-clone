@@ -94,6 +94,7 @@ class ReviewsSeeder extends Seeder
             DB::table('reviews')->insert([
                 'user_id' => rand(1,19),//PLACEHOLDER RNG
                 'game_id' => $gameid_random,
+                'language_id' => rand(1,29),
                 'date' => $reviews_date,
                 'is_recommended' => $rng !== 1 ? 1 : 0,
                 'description' => $rng !== 1 ? $positive[random_int( 0, sizeof($positive)-1 )] : $negative[random_int( 0, sizeof($negative)-1 )],
@@ -114,6 +115,7 @@ class ReviewsSeeder extends Seeder
             DB::table('reviews')->insert([
                 'user_id' => rand(1,19),//PLACEHOLDER RNG
                 'game_id' => $luck,
+                'language_id' => rand(1,29),
                 'date' => $reviews_date,
                 'is_recommended' => $rng !== 1 ? 1 : 0,
                 'description' => $rng !== 1 ? $positive[random_int( 0, sizeof($positive)-1 )] : $negative[random_int( 0, sizeof($negative)-1 )],
@@ -132,6 +134,7 @@ class ReviewsSeeder extends Seeder
             DB::table('reviews')->insert([
                 'user_id' => rand(1,19),//PLACEHOLDER RNG
                 'game_id' => $badluck,
+                'language_id' => rand(1,29),
                 'date' => $reviews_date,
                 'is_recommended' => $rng === 1 ? 1 : 0,
                 'description' => $rng === 1 ? $positive[random_int( 0, sizeof($positive)-1 )] : $negative[random_int( 0, sizeof($negative)-1 )],
