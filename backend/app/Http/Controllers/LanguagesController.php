@@ -16,7 +16,7 @@ class LanguagesController extends Controller
 
         return response()->json([
             'status'=>200,
-            'PLACEHOLDERTABLE'=>$var
+            'languages'=>$var
         ]);
 
 
@@ -28,7 +28,7 @@ class LanguagesController extends Controller
 
         return response()->json([
             'status'=>200,
-            'PLACEHOLDERTABLE'=>$var
+            'languages'=>$var
         ]);
 
     }
@@ -41,7 +41,7 @@ class LanguagesController extends Controller
 
         return response()->json([
             'status'=>200,
-            'PLACEHOLDERTABLE'=>$var
+            'languages'=>$var
         ]);
     }
 
@@ -72,8 +72,8 @@ class LanguagesController extends Controller
         }
 
         $validatedData = $request->validate([
-            'PLACEHOLDERCOLUMN' => 'required|max:255',
-            'PLACEHOLDERCOLUMN' => 'required|max:255',
+            'name' => 'required|max:255',
+            //'PLACEHOLDERCOLUMN' => 'required|max:255',
         ]);
 
         $var = new Languages();
