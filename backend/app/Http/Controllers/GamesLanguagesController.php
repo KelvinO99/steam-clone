@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PLACEHOLDERMODEL;
+use App\Models\GamesLanguages;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
-class PLACEHOLDERCONTROLLER extends Controller
+class GamesLanguagesController extends Controller
 {
 
      public function index(){
-        $var = PLACEHOLDERMODEl::get();
+        $var = GamesLanguages::get();
 
 
         return response()->json([
             'status'=>200,
-            'PLACEHOLDERTABLE'=>$var
+            'games_languages'=>$var
         ]);
 
 
@@ -24,11 +24,11 @@ class PLACEHOLDERCONTROLLER extends Controller
 
 
     public function show($id){
-        $var = PLACEHOLDERMODEL::find($id);
+        $var = GamesLanguages::find($id);
 
         return response()->json([
             'status'=>200,
-            'PLACEHOLDERTABLE'=>$var
+            'games_languages'=>$var
         ]);
 
     }
@@ -36,19 +36,19 @@ class PLACEHOLDERCONTROLLER extends Controller
 
     public function destroy ($id){
 
-        $var = PLACEHOLDERMODEL::find( $id );
+        $var = GamesLanguages::find( $id );
         $var->delete();
 
         return response()->json([
             'status'=>200,
-            'PLACEHOLDERTABLE'=>$var
+            'games_languages'=>$var
         ]);
     }
 
 
     public function update(Request $request): Response
     {
-        $var = PLACEHOLDERMODEL::findOrFail($request->id);
+        $var = GamesLanguages::findOrFail($request->id);
 
         if ($var->update($request->all()) === false) {
             return response(
@@ -60,7 +60,7 @@ class PLACEHOLDERCONTROLLER extends Controller
         return response($var);
     }
 
-    
+
     public function store(Request $request) {
 
         // Ottieni l'utente autenticato tramite JWT
@@ -72,11 +72,14 @@ class PLACEHOLDERCONTROLLER extends Controller
         }
 
         $validatedData = $request->validate([
-            'PLACEHOLDERCOLUMN' => 'required|max:255',
-            'PLACEHOLDERCOLUMN' => 'required|max:255',
+            'game_id' => 'required|max:255',
+            'language_id' => 'required|max:255',
+            'interface' => 'required|max:255',
+            'full_audio' => 'required|max:255',
+            'subtitles' => 'required|max:255',
         ]);
 
-        $var = new PLACEHOLDERMODEL();
+        $var = new GamesLanguages();
         $var->fill($validatedData);
 
         $var->save();

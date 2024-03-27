@@ -65,8 +65,16 @@ class ImagesSeeder extends Seeder
         for($i=0;$i<sizeof($image_path)+1;$i++) //n$image_path cicli games_images + ($+1) users_images
         {
             if($i >= sizeof($image_path)){
+
                 DB::table('images')->insert(['image_path' => 'http://localhost:8000/storage/user_images/Default.png',]);
                 DB::table('images')->insert(['image_path' => 'http://localhost:8000/storage/achievement_images/default.png',]);
+
+                DB::table('images')->insert(['image_path' => 'http://localhost:8000/storage/pegi_images/pegi_3.png',]);
+                DB::table('images')->insert(['image_path' => 'http://localhost:8000/storage/pegi_images/pegi_7.png',]);
+                DB::table('images')->insert(['image_path' => 'http://localhost:8000/storage/pegi_images/pegi_12.png',]);
+                DB::table('images')->insert(['image_path' => 'http://localhost:8000/storage/pegi_images/pegi_16.png',]);
+                DB::table('images')->insert(['image_path' => 'http://localhost:8000/storage/pegi_images/pegi_18.png',]);
+                
             }
 
             if($i < sizeof($image_path)){
