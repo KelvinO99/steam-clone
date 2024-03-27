@@ -8,6 +8,7 @@ use App\Models\Developers;
 use App\Models\DevelopersGames;
 use App\Models\Games;
 use App\Models\Libraries;
+use App\Models\Tags;
 use App\Models\User;
 use App\Models\Images;
 use App\Models\Reviews;
@@ -25,6 +26,7 @@ class GamesController extends Controller
         try {
             $discount = $request->input("discount"); // GIOCHI CON SCONTO
             $featured = $request->input("featured"); // GIOCHI TOP SELLER
+            $tag = $request->input("tag");  //FILTRA IN BASE AL TAG RICHIESTO
             $special_offer = $request->input("special_offer"); // GIOCHI CON SCONTO SUPERIORE AL 50%
             $most_reviewed = $request->input("most_reviewed"); // CALCOLO TRA NUMERO RECENSIONI E DATA DI USCITA
             $best_seller = $request->input("best_seller"); // CALCOLO SUL NUMERO DI COPIE ACQUISTATE
@@ -70,6 +72,12 @@ class GamesController extends Controller
 
             if ($upcoming) {
                 $game->where('date', '>', $today);
+            }
+            if($tag){
+                $game->select('games.id', 'games.name', 'games.base_price', 'games.discounted_price')
+                    ->join('games_tags', 'games.id', '=', 'games_tags.game_id')
+                    ->join('tags', 'games_tags.tag_id', '=', 'tags.id')
+                    ->where('tags.name', $tag);
             }
             //ISSET CODE
 
