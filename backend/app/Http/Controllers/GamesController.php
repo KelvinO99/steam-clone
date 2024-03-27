@@ -150,7 +150,7 @@ class GamesController extends Controller
                         $negative++;
                     }
                 }
-                $ratio=($positive/$cond)*100; //il rapporto
+                $ratio=floor(($positive/$cond)*100); //il rapporto
                 switch($ratio) {               //switch case in base alle valutazioni
                     case $ratio>=0&&$ratio<=19:
                         $string= 'Overwhelmingly Negative Reviews';
@@ -173,8 +173,11 @@ class GamesController extends Controller
                         $string= 'Error'; //riferisci a chri
                     }
 
-                $reviews = Reviews::where('game_id', $id)->get();
-
+                $reviews = Reviews::where('game_id', $id)
+                                    ->with(['User'=>  function ($q){
+                                        $q->select('id', 'username');
+                                    }])
+                                    ->get();
             }
 
     //REVIEWS FUNCTION
@@ -191,6 +194,8 @@ class GamesController extends Controller
                               ->where('is_owned', true)
                               ->count();
 
+            $pegi_img =images::where('image_path', 'http://localhost:8000/storage/pegi_images/pegi_'.$game->pegi_id.'.png')->first();
+
             return response()->json([
             'status' => 200,
             'game' => $game, //game+dev info output
@@ -203,6 +208,7 @@ class GamesController extends Controller
             'reviews' => $reviews,
             'dlc' => $dlc,
             'no_users_ownership' => $no_users_ownership,
+            'pegi_img'=>$pegi_img,
             ]);
 
         }catch(\Exception $e){
@@ -242,7 +248,7 @@ class GamesController extends Controller
                 return response()->json(['message' => 'Non autorizzato'], 401);
             }
 
-            if(!$user->hasRole('developer/publisher')){
+            if(!$user->hasRoles('developer/publisher', 'superadmin')){
                 return response()->json(['message' => 'Non autorizzato, non sei un dev'], 401);
             }
 

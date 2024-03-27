@@ -170,10 +170,6 @@ class GamesTagsSeeder extends Seeder
             'game_id' => '18',
             'tag_id' => '8',
         ]);
-        /*DB::table('games_tags')->insert([
-            'game_id' => '18',
-            'tag_id' => '21',
-        ]);*/
         DB::table('games_tags')->insert([
             'game_id' => '19',
             'tag_id' => '8',
@@ -182,10 +178,6 @@ class GamesTagsSeeder extends Seeder
             'game_id' => '19',
             'tag_id' => '17',
         ]);
-        /*DB::table('games_tags')->insert([
-            'game_id' => '19',
-            'tag_id' => '21',
-        ]);*/
         DB::table('games_tags')->insert([
             'game_id' => '20',
             'tag_id' => '5',
@@ -410,6 +402,18 @@ class GamesTagsSeeder extends Seeder
         DB::table('games_tags')->insert([
             'game_id' => '39',
             'tag_id' => '7',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '40',
+            'tag_id' => '4',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '42',
+            'tag_id' => '1',
+        ]);
+        DB::table('games_tags')->insert([
+            'game_id' => '42',
+            'tag_id' => '2',
         ]);
     }
 }
