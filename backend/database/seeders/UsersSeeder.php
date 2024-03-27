@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 use App\Models\User;
@@ -84,8 +85,11 @@ class UsersSeeder extends Seeder
             'user32@domain.com',
         ];
 
-        // Assicurati che i ruoli siano già stati creati nel database
+        // Assicurati che i ruoli siano già stati creati nel database -Salvo
         $ruoli = Role::all();
+
+        // Password utilizzata dal SuperAdmin -Salvo
+        $password = "Password1!";
 
         $j=0;
         for($i=0;$i<sizeof($usernames);$i++)
@@ -96,21 +100,42 @@ class UsersSeeder extends Seeder
                 continue; // Salta questa email se già usata
             }
 
+            $ruoliRandom = rand(1,2);
+
             // Seleziona un username casuale
             $randomUsername = $usernames[array_rand($usernames)];
 
+            // Il primo utente avrà il super admin -Salvo
+            if($j == 0){
+
+                $user = User::create([
+                    'username' => $usernames[$j],
+                    'email' => $email,
+                    'password' => Hash::make($password),
+                    'image_id' => 111, //da cambiare ogni volta che si aggiungono giochi/achievements images
+                    'wallet' => 0,
+                ]);
+
+                // Simula il processo di autenticazione per ottenere un token JWT -Salvo
+                $token = auth()->attempt(['email' => $email, 'password' => $password]);
+
+                $user->addRole((3));
+            }
+            else{
+
+                $user = User::create([
+                    'username' => $usernames[$j],
+                    'email' => $email,
+                    'password' => 'password',
+                    'image_id' => 111, //da cambiare ogni volta che si aggiungono giochi/achievements images
+                    'wallet' => 0,
+                ]);
+
+                // Assegna un ruolo casuale all'utente
+                $user->addRole(($ruoliRandom));
+            }
+
             $j++;
-            $user = User::create([
-                'username' => $usernames[$i],
-                'email' => $email,
-                'password' => 'password',
-                'image_id' => 111, //da cambiare ogni volta che si aggiungono giochi/achievements images
-                'wallet' => 0,
-            ]);
-
-            // Assegna un ruolo casuale all'utente
-            $user->addRole($ruoli->random());
-
 
             // Opcional: Puoi anche rimuovere l'email dall'array se vuoi
             }

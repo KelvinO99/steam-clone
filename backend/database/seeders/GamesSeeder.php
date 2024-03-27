@@ -1110,7 +1110,7 @@ class GamesSeeder extends Seeder
             1079,                          // Valve Index
             40.19,                         // The Last Of Us Part I
         ];
-        $pegi_id = [ 
+        $pegi_id = [
             12,     // Undertale
             16,     // Uncharted: The Legacy Collection
             18,     // Hitman 3
@@ -1219,7 +1219,7 @@ class GamesSeeder extends Seeder
         for($i=0;$i<sizeof($names)+1;$i++) // 0 ; <22
         {
             if ($i == $dlcs[$j]) {
-                dump('ciao sto aggiungendo il gioco id = '.$dlcs[$j]);
+                dump('aggiungo il gioco id = '.$dlcs[$j].' come dlc');
                 DB::table('games')
                     ->where('id', $i) // Select the record with the given id
                     ->update([
