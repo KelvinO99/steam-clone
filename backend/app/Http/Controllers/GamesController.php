@@ -248,7 +248,7 @@ class GamesController extends Controller
                 return response()->json(['message' => 'Non autorizzato'], 401);
             }
 
-            if(!$user->hasRole('developer/publisher')){
+            if(!$user->hasRoles('developer/publisher', 'superadmin')){
                 return response()->json(['message' => 'Non autorizzato, non sei un dev'], 401);
             }
 
