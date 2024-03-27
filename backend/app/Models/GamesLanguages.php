@@ -18,9 +18,9 @@ class GamesLanguages extends Model
         'subtitles',
     ];
 
-    public function Languages(){
+    public function language(){         //gpt ha sempre ragione
 
-        return $this->hasOne(Languages::class, 'language_id', 'id');
+        return $this->belongsTo(Languages::class, 'language_id', 'id');
     }
 
     public function Games(){
