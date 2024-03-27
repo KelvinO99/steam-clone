@@ -69,12 +69,12 @@ class ImagesSeeder extends Seeder
                 DB::table('images')->insert(['image_path' => 'http://localhost:8000/storage/user_images/Default.png',]);
                 DB::table('images')->insert(['image_path' => 'http://localhost:8000/storage/achievement_images/default.png',]);
 
-                DB::table('images')->insert(['image_path' => 'http://localhost:8000/storage/pegi_images/pegi_3.png',]);
-                DB::table('images')->insert(['image_path' => 'http://localhost:8000/storage/pegi_images/pegi_7.png',]);
-                DB::table('images')->insert(['image_path' => 'http://localhost:8000/storage/pegi_images/pegi_12.png',]);
-                DB::table('images')->insert(['image_path' => 'http://localhost:8000/storage/pegi_images/pegi_16.png',]);
-                DB::table('images')->insert(['image_path' => 'http://localhost:8000/storage/pegi_images/pegi_18.png',]);
-                
+                DB::table('images')->insert(['image_path' => 'http://localhost:8000/storage/pegi_images/pegi_3.jpg',]);
+                DB::table('images')->insert(['image_path' => 'http://localhost:8000/storage/pegi_images/pegi_7.jpg',]);
+                DB::table('images')->insert(['image_path' => 'http://localhost:8000/storage/pegi_images/pegi_12.jpg',]);
+                DB::table('images')->insert(['image_path' => 'http://localhost:8000/storage/pegi_images/pegi_16.jpg',]);
+                DB::table('images')->insert(['image_path' => 'http://localhost:8000/storage/pegi_images/pegi_18.jpg',]);
+
             }
 
             if($i < sizeof($image_path)){
