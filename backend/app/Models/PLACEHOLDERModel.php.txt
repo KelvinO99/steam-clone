@@ -16,7 +16,7 @@ class PLACEHOLDERMODEL extends Model
         'PLACEHOLDERCOLUMN',
     ];
 
-    public function PLACEHOLDERTABLE1(){
+    public function PLACEHOLDERTABLE1(){ //in undercase singolare
 
         return $this->PLACEHOLDERRELATIONSHIP(PLACEHOLDERTABLE1::class, 'PLACEHOLDERORIGIN', 'PLACEHOLDERDESTINATION');
     }
