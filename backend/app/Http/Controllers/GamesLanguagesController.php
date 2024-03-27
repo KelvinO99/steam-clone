@@ -24,11 +24,23 @@ class GamesLanguagesController extends Controller
 
 
     public function show($id){
-        $var = GamesLanguages::find($id);
+
+        $gameLanguages = [];
+
+        for ($i = 0; $i <= 4; $i++) {
+            $gameLanguage = GamesLanguages::where('game_id', $id + $i)
+                ->with('language')
+                ->first();
+
+            if ($gameLanguage) {
+                $gameLanguages[] = $gameLanguage;
+            }
+        }
+
 
         return response()->json([
             'status'=>200,
-            'games_languages'=>$var
+            'games_languages'=>$gameLanguages
         ]);
 
     }
