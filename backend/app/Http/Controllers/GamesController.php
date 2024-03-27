@@ -150,7 +150,7 @@ class GamesController extends Controller
                         $negative++;
                     }
                 }
-                $ratio=($positive/$cond)*100; //il rapporto
+                $ratio=floor(($positive/$cond)*100); //il rapporto
                 switch($ratio) {               //switch case in base alle valutazioni
                     case $ratio>=0&&$ratio<=19:
                         $string= 'Overwhelmingly Negative Reviews';
