@@ -1,10 +1,9 @@
-.navbar-expand {
+.body {
     height: 35px;
     display: flex;
     background: linear-gradient(90deg, rgba(62, 103, 150, 0.919) 11.38%, rgba(58, 120, 177, 0.8) 25.23%, rgb(15, 33, 110) 100%);
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
     border-radius: 1px !important;
-
 }
 
 input {
@@ -12,7 +11,6 @@ input {
     color: #c6d4df;
     border-radius: 1px;
     font-style: italic;
-    margin-left: 8px;
     background-color: #316282;
     border-radius: 3px;
     border: 1px solid rgba(0, 0, 0, 0.3);

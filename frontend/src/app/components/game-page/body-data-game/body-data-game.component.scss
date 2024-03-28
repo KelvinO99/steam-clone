@@ -1,4 +1,4 @@
-.card {
+.bgCard {
     background: linear-gradient(-60deg, rgba(226, 244, 255, 0.3) 5%, rgba(84, 107, 115, 0.3) 95%);
     border-radius: 4px;
 }
@@ -14,7 +14,6 @@ div.discountPercentage {
 span.discountPercentage {
     font-size: 26px;
     font-family: "Motiva Sans", sans-serif;
-    ;
     font-weight: 500;
     color: #BEEE11;
     line-height: 34px;
@@ -55,10 +54,7 @@ span.bottom {
     text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
 }
 
-.firstLine,
-.secondLine,
-.thirdLine,
-.fourLine {
+.rightCards {
     background-color: rgba(0, 0, 0, 0.2);
     background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
     border-radius: 5px;
@@ -116,13 +112,13 @@ div.basePriceNotDiscount {
     background-color: black;
 }
 
-div.textLanguage {
+.textLanguage {
     font-size: 11px;
     color: #b0aeac;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-div.language {
+p.language {
     font-size: 11px;
     color: #8f98a0;
 }

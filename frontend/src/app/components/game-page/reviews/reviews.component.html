@@ -1,130 +1,176 @@
-<div class="container-fluid p-0 mt-5">
-    <div class="row border-top border-1 border-black">
-        <div class="col p-0 ">
-            <span class="titles"> Customer reviews </span>
-        </div>
-    </div>
+<div class="container mt-5">
+    <div class="d-flex flex-wrap w-100">
 
-    <div class="container p-0">
-        <div class="row mt-2">
-
-            <div class="col-8 p-0">
-                <div class="card one">
-
-                    <div class="container p-0">
-                        <div class="row px-2 pt-2">
-                            <div class="col">
-                                <span class="textOne"> Overall Reviews </span>
-                            </div>
-                        </div>
-
-                        <div class="row px-2 py-1">
-                            <div class="col">
-                                <span class="evaluation"> {{game.evaluation}} </span>
-                                <span class="numberEvaluation"> ({{game.positive + game.negative}}) </span>
-                            </div>
-                        </div>
-
-                    </div>
+        <!--Titolo delle review totali-->
+        <div class="container">
+            <div class="d-flex flex-wrap w-100 border-top border-1 border-black">
+                <div class="col p-0 mt-1">
+                    <span class="titles"> Customer reviews </span>
                 </div>
             </div>
-
-            <div class="col-4 p-0">
-                <div class="card two">
-
-                    <div class="row px-2 pt-2">
-                        <div class="col">
-                            <span class="textOne"> Overall Reviews </span>
-                        </div>
-                    </div>
-
-                    <div class="row px-2 py-1">
-                        <div class="col">
-                            <span class="evaluation"> {{game.evaluation}} </span>
-                            <span class="numberEvaluation"> ({{game.positive + game.negative}}) </span>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
         </div>
-    </div>
 
+        <!--Card con il totale delle recensioni-->
+        <div class="container mt-2">
+            <div class="d-flex flex-wrap w-100">
 
+                <div class="col-8 p-0">
+                    <div class="reviewInfoCards">
 
-    <div class="container p-0">
-        <div class="row border-top border-1 border-black mt-5 mb-2">
-            <div class="col-8 p-0">
-                <div class="mt-3 mb-2">
-                    <span class="titles"> Most Helpful Reviews </span>
-                </div>
-                <div class="card reviews mb-4" *ngFor="let item of game.reviews.slice(0, 15)">
-                    <div class="container pt-1">
-                        <div class="row">
-                            <div class="col-5">
-                                <div class="container p-0">
-                                    <div class="row">
-
-                                        <div class="col-3">
-
-                                            <span> </span>
-
-                                        </div>
-
-                                        <div class="col-7">
-
-                                            <p class="username m-0"> {{item.user.username}}</p>
-                                            <p class="numberProduct m-0"> 218 products in account </p>
-
-                                        </div>
-                                    </div>
+                        <div class="container">
+                            <div class="d-flex flex-wrap w-100">
+                                <div class="col ps-1 pt-2">
+                                    <span class="textOne"> Overall Reviews </span>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="col-7 p-0">
-                                <div class="container p-0">
-                                    <div class="row review me-1">
-                                        <div class="col-1 p-0" *ngIf="item.is_recommended == 1">
-                                            <img src="../../../../assets/image/review/icon_thumbsUp_v6.png">
-                                        </div>
+                        <div class="container">
+                            <div class="d-flex flex-wrap w-100">
+                                <div class="col ps-1 pb-1">
+                                    <span class="evaluation"> {{game.evaluation}} </span>
+                                    <span class="numberEvaluation"> ({{game.positive + game.negative}}) </span>
+                                </div>
+                            </div>
+                        </div>
 
-                                        <div class="col-1 p-0" *ngIf="item.is_recommended == 0">
-                                            <img src="../../../../assets/image/review/icon_thumbsDown_v6.png">
-                                        </div>
+                    </div>
+                </div>
 
-                                        <div class="col-11">
-                                            <p class="m-0 ps-1 recommended" *ngIf="item.is_recommended == 1"> Is
-                                                Recommended
-                                            </p>
-                                            <p class="m-0 ps-1 recommended" *ngIf="item.is_recommended == 0"> Not
-                                                Recommended
-                                            </p>
+                <div class="col-4 p-0">
 
-                                            <div>
-                                                <p class="m-0 ps-1 hours"> {{item.hours_played}} on record </p>
+                    <div class="reviewInfoCards">
+
+                        <div class="container">
+                            <div class="d-flex flex-wrap w-100">
+                                <div class="col ps-1 pt-2">
+                                    <span class="textOne"> Recent Reviews: </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container">
+                            <div class="d-flex flex-wrap w-100">
+                                <div class="col ps-1 pb-1">
+                                    <span class="evaluation"> {{game.evaluation}} </span>
+                                    <span class="numberEvaluation"> ({{game.positive + game.negative}}) </span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!--Card delle recensioni-->
+        <div class="container mt-3">
+            <div class="d-flex flex-wrap border-top border-1 border-black mt-5">
+
+                <div class="col-8">
+
+                    <div class="container p-0">
+                        <div class="d-flex flex-wrap mb-2">
+                            <div class="col p-0 mt-3">
+                                <span class="titles"> Most Helpful Reviews </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container mb-3 p-0" *ngFor="let item of game.reviews.slice(0, 15)">
+
+                        <div class="card reviews">
+                            <div class="container pe-0">
+                                <div class="d-flex flex-wrap">
+
+                                    <div class="col-5">
+                                        <div class="container">
+                                            <div class="d-flex flex-wrap">
+
+                                                <div class="col-3">
+                                                    <span> </span>
+                                                </div>
+
+                                                <div class="col-7">
+                                                    <p class="username m-0"> {{item.user.username}} </p>
+                                                    <p class="numberProduct m-0"> 218 products in account </p>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
 
+                                    <div class="col-7">
+                                    
+                                        <div class="container p-0 py-1">
+                                            <div class="d-flex flex-wrap review me-1">
+                                    
+                                                <div class="col-2" *ngIf="item.is_recommended == 1">
+                                                    <img src="../../../../assets/image/review/icon_thumbsUp_v6.png">
+                                                </div>
+                                    
+                                                <div class="col-2" *ngIf="item.is_recommended == 0">
+                                                    <img src="../../../../assets/image/review/icon_thumbsDown_v6.png">
+                                                </div>
+                                    
+                                                <div class="col-10">
+                                                    <p class="m-0 ps-1 recommended" *ngIf="item.is_recommended == 1"> Is Recommended </p>
+                                                    <p class="m-0 ps-1 recommended" *ngIf="item.is_recommended == 0"> Not Recommended </p>
+                                    
+                                                    <div>
+                                                        <p class="m-0 ps-1 hours"> {{item.hours_played}} on record </p>
+                                                    </div>
 
-                                    <div class="my-2">
-                                        <p class="posted p-0 m-0"> Posted {{ item.date | date:'dd MMM, yyyy' }} </p>
+                                                </div>
+                                    
+                                            </div>
+                                        </div>
+
+                                        <div class="container p-0">
+                                            <div class="d-flex flex-wrap">
+                                                
+                                                <div class="col-12">
+                                                    <p class="posted p-0 m-0"> Posted {{ item.date | date:'dd MMM, yyyy' }} </p>
+                                                </div>
+                                
+                                
+                                                <div class="col-12">
+                                                    <p class="descriptionReview p-0"> {{ item.description}} </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
                                     </div>
 
-
-                                    <div>
-                                        <p class="descriptionReview p-0"> {{ item.description}} </p>
-                                    </div>
                                 </div>
+                            </div>
+                        </div>
 
+                    </div>
+                </div>
+
+                <div class="col-4">
+
+                    <div class="container">
+                        <div class="d-flex flex-wrap mb-2">
+                            <div class="col p-0 mt-3">
+                                <span class="titles"> Most Helpful Reviews </span>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="col-4 pe-0">
+                    
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+          <!-- <div class="col-4 pe-0">
                 <div class="container p-0">
                     <div class="mt-3 mb-2">
                         <span class="titles"> Recently Posted </span>
@@ -156,4 +202,4 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
