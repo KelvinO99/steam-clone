@@ -1,22 +1,14 @@
-.test1{
-    background-color: rgb(228, 228, 228);
-
-}
 
 .test2{
-    width: 1200px;
-    height:750px;
-    background-image: url(../../../assets/steamdeck/sd_header1.png);
+    background-image: url('../../../assets/steamdeck/sd_header_750.gif');
     background-repeat: no-repeat;
+    background-size: cover;
+    height: 750px;
+    font-family: "Motiva Sans", Sans-serif !important;
+    
 }
 
-.test3{
-    background-color: rgb(228, 228, 228);
-    height: 2000vh;
-
-}
-
-.sd_logo{
+.sdLogo{
     height: 90px;
     width: 300px;
     margin-left: 35%;
@@ -47,11 +39,81 @@
     margin-bottom: 30%;
 }
 
-.priceSection{
+.content{
+    padding: 5rem;
+}
+
+.lcd{
+    color: rgb(26, 159, 255)
+}
+
+.oled{
+    color: rgb(249, 56, 34);
+}
+
+#contentRow{
+    display: flex;
+    justify-content: space-around;
+    margin-left: 4rem;
+    margin-top: 5rem;
+}
+
+.priceTitle{
+    font-size: 32px;
+    font-weight: 600;
+    color: #000000;
+    font-family: "Motiva Sans", Sans-serif;
+    padding: 5px;
+}
+
+.boxType{
+    font-size: 2em;
+    margin: 5px;
+    display:inline;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pricePage{
     background-color: rgb(255, 255, 255);
     height: 802px;
-    width: 1200px;
+}
 
+.price{
+    background: none;
+    color: black;
+    font-size: 2.8em;
+    font-weight: 600;
+}
 
+.priceDrop{
+    padding: 5px;
+    background: #000000;
+    color: white;
+    font-weight: 700;
+    border-radius: 3px;
+    height: fit-content;
+    font-size: 12px;;
+}
+
+.new{
+    padding: 5px;
+    background: #f93829;
+    color: white;
+    font-weight: 700;
+    border-radius: 3px;
+    height: fit-content;
+    font-size: 12px;;
+}
+
+.specs{
+    color: #000000
+    list-style-type disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: 500;
+    font-size: 1.2em;
 
 }
