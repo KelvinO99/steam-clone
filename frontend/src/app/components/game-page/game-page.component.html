@@ -1,10 +1,25 @@
-<div class="container-fluid body">
+<div class="container-fluid px-0">
 
     <div class="d-flex flex-wrap p-0 d-flex justify-content-center">
+        <div class="col-2">
+
+        </div>
         
         <div class="col-8">
             
-            <app-body-navbar> </app-body-navbar>
+            <div class="container p-0">
+                <div class="d-flex flex-wrap">
+                    <div class="col">
+
+                    </div>
+                    <div class="col-11">
+                        <app-body-navbar> </app-body-navbar>
+                    </div>
+                    <div class="col">
+                        
+                    </div>
+                </div>
+            </div>
 
             <app-header-data-game [game]="game"> </app-header-data-game>
             <app-body-data-game [game]="game"></app-body-data-game>
@@ -12,5 +27,9 @@
 
         </div>
       
+        <div class="col-2">
+            
+        </div>
+
     </div>
 </div>

@@ -1,8 +1,13 @@
-<div class="container mt-5">
+<div class="container p-0 mt-5">
     <div class="d-flex flex-wrap w-100">
 
+        <div class="col">
+
+        </div>
+
+        <div class="col-11">
         <!--Titolo delle review totali-->
-        <div class="container">
+        <div class="container p-0">
             <div class="d-flex flex-wrap w-100 border-top border-1 border-black">
                 <div class="col p-0 mt-1">
                     <span class="titles"> Customer reviews </span>
@@ -11,7 +16,7 @@
         </div>
 
         <!--Card con il totale delle recensioni-->
-        <div class="container mt-2">
+        <div class="container p-0 mt-2">
             <div class="d-flex flex-wrap w-100">
 
                 <div class="col-8 p-0">
@@ -65,7 +70,7 @@
         </div>
 
         <!--Card delle recensioni-->
-        <div class="container mt-3">
+        <div class="container p-0 mt-3">
             <div class="d-flex flex-wrap border-top border-1 border-black mt-5">
 
                 <div class="col-8">
@@ -119,7 +124,7 @@
                                                     <p class="m-0 ps-1 recommended" *ngIf="item.is_recommended == 0"> Not Recommended </p>
                                     
                                                     <div>
-                                                        <p class="m-0 ps-1 hours"> {{item.hours_played}} on record </p>
+                                                        <p class="m-0 ps-1 hours"> {{item.hours_played}} hrs on record </p>
                                                     </div>
 
                                                 </div>
@@ -128,14 +133,14 @@
                                         </div>
 
                                         <div class="container p-0">
-                                            <div class="d-flex flex-wrap">
+                                            <div class="d-flex flex-column mt-1">
                                                 
-                                                <div class="col-12">
+                                                <div class="col">
                                                     <p class="posted p-0 m-0"> Posted {{ item.date | date:'dd MMM, yyyy' }} </p>
                                                 </div>
                                 
                                 
-                                                <div class="col-12">
+                                                <div class="col">
                                                     <p class="descriptionReview p-0"> {{ item.description}} </p>
                                                 </div>
                                             </div>
@@ -155,51 +160,59 @@
                     <div class="container">
                         <div class="d-flex flex-wrap mb-2">
                             <div class="col p-0 mt-3">
-                                <span class="titles"> Most Helpful Reviews </span>
+                                <span class="titles"> Recently Posted </span>
                             </div>
                         </div>
                     </div>
 
-                    
-
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-
-          <!-- <div class="col-4 pe-0">
-                <div class="container p-0">
-                    <div class="mt-3 mb-2">
-                        <span class="titles"> Recently Posted </span>
-                    </div>
-
-                    <div class="mb-3" *ngFor="let item of game.reviews.slice(0, 15)">
-                        <div class="card reviewsSm">
+                    <div class="container mb-3 p-0" *ngFor="let item of game.reviews.slice(0, 15)">
+                        <div class="d-flex flex-column">
+                            
                             <div class="container">
-                                <div class="row">
-                                    <div class="col-1 p-0" *ngIf="item.is_recommended == 1">
-                                        <img src="../../../../assets/image/review/icon_thumbsUp_v6.png"
-                                            class="img-fluid">
+                                <div class="d-flex flex-wrap review">
+                                    
+                                    <div class="col-1" *ngIf="item.is_recommended == 1">
+                                        <img src="../../../../assets/image/review/icon_thumbsUp_v6.png" class="img-fluid">
+                                    </div>
+                        
+                                    <div class="col-1" *ngIf="item.is_recommended == 0">
+                                        <img src="../../../../assets/image/review/icon_thumbsDown_v6.png" class="img-fluid">
                                     </div>
 
-                                    <div class="col-1 p-0" *ngIf="item.is_recommended == 0">
-                                        <img src="../../../../assets/image/review/icon_thumbsDown_v6.png"
-                                            class="img-fluid">
+                                    <div class="col ps-1">
+                                         <span class="username m-0"> {{item.user.username}} </span>
                                     </div>
-                                    <div class="col-7">
-                                        <span class="username"> {{item.user.username}} </span>
-                                    </div>
-                                    <div class="col-3">
+                                    <div class="col-5">
                                         <span class="hours"> {{item.hours_played}} hrs </span>
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="container">
+                                <div class="d-flex flex-column recentReviews px-2">
+
+                                    <div class="col mt-1 mb-2">
+                                        <p class="posted p-0 m-0"> Posted {{ item.date | date:'dd MMM, yyyy' }} </p>
+                                    </div>
+
+                                    <div class="col">
+                                        <p class="descriptionReview p-0"> {{ item.description}} </p>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
+
                 </div>
+
             </div>
         </div>
-    </div> -->
+        </div>
+
+        <div class="col">
+            
+        </div>
+
+    </div>
+</div>

@@ -1,249 +1,247 @@
 <div class="container mt-3">
     <div class="d-flex flex-wrap">
 
-        <div class="col-8">
-            <div class="container">
-                <div class="d-flex flex-column bgCard">
-
-                    <div class="col p-3">
-                        <span class="titles"> Buy {{game.game.name}} </span>
-                    </div>
-
-                    <div class="col p-1 d-flex justify-content-end">
-
-                        <div class="discountPercentage px-2 border-black border border-2"
-                            *ngIf="game.game.discounted_percentage != null">
-                            <span class="discountPercentage"> {{ game.game.discounted_percentage }}%
-                            </span>
-                        </div>
-
-                        <div class="price px-2 border-black border border-2"
-                            *ngIf="game.game.discounted_price != null && game.game.base_price > 0 ">
-                            <div class="col d-flex justify-content-end pt-1">
-                                <span class="basePrice"> {{ game.game.base_price.toFixed(2) + "€" }}
-                                </span>
-                            </div>
-                            <div class="col d-flex justify-content-end">
-                                <span class="discountPrice"> {{ game.game.discounted_price.toFixed(2) +
-                                    "€"
-                                    }} </span>
-                            </div>
-                        </div>
-
-                        <div class="price px-2 border-black border border-2 basePriceNotDiscount"
-                            *ngIf="game.game.discounted_price == null && game.game.base_price > 0 ">
-                            <div class="col d-flex justify-content-end py-2">
-                                <span class="basePriceNotDiscount"> {{ game.game.base_price.toFixed(2) +
-                                    "€"
-                                    }} </span>
-                            </div>
-                        </div>
-
-                        <div class="bottom px-2 d-flex align-items-center border-black border border-3">
-                            <span class="bottom"> Add to Cart </span>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="container mt-4">
-                <div class="d-flex flex-column">
-                    <div class="col mb-2 about">
-                        <span class="about"> Review </span>
-                    </div>
-
-                    <div class="col">
-                        <span class="review"> "{{game.game.name}} goes for feel above all else, and it feels fantastic”
-                            5/5 - </span>
-                        <span class="user"> Giant Bomb </span>
-                    </div>
-
-                    <div class="col pt-3">
-
-                        <span class="review"> “The pinnacle of {{game.tags[0].name}} ” - </span>
-                        <span class="user"> Kotaku </span>
-                    </div>
-
-                    <div class="col pt-3">
-                        <span class="review"> "{{game.game.name}} is a must play”
-                            5/5 - </span>
-                        <span class="user"> Game Informer </span>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="container mt-4">
-                <div class="d-flex flex-column">
-
-                    <div class="col mb-2 about">
-                        <span class="about"> About This Game </span>
-                    </div>
-
-                    <div class="col mb-2 longDescription">
-                        <span class="longDescription"> {{game.game.long_description}} </span>
-                    </div>
-
-                </div>
-            </div>
+        <div class="col">
 
         </div>
 
-        <div class="col-4">
+        <div class="col-11">
+            <div class="container p-0">
+                <div class="d-flex flex-wrap">
 
-            <div class="container mb-2">
-                <div class="d-flex flex-column rightCards">
-
-                    <div class="container p-0">
-                        <div class="d-flex flex-column">
-                            <div class="col px-2 py-2 d-flex justify-content-center rightCards">
-                                <span class="login"> Is this game relevant to you? </span>
-                            </div>
-
-                            <div class="col px-2 pt-2">
-                                <span class="loginText"> Sign in to see reasons why you may or may not like this based
-                                    on your games, friends, and curators you follow. </span>
-                            </div>
-
-                            <div class="col p-2 d-flex justify-content-center ">
-                                <div class="SignIn py-1 px-5"> Sign In </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="container mb-2">
-                <div class="d-flex flex-column rightCards">
-
-                    <div class="container py-2">
-                        <div class="d-flex flex-column">
-
-                            <div class="container px-0 py-2">
-                                <div class="d-flex flex-column">
-                                    <div class="col bottomSecondLine mb-1 px-2">
-                                        <span> Online Co-op </span>
-                                    </div>
-                                    <div class="col bottomSecondLine mb-1 px-2">
-                                        <span> Shared/Split Screen Co-op</span>
-                                    </div>
-                                    <div class="col bottomSecondLine mb-1 px-2">
-                                        <span> Steam Achievements</span>
-                                    </div>
-                                    <div class="col bottomSecondLine mb-1 px-2">
-                                        <span> Steam Trading Cards</span>
-                                    </div>
-                                    <div class="col bottomSecondLine mb-1 px-2">
-                                        <span> Remote Play Together </span>
-                                    </div>
+                    <div class="col-8">
+                        <div class="container p-0">
+                            <div class="d-flex flex-column bgCard">
+            
+                                <div class="col p-3">
+                                    <span class="titles"> Buy {{game.game.name}} </span>
                                 </div>
-                            </div>
-
-                            <span class="textSecondLine p-0"> Full Controller Support </span>
-                            <div class="container px-0">
-                                <div class="d-flex flex-column">
-                                    <div class="col bottomSecondLine mb-1 px-2">
-                                        <span> Xbox Controllers </span>
+            
+                                <div class="col p-1 d-flex justify-content-end">
+            
+                                    <div class="discountPercentage px-2 border-black border border-2"
+                                        *ngIf="game.game.discounted_percentage != null">
+                                        <span class="discountPercentage"> {{ game.game.discounted_percentage }}%
+                                        </span>
                                     </div>
-                                    <div class="col bottomSecondLine mb-1 px-2">
-                                        <span> DualShock Controllers (USB Only) </span>
+            
+                                    <div class="price px-2 border-black border border-2"
+                                        *ngIf="game.game.discounted_price != null && game.game.base_price > 0 ">
+                                        <div class="col d-flex justify-content-end pt-1">
+                                            <span class="basePrice"> {{ game.game.base_price.toFixed(2) + "€" }}
+                                            </span>
+                                        </div>
+                                        <div class="col d-flex justify-content-end">
+                                            <span class="discountPrice"> {{ game.game.discounted_price.toFixed(2) +
+                                                "€"
+                                                }} </span>
+                                        </div>
                                     </div>
-                                    <div class="col bottomSecondLine mb-1 px-2">
-                                        <span> DualSense Controllers (USB Only) </span>
+            
+                                    <div class="price px-2 border-black border border-2 basePriceNotDiscount"
+                                        *ngIf="game.game.discounted_price == null && game.game.base_price > 0 ">
+                                        <div class="col d-flex justify-content-end py-2">
+                                            <span class="basePriceNotDiscount"> {{ game.game.base_price.toFixed(2) +
+                                                "€"
+                                                }} </span>
+                                        </div>
                                     </div>
+            
+                                    <div class="bottom px-2 d-flex align-items-center border-black border border-3">
+                                        <span class="bottom"> Add to Cart </span>
+                                    </div>
+            
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="container mb-2">
-                <div class="d-flex flex-column rightCards">
-
-                    <div class="col">
-                        <p class="language px-2 pt-2 mb-1"> Languages: </p>
-                    </div>
-
-                    <div class="container">
-                        <div class="d-flex flex-wrap">
-                            <div class="col d-flex justify-content-center p-0 textLanguage">
-
-                            </div>
-                            <div class="col d-flex justify-content-center p-0 textLanguage">
-                                Interface
-                            </div>
-                            <div class="col d-flex justify-content-center  p-0 textLanguage">
-                                Full Audio
-                            </div>
-                            <div class="col d-flex justify-content-center  p-0 textLanguage">
-                                Subtitles
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="container pb-2">
-                        <div class="d-flex flex-wrap borderStyle" *ngFor="let item of languages">
-                            <div class="col textLanguage d-flex justify-content-start">
-                                {{item.language.name}}
-                            </div>
-                            <div class="col d-flex justify-content-center p-0 textLanguage">
-                                <span class="true" *ngIf="item.interface == 1"> ✔ </span>
-                            </div>
-                            <div class="col d-flex justify-content-center  p-0 textLanguage">
-                                <span class="true" *ngIf="item.full_audio == 1"> ✔ </span>
-                            </div>
-                            <div class="col d-flex justify-content-center  p-0 textLanguage">
-                                <span class="true" *ngIf="item.subtitles  == 1"> ✔ </span>
+            
+                        <div class="container p-0 mt-4">
+                            <div class="d-flex flex-column">
+                                <div class="col mb-2 about">
+                                    <span class="about"> Review </span>
+                                </div>
+            
+                                <div class="col">
+                                    <span class="review"> "{{game.game.name}} goes for feel above all else, and it feels fantastic”
+                                        5/5 - </span>
+                                    <span class="user"> Giant Bomb </span>
+                                </div>
+            
+                                <div class="col pt-3">
+            
+                                    <span class="review"> “The pinnacle of {{game.tags[0].name}} ” - </span>
+                                    <span class="user"> Kotaku </span>
+                                </div>
+            
+                                <div class="col pt-3">
+                                    <span class="review"> "{{game.game.name}} is a must play”
+                                        5/5 - </span>
+                                    <span class="user"> Game Informer </span>
+                                </div>
+            
                             </div>
                         </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="d-flex flex-column rightCards">
-
-                    <div class="container py-2">
-                        <div class="d-flex flex-column">
-
-                            <div class="col">
-                                <img [src]="game.pegi_img.image_path" class="pegi">
+            
+                        <div class="container p-0 mt-4">
+                            <div class="d-flex flex-column">
+            
+                                <div class="col mb-2 about">
+                                    <span class="about"> About This Game </span>
+                                </div>
+            
+                                <div class="col mb-2 longDescription">
+                                    <span class="longDescription"> {{game.game.long_description}} </span>
+                                </div>
+            
                             </div>
-
-                            <div class="col">
-                                <span class="pegi"> Rating for: PEGI </span>
-                            </div>
-
                         </div>
+            
                     </div>
-
+            
+                    <div class="col-4">
+            
+                        <div class="container pe-0 mb-2">
+                            <div class="d-flex flex-column rightCards">
+            
+                                <div class="container p-0">
+                                    <div class="d-flex flex-column">
+                                        <div class="col px-2 py-2 d-flex justify-content-center rightCards">
+                                            <span class="login"> Is this game relevant to you? </span>
+                                        </div>
+            
+                                        <div class="col px-2 pt-2">
+                                            <span class="loginText"> Sign in to see reasons why you may or may not like this based
+                                                on your games, friends, and curators you follow. </span>
+                                        </div>
+            
+                                        <div class="col p-2 d-flex justify-content-center ">
+                                            <div class="SignIn py-1 px-5"> Sign In </div>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                            </div>
+                        </div>
+            
+                        <div class="container pe-0 mb-2">
+                            <div class="d-flex flex-column rightCards">
+            
+                                <div class="container py-2">
+                                    <div class="d-flex flex-column">
+            
+                                        <div class="container px-0 py-2">
+                                            <div class="d-flex flex-column">
+                                                <div class="col bottomSecondLine mb-1 px-2">
+                                                    <span> Online Co-op </span>
+                                                </div>
+                                                <div class="col bottomSecondLine mb-1 px-2">
+                                                    <span> Shared/Split Screen Co-op</span>
+                                                </div>
+                                                <div class="col bottomSecondLine mb-1 px-2">
+                                                    <span> Steam Achievements</span>
+                                                </div>
+                                                <div class="col bottomSecondLine mb-1 px-2">
+                                                    <span> Steam Trading Cards</span>
+                                                </div>
+                                                <div class="col bottomSecondLine mb-1 px-2">
+                                                    <span> Remote Play Together </span>
+                                                </div>
+                                            </div>
+                                        </div>
+            
+                                        <span class="textSecondLine p-0"> Full Controller Support </span>
+                                        <div class="container px-0">
+                                            <div class="d-flex flex-column">
+                                                <div class="col bottomSecondLine mb-1 px-2">
+                                                    <span> Xbox Controllers </span>
+                                                </div>
+                                                <div class="col bottomSecondLine mb-1 px-2">
+                                                    <span> DualShock Controllers (USB Only) </span>
+                                                </div>
+                                                <div class="col bottomSecondLine mb-1 px-2">
+                                                    <span> DualSense Controllers (USB Only) </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                            </div>
+                        </div>
+            
+                        <div class="container pe-0 mb-2">
+                            <div class="d-flex flex-column rightCards">
+            
+                                <div class="col">
+                                    <p class="language px-2 pt-2 mb-1"> Languages: </p>
+                                </div>
+            
+                                <div class="container">
+                                    <div class="d-flex flex-wrap">
+                                        <div class="col d-flex justify-content-center p-0 textLanguage">
+            
+                                        </div>
+                                        <div class="col d-flex justify-content-center p-0 textLanguage">
+                                            Interface
+                                        </div>
+                                        <div class="col d-flex justify-content-center  p-0 textLanguage">
+                                            Full Audio
+                                        </div>
+                                        <div class="col d-flex justify-content-center  p-0 textLanguage">
+                                            Subtitles
+                                        </div>
+                                    </div>
+                                </div>
+            
+                                <div class="container pb-2">
+                                    <div class="d-flex flex-wrap borderStyle" *ngFor="let item of languages">
+                                        <div class="col textLanguage d-flex justify-content-start">
+                                            {{item.language.name}}
+                                        </div>
+                                        <div class="col d-flex justify-content-center p-0 textLanguage">
+                                            <span class="true" *ngIf="item.interface == 1"> ✔ </span>
+                                        </div>
+                                        <div class="col d-flex justify-content-center  p-0 textLanguage">
+                                            <span class="true" *ngIf="item.full_audio == 1"> ✔ </span>
+                                        </div>
+                                        <div class="col d-flex justify-content-center  p-0 textLanguage">
+                                            <span class="true" *ngIf="item.subtitles  == 1"> ✔ </span>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                            </div>
+                        </div>
+            
+                        <div class="container pe-0">
+                            <div class="d-flex flex-column rightCards">
+            
+                                <div class="container py-2">
+                                    <div class="d-flex flex-column">
+            
+                                        <div class="col">
+                                            <img [src]="game.pegi_img.image_path" class="pegi">
+                                        </div>
+            
+                                        <div class="col">
+                                            <span class="pegi"> Rating for: PEGI </span>
+                                        </div>
+            
+                                    </div>
+                                </div>
+            
+                            </div>
+                        </div>
+            
+                    </div>
+                    
                 </div>
             </div>
+        </div>
+
+        <div class="col">
+            
         </div>
 
     </div>
 </div>
-
-<!--    <div class="col-4">
-
-
-
-            <div class="row fourLine mb-2">
-                <div class="p-3">
-                    <div>
-                        <img [src]="game.pegi_img.image_path" class="pegi">
-                    </div>
-                    <div>
-                        <span class="pegi"> Rating for: PEGI </span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div> -->

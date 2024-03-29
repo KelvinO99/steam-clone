@@ -22,12 +22,9 @@
 
 .carousel-control-next,
 .carousel-control-prev {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 4rem;
+    width: 3rem;
     max-width: 100%;
-    height: auto;
+    max-height: 110px;
 }
 
 
