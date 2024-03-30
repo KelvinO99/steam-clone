@@ -1,191 +1,257 @@
-.bgCard {
-    background: linear-gradient(-60deg, rgba(226, 244, 255, 0.3) 5%, rgba(84, 107, 115, 0.3) 95%);
-    border-radius: 4px;
-}
+$body-data-game-deals-section-col-4-background-color: rgba(0, 0, 0, 0.2);
+$body-data-game-deals-section-col-4-background-gradient: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
 
-div.discountPercentage {
-    align-items: center;
-    display: flex;
-    border-radius: 1px;
-    background: #4c6b22;
-    border-radius: 2px;
-}
+.body-data-game-container .body-data-game-header .body-data-game-section-col-11 .body-data-game-deals-container .body-data-game-deals-header {
+    .body-data-game-deals-section-col-8 {
+        .game-deals-card-container {
+            background: linear-gradient(-60deg, rgba(226, 244, 255, 0.3) 5%, rgba(84, 107, 115, 0.3) 95%);
+            border-radius: 4px;
 
-span.discountPercentage {
-    font-size: 26px;
-    font-family: "Motiva Sans", sans-serif;
-    font-weight: 500;
-    color: #BEEE11;
-    line-height: 34px;
-}
+            .game-deals-card-header {
+                .game-caption-section {
+                    .game-caption {
+                        font-size: 21px;
+                        color: white;
+                    }
+                }
 
-span.discountPrice {
-    font-size: 15px;
-    font-family: Arial, Helvetica, sans-serif;
-    ;
-    color: #BEEE11;
-}
+                .price-deals-section {
+                    .percentage-discount-label-section {
+                        align-items: center;
+                        display: flex;
+                        border-radius: 1px;
+                        background: #4c6b22;
+                        border-radius: 2px;
 
-div.price {
-    background-color: #344654;
-    border-radius: 2px;
-}
+                        .percentage-discount-label {
+                            font-size: 26px;
+                            font-family: "Motiva Sans", sans-serif;
+                            font-weight: 500;
+                            color: #BEEE11;
+                            line-height: 34px;
+                        }
+                    }
 
-span.basePrice {
-    font-size: 11px;
-    line-height: 12px;
-    color: #738895;
-    text-decoration: line-through;
-    font-family: Arial, Helvetica, sans-serif;
-}
+                    .discount-price-section {
+                        background-color: #344654;
+                        border-radius: 2px;
 
-.titles {
-    font-size: 21px;
-    color: white;
-}
+                        .discount-base-price-label-section {
+                            font-size: 11px;
+                            line-height: 12px;
+                            color: #738895;
+                            text-decoration: line-through;
+                            font-family: Arial, Helvetica, sans-serif;
 
-div.bottom {
-    background: linear-gradient(to right, #75b022 5%, #588a1b 95%);
-}
+                            .discount-base-price-label {
+                                font-size: 11px;
+                                line-height: 12px;
+                                color: #738895;
+                                text-decoration: line-through;
+                                font-family: Arial, Helvetica, sans-serif;
+                            }
+                        }
 
-span.bottom {
-    font-size: 15px;
-    color: #d2efa9;
-    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
-}
+                        .discount-price-label-section {
+                            .discount-price-label {
+                                font-size: 15px;
+                                font-family: Arial, Helvetica, sans-serif;
+                                color: #BEEE11;
 
-.rightCards {
-    background-color: rgba(0, 0, 0, 0.2);
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
-    border-radius: 5px;
-}
+                            }
+                        }
 
-.row.firstLine {
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
-}
+                        .base-price-label-section {
+                            background-color: black;
 
-span.login {
-    color: white;
-    font-size: 16px;
-}
+                            .base-price-label {
+                                color: white;
+                            }
+                        }
+                    }
 
-span.loginText {
-    font-size: 14px;
-    line-height: 24px;
-    color: #acb2b8;
-}
+                    .cart-bottom-section {
+                        background: linear-gradient(to right, #75b022 5%, #588a1b 95%);
 
-div.SignIn {
-    border-radius: 2px;
-    border: none;
-    display: inline-block;
-    cursor: pointer;
-    text-decoration: none !important;
-    color: #67c1f5 !important;
-    background: rgba(103, 193, 245, 0.2);
-}
+                        .cart-bottom-label {
+                            font-size: 15px;
+                            color: #d2efa9;
+                            text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+                        }
+                    }
+                }
+            }
+        }
 
-div.bottomSecondLine {
-    background: rgba(103, 193, 245, 0.2);
-    font-size: 12px;
-    color: #67c1f5 !important;
-    font-family: Arial, Helvetica, sans-serif;
-}
+        .review-container .review-header {
+            .review-caption-section .review-caption {
+                font-size: 14px;
+                letter-spacing: 3px;
+                text-transform: uppercase;
+                font-family: sans-serif;
+                color: white;
+            }
 
-.textSecondLine {
-    font-size: 12px;
-    color: #8f98a0;
-    font-family: Arial, Helvetica, sans-serif;
-}
 
-img.icon {
-    background-color: black;
-    height: 22px;
-    width: 40px;
-}
+            .review-content-section {
+                .review-content {
+                    color: #acb2b8;
+                    font-size: 12px;
+                    font-family: sans-serif;
+                }
 
-span.basePriceNotDiscount {
-    color: white;
-}
+                .review-user-content {
+                    color: white;
+                }
+            }
+        }
 
-div.basePriceNotDiscount {
-    background-color: black;
-}
+        .about-container .about-header {
+            .about-caption-section {
+                border-bottom-style: solid;
+                border-bottom-color: #585a5e;
+                border-bottom-width: 1px;
 
-.textLanguage {
-    font-size: 11px;
-    color: #b0aeac;
-    font-family: Arial, Helvetica, sans-serif;
-}
+                .about-caption {
+                    font-size: 14px;
+                    letter-spacing: 3px;
+                    text-transform: uppercase;
+                    font-family: sans-serif;
+                    color: white;
+                }
+            }
 
-p.language {
-    font-size: 11px;
-    color: #8f98a0;
-}
+            .about-content-section {
+                overflow: hidden;
+                max-height: 350px;
+                transition: max-height 0.5s ease;
 
-div.borderStyle {
-    border-top-color: #585a5e;
-    border-top: 1px;
-    border-top-style: solid;
-}
+                &:hover {
+                    overflow: auto;
+                }
 
-.true {
-    font-weight: bold;
-    color: #67c1f5;
-}
+                .about-content {
+                    color: #acb2b8;
+                    text-transform: none;
+                    font-size: 14px;
+                    line-height: 24px;
+                    font-family: sans-serif;
+                }
+            }
+        }
+    }
 
-span.about {
-    font-size: 14px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    font-family: sans-serif;
-    color: white;
-}
+    .body-data-game-deals-section-col-4 {
+        .sign-in-container .sign-in-header {
+            .sign-in-section {
+                background-color: $body-data-game-deals-section-col-4-background-color;
+                background: $body-data-game-deals-section-col-4-background-gradient;
+                border-radius: 5px;
 
-span.longDescription {
-    color: #acb2b8;
-    text-transform: none;
-    font-size: 14px;
-    line-height: 24px;
-    font-family: sans-serif;
-}
+                .sign-in-label-section {
+                    background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
 
-div.longDescription {
-    overflow: hidden;
-    max-height: 350px   ;
-}
+                    .sign-in-label {
+                        color: white;
+                        font-size: 16px;
+                    }
+                }
 
-div.longDescription:hover {
-    overflow: auto;
-}
+                .sign-in-content-section .sign-in-content {
+                    font-size: 14px;
+                    line-height: 24px;
+                    color: #acb2b8;
+                }
 
-span.review {
-    color: #acb2b8;
-    font-size: 12px;
-    font-family: sans-serif;
-}
+                .sign-in-button-section .sign-in-button {
+                    border-radius: 2px;
+                    border: none;
+                    display: inline-block;
+                    cursor: pointer;
+                    text-decoration: none !important;
+                    color: #67c1f5 !important;
+                    background: rgba(103, 193, 245, 0.2);
+                }
+            }
+        }
 
-div.about {
-    border-bottom-style: solid;
-    border-bottom-color: #585a5e;
-    border-bottom-width: 1px;
-}
+        .feature-container .feature-header {
+            .feature-section {
+                background-color: $body-data-game-deals-section-col-4-background-color;
+                background: $body-data-game-deals-section-col-4-background-gradient;
+                border-radius: 5px;
 
-.user {
-    color: white;
-    font-size: 12px;
-}
+                .feature-item {
+                    background: rgba(103, 193, 245, 0.2);
+                    font-size: 12px;
+                    color: #67c1f5 !important;
+                    font-family: Arial, Helvetica, sans-serif;
+                }
 
-img.pegi {
-    max-width: 30%;
-    height: auto;
-}
+                .feature-category-label {
+                    font-size: 12px;
+                    color: #8f98a0;
+                    font-family: Arial, Helvetica, sans-serif;
+                }
+            }
+        }
 
-span.pegi {
-    font-size: 12px;
-    color: #c6d4df;
-}
+        .language-container .language-header {
+            .language-section {
+                background-color: $body-data-game-deals-section-col-4-background-color;
+                background: $body-data-game-deals-section-col-4-background-gradient;
+                border-radius: 5px;
 
-.col-8 {
-    padding-left: 0;
+                .language-label {
+                    font-size: 11px;
+                    color: #8f98a0;
+                }
+
+                .language-caption-container .language-caption-header {
+                    .language-caption-section {
+                        .language-caption-item {
+                            font-size: 11px;
+                            color: #b0aeac;
+                            font-family: Arial, Helvetica, sans-serif;
+                        }
+                    }
+                }
+
+                .language-info-container .language-info-header {
+                    border-top-color: #585a5e;
+                    border-top: 1px;
+                    border-top-style: solid;
+                }
+
+                .language-info-section {
+                    .language-info-item {
+                        font-size: 11px;
+                        color: #b0aeac;
+                        font-family: Arial, Helvetica, sans-serif;
+                    }
+
+                    .language-info-icon {
+                        font-weight: bold;
+                        color: #67c1f5;
+                    }
+                }
+            }
+        }
+
+        .pegi-container .pegi-header {
+            background-color: $body-data-game-deals-section-col-4-background-color;
+            background: $body-data-game-deals-section-col-4-background-gradient;
+            border-radius: 5px;
+
+            .pegi-image-section .pegi-image {
+                max-width: 30%;
+                height: auto;
+            }
+
+            .pegi-label-section .pegi-label {
+                font-size: 12px;
+                color: #c6d4df;
+            }
+        }
+    }
 }
