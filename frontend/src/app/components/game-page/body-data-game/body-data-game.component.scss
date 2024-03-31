@@ -1,257 +1,271 @@
+//Variabili
 $body-data-game-deals-section-col-4-background-color: rgba(0, 0, 0, 0.2);
 $body-data-game-deals-section-col-4-background-gradient: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
+$game-deals-card-container-background-gradient: linear-gradient(-60deg, rgba(226, 244, 255, 0.3) 5%, rgba(84, 107, 115, 0.3) 95%);
 
-.body-data-game-container .body-data-game-header .body-data-game-section-col-11 .body-data-game-deals-container .body-data-game-deals-header {
-    .body-data-game-deals-section-col-8 {
-        .game-deals-card-container {
-            background: linear-gradient(-60deg, rgba(226, 244, 255, 0.3) 5%, rgba(84, 107, 115, 0.3) 95%);
-            border-radius: 4px;
+//Mixin
+@mixin game-deals-card-container-background {
+    background: $game-deals-card-container-background-gradient;
+    border-radius: 4px;
+}
 
-            .game-deals-card-header {
-                .game-caption-section {
-                    .game-caption {
-                        font-size: 21px;
-                        color: white;
+@mixin body-data-game-deals-section-col-4-background {
+    background-color: $body-data-game-deals-section-col-4-background-color;
+    background: $body-data-game-deals-section-col-4-background-gradient;
+    border-radius: 5px;
+}
+
+@mixin body-data-game-deals-col-8-section {
+    .game-deals-card-container {
+        @include game-deals-card-container-background();
+
+        .game-deals-card-header {
+            .game-caption-section {
+                .game-caption {
+                    font-size: 21px;
+                    color: white;
+                }
+            }
+
+            .price-deals-section {
+                .percentage-discount-label-section {
+                    align-items: center;
+                    display: flex;
+                    border-radius: 1px;
+                    background: #4c6b22;
+                    border-radius: 2px;
+
+                    .percentage-discount-label {
+                        font-size: 26px;
+                        font-family: "Motiva Sans", sans-serif;
+                        font-weight: 500;
+                        color: #BEEE11;
+                        line-height: 34px;
                     }
                 }
 
-                .price-deals-section {
-                    .percentage-discount-label-section {
-                        align-items: center;
-                        display: flex;
-                        border-radius: 1px;
-                        background: #4c6b22;
-                        border-radius: 2px;
+                .discount-price-section {
+                    background-color: #344654;
+                    border-radius: 2px;
 
-                        .percentage-discount-label {
-                            font-size: 26px;
-                            font-family: "Motiva Sans", sans-serif;
-                            font-weight: 500;
-                            color: #BEEE11;
-                            line-height: 34px;
-                        }
-                    }
+                    .discount-base-price-label-section {
+                        font-size: 11px;
+                        line-height: 12px;
+                        color: #738895;
+                        text-decoration: line-through;
+                        font-family: Arial, Helvetica, sans-serif;
 
-                    .discount-price-section {
-                        background-color: #344654;
-                        border-radius: 2px;
-
-                        .discount-base-price-label-section {
+                        .discount-base-price-label {
                             font-size: 11px;
                             line-height: 12px;
                             color: #738895;
                             text-decoration: line-through;
                             font-family: Arial, Helvetica, sans-serif;
-
-                            .discount-base-price-label {
-                                font-size: 11px;
-                                line-height: 12px;
-                                color: #738895;
-                                text-decoration: line-through;
-                                font-family: Arial, Helvetica, sans-serif;
-                            }
-                        }
-
-                        .discount-price-label-section {
-                            .discount-price-label {
-                                font-size: 15px;
-                                font-family: Arial, Helvetica, sans-serif;
-                                color: #BEEE11;
-
-                            }
-                        }
-
-                        .base-price-label-section {
-                            background-color: black;
-
-                            .base-price-label {
-                                color: white;
-                            }
                         }
                     }
 
-                    .cart-bottom-section {
-                        background: linear-gradient(to right, #75b022 5%, #588a1b 95%);
-
-                        .cart-bottom-label {
+                    .discount-price-label-section {
+                        .discount-price-label {
                             font-size: 15px;
-                            color: #d2efa9;
-                            text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+                            font-family: Arial, Helvetica, sans-serif;
+                            color: #BEEE11;
+
                         }
+                    }
+                }
+
+                .base-price-label-container .base-price-label-section {
+                    background-color: black;
+
+                    .base-price-label {
+                        color: white;
+                    }
+                }
+
+                .cart-bottom-section {
+                    background: linear-gradient(to right, #75b022 5%, #588a1b 95%);
+
+                    .cart-bottom-label {
+                        font-size: 15px;
+                        color: #d2efa9;
+                        text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
                     }
                 }
             }
         }
+    }
 
-        .review-container .review-header {
-            .review-caption-section .review-caption {
+    .review-container .review-header {
+        .review-caption-section .review-caption {
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-family: sans-serif;
+            color: white;
+        }
+
+
+        .review-content-section {
+            .review-content {
+                color: #acb2b8;
+                font-size: 12px;
+                font-family: sans-serif;
+            }
+
+            .review-user-content {
+                color: white;
+            }
+        }
+    }
+
+    .about-container .about-header {
+        .about-caption-section {
+            border-bottom-style: solid;
+            border-bottom-color: #585a5e;
+            border-bottom-width: 1px;
+
+            .about-caption {
                 font-size: 14px;
                 letter-spacing: 3px;
                 text-transform: uppercase;
                 font-family: sans-serif;
                 color: white;
             }
-
-
-            .review-content-section {
-                .review-content {
-                    color: #acb2b8;
-                    font-size: 12px;
-                    font-family: sans-serif;
-                }
-
-                .review-user-content {
-                    color: white;
-                }
-            }
         }
 
-        .about-container .about-header {
-            .about-caption-section {
-                border-bottom-style: solid;
-                border-bottom-color: #585a5e;
-                border-bottom-width: 1px;
+        .about-content-section {
+            overflow: hidden;
+            max-height: 350px;
+            transition: max-height 0.5s ease;
 
-                .about-caption {
-                    font-size: 14px;
-                    letter-spacing: 3px;
-                    text-transform: uppercase;
-                    font-family: sans-serif;
+            &:hover {
+                overflow: auto;
+            }
+
+            .about-content {
+                color: #acb2b8;
+                text-transform: none;
+                font-size: 14px;
+                line-height: 24px;
+                font-family: sans-serif;
+            }
+        }
+    }
+}
+
+@mixin body-data-game-deals-col-4-section {
+    .sign-in-container .sign-in-header {
+        .sign-in-section {
+            @include body-data-game-deals-section-col-4-background();
+
+            .sign-in-label-section {
+                background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
+
+                .sign-in-label {
                     color: white;
+                    font-size: 16px;
                 }
             }
 
-            .about-content-section {
-                overflow: hidden;
-                max-height: 350px;
-                transition: max-height 0.5s ease;
+            .sign-in-content-section .sign-in-content {
+                font-size: 14px;
+                line-height: 24px;
+                color: #acb2b8;
+            }
 
-                &:hover {
-                    overflow: auto;
+            .sign-in-button-section .sign-in-button {
+                border-radius: 2px;
+                border: none;
+                display: inline-block;
+                cursor: pointer;
+                text-decoration: none !important;
+                color: #67c1f5 !important;
+                background: rgba(103, 193, 245, 0.2);
+            }
+        }
+    }
+
+    .feature-container .feature-header {
+        .feature-section {
+            @include body-data-game-deals-section-col-4-background();
+
+            .feature-item {
+                background: rgba(103, 193, 245, 0.2);
+                font-size: 12px;
+                color: #67c1f5 !important;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            .feature-category-label {
+                font-size: 12px;
+                color: #8f98a0;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+        }
+    }
+
+    .language-container .language-header {
+        .language-section {
+            @include body-data-game-deals-section-col-4-background();
+
+            .language-label {
+                font-size: 11px;
+                color: #8f98a0;
+            }
+
+            .language-caption-container .language-caption-header {
+                .language-caption-section {
+                    .language-caption-item {
+                        font-size: 11px;
+                        color: #b0aeac;
+                        font-family: Arial, Helvetica, sans-serif;
+                    }
+                }
+            }
+
+            .language-info-container .language-info-header {
+                border-top-color: #585a5e;
+                border-top: 1px;
+                border-top-style: solid;
+            }
+
+            .language-info-section {
+                .language-info-item {
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-size: 11px;
+                    color: #b0aeac;
                 }
 
-                .about-content {
-                    color: #acb2b8;
-                    text-transform: none;
-                    font-size: 14px;
-                    line-height: 24px;
-                    font-family: sans-serif;
+                .language-info-icon {
+                    font-weight: bold;
+                    color: #67c1f5;
                 }
             }
         }
     }
 
-    .body-data-game-deals-section-col-4 {
-        .sign-in-container .sign-in-header {
-            .sign-in-section {
-                background-color: $body-data-game-deals-section-col-4-background-color;
-                background: $body-data-game-deals-section-col-4-background-gradient;
-                border-radius: 5px;
+    .pegi-container .pegi-header {
+        @include body-data-game-deals-section-col-4-background();
 
-                .sign-in-label-section {
-                    background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
-
-                    .sign-in-label {
-                        color: white;
-                        font-size: 16px;
-                    }
-                }
-
-                .sign-in-content-section .sign-in-content {
-                    font-size: 14px;
-                    line-height: 24px;
-                    color: #acb2b8;
-                }
-
-                .sign-in-button-section .sign-in-button {
-                    border-radius: 2px;
-                    border: none;
-                    display: inline-block;
-                    cursor: pointer;
-                    text-decoration: none !important;
-                    color: #67c1f5 !important;
-                    background: rgba(103, 193, 245, 0.2);
-                }
-            }
+        .pegi-image-section .pegi-image {
+            max-width: 30%;
+            height: auto;
         }
 
-        .feature-container .feature-header {
-            .feature-section {
-                background-color: $body-data-game-deals-section-col-4-background-color;
-                background: $body-data-game-deals-section-col-4-background-gradient;
-                border-radius: 5px;
-
-                .feature-item {
-                    background: rgba(103, 193, 245, 0.2);
-                    font-size: 12px;
-                    color: #67c1f5 !important;
-                    font-family: Arial, Helvetica, sans-serif;
-                }
-
-                .feature-category-label {
-                    font-size: 12px;
-                    color: #8f98a0;
-                    font-family: Arial, Helvetica, sans-serif;
-                }
-            }
+        .pegi-label-section .pegi-label {
+            font-size: 12px;
+            color: #c6d4df;
         }
+    }
+}
 
-        .language-container .language-header {
-            .language-section {
-                background-color: $body-data-game-deals-section-col-4-background-color;
-                background: $body-data-game-deals-section-col-4-background-gradient;
-                border-radius: 5px;
+//Struttura CSS
+.body-data-game-container .body-data-game-header .body-data-game-col-11-section .body-data-game-deals-container .body-data-game-deals-header {
+    .body-data-game-deals-col-8-section {
+        @include body-data-game-deals-col-8-section()
+    }
 
-                .language-label {
-                    font-size: 11px;
-                    color: #8f98a0;
-                }
-
-                .language-caption-container .language-caption-header {
-                    .language-caption-section {
-                        .language-caption-item {
-                            font-size: 11px;
-                            color: #b0aeac;
-                            font-family: Arial, Helvetica, sans-serif;
-                        }
-                    }
-                }
-
-                .language-info-container .language-info-header {
-                    border-top-color: #585a5e;
-                    border-top: 1px;
-                    border-top-style: solid;
-                }
-
-                .language-info-section {
-                    .language-info-item {
-                        font-size: 11px;
-                        color: #b0aeac;
-                        font-family: Arial, Helvetica, sans-serif;
-                    }
-
-                    .language-info-icon {
-                        font-weight: bold;
-                        color: #67c1f5;
-                    }
-                }
-            }
-        }
-
-        .pegi-container .pegi-header {
-            background-color: $body-data-game-deals-section-col-4-background-color;
-            background: $body-data-game-deals-section-col-4-background-gradient;
-            border-radius: 5px;
-
-            .pegi-image-section .pegi-image {
-                max-width: 30%;
-                height: auto;
-            }
-
-            .pegi-label-section .pegi-label {
-                font-size: 12px;
-                color: #c6d4df;
-            }
-        }
+    .body-data-game-deals-col-4-section {
+        @include body-data-game-deals-col-4-section()
     }
 }

@@ -5,11 +5,11 @@
 
         </div>
 
-        <div class="col-11 body-data-game-section-col-11">
+        <div class="col-11 body-data-game-col-11-section">
             <div class="container p-0 body-data-game-deals-container">
                 <div class="d-flex flex-wrap body-data-game-deals-header">
 
-                    <div class="col-8 body-data-game-deals-section-col-8">
+                    <div class="col-8 body-data-game-deals-col-8-section">
                         <div class="container p-0 game-deals-card-container">
                             <div class="d-flex flex-column game-deals-card-header">
 
@@ -41,11 +41,13 @@
                                         </div>
                                     </div>
 
-                                    <div class="col d-flex justify-content-end py-2 base-price-label-section"
-                                        *ngIf="game.game.discounted_price == null && game.game.base_price > 0 ">
-                                        <span class="base-price-label"> {{ game.game.base_price.toFixed(2) +
-                                            "€"
-                                            }} </span>
+                                    <div class="base-price-label-container">
+                                        <div class="col px-2 d-flex justify-content-end py-2 base-price-label-section"
+                                            *ngIf="game.game.discounted_price == null && game.game.base_price > 0 ">
+                                            <span class="base-price-label"> {{ game.game.base_price.toFixed(2) +
+                                                "€"
+                                                }} </span>
+                                        </div>
                                     </div>
 
 
@@ -55,6 +57,7 @@
                                     </div>
 
                                 </div>
+
                             </div>
                         </div>
 
@@ -103,7 +106,7 @@
 
                     </div>
 
-                    <div class="col-4 body-data-game-deals-section-col-4">
+                    <div class="col-4 body-data-game-deals-col-4-section">
 
                         <div class="container pe-0 mb-2 sign-in-container">
                             <div class="d-flex flex-column sign-in-header">
