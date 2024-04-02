@@ -7,11 +7,11 @@
     text-transform: uppercase;
     font-size: 16px;
     font-family: "Motiva Sans", "Twemoji", "Noto Sans", Helvetica, sans-serif;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
 }
 
-.nav-link.active {
+.nav-link.dropbtn.active {
     color: #1a9fff;
     text-decoration: underline;
 }
@@ -95,4 +95,29 @@ a.subMenuItem {
 div.dropdown-content.menuItemUser {
     position: absolute;
     left: -70px;
+}
+
+li.installSteam {
+    background-color: #6c9018;
+}
+
+a.installSteam {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: normal;
+    text-transform: none;
+}
+
+.navbar-nav {
+    --bs-nav-link-padding-y: 0rem;
+}
+
+img.installSteam {
+    padding-bottom: 3px;
+}
+
+.nav-link.installSteam {
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
