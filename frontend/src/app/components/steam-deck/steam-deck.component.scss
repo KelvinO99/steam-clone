@@ -1,24 +1,30 @@
-
 .test2{
     background-image: url('../../../assets/steamdeck/sd_header_750.gif');
     background-repeat: no-repeat;
     background-size: cover;
     height: 750px;
-    font-family: "Motiva Sans", Sans-serif !important;
-    
+    max-width: 100%;
 }
+
+.column{
+    max-width: 100%;
+}
+
+// Price page :D
 
 .sdLogo{
     height: 90px;
     width: 300px;
-    margin-left: 35%;
+    margin-left: 37%;
+    margin-top: 8%;
+    margin-bottom: 2%;
     display: flex;
     justify-content: center;
-    margin-top: 6%;
+    
 }
 
 .headerTextHeadline {
-    margin-top: 2%;
+    margin-top: 0;
     color: #FFFFFF;
     font-size: 3.5em;
     font-weight: 800;
@@ -36,15 +42,16 @@
     text-align: center;
     display: flex;
     justify-content: center;
-    margin-bottom: 30%;
+    margin-bottom: 0;
 }
 
 .content{
-    padding: 5rem;
+    padding: 0;
+
 }
 
 .lcd{
-    color: rgb(26, 159, 255)
+    color: rgb(26, 159, 255);
 }
 
 .oled{
@@ -54,65 +61,168 @@
 #contentRow{
     display: flex;
     justify-content: space-around;
-    margin-left: 4rem;
-    margin-top: 5rem;
+    margin-top: 0;
 }
 
 .priceTitle{
     font-size: 32px;
     font-weight: 600;
     color: #000000;
-    font-family: "Motiva Sans", Sans-serif;
-    padding: 5px;
+    padding-left: 3em;
+    padding-right: 3em;
+    padding-bottom: 1em;
+    padding-top: 2em;
+}
+
+.priceBox{
+    display: flex;
+    justify-content: space-evenly !important;
+    flex-flow: column wrap;
 }
 
 .boxType{
     font-size: 2em;
-    margin: 5px;
+    margin-right: 5px;
     display:inline;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
 .pricePage{
     background-color: rgb(255, 255, 255);
-    height: 802px;
+    font-family: "Motiva Sans", sans-serif;
+    font-weight: 500;
 }
 
 .price{
+    display: flex;
+    justify-content: center;
     background: none;
     color: black;
     font-size: 2.8em;
     font-weight: 600;
+    margin-left: 0;
+    font-family: "Motiva Sans", sans-serif;
 }
 
 .priceDrop{
-    padding: 5px;
     background: #000000;
     color: white;
-    font-weight: 700;
+    font-weight: 800;
     border-radius: 3px;
     height: fit-content;
-    font-size: 12px;
+    font-size: 10px;
+    margin-right: 5px;
 }
 
 .new{
-    padding: 5px;
     background: #f93829;
     color: white;
     font-weight: 700;
     border-radius: 3px;
     height: fit-content;
     font-size: 12px;;
+    margin-right: 5px;
 }
 
 .specs{
-    color: #000000
-    list-style-type disc;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
+    color: #000000;
+    list-style-type: disc;
+    margin-block-start: 5px;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 0;
+}
+
+.typo{
+    display: inline-flex;
+    justify-content: center;
+    margin-top: 18px;
+    margin-bottom: 18px;
+}
+
+.buyButton{
+    color: #ffffff;
+    background: #000000;
+    display: flex;
+    justify-content: center;
+    border: 0;
+    font-size: 14px;
+    line-height: 1.4em;
+    border-radius: 2em;
+    padding: 0.8em 1em 0.8em 1em;
+    transition: all .2s ease;
     font-weight: 500;
-    font-size: 1em;
+}
+
+.buyButton:hover{
+    background: #2884dc;
+
+
+}
+
+.Delivery{
+    padding-top: 2%;
+    padding-bottom: 2%;
+    text-align: center;
+    font-weight: 700;
+}
+
+// SaleText Page :DD
+
+.saleTextPage{
+    background: #000000;
+    padding: 10px;
+
+}
+
+.promoButtonLeft{
+    background: linear-gradient(137.42deg, #ce158b 0%, #e36d23 100%);
+    transition: filter 0.2s ease;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    font-size: 16px;  
+    
+    
+    
+}
+
+.promoButtonRight {
+    background: linear-gradient(137.42deg, #163bba 0%, #ae4d4d 100%);
+    transition: filter 0.2s ease;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.promoContent{
+    padding: 8px;
+}
+
+.icons{    
+    height: 30px;
+    width: auto;
+    position: relative;
+}
+
+.promoTitle{
+    font-size: 1.2em;
+    font-weight: 800;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+.promoDescription{
+    font-size: 0.9em;
+    font-weight: 400;
+    position: relative;
+    padding: 0;
+    margin: 0;
 }
