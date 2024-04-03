@@ -26,7 +26,6 @@ export class BodyDataGameComponent {
       next: (res: any) => {
         {
           this.languages = res.games_languages
-          console.log(this.languages);
         }
       }
     })

@@ -1,4 +1,4 @@
-import { Component, HostListener, NgModule } from '@angular/core';
+import { Component, HostListener, Input, NgModule } from '@angular/core';
 import { GameService } from 'src/app/shared/services/game.service';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./offer-carousel.component.scss']
 })
 export class OfferCarouselComponent {
+  @Input() genre: any = null;
   game: any
   skip: number = 0;
   take: number = 3;
@@ -26,7 +27,7 @@ export class OfferCarouselComponent {
   }
  
 getUpdatesAndOffers(){ 
-  this.gameService.getGames({discount: true}).subscribe({ 
+  this.gameService.getGames({discount: true, tag: this.genre ? this.genre : ''}).subscribe({ 
     next: (res: any) => { 
  
       this.game = res.games; 

@@ -14,9 +14,6 @@ export class GameService {
   //Costruttore per il client HTTP
   constructor(public http: HttpClient) { }
 
-  getGenres(params?: {}){
-    return this.http.get<any>(`${URL}/tags/index`,{params})
-  }
   getGames(params : {}) {
     return this.http.get<any>(`${this.APIUrl}games/index`,{params});
   }

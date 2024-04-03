@@ -31,8 +31,6 @@ getUpdatesAndOffers(){
     }
   })
 }
-
-  
   goTo(path: string) {
     this.router.navigate([path]);
     console.log(path);

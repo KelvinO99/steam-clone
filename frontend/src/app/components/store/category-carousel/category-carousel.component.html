@@ -7,7 +7,7 @@
 
                 </div>
 
-                <div class="col-11 p-0">
+                <div class="col-11 ps-1">
                     <p class="titles"> browse by category </p>
                 </div>
 
@@ -25,7 +25,7 @@
                     <div class="col p-0">
 
                         <button class="carousel-control-prev m-auto" type="button" data-bs-target="#categoryCarousel"
-                            data-bs-slide="prev">
+                            data-bs-slide="prev" (click)="prevPage()">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
@@ -34,261 +34,32 @@
 
                     <div class="col-11 d-flex justify-content-center px-0">
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
+                            <div  class="carousel-item" *ngFor="let page of pages; let i = index"
+                            [class.active]="currentIndex === i">
                                 <div class="container p-0">
                                     <div class="d-flex flex-wrap">
 
-                                        <div class="col-3 px-1">
-                                            <div class="card">
-                                                <img class="img" src="../../../../assets/image/category/action.png">
-                                                <div id="action"> </div>
+                                        <div class="col-3 px-1 card" *ngFor="let cardIndex of getCardsForPage(i)">
+                                            <div class="card" (click)="goTo('../games/' + genres[cardIndex].name.toLowerCase())">
+                                                <img class="img" [src]="images[cardIndex]">
+                                                <div id="background" [style]="background[cardIndex]"> </div>
                                                 <div class="categoryText">
-                                                    <span> action </span>
+                                                    <span> {{genres[cardIndex].name}} </span>
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <div class="col-3 px-1">
-                                            <div class="card">
-                                                <img class="img" src="../../../../assets/image/category/open_world.png">
-                                                <div id="open_world"></div>
-                                                <div class="categoryText">
-                                                    <span> open world </span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-3 px-1">
-                                            <div class="card">
-                                                <img class="img" src="../../../../assets/image/category/horror.png">
-                                                <div id="horror"></div>
-                                                <div class="categoryText">
-                                                    <span> horror </span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-3 px-1">
-                                            <div class="card">
-                                                <img class="img" src="../../../../assets/image/category/rpg.png">
-                                                <div id="rpg"></div>
-                                                <div class="categoryText">
-                                                    <span> role-playing </span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
+                                        
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="carousel-item">
-                                <div class="container p-0">
-                                    <div class="d-flex flex-wrap">
-
-                                        <div class="col-3 px-1">
-                                            <div class="card">
-                                                <img class="img" src="../../../../assets/image/category/anime.png">
-                                                <div id="anime"></div>
-                                                <div class="categoryText">
-                                                    <span> anime </span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-3 px-1">
-                                            <div class="card">
-                                                <img class="img" src="../../../../assets/image/category/fighting.png">
-                                                <div id="fighting"></div>
-                                                <div class="categoryText">
-                                                    <span> fighting </span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-3 px-1">
-                                            <div class="card">
-                                                <img class="img" src="../../../../assets/image/category/casual.png">
-                                                <div id="casual"></div>
-                                                <div class="categoryText">
-                                                    <span> casual </span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-3 px-1">
-                                            <div class="card">
-                                                <img class="img" src="../../../../assets/image/category/vr.png">
-                                                <div id="vr"></div>
-                                                <div class="categoryText">
-                                                    <span> vr titles </span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="carousel-item">
-                                <div class="container p-0">
-                                    <div class="d-flex flex-wrap">
-
-                                        <div class="col-3 px-1">
-                                            <div class="card">
-                                                <img class="img"
-                                                    src="../../../../assets/image/category/multiplayer_coop.png">
-                                                <div id="co_operative"></div>
-                                                <div class="categoryText">
-                                                    <span> co-operative </span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-3 px-1">
-                                            <div class="card">
-                                                <img class="img" src="../../../../assets/image/category/puzzle.png">
-                                                <div id="puzzle"></div>
-                                                <div class="categoryText">
-                                                    <span> puzzle </span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-3 px-1">
-                                            <div class="card">
-                                                <img class="img"
-                                                    src="../../../../assets/image/category/visual_novel.png">
-                                                <div id="visual_novel"></div>
-                                                <div class="categoryText">
-                                                    <span> visual novel </span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-3 px-1">
-                                            <div class="card">
-                                                <img class="img" src="../../../../assets/image/category/racing.png">
-                                                <div id="rancing"></div>
-                                                <div class="categoryText">
-                                                    <span> racing </span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="carousel-item">
-                                <div class="container p-0">
-                                    <div class="d-flex flex-wrap">
-
-                                        <div class="col-3 px-1">
-                                            <div class="card">
-                                                <img class="img" src="../../../../assets/image/category/survival.png">
-                                                <div id="survival"></div>
-                                                <div class="categoryText">
-                                                    <span> survival </span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-3 px-1">
-                                            <div class="card">
-                                                <img class="img" src="../../../../assets/image/category/adventure.png">
-                                                <div id="adventure"></div>
-                                                <div class="categoryText">
-                                                    <span> adventure </span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-3 px-1">
-                                            <div class="card">
-                                                <img class="img" src="../../../../assets/image/category/freetoplay.png">
-                                                <div id="free_to_play"></div>
-                                                <div class="categoryText">
-                                                    <span> free-to-play </span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-3 px-1">
-                                            <div class="card">
-                                                <img class="img" src="../../../../assets/image/category/strategy.png">
-                                                <div id="strategy"></div>
-                                                <div class="categoryText">
-                                                    <span> strategy </span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="carousel-item">
-                                <div class="container p-0">
-                                    <div class="d-flex flex-wrap">
-
-                                        <div class="col-3 px-1">
-                                            <div class="card">
-                                                <img class="img" src="../../../../assets/image/category/simulation.png">
-                                                <div id="simulation"></div>
-                                                <div class="categoryText">
-                                                    <span> simulation </span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-3 px-1">
-                                            <div class="card">
-                                                <img class="img"
-                                                    src="../../../../assets/image/category/science_fiction.png">
-                                                <div id="sci_fi"></div>
-                                                <div class="categoryText">
-                                                    <span> sci-fi </span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-3 px-1">
-                                            <div class="card">
-                                                <img class="img"
-                                                    src="../../../../assets/image/category/rogue_like_rogue_lite.png">
-                                                <div id="rogue_like"></div>
-                                                <div class="categoryText">
-                                                    <span> rogue-like </span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-3 px-1">
-                                            <div class="card">
-                                                <img class="img" src="../../../../assets/image/category/sports.png">
-                                                <div id="sports"></div>
-                                                <div class="categoryText">
-                                                    <span> sports </span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
 
                     <div class="col p-0">
 
                         <button class="carousel-control-next align-items-center m-auto" type="button"
-                            data-bs-target="#categoryCarousel" data-bs-slide="next">
+                            data-bs-target="#categoryCarousel" data-bs-slide="next" (click)="nextPage()">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
@@ -309,10 +80,6 @@
                                 aria-label="Slide 2"></button>
                             <button type="button" data-bs-target="#categoryCarousel" data-bs-slide-to="2"
                                 aria-label="Slide 3"></button>
-                            <button type="button" data-bs-target="#categoryCarousel" data-bs-slide-to="3"
-                                aria-label="Slide 4"></button>
-                            <button type="button" data-bs-target="#categoryCarousel" data-bs-slide-to="4"
-                                aria-label="Slide 5"></button>
                         </div>
 
                     </div>

@@ -25,19 +25,19 @@
                                 <div id="custCarousel" class="carousel-fade carousel" data-bs-ride="carousel">
 
                                     <div class="carousel-inner">
-                                        <ng-container *ngFor="let item of game.game.images.slice(1, 5); let i = index;">
+                                        <ng-container *ngFor="let item of game?.images.slice(1, 5); let i = index;">
                                             <div class="carousel-item" [class.active]="i === 0">
-                                                <img [src]="item.image_path" class="carousel-image">
+                                                <img [src]="item" class="carousel-image">
                                             </div>
                                         </ng-container>
                                     </div>
 
                                     <ol class="carousel-indicators list-inline">
-                                        <ng-container *ngFor="let item of game.game.images.slice(1, 5); let i = index">
+                                        <ng-container *ngFor="let item of game?.images.slice(1, 5); let i = index">
                                             <li class="list-inline-item" [class.active]="i === 0">
                                                 <a [id]="'carousel-selector' + (i + 1)" [attr.data-bs-slide-to]="i"
                                                     data-bs-target="#custCarousel">
-                                                    <img [src]="item.image_path" class="carousel-sm-image">
+                                                    <img [src]="item" class="carousel-sm-image">
                                                 </a>
                                             </li>
                                         </ng-container>
@@ -52,7 +52,7 @@
                                     <div class="d-flex flex-column game-deals-header">
 
                                         <div class="col game-deals-image-section">
-                                            <img class="game-deals-image p-0" [src]="game.game.images[0].image_path">
+                                            <img class="game-deals-image p-0" [src]="game?.images[0]">
                                         </div>
 
                                         <div class="col mt-2 game-deals-content-section">

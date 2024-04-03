@@ -33,6 +33,7 @@ import { GameComponent } from './game-page/game-page.component';
 import { BodyDataGameComponent } from './game-page/body-data-game/body-data-game.component';
 import { BodyNavbarComponent } from './body-navbar/body-navbar.component';
 import { ReviewsComponent } from './game-page/reviews/reviews.component';
+import { CategoryPageComponent } from './category-page/category-page.component';
 @NgModule({
   declarations: [
     BaseComponent,
@@ -52,7 +53,8 @@ import { ReviewsComponent } from './game-page/reviews/reviews.component';
     GameComponent,
     BodyDataGameComponent,
     BodyNavbarComponent,
-    ReviewsComponent
+    ReviewsComponent,
+    CategoryPageComponent
 
   ],
   imports: [
