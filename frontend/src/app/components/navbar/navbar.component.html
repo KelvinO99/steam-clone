@@ -1,133 +1,152 @@
-<div class="container-fluid p-0 m-0 d-block">
-    <div class="row d-flex justify-content-center w-100">
+<div class="container-fluid p-0">
+    <div class="d-flex flex-row">
+
         <div class="col-2">
 
         </div>
+
         <div class="col-8">
-            <nav class="navbar navbar-expand-lg w-100 pb-0" aria-label="Tenth navbar example">
-                <div class="container-fluid pb-3 pt-2">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse justify-content-center" id="navbarsExample08">
 
-                        <div class="row">
-                            <div class="col">
-                                <ul class="navbar-nav">
-                                    <li class="nav-item active">
-                                        <a class="nav-link active p-0" aria-current="page" routerLink=""> <img
-                                                src="https://store.cloudflare.steamstatic.com/public/shared/images/header/logo_steam.svg?t=962016"
-                                                width="176" height="44"> </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <div class="dropdown p-0">
-                                            <a class="dropbtn nav-link active"> store </a>
-                                            <div class="dropdown-content store">
-                                                <a class="subMenuItem" routerLink=""> Main Page </a>
-                                                <a class="subMenuItem"> Discovery Queue </a>
-                                                <a class="subMenuItem"> Wishlist </a>
-                                                <a class="subMenuItem"> Point store </a>
-                                                <a class="subMenuItem"> News </a>
-                                                <a class="subMenuItem"> Stats </a>
-                                                <a class="subMenuItem"> About </a>
-                                            </div>
-                                        </div>
-                                    </li>
+            <nav class="navbar navbar-expand-lg w-100 pb-0 p-0" aria-label="Tenth navbar example">
+                <div class="container pb-3 pt-1 justify-content-center d-flex">
+                    <div class="d-flex">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
 
-                                    <li class="nav-item" *ngIf="authService.loggedIn$ | async">
-                                        <div class="dropdown p-0">
-                                            <a class="dropbtn nav-link"> {{ username }} </a>
-                                            <div class="dropdown-content store">
-                                                <a class="subMenuItem" routerLink=""> Activity </a>
-                                                <a class="subMenuItem"> Profile </a>
-                                                <a class="subMenuItem"> Friends </a>
-                                                <a class="subMenuItem"> Games </a>
-                                                <a class="subMenuItem"> Groups </a>
-                                                <a class="subMenuItem"> Content </a>
-                                                <a class="subMenuItem"> Badges </a>
-                                                <a class="subMenuItem"> Inventory </a>
-                                            </div>
-                                        </div>
-                                    </li>
+                        <div class="collapse navbar-collapse justify-content-center" id="navbarsExample08">
 
-                                    <li class="nav-item">
-                                        <div class="dropdown">
-                                            <a class="dropbtn nav-link"> Community </a>
-                                            <div class="dropdown-content community">
-                                                <a class="subMenuItem"> Home </a>
-                                                <a class="subMenuItem"> Discussion </a>
-                                                <a class="subMenuItem"> WorkShop </a>
-                                                <a class="subMenuItem"> Market </a>
-                                                <a class="subMenuItem"> Broadcast </a>
-                                            </div>
-                                        </div>
-                                    </li>
+                            <div class="container">
+                                <div class="d-flex flex-row">
+                                    <div class="col">
+                                        <ul class="navbar-nav">
+                                            <li class="nav-item active">
+                                                <a class="nav-link active p-0" aria-current="page" routerLink=""> <img
+                                                        src="https://store.cloudflare.steamstatic.com/public/shared/images/header/logo_steam.svg?t=962016"
+                                                        width="176" height="44"> </a>
+                                            </li>
+                                            <li class="nav-item d-flex align-items-center">
+                                                <div class="dropdown p-0">
+                                                    <a class="dropbtn nav-link active"> store </a>
+                                                    <div class="dropdown-content store">
+                                                        <a class="subMenuItem" routerLink=""> Main Page </a>
+                                                        <a class="subMenuItem"> Discovery Queue </a>
+                                                        <a class="subMenuItem"> Wishlist </a>
+                                                        <a class="subMenuItem"> Point store </a>
+                                                        <a class="subMenuItem"> News </a>
+                                                        <a class="subMenuItem"> Stats </a>
+                                                        <a class="subMenuItem"> About </a>
+                                                    </div>
+                                                </div>
+                                            </li>
 
-                                    <li class="nav-item">
-                                        <a class="nav-link"> about </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link"> support </a>
-                                    </li>
-                                </ul>
+                                            <li class="nav-item d-flex align-items-center"
+                                                *ngIf="authService.loggedIn$ | async">
+                                                <div class="dropdown p-0">
+                                                    <a class="dropbtn nav-link"> {{ username }} </a>
+                                                    <div class="dropdown-content store">
+                                                        <a class="subMenuItem" routerLink=""> Activity </a>
+                                                        <a class="subMenuItem"> Profile </a>
+                                                        <a class="subMenuItem"> Friends </a>
+                                                        <a class="subMenuItem"> Games </a>
+                                                        <a class="subMenuItem"> Groups </a>
+                                                        <a class="subMenuItem"> Content </a>
+                                                        <a class="subMenuItem"> Badges </a>
+                                                        <a class="subMenuItem"> Inventory </a>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                            <li class="nav-item d-flex align-items-center">
+                                                <div class="dropdown">
+                                                    <a class="dropbtn nav-link"> Community </a>
+                                                    <div class="dropdown-content community">
+                                                        <a class="subMenuItem"> Home </a>
+                                                        <a class="subMenuItem"> Discussion </a>
+                                                        <a class="subMenuItem"> WorkShop </a>
+                                                        <a class="subMenuItem"> Market </a>
+                                                        <a class="subMenuItem"> Broadcast </a>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                            <li class="nav-item d-flex align-items-center">
+                                                <a class="nav-link"> about </a>
+                                            </li>
+                                            <li class="nav-item d-flex align-items-center">
+                                                <a class="nav-link"> support </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="row action">
-                            <div class="col">
+                            <div class="container">
+                                <div class="d-flex flex-row action">
+                                    <div class="col">
 
-                                <ul class="navbar-nav">
-                                    <li class="nav-item">
-                                        <a class="nav-link itemUser installSteam" style="background-color: #5c7e10;" routerLink="">
-                                            Install Steam </a>
-                                    </li>
+                                        <ul class="navbar-nav">
+                                            <li class="nav-item d-flex align-items-center installSteam">
+                                                <a class="nav-link installSteam px-2" routerLink="">
+                                                    <img src="https://store.akamai.steamstatic.com/public/shared/images/header/btn_header_installsteam_download.png?v=1"
+                                                        class=" installSteam"> Install Steam </a>
+                                            </li>
 
-                                    <li class="nav-item" *ngIf="!(authService.loggedIn$ | async)">
-                                        <a class="nav-link itemUser" routerLinkActive="active" routerLink="/login">
-                                            Login </a>
-                                    </li>
+                                            <li class="nav-item d-flex align-items-center"
+                                                *ngIf="!(authService.loggedIn$ | async)">
+                                                <a class="nav-link itemUser" routerLinkActive="active"
+                                                    routerLink="/login">
+                                                    Login </a>
+                                            </li>
 
-                                    <li class="nav-item" *ngIf="authService.loggedIn$ | async">
-                                        <div class="dropdown p-0">
-                                            <a class="dropbtn nav-link itemUser"> {{ username }} </a>
-                                            <div class="dropdown-content store">
-                                                <a class="subMenuItem"> Show my profile </a>
-                                                <a class="subMenuItem"> Account details: {{ username }} </a>
-                                                <a class="subMenuItem"> Preference of the store </a>
-                                                <a class="subMenuItem"> View my Wallet </a>
-                                                <a class="subMenuItem"> Chsnge the Language </a>
-                                                <a class="subMenuItem"> Stats </a>
-                                                <a class="subMenuItem" (click)="logout()"> Log out of the account...
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
+                                            <li class="nav-item d-flex align-items-center"
+                                                *ngIf="authService.loggedIn$ | async">
+                                                <div class="dropdown p-0">
+                                                    <a class="dropbtn nav-link itemUser"> {{ username }} </a>
+                                                    <div class="dropdown-content store">
+                                                        <a class="subMenuItem"> Show my profile </a>
+                                                        <a class="subMenuItem"> Account details: {{ username }} </a>
+                                                        <a class="subMenuItem"> Preference of the store </a>
+                                                        <a class="subMenuItem"> View my Wallet </a>
+                                                        <a class="subMenuItem"> Chsnge the Language </a>
+                                                        <a class="subMenuItem"> Stats </a>
+                                                        <a class="subMenuItem" (click)="logout()"> Log out of the
+                                                            account...
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </li>
 
-                                    <li class="nav-item">
-                                        <a class="nav-link itemUser"> | </a>
-                                    </li>
+                                            <li class="nav-item d-flex align-items-center">
+                                                <a class="nav-link itemUser"> | </a>
+                                            </li>
 
-                                    <li class="nav-item">
-                                        <div class="dropdown p-0 ">
-                                            <a class="dropbtn nav-link dropdown-toggle itemUser"> Language </a>
-                                            <div class="dropdown-content language">
-                                                <a *ngFor="let item of language" class="subMenuItem"> {{ item }}
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
+                                            <li class="nav-item d-flex align-items-center">
+                                                <div class="dropdown p-0 ">
+                                                    <a class="dropbtn nav-link dropdown-toggle itemUser"> Language </a>
+                                                    <div class="dropdown-content language">
+                                                        <a *ngFor="let item of language" class="subMenuItem"> {{ item }}
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
             </nav>
+
         </div>
 
         <div class="col-2">
 
         </div>
+
     </div>
 </div>

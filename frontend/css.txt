@@ -1,0 +1,143 @@
+Strumenti per un organizzazione completa del codice SCSS
+    Utilizzo di variabili
+    Struttura nidificata
+    Mixin e funzioni
+    Commenti
+    Ordine delle regole
+
+
+
+lista dei termini comuni utilizzati nelle classi HTML e CSS:
+
+    container: Utilizzato per contenere e raggruppare elementi.
+    header: Intestazione di una pagina o di una sezione.
+    footer: Piè di pagina di una pagina o di una sezione.
+    sidebar: Colonna laterale contenente informazioni aggiuntive.
+    navigation (o navbar): Menu di navigazione.
+    content: Contenuto principale della pagina.
+    button: Pulsante interattivo.
+    form: Modulo di input utente.
+    list: Elenco di elementi correlati.
+    item: Singolo elemento in un elenco.
+    thumbnail: Immagine di dimensioni ridotte associata a contenuti.
+    caption: Didascalia per immagini o tabelle.
+    badge: Segnalibro o etichetta informativa.
+    alert: Messaggio di avviso o notifica.
+    modal: Finestra popup modale.
+    carousel (o slider): Carousel o slider di immagini o contenuti.
+    card: Blocco di contenuto, spesso con titolo, testo e immagine.
+    section: Sezione di contenuto.
+    article: Articolo o pezzo di contenuto autonomo.
+    heading: Intestituzione di un blocco di testo.
+    paragraph: Paragrafo di testo.
+    text: Testo generico.
+    image (o img): Immagine.
+    video: Video.
+    link: Collegamento ipertestuale.
+    icon: Icona grafica.
+    divider (o separator): Separatore orizzontale o verticale tra elementi.
+    spacer: Spazio vuoto per separare gli elementi.
+    wrapper: Contenitore aggiuntivo per raggruppare elementi.
+    overlay: Sovrapposizione visiva su un elemento.
+    toggle: Interruttore o pulsante di attivazione/disattivazione.
+    tooltip: Suggerimento o descrizione testuale breve.
+    breadcrumb: Percorso di navigazione.
+    progress: Barra di avanzamento o indicatore di stato.
+    badge: Distintivo o etichetta di notifica.
+    tag: Etichetta che rappresenta un'etichetta o una categoria.
+    avatar: Rappresentazione grafica di un utente o un'entità.
+
+Ordine delle regole 
+
+    Reset e Inizializzazione:
+        Regole di reset (reset CSS)
+        Inizializzazione (normalize CSS)
+
+    Posizionamento del Contenuto:
+        position
+        top, right, bottom, left
+        z-index
+        float
+        clear
+        display
+
+    Box Model:
+        box-sizing
+        width
+        height
+        margin
+        padding
+        border
+
+    Tipografia:
+        font-family
+        font-size
+        font-weight
+        font-style
+        line-height
+        text-align
+        text-decoration
+        text-transform
+        color
+
+    Sfondo:
+        background-color
+        background-image
+        background-repeat
+        background-position
+        background-size
+        background-attachment
+
+    Bordi e Cornici:
+        border
+        border-radius
+        box-shadow
+        outline
+
+    Spaziatura:
+        margin
+        padding
+
+    Visualizzazione:
+        visibility
+        opacity
+        overflow
+        overflow-x
+        overflow-y
+        clip
+
+    Colonne:
+        column-count
+        column-gap
+        column-rule
+
+    Trasformazioni e Transizioni:
+        transform
+        transition
+
+    Animazioni:
+        @keyframes
+        animation
+
+    Flessibilità e Griglia:
+        flex
+        grid
+
+    Tabelle:
+        table-layout
+        border-collapse
+        border-spacing
+        empty-cells
+        caption-side
+
+    Cursor e Eventi:
+        cursor
+        pointer-events
+
+    Impaginazione:
+        page-break-before
+        page-break-after
+        page-break-inside
+
+    Altro:
+        Tutti gli altri attributi CSS che non rientrano nelle categorie precedenti.

@@ -103,9 +103,9 @@ class GamesController extends Controller
 
         try{
     //DEVELOPERS FUNCTION
-            $game = Games::where('id', $id)->with('Images')->with(['DevelopersGames.Developers' => function ($q){
-                $q->select('id','user_id', 'is_publisher')->with(['User' => function ($q2){
-                    $q2->select('id', 'username');
+            $game = Games::where('id', $id)->with('Achievements.Images')->with(['DevelopersGames.Developers' => function ($q2){
+                $q2->select('id','user_id', 'is_publisher')->with(['User' => function ($q3){
+                    $q3->select('id', 'username');
             }]);
         }])->first();
 
@@ -202,7 +202,8 @@ class GamesController extends Controller
                               ->where('is_owned', true)
                               ->count();
 
-            $pegi_img =images::where('image_path', 'http://localhost:8000/storage/pegi_images/pegi_'.$game->pegi_id.'.png')->first();
+            $pegi_img =images::where('image_path', 'http://localhost:8000/storage/pegi_images/pegi_'.$game->pegi_id.'.jpg')->first();
+
 
             return response()->json([
             'status' => 200,

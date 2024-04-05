@@ -1,128 +1,92 @@
-.titles {
-    font-family: "Motiva Sans", Sans-serif;
-    font-weight: normal;
-    padding-left: 0px;
-    font-size: 20px;
-    line-height: 32px;
-    text-overflow: ellipsis;
-    color: white;
+//Variabili
+$game-header-background-gradient: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(17, 25, 35, 1) 8%, rgba(22, 37, 43, 0.14898459383753504) 54%, rgba(23, 34, 45, 1) 88%, rgba(17, 25, 35, 1) 100%);
+$game-header-background-color: rgb(2, 0, 36);
+
+//Mixin
+@mixin game-header-background {
+    background: $game-header-background-gradient;
+    background-color: $game-header-background-color;
+    border-radius: 5px;
 }
 
-.description {
-    max-height: 111px;
-    overflow: hidden;
-    font-size: 13px;
-    line-height: 20px;
-    padding-right: 16px;
+@mixin game-col-8-section {
+    .carousel {
+        .carousel-inner .carousel-item .carousel-image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .carousel-indicators .list-inline-item .carousel-sm-image {
+            max-width: 100%;
+            height: 50px;
+        }
+    }
 }
 
-.container-fluid {
-    font-family: Arial, Helvetica, sans-serif;
-    color: #c6d4df;
-}
-
-.text {
-    text-transform: uppercase;
-    font-size: 10px;
-    padding-right: 10px;
-    min-width: 94px;
-    color: #556772;
-}
-
-.evaluation {
-    color: #66C0F4;
-    font-size: 12px;
-}
-
-.date {
-    color: #8f98a0;
-    font-size: 12px;
-}
-
-/*   .carousel-inner img {
-      width: 100%;
-      height: 100%;
-  }
- */
-#custCarousel .carousel-indicators {
-    position: static;
-}
-
-#custCarousel .carousel-indicators li img {
-    display: block;
-    opacity: 1;
-}
-
-#custCarousel .carousel-indicators li.active img {
-    opacity: 1;
-}
-
-#custCarousel .carousel-indicators li:hover img {
-    opacity: 0.85;
-}
-
-.search {
-    color: #8f98a0;
-    font-size: 12px;
-}
-
-.bg {
-    background: rgb(2, 0, 36);
-    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(17, 25, 35, 1) 8%, rgba(22, 37, 43, 0.14898459383753504) 54%, rgba(23, 34, 45, 1) 88%, rgba(17, 25, 35, 1) 100%);
-}
-
-.img {
-    width: 100%;
-    height: auto;
-}
-
-@media only screen and ((min-width: 1200px) and (min-width: 992px) and (min-width: 768px) and (min-width: 600px)) {
-
-    .col-1 {
-        max-width: 9.996rem;
+@mixin game-col-4-section {
+    .game-deals-image-section .game-deals-image {
+        max-width: 100%;
+        height: auto;
     }
 
-    .col-2 {
-        max-width: 19.992rem;
+    .game-deals-content-section .game-deals-content {
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 18px;
+        color: #c6d4df;
     }
 
-    .col-3 {
-        max-width: 30rem;
+    .game-deals-content-section {
+        font-size: 12px;
+
+        .game-deals-content-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            color: #556772;
+        }
+
+        .game-deals-content-item {
+            color: #66C0F4;
+            padding-left: 5px
+        }
+
+        .game-deals-content-date {
+            color: #8f98a0;
+            padding-left: 5px
+        }
+
+        .game-deals-content-number {
+            color: #556772;
+        }
+    }
+}
+
+//Struttura CSS
+.header-data-game-container .header-data-game-header .header-data-game-col-11-section .game-deals-container .game-deals-header {
+
+    .game-deals-tag-section .game-deals-tag {
+        font-family: "Motiva Sans", Sans-serif;
+        font-size: 13px;
+        opacity: 0.6;
+        color: #8f98a0;
     }
 
-    .col-4 {
-        max-width: 39.996rem;
+    .game-deals-caption-section .game-deals-caption {
+        font-size: 23px;
+        font-weight: normal;
+        text-overflow: ellipsis;
+        color: white;
     }
 
-    .col-5 {
-        max-width: 49.992rem;
-    }
+    .game-container .game-header {
+        @include game-header-background();
 
-    .col-6 {
-        max-width: 60rem;
-    }
+        .game-col-8-section {
+            @include game-col-8-section()
+        }
 
-    .col-7 {
-        max-width: 69.996rem;
-    }
-
-    .col-8 {
-        max-width: 79.992rem;
-    }
-
-    .col-9 {
-        max-width: 90rem;
-    }
-
-    .col-10 {
-        max-width: 99.996rem;
-    }
-
-    .col-11 {
-        max-width: 109.992rem;
-    }
-
-    .col-12 {
-        max-width: 120rem;
+        .game-col-4-section .game-deals-container .game-deals-header {
+            @include game-col-4-section()
+        }
     }
 }

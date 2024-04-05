@@ -1,100 +1,71 @@
-<div class="container d-block mt-5 px-0">
+<div class="container py-3 my-3 d-block">
+    <div class="d-flex flex-column">
 
-    <div class="row pb-3">
+        <div class="container p-0">
+            <div class="d-flex flex-wrap">
+                <div class="col">
 
-        <div class="col-1 p-0"></div>
+                </div>
 
-        <div class="col-10 p-0">
-            <p class="titles"> special offer </p>
+                <div class="col-11 p-0">
+                    <p class="titles"> special offer </p>
+                </div>
+
+                <div class="col">
+
+                </div>
+            </div>
+
         </div>
 
-        <div class="col-1"></div>
+        <div id="offerCarousel" class="carousel carousel-fade main" data-bs-ride="carousel">
+            <div class="container p-0">
+                <div class="d-flex flex-wrap justify-content-center">
 
-    </div>
+                    <div class="col p-0">
 
-  <div id="offerCarousel" class="carousel carousel-fade main" data-bs-ride="carousel">
-      <div class="row justify-content-center">
+                        <button class="carousel-control-prev m-auto" type="button" data-bs-target="#offerCarousel"
+                            data-bs-slide="prev" (click)="prevPage()">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
 
-          <div class="col-1 p-0">
+                    </div>
 
-              <button class="carousel-control-prev m-auto" type="button" data-bs-target="#offerCarousel"
-                  data-bs-slide="prev" (click)="prevPage()">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-              </button>
+                    <div class="col-11 d-flex justify-content-center px-0">
+                        <div class="carousel-inner">
 
-          </div>
+                            <div class="carousel-item" *ngFor="let page of pages; let i = index"
+                                [class.active]="currentIndex === i">
+                                <div class="container p-0">
+                                    <div class="d-flex flex-wrap">
 
-          <div class="col-10 d-flex justify-content-center px-0">
-              <div class="carousel-inner">
-
-                  <div class="carousel-item" *ngFor="let page of pages; let i = index" [class.active]="currentIndex === i">
-                      <div class="row">
-
-                          <div class="col-4 px-1"  *ngFor="let card of getCardsForPage(i)">
-                              <div class="card">
-                                <img class="img" [src]="card.images[0]?.image_path">
-
-                                    <div class="container text"> 
+                                        <div class="col-4 pe-1" *ngFor="let card of getCardsForPage(i)"
+                                            (click)="goTo('../game/' + card.id)">
+                                            <div class="card">
+                                                <img class="img" [src]="card.images[5]?.image_path">
+    
+                                            </div>
+                                        </div>
                                     </div>
-                              </div>
-                          </div>5
-
-
-                          <!-- <div class="col-4">
-                            <div class="card">
-                                <img class="img" 
-                                src="https://web.archive.org/web/20240313111837im_/https://cdn.akamai.steamstatic.com/steam/spotlights/222fcf1735e29bb17fe04e02/spotlight_image_english.jpg?t=1709744833">
-
-                                <div class="container text"> 
-                                  
                                 </div>
+                                
                             </div>
                         </div>
+                    </div>
 
+                    <div class="col p-0">
 
-                        <div class="col-4">
-                          <div class="card">
-                              <img class="img" 
-                              src="https://web.archive.org/web/20240313111837im_/https://cdn.akamai.steamstatic.com/steam/spotlights/222fcf1735e29bb17fe04e02/spotlight_image_english.jpg?t=1709744833">
+                        <button class="carousel-control-next align-items-center m-auto" type="button"
+                            data-bs-target="#offerCarousel" data-bs-slide="next" (click)="nextPage()">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
 
-                              <div class="container text"> 
-                                
-                              </div>
-                          </div>
-                      </div> -->
+                    </div>
 
-                      </div>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col-1 p-0">
-
-              <button class="carousel-control-next align-items-center m-auto" type="button"
-                  data-bs-target="#offerCarousel" data-bs-slide="next" (click)="nextPage()">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-              </button>
-
-          </div>
-
-      </div>
-      <!-- <div class="row">
-
-          <div class="col">
-
-              <div class="carousel-indicators pt-3">
-                  <button type="button" data-bs-target="#offerCarousel" data-bs-slide-to="0" class="active"
-                      aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#offerCarousel" data-bs-slide-to="1"
-                      aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#offerCarousel" data-bs-slide-to="2"
-                      aria-label="Slide 3"></button>
-              </div>
-
-          </div>
-
-      </div> -->
-  </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
