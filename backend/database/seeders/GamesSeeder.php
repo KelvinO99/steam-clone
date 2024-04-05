@@ -1176,7 +1176,7 @@ class GamesSeeder extends Seeder
             'image_id' => 1,
         ]);
 
-        for($i=0;$i<42;$i++) // 0 ; <22
+        for($i=0;$i<42;$i++)
         {
             $bool = (bool)rand(0,1);
             if($base_price[$i]==0)

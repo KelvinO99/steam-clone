@@ -8,20 +8,18 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('PLACEHOLDER_TABLE_NAME', function (Blueprint $table) {
+        Schema::create('system_characteristics', function (Blueprint $table) {
             $table->id();
-            $table->enum('PLACEHOLDER_COLUMN_NAME');
-            $table->string('PLACEHOLDER_COLUMN_NAME');
+            $table->enum('type', ['platform', 'os', 'cpu', 'ram', 'gpu', 'directx', 'network', 'storage', 'audio', 'notes']);
+            $table->string('name');
             $table->timestamps();
 
-            $table->foreignId('PLACEHOLDER_COLUMN1')->references('PLACEHOLDER_EXT_COLUMN1')->on('PLACEHOLDER_EXT_TABLE_NAME1')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('PLACEHOLDER_COLUMN2')->references('PLACEHOLDER_EXT_COLUMN2')->on('PLACEHOLDER_EXT_TABLE_NAME2')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('PLACEHOLDER_TABLE_NAME');
+        Schema::dropIfExists('system_characteristics');
     }
 };
 
