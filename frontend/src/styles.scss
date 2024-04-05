@@ -478,3 +478,8 @@
   .input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating) {
     border-color: var(--color-disabled);
   }
+
+  @font-face {
+    font-family: quickSandBold;
+    src: url(./assets/font/quicksand/Quicksand_Bold.otf);
+  }

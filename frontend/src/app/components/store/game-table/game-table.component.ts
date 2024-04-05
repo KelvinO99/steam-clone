@@ -13,7 +13,10 @@ export class GameTableComponent {
   best_seller_game: any;
   most_reviewed_game: any;
   specia_offer: any;
-  
+  game: any;
+  number!: number;
+  hoveredGameId: string | null = null;
+
   skip: number = 0;
   take: number = 10;
 
@@ -21,8 +24,30 @@ export class GameTableComponent {
 
   ngOnInit() {
     this.getMostReviewed();
+    this.showGame(this.number);
   }
-  
+
+  setHoveredGameId(gameId: string) {
+    this.hoveredGameId = gameId;
+    const gameIdNumber: number = parseInt(gameId);
+    this.showGame(gameIdNumber);
+  }
+
+  resetHoveredGameId() {
+    this.hoveredGameId = null;
+  }
+
+  showGame(gameId: number) {
+    this.gameService.showGame(gameId).subscribe({
+      next: (res: any) => {
+        this.game = res;
+        console.log(this.game);
+
+        
+      },
+    });
+  }
+
   loadData(tab: string) {
     switch (tab) {
       case 'New & Trending':
