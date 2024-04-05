@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Routing\PendingSingletonResourceRegistration;
 
-class PLACEHOLDERMODEL extends Model
+class SystemCharacteristics extends Model
 {
     use HasFactory;
 
@@ -15,49 +15,8 @@ class PLACEHOLDERMODEL extends Model
         'name',
     ];
 
-    public function PLACEHOLDERTABLE1(){ //in undercase singolare
+    public function SystemRequirements(){ //in undercase singolare
 
-        return $this->PLACEHOLDERRELATIONSHIP(PLACEHOLDERTABLE1::class, 'PLACEHOLDERORIGIN', 'PLACEHOLDERDESTINATION');
-    }
-
-    public function PLACEHOLDERTABLE2(){
-
-        return $this->PLACEHOLDERRELATIONSHIP(PLACEHOLDERTABLE2::class, 'PLACEHOLDERORIGIN', 'PLACEHOLDERDESTINATION');
-    }
-    public function PLACEHOLDERTABLE1(){ //in undercase singolare
-
-        return $this->PLACEHOLDERRELATIONSHIP(PLACEHOLDERTABLE1::class, 'PLACEHOLDERORIGIN', 'PLACEHOLDERDESTINATION');
-    }
-
-    public function PLACEHOLDERTABLE2(){
-
-        return $this->PLACEHOLDERRELATIONSHIP(PLACEHOLDERTABLE2::class, 'PLACEHOLDERORIGIN', 'PLACEHOLDERDESTINATION');
-    }
-    public function PLACEHOLDERTABLE1(){ //in undercase singolare
-
-        return $this->PLACEHOLDERRELATIONSHIP(PLACEHOLDERTABLE1::class, 'PLACEHOLDERORIGIN', 'PLACEHOLDERDESTINATION');
-    }
-
-    public function PLACEHOLDERTABLE2(){
-
-        return $this->PLACEHOLDERRELATIONSHIP(PLACEHOLDERTABLE2::class, 'PLACEHOLDERORIGIN', 'PLACEHOLDERDESTINATION');
-    }
-    public function PLACEHOLDERTABLE1(){ //in undercase singolare
-
-        return $this->PLACEHOLDERRELATIONSHIP(PLACEHOLDERTABLE1::class, 'PLACEHOLDERORIGIN', 'PLACEHOLDERDESTINATION');
-    }
-
-    public function PLACEHOLDERTABLE2(){
-
-        return $this->PLACEHOLDERRELATIONSHIP(PLACEHOLDERTABLE2::class, 'PLACEHOLDERORIGIN', 'PLACEHOLDERDESTINATION');
-    }
-    public function PLACEHOLDERTABLE1(){ //in undercase singolare
-
-        return $this->PLACEHOLDERRELATIONSHIP(PLACEHOLDERTABLE1::class, 'PLACEHOLDERORIGIN', 'PLACEHOLDERDESTINATION');
-    }
-
-    public function PLACEHOLDERTABLE2(){
-
-        return $this->PLACEHOLDERRELATIONSHIP(PLACEHOLDERTABLE2::class, 'PLACEHOLDERORIGIN', 'PLACEHOLDERDESTINATION');
+        return $this->morphTo();
     }
 }
