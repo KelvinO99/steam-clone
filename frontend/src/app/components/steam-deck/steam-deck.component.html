@@ -1,19 +1,11 @@
-<style>
-    /* Sovrascrivi le regole di stile di Bootstrap per il padding */
-    .p-0,
-    .p-0>* {
-        padding: 0 !important;
-    }
-</style>
-
-<div class="container-fluid body p-0">
+<div class="container-fluid body p-0 fontPage">
     <div class="row p-0 d-flex justify-content-center">
-        <div class="col" style="background-color: rgb(228, 228, 228);">
+        <div class="col column" style="background-color: rgb(228, 228, 228);">
         </div>
 
-        <div class="col-10">
+        <div class="col-10 fontPage " style="max-width: 1600px;">
             <!--inserire roba qui-->
-            <div class="test2">
+            <div class=" test2">
                 <div class="container-fluid">
                     <div class="row p-0">
                         <div class="col-1 p-0">
@@ -49,7 +41,7 @@
                                 <span class="boxType">256GB</span>
                                 <span class="boxType lcd">LCD</span>
                             </div>
-                            <span>
+                            <span class="d-flex justify-content-center">
                                 <ul>
                                     <li class="specs">256GB NVMe SSD</li>
                                     <li class="specs">1280 x 800 optically bonded LCD display</li>
@@ -76,7 +68,7 @@
                                 <span class="boxType">512GB</span>
                                 <span class="boxType oled">OLED</span>
                             </div>
-                            <span>
+                            <span class="d-flex justify-content-center">
                                 <ul>
                                     <li class="specs">512GB NVMe SSD</li>
                                     <li class="specs">1280 x 800 HDR OLED display</li>
@@ -104,7 +96,7 @@
                                 <span class="boxType">1TB</span>
                                 <span class="boxType oled">OLED</span>
                             </div>
-                            <span>
+                            <span class="d-flex justify-content-center">
                                 <ul>
                                     <li class="specs">1TB NVMe SSD</li>
                                     <li class="specs">1280 x 800 HDR OLED display with<br>premium anti-glare etched
@@ -127,37 +119,210 @@
                 </div>
             </div>
 
-            <div class="saleTextPage">
+            <div class="saleTextPage row">
                 <div class="row">
                     <div class="container-fluid promoButtonLeft col">
-                        <div class="promoContent">
-                            <img class="icons" src="../../../assets/steamdeck/icon1.png">
-                            <h3 class="promoTitle">Steam Deck Regions</h3>
-                            <h4 class="promoDescription">Steam Deck is available in Japan, South Korea, Taiwan, and
-                                Hong
-                                Kong via Komodo's website.
-                            </h4>
+                        <div class="promoContent row">
+                            <div class="iconBox col-1">
+                                <img class="icons" src="../../../assets/steamdeck/icon1.png">
+                            </div>
+                            <div class="promoTypo col">
+                                <h3 class="promoTitle">Steam Deck Regions</h3>
+                                <h4 class="promoDescription">Steam Deck is available in Japan, South Korea, Taiwan, and
+                                    Hong Kong via Komodo's website.
+                                </h4>
+                            </div>
                         </div>
                     </div>
                     <div class="container-fluid promoButtonRight col">
-                        <div class="promoContent">
-                            <img class="icons" src="../../../assets/steamdeck/icon2.png">
-                            <h3 class="promoTitle">Certified Refurbished</h3>
-                            <h4 class="promoDescription">Save up to 20% on a fully tested, Valve Certified Refurbished
-                                Steam
-                                Deck complete with a one year warranty.</h4>
+                        <div class="promoContent row">
+                            <div class="iconBox col-1">
+                                <img class="icons" src="../../../assets/steamdeck/icon2.png">
+                            </div>
+                            <div class="promoTypo col">
+                                <h3 class="promoTitle">Certified Refurbished</h3>
+                                <h4 h4 class="promoDescription">Save up to 20% on a fully tested, Valve Certified
+                                    Refurbished Steam Deck complete with a one year warranty.</h4>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-
             </div>
-        </div>
+            <div class="secondPricePage">
+                <div class="content">
+                    <h1 class="priceTitle">Choose your Steam Deck</h1>
+                    <div id="contentRow" class="row">
+                        <div class="col priceBox container-fluid">
+                            <div>
+                                <span class="price">419,00€</span>
+                            </div>
+                            <div class="typo">
+                                <span class="priceDrop">PRICE DROP</span>
+                                <span class="boxType">256GB</span>
+                                <span class="boxType lcd">LCD</span>
+                            </div>
+                            <span class="d-flex justify-content-center">
+                                <ul>
+                                    <li class="specs">256GB NVMe SSD</li>
+                                    <li class="specs">1280 x 800 optically bonded LCD display</li>
+                                    <li class="specs">7" Diagonal display size</li>
+                                    <li class="specs">up to 60Hz refresh rate</li>
+                                    <li class="specs">7 nm APU</li>
+                                    <li class="specs">Wi-Fi 5</li>
+                                    <li class="specs">40Whr battery; 2-8 hours of gameplay (content-dependent)</li>
+                                    <li class="specs">45W Power supply with 1.5m cable</li>
+                                    <li class="specs">Carrying case</li>
+                                    <li class="specs">Proprietà di Kelvin</li>
+                                </ul>
+                            </span>
+                            <button type="button" class="buyButton">Buy now!</button>
+                            <h4 class="Delivery">Estimated Delivery Date:<br>3-5 Business Days</h4>
 
+                        </div>
+                        <div class="col priceBox container-fluid">
+                            <div>
+                                <span class="price">569,99€</span>
+                            </div>
+                            <div class="typo">
+                                <span class="new">NEW</span>
+                                <span class="boxType">512GB</span>
+                                <span class="boxType oled">OLED</span>
+                            </div>
+                            <span class="d-flex justify-content-center">
+                                <ul>
+                                    <li class="specs">512GB NVMe SSD</li>
+                                    <li class="specs">1280 x 800 HDR OLED display</li>
+                                    <li class="specs">7.4" Diagonal display size</li>
+                                    <li class="specs">up to 90Hz refresh rate</li>
+                                    <li class="specs">6 nm APU</li>
+                                    <li class="specs">Wi-Fi 6E</li>
+                                    <li class="specs">50Whr battery; 3-12 hours of gameplay (content-dependent)</li>
+                                    <li class="specs">45W Power supply with 2.5m cable</li>
+                                    <li class="specs">Carrying case</li>
+                                    <li class="specs">Proprietà di Kelvin</li>
+                                </ul>
+                            </span>
+                            <button type="button" class="buyButton">Buy now!</button>
+                            <h4 class="Delivery">Estimated Delivery Date:<br>3-5 Business Days</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="oledPage row">
+                <div class="row">
+                    <div class="container-fluid oledContent">
+                        <span class="oledTitle col">STEAM DECK</span>
+                        <span class="oledTitle oled col">OLED</span>
+                        <h4 class="oledSubTitle">All the things you love about Steam Deck, now with an OLED screen,
+                            better battery life, faster WiFi, and more.</h4>
+                        <div class="row eyeSection">
+                            <img class="eyeGif col-2" src="../../../assets/steamdeck/eye.gif">
+                            <div class="eyeTypo col-8">
+                                <div class="eyeTitle">Brighter colors, blacker blacks</div>
+                                <div class="eyeDescription">Steam Deck’s HDR OLED display is designed from the ground
+                                    up for gaming, with striking contrast,
+                                    brilliant clarity, and a larger picture. With more colors, pure blacks, and amazing
+                                    motion rendition, you’ll see your game in a new light.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <img class="lowerGif" src="../../../assets/steamdeck/clock.gif">
+                                <div class="lowerTitle">More time to play</div>
+                                <div class="lowerDescription">Steam Deck OLED has 30-50%
+                                    more battery life. We fit a bigger battery into the
+                                    case, and the OLED display draws less
+                                    power. Add in an updated, more efficient AMD APU and you have way more time to play
+                                    your favorites.</div>
+
+
+                            </div>
+                            <div class="col">
+                                <img class="lowerGif" src="../../../assets/steamdeck/downloads.gif">
+                                <div class="lowerTitle">Faster downloads</div>
+                                <div class="lowerDescription">Steam Deck OLED comes with Wifi 6E, offering increased
+                                    bandwidth and lower latency.
+                                    This means faster downloads (up to 3
+                                    times faster!) and stable online play.</div>
+
+
+
+                            </div>
+                            <div class="col">
+                                <img class="lowerGif" src="../../../assets/steamdeck/feather.gif">
+                                <div class="lowerTitle">Lighter, cooler</div>
+                                <div class="lowerDescription">Thanks to a bigger fan and updated thermals, Steam Deck
+                                    OLED runs cooler. It weighs 30g, or ~5% lighter than the LCD
+                                    model, due to the screen.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="deckFeaturesPage row">
+                <div class="row">
+                    <div class="container-fluid deckContent">
+                        <span class="deckPageTitle">Steam Deck Features</span>
+                        <h4 class="deckPageSubTitle">All Steam Decks (both LCD and OLED) are powerful, portable, PC
+                            gaming devices made for
+                            comfort and a console-like
+                            experience.</h4>
+                        <img class="steamDeckImage" src="../../../assets/steamdeck/steamdeckImage.png">
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <div class="d-flex justify-content-center">
+                                <img class="deckGif" src="../../../assets/steamdeck/cpu.gif">
+                            </div>
+                            <div>Portability meets power</div>
+                            <div>We partnered with AMD to create Steam Deck's custom APU, optimized for handheld gaming.
+                                It is a Zen 2 + RDNA 2
+                                powerhouse, delivering more than enough performance to run the latest AAA games in a
+                                very efficient power envelope.</div>
+                        </div>
+                        <div id="spastico" class="col">
+                            <div class="d-flex justify-content-center">
+                            <img class="deckGif" src="../../../assets/steamdeck/library-image-sequence.gif">
+                            </div>
+                            <div>Your Steam Library, anywhere</div>
+                            <div>Once you've logged into Steam Deck, your entire Steam Library shows up, just like any
+                                other PC. You'll also see the
+                                compatibility rating of each game, indicating the kind of experience you can expect when
+                                playing. You can dynamically
+                                filter any view in your library by compatibility rating if you're looking for specific
+                                sorts of experiences.</div>
+                        </div>
+                        <div class="col">
+                            <div class="d-flex justify-content-center">
+                            <img class=" deckGif" src="../../../assets/steamdeck/thumbstick.gif">
+                            </div>
+                            <div>Control with comfort</div>
+                            <div>The Steam Deck was built for extended play sessions—whether you're using thumbsticks or
+                                trackpads—with full-size
+                                controls positioned perfectly within your reach. The rear of the device is sculpted to
+                                comfortably fit a wide range of
+                                hand sizes.</div>
+                        </div>
+
+
+
+
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+        </div>
         <div class="col column" style="background-color: rgb(228, 228, 228);">
         </div>
     </div>
