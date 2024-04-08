@@ -40,10 +40,30 @@
                                 <div class="container p-0">
                                     <div class="d-flex flex-wrap">
 
-                                        <div class="col-4 pe-1" *ngFor="let card of getCardsForPage(i)"
+                                        <div class="col-4 pe-1 pb-2" *ngFor="let card of getCardsForPage(i)"
                                             (click)="goTo('../game/' + card.id)">
                                             <div class="card">
-                                                <img class="img" [src]="card.images[5]?.image_path">
+                                                <img class="img" [src]="card?.images[0]?.image_path">
+
+                                                <div class="container text py-2">
+                                                    <div class="d-flex flex-wrap">
+            
+                                                        <div class="col d-flex">
+                                                            <div class="discountPercentage px-2">
+                                                                <span class="discountPercentage"> {{ card?.discounted_percentage }}% </span>
+                                                            </div>
+                                                            <div class="price px-2">
+                                                                <div class="col d-flex justify-content-end">
+                                                                    <span class="basePrice"> {{ card?.base_price.toFixed(2) + "€" }} </span>
+                                                                </div>
+                                                                <div class="col d-flex justify-content-end">
+                                                                    <span class="discountPrice"> {{ card?.discounted_price.toFixed(2) + "€" }}
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
     
                                             </div>
                                         </div>

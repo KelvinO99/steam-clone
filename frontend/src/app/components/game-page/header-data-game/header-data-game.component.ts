@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GameService } from 'src/app/shared/services/game.service';
 
 @Component({
@@ -13,10 +13,15 @@ export class DataGameComponent {
   @Input() game!: any;
   offset = 1;
 
-  constructor(public route: ActivatedRoute, public gameService: GameService){}
+  constructor(public route: ActivatedRoute, public gameService: GameService, public router: Router){}
 
 
   ngOnInit() {
+  }
+
+  goTo(path: string) {
+    this.router.navigate([path]);
+    console.log(path);
   }
 
 }

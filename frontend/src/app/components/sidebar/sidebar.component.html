@@ -54,17 +54,7 @@
       <div> <span class="header"> BROWSE BY GENRE </span> </div>
       <ul class=" list-unstyled">
 
-        <li> <a class="item"> Free-to-Play </a> </li>
-        <li> <a class="item"> Adventure </a> </li>
-        <li> <a class="item"> Action </a> </li>
-        <li> <a class="item"> Corsican </a> </li>
-        <li> <a class="item"> GDR </a> </li>
-        <li> <a class="item"> Indie </a> </li>
-        <li> <a class="item"> Massively Multiplayer </a> </li>
-        <li> <a class="item"> Pastime </a> </li>
-        <li> <a class="item"> Simulation </a> </li>
-        <li> <a class="item"> Sport </a> </li>
-        <li> <a class="item"> Strategy </a> </li>
+        <li *ngFor="let item of genre"> <a class="item" (click)="goTo('../games/' + item.name.toLowerCase())"> {{item.name}} </a> </li>
 
       </ul>
     </div>

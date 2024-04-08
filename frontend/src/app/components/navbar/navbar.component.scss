@@ -65,6 +65,25 @@ a.subMenuItem {
     z-index: 10;
 }
 
+.dropdown-content {
+    display: block;
+    /* Imposta l'opacità iniziale a 0 */
+    opacity: 0;
+    /* Nascondi l'elemento senza cambiare il layout */
+    visibility: hidden;
+    /* Aggiungi transizione per un'apertura graduale */
+    transition: opacity 0.6s ease, visibility 0s linear 0.3s;
+}
+
+.dropdown:hover .dropdown-content {
+    /* Mostra l'elemento */
+    opacity: 1;
+    /* Assicurati che sia visibile */
+    visibility: visible;
+    /* Resetta il ritardo della visibilità */
+    transition-delay: 0s;
+}
+
 .dropdown-content.store {
     min-width: 150px;
 }

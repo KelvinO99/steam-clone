@@ -3,12 +3,12 @@
 }
 
 .titles {
-  font-size: 20px;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  font-family: "quickSandBold";
-  font-weight: 600;
-  color: #ffffff;
+  font-weight: 400;
+    letter-spacing: .05em;
+    font-size: 16px;
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.3);
 }
 
 div.text {
@@ -30,7 +30,7 @@ div.text {
 
 img {
   max-width: 100%;
-  height: auto;
+  height: 150px;
   pointer-events: none;
 }
 
