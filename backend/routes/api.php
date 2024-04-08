@@ -8,10 +8,14 @@ use App\Http\Controllers\GamesController;
 use App\Http\Controllers\AchievementsController;
 use App\Http\Controllers\DevelopersController;
 use App\Http\Controllers\DevelopersGamesController;
+use App\Http\Controllers\GamesLanguagesController;
 use App\Http\Controllers\GamesTagsController;
 use App\Http\Controllers\ImagesController;
+use App\Http\Controllers\LanguagesController;
 use App\Http\Controllers\LibrariesController;
 use App\Http\Controllers\ReviewsController;
+use App\Http\Controllers\SystemCharacteristicsController;
+use App\Http\Controllers\SystemRequirementsController;
 use App\Http\Controllers\TagsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UsersAchievementController;
@@ -34,7 +38,7 @@ Route::group([
     Route::post('/register', [AuthController::class, 'register']);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/refresh', [AuthController::class, 'refresh']);
-    Route::get('/user-profile', [AuthController::class, 'userProfile']);    
+    Route::get('/user-profile', [AuthController::class, 'userProfile']);
 });
 
 Route::controller(GamesController::class)->prefix('games')->group(function($router){
@@ -118,6 +122,38 @@ Route::controller(UserController::class)->prefix('users')->group(function($route
 });
 
 Route::controller(UsersAchievementController::class)->prefix('users_achievements')->group(function($router){
+    Route::get('index','index');
+    Route::get('show/{id}','show');
+    Route::delete('destroy/{id}','destroy');
+    Route::put('update/{id}','update');
+    Route::post('store','store');
+});
+
+Route::controller(LanguagesController::class)->prefix('languages')->group(function($router){
+    Route::get('index','index');
+    Route::get('show/{id}','show');
+    Route::delete('destroy/{id}','destroy');
+    Route::put('update/{id}','update');
+    Route::post('store','store');
+});
+
+Route::controller(GamesLanguagesController::class)->prefix('games_languages')->group(function($router){
+    Route::get('index','index');
+    Route::get('show/{id}','show');
+    Route::delete('destroy/{id}','destroy');
+    Route::put('update/{id}','update');
+    Route::post('store','store');
+});
+
+Route::controller(SystemCharacteristicsController::class)->prefix('system_characteristics')->group(function($router){
+    Route::get('index','index');
+    Route::get('show/{id}','show');
+    Route::delete('destroy/{id}','destroy');
+    Route::put('update/{id}','update');
+    Route::post('store','store');
+});
+
+Route::controller(SystemRequirementsController::class)->prefix('system_requirements')->group(function($router){
     Route::get('index','index');
     Route::get('show/{id}','show');
     Route::delete('destroy/{id}','destroy');

@@ -45,8 +45,8 @@ img.opacity {
 }
 
 img.game {
-    height: 69px;
-    width: 95%;
+    height: 71px;
+    width: 100%;
     object-fit: fill;
 }
 
@@ -56,7 +56,7 @@ span.tags {
 }
 
 span.free {
-    color: white; 
+    color: white;
     font-size: 0.78125vw;
 }
 
@@ -66,18 +66,18 @@ span.discount {
 }
 
 span.basePriceDiscount {
-    color: #738895; 
-    font-size: 0.57vw; 
+    color: #738895;
+    font-size: 0.57vw;
     text-decoration: line-through
 }
 
 div.discountPercentage {
-    font-size: 0.83vw; 
-    align-items: center; 
-    display: flex; 
-    padding: 0 4px; 
-    border-radius: 1px; 
-    font-weight: 500; 
+    font-size: 0.83vw;
+    align-items: center;
+    display: flex;
+    padding: 0 4px;
+    border-radius: 1px;
+    font-weight: 500;
     color: #BEEE11;
     background: #4c6b22;
 }
@@ -87,77 +87,22 @@ span.basePrice {
     font-size: 0.78125vw;
 }
 
-@media only screen and (min-width: 1200px) {
+.game-deals-section {
+    background-color: #8ba6ba;
 
-    .price,
-    .title,
-    span.free,
-    span.discount,
-    span.basePrice {
-        font-size: 15px;
+    .game-title-label {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 
-    div.discountPercentage {
-        font-size: 16px;
-    }
+    .review-section {
+        background-color: #4d6172;
+        font-size: 12px;
+        color: #c6d4df;
 
-    span.basePriceDiscount {
-        font-size: 11px;
-    }
-
-    span.tags {
-        font-size: 14px;
+        .review-evaluation-label {
+            color: #66c0f4;
+        }
     }
 }
-
-@media only screen and ((min-width: 1200px) and (min-width: 992px) and (min-width: 768px) and (min-width: 600px)) {
-
-    .col-1 {
-        max-width: 9.996rem;
-    }
-
-    .col-2 {
-        max-width: 19.992rem;
-    }
-
-    .col-3 {
-        max-width: 30rem;
-    }
-
-    .col-4 {
-        max-width: 39.996rem;
-    }
-
-    .col-5 {
-        max-width: 49.992rem;
-    }
-
-    .col-6 {
-        max-width: 60rem;
-    }
-
-    .col-7 {
-        max-width: 69.996rem;
-    }
-
-    .col-8 {
-        max-width: 79.992rem;
-    }
-
-    .col-9 {
-        max-width: 90rem;
-    }
-
-    .col-10 {
-        max-width: 99.996rem;
-    }
-
-    .col-11 {
-        max-width: 109.992rem;
-    }
-
-    .col-12 {
-        max-width: 120rem;
-    }
-}
-

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GameService } from 'src/app/shared/services/game.service';
 
@@ -10,26 +10,13 @@ import { GameService } from 'src/app/shared/services/game.service';
 export class DataGameComponent {
 
   routeId!: number;
-  game!: any;
+  @Input() game!: any;
   offset = 1;
 
   constructor(public route: ActivatedRoute, public gameService: GameService){}
 
 
   ngOnInit() {
-    this.routeId = this.route.snapshot.params['id'];
-    this.showGame();
-  }
-
-  showGame() {
-    this.gameService.showGame(this.routeId).subscribe({
-      next: (res: any) => {
-        {
-          this.game = res
-          console.log(this.game);
-        }
-      }
-    })
   }
 
 }

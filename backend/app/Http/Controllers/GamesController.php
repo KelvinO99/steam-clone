@@ -8,6 +8,7 @@ use App\Models\Developers;
 use App\Models\DevelopersGames;
 use App\Models\Games;
 use App\Models\Libraries;
+use App\Models\Tags;
 use App\Models\User;
 use App\Models\Images;
 use App\Models\Reviews;
@@ -25,6 +26,7 @@ class GamesController extends Controller
         try {
             $discount = $request->input("discount"); // GIOCHI CON SCONTO
             $featured = $request->input("featured"); // GIOCHI TOP SELLER
+            $tag = $request->input("tag");  //FILTRA IN BASE AL TAG RICHIESTO
             $special_offer = $request->input("special_offer"); // GIOCHI CON SCONTO SUPERIORE AL 50%
             $most_reviewed = $request->input("most_reviewed"); // CALCOLO TRA NUMERO RECENSIONI E DATA DI USCITA
             $best_seller = $request->input("best_seller"); // CALCOLO SUL NUMERO DI COPIE ACQUISTATE
@@ -71,6 +73,12 @@ class GamesController extends Controller
             if ($upcoming) {
                 $game->where('date', '>', $today);
             }
+            if($tag){
+                $game->select('games.id', 'games.name', 'games.base_price', 'games.discounted_price')
+                    ->join('games_tags', 'games.id', '=', 'games_tags.game_id')
+                    ->join('tags', 'games_tags.tag_id', '=', 'tags.id')
+                    ->where('tags.name', $tag);
+            }
             //ISSET CODE
 
             if (isset($skip)) {
@@ -95,9 +103,9 @@ class GamesController extends Controller
 
         try{
     //DEVELOPERS FUNCTION
-            $game = Games::where('id', $id)->with('Images')->with(['DevelopersGames.Developers' => function ($q){
-                $q->select('id','user_id', 'is_publisher')->with(['User' => function ($q2){
-                    $q2->select('id', 'username');
+            $game = Games::where('id', $id)->with('Achievements.Images')->with(['DevelopersGames.Developers' => function ($q2){
+                $q2->select('id','user_id', 'is_publisher')->with(['User' => function ($q3){
+                    $q3->select('id', 'username');
             }]);
         }])->first();
 
@@ -122,47 +130,65 @@ class GamesController extends Controller
 
 
     //REVIEWS FUNCTION
-            $positive_reviews = Reviews::where('game_id', $id)->pluck('is_recommended'); //prendi la colonna is_recommended del singolo gioco
+            $no_reviews = Reviews::where('game_id', $id)->pluck('is_recommended'); //prendi la colonna is_recommended del singolo gioco
 
-            $DIM_A = count($positive_reviews); //conta quante review sono state fatte
-            $positive = 0; // inizializza variabile che verrà usata subito
-            $negative = 0;
+            $cond = count($no_reviews); //conta quante review sono state fatte
+            if($cond == 0)
+            {
+                $positive = 0;
+                $negative = 0;
+                $ratio = 0;
+                $string = 'Error';
+                $reviews = 'No Reviews';
 
-            for($i = 0; $i < $DIM_A-1; $i++){
-                if($positive_reviews[$i] == 1)         //ciclo for che conta quante review sono positive
-                {                             //per fare un rapporto
-                    $positive++;
-                }
-                else
-                {
-                    $negative++;
-                }
             }
-            $ratio=($positive/$DIM_A)*100; //il rapporto
-            switch($ratio) {               //switch case in base alle valutazioni
-                case $ratio>=0&&$ratio<=19:
-                    $string= 'Overwhelmingly Negative Reviews';
-                        break;
-                case $ratio>=20&&$ratio<=39:
-                    $string= 'Mostly Negative Reviews';
-                        break;
-                case $ratio>=40&&$ratio<=69:
-                    $string= 'Mixed Reviews';
-                        break;                                  //tutto questo non è simmetrico!!
-                case $ratio>=70&&$ratio<=79:
-                    $string= 'Mostly Positive Reviews';
-                        break;
-                case $ratio>=80&&$ratio<=94:
-                    $string= 'Very Positive Reviews';
-                        break;
-                case $ratio>=95&&$ratio<=100:
-                    $string= 'Overwhelmingly Positive Reviews';
-                default:
-                    $string= 'Error'; //riferisci a chri
+            else
+            {
+
+                $positive = 0;
+                                    // inizializza variabile che verrà usata subito
+                $negative = 0;
+                for($i = 0; $i < $cond-1; $i++){
+                    if($no_reviews[$i] == 1)         //ciclo for che conta quante review sono positive
+                    {                             //per fare un rapporto
+                        $positive++;
+                    }
+                    else
+                    {
+                        $negative++;
+                    }
                 }
+                $ratio=floor(($positive/$cond)*100); //il rapporto
+                switch($ratio) {               //switch case in base alle valutazioni
+                    case $ratio>=0&&$ratio<=19:
+                        $string= 'Overwhelmingly Negative Reviews';
+                            break;
+                    case $ratio>=20&&$ratio<=39:
+                        $string= 'Mostly Negative Reviews';
+                            break;
+                    case $ratio>=40&&$ratio<=69:
+                        $string= 'Mixed Reviews';
+                            break;                                  //tutto questo non è simmetrico!!
+                    case $ratio>=70&&$ratio<=79:
+                        $string= 'Mostly Positive Reviews';
+                            break;
+                    case $ratio>=80&&$ratio<=94:
+                        $string= 'Very Positive Reviews';
+                            break;
+                    case $ratio>=95&&$ratio<=100:
+                        $string= 'Overwhelmingly Positive Reviews';
+                    default:
+                        $string= 'Error'; //riferisci a chri
+                    }
 
-            $reviews = Reviews::where('game_id', $id)->get();
+                $reviews = Reviews::where('game_id', $id)
+                                    ->with(['User'=>  function ($q){
+                                        $q->select('id', 'username');
+                                    }])
+                                    ->get();
+            }
 
+    //REVIEWS FUNCTION
             $images = Images::where('game_id', $id)->pluck('image_path');
 
             $dlc = Games::where('parent_id', $id)
@@ -176,18 +202,22 @@ class GamesController extends Controller
                               ->where('is_owned', true)
                               ->count();
 
+            $pegi_img =images::where('image_path', 'http://localhost:8000/storage/pegi_images/pegi_'.$game->pegi_id.'.jpg')->first();
+
+
             return response()->json([
             'status' => 200,
             'game' => $game, //game+dev info output
             'images' => $images,
             'tags' => $tag,
-            'reviews' => $reviews,
             'positive' => $positive,
             'negative' => $negative,
             'ratio' => $ratio,
             'evaluation' => $string,
+            'reviews' => $reviews,
             'dlc' => $dlc,
             'no_users_ownership' => $no_users_ownership,
+            'pegi_img'=>$pegi_img,
             ]);
 
         }catch(\Exception $e){
@@ -227,7 +257,7 @@ class GamesController extends Controller
                 return response()->json(['message' => 'Non autorizzato'], 401);
             }
 
-            if(!$user->hasRole('developer/publisher')){
+            if(!$user->hasRoles('developer/publisher', 'superadmin')){
                 return response()->json(['message' => 'Non autorizzato, non sei un dev'], 401);
             }
 

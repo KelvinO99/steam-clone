@@ -35,7 +35,20 @@ class ReviewsSeeder extends Seeder
             'The voice acting is exceptional, bringing characters to life.',
             'Thought-provoking themes explored throughout the game.',
             'Outstanding replay value – you\'ll want to experience it again and again.',
-            'Filippo.',
+            '
+            ⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠆⠜⣿⣿⣿⣿⣿⣿
+            ⣿⣿⣿⣿⠿⠿⠛⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠻⣿⣿
+            ⣿⣿⡏⠁⠀⠀⠀⠀⠀⣀⣠⣤⣤⣶⣶⣶⣶⣶⣦⣤⡄⠀⠀⠀⠀⢀⣴⣿
+            ⣿⣿⣷⣄⠀⠀⠀⢠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⡧⠇⢀⣤⣶⣿⣿
+            ⣿⣿⣿⣿⣿⣿⣾⣮⣭⣿⡻⣽⣒⠀⣤⣜⣭⠐⢐⣒⠢⢰⢸⣿⣿⣿
+            ⣿⣿⣿⣿⣿⣿⣿⣏⣿⣿⣿⣿⣿⣿⡟⣾⣿⠂⢈⢿⣷⣞⣸⣿⣿⣿
+            ⣿⣿⣿⣿⣿⣿⣿⣿⣽⣿⣿⣷⣶⣾⡿⠿⣿⠗⠈⢻⣿⣿⣿⣿⣿⣿
+            ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠻⠋⠉⠑⠀⠀⢘⢻⣿⣿⣿⣿⣿
+            ⣿⣿⣿⣿⣿⣿⣿⡿⠟⢹⣿⣿⡇⢀⣶⣶⠴⠶⠀⠀⢽⣿⣿⣿⣿⣿
+            ⣿⣿⣿⣿⣿⣿⡿⠀⠀⢸⣿⣿⠀⠀⠣⠀⠀⠀⠀⠀⡟⢿⣿⣿⣿⣿⣿
+            ⣿⣿⣿⡿⠟⠋⠀⠀⠀⠀⠹⣿⣧⣀⠀⠀⠀⠀⡀⣴⠁⢘⡙⢿⣿⣿⣿
+            ⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⢿⠗⠂⠄⠀⣴⡟⠀⠀⡃⠀⠉⠉⠟
+            ',
         ];
         $negative = [
             'This game is a complete disaster, couldn\'t even get past the first level.',
@@ -65,9 +78,18 @@ class ReviewsSeeder extends Seeder
         //$this->call(GamesSeeder::class);
         //$gameSeeder = GamesSeeder::class;
 
-        for($i=0;$i<sizeof($positive)*150;$i++)
+        $const_rev = (sizeof($positive)+sizeof($negative))*70;
+
+        dump('--|Reputazione|--');
+        $luck = rand(1,42);
+        dump('Il gioco id: '.$luck.' è stato scelto come gioco piaciuto');
+        $badluck = rand(1,42);
+        dump('Il gioco id: '.$badluck.' è stato scelto come gioco odiato');
+
+        for($i=0;$i<$const_rev;$i++)
         {
-            $gameid_random = rand(1,40);
+            $gameid_random = rand(1,42);
+
             $reviews_date = Carbon::now()->subYears(random_int(0, 5))->subDays(random_int(1, 365))->format('Y-m-d');
 
             $game = Games::find($gameid_random);
@@ -81,13 +103,55 @@ class ReviewsSeeder extends Seeder
                 $reviews_date = Carbon::parse($release_date)->addDays(rand(0, Carbon::parse('today')->diffInDays($release_date)));
             }
 
+            $rng = rand(1,3);
             DB::table('reviews')->insert([
                 'user_id' => rand(1,19),//PLACEHOLDER RNG
                 'game_id' => $gameid_random,
+                'language_id' => rand(1,29),
                 'date' => $reviews_date,
-                'is_recommended' => $bool = (bool)rand(0,1),//PLACEHOLDER BOOL RNG
-                'description' => $bool ? $positive[random_int( 0, sizeof($positive)-1 )] : $negative[random_int( 0, sizeof($negative)-1 )],
+                'is_recommended' => $rng !== 1 ? 1 : 0,
+                'description' => $rng !== 1 ? $positive[random_int( 0, sizeof($positive)-1 )] : $negative[random_int( 0, sizeof($negative)-1 )],
                 'hours_played' => mt_rand() / mt_getrandmax() * (999 - 1) + 1,//PLACEHOLDER FLOAT RNG
+            ]);
+        }
+
+        $rep_const_rev = $const_rev/10;
+
+        $game = Games::find($luck);
+        $release_date = $game->date;
+        for($j=0;$j<$rep_const_rev;$j++) //luck gen
+        {
+            if($release_date>Carbon::now()){
+                continue;
+            }
+            $rng = rand(1,6);
+            DB::table('reviews')->insert([
+                'user_id' => rand(1,19),//PLACEHOLDER RNG
+                'game_id' => $luck,
+                'language_id' => rand(1,29),
+                'date' => $reviews_date,
+                'is_recommended' => $rng !== 1 ? 1 : 0,
+                'description' => $rng !== 1 ? $positive[random_int( 0, sizeof($positive)-1 )] : $negative[random_int( 0, sizeof($negative)-1 )],
+                'hours_played' => mt_rand() / mt_getrandmax() * (999 - 1) + 1,
+            ]);
+        }
+
+        $game = Games::find($badluck);
+        $release_date = $game->date;
+        for($j=0;$j<$rep_const_rev;$j++) //badluck gen
+        {
+            if($release_date>Carbon::now()){
+                continue;
+            }
+            $rng = rand(1,6);
+            DB::table('reviews')->insert([
+                'user_id' => rand(1,19),//PLACEHOLDER RNG
+                'game_id' => $badluck,
+                'language_id' => rand(1,29),
+                'date' => $reviews_date,
+                'is_recommended' => $rng === 1 ? 1 : 0,
+                'description' => $rng === 1 ? $positive[random_int( 0, sizeof($positive)-1 )] : $negative[random_int( 0, sizeof($negative)-1 )],
+                'hours_played' => mt_rand() / mt_getrandmax() * (999 - 1) + 1,
             ]);
         }
     }

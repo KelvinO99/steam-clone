@@ -51,6 +51,7 @@ class ImagesController extends Controller
 
         try{
             $image = Images::find( $id );
+            Storage::delete('public/' . $image->image_path);
             $image->delete();
 
             return response()->json([
@@ -136,7 +137,9 @@ class ImagesController extends Controller
 
             if ($request->hasFile('game_imgs')) {
                 $files = $request->file('game_imgs');
-                $game_name = str_replace(' ', '_',$request->game_name);
+                $game_name = str_replace([' ', '\\', '/', ':', '*', '?', '"', '<', '>', '|', "\0", "\n", "\r", "\t", "\x0B", "-","™"], '_', $request->game_name);
+                $game_name = strtolower($game_name);
+                $game_name = preg_replace('/_+/', '_', $game_name);
                 $i = 0;
                 foreach($files as $file){
                 if($i == 24)return response()->json(['message'=>'image limit reached',]);
@@ -155,7 +158,6 @@ class ImagesController extends Controller
                 return response()->json(['status'=>200,'message'=>'ok',]);
             }
 
-            return response()->json(['status'=>500, 'messaggio'=>'errore',]);
 
         }catch(\Exception $e){
             Db::rollBack();

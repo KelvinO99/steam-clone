@@ -1,6 +1,4 @@
 <?php
-//NON ELIMINARE 
-//<PLACEHOLDER> = dati da cambiare -chris
 
 namespace App\Models;
 
@@ -25,6 +23,6 @@ class PLACEHOLDERMODEL extends Model
 
     public function PLACEHOLDERTABLE2(){
 
-        return $this->PLACEHOLDERRELATIONSHIP(PLACEHOLDERTABLE2::class, 'PLACEHOLDERORIGIN', 'PLACEHOLDERDESTINATION');   
+        return $this->PLACEHOLDERRELATIONSHIP(PLACEHOLDERTABLE2::class, 'PLACEHOLDERORIGIN', 'PLACEHOLDERDESTINATION');
     }
 }

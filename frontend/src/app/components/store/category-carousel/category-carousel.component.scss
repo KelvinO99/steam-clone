@@ -22,12 +22,9 @@
 
 .carousel-control-next,
 .carousel-control-prev {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 4rem;
+    width: 3rem;
     max-width: 100%;
-    height: auto;
+    max-height: 110px;
 }
 
 
@@ -175,8 +172,8 @@
 
 .categoryText {
     position: relative;
-    font-family: "Motiva Sans", Sans-serif;
-    font-size: 1vw;
+    font-family: Sans-serif;
+    font-size: 16px;
     font-weight: bold;
     text-shadow: 0 1px 3px rgb(0 0 0 / 50%);
     letter-spacing: 0.1ch;
@@ -197,7 +194,7 @@
     font-size: 20px;
     text-transform: uppercase;
     margin-bottom: 10px;
-    font-family: "Motiva Sans", Sans-serif;
+    font-family: "quickSandBold";
     font-weight: 600;
     color: #ffffff;
 }
