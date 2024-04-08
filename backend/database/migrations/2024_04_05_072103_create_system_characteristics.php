@@ -1,0 +1,30 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('system_characteristics', function (Blueprint $table) {
+            $table->id();
+            $table->enum('type', ['platform', 'os', 'cpu', 'ram', 'gpu', 'directx', 'network', 'storage', 'audio', 'notes', 'additional_characteristics']);
+            $table->string('name');
+            $table->timestamps();
+
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('system_characteristics');
+    }
+};
+
+/*
+    $table->string('PLACEHOLDER_COLUMN_NAME');
+    $table->integer('PLACEHOLDER_COLUMN_NAME');
+    $table->boolean('PLACEHOLDER_COLUMN_NAME');
+*/

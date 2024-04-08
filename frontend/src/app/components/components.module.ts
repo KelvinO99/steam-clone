@@ -32,6 +32,7 @@ import { BigButtonsComponent } from './store/big-buttons/big-buttons.component';
 import { GameComponent } from './game-page/game-page.component';
 import { BodyDataGameComponent } from './game-page/body-data-game/body-data-game.component';
 import { BodyNavbarComponent } from './body-navbar/body-navbar.component';
+import { SteamDeckComponent } from './steam-deck/steam-deck.component';
 import { ReviewsComponent } from './game-page/reviews/reviews.component';
 import { CategoryPageComponent } from './category-page/category-page.component';
 import { MainCarouselComponent } from './category-page/main-carousel/main-carousel.component';
@@ -57,7 +58,8 @@ import { MainCarouselComponent } from './category-page/main-carousel/main-carous
     BodyNavbarComponent,
     ReviewsComponent,
     CategoryPageComponent,
-    MainCarouselComponent
+    MainCarouselComponent,
+    SteamDeckComponent,
 
   ],
   imports: [
