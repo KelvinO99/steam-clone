@@ -11,10 +11,4 @@ export class ProductBannersComponent {
   constructor(private router:Router) {
     
   }
-
-  goTo(path: string) {
-    this.router.navigate([path]);
-    console.log(path);
-  }
-
 }

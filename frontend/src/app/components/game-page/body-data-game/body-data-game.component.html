@@ -111,7 +111,7 @@
                         <div class="container pe-0 mb-2 sign-in-container">
                             <div class="d-flex flex-column sign-in-header">
 
-                                <div class="col sign-in-section" *ngIf="!(authService.loggedIn$ | async)">
+                                <div class="col sign-in-section">
                                     <div class="px-2 py-2 d-flex justify-content-center sign-in-label-section">
                                         <span class="sign-in-label"> Is this game relevant to you? </span>
                                     </div>
@@ -123,9 +123,14 @@
                                             on your games, friends, and curators you follow. </span>
                                     </div>
 
-                                    <div class="p-2 d-flex justify-content-center sign-in-button-section">
+                                    <div class="p-2 d-flex justify-content-center sign-in-button-section" *ngIf="!(authService.loggedIn$ | async)">
                                         <div class="py-1 px-5 sign-in-button" routerLink="/login"> Sign In </div>
                                     </div>
+
+                                    <div class="p-2 d-flex justify-content-center sign-in-button-section" *ngIf="authService.loggedIn$ | async">
+                                        <div class="py-1 px-5 sign-in-button" routerLink="/login"> More Info </div>
+                                    </div>
+
                                 </div>
 
                             </div>
