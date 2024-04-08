@@ -1,0 +1,143 @@
+<div class="container py-3 my-3 d-block">
+    <div class="d-flex flex-column">
+
+        <div class="container p-0 mb-5 mt-3">
+            <div class="d-flex flex-wrap">
+                <div class="col">
+
+                </div>
+
+                <div class="col-11 p-0">
+                    <p class="titles p-0"> {{genre}} </p>
+                </div>
+
+                <div class="col">
+
+                </div>
+            </div>
+
+        </div>
+
+        <div id="mainCarousel" class="carousel carousel-fade main" data-bs-ride="carousel">
+            <div class="container p-0">
+                <div class="d-flex flex-wrap justify-content-center">
+
+                    <div class="col p-0">
+
+                        <button class="carousel-control-prev m-auto" type="button" data-bs-target="#mainCarousel"
+                            data-bs-slide="prev" (click)="prevPage()">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+
+                    </div>
+
+                    <div class="col-11 d-flex justify-content-center px-0">
+                        <div class="carousel-inner">
+
+                            <div class="carousel-item" *ngFor="let page of pages; let i = index"
+                                [class.active]="currentIndex === i">
+                                <div class="container p-0">
+                                    <div class="d-flex flex-wrap">
+
+                                        <div class="col-12 pe-1 pb-2" *ngFor="let card of getCardsForPage(i)">
+
+                                            <div>
+
+                                                <div class="container p-0" style="background: #0000004f;">
+                                                    <div class="d-flex flex-row">
+
+                                                        <div class="col-3 me-3">
+                                                            <div class="container p-0">
+                                                                <div class="d-flex flex-column">
+
+                                                                    <div class="col">
+                                                                        <img class="img"
+                                                                            [src]="card.images[0]?.image_path"
+                                                                            width="230px" height="310px">
+                                                                    </div>
+
+                                                                    <div class="col">
+
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-9">
+                                                            <div class="container p-0">
+                                                                <div class="d-flex flex-column">
+
+                                                                    <div class="col label-section pt-3">
+                                                                        <span class="label"
+                                                                            (click)="goTo('../game/' + card.id)">
+                                                                            {{card?.name}} </span>
+                                                                    </div>
+
+                                                                    <div class="col mb-2 date-section">
+                                                                        <p class="date"> Release date: Feb 26, 2019 </p>
+                                                                    </div>
+
+                                                                    <div class="col-6 evaluation-section">
+                                                                        <div class="container p-0">
+                                                                            <div class="d-flex flex-wrap text-section">
+
+                                                                                <div
+                                                                                    class="col-4 p-0 ps-1 d-flex align-items-center label-section">
+                                                                                    <span class="label p-0"> Very
+                                                                                        Positive
+                                                                                    </span>
+                                                                                </div>
+
+                                                                                <div
+                                                                                    class="col d-flex align-items-center number-section">
+                                                                                    <p class="number p-0"> | 29.820 User
+                                                                                        Reviews
+                                                                                    </p>
+                                                                                </div>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col mt-2 tag-section">
+                                                                        <span *ngFor="let gameTag of card?.games_tags"
+                                                                            class="tag me-1">
+                                                                            {{ gameTag.tags.name }}
+                                                                        </span>
+                                                                    </div>
+
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col p-0">
+
+                        <button class="carousel-control-next align-items-center m-auto" type="button"
+                            data-bs-target="#mainCarousel" data-bs-slide="next" (click)="nextPage()">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

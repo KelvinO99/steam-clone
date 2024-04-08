@@ -9,7 +9,7 @@
 
             <nav class="navbar navbar-expand-lg w-100 pb-0 p-0" aria-label="Tenth navbar example">
                 <div class="container pb-3 pt-1 justify-content-center d-flex">
-                    <div class="d-flex">
+                    <div class="d-flex flex-column">
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false"
                             aria-label="Toggle navigation">
@@ -20,6 +20,7 @@
 
                             <div class="container">
                                 <div class="d-flex flex-row">
+                                    
                                     <div class="col">
                                         <ul class="navbar-nav">
                                             <li class="nav-item active">
@@ -42,6 +43,10 @@
                                                 </div>
                                             </li>
 
+                                            <li class="nav-item d-flex align-items-center">
+                                                <a class="nav-link"> library </a>
+                                            </li>
+<!-- 
                                             <li class="nav-item d-flex align-items-center"
                                                 *ngIf="authService.loggedIn$ | async">
                                                 <div class="dropdown p-0">
@@ -57,7 +62,7 @@
                                                         <a class="subMenuItem"> Inventory </a>
                                                     </div>
                                                 </div>
-                                            </li>
+                                            </li> -->
 
                                             <li class="nav-item d-flex align-items-center">
                                                 <div class="dropdown">
@@ -75,6 +80,7 @@
                                             <li class="nav-item d-flex align-items-center">
                                                 <a class="nav-link"> about </a>
                                             </li>
+
                                             <li class="nav-item d-flex align-items-center">
                                                 <a class="nav-link"> support </a>
                                             </li>
@@ -83,26 +89,28 @@
                                 </div>
                             </div>
 
-                            <div class="container">
+                            <div class="container p-0">
                                 <div class="d-flex flex-row action">
-                                    <div class="col">
 
-                                        <ul class="navbar-nav">
-                                            <li class="nav-item d-flex align-items-center installSteam">
-                                                <a class="nav-link installSteam px-2" routerLink="">
+                                    <ul class="navbar-nav  align-items-center">
+                                        <div class="col-5">
+                                            <li class="nav-item d-flex installSteam">
+                                                <a class="nav-link installSteam px-2" href="https://store.steampowered.com/about/?snr=1_60_4__global-header">
                                                     <img src="https://store.akamai.steamstatic.com/public/shared/images/header/btn_header_installsteam_download.png?v=1"
                                                         class=" installSteam"> Install Steam </a>
                                             </li>
+                                        </div>
 
-                                            <li class="nav-item d-flex align-items-center"
-                                                *ngIf="!(authService.loggedIn$ | async)">
+                                        <div class="col" *ngIf="!(authService.loggedIn$ | async)">
+                                            <li class="nav-item d-flex align-items-center">
                                                 <a class="nav-link itemUser" routerLinkActive="active"
                                                     routerLink="/login">
                                                     Login </a>
                                             </li>
+                                        </div>
 
-                                            <li class="nav-item d-flex align-items-center"
-                                                *ngIf="authService.loggedIn$ | async">
+                                        <div class="col-2" *ngIf="authService.loggedIn$ | async">
+                                            <li class="nav-item d-flex align-items-center">
                                                 <div class="dropdown p-0">
                                                     <a class="dropbtn nav-link itemUser"> {{ username }} </a>
                                                     <div class="dropdown-content store">
@@ -118,11 +126,15 @@
                                                     </div>
                                                 </div>
                                             </li>
+                                        </div>
 
+                                        <div class="col">
                                             <li class="nav-item d-flex align-items-center">
                                                 <a class="nav-link itemUser"> | </a>
                                             </li>
+                                        </div>
 
+                                        <div class="col">
                                             <li class="nav-item d-flex align-items-center">
                                                 <div class="dropdown p-0 ">
                                                     <a class="dropbtn nav-link dropdown-toggle itemUser"> Language </a>
@@ -132,8 +144,8 @@
                                                     </div>
                                                 </div>
                                             </li>
-                                        </ul>
-                                    </div>
+                                        </div>
+                                    </ul>
                                 </div>
                             </div>
 

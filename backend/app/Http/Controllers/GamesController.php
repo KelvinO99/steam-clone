@@ -13,6 +13,7 @@ use App\Models\User;
 use App\Models\Images;
 use App\Models\Reviews;
 use App\Http\Controllers\ImagesController;
+use App\Models\SystemRequirements;
 use Carbon\Carbon;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
@@ -73,6 +74,7 @@ class GamesController extends Controller
             if ($upcoming) {
                 $game->where('date', '>', $today);
             }
+            
             if($tag){
                 $game->select('games.id', 'games.name', 'games.base_price', 'games.discounted_price')
                     ->join('games_tags', 'games.id', '=', 'games_tags.game_id')
@@ -206,9 +208,27 @@ class GamesController extends Controller
 
     //SYSTEM_REQUIREMENTS FUNCTION
 
-            $list = collect();
-            $systems = SystemRequirements::where('game_id', $id)->get();
-            //$systems = SystemRequirements::with('platform')->where('game_id', $id)->get();
+            $systems = SystemRequirements::join('system_characteristics as platform', 'system_requirements.platform_id', '=', 'platform.id')
+            ->join('system_characteristics as os', 'system_requirements.os_id', '=', 'os.id')
+            ->join('system_characteristics as cpu', 'system_requirements.cpu_id', '=', 'cpu.id')
+            ->join('system_characteristics as ram', 'system_requirements.ram_id', '=', 'ram.id')
+            ->join('system_characteristics as gpu', 'system_requirements.gpu_id', '=', 'gpu.id')
+            ->join('system_characteristics as directx', 'system_requirements.directx_id', '=', 'directx.id')
+            ->join('system_characteristics as network', 'system_requirements.network_id', '=', 'network.id')
+            ->join('system_characteristics as storage', 'system_requirements.storage_id', '=', 'storage.id')
+            ->join('system_characteristics as audio', 'system_requirements.audio_id', '=', 'audio.id')
+            ->select(
+                'system_requirements.*',
+                'platform.name as platform_name',
+                'os.name as os_name',
+                'cpu.name as cpu_name',
+                'ram.name as ram_name',
+                'gpu.name as gpu_name',
+                'directx.name as directx_name',
+                'network.name as network_name',
+                'storage.name as storage_name',
+                'audio.name as audio_name'
+            )->where('game_id', $id)->get();
 
             $windows = $systems->where('platform_id', 1);
 
@@ -216,9 +236,9 @@ class GamesController extends Controller
 
             $linux = $systems->where('platform_id', 3);
 
-            $obj['windows'] = $windows->values();
-            $obj['macOS'] = $macOS->values();
-            $obj['linux'] = $linux->values();
+            $obj['Windows'] = $windows->values();
+            $obj['MacOS'] = $macOS->values();
+            $obj['Linux + SteamOS'] = $linux->values();
 
     //SYSTEM_REQUIREMENTS FUNCTION
             return response()->json([
@@ -230,7 +250,7 @@ class GamesController extends Controller
             'negative' => $negative,
             'ratio' => $ratio,
             'evaluation' => $string,
-            'system_requirements' => $
+            'system_requirements' => $obj,
             'reviews' => $reviews,
             'dlc' => $dlc,
             'no_users_ownership' => $no_users_ownership,

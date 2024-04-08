@@ -34,6 +34,9 @@ import { BodyDataGameComponent } from './game-page/body-data-game/body-data-game
 import { BodyNavbarComponent } from './body-navbar/body-navbar.component';
 import { SteamDeckComponent } from './steam-deck/steam-deck.component';
 import { ReviewsComponent } from './game-page/reviews/reviews.component';
+import { CategoryPageComponent } from './category-page/category-page.component';
+import { MainCarouselComponent } from './category-page/main-carousel/main-carousel.component';
+
 @NgModule({
   declarations: [
     BaseComponent,
@@ -53,8 +56,10 @@ import { ReviewsComponent } from './game-page/reviews/reviews.component';
     GameComponent,
     BodyDataGameComponent,
     BodyNavbarComponent,
-    SteamDeckComponent,
     ReviewsComponent,
+    CategoryPageComponent,
+    MainCarouselComponent,
+    SteamDeckComponent,
 
   ],
   imports: [
