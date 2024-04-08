@@ -62,4 +62,8 @@ class Games extends Model
 
         return $this->hasMany(GamesLanguages::class, 'game_id', 'id');
     }
+    public function SystemRequirements(){
+
+        return $this->hasMany(SystemRequirements::class, 'game_id', 'id');
+    }
 }

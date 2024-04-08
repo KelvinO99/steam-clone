@@ -27,6 +27,8 @@ class DatabaseSeeder extends Seeder
             UsersAchievementsSeeder::class,
             DevelopersGamesSeeder::class,
             GamesLanguagesSeeder::class,
+            SystemCharacteristicsSeeder::class,
+            SystemRequirementsSeeder::class,
         ]);
     }
 }
