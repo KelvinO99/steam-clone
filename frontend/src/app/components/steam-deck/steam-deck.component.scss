@@ -359,6 +359,7 @@
     font-size: 3em;
     font-weight: 900;
     color: #000000;
+    text-align: center;
 }
 
 .deckPageSubTitle{
@@ -366,6 +367,8 @@
     font-size: 1.1em;
     font-weight: 500;
     margin-top: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 .steamDeckImage{
@@ -378,9 +381,136 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 18.75em;
+    width: 318px;
+
 }
 
-#spastico{
-    align-items: flex-end;
+.featuresTitle{
+    font-size: 2em;
+    font-weight: 800;
+    color: #000000;
+    line-height: 1.25em;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.featureSubTitle{
+    color: #000000;
+    font-size: 1.2em;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.uniqueTypo{
+   position:relative;
+   top: 40px;
+}
+
+.stickTypo{
+   position:relative;
+   top: 28px;
+
+}
+
+#uniqueImg{
+width: 350px;
+padding-top: 20%;
+}
+
+.buttonBox{
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.featureButton{
+    color: white;
+    background:#2681da ;
+    border: 0;
+    font-size: 14px;
+    line-height: 1.4em;
+    border-radius: 2em;
+    padding: 0.8em 1em 0.8em 1em;
+    transition: all .2s ease;
+    font-weight: 500;
+    width: fit-content;
+    text-align: center;
+    margin: 5px;
+}
+
+.featureTextBox{
+    margin-top: 12%;
+    margin-left: 12%;
+}
+
+.lowFeaturesTitle{
+    font-size: 2em;
+    font-weight: 800;
+    color: #000000;
+    line-height: 1.25em;
+    text-align: start;
+    margin-top: 10px;
+}
+
+.lowFeatureSubTitle{
+    color: #000000;
+    font-size: 1.2em;
+    font-weight: 500;
+    text-align: start;
+    margin-top: 10px;
+}
+
+.steamDeckImageFront{
+    max-width: 100%;
+    height: auto;
+    width: 648.44px;
+}
+
+// FAQ Page >>>:))
+
+.faqPage{
+    background: #E4E4E4;
+}
+
+.faqContent{
+    padding: 5%;
+}
+
+.faqHeader{
+    font-size: 3em;
+    font-weight: 900;
+    color: #000000;
+    text-align: center;
+}
+
+.faqSection{
+    margin-top: 20px;
+}
+
+.faqBox{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 3.5em;
+    margin: 2%;
+}
+
+.faqq {
+    font-size: 1.75em;
+    font-weight: 800;
+    color: #000000;
+    line-height: 1.25em;
+    width: 30%;
+    text-align: end;
+
+}
+
+.faqa {
+    font-size: 1.5em;
+    font-weight: 500;
+    color: #000000;
+    line-height: 1.25em;
+    width: 70%;
+    padding-top: 10px;
 }
