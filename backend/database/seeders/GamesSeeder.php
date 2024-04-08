@@ -1221,10 +1221,10 @@ class GamesSeeder extends Seeder
             if ($i == $dlcs[$j]) {
                 dump('aggiungo il gioco id = '.$dlcs[$j].' come dlc');
                 DB::table('games')
-                    ->where('id', $i) // Select the record with the given id
+                    ->where('id', $i)
                     ->update([
-                        'is_dlc' => true, // Update the is_dlc field
-                        'parent_id' => $parent_id[$j], // Update the parent_id field
+                        'is_dlc' => true,
+                        'parent_id' => $parent_id[$j],
                     ]);
                 if(sizeof($dlcs)-1==$j) return;
                 else $j++;

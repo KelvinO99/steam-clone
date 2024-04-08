@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\SystemCharacteristics;
-use App\Utilities\Response;
+use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 

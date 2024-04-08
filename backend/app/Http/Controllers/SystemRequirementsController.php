@@ -24,9 +24,28 @@ class SystemRequirementsController extends Controller
 
 
     public function show($id){
-        $list = collect();
-        $systems = SystemRequirements::where('game_id', $id)->get();
-        //$systems = SystemRequirements::with('platform')->where('game_id', $id)->get();
+
+        $systems = SystemRequirements::join('system_characteristics as platform', 'system_requirements.platform_id', '=', 'platform.id')
+        ->join('system_characteristics as os', 'system_requirements.os_id', '=', 'os.id')
+        ->join('system_characteristics as cpu', 'system_requirements.cpu_id', '=', 'cpu.id')
+        ->join('system_characteristics as ram', 'system_requirements.ram_id', '=', 'ram.id')
+        ->join('system_characteristics as gpu', 'system_requirements.gpu_id', '=', 'gpu.id')
+        ->join('system_characteristics as directx', 'system_requirements.directx_id', '=', 'directx.id')
+        ->join('system_characteristics as network', 'system_requirements.network_id', '=', 'network.id')
+        ->join('system_characteristics as storage', 'system_requirements.storage_id', '=', 'storage.id')
+        ->join('system_characteristics as audio', 'system_requirements.audio_id', '=', 'audio.id')
+        ->select(
+            'system_requirements.*',
+            'platform.name as platform_name',
+            'os.name as os_name',
+            'cpu.name as cpu_name',
+            'ram.name as ram_name',
+            'gpu.name as gpu_name',
+            'directx.name as directx_name',
+            'network.name as network_name',
+            'storage.name as storage_name',
+            'audio.name as audio_name'
+        )->where('game_id', $id)->get();
 
         $windows = $systems->where('platform_id', 1);
 
@@ -34,33 +53,9 @@ class SystemRequirementsController extends Controller
 
         $linux = $systems->where('platform_id', 3);
 
-        $obj['windows'] = $windows->values();
-        $obj['macOS'] = $macOS->values();
-        $obj['linux'] = $linux->values();
-
-        // $systems->windows = $windows ;
-
-        // $data = $systems->map(function ($system) {
-        //     return [
-        //         'platform' => [
-        //             'id' => $system->platform_id,
-        //         ],
-        //         'rank' => $system->rank,
-        //         'os_id' => $system->os_id,
-        //         'cpu_id' => $system->cpu_id,
-        //         'ram_id' => $system->ram_id,
-        //         'gpu_id' => $system->gpu_id,
-        //         'directx_id' => $system->directx_id,
-        //         'network_id' => $system->network_id,
-        //         'storage_id' => $system->storage_id,
-        //         'audio_id' => $system->audio_id,
-        //         'notes_id' => $system->notes_id,
-        //         'created_at' => $system->created_at,
-        //         'updated_at' => $system->updated_at
-        //         ];
-        //     });
-
-
+        $obj['Windows'] = $windows->values();
+        $obj['MacOS'] = $macOS->values();
+        $obj['Linux + SteamOS'] = $linux->values();
 
         return Response::send_response($obj, "Requisiti di sistema recuperati", null, 200);
 

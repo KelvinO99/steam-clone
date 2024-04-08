@@ -60,7 +60,7 @@ class PLACEHOLDERCONTROLLER extends Controller
         return response($var);
     }
 
-    
+
     public function store(Request $request) {
 
         // Ottieni l'utente autenticato tramite JWT

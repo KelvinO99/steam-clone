@@ -204,7 +204,23 @@ class GamesController extends Controller
 
             $pegi_img =images::where('image_path', 'http://localhost:8000/storage/pegi_images/pegi_'.$game->pegi_id.'.jpg')->first();
 
+    //SYSTEM_REQUIREMENTS FUNCTION
 
+            $list = collect();
+            $systems = SystemRequirements::where('game_id', $id)->get();
+            //$systems = SystemRequirements::with('platform')->where('game_id', $id)->get();
+
+            $windows = $systems->where('platform_id', 1);
+
+            $macOS = $systems->where('platform_id', 2);
+
+            $linux = $systems->where('platform_id', 3);
+
+            $obj['windows'] = $windows->values();
+            $obj['macOS'] = $macOS->values();
+            $obj['linux'] = $linux->values();
+
+    //SYSTEM_REQUIREMENTS FUNCTION
             return response()->json([
             'status' => 200,
             'game' => $game, //game+dev info output
@@ -214,6 +230,7 @@ class GamesController extends Controller
             'negative' => $negative,
             'ratio' => $ratio,
             'evaluation' => $string,
+            'system_requirements' => $
             'reviews' => $reviews,
             'dlc' => $dlc,
             'no_users_ownership' => $no_users_ownership,
