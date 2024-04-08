@@ -14,7 +14,7 @@ export class OfferCarouselComponent {
   game: any
   skip: number = 0;
   take: number = 3;
-  itemsPerPage = 3; 
+  itemsPerPage = 6; 
   pages: number[] = []; 
   currentIndex = 0; 
 
@@ -27,7 +27,7 @@ export class OfferCarouselComponent {
   }
  
 getUpdatesAndOffers(){ 
-  this.gameService.getGames({discount: true, tag: this.genre ? this.genre : ''}).subscribe({ 
+  this.gameService.getGames({special_offer: true, tag: this.genre ? this.genre : ''}).subscribe({ 
     next: (res: any) => { 
  
       this.game = res.games; 

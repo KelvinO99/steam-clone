@@ -34,6 +34,8 @@ import { BodyDataGameComponent } from './game-page/body-data-game/body-data-game
 import { BodyNavbarComponent } from './body-navbar/body-navbar.component';
 import { ReviewsComponent } from './game-page/reviews/reviews.component';
 import { CategoryPageComponent } from './category-page/category-page.component';
+import { MainCarouselComponent } from './category-page/main-carousel/main-carousel.component';
+
 @NgModule({
   declarations: [
     BaseComponent,
@@ -54,7 +56,8 @@ import { CategoryPageComponent } from './category-page/category-page.component';
     BodyDataGameComponent,
     BodyNavbarComponent,
     ReviewsComponent,
-    CategoryPageComponent
+    CategoryPageComponent,
+    MainCarouselComponent
 
   ],
   imports: [

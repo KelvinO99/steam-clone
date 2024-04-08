@@ -1,0 +1,116 @@
+.carousel-control-prev-icon {
+    background-image: url(../../../../assets/image/category/arrow-left.png);
+}
+
+.carousel-control-next-icon {
+    background-image: url(../../../../assets/image/category/arrow-right.png);
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    width: 3rem;
+    max-width: 100%;
+    max-height: 110px;
+}
+
+.carousel-control-prev {
+    background-image: linear-gradient(to left, rgba(255, 0, 0, 0), rgb(0, 0, 0));
+}
+
+.carousel-control-next {
+    background-image: linear-gradient(to right, rgba(255, 0, 0, 0), rgb(0, 0, 0));
+}
+
+.carousel-control-prev:hover {
+    background-image: linear-gradient(to right, rgba(212, 212, 212, 0.449), rgb(255, 0, 0, 0));
+}
+
+.carousel-control-next:hover {
+    background-image: linear-gradient(to left, rgb(212, 212, 212, 0.449), rgb(255, 0, 0, 0));
+}
+
+p {
+    margin: 0;
+}
+
+.label-section {
+    padding-bottom: 5px;
+    width: fit-content;
+
+    .label {
+        font-size: 30px;
+        line-height: 34px;
+        text-shadow: none;
+        font-weight: 600;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    &:hover {
+        color: #66c0f4;
+    }
+}
+
+.caption-section {
+    .caption {
+        color: #fff;
+        font-size: 48px;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+}
+
+.date-section {
+    padding-top: 5px;
+    padding-bottom: 2px;
+
+    .date {
+        font-size: 18px;
+        text-shadow: none;
+        color: #c6d4df
+    }
+}
+
+.evaluation-section .text-section {
+    font-weight: 500;
+    background: #00000045;
+    border-radius: 2px;
+
+    .label-section .label {
+        color: #32ad32;
+        font-weight: 500;
+        font-size: 16px;
+    }
+
+    .number-section {
+        .number {
+            color: #6b8aaa;
+            margin-right: 4px;
+            margin-left: 4px;
+            font-size: 16px;
+        }
+    }
+}
+
+.tag-section .tag {
+    color: #c6d4df;
+    background-color: #c6d4df26;
+    padding: 5px;
+    text-transform: none;
+    cursor: pointer;
+    font-size: 12px;
+
+    &:hover {
+        color: white;
+    }
+}
+
+.titles {
+    color: #fff;
+    font-size: 48px;
+    font-weight: 600;
+    text-transform: uppercase;
+}

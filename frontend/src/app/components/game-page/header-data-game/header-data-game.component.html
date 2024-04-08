@@ -10,12 +10,12 @@
                 <div class="d-flex flex-column game-deals-header">
 
                     <div class="col p-0 mt-3 game-deals-tag-section">
-                        <span class="search p-0 game-deals-tag"> All Games > {{game.tags[0].name}} >
-                            {{game.game.developers_games[0].developers.user.username}} > {{game.game.name}} </span>
+                        <span class="search p-0 game-deals-tag"> All Games > <span class="tag" (click)="goTo('../games/' + game?.tags[0]?.name.toLowerCase())"> {{game?.tags[0]?.name}} </span> >
+                            {{game?.game.developers_games[0]?.developers.user.username}} > {{game?.game?.name}} </span>
                     </div>
 
                     <div class="col p-0 game-deals-caption-section pb-3 pt-1">
-                        <span class="game-deals-caption"> {{game.game.name}} </span>
+                        <span class="game-deals-caption"> {{game?.game?.name}} </span>
                     </div>
 
                     <div class="container p-0 game-container">

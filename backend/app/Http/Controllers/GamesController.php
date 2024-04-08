@@ -73,6 +73,7 @@ class GamesController extends Controller
             if ($upcoming) {
                 $game->where('date', '>', $today);
             }
+            
             if($tag){
                 $game->select('games.id', 'games.name', 'games.base_price', 'games.discounted_price')
                     ->join('games_tags', 'games.id', '=', 'games_tags.game_id')

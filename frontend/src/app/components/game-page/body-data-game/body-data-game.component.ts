@@ -1,3 +1,4 @@
+import { AuthService } from 'src/app/shared/services/auth.service';
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GameService } from 'src/app/shared/services/game.service';
@@ -13,7 +14,7 @@ export class BodyDataGameComponent {
   languages!: any;
   offset = 1;
 
-  constructor(public route: ActivatedRoute, public gameService: GameService){}
+  constructor(public route: ActivatedRoute, public gameService: GameService, public authService: AuthService){}
 
 
   ngOnInit() {

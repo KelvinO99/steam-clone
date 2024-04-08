@@ -21,7 +21,9 @@
                 </div>
             </div>
 
-            <app-offer-carousel [genre]="genre"> </app-offer-carousel>
+
+            <app-main-carousel [genre]="genre"> </app-main-carousel>
+            <app-offer-carousel [genre]="genre"  *ngIf="genre != 'free to play'"> </app-offer-carousel>
 
         </div>
       

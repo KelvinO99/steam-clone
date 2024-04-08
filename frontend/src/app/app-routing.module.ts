@@ -18,7 +18,6 @@ const routes: Routes = [
   children:[
     { path: 'store', component: StoreComponent },
   ] },
-  { path: 'user-profile/:id', component: User, canActivate: [AuthGuard] },
   { path: 'game/:id', component: GameComponent},
   { path: 'games/:genre', component: CategoryPageComponent}
 ];
