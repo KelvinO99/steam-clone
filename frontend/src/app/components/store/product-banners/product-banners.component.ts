@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-banners',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./product-banners.component.scss']
 })
 export class ProductBannersComponent {
+  
+  constructor(private router:Router) {
+    
+  }
+
+  goTo(path: string) {
+    this.router.navigate([path]);
+    console.log(path);
+  }
 
 }
