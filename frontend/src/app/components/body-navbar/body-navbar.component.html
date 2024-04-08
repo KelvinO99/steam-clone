@@ -1,69 +1,141 @@
 <div class="container mt-4">
     <div class="d-flex flex-wrap">
 
-            <div class="container p-0">
-                <div class="d-flex flex-wrap align-items-center body">
+        <div class="container p-0">
+            <div class="d-flex flex-wrap align-items-center body">
 
-                    <div class="col-1 p-0 nav-item d-flex justify-content-end dropdown">
-                        <span class="nav-link dropbtn menu-dropdown"> Your Store
-                            <div class="dropdown-content store">
+                <div class="col-1 p-0 nav-item d-flex justify-content-end dropdown">
+                    <span class="nav-link dropbtn menu-dropdown"> Your Store
+                        <div class="dropdown-content store">
 
-                                <a class="subMenuItem" routerLink=""> Home </a>
-                                <a class="subMenuItem"> Community Recommendations </a>
-                                <a class="subMenuItem"> Recently Viewed </a>
-                                <a class="subMenuItem"> Steam Cutrator </a>
+                            <div class="subMenuItem" routerLink=""> Home </div>
+                            <div class="subMenuItem"> Community Recommendations </div>
+                            <div class="subMenuItem"> Recently Viewed </div>
+                            <div class="subMenuItem"> Steam Cutrator </div>
 
-                            </div>
-                        </span>
-                    </div>
+                        </div>
+                    </span>
+                </div>
 
-                    <div class="col-2 p-0 nav-item d-flex justify-content-center dropdown">
-                        <span class="nav-link dropbtn menu-dropdown"> New & Noteworthy
-                            <div class="dropdown-content noteworthy">
-                                <div class="d-flex flex-wrap">
-                                    <div class="col">
-                                        <a class="subMenuItemTitle pt-3"> Popular </a>
-                                        <a class="subMenuItem"> Top Seller </a>
-                                        <a class="subMenuItem borderStyle"> Most Played </a>
-                                        <a class="subMenuItem"> New Releases </a>
-                                        <a class="subMenuItem"> Upcoming Releases </a>
-                                        <a class="subMenuItem"> Recently Updated </a>
-                                    </div>
+                <div class="col-2 p-0 nav-item d-flex justify-content-center dropdown">
+                    <span class="nav-link dropbtn menu-dropdown"> New & Noteworthy
+                        <div class="dropdown-content noteworthy">
+                            <div class="d-flex flex-wrap pt-2">
+                                <div class="col">
+                                    <div class="subMenuItemTitle pt-3"> Popular </div>
+                                    <div class="subMenuItem"> Top Seller </div>
+                                    <div class="subMenuItem"> Most Played </div>
+                                    <div class="borderStyle"></div>
+                                    <div class="subMenuItem"> New Releases </div>
+                                    <div class="subMenuItem"> Upcoming Releases </div>
+                                    <div class="subMenuItemTitle pt-3"> News & Updates </div>
+                                    <div class="subMenuItem"> Recently Updated </div>
+                                </div>
 
-                                    <div class="col">
-                                        <a class="subMenuItem" routerLink=""> Main Page </a>
-                                        <a class="subMenuItem"> Discovery Queue </a>
-                                        <a class="subMenuItem"> Wishlist </a>
-                                        <a class="subMenuItem"> Point store </a>
-                                        <a class="subMenuItem"> News </a>
-                                        <a class="subMenuItem"> Stats </a>
-                                        <a class="subMenuItem"> About </a>
-                                    </div>
+                                <div class="col navleft">
+                                    <div class="subMenuItemTitle pt-3"> Promos & Events </div>
+                                    <div class="subMenuItem"> Special Offer </div>
+                                    <div class="subMenuItem"> Sale Event </div>
+                                    <div class="borderStyle"> </div>
+                                    <div class="subMenuItem"> Steam Year In Review </div>
+                                    <div class="subMenuItem"> Steam Next Fest </div>
+                                    <div class="subMenuItem"> The Steam Awards </div>
                                 </div>
                             </div>
-                        </span>
-                    </div>
-
-                    <div class="col-1wwwwwwwww p-0 nav-item d-flex justify-content-center"> <span class="nav-link"> Categories
-                        </span>
-                    </div>
-
-                    <div class="col-1 p-0 nav-item d-flex justify-content-center"> <span class="nav-link"> Point Shop
-                        </span>
-                    </div>
-
-                    <div class="col-1 p-0 nav-item d-flex justify-content-center"> <span class="nav-link"> News </span>
-                    </div>
-
-                    <div class="col-1 p-0 nav-item d-flex justify-content-center"> <span class="nav-link"> Labs </span> </div>
-
-                    <div class="col-5 d-flex justify-content-end nav-item">
-                        <form role="search">
-                            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                        </form>
-                    </div>
-
+                        </div>
+                    </span>
                 </div>
+
+                <div class="col-1 p-0 nav-item d-flex justify-content-start dropdown"> <span
+                        class="nav-link dropbtn menu-dropdown"> Categories
+                        <div class="dropdown-content category">
+                            <div class="d-flex flex-wrap pt-2">
+                                <div class="col-3">
+                                    <div class="subMenuItemTitle pt-3"> <span> Special Sections </span> </div>
+                                    <div class="subMenuItem"> Free to Play </div>
+                                    <div class="subMenuItem"> Demos </div>
+                                    <div class="subMenuItem"> Early Access </div>
+                                    <div class="borderStyle"></div>
+                                    <div class="subMenuItem"> Steam Deck </div>
+                                    <div class="subMenuItem"> Great on Deck </div>
+                                    <div class="borderStyle"></div>
+                                    <div class="subMenuItem"> Controller-Friendly </div>
+                                    <div class="subMenuItem"> Remote Play </div>
+                                    <div class="borderStyle"></div>
+                                    <div class="subMenuItem"> Vr Titles </div>
+                                    <div class="subMenuItem"> Vr Hardware </div>
+                                    <div class="borderStyle"></div>
+                                    <div class="subMenuItem"> Software </div>
+                                    <div class="subMenuItem"> SoundTrack </div>
+                                    <div class="borderStyle"></div>
+                                    <div class="subMenuItem"> macOS </div>
+                                    <div class="subMenuItem"> SteamOS + Linux </div>
+                                    <div class="subMenuItem"> Windows </div>
+                                </div>
+
+                                <div class="col navleft">
+                                    <div class="subMenuItemTitle pt-3"> Genres </div>
+                                    <div class="d-flex flex-wrap">
+                                        <div class="col">
+                                            <div class="subMenuItem" *ngFor="let item of tag?.slice(0, 8)">
+                                                <span> {{item.name}} </span>
+                                            </div>
+                                            <div class="borderStyle"></div>
+                                            <div class="subMenuItem pt-1" *ngFor="let item of tag?.slice(8, 16)">
+                                                <span> {{item.name}} </span> </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <div class="subMenuItem" *ngFor="let item of tag?.slice(16, 24)">
+                                                <span> {{item.name}} </span>
+                                            </div>
+                                            <div class="borderStyle"></div>
+                                            <div class="subMenuItem pt-1" *ngFor="let item of tag?.slice(24, 32)">
+                                                <span> {{item.name}} </span> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="subMenuItemTitle pt-3"> <span> Themes </span> </div>
+                                    <div class="subMenuItem"> Adult Only </div>
+                                    <div class="subMenuItem"> Anime </div>
+                                    <div class="subMenuItem"> Horror </div>
+                                    <div class="subMenuItem"> Mystery & Detective </div>
+                                    <div class="subMenuItem"> Open World </div>
+                                    <div class="subMenuItem"> Sci-Fi & Cyberpunk </div>
+                                    <div class="subMenuItem"> Space </div>
+                                    <div class="subMenuItem"> Survival </div>
+                                    <div class="borderStyle"></div>
+                                    <div class="subMenuItemTitle pt-1"> <span>  Player Support </span> </div>
+                                    <div class="subMenuItem"> Co-Operative </div>
+                                    <div class="subMenuItem"> LAN </div>
+                                    <div class="subMenuItem"> Local & Party </div>
+                                    <div class="subMenuItem"> MMO </div>
+                                    <div class="subMenuItem"> Multiplayer </div>
+                                    <div class="subMenuItem"> Online Competitive </div>
+                                    <div class="subMenuItem"> Singleplayer </div>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                </div>
+
+                <div class="col-1 p-0 nav-item d-flex justify-content-center"> <span class="nav-link"> Point Shop
+                    </span>
+                </div>
+
+                <div class="col-1 p-0 nav-item d-flex justify-content-center"> <span class="nav-link"> News </span>
+                </div>
+
+                <div class="col-3 p-0 nav-item d-flex justify-content-start"> <span class="nav-link"> Labs </span>
+                </div>
+
+                <div class="col-3 d-flex justify-content-end nav-item">
+                    <form role="search">
+                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                    </form>
+                </div>
+
             </div>
+        </div>
     </div>
 </div>

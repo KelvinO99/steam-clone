@@ -31,13 +31,13 @@ div.price {
 
 .title {
     color: #c7d5e0;
-    font-size: 0.78125vw;
+    font-size: 13px;
 }
 
 .price {
     color: #BEEE11;
     line-height: 16px;
-    font-size: 0.78125vw;
+    font-size: 13px;
 }
 
 img.opacity {
@@ -52,27 +52,27 @@ img.game {
 
 span.tags {
     color: #384959;
-    font-size: 0.72vw;
+    font-size: 12px;
 }
 
 span.free {
     color: white;
-    font-size: 0.78125vw;
+    font-size: 14px;
 }
 
 span.discount {
-    font-size: 0.78125vw;
+    font-size: 14px;
     color: #BEEE11;
 }
 
 span.basePriceDiscount {
     color: #738895;
-    font-size: 0.57vw;
+    font-size: 11px;
     text-decoration: line-through
 }
 
 div.discountPercentage {
-    font-size: 0.83vw;
+    font-size: 16px;
     align-items: center;
     display: flex;
     padding: 0 4px;
@@ -84,7 +84,7 @@ div.discountPercentage {
 
 span.basePrice {
     color: white;
-    font-size: 0.78125vw;
+    font-size: 14px;
 }
 
 .game-deals-section {

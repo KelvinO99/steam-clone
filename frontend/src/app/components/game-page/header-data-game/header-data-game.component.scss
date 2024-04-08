@@ -65,6 +65,10 @@ $game-header-background-color: rgb(2, 0, 36);
 .header-data-game-container .header-data-game-header .header-data-game-col-11-section .game-deals-container .game-deals-header {
 
     .game-deals-tag-section .game-deals-tag {
+
+        .tag {
+            cursor: pointer;
+        }
         font-family: "Motiva Sans", Sans-serif;
         font-size: 13px;
         opacity: 0.6;

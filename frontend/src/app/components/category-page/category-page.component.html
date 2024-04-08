@@ -1,0 +1,35 @@
+<div class="container-fluid px-0">
+
+    <div class="d-flex flex-wrap p-0 d-flex justify-content-center">
+        <div class="col-2">
+
+        </div>
+        
+        <div class="col-8">
+            
+            <div class="container p-0">
+                <div class="d-flex flex-wrap">
+                    <div class="col">
+
+                    </div>
+                    <div class="col-11">
+                        <app-body-navbar> </app-body-navbar>
+                    </div>
+                    <div class="col">
+                        
+                    </div>
+                </div>
+            </div>
+
+
+            <app-main-carousel [genre]="genre"> </app-main-carousel>
+            <app-offer-carousel [genre]="genre"  *ngIf="genre != 'free to play'"> </app-offer-carousel>
+
+        </div>
+      
+        <div class="col-2">
+            
+        </div>
+
+    </div>
+</div>

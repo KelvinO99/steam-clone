@@ -16,7 +16,6 @@ export class GameComponent {
 
    ngOnInit() {
     this.routeId = this.route.snapshot.params['id'];
-    console.log(this.routeId);
     this.showGame();
   }
 
@@ -24,9 +23,7 @@ export class GameComponent {
     this.gameService.showGame(this.routeId).subscribe({
       next: (res: any) => {
         {
-          this.game = res
-          console.log(this.game);
-          
+          this.game = res   
         }
       }
     })
