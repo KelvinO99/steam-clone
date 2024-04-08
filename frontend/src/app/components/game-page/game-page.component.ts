@@ -14,7 +14,7 @@ export class GameComponent {
   constructor(public route: ActivatedRoute, public gameService: GameService){}
 
 
-  ngOnInit() {
+   ngOnInit() {
     this.routeId = this.route.snapshot.params['id'];
     console.log(this.routeId);
     this.showGame();
