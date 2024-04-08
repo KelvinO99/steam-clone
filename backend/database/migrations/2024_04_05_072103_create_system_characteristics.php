@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('system_characteristics', function (Blueprint $table) {
             $table->id();
-            $table->enum('type', ['platform', 'os', 'cpu', 'ram', 'gpu', 'directx', 'network', 'storage', 'audio', 'notes']);
+            $table->enum('type', ['platform', 'os', 'cpu', 'ram', 'gpu', 'directx', 'network', 'storage', 'audio', 'notes', 'additional_characteristics']);
             $table->string('name');
             $table->timestamps();
 

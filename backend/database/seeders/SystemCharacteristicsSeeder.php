@@ -12,7 +12,11 @@ class SystemCharacteristicsSeeder extends Seeder
 {
     public function run(): void
     {
-        $platform = [ //no ranking
+        $no_characteristics = 6;
+                                                    //-> bound to SystemRequirementsSeeder
+        $no_additional_characteristics = 6;
+
+        $platform = [ //no ranking diff
             'Windows', 'MacOS', 'SteamOS + Linux', 'tbd', 'tbd', 'tbd',
         ];
         $os = [
@@ -21,95 +25,110 @@ class SystemCharacteristicsSeeder extends Seeder
         $cpu = [
             'Intel i3-2100', 'Intel i5-6600k', 'AMD Ryzen 3 1200', 'Intel i5-8600', 'Intel i7-9700k',  'AMD Ryzen 5 3600',
         ];
-        $ram = [
-            '4 GB RAM', '8 GB RAM', 'tbd', '12 GB RAM', '16 GB RAM', 'tbd',
+        $ram = [ //duplicate entries
+            '4 GB RAM', '8 GB RAM', '8 GB RAM', '12 GB RAM', '16 GB RAM', '16GB RAM',
         ];
         $gpu = [
             'NVIDIA GeForce GTX 1650 4GB', 'NVIDIA GeForce GTX 1060 6GB', 'AMD Radeon RX 5500XT 4GB', 'NVIDIA GeForce RTX 2060', 'NVIDIA GeForce RTX 3060', 'AMD Radeon RX 5700',
         ];
-        $directx = [ //no ranking | old
+        $directx = [ //no ranking diff | old
             '7', '8', '9', '10', '11', '12',
         ];
         $network = [
             'Broadband Internet connection', 'tbd', 'tbd', 'NASA Internet Connection', 'tbd', 'tbd',
         ];
-        $storage = [ //no ranking
-            '5 GB Available Space', '40 GB Available Space', '50 GB Available Space', '60 GB Available Space', '100 GB Available Space', '120 GB Available Space',
+        $storage = [ //no ranking diff
+            '5 GB Available Space', '40 GB Available Space', '60 GB Available Space', '80 GB Available Space', '100 GB Available Space', '150 GB Available Space',
         ];
         $audio = [ //old
             'DirectX® 9 compatible', 'tbd', 'tbd', 'DirectX® 9 compatible', 'tbd', 'tbd',
         ];
         $notes = [
-            'Monitor, Mouse and Keyboard', 'SSD Required', 'tbd', 'tbd', 'tbd', 'tbd',
+            'Monitor, Mouse and Keyboard', 'SSD Recommended', 'SSD Required', 'tbd', 'tbd', 'tbd',
         ];
-        for($i=0;$i<6;$i++)
+        $additional_characteristics = [ //special | no-limit
+            'Apple M1', 'Apple M1 MAX', 'Apple M2', 'Apple M2 MAX', 'Apple M3', 'Apple M3 MAX',
+        ];
+        for($i=0;$i<$no_characteristics;$i++)
         {
             DB::table('system_characteristics')->insert([
                 'type' => 1,
                 'name' => $platform[$i]
             ]);
         }
-        for($i=0;$i<6;$i++)
+        for($i=0;$i<$no_characteristics;$i++)
         {
             DB::table('system_characteristics')->insert([
                 'type' => 2,
                 'name' => $os[$i]
             ]);
         }
-        for ($i = 0; $i < 6; $i++) {
+        for ($i = 0; $i < $no_characteristics; $i++) {
             DB::table('system_characteristics')->insert([
                 'type' => 3,
                 'name' => $cpu[$i]
             ]);
         }
 
-        for ($i = 0; $i < 6; $i++) {
+        for ($i = 0; $i < $no_characteristics; $i++) {
             DB::table('system_characteristics')->insert([
                 'type' => 4,
                 'name' => $ram[$i]
             ]);
         }
 
-        for ($i = 0; $i < 6; $i++) {
+        for ($i = 0; $i < $no_characteristics; $i++) {
             DB::table('system_characteristics')->insert([
                 'type' => 5,
                 'name' => $gpu[$i]
             ]);
         }
 
-        for ($i = 0; $i < 6; $i++) {
+        for ($i = 0; $i < $no_characteristics; $i++) {
             DB::table('system_characteristics')->insert([
                 'type' => 6,
                 'name' => $directx[$i]
             ]);
         }
 
-        for ($i = 0; $i < 6; $i++) {
+        for ($i = 0; $i < $no_characteristics; $i++) {
             DB::table('system_characteristics')->insert([
                 'type' => 7,
                 'name' => $network[$i]
             ]);
         }
 
-        for ($i = 0; $i < 6; $i++) {
+        for ($i = 0; $i < $no_characteristics; $i++) {
             DB::table('system_characteristics')->insert([
                 'type' => 8,
                 'name' => $storage[$i]
             ]);
         }
 
-        for ($i = 0; $i < 6; $i++) {
+        for ($i = 0; $i < $no_characteristics; $i++) {
             DB::table('system_characteristics')->insert([
                 'type' => 9,
                 'name' => $audio[$i]
             ]);
         }
 
-        for ($i = 0; $i < 6; $i++) {
+        for ($i = 0; $i < $no_characteristics; $i++) {
             DB::table('system_characteristics')->insert([
                 'type' => 10,
                 'name' => $notes[$i]
             ]);
         }
+
+
+        for ($i = 0; $i < $no_additional_characteristics; $i++) {
+            DB::table('system_characteristics')->insert([
+                'type' => 11,
+                'name' => $additional_characteristics[$i]
+            ]);
+        }
+            DB::table('system_characteristics')->insert([
+                'type' => 11,
+                'name' => 'no_data'
+            ]);
     }
 }
