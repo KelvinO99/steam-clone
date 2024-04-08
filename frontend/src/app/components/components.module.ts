@@ -32,6 +32,8 @@ import { BigButtonsComponent } from './store/big-buttons/big-buttons.component';
 import { GameComponent } from './game-page/game-page.component';
 import { BodyDataGameComponent } from './game-page/body-data-game/body-data-game.component';
 import { BodyNavbarComponent } from './body-navbar/body-navbar.component';
+import { SteamDeckComponent } from './steam-deck/steam-deck.component';
+import { ReviewsComponent } from './game-page/reviews/reviews.component';
 @NgModule({
   declarations: [
     BaseComponent,
@@ -50,7 +52,9 @@ import { BodyNavbarComponent } from './body-navbar/body-navbar.component';
     BigButtonsComponent,
     GameComponent,
     BodyDataGameComponent,
-    BodyNavbarComponent
+    BodyNavbarComponent,
+    SteamDeckComponent,
+    ReviewsComponent,
 
   ],
   imports: [
