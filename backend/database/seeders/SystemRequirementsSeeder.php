@@ -49,7 +49,7 @@ class SystemRequirementsSeeder extends Seeder
                         'network_id' => $k == 1 ? $network + $min : $network + $max,
                         'storage_id' => $k == 1 ? $storage + $min : $storage + $max,
                         'audio_id' => $k == 1 ? $audio + $min : $audio + $max,
-                        'notes_id' => $k == 1 ? $notes + $min : $notes + $max,
+                        'notes_id' => $notes + rand(0,$no_characteristics-1),
                     ]);
                     DB::table('system_requirements')->where('game_id', $i)          //additional macOS seeder logic
                                                     ->where('platform_id', 2)

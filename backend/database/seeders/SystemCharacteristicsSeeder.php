@@ -38,13 +38,13 @@ class SystemCharacteristicsSeeder extends Seeder
             'Broadband Internet connection', 'tbd', 'tbd', 'NASA Internet Connection', 'tbd', 'tbd',
         ];
         $storage = [ //no ranking diff
-            '5 GB Available Space', '40 GB Available Space', '50 GB Available Space', '60 GB Available Space', '100 GB Available Space', '120 GB Available Space',
+            '5 GB Available Space', '40 GB Available Space', '60 GB Available Space', '80 GB Available Space', '100 GB Available Space', '150 GB Available Space',
         ];
         $audio = [ //old
             'DirectX® 9 compatible', 'tbd', 'tbd', 'DirectX® 9 compatible', 'tbd', 'tbd',
         ];
         $notes = [
-            'Monitor, Mouse and Keyboard', 'tbd', 'tbd', 'SSD Required', 'tbd', 'tbd',
+            'Monitor, Mouse and Keyboard', 'SSD Recommended', 'SSD Required', 'tbd', 'tbd', 'tbd',
         ];
         $additional_characteristics = [ //special | no-limit
             'Apple M1', 'Apple M1 MAX', 'Apple M2', 'Apple M2 MAX', 'Apple M3', 'Apple M3 MAX',
