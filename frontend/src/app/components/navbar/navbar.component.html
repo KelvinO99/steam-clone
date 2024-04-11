@@ -114,7 +114,7 @@
                                                 <div class="dropdown p-0">
                                                     <a class="dropbtn nav-link itemUser"> {{ username }} </a>
                                                     <div class="dropdown-content store">
-                                                        <a class="subMenuItem"> Show my profile </a>
+                                                        <a class="subMenuItem" (click)="goTo('../user-page/' + username)"> Show my profile </a>
                                                         <a class="subMenuItem"> Account details: {{ username }} </a>
                                                         <a class="subMenuItem"> Preference of the store </a>
                                                         <a class="subMenuItem"> View my Wallet </a>

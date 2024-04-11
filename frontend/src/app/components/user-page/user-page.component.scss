@@ -1,0 +1,39 @@
+//General CSS
+
+.all-page{
+    background-image: url(../../../assets/momentary_user-page/userbackground.gif);
+    max-width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body.GameProfileTheme {
+    --gradient-right: rgba(255, 107, 97, 1);
+    --gradient-left: rgba(191, 175, 162, 1);
+    --gradient-background: rgba(46, 49, 93, 0.6);
+    --gradient-background-right: rgba(255, 107, 97, 1);
+    --gradient-background-left: rgba(191, 175, 162, 1);
+    --color-showcase-header: rgba(79, 150, 94, .4);
+    --gradient-showcase-header-left: rgba(79, 150, 94, 1);
+    --btn-background: rgba(0, 0, 0, .2);
+    --btn-background-hover: rgb(255, 255, 255, .1);
+    --btn-outline: rgb(255, 255, 255, .1);
+}
+
+//user column
+
+.user-page{
+  background: #4A4C7A;
+  opacity: 70%;
+  height: 1000px;
+}
+
+.profile-header-bg{
+}
+
+.profile-header-bg-texture {
+
+}
+
+.profile_header {
+}
