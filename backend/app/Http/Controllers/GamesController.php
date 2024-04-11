@@ -312,10 +312,10 @@ class GamesController extends Controller
             'ratio' => $ratio,
             'evaluation' => $string,
             'system_requirements' => $obj,
-            'reviews' => $reviews,
-            'dlc' => $dlc,
-            'no_users_ownership' => $no_users_ownership,
             'pegi_img'=>$pegi_img,
+            'no_users_ownership' => $no_users_ownership,
+            'dlc' => $dlc,
+            'reviews' => $reviews,
             ]);
 
         }catch(\Exception $e){

@@ -63,38 +63,9 @@ class ImagesSeeder extends Seeder
         ];
 
         $users_path = [
-            'http://localhost:8000/storage/user_images/default',
-            'http://localhost:8000/storage/user_images/default',
-            'http://localhost:8000/storage/user_images/default',
-            'http://localhost:8000/storage/user_images/default',
-            'http://localhost:8000/storage/user_images/default',
-            'http://localhost:8000/storage/user_images/default',
-            'http://localhost:8000/storage/user_images/default',
-            'http://localhost:8000/storage/user_images/default',
-            'http://localhost:8000/storage/user_images/default',
-            'http://localhost:8000/storage/user_images/default',
-            'http://localhost:8000/storage/user_images/default',
-            'http://localhost:8000/storage/user_images/default',
-            'http://localhost:8000/storage/user_images/default',
-            'http://localhost:8000/storage/user_images/default',
-            'http://localhost:8000/storage/user_images/default',
-            'http://localhost:8000/storage/user_images/default',
-            'http://localhost:8000/storage/user_images/default',
-            'http://localhost:8000/storage/user_images/default',
-            'http://localhost:8000/storage/user_images/default',
-            'http://localhost:8000/storage/user_images/default',
-            'http://localhost:8000/storage/user_images/default',
-            'http://localhost:8000/storage/user_images/default',
-            'http://localhost:8000/storage/user_images/default',
-            'http://localhost:8000/storage/user_images/default',
-            'http://localhost:8000/storage/user_images/default',
-            'http://localhost:8000/storage/user_images/default',
-            'http://localhost:8000/storage/user_images/default',
-            'http://localhost:8000/storage/user_images/default',
-            'http://localhost:8000/storage/user_images/default',
-            'http://localhost:8000/storage/user_images/default',
-            'http://localhost:8000/storage/user_images/default',
-            'http://localhost:8000/storage/user_images/default',
+            'http://localhost:8000/storage/default/userimage.gif',
+            'http://localhost:8000/storage/default/userframe.png',
+            'http://localhost:8000/storage/default/userbackground.gif',
         ];
 
         $achievements_path = [
@@ -115,7 +86,7 @@ class ImagesSeeder extends Seeder
 
 
         $const_games = 6;
-        $const_users = 1;
+        $const_users = 3;
         $const_achievements = 1;
         $const_pegis = 1;
         $const_steams = 1;
@@ -135,7 +106,7 @@ class ImagesSeeder extends Seeder
             }
         }
 
-        for($i=0; $i < sizeof($users_path); $i++){
+        for($i=0; $i < 32; $i++){
 
             for($j=0;$j<$const_users;$j++){
                 DB::table('images')->insert([
@@ -144,7 +115,7 @@ class ImagesSeeder extends Seeder
                     'achievement_id' => null,
                     'pegi_id' => null,
                     'steam_id' => null,
-                    'image_path' => $users_path[$i].'.png',
+                    'image_path' => $users_path[$j],
                         ]);
             }
         }
@@ -190,6 +161,14 @@ class ImagesSeeder extends Seeder
                         ]);
             }
         }
+
+
+
+        // DB::table('images')
+        //     ->where('id', 1)
+        //     ->delete([
+        //         ''
+        //     ]);
     }
 }
 
