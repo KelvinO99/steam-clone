@@ -22,6 +22,6 @@ class Tags extends Model
         return $this->hasMany(GamesTags::class, 'tag_id', 'id');
     }
     public function Images(){
-        return $this->hasOne(Images::class,'image_id','id');
+        return $this->hasMany(Images::class,'image_id','id');
     }
 }

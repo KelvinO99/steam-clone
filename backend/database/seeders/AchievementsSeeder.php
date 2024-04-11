@@ -68,7 +68,7 @@ class AchievementsSeeder extends Seeder
                 'game_id' => $j,//PLACEHOLDER RNG
                 'name' => $names[$i],//PLACEHOLDER RNGNAME FROM ARRAY
                 //'is_achieved' => $bool = (bool)rand(0,1), //perché è tolta dalle migrations bo
-                'image_id' => 254/*$j*/,
+                //'image_id' => 254/*$j*/,
             ]);
         }
     }
