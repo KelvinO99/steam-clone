@@ -18,13 +18,17 @@ return new class extends Migration
             $table->string('email')->unique()->default('PLACEHOLDER');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->default('PLACEHOLDER');
+            $table->unsignedBigInteger('country_id')->default(1);
+            //$table->integer('level'); //in backlog
+            $table->text('description')->default('no information given');
             $table->float('wallet')->default(0.00);
-            $table->unsignedBigInteger('image_id')->nullable()->default(111); //NON SI METTE NULL VAFFANCUKLO
             //$table->string('role')->default('user');
             $table->rememberToken();
             $table->timestamps();
 
-            $table->foreign('image_id')->references('id')->on('images');
+            //$table->foreign('image_id')->references('id')->on('images');
+            $table->foreign('country_id')->references('id')->on('countries');
+
         });
     }
 

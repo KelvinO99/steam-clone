@@ -15,8 +15,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             TagsSeeder::class,
             GamesSeeder::class,
-            ImagesSeeder::class,
             RolesTableSeeder::class,
+            CountriesSeeder::class,
             UsersSeeder::class,
             DevelopersSeeder::class,
             LibrariesSeeder::class,
@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             LanguagesSeeder::class,
             ReviewsSeeder::class,
             AchievementsSeeder::class,
+            ImagesSeeder::class,
             UsersAchievementsSeeder::class,
             DevelopersGamesSeeder::class,
             GamesLanguagesSeeder::class,

@@ -103,7 +103,7 @@ class ReviewsSeeder extends Seeder
                 $reviews_date = Carbon::parse($release_date)->addDays(rand(0, Carbon::parse('today')->diffInDays($release_date)));
             }
 
-            $rng = rand(1,3);
+            $rng = rand(1,5);
             DB::table('reviews')->insert([
                 'user_id' => rand(1,19),//PLACEHOLDER RNG
                 'game_id' => $gameid_random,

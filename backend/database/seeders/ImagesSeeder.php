@@ -12,7 +12,7 @@ class ImagesSeeder extends Seeder
 {
     public function run(): void
     {
-        $image_path = [
+        $games_path = [
             'http://localhost:8000/storage/game_images/undertale/undertale',
             'http://localhost:8000/storage/game_images/uncharted_the_legacy_collection/uncharted_the_legacy_collection',
             'http://localhost:8000/storage/game_images/hitman_3/hitman_3',
@@ -61,32 +61,114 @@ class ImagesSeeder extends Seeder
 
 
         ];
-        $const_img = 6;
-        for($i=0;$i<sizeof($image_path)+1;$i++) //n$image_path cicli games_images + ($+1) users_images
-        {
-            if($i >= sizeof($image_path)){
 
-                DB::table('images')->insert(['image_path' => 'http://localhost:8000/storage/user_images/Default.png',]);
-                DB::table('images')->insert(['image_path' => 'http://localhost:8000/storage/achievement_images/default.png',]);
+        $users_path = [
+            'http://localhost:8000/storage/default/userimage.gif',
+            'http://localhost:8000/storage/default/userframe.png',
+            'http://localhost:8000/storage/default/userbackground.gif',
+        ];
 
-                DB::table('images')->insert(['image_path' => 'http://localhost:8000/storage/pegi_images/pegi_3.jpg',]);
-                DB::table('images')->insert(['image_path' => 'http://localhost:8000/storage/pegi_images/pegi_7.jpg',]);
-                DB::table('images')->insert(['image_path' => 'http://localhost:8000/storage/pegi_images/pegi_12.jpg',]);
-                DB::table('images')->insert(['image_path' => 'http://localhost:8000/storage/pegi_images/pegi_16.jpg',]);
-                DB::table('images')->insert(['image_path' => 'http://localhost:8000/storage/pegi_images/pegi_18.jpg',]);
+        $achievements_path = [
+            'http://localhost:8000/storage/achievement_images/default.png',
+        ];
 
-            }
+        $pegis_path = [
+            'http://localhost:8000/storage/pegi_images/pegi_3',
+            'http://localhost:8000/storage/pegi_images/pegi_7',
+            'http://localhost:8000/storage/pegi_images/pegi_12',
+            'http://localhost:8000/storage/pegi_images/pegi_16',
+            'http://localhost:8000/storage/pegi_images/pegi_18',
+        ];
 
-            if($i < sizeof($image_path)){
+        $steams_path = [
+            'http://localhost:8000/storage/bo/bo.jpg'
+        ];
 
-                for($j=0;$j<$const_img;$j++){
-                    DB::table('images')->insert([
-                        'image_path' => $image_path[$i].'_'.$j.'.jpg',
-                        'game_id' => $i+1,
-                            ]);
-                }
+
+        $const_games = 6;
+        $const_users = 3;
+        $const_achievements = 1;
+        $const_pegis = 1;
+        $const_steams = 1;
+
+
+        for($i=0; $i < sizeof($games_path); $i++){
+
+            for($j=0;$j<$const_games;$j++){
+                DB::table('images')->insert([
+                    'game_id' => $i+1,
+                    'user_id' => null,
+                    'achievement_id' => null,
+                    'pegi_id' => null,
+                    'steam_id' => null,
+                    'image_path' => $games_path[$i].'_'.$j.'.jpg',
+                        ]);
             }
         }
+
+        for($i=0; $i < 32; $i++){
+
+            for($j=0;$j<$const_users;$j++){
+                DB::table('images')->insert([
+                    'game_id' => null,
+                    'user_id' => $i+1,
+                    'achievement_id' => null,
+                    'pegi_id' => null,
+                    'steam_id' => null,
+                    'image_path' => $users_path[$j],
+                        ]);
+            }
+        }
+
+        for($i=0; $i < sizeof($achievements_path); $i++){
+
+            for($j=0;$j<$const_achievements;$j++){
+                DB::table('images')->insert([
+                    'game_id' => null,
+                    'user_id' => null,
+                    'achievement_id' => $i+1,
+                    'pegi_id' => null,
+                    'steam_id' => null,
+                    'image_path' => $achievements_path[$i].'_'.$j.'.jpg',
+                        ]);
+            }
+        }
+
+        for($i=0; $i < sizeof($pegis_path); $i++){
+
+            for($j=0;$j<$const_pegis;$j++){
+                DB::table('images')->insert([
+                    'game_id' => null,
+                    'user_id' => null,
+                    'achievement_id' => null,
+                    'pegi_id' => $i+1,
+                    'steam_id' => null,
+                    'image_path' => $pegis_path[$i].'.jpg',
+                        ]);
+            }
+        }
+
+        for($i=0; $i < sizeof($steams_path); $i++){
+
+            for($j=0;$j<$const_steams;$j++){
+                DB::table('images')->insert([
+                    'game_id' => null,
+                    'user_id' => null,
+                    'achievement_id' => null,
+                    'pegi_id' => null,
+                    'steam_id' => $i+1,
+                    'image_path' => $steams_path[$i].'_'.$j.'.jpg',
+                        ]);
+            }
+        }
+
+
+
+        // DB::table('images')
+        //     ->where('id', 1)
+        //     ->delete([
+        //         ''
+        //     ]);
     }
 }
 

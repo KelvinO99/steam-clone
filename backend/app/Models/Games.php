@@ -58,6 +58,10 @@ class Games extends Model
 
     return $this->hasMany(Images::class, 'game_id', 'id');
     }
+    public function Pegis(){
+
+        return $this->hasMany(Games::class, 'pegi_id', 'pegi_id');
+    }
     public function GamesLanguages(){
 
         return $this->hasMany(GamesLanguages::class, 'game_id', 'id');

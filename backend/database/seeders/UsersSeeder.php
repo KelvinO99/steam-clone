@@ -112,7 +112,8 @@ class UsersSeeder extends Seeder
                     'username' => $usernames[$j],
                     'email' => $email,
                     'password' => Hash::make($password),
-                    'image_id' => 111, //da cambiare ogni volta che si aggiungono giochi/achievements images
+                    'country_id' => rand(1,251),
+                    'description' => 'no information given',
                     'wallet' => 0,
                 ]);
 
@@ -127,7 +128,8 @@ class UsersSeeder extends Seeder
                     'username' => $usernames[$j],
                     'email' => $email,
                     'password' => 'password',
-                    'image_id' => 111, //da cambiare ogni volta che si aggiungono giochi/achievements images
+                    'country_id' => rand(1,250),
+                    'description' => 'no information given',
                     'wallet' => 0,
                 ]);
 
