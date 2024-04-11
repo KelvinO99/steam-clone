@@ -134,7 +134,7 @@ class ImagesSeeder extends Seeder
                         ]);
             }
         }
-        dump("1");
+
         for($i=0; $i < sizeof($users_path); $i++){
 
             for($j=0;$j<$const_users;$j++){
@@ -148,7 +148,7 @@ class ImagesSeeder extends Seeder
                         ]);
             }
         }
-        dump("2");
+
         for($i=0; $i < sizeof($achievements_path); $i++){
 
             for($j=0;$j<$const_achievements;$j++){
@@ -162,7 +162,7 @@ class ImagesSeeder extends Seeder
                         ]);
             }
         }
-        dump("3");
+
         for($i=0; $i < sizeof($pegis_path); $i++){
 
             for($j=0;$j<$const_pegis;$j++){
@@ -176,7 +176,7 @@ class ImagesSeeder extends Seeder
                         ]);
             }
         }
-        dump("4");
+
         for($i=0; $i < sizeof($steams_path); $i++){
 
             for($j=0;$j<$const_steams;$j++){
@@ -190,7 +190,6 @@ class ImagesSeeder extends Seeder
                         ]);
             }
         }
-        dump("5");
     }
 }
 
