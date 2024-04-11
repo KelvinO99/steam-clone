@@ -254,6 +254,8 @@ class GamesController extends Controller
     //REVIEWS FUNCTION
             $images = Images::where('game_id', $id)->pluck('image_path');
 
+            $is_dlc = $game->is_dlc;
+
             $dlc = Games::where('parent_id', $id)
             ->select('id', 'name', 'date', 'base_price', 'is_discounted', 'discounted_price', 'discounted_percentage', 'short_description')
             ->with(['images' => function ($q) {
@@ -314,6 +316,7 @@ class GamesController extends Controller
             'system_requirements' => $obj,
             'pegi_img'=>$pegi_img,
             'no_users_ownership' => $no_users_ownership,
+            'is_dlc' => $is_dlc,
             'dlc' => $dlc,
             'reviews' => $reviews,
             ]);
