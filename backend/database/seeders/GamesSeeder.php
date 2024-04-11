@@ -1167,13 +1167,13 @@ class GamesSeeder extends Seeder
             'id' => 104,
             'name' => 'Free To Play',
             'is_genre' => false,
-            'image_id' => 1,
+            //'image_id' => 1,
         ]);
         DB::table('tags')->insert([
             'id' => 105,
             'name' => 'Upcoming',
             'is_genre' => false,
-            'image_id' => 1,
+            //'image_id' => 1,
         ]);
 
         for($i=0;$i<42;$i++)
