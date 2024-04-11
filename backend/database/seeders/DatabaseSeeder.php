@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             TagsSeeder::class,
             GamesSeeder::class,
             RolesTableSeeder::class,
+            CountriesSeeder::class,
             UsersSeeder::class,
             DevelopersSeeder::class,
             LibrariesSeeder::class,
