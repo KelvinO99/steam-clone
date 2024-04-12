@@ -10,24 +10,56 @@ import { GameService } from 'src/app/shared/services/game.service';
 export class CategoryPageComponent {
   genre!: string;
   game!: any;
+  tag: any[] = [
+    {
+      name: "action",
+      id: 1,
+    },
+
+    {
+      name: "adventure",
+      id: 2,
+    },
+
+    {
+      name: "sci-fi",
+      id: 3,
+    }
+
+  ];
 
   constructor(public route: ActivatedRoute, public gameService: GameService){}
 
 
   ngOnInit() {
     this.genre = this.route.snapshot.params['genre'];
-    this.getGames();
+    this.getGames(true);
   }
 
-  getGames() {
-    this.gameService.getGames({tag: this.genre}).subscribe({
-      next: (res: any) => {
-        {
-          this.game = res
-          console.log(this.game);
-            
-        }
-      }
-    })
+  loadData(feat: boolean, tag?: string) {
+    this.getGames(feat, tag)
   }
+  
+  getGames(feat: boolean, tags: any = null) {
+    let params: any = {};
+  
+    if (feat) {
+      params.featured = true;
+    }
+  
+    if (tags !== null) {
+      params.tag = [tags];
+    } else {
+      params.tag = [this.genre];
+    }
+  
+    this.gameService.getGames(params).subscribe({
+      next: (res: any) => {
+        this.game = res;
+        console.log([this.game]);
+      }
+    });
+  }
+  
+
 }

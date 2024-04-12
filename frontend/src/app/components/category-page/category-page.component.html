@@ -23,7 +23,24 @@
 
 
             <app-main-carousel [genre]="genre"> </app-main-carousel>
-            <app-offer-carousel [genre]="genre"  *ngIf="genre != 'free to play'"> </app-offer-carousel>
+            
+            <div class="container">
+                <div>
+                    <button (click)="loadData(true)"> Featured </button>
+                    <button *ngFor="let item of tag" (click)="loadData(false, item.name)"> {{item.name}} </button>
+                    <!-- <app-offer-carousel [genre]="genre"> </app-offer-carousel> -->
+                    <!-- <mat-tab-group (selectedTabChange)="loadData($event.tab.textLabel)">
+                        <mat-tab label="Fetured"> 
+                            <app-offer-carousel [genre]="genre"  *ngIf="genre != 'free to play'"> </app-offer-carousel> </mat-tab>
+                        <mat-tab *ngFor="let item of tag" label="{{item.name}}" (click)="getGames()"> 
+                            <div *ngFor="let item of game"> {{item.name}} </div>
+                        </mat-tab>
+                        <mat-tab label="1">
+                            
+                        </mat-tab>
+                      </mat-tab-group>   -->      
+                </div>
+            </div>
 
         </div>
       

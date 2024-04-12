@@ -36,6 +36,7 @@ import { SteamDeckComponent } from './steam-deck/steam-deck.component';
 import { ReviewsComponent } from './game-page/reviews/reviews.component';
 import { CategoryPageComponent } from './category-page/category-page.component';
 import { MainCarouselComponent } from './category-page/main-carousel/main-carousel.component';
+import { NzButtonModule } from 'ng-zorro-antd/button';
 
 @NgModule({
   declarations: [
@@ -81,6 +82,7 @@ import { MainCarouselComponent } from './category-page/main-carousel/main-carous
     MatCardModule,
     MatTabsModule,
     MatButtonModule,
+    NzButtonModule,
   ],
   exports: [CommonModule, TranslateModule, BaseComponent],
 })

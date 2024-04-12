@@ -15,7 +15,7 @@ export class GameTableComponent {
   specia_offer: any;
   game: any;
   number!: number;
-  hoveredGameId: number | null = null;
+  hoveredGameId: number | null = null; 
 
   skip: number = 0;
   take: number = 10;

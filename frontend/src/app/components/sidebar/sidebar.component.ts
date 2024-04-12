@@ -24,7 +24,7 @@ export class SidebarComponent {
       .getGenres({
         skip: this.skip,
         take: this.take,
-        
+        category: true,
       })
       .subscribe((res: any) => {
         this.genre = res.tags;
