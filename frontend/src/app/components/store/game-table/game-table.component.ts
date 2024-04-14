@@ -1,6 +1,8 @@
+import { TagService } from 'src/app/shared/services/tag.service';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { GameService } from 'src/app/shared/services/game.service';
+import { animate } from '@angular/animations';
 
 @Component({
   selector: 'app-game-table',
@@ -8,23 +10,69 @@ import { GameService } from 'src/app/shared/services/game.service';
   styleUrls: ['./game-table.component.scss'],
 })
 export class GameTableComponent {
-  discount_game: any;
-  upcoming_game: any;
-  best_seller_game: any;
-  most_reviewed_game: any;
-  specia_offer: any;
-  game: any;
-  number!: number;
-  hoveredGameId: number | null = null; 
-
+  //Filtri Chiamate BackEnd
+  tag!: any;
   skip: number = 0;
   take: number = 10;
+  games!: any;
+  showGames!: any;
+  number!: number;
+  hoveredGameId: number | null = null;
 
-  constructor(public gameService: GameService, public router: Router) {}
+  tags: any = [
+    {
+      name: 'New & Trading',
+      id: 0,
+    },
+    {
+      name: 'Top Sellers',
+      id: 1,
+    },
+    {
+      name: 'Popular Upcoming',
+      id: 2,
+    },
+    {
+      name: 'Specials Offers',
+      id: 3,
+    },
+  ];
+
+  constructor(
+    public gameService: GameService,
+    public tagService: TagService,
+    public router: Router
+  ) {}
 
   ngOnInit() {
-    this.getMostReviewed();
-    this.showGame(this.number);
+    /* this.showGame(this.number); */
+    this.loadData;
+  }
+
+  loadData(filtrer?: number) {
+    this.getGames(filtrer);
+  }
+
+  getGames(filtrer?: number) {
+    let params: any = {};
+    params.take = 10;
+    params.skip = 0;
+
+    if (filtrer == 0) {
+      params.most_reviewed = true;
+    } else if (filtrer == 1) {
+      params.best_seller = true;
+    } else if (filtrer == 2) {
+      params.upcoming = true;
+    } else if (filtrer == 3) {
+      params.special_offer = true;
+    }
+
+    this.gameService
+      .getGames(params)
+      .subscribe((res: any) => {
+        this.games = res;
+      });
   }
 
   setHoveredGameId(gameId: number) {
@@ -39,90 +87,10 @@ export class GameTableComponent {
   showGame(gameId: number) {
     this.gameService.showGame(gameId).subscribe({
       next: (res: any) => {
-        this.game = res;
-        console.log(this.game);
-        
+        this.showGames = res;
+        console.log(this.showGames);
       },
     });
-  }
-
-  loadData(tab: string) {
-    switch (tab) {
-      case 'New & Trending':
-        this.getMostReviewed();
-        break;
-      case 'Top Sellers':
-        this.getBestSeller();
-        break;
-      case 'Upcoming':
-        this.getUpcoming();
-        break;
-      case 'Specials offers':
-        this.getSpecialOffer();
-        break;
-    }
-  }
-
-  getUpcoming() {
-    this.gameService
-      .getGames({
-        skip: this.skip,
-        take: this.take,
-        upcoming: true, // Imposta il flag a true
-      })
-      .subscribe((res: any) => {
-        this.upcoming_game = res;
-      });
-  }
-
-  getBestSeller() {
-    this.gameService
-      .getGames({
-        skip: this.skip,
-        take: this.take,
-        best_seller: true, // Imposta il flag a true
-      })
-      .subscribe((res: any) => {
-        this.best_seller_game = res;
-      });
-  }
-
-  getDiscount() {
-    this.gameService
-      .getGames({
-        skip: this.skip,
-        take: this.take,
-        discount: true, // Imposta il flag a true
-      })
-      .subscribe((res: any) => {
-        this.discount_game = res;
-      });
-  }
-
-  getMostReviewed() {
-    this.gameService
-      .getGames({
-        skip: this.skip,
-        take: this.take,
-        most_reviewed: true, // Imposta il flag a true
-      })
-      .subscribe((res: any) => {
-        this.most_reviewed_game = res;
-        console.log(this.most_reviewed_game);
-        
-      });
-  }
-
-  getSpecialOffer() {
-    this.gameService
-      .getGames({
-        skip: this.skip,
-        take: this.take,
-        special_offer: true, // Imposta il flag a true
-      })
-      .subscribe((res: any) => {
-        this.specia_offer = res;
-      });
   }
 
   goTo(path: string) {

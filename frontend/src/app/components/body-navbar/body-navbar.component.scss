@@ -15,10 +15,6 @@
     .label-section {
         padding: 8px 3px 8px 10px !important;
 
-        &:hover {
-            background: linear-gradient(90deg, rgba(33, 162, 255, 0.25) 0%, rgba(33, 162, 255, 0.15) 50%, rgba(50, 50, 51, 0) 100%);
-        }
-
         .label {
             color: #e5e5e5;
             text-decoration: none;
@@ -99,7 +95,7 @@
             .category-header {
                 min-width: 800px;
                 position: absolute !important;
-                left: -85px !important;
+                left: -45px !important;
             }
 
             .header {

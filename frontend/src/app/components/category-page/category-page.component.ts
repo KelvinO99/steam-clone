@@ -50,6 +50,7 @@ export class CategoryPageComponent {
     if (tags !== null) {
       params.tag = [tags];
     } else {
+      params.featured = true;
       params.tag = [this.genre];
     }
   

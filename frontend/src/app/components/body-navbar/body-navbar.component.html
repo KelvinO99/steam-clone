@@ -76,11 +76,11 @@
                         <p class="caption pt-3"> Genres </p>
                         <div class="d-flex flex-wrap">
                             <div class="col label-section">
-                                <p class="label-item" *ngFor="let item of tag?.slice(0, 8)">
+                                <p class="label-item" (click)="goTo('../games/' + item?.name.toLowerCase())" *ngFor="let item of tag?.slice(0, 8)">
                                     {{item.name}}
                                 </p>
                                 <p class="spacer"></p>
-                                <p class="label-item pt-1" *ngFor="let item of tag?.slice(8, 16)">
+                                <p class="label-item pt-1" (click)="goTo('../games/' + item?.name.toLowerCase())" *ngFor="let item of tag?.slice(8, 16)">
                                     {{item.name}}
                                 </p>
                             </div>

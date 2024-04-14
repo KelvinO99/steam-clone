@@ -1,3 +1,23 @@
 .container-fluid {
-    max-width: 1600px;
+    width: 100rem;
+}
+
+
+@media only screen and (max-width: 1320px) {
+
+    .col-2 {
+        display: none !important;
+    }
+
+    app-body-navbar {
+        display: none !important;
+    }
+
+    .container {
+        width: max-content;
+    }
+
+    .container-fluid {
+        width: max-content;
+    }
 }
