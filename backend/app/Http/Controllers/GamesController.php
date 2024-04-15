@@ -27,7 +27,7 @@ class GamesController extends Controller
         try {
             $discount = $request->input("discount"); // GIOCHI CON SCONTO
             $featured = $request->input("featured"); // GIOCHI TOP SELLER
-            $tag = $request->input("tag");  //FILTRA IN BASE AL TAG RICHIESTO
+            $tag = $request->input("tag", []);  //FILTRA IN BASE AL TAG RICHIESTO
             $special_offer = $request->input("special_offer"); // GIOCHI CON SCONTO SUPERIORE AL 50%
             $most_reviewed = $request->input("most_reviewed"); // CALCOLO TRA NUMERO RECENSIONI E DATA DI USCITA
             $best_seller = $request->input("best_seller"); // CALCOLO SUL NUMERO DI COPIE ACQUISTATE
@@ -37,71 +37,21 @@ class GamesController extends Controller
             $today = Carbon::now();
 
             $game = Games::with('GamesTags.Tags')
-                ->select('id', 'name', 'date', 'base_price', 'is_discounted', 'discounted_price', 'discounted_percentage', 'created_at', 'updated_at')
+
                 ->with('images');
 
             $total = $game->count();
 
-    /*//REVIEWS FUNCTION
-            $no_reviews = Reviews::where('game_id', $id)->pluck('is_recommended'); //prendi la colonna is_recommended del singolo gioco
 
-            $cond = count($no_reviews); //conta quante review sono state fatte
-            if($cond == 0)
-            {
-                $positive = 0;
-                $negative = 0;
-                $ratio = 0;
-                $string = 'Error';
-                $reviews = 'No Reviews';
 
-            }
-            else
-            {
-
-                $positive = 0;
-                                    // inizializza variabile che verrà usata subito
-                $negative = 0;
-                for($i = 0; $i < $cond-1; $i++){
-                    if($no_reviews[$i] == 1)         //ciclo for che conta quante review sono positive
-                    {                             //per fare un rapporto
-                        $positive++;
-                    }
-                    else
-                    {
-                        $negative++;
-                    }
+            if (!empty($tag)) { // Change from $tags to $tag
+                // Loop through each tag and apply the filter
+                foreach ($tag as $t) { // Change from $tags to $tag
+                    $game->whereHas('GamesTags.Tags', function ($q) use ($t) { // Change from $tags to $tag
+                        $q->where('name', $t);
+                    });
                 }
-                $ratio=floor(($positive/$cond)*100); //il rapporto
-                switch($ratio) {               //switch case in base alle valutazioni
-                    case $ratio>=0&&$ratio<=19:
-                        $string= 'Overwhelmingly Negative Reviews';
-                            break;
-                    case $ratio>=20&&$ratio<=39:
-                        $string= 'Mostly Negative Reviews';
-                            break;
-                    case $ratio>=40&&$ratio<=69:
-                        $string= 'Mixed Reviews';
-                            break;                                  //tutto questo non è simmetrico!!
-                    case $ratio>=70&&$ratio<=79:
-                        $string= 'Mostly Positive Reviews';
-                            break;
-                    case $ratio>=80&&$ratio<=94:
-                        $string= 'Very Positive Reviews';
-                            break;
-                    case $ratio>=95&&$ratio<=100:
-                        $string= 'Overwhelmingly Positive Reviews';
-                    default:
-                        $string= 'Error'; //riferisci a chri
-                    }
-
-                $reviews = Reviews::where('game_id', $id)
-                                    ->with(['User'=>  function ($q){
-                                        $q->select('id', 'username');
-                                    }])
-                                    ->get();
             }
-
-    //REVIEWS FUNCTION*/
 
     //ISSET CODE
             if ($discount) {
@@ -136,25 +86,29 @@ class GamesController extends Controller
                 $game->where('date', '>', $today);
             }
 
-            if($tag){
-                $game->select('games.id', 'games.name', 'games.date', 'games.base_price', 'games.discounted_price', 'games.discounted_percentage')
-                    ->join('games_tags', 'games.id', '=', 'games_tags.game_id')
-                    ->join('tags', 'games_tags.tag_id', '=', 'tags.id')
-                    ->where('tags.name', $tag);
-            }
+            // if($tag){
+            //     foreach ($tag as $t) {
+            //         $game->whereHas('GamesTags.Tags', function ($q) use($t){
+            //             $q->where('name', $t);
+            //         });
+            //     }
+            // }
+
     //ISSET CODE
 
             if (isset($skip)) {
-                $game = $game->skip($skip)->take($take);
+                $game = $game->skip($skip);
             }
 
-            $count = $game->count();
+            if (isset($take)) {
+                $game = $game->take($take);
+            }
 
             return response()->json([
                 'status' => 200,
                 'total' => $total,
-                'count' => $count,
-                'games' => $game->get(),
+                'count' => $game->get()->count(), //non toccare che nn funziona + nulla
+                'games' => $game->get(),          //anche qst
             ]);
         } catch (\Exception $e) {
             return $e;
