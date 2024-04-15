@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->boolean('is_publisher')->default(false);
-            $table->text('description')->default('PLACEHOLDER')->nullable();
+            $table->text('description')->default('no information given')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
