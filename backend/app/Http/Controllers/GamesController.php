@@ -32,6 +32,7 @@ class GamesController extends Controller
             $most_reviewed = $request->input("most_reviewed"); // CALCOLO TRA NUMERO RECENSIONI E DATA DI USCITA
             $best_seller = $request->input("best_seller"); // CALCOLO SUL NUMERO DI COPIE ACQUISTATE
             $upcoming = $request->input("upcoming"); // CALCOLO SUL NUMERO DI COPIE ACQUISTATE
+            $new_release = $request->input("new_release"); // ORDINE GIOCHI RILASCIATI PRIMA
             $skip = $request->input("skip");
             $take = $request->input("take");
             $today = Carbon::now();
@@ -85,6 +86,11 @@ class GamesController extends Controller
             if ($upcoming) {
                 $game->where('date', '>', $today);
             }
+            if ($new_release) {
+                $game->whereDate('date', '>=', now()->subYears(2));
+                $game->orderBy('date', 'desc');
+            }
+
 
             // if($tag){
             //     foreach ($tag as $t) {
