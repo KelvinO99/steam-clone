@@ -45,10 +45,9 @@ class GamesController extends Controller
 
 
 
-            if (!empty($tag)) { // Change from $tags to $tag
-                // Loop through each tag and apply the filter
-                foreach ($tag as $t) { // Change from $tags to $tag
-                    $game->whereHas('GamesTags.Tags', function ($q) use ($t) { // Change from $tags to $tag
+            if (!empty($tag)) {
+                foreach ($tag as $t) {
+                    $game->whereHas('GamesTags.Tags', function ($q) use ($t) {
                         $q->where('name', $t);
                     });
                 }
@@ -87,7 +86,7 @@ class GamesController extends Controller
                 $game->where('date', '>', $today);
             }
             if ($new_release) {
-                $game->whereDate('date', '>=', now()->subYears(2));
+                $game->whereDate('date', '>=', now()->subMonths(3));
                 $game->orderBy('date', 'desc');
             }
 
