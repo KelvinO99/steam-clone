@@ -4,9 +4,9 @@
         <div class="col-2">
 
         </div>
-        
+
         <div class="col-8">
-            
+
             <div class="container p-0">
                 <div class="d-flex flex-wrap">
                     <div class="col">
@@ -16,36 +16,36 @@
                         <app-body-navbar> </app-body-navbar>
                     </div>
                     <div class="col">
-                        
+
                     </div>
                 </div>
             </div>
 
 
             <app-main-carousel [genre]="genre"> </app-main-carousel>
-            
+
             <div class="container">
                 <div>
                     <button (click)="loadData(true)"> Featured </button>
-                    <button *ngFor="let item of tag" (click)="loadData(false, item.name)"> {{item.name}} </button>
+                    <button *ngFor="let item of tags" (click)="loadData(false, item.name.toLowerCase())"> {{item.name}} </button>
                     <!-- <app-offer-carousel [genre]="genre"> </app-offer-carousel> -->
                     <!-- <mat-tab-group (selectedTabChange)="loadData($event.tab.textLabel)">
-                        <mat-tab label="Fetured"> 
+                        <mat-tab label="Fetured">
                             <app-offer-carousel [genre]="genre"  *ngIf="genre != 'free to play'"> </app-offer-carousel> </mat-tab>
-                        <mat-tab *ngFor="let item of tag" label="{{item.name}}" (click)="getGames()"> 
+                        <mat-tab *ngFor="let item of tag" label="{{item.name}}" (click)="getGames()">
                             <div *ngFor="let item of game"> {{item.name}} </div>
                         </mat-tab>
                         <mat-tab label="1">
-                            
+
                         </mat-tab>
-                      </mat-tab-group>   -->      
+                      </mat-tab-group>   -->
                 </div>
             </div>
 
         </div>
-      
+
         <div class="col-2">
-            
+
         </div>
 
     </div>

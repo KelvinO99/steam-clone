@@ -46,7 +46,7 @@ export class GameTableComponent {
 
   ngOnInit() {
     /* this.showGame(this.number); */
-    this.loadData;
+    this.loadData(0);
   }
 
   loadData(filtrer?: number) {
@@ -58,14 +58,21 @@ export class GameTableComponent {
     params.take = 10;
     params.skip = 0;
 
-    if (filtrer == 0) {
-      params.most_reviewed = true;
-    } else if (filtrer == 1) {
-      params.best_seller = true;
-    } else if (filtrer == 2) {
-      params.upcoming = true;
-    } else if (filtrer == 3) {
-      params.special_offer = true;
+    switch (filtrer) {
+      case 0:
+        params.most_reviewed = true;
+        break;
+      case 1:
+        params.best_seller = true;
+        break;
+      case 2:
+        params.upcoming = true;
+        break;
+      case 3:
+        params.special_offer = true;
+        break;
+      default:
+        break;
     }
 
     this.gameService

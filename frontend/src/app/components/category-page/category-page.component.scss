@@ -1,9 +1,30 @@
 .container-fluid {
-    width: 100rem;
+  width: 100rem;
+}
+
+button {
+  background: linear-gradient(0deg, rgb(36, 31, 48) 0%, rgb(40, 56, 75) 100%);
+  border: initial;
+  margin-right: 1rem;
+  padding: 1rem 2rem 1rem;
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+  border-radius: 28px;
+  text-transform: uppercase;
+
+  &:focus {
+    color: rgb(35, 38, 46);
+    background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 
-@media only screen and (max-width: 1320px) {
+/* @media only screen and (max-width: 1320px) {
 
     .col-2 {
         display: none !important;
@@ -20,4 +41,4 @@
     .container-fluid {
         width: max-content;
     }
-}
+} */

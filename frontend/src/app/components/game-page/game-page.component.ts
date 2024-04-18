@@ -23,7 +23,7 @@ export class GameComponent {
     this.gameService.showGame(this.routeId).subscribe({
       next: (res: any) => {
         {
-          this.game = res   
+          this.game = res
         }
       }
     })
