@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GameService } from 'src/app/shared/services/game.service';
 import { TagService } from 'src/app/shared/services/tag.service';
@@ -12,6 +12,7 @@ export class CategoryPageComponent {
   genre!: string;
   game!: any;
   tags!: any;
+  @Input() feat: boolean = true;
 
   constructor(public route: ActivatedRoute, public gameService: GameService, public tagService: TagService){}
 
@@ -41,7 +42,7 @@ export class CategoryPageComponent {
       params.featured = true;
     }
 
-    this.gameService.getGames(params).subscribe({
+    this.gameService.getGames({tag: ["action"]}).subscribe({
       next: (res: any) => {
         this.game = res;
         console.log([this.game]);

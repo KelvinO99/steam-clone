@@ -1,25 +1,65 @@
-.container-fluid {
+.category-page-container {
   width: 100rem;
-}
 
-button {
-  background: linear-gradient(0deg, rgb(36, 31, 48) 0%, rgb(40, 56, 75) 100%);
-  border: initial;
-  margin-right: 1rem;
-  padding: 1rem 2rem 1rem;
-  font-size: 15px;
-  font-weight: 700;
-  color: white;
-  border-radius: 28px;
-  text-transform: uppercase;
+  .header .section {
+    .button-container .header .section {
+      .button {
+        background: linear-gradient(0deg, rgb(36, 31, 48) 0%, rgb(40, 56, 75) 100%);
+        border: initial;
+        margin-right: 1rem;
+        padding: 1rem 2rem 1rem;
+        font-size: 15px;
+        font-weight: 700;
+        color: white;
+        border-radius: 28px;
+        text-transform: uppercase;
 
-  &:focus {
-    color: rgb(35, 38, 46);
-    background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);
-  }
+        &:focus {
+          color: rgb(35, 38, 46);
+          background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);
+        }
 
-  &:hover {
-    text-decoration: underline;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .sign-in-container .header {
+      background-color: black;
+      background-position: 0% 0%;
+      background-attachment: scroll;
+
+      .section {
+        color: white;
+
+        .caption {
+          font-weight: 400;
+          letter-spacing: .05em;
+          font-size: 18px;
+          text-transform: uppercase;
+          text-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
+          color: inherit;
+        }
+
+        .label {
+          font-size: 20px;
+          color: inherit;
+        }
+
+        .button {
+          border-radius: 2px;
+          border: none;
+          padding: 10px 30px;
+          margin: 16px;
+          display: inline-block;
+          text-transform: uppercase;
+          cursor: pointer;
+          color: #285b9a;
+          background: rgba(103, 193, 245, .9);
+        }
+      }
+    }
   }
 }
 
