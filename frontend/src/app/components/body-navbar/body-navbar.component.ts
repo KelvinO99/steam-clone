@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { TagService } from './../../shared/services/tag.service';
 import { Component } from '@angular/core';
 
@@ -11,7 +12,7 @@ export class BodyNavbarComponent {
   take: number = 50;
   tag!: any;
 
-  constructor(public tagService: TagService) {}
+  constructor(public tagService: TagService, public router: Router) {}
 
   ngOnInit(){
     this.getGenres();
@@ -26,6 +27,11 @@ export class BodyNavbarComponent {
       .subscribe((res: any) => {
         this.tag = res.tags;
       });
+  }
+
+  goTo(path: string) {
+    this.router.navigate([path]);
+    console.log(path);
   }
   
 }

@@ -1,34 +1,99 @@
-<div class="container-fluid px-0">
-
-    <div class="d-flex flex-wrap p-0 d-flex justify-content-center">
-        <div class="col-2">
+<div class="container-fluid px-0 category-page-container">
+    <div class="d-flex flex-wrap p-0 d-flex justify-content-center header">
+        <div class="col-2 section">
 
         </div>
-        
-        <div class="col-8">
+
+        <div class="col-8 section">
             
-            <div class="container p-0">
-                <div class="d-flex flex-wrap">
-                    <div class="col">
+            <div class="container p-0 navabar-container">
+                <div class="d-flex flex-wrap header">
+                    <div class="col section">
 
                     </div>
-                    <div class="col-11">
+                    <div class="col-11 section">
                         <app-body-navbar> </app-body-navbar>
                     </div>
-                    <div class="col">
-                        
+                    <div class="col section">
+
                     </div>
                 </div>
             </div>
 
-
             <app-main-carousel [genre]="genre"> </app-main-carousel>
-            <app-offer-carousel [genre]="genre"  *ngIf="genre != 'free to play'"> </app-offer-carousel>
+
+            <div class="container p-0 navabar-container">
+                <div class="d-flex flex-wrap header">
+                    <div class="col section">
+
+                    </div>
+                    <div class="col-11 section">
+                                                <div class="container d-flex justify-content-center button-container">
+                            <div class="d-flex flex-row header">
+                                <div class="col section">
+                                    <button class="button" (click)="loadData(true)"> Featured </button>
+                                    <button class="button" *ngFor="let item of tags" (click)="loadData(false, item.name.toLowerCase())">
+                                        {{item.name}} </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col section">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="container p-0 navabar-container">
+                <div class="d-flex flex-wrap header">
+                    <div class="col section">
+
+                    </div>
+                    <div class="col-11 section">
+                        <div class="container my-5 sign-in-container">
+                            <div class="d-flex flex-column header p-3">
+            
+                                <div class="col d-flex justify-content-start section pb-3">
+                                    <p class="caption"> On Your Wishlist </p>
+                                </div>
+            
+                                <div class="col d-flex justify-content-center section">
+                                    <p class="label"> Sign in to view additional items selected just for you. </p>
+                                </div>
+            
+                                <div class="col d-flex justify-content-center section">
+                                    <button class="button"> SIGN IN </button>                   
+                                </div>
+            
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col section">
+
+                    </div>
+                </div>
+            </div>
+                        
+            <app-updates-offer-cards> </app-updates-offer-cards>
+
+            <div class="container p-0 navabar-container">
+                <div class="d-flex flex-wrap header">
+                    <div class="col section">
+
+                    </div>
+                    <div class="col-11 section">
+                        <app-category-game-table> </app-category-game-table>
+                    </div>
+                    <div class="col section">
+
+                    </div>
+                </div>
+            </div>
 
         </div>
-      
-        <div class="col-2">
-            
+
+        <div class="col-2 section">
+
         </div>
 
     </div>
