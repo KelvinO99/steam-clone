@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GameService } from 'src/app/shared/services/game.service';
+import { TagService } from 'src/app/shared/services/tag.service';
 
 @Component({
   selector: 'app-category-page',
@@ -10,24 +11,52 @@ import { GameService } from 'src/app/shared/services/game.service';
 export class CategoryPageComponent {
   genre!: string;
   game!: any;
+  tags!: any;
+  @Input() feat: boolean = true;
 
-  constructor(public route: ActivatedRoute, public gameService: GameService){}
+  constructor(public route: ActivatedRoute, public gameService: GameService, public tagService: TagService){}
 
 
   ngOnInit() {
     this.genre = this.route.snapshot.params['genre'];
-    this.getGames();
+    this.getGames(true);
+    this.getTags();
   }
 
-  getGames() {
-    this.gameService.getGames({tag: this.genre}).subscribe({
+  loadData(feat: boolean, tag?: string) {
+    this.getGames(feat, tag)
+  }
+
+  getGames(feat: boolean, tags: any = null) {
+    let params: any = {};
+    params.skip = 0;
+    params.take = 50;
+
+    if (feat) {
+      params.featured = true;
+    }
+
+    if (tags !== null) {
+      params.tag = [this.genre, tags];
+    } else {
+      params.featured = true;
+    }
+
+    this.gameService.getGames({tag: ["action"]}).subscribe({
       next: (res: any) => {
-        {
-          this.game = res
-          console.log(this.game);
-            
-        }
+        this.game = res;
+        console.log([this.game]);
       }
-    })
+    });
+  }
+
+  getTags() {
+
+    this.tagService.getGenres({skip: 0, take: 5, category: true}).subscribe({
+      next: (res: any) => {
+        this.tags = res.tags;
+        console.log([this.game]);
+      }
+    });
   }
 }

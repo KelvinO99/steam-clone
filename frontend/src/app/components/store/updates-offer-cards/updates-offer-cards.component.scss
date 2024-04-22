@@ -20,12 +20,13 @@ div.text {
 
 .card {
   transition: 0.2s;
+  cursor: pointer;
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
   z-index: 2;
-  filter: brightness(1.30);
+  filter: brightness(1.10);
 }
 
 img {
@@ -71,3 +72,12 @@ span.basePrice {
   display:flex;
   justify-content: flex-end;
 }
+
+/* @media only screen and (max-width: 1320px) {
+  .update-offer-cards-container,
+  content.container,
+  .card-container,
+  .content-section {
+    width: max-content;
+  }
+} */

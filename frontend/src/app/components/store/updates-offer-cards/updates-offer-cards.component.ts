@@ -14,6 +14,7 @@ export class UpdatesOfferCardsComponent {
   games: any;
   skip: number = 0;
   take: number = 9;
+  most_reviewed: boolean =false;
 
   constructor(public gameService:GameService, public router: Router) {
 
@@ -24,7 +25,20 @@ this.getUpdatesAndOffers();
   }
 
 getUpdatesAndOffers(){
-  this.gameService.getGames({skip: this.skip, take: this.take, discount: true}).subscribe({
+
+  let params: any = {};
+  params.skip = 0;
+  params.take = 9;
+
+  if (this.most_reviewed) {
+    params.most_reviewed = true;
+  }
+
+  else {
+    params.discount = true;
+  }
+
+  this.gameService.getGames(params).subscribe({
     next: (res: any) => {
 
       this.games = res.games;

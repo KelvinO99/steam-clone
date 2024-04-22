@@ -4,5 +4,6 @@
             "filePath": "frontend\\src\\app\\shared\\offer-cards",
             "group": "Default"
         }
-    ]
+    ],
+    "git.ignoreLimitWarning": true
 }
