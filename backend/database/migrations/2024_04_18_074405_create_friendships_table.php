@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('friendships', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id_1');
-            $table->unsignedBigInteger('user_id_2');
+            $table->unsignedBigInteger('user_sender');
+            $table->unsignedBigInteger('user_receiver');
             $table->boolean('is_pending');
+            $table->boolean('is_blocked');
             $table->timestamps();
 
-            $table->foreign('user_id_1')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('user_id_2')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('user_sender')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('user_receiver')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

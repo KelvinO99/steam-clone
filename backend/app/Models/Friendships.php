@@ -11,18 +11,19 @@ class Friendships extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id_1',
-        'user_id_2',
+        'user_sender',
+        'user_receiver',
         'is_pending',
+        'is_blocked',
     ];
 
     public function Users_1(){
 
-        return $this->belongsTo(User::class, 'user_id_1', 'id');
+        return $this->belongsTo(User::class, 'user_sender', 'id');
     }
     public function Users_2(){
 
-        return $this->belongsTo(User::class, 'user_id_2', 'id');
+        return $this->belongsTo(User::class, 'user_receiver', 'id');
     }
 
 }
