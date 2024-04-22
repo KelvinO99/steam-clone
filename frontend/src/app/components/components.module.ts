@@ -40,6 +40,7 @@ import { SteamDeckComponent } from './steam-deck/steam-deck.component';
 import { ReviewsComponent } from './game-page/reviews/reviews.component';
 import { CategoryPageComponent } from './category-page/category-page.component';
 import { MainCarouselComponent } from './category-page/main-carousel/main-carousel.component';
+import { UserPageComponent } from './user-page/user-page.component';
 import { CategoryGameTableComponent } from './category-page/category-game-table/category-game-table.component';
 
 @NgModule({
@@ -65,6 +66,7 @@ import { CategoryGameTableComponent } from './category-page/category-game-table/
     CategoryPageComponent,
     MainCarouselComponent,
     SteamDeckComponent,
+    UserPageComponent,
     CategoryGameTableComponent,
 
   ],

@@ -58,4 +58,9 @@ export class NavbarComponent {
   logout() {
     this.authService.doLogout();
   }
+
+  goTo(path: string) {
+    this.router.navigate([path]);
+    console.log(path);
+  }
 }
