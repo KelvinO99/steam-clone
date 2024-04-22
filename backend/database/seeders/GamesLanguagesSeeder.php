@@ -12,141 +12,6 @@ class GamesLanguagesSeeder extends Seeder
      */
     public function run(): void
     {
-        /*$game_id = [
-            1,
-            1,
-            2,
-            2,
-            2,
-            2,
-            2,
-            3,
-            3,
-            3,
-            3,
-            3,
-            num,
-            num,
-            num,
-            num,
-            num,
-            num,
-            num,
-            num,
-            num,
-            num,
-            num,
-            num,
-            num,
-            num,
-        ];
-
-        $language_id = [
-            'inglese',
-            'giapponese',
-            'inglese',
-            'francese',
-            'italiano',
-            'tedesco',
-            'spagnolo',
-            'inglese',
-            'francese',
-            'italiano',
-            'tedesco',
-            'spagnolo',
-            'linguaaaa',
-            'linguaaaa',
-            'linguaaaa',
-
-        ];
-
-        $interface = [
-            1,//1
-            1,//1
-            1,//2
-            1,//2
-            1,//2
-            1,//2
-            1,//2
-            1,//3
-            1,//3
-            1,//3
-            1,//3
-            1,//3
-            bool,
-            bool,
-            bool,
-            bool,
-            bool,
-            bool,
-            bool,
-            bool,
-            bool,
-            bool,
-            bool,
-            bool,
-            bool,
-            bool,
-        ];
-
-        $full_audio = [
-            0,
-            0,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            0,
-            0,
-            0,
-            0,
-            bool,
-            bool,
-            bool,
-            bool,
-            bool,
-            bool,
-            bool,
-            bool,
-            bool,
-            bool,
-            bool,
-            bool,
-            bool,
-            bool,
-        ];
-
-        $subtitles = [
-            0,
-            0,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            bool,
-            bool,
-            bool,
-            bool,
-            bool,
-            bool,
-            bool,
-            bool,
-            bool,
-            bool,
-            bool,
-            bool,
-        ];*/
-
-
-
 
         //implementa catanese/siciliano
 
@@ -162,13 +27,14 @@ class GamesLanguagesSeeder extends Seeder
 
             for($j=2;$j<=5;$j++)
             {
-                $rng = rand(0,1);
+                $rng = rand(1, 10) <= 8 ? 1 : 0; //80% chance of outputting 1
+                $nested_rng = $rng == 1 ? (rand(1, 10) <= 8 ? 1 : 0) : 0;
                 DB::table('games_languages')->insert([
                     'game_id' => $i,
                     'language_id' => $j,
                     'interface' => $rng,
-                    'subtitles' => $rng == 1 ? rand(0,1) : 0,
-                    'full_audio' => $rng == 1 ? rand(0,1) : 0,
+                    'subtitles' => $nested_rng,
+                    'full_audio' => $nested_rng == 1 ? rand(0,1) : 0,
                 ]);
             }
         }

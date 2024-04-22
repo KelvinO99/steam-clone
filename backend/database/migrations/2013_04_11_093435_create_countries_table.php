@@ -6,20 +6,23 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    /**
+     * Run the migrations.
+     */
     public function up(): void
     {
-        Schema::create('tags', function (Blueprint $table) {
+        Schema::create('countries', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->default('PLACEHOLDER');
-            $table->boolean('is_genre')->default(false);
+            $table->string('name');
             $table->timestamps();
-
-            // $table->foreign('image_id')->references('id')->on('images');
         });
     }
 
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
-        Schema::dropIfExists('tags');
+        Schema::dropIfExists('countries');
     }
 };

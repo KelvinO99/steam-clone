@@ -27,22 +27,34 @@ class GamesController extends Controller
         try {
             $discount = $request->input("discount"); // GIOCHI CON SCONTO
             $featured = $request->input("featured"); // GIOCHI TOP SELLER
-            $tag = $request->input("tag");  //FILTRA IN BASE AL TAG RICHIESTO
+            $tag = $request->input("tag", []);  //FILTRA IN BASE AL TAG RICHIESTO
             $special_offer = $request->input("special_offer"); // GIOCHI CON SCONTO SUPERIORE AL 50%
             $most_reviewed = $request->input("most_reviewed"); // CALCOLO TRA NUMERO RECENSIONI E DATA DI USCITA
             $best_seller = $request->input("best_seller"); // CALCOLO SUL NUMERO DI COPIE ACQUISTATE
             $upcoming = $request->input("upcoming"); // CALCOLO SUL NUMERO DI COPIE ACQUISTATE
+            $new_release = $request->input("new_release"); // ORDINE GIOCHI RILASCIATI PRIMA
             $skip = $request->input("skip");
             $take = $request->input("take");
             $today = Carbon::now();
 
             $game = Games::with('GamesTags.Tags')
-                ->select('id', 'name', 'date', 'base_price', 'is_discounted', 'discounted_price', 'discounted_percentage', 'created_at', 'updated_at')
+
                 ->with('images');
 
             $total = $game->count();
 
-            //ISSET CODE
+
+
+            if (!empty($tag)) { // Change from $tags to $tag
+                // Loop through each tag and apply the filter
+                foreach ($tag as $t) { // Change from $tags to $tag
+                    $game->whereHas('GamesTags.Tags', function ($q) use ($t) { // Change from $tags to $tag
+                        $q->where('name', $t);
+                    });
+                }
+            }
+
+    //ISSET CODE
             if ($discount) {
                 $game->where('is_discounted', 1);
             }
@@ -74,26 +86,35 @@ class GamesController extends Controller
             if ($upcoming) {
                 $game->where('date', '>', $today);
             }
-            
-            if($tag){
-                $game->select('games.id', 'games.name', 'games.base_price', 'games.discounted_price')
-                    ->join('games_tags', 'games.id', '=', 'games_tags.game_id')
-                    ->join('tags', 'games_tags.tag_id', '=', 'tags.id')
-                    ->where('tags.name', $tag);
+            if ($new_release) {
+                $game->whereDate('date', '>=', now()->subYears(2));
+                $game->orderBy('date', 'desc');
             }
-            //ISSET CODE
+
+
+            // if($tag){
+            //     foreach ($tag as $t) {
+            //         $game->whereHas('GamesTags.Tags', function ($q) use($t){
+            //             $q->where('name', $t);
+            //         });
+            //     }
+            // }
+
+    //ISSET CODE
 
             if (isset($skip)) {
-                $game = $game->skip($skip)->take($take);
+                $game = $game->skip($skip);
             }
 
-            $count = $game->count();
+            if (isset($take)) {
+                $game = $game->take($take);
+            }
 
             return response()->json([
                 'status' => 200,
                 'total' => $total,
-                'count' => $count,
-                'games' => $game->get(),
+                'count' => $game->get()->count(), //non toccare che nn funziona + nulla
+                'games' => $game->get(),          //anche qst
             ]);
         } catch (\Exception $e) {
             return $e;
@@ -193,6 +214,8 @@ class GamesController extends Controller
     //REVIEWS FUNCTION
             $images = Images::where('game_id', $id)->pluck('image_path');
 
+            $is_dlc = $game->is_dlc;
+
             $dlc = Games::where('parent_id', $id)
             ->select('id', 'name', 'date', 'base_price', 'is_discounted', 'discounted_price', 'discounted_percentage', 'short_description')
             ->with(['images' => function ($q) {
@@ -251,10 +274,11 @@ class GamesController extends Controller
             'ratio' => $ratio,
             'evaluation' => $string,
             'system_requirements' => $obj,
-            'reviews' => $reviews,
-            'dlc' => $dlc,
-            'no_users_ownership' => $no_users_ownership,
             'pegi_img'=>$pegi_img,
+            'no_users_ownership' => $no_users_ownership,
+            'is_dlc' => $is_dlc,
+            'dlc' => $dlc,
+            'reviews' => $reviews,
             ]);
 
         }catch(\Exception $e){

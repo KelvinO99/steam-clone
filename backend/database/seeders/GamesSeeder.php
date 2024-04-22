@@ -1167,32 +1167,52 @@ class GamesSeeder extends Seeder
             'id' => 104,
             'name' => 'Free To Play',
             'is_genre' => false,
-            'image_id' => 1,
+            //'image_id' => 1,
         ]);
         DB::table('tags')->insert([
             'id' => 105,
             'name' => 'Upcoming',
             'is_genre' => false,
-            'image_id' => 1,
+            //'image_id' => 1,
         ]);
 
-        for($i=0;$i<42;$i++)
-        {
-            $bool = (bool)rand(0,1);
-            if($base_price[$i]==0)
-            {
-                $bool=0;
+        for ($i = 0; $i < 42; $i++) {
+            $basePrice = $base_price[$i];
+            $bool = false;
+            $rng = rand(1, 3); // Discount bool gen (1 in 3)
+            if ($rng == 1) {
+                $bool = true;
+            }
+
+            if ($basePrice == 0) {
+                $bool = false;
+            }
+
+            $discountedPercentage = null;
+            $discountedPrice = null;
+
+            if ($bool) {
+                $rng = rand(1, 90); // Discount percentage
+                if ($rng <= 50) {
+                    $discountedPercentage = rand(5, 30);
+                } elseif ($rng <= 85) {
+                    $discountedPercentage = rand(31, 69); // Table
+                } else {
+                    $discountedPercentage = rand(70, 90);
+                }
+
+                $discountedPrice = number_format($basePrice - ($basePrice * ($discountedPercentage / 100)), 2, '.', '');
             }
 
             DB::table('games')->insert([
-                'name' => $names[$i],//PLACEHOLDER RNGNAME FROM ARRAY
-                'date' => $dates[$i],//PLACEHOLDER RNGBD
-                'base_price' => $base_price[$i], /*= mt_rand() / mt_getrandmax() * (69.99 - 1) + 1,*/
+                'name' => $names[$i], // Placeholder RNGNAME FROM ARRAY
+                'date' => $dates[$i], // Placeholder RNGBD
+                'base_price' => $basePrice,
                 'is_dlc' => false,
                 'parent_id' => null,
-                'is_discounted' => $bool ? true : false,
-                'discounted_percentage' => $bool ? $discounted_percentage = rand(5,90) : null,//PLACEHOLDER RNG
-                'discounted_price' => $bool ? number_format($base_price[$i]-($base_price[$i]*($discounted_percentage/100)), 2, '.', ''): null,
+                'is_discounted' => $bool,
+                'discounted_percentage' => $discountedPercentage,
+                'discounted_price' => $discountedPrice,
                 'short_description' => $short_description[$i],
                 'long_description' => $long_description[$i],
                 'pegi_id' => $pegi_id[$i],

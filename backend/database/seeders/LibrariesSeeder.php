@@ -12,16 +12,34 @@ class LibrariesSeeder extends Seeder
 {
     public function run(): void
     {
-        for($i=0;$i<42;$i++)
-        {
-            $bool = (bool)rand(0,1);
-            DB::table('libraries')->insert([
-                'user_id' => rand(1,19),//PLACEHOLDER RNG
-                'game_id' => rand(1,42),//PLACEHOLDER RNG
-                'is_wishlisted' => $bool,
-                'is_owned'=> !$bool
+        $const_library = 1200;
 
-            ]);
+        for ($i = 0; $i < $const_library; $i++) {
+            $userId = rand(1, 32);
+            $gameId = rand(1, 42);
+
+            $existingRecord = DB::table('libraries')
+                ->where('user_id', $userId)
+                ->where('game_id', $gameId)
+                ->first();
+
+            if ($existingRecord) {
+                $bool = rand(0, 1);
+                DB::table('libraries')
+                    ->where('id', $existingRecord->id)
+                    ->update([
+                        'is_wishlisted' => $bool,
+                        'is_owned' => !$bool
+                    ]);
+            } else {
+                $bool = rand(0, 1);
+                DB::table('libraries')->insert([
+                    'user_id' => $userId,
+                    'game_id' => $gameId,
+                    'is_wishlisted' => $bool,
+                    'is_owned' => !$bool
+                ]);
+            }
         }
     }
 }

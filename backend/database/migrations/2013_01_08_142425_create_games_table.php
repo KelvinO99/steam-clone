@@ -17,11 +17,11 @@ return new class extends Migration
             $table->float('base_price', 8, 2)->default(0.00);
             $table->boolean('is_discounted')->default(false);
             $table->float('discounted_price', 8, 2)->default(0.00)->nullable(); //nullable perché non sempre
-            $table->integer('discounted_percentage')->default(0)->nullable();   //è scontato un gioco -chris
+            $table->integer('discounted_percentage')->default(0)->nullable();   //un gioco è scontato
             $table->text('short_description')->default('Descrizione breve');
             $table->text('long_description')->default('Descrizione lunga');
-            
-            $table->integer('pegi_id')->default(null);
+
+            $table->unsignedBigInteger('pegi_id')->default(null);
             $table->timestamps();
 
             $table->foreign('parent_id')->references('id')->on('games')->onDelete('cascade')->onUpdate('cascade');
