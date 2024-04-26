@@ -1,77 +1,97 @@
 //Varibili
 
 //Mixim
-@mixin info-card {
-    .review-info-container .review-info-header {
-        background-color: #2a475e;
-        box-shadow: 0 0 5px #000;
+/* @mixin info-card {
+    
+} */
 
-        .review-info-caption-section .review-info-caption {
-            font-family: "Motiva Sans", Sans-serif;
-            font-weight: normal;
-            font-size: 16px;
-            color: #e5e5e5;
+//Struttura CSS
+.review-container .header .section {
+    .deals-container .header .section {
+        .caption {
+            font-family: sans-serif;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: white;
         }
 
-        .review-info-text-section {
-            .review-info-text {
-                font-family: "Motiva Sans", Sans-serif;
-                font-size: 17px;
-                font-weight: bold;
-                line-height: 9px;
-                text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
-                color: #66C0F4;
-                cursor: help;
+        .card-container .header .section {
+            .info-container .header {
+                background-color: #2a475e;
+                box-shadow: 0 0 5px #000;
 
+                .section {
+                    .caption {
+                        font-family: "Motiva Sans", Sans-serif;
+                        font-weight: normal;
+                        font-size: 16px;
+                        color: #e5e5e5;
+                    }
+
+                    .text {
+                        font-family: "Motiva Sans", Sans-serif;
+                        font-size: 17px;
+                        font-weight: bold;
+                        line-height: 9px;
+                        text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+                        color: #66C0F4;
+                        cursor: help;
+                    }
+
+                    .number {
+                        font-size: 12px;
+                        color: #8ba6b6;
+                    }
+                }
             }
 
-            .review-info-number {
-                font-size: 12px;
-                color: #8ba6b6;
+            .content-container .header .section {
+                .caption {
+                    font-family: sans-serif;
+                    font-size: 14px;
+                    text-transform: uppercase;
+                    letter-spacing: 3px;
+                    color: white;
+
+                }
+
+                .card-deals-container .header {
+                    background-color: #16202d;
+
+                    .section {
+                        .text-container .header .section {
+                            .text {
+                                font-family: "Motiva Sans", Sans-serif;
+                                font-size: 13px;
+                                font-weight: bold;
+                                color: #c1dbf4;
+                                overflow: hidden;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+
+                                &:hover {
+                                    overflow: visible;
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
 }
 
-//Struttura CSS
-.review-container .review-header .review-col-11-section .review-deals-container .review-deals-header {
+/* .review-container .review-header .review-col-11-section .review-deals-container .review-deals-header {
     p {
         margin: 0;
     }
 
-    .review-deals-caption-section .review-deals-caption {
-        font-family: sans-serif;
-        font-size: 14px;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        color: white;
-    }
-
-    .review-deals-card-section .review-card-container .review-card-header {
-        .review-card-col-8-section {
-            @include info-card();
-        }
-
-        .review-card-col-4-section {
-            @include info-card();
-        }
-    }
-
-    .review-deals-content-section .review-card-container .review-card-content-header {
-        .col-8 .container .d-flex {
-            .review-content-caption-section .review-content-caption {
-                font-family: sans-serif;
-                font-size: 14px;
-                text-transform: uppercase;
-                letter-spacing: 3px;
-                color: white;
-            }
-
             .review-content-card-section .review-card-container .review-card-header {
-                background-color: #16202d;
 
                 .review-card-col-5-section .review-text-container .review-text-header {
-                    /* .col-3 {} */
+                    .col-3 {}
 
                     .col-7 {
                         .review-text {
@@ -151,9 +171,9 @@
         }
 
     }
-}
+} */
 
-.textOne {
+/* .textOne {
     font-size: 15px;
     color: #e5e5e5;
 }
@@ -243,5 +263,4 @@ div.reviewsSm:hover {
 
 .recentReviews {
     background-color: #203044;
-    ;
-}
+} */
