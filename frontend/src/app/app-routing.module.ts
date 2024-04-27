@@ -11,6 +11,7 @@ import { CategoryPageComponent } from './components/category-page/category-page.
 import { GameTableComponent } from './components/store/game-table/game-table.component';
 import { GameComponent } from './components/game-page/game-page.component';
 import { SteamDeckComponent } from './components/steam-deck/steam-deck.component';
+import { UserPageComponent } from './components/user-page/user-page.component';
 
 const routes: Routes = [
   
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'game/:id', component: GameComponent},
   { path: 'games/:genre', component: CategoryPageComponent},
   { path: 'steam-deck', component: SteamDeckComponent },
+  { path: 'user-page/:username', component: UserPageComponent},
 ];
 
 
