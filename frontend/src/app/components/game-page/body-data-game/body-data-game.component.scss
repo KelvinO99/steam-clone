@@ -1,10 +1,207 @@
+.body-data-game-container .header .section {
+    p {
+        margin: 0 !important;
+    }
+
+    .header .section {
+        .header {
+            .section:nth-child(1) { //la card del costo del gioco
+
+                .header {
+                    background-image: linear-gradient(-60deg, rgba(226, 244, 255, 0.3) 5%, rgba(84, 107, 115, 0.3) 95%);
+                    border-radius: 4px;
+
+                    .section {
+                        .caption {
+                            font-size: 21px;
+                            color: white;
+                        }
+
+                        .header {
+                            /* background-color: #000; */
+                            background-image: initial;
+
+                            .section {
+                                .percentage-price {
+                                    border-radius: 1px;
+                                    background: #4c6b22;
+                                    font-size: 25px;
+                                    font-family: "Motiva Sans", sans-serif;
+                                    font-weight: 500;
+                                    color: #BEEE11;
+                                    line-height: 34px;
+                                    border-top-left-radius: 3px;
+                                    border-bottom-left-radius: 3px;
+                                }
+
+                                .base-price {
+                                    background-color: black;
+                                    color: white;
+                                    border-top-left-radius: 3px;
+                                    border-bottom-left-radius: 3px;
+                                }
+                            }
+
+                            .section:nth-child(2) {
+                                background-color: #344654;
+
+                                .discounted-price {
+
+                                    border-radius: 2px;
+                                    font-size: 11px;
+                                    line-height: 16px;
+                                    font-family: Arial, Helvetica, sans-serif;
+
+                                    .label:nth-child(1) {
+                                        font-size: inherit;
+                                        line-height: 12px;
+                                        color: #738895;
+                                        text-decoration: line-through;
+                                        font-family: Arial, Helvetica, sans-serif;
+                                    }
+
+                                    .label:last-child {
+                                        font-size: 15px;
+                                        font-family: Arial, Helvetica, sans-serif;
+                                        color: #BEEE11;
+                                    }
+                                }
+                            }
+
+                            .section:last-child {
+                                background: linear-gradient(to right, #75b022 5%, #588a1b 95%);
+                                color: #d2efa9;
+                                border-top-right-radius: 3px;
+                                border-bottom-right-radius: 3px;
+
+                                &:hover {
+                                    cursor: pointer;
+                                    color: white;
+                                }
+
+                                .label {
+                                    font-size: 15px;
+                                    color: inherit;
+                                    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .section:nth-child(2) { //descrizione del gioco
+                line-height: 13px;
+
+                .heading {
+                    font-size: 14px;
+                    text-transform: uppercase;
+                    font-family: sans-serif;
+                    color: white;
+                }
+
+                .image {
+                    background-repeat: no-repeat;
+                }
+
+                .content {
+                    padding-top: 1rem;
+                    color: #acb2b8;
+                    text-transform: none;
+                    font-size: 14px;
+                    line-height: 24px;
+                    font-family: sans-serif;
+                }
+            }
+
+            .section:last-child { //requisiti di sistema
+                line-height: 13px;
+
+                .heading {
+                    font-size: 14px;
+                    text-transform: uppercase;
+                    font-family: sans-serif;
+                    color: white;
+                }
+
+                .image {
+                    background-repeat: no-repeat;
+                }
+
+                .header .section {
+                    line-height: 20px;
+
+                    .heading {
+                        font-size: 10px;
+                        color: #bcc6cd;
+                        text-transform: uppercase;
+                        padding-top: 0.2rem;
+                    }
+                    
+                    .caption-item {
+                        color: #61686D;
+                        font-size: 12px;
+                    }
+
+                    .text-item:nth-child(2) {
+                        padding-left: initial
+                    }
+
+                    .text-item {
+                        font-size: 12px;
+                        color: #acb2b8;
+                        padding-left: 0.2rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* .body-data-game-container .header .section {
+    .deals-container .header .section {
+        .game-deals-card-container .header {
+            background-image: linear-gradient(-60deg, rgba(226, 244, 255, 0.3) 5%, rgba(84, 107, 115, 0.3) 95%);
+            ;
+                }
+
+                .discount-price-container {
+                    background-color: #344654;
+                    border-radius: 2px;
+
+                    .wrapper {
+                        font-size: 11px;
+                        line-height: 12px;
+                        color: #738895;
+                        text-decoration: line-through;
+                        font-family: Arial, Helvetica, sans-serif;
+
+                        .base-price-label {
+                            line-height: 12px;
+                            color: #738895;
+                            text-decoration: line-through;
+                            font-family: Arial, Helvetica, sans-serif;
+                        }
+
+                        .discount-price-label {
+                            font-size: 15px;
+                            font-family: Arial, Helvetica, sans-serif;
+                            color: #BEEE11;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 //Variabili
 $body-data-game-deals-section-col-4-background-color: rgba(0, 0, 0, 0.2);
 $body-data-game-deals-section-col-4-background-gradient: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
 $game-deals-card-container-background-gradient: linear-gradient(-60deg, rgba(226, 244, 255, 0.3) 5%, rgba(84, 107, 115, 0.3) 95%);
 
 //Mixin
-@mixin game-deals-card-container-background { 
+@mixin game-deals-card-container-background {
     background: $game-deals-card-container-background-gradient;
     border-radius: 4px;
 }
@@ -28,51 +225,6 @@ $game-deals-card-container-background-gradient: linear-gradient(-60deg, rgba(226
             }
 
             .price-deals-section {
-                .percentage-discount-label-section {
-                    align-items: center;
-                    display: flex;
-                    border-radius: 1px;
-                    background: #4c6b22;
-                    border-radius: 2px;
-
-                    .percentage-discount-label {
-                        font-size: 26px;
-                        font-family: "Motiva Sans", sans-serif;
-                        font-weight: 500;
-                        color: #BEEE11;
-                        line-height: 34px;
-                    }
-                }
-
-                .discount-price-section {
-                    background-color: #344654;
-                    border-radius: 2px;
-
-                    .discount-base-price-label-section {
-                        font-size: 11px;
-                        line-height: 12px;
-                        color: #738895;
-                        text-decoration: line-through;
-                        font-family: Arial, Helvetica, sans-serif;
-
-                        .discount-base-price-label {
-                            font-size: 11px;
-                            line-height: 12px;
-                            color: #738895;
-                            text-decoration: line-through;
-                            font-family: Arial, Helvetica, sans-serif;
-                        }
-                    }
-
-                    .discount-price-label-section {
-                        .discount-price-label {
-                            font-size: 15px;
-                            font-family: Arial, Helvetica, sans-serif;
-                            color: #BEEE11;
-
-                        }
-                    }
-                }
 
                 .base-price-label-container .base-price-label-section {
                     background-color: black;
@@ -268,4 +420,4 @@ $game-deals-card-container-background-gradient: linear-gradient(-60deg, rgba(226
     .body-data-game-deals-col-4-section {
         @include body-data-game-deals-col-4-section()
     }
-}
+} */

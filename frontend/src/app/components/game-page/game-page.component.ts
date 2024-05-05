@@ -1,6 +1,7 @@
 import { GameService } from 'src/app/shared/services/game.service';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Route } from '@angular/router';
+import { SystemRequirementsService } from 'src/app/shared/services/system-requirements.service';
 
 @Component({
   selector: 'app-game-page',
@@ -10,13 +11,17 @@ import { ActivatedRoute, Route } from '@angular/router';
 export class GameComponent {
   routeId!: number;
   game!: any;
+  systemRequirements!: any;
+  systemCharacteristics!: any
 
-  constructor(public route: ActivatedRoute, public gameService: GameService){}
+  constructor(public route: ActivatedRoute, public gameService: GameService, public systemService: SystemRequirementsService){}
 
 
    ngOnInit() {
     this.routeId = this.route.snapshot.params['id'];
     this.showGame();
+    this.showSystemRequirements();
+    this.showSystemCharacteristics();
   }
 
   showGame() {
@@ -28,4 +33,26 @@ export class GameComponent {
       }
     })
   }
+
+  showSystemRequirements() {
+    this.systemService.showSystemRequirements(this.routeId).subscribe({
+      next: (res: any) => {
+        {
+          this.systemRequirements = res
+          
+        }
+      }
+    })
+  }
+
+  showSystemCharacteristics() {
+    this.systemService.showSystemCharacteristics(this.routeId).subscribe({
+      next: (res: any) => {
+        {
+          this.systemCharacteristics = res
+        }
+      }
+    })
+  }
+
 }

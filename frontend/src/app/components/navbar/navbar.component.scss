@@ -84,7 +84,8 @@
                         cursor: pointer;
 
                         &:hover {
-                            text-decoration: underline;
+                            background-color: white;
+                            color: gray;
                         }
                     }
                 }
@@ -145,7 +146,8 @@
                         cursor: pointer;
 
                         &:hover {
-                            text-decoration: underline;
+                            background-color: white;
+                            color: gray;
                         }
                     }
                 }
