@@ -1,156 +1,285 @@
+//Mixin
+@mixin background {
+    background-color: rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
+    border-radius: 5px;
+}
+
+//Struttura CSS
 .body-data-game-container .header .section {
     p {
-        margin: 0 !important;
+        margin: 0;
     }
 
-    .header .section {
-        .header {
-            .section:nth-child(1) { //la card del costo del gioco
+    .header {
+        .section:nth-child(1) {
 
-                .header {
-                    background-image: linear-gradient(-60deg, rgba(226, 244, 255, 0.3) 5%, rgba(84, 107, 115, 0.3) 95%);
-                    border-radius: 4px;
+            //col-8
+            .header {
+                .section:nth-child(1) {
+                    //la card del costo del gioco
 
-                    .section {
-                        .caption {
-                            font-size: 21px;
-                            color: white;
-                        }
+                    .header {
+                        background-image: linear-gradient(-60deg, rgba(226, 244, 255, 0.3) 5%, rgba(84, 107, 115, 0.3) 95%);
+                        border-radius: 4px;
 
-                        .header {
-                            /* background-color: #000; */
-                            background-image: initial;
-
-                            .section {
-                                .percentage-price {
-                                    border-radius: 1px;
-                                    background: #4c6b22;
-                                    font-size: 25px;
-                                    font-family: "Motiva Sans", sans-serif;
-                                    font-weight: 500;
-                                    color: #BEEE11;
-                                    line-height: 34px;
-                                    border-top-left-radius: 3px;
-                                    border-bottom-left-radius: 3px;
-                                }
-
-                                .base-price {
-                                    background-color: black;
-                                    color: white;
-                                    border-top-left-radius: 3px;
-                                    border-bottom-left-radius: 3px;
-                                }
+                        .section {
+                            .caption {
+                                font-size: 21px;
+                                color: white;
                             }
 
-                            .section:nth-child(2) {
-                                background-color: #344654;
+                            .header {
+                                /* background-color: #000; */
+                                background-image: initial;
 
-                                .discounted-price {
+                                .section {
 
-                                    border-radius: 2px;
-                                    font-size: 11px;
-                                    line-height: 16px;
-                                    font-family: Arial, Helvetica, sans-serif;
+                                    background-image: initial;
+                                    background-color: initial;
 
-                                    .label:nth-child(1) {
-                                        font-size: inherit;
-                                        line-height: 12px;
-                                        color: #738895;
-                                        text-decoration: line-through;
-                                        font-family: Arial, Helvetica, sans-serif;
-                                    }
-
-                                    .label:last-child {
-                                        font-size: 15px;
-                                        font-family: Arial, Helvetica, sans-serif;
+                                    .percentage-price {
+                                        border-radius: 1px;
+                                        background: #4c6b22;
+                                        font-size: 25px;
+                                        font-family: "Motiva Sans", sans-serif;
+                                        font-weight: 500;
                                         color: #BEEE11;
+                                        line-height: 34px;
+                                        border-top-left-radius: 3px;
+                                        border-bottom-left-radius: 3px;
+                                    }
+
+                                    .base-price {
+                                        background-color: black;
+                                        color: white;
+                                        border-top-left-radius: 3px;
+                                        border-bottom-left-radius: 3px;
                                     }
                                 }
-                            }
 
-                            .section:last-child {
-                                background: linear-gradient(to right, #75b022 5%, #588a1b 95%);
-                                color: #d2efa9;
-                                border-top-right-radius: 3px;
-                                border-bottom-right-radius: 3px;
+                                .section:nth-child(2) {
+                                    background-color: #344654;
+                                    border-radius: 0% !important;
 
-                                &:hover {
-                                    cursor: pointer;
-                                    color: white;
+                                    .discounted-price {
+
+                                        font-size: 11px;
+                                        line-height: 16px;
+                                        font-family: Arial, Helvetica, sans-serif;
+
+                                        .label:nth-child(1) {
+                                            font-size: inherit;
+                                            line-height: 12px;
+                                            color: #738895;
+                                            text-decoration: line-through;
+                                            font-family: Arial, Helvetica, sans-serif;
+                                        }
+
+                                        .label:last-child {
+                                            font-size: 15px;
+                                            font-family: Arial, Helvetica, sans-serif;
+                                            color: #BEEE11;
+                                        }
+                                    }
                                 }
 
-                                .label {
-                                    font-size: 15px;
-                                    color: inherit;
-                                    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+                                .section:last-child {
+                                    background: linear-gradient(to right, #75b022 5%, #588a1b 95%);
+                                    color: #d2efa9;
+                                    border-radius: initial;
+                                    border-top-right-radius: 3px;
+                                    border-bottom-right-radius: 3px;
+                                    border-style: solid;
+                                    border-color: black;
+
+                                    &:hover {
+                                        cursor: pointer;
+                                        color: white;
+                                    }
+
+                                    .label {
+                                        font-size: 15px;
+                                        color: inherit;
+                                        text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+                                    }
                                 }
                             }
                         }
                     }
                 }
-            }
 
-            .section:nth-child(2) { //descrizione del gioco
-                line-height: 13px;
-
-                .heading {
-                    font-size: 14px;
-                    text-transform: uppercase;
-                    font-family: sans-serif;
-                    color: white;
-                }
-
-                .image {
-                    background-repeat: no-repeat;
-                }
-
-                .content {
-                    padding-top: 1rem;
-                    color: #acb2b8;
-                    text-transform: none;
-                    font-size: 14px;
-                    line-height: 24px;
-                    font-family: sans-serif;
-                }
-            }
-
-            .section:last-child { //requisiti di sistema
-                line-height: 13px;
-
-                .heading {
-                    font-size: 14px;
-                    text-transform: uppercase;
-                    font-family: sans-serif;
-                    color: white;
-                }
-
-                .image {
-                    background-repeat: no-repeat;
-                }
-
-                .header .section {
-                    line-height: 20px;
+                .section:nth-child(2) {
+                    //descrizione del gioco
+                    line-height: 13px;
 
                     .heading {
-                        font-size: 10px;
-                        color: #bcc6cd;
+                        font-size: 14px;
                         text-transform: uppercase;
-                        padding-top: 0.2rem;
-                    }
-                    
-                    .caption-item {
-                        color: #61686D;
-                        font-size: 12px;
+                        font-family: sans-serif;
+                        color: white;
                     }
 
-                    .text-item:nth-child(2) {
-                        padding-left: initial
+                    .image {
+                        background-repeat: no-repeat;
                     }
 
-                    .text-item {
-                        font-size: 12px;
+                    .content {
+                        padding-top: 1rem;
                         color: #acb2b8;
-                        padding-left: 0.2rem;
+                        text-transform: none;
+                        font-size: 14px;
+                        line-height: 24px;
+                        font-family: sans-serif;
+                    }
+                }
+
+                .section:last-child {
+                    //requisiti di sistema
+                    padding: initial;
+                    line-height: 13px;
+
+                    .heading {
+                        font-size: 14px;
+                        text-transform: uppercase;
+                        font-family: sans-serif;
+                        color: white;
+                    }
+
+                    .image {
+                        background-repeat: no-repeat;
+                    }
+
+                    .header .section {
+                        background: initial;
+                        padding: 0;
+                        line-height: 22px;
+
+                        .heading {
+                            background: inherit;
+                            font-size: 10px;
+                            color: #bcc6cd;
+                            text-transform: uppercase;
+                            padding-top: 0.2rem;
+                            line-height: initial;
+                        }
+
+                        .caption-item {
+                            color: #61686D;
+                            font-size: 12px;
+                        }
+
+                        .text-item:nth-child(2) {
+                            padding-left: initial
+                        }
+
+                        .text-item {
+                            font-size: 12px;
+                            color: #acb2b8;
+                            padding-left: 0.2rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .section:last-child {
+            //col-4
+
+            padding-left: 0.45rem;
+
+            .header {
+                .section:nth-child(1) {
+                    @include background();
+
+                    .heading {
+                        background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
+                        line-height: 45px;
+                        color: white;
+                        font-size: 16px;
+                    }
+
+                    .content {
+                        color: #acb2b8;
+                        font-size: 14px;
+                        line-height: 22px;
+                    }
+
+                    .button {
+                        background: initial;
+                        border: initial;
+                        font-weight: normal;
+                        background: rgba(103, 193, 245, 0.2);
+                        font-size: 14px;
+                        line-height: 24px;
+                        color: #acb2b8;
+                        border-radius: 2px;
+                        text-decoration: none !important;
+                        color: #67c1f5 !important;
+                        cursor: pointer;
+
+                        &:hover {
+                            background: linear-gradient( -60deg, #417a9b 5%,#67c1f5 95%);
+                            color: white !important;
+                        }
+                    }
+                }
+
+                .section:nth-child(2) {
+                    @include background();
+
+                    button {
+                        background: initial;
+                        border: initial;
+                        background: rgba( 103, 193, 245, 0.1 );
+                        font-size: 12px;
+                        color: #67c1f5;
+                        font-family: Arial, Helvetica, sans-serif;
+                        font-weight: normal;
+                        padding-left: 0.5rem;
+
+                        &:hover {
+                            background: linear-gradient(135deg, #67c1f5 0%,#417a9b 100%);
+                            color: #ffffff;
+                        }
+                    }
+
+                    .image {
+                        width: 26px;
+                        height: 16px;
+                    }
+                }
+
+                .section:nth-child(3) {
+                    @include background();
+
+                    .caption {
+                        color: #8f98a0;
+                        font-size: 12px;
+                    }
+
+                    .header {
+                        .section {
+                            padding: initial;
+                            background: initial;
+                            border-radius: 0;
+                            border-bottom: 1px solid #626366;
+
+                            .heading {
+                                color: #b0aeac;
+                                font-size: 12px;
+                            }
+        
+                            .caption {
+                                color: #8f98a0;
+                                font-size: 12px;
+                            }
+        
+                            .value-item {
+                                font-weight: bold;
+                                color: #67c1f5;
+                            }
+                        }
                     }
                 }
             }
