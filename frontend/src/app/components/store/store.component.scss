@@ -1,11 +1,11 @@
 .container-fluid {
-    width: 1600px;
+    max-width: 100rem;
 }
 
 
 @media only screen and (max-width: 1320px) {
 
-    .col-2 {
+    .col-lg-2 {
         display: none !important;
     }
 
@@ -13,7 +13,7 @@
         display: none !important;
     }
 
-    .container {
+    .header {
         width: max-content;
     }
 

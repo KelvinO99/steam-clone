@@ -1,58 +1,281 @@
-<div class="container mt-3 d-block body-data-game-container">
-    <div class="d-flex flex-wrap body-data-game-header">
+<div class="container body-data-game-container">
+    <div class="d-flex header">
 
-        <div class="col">
+        <div class="col section">
+            <div class="d-flex flex-wrap header">
+
+                <div class="col-8 mt-3 section">
+                    <div class="d-flex flex-column header">
+
+                        <div class="col mb-5 section"> <!--la card del costo del gioco-->
+                            <div class="d-flex flex-column header">
+
+                                <div class="col section">
+                                    <p class="p-3 caption"> Buy {{game.game.name}} </p>
+                                </div>
+
+                                <div class="col section">
+                                    <div class="d-flex fle-row p-2 justify-content-end header">
+
+                                        <div class="col-4 w-auto d-flex align-items-center section"
+                                            *ngIf="game.game.discounted_percentage != null">
+                                            <div class="px-2 percentage-price">
+                                                {{ game.game.discounted_percentage }}%
+                                            </div>
+                                        </div>
+
+                                        <div class="col-1 w-auto px-2 d-flex justify-content-end align-items-center section"
+                                            *ngIf="game.game.discounted_price != null && game.game.base_price > 0">
+                                            <div class="discounted-price">
+                                                <p class="d-flex justify-content-end label"> {{
+                                                    game.game.base_price.toFixed(2)
+                                                    + "€" }} </p>
+                                                <p class="label"> {{ game.game.discounted_price.toFixed(2)
+                                                    +"€"}} </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-2 w-auto section" *ngIf="game.game.discounted_price == null">
+                                            <div class="base-price">
+                                                <p class="p-2 label" *ngIf="game.game.base_price > 0"> {{
+                                                    game.game.base_price.toFixed(2)
+                                                    + "€" }} </p>
+
+                                                <p class="py-2 px-3 label" *ngIf="game.game.base_price == 0"> Free to
+                                                    Play </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-2 d-flex justify-content-center align-items-center section">
+                                            <div class="label">
+                                                Add to Cart
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col mt-5 section"> <!--descrizione del gioco-->
+                            <p class="heading"> About this Game </p>
+                            <img src="https://store.akamai.steamstatic.com/public/images/v6/maincol_gradient_rule.png"
+                                class="image">
+                            <p class="content"> {{game.game.long_description}} </p>
+                        </div>
+
+                        <div class="col mt-5 section"> <!--requisiti di sistema del gioco-->
+                            <p class="heading"> System Requirements </p>
+                            <img src="https://store.akamai.steamstatic.com/public/images/v6/maincol_gradient_rule.png"
+                                class="image">
+
+                            <div class="d-flex flex-wrap header">
+
+                                <div class="col-6 section">
+                                    <p class="heading"> Minimum: </p>
+                                    <p class="text-item"> Requires a 64-bit processor and operating system </p>
+                                    <span class="caption-item"> OS *: </span> <span class="text-item">
+                                        {{systemRequirements.data.Windows[0].os_name}} </span> <br>
+                                    <span class="caption-item"> Processor: </span> <span class="text-item">
+                                        {{systemRequirements.data.Windows[0].cpu_name}} </span> <br>
+                                    <span class="caption-item"> Memory: </span> <span class="text-item">
+                                        {{systemRequirements.data.Windows[0].ram_name}} </span> <br>
+                                    <span class="caption-item"> Graphics: </span> <span class="text-item">
+                                        {{systemRequirements.data.Windows[0].gpu_name}} </span> <br>
+                                    <span class="caption-item"> DirectX: </span> <span class="text-item">
+                                        {{systemRequirements.data.Windows[0].directx_name}} </span> <br>
+                                    <span class="caption-item"> Network: </span> <span class="text-item">
+                                        {{systemRequirements.data.Windows[0].network_name}}</span> <br>
+                                    <span class="caption-item"> Storage: </span> <span class="text-item">
+                                        {{systemRequirements.data.Windows[0].storage_name}} </span> <br>
+                                    <span class="caption-item"> Additional Notes: </span> <span class="text-item">
+                                        {{systemRequirements.data.Windows[0].audio_name}} </span>
+                                </div>
+
+                                <div class="col-6 section">
+                                    <p class="heading"> Reccomended: </p>
+                                    <p class="text-item"> Requires a 64-bit processor and operating system </p>
+                                    <span class="caption-item"> OS *: </span> <span class="text-item">
+                                        {{systemRequirements.data.Windows[1].os_name}} </span> <br>
+                                    <span class="caption-item"> Processor: </span> <span class="text-item">
+                                        {{systemRequirements.data.Windows[1].cpu_name}} </span> <br>
+                                    <span class="caption-item"> Memory: </span> <span class="text-item">
+                                        {{systemRequirements.data.Windows[1].ram_name}} </span> <br>
+                                    <span class="caption-item"> Graphics: </span> <span class="text-item">
+                                        {{systemRequirements.data.Windows[1].gpu_name}} </span> <br>
+                                    <span class="caption-item"> DirectX: </span> <span class="text-item">
+                                        {{systemRequirements.data.Windows[1].directx_name}} </span> <br>
+                                    <span class="caption-item"> Network: </span> <span class="text-item">
+                                        {{systemRequirements.data.Windows[1].network_name}}</span> <br>
+                                    <span class="caption-item"> Storage: </span> <span class="text-item">
+                                        {{systemRequirements.data.Windows[1].storage_name}} </span> <br>
+                                    <span class="caption-item"> Additional Notes: </span> <span class="text-item">
+                                        {{systemRequirements.data.Windows[1].audio_name}} </span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-4 mt-3 section">
+
+                    <div class="d-flex flex-column header">
+
+                        <div class="col section"> <!--pulsante di sign in-->
+                            <p class="ps-3 heading"> Is this game relevant to you? </p>
+                            <p class="ps-3 content"> Sign in to see reasons why you may or may not like this based on
+                                your games, friends, and curators you follow. </p>
+                            <div class="py-2 d-flex justify-content-center"> <button class="px-5 button"> Sign In
+                                </button> </div>
+                        </div>
+
+                        <!--DA COLLEGARE AL BACKEND-->
+                        <div class="col mt-3 section"> <!--feature-->
+                            <div class="d-flex flex-column p-3">
+                                <p class="d-flex justify-content-center align-items-center mb-1"> <img
+                                        src="https://store.akamai.steamstatic.com/public/images/v6/ico/ico_singlePlayer.png"
+                                        class="image"> <button
+                                        class="w-100 py-1 d-flex justify-content-start align-items-center">
+                                        Single-player </button> </p>
+                                <p class="d-flex justify-content-center align-items-center mb-1"> <img
+                                        src="https://store.akamai.steamstatic.com/public/images/v6/ico/ico_achievements.png"
+                                        class="image"> <button
+                                        class="w-100 py-1 d-flex justify-content-start align-items-center"> Steam
+                                        Achievements </button> </p>
+                                <p class="d-flex justify-content-center align-items-center mb-1"> <img
+                                        src="https://store.akamai.steamstatic.com/public/images/v6/ico/ico_cloud.png"
+                                        class="image"> <button
+                                        class="w-100 py-1 d-flex justify-content-start align-items-center"> Steam Cloud
+                                    </button> </p>
+                                <p class="d-flex justify-content-center align-items-center mb-1"> <img
+                                        src="https://store.akamai.steamstatic.com/public/images/v6/ico/ico_remote_play.png"
+                                        class="image"> <button
+                                        class="w-100 py-1 d-flex justify-content-start align-items-center"> Remote Play
+                                        on Phone </button> </p>
+                                <p class="d-flex justify-content-center align-items-center mb-1"> <img
+                                        src="https://store.akamai.steamstatic.com/public/images/v6/ico/ico_familysharing.png"
+                                        class="image"> <button
+                                        class="w-100 py-1 d-flex justify-content-start align-items-center"> Family
+                                        Sharing </button> </p>
+                            </div>
+
+                            <!--  <div class="d-flex flex-column p-3">
+                                <p class="heading"> Full Controller Support </p>
+                                <p class="d-flex justify-content-center align-items-center mb-1"> <img src="http://www.w3.org/2000/svg" class="image"> <button class="w-100 py-1 d-flex justify-content-start align-items-center"> Xbox Controllers </button> </p>
+                                <p class="d-flex justify-content-center align-items-center mb-1"> <img src="http://www.w3.org/2000/svg" class="image"> <button class="w-100 py-1 d-flex justify-content-start align-items-center"> Support for other devices is not known </button> </p>
+                            </div> -->
+                        </div>
+
+                        <div class="col mt-3 section"> <!--supporto delle lingue-->
+                            <div class="d-flex flex-column p-3 header">
+                                <p class="caption"> Languages: </p>
+                                <div class="d-flex flex-wrap section">
+                                    <div class="col-3"> </div>
+                                    <div class="col-3 d-flex justify-content-center align-items-center heading"> Interface </div>
+                                    <div class="col-3 d-flex justify-content-center align-items-center heading"> Full Audio </div>
+                                    <div class="col-3 d-flex justify-content-center align-items-center heading"> Subtitles </div>
+                                </div>
+                                <div class="d-flex flex-wrap section" *ngFor="let item of languages">
+                                    <div class="col-3 justify-content-center align-content-center py-1 caption"> {{item.language.name}} </div>
+                                    <div class="col-3 d-flex justify-content-center align-items-center value-item"> <span *ngIf="item.interface == 1"> ✔ </span> </div>
+                                    <div class="col-3 d-flex justify-content-center align-items-center value-item"> <span *ngIf="item.full_audio == 1"> ✔ </span> </div>
+                                    <div class="col-3 d-flex justify-content-center align-items-center value-item"> <span *ngIf="item.subtitles == 1"> ✔ </span> </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col section"> <!--achivements-->
+
+                        </div>
+
+                        <div class="col mt-3 section"> <!--informazioni del gioco-->
+                            <div class="d-flex flex-column p-3 header">
+                                <p> <span class="caption-item"> Title: </span> <span class="text-item"> {{game?.game?.name}} </span> </p>
+                                <p> <span class="caption-item"> Genre: </span> <span class="label-item" *ngFor="let item of game.tags; let last = last"> {{item?.name}}{{last ? '' : ', '}} </span> </p>
+                                <p> <span class="caption-item"> Developer: </span> <span class="label-item"> {{game?.game?.developers_games[0]?.developers?.user?.username}} </span> </p>
+                                <p> <span class="caption-item"> Release Date: </span> <span class="label-item"> {{game.game.date | date:'dd MMM, yyyy'}} </span> </p>
+                                <p> <span class="caption-item"> Early Access Release Date: </span> <span class="text-item"> </span> </p>
+                                <button class="d-flex justify-content-start mb-1 mt-2 button"> Visit the website </button>
+                                <button class="d-flex justify-content-start mb-1 button"> {{game?.game?.name}} on Twitter </button>
+                                <button class="d-flex justify-content-start mb-1 button"> View update history </button>
+                                <button class="d-flex justify-content-start mb-1 button"> Read related news </button>
+                                <button class="d-flex justify-content-start button"> View Groups </button>
+                            </div>
+                        </div>
+
+                        <div class="col mt-3 section"> <!--pegi del gioco-->
+                            <div class="d-flex flex-column header px-2 py-2">
+                                <img [src]="game.pegi_img.image_path" class="image">
+                                <span class="label"> Rating for: PEGI </span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- <div class="container mt-3 d-block body-data-game-container">
+    <div class="d-flex flex-wrap header">
+
+        <div class="col section">
 
         </div>
 
-        <div class="col-11 body-data-game-col-11-section">
-            <div class="container p-0 body-data-game-deals-container">
-                <div class="d-flex flex-wrap body-data-game-deals-header">
+        <div class="col-11 section">
+            <div class="container p-0 deals-container">
+                <div class="d-flex flex-wrap header">
 
-                    <div class="col-8 body-data-game-deals-col-8-section">
+                    <div class="col-8 section">
                         <div class="container p-0 game-deals-card-container">
-                            <div class="d-flex flex-column game-deals-card-header">
+                            <div class="d-flex flex-column header">
 
-                                <div class="col p-3 game-caption-section">
-                                    <span class="game-caption"> Buy {{game.game.name}} </span>
+                                <div class="col p-3 section">
+                                    <span class="caption"> Buy {{game.game.name}} </span>
                                 </div>
 
-                                <div class="col p-1 d-flex justify-content-end price-deals-section">
+                                <div class="col p-1 d-flex justify-content-end section">
 
-                                    <div class="px-2 border-black border border-2 percentage-discount-label-section"
+                                    <div class="px-2 border-black border border-2 percentage-discount-container"
                                         *ngIf="game.game.discounted_percentage != null">
-                                        <span class="percentage-discount-label"> {{ game.game.discounted_percentage }}%
+                                        <span class="label"> {{ game.game.discounted_percentage }}%
                                         </span>
                                     </div>
 
-                                    <div class="px-2 border-black border border-2 discount-price-section"
+                                    <div class="px-2 border-black border border-2 discount-price-container"
                                         *ngIf="game.game.discounted_price != null && game.game.base_price > 0 ">
                                         <div
-                                            class="col d-flex justify-content-end pt-1 discount-base-price-label-section">
-                                            <span class="discount-base-price-label"> {{ game.game.base_price.toFixed(2)
+                                            class="col d-flex justify-content-end pt-1 section">
+                                            <span class="base-price-label"> {{ game.game.base_price.toFixed(2)
                                                 + "€" }}
                                             </span>
                                         </div>
 
-                                        <div class="col d-flex justify-content-end discount-price-label-section">
+                                        <div class="col d-flex justify-content-end section">
                                             <span class="discount-price-label"> {{ game.game.discounted_price.toFixed(2)
                                                 +"€"
                                                 }} </span>
                                         </div>
                                     </div>
 
-                                    <div class="base-price-label-container">
-                                        <div class="col px-2 d-flex justify-content-end py-2 base-price-label-section"
+                                    <div class="base-price-label-contai ner">
+                                        <div class="col px-2 d-flex justify-content-end py-2 section"
                                             *ngIf="game.game.discounted_price == null && game.game.base_price > 0 ">
-                                            <span class="base-price-label"> {{ game.game.base_price.toFixed(2) +
+                                            <span class="label"> {{ game.game.base_price.toFixed(2) +
                                                 "€"
                                                 }} </span>
                                         </div>
                                     </div>
 
-
-                                    <div
-                                        class="px-2 d-flex align-items-center border-black border border-3 cart-bottom-section">
+                                    <div  class="px-2 d-flex align-items-center border-black border border-3 cart-bottom-section">
                                         <span class="cart-bottom-label"> Add to Cart </span>
                                     </div>
 
@@ -61,44 +284,44 @@
                             </div>
                         </div>
 
-                        <div class="container p-0 mt-4 review-container">
-                            <div class="d-flex flex-column review-header">
+                        <div class="container p-0 mt-4 container">
+                            <div class="d-flex flex-column header">
 
-                                <div class="col mb-2 review-caption-section">
-                                    <span class="review-caption"> Review </span>
+                                <div class="col mb-2 section">
+                                    <span class="caption"> Review </span>
                                 </div>
 
-                                <div class="col review-content-section">
-                                    <span class="review-content"> "{{game.game.name}} goes for feel above all else, and
+                                <div class="col section">
+                                    <span class="content"> "{{game.game.name}} goes for feel above all else, and
                                         it feels
                                         fantastic”
                                         5/5 - </span>
-                                    <span class="review-user-content"> Giant Bomb </span>
+                                    <span class="user-content"> Giant Bomb </span>
                                 </div>
 
-                                <div class="col pt-3 review-content-section">
-                                    <span class="review-content"> “The pinnacle of {{game.tags[0].name}} ” - </span>
-                                    <span class="review-user-content"> Kotaku </span>
+                                <div class="col pt-3 section">
+                                    <span class="content"> “The pinnacle of {{game.tags[0].name}} ” - </span>
+                                    <span class="user-content"> Kotaku </span>
                                 </div>
 
-                                <div class="col pt-3 review-content-section">
-                                    <span class="review-content"> "{{game.game.name}} is a must play”
+                                <div class="col pt-3 section">
+                                    <span class="content"> "{{game.game.name}} is a must play”
                                         5/5 - </span>
-                                    <span class="review-user-content"> Game Informer </span>
+                                    <span class="user-content"> Game Informer </span>
                                 </div>
 
                             </div>
                         </div>
 
                         <div class="container p-0 mt-4 about-container">
-                            <div class="d-flex flex-column about-header">
+                            <div class="d-flex flex-column header">
 
-                                <div class="col mb-2 about-caption-section">
-                                    <span class="about-caption"> About This Game </span>
+                                <div class="col mb-2 caption-section">
+                                    <span class="caption"> About This Game </span>
                                 </div>
 
-                                <div class="col mb-2 about-content-section">
-                                    <span class="about-content"> {{game.game.long_description}} </span>
+                                <div class="col mb-2 content-section">
+                                    <span class="content"> {{game.game.long_description}} </span>
                                 </div>
 
                             </div>
@@ -106,29 +329,29 @@
 
                     </div>
 
-                    <div class="col-4 body-data-game-deals-col-4-section">
+                    <div class="col-4 section">
 
                         <div class="container pe-0 mb-2 sign-in-container">
-                            <div class="d-flex flex-column sign-in-header">
+                            <div class="d-flex flex-column header">
 
-                                <div class="col sign-in-section">
-                                    <div class="px-2 py-2 d-flex justify-content-center sign-in-label-section">
-                                        <span class="sign-in-label"> Is this game relevant to you? </span>
+                                <div class="col section">
+                                    <div class="px-2 py-2 d-flex justify-content-center label-section">
+                                        <span class="label"> Is this game relevant to you? </span>
                                     </div>
 
-                                    <div class="px-2 pt-2 sign-in-content-section">
-                                        <span class="sign-in-content"> Sign in to see reasons why you may or may not
+                                    <div class="px-2 pt-2 content-section">
+                                        <span class="content"> Sign in to see reasons why you may or may not
                                             like
                                             this based
                                             on your games, friends, and curators you follow. </span>
                                     </div>
 
-                                    <div class="p-2 d-flex justify-content-center sign-in-button-section" *ngIf="!(authService.loggedIn$ | async)">
-                                        <div class="py-1 px-5 sign-in-button" routerLink="/login"> Sign In </div>
+                                    <div class="p-2 d-flex justify-content-center button-section" *ngIf="!(authService.loggedIn$ | async)">
+                                        <div class="py-1 px-5 button" routerLink="/login"> Sign In </div>
                                     </div>
 
-                                    <div class="p-2 d-flex justify-content-center sign-in-button-section" *ngIf="authService.loggedIn$ | async">
-                                        <div class="py-1 px-5 sign-in-button" routerLink="/login"> More Info </div>
+                                    <div class="p-2 d-flex justify-content-center button-section" *ngIf="authService.loggedIn$ | async">
+                                        <div class="py-1 px-5 button" routerLink="/login"> More Info </div>
                                     </div>
 
                                 </div>
@@ -258,9 +481,9 @@
             </div>
         </div>
 
-        <div class="col">
+        <div class="col section">
 
         </div>
 
     </div>
-</div>
+</div> -->

@@ -1,0 +1,84 @@
+.carousel-container {
+    display: flex;
+  }
+  
+  .titles {
+    font-weight: 400;
+      letter-spacing: .05em;
+      font-size: 16px;
+      color: #fff;
+      text-transform: uppercase;
+      text-shadow: 1px 1px 1px rgba(0,0,0,.3);
+  }
+  
+  div.text {
+    pointer-events: none;
+    background-image: url(../../../../assets/image/background_spotlight.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .card {
+    transition: 0.2s;
+    cursor: pointer;
+  }
+  
+  .card:hover {
+    transform: scale(1.02);
+    z-index: 2;
+    filter: brightness(1.10);
+  }
+  
+  img {
+    max-width: 100%;
+    height: 150px;
+    pointer-events: none;
+  }
+  
+  div.discountPercentage {
+    align-items: center; 
+    display: flex; 
+    border-radius: 1px; 
+    background: #4c6b22;
+  }
+  
+  span.discountPercentage {
+    font-size: 26px; 
+    font-family: "Motiva Sans", sans-serif;;
+    font-weight: 500; 
+    color: #BEEE11;
+    line-height: 34px;
+  }
+  
+  span.discountPrice {
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;;
+    color: #BEEE11;
+  }
+  
+  div.price {
+    background-color: #344654;
+  }
+  
+  span.basePrice {
+    font-size: 11px;
+    line-height: 12px;
+    color: #738895;
+    text-decoration: line-through;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .test1{
+    display:flex;
+    justify-content: flex-end;
+  }
+  
+  /* @media only screen and (max-width: 1320px) {
+    .update-offer-cards-container,
+    content.container,
+    .card-container,
+    .content-section {
+      width: max-content;
+    }
+  } */
+  

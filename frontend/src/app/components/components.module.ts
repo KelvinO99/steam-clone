@@ -42,6 +42,7 @@ import { CategoryPageComponent } from './category-page/category-page.component';
 import { MainCarouselComponent } from './category-page/main-carousel/main-carousel.component';
 import { UserPageComponent } from './user-page/user-page.component';
 import { CategoryGameTableComponent } from './category-page/category-game-table/category-game-table.component';
+import { PopularCarouselComponent } from './category-page/popular-carousel/popular-carousel.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { CategoryGameTableComponent } from './category-page/category-game-table/
     SteamDeckComponent,
     UserPageComponent,
     CategoryGameTableComponent,
+    PopularCarouselComponent,
 
   ],
   imports: [

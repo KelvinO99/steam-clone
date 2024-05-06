@@ -1,34 +1,30 @@
 <div class="container d-block p-0 mt-5 review-container">
-    <div class="d-flex flex-wrap w-100 review-header">
+    <div class="d-flex flex-wrap w-100 header">
 
-        <div class="col">
+        <div class="col section">
+            <div class="container p-0 deals-container">
+                <div class="d-flex flex-column header">
 
-        </div>
-
-        <div class="col-11 review-col-11-section">
-            <div class="container p-0 review-deals-container">
-                <div class="d-flex flex-column review-deals-header">
-
-                    <div class="col p-0 mt-1 border-top border-1 border-black mt-5 review-deals-caption-section">
-                        <span class="review-deals-caption"> Customer reviews </span>
+                    <div class="col p-0 mt-1 border-top border-1 border-black mt-5 section">
+                        <span class="caption"> Customer reviews </span>
                     </div>
 
-                    <div class="col review-deals-card-section">
-                        <div class="container p-0 mt-2 review-card-container">
-                            <div class="d-flex flex-wrap review-card-header">
+                    <div class="col section">
+                        <div class="container p-0 mt-2 card-container">
+                            <div class="d-flex flex-wrap header">
 
-                                <div class="col-8 p-0 review-card-col-8-section">
-                                    <div class="container p-0 review-info-container">
-                                        <div class="d-flex flex-column review-info-header">
+                                <div class="col-8 p-0 section">
+                                    <div class="container p-0 info-container">
+                                        <div class="d-flex flex-column header">
 
-                                            <div class="col ps-2 pt-2 review-info-caption-section">
-                                                <p class="review-info-caption"> Overall Reviews: </p>
+                                            <div class="col ps-2 pt-2 section">
+                                                <p class="caption"> Overall Reviews: </p>
                                             </div>
 
 
-                                            <div class="col ps-2 pb-2 pt-1 review-info-text-section">
-                                                <span class="review-info-text"> {{game.evaluation}} </span>
-                                                <span class="review-info-number"> ({{game.positive +
+                                            <div class="col ps-2 pb-2 pt-1 section">
+                                                <span class="text"> {{game.evaluation}} </span>
+                                                <span class="number"> ({{game.positive +
                                                     game.negative}})
                                                 </span>
                                             </div>
@@ -37,18 +33,18 @@
                                     </div>
                                 </div>
 
-                                <div class="col-4 p-0 review-card-col-4-section">
-                                    <div class="container p-0 review-info-container">
-                                        <div class="d-flex flex-column review-info-header">
+                                <div class="col-4 p-0 section">
+                                    <div class="container p-0 info-container">
+                                        <div class="d-flex flex-column header">
 
-                                            <div class="col ps-2 pt-2 review-info-caption-section">
-                                                <p class="review-info-caption"> Recent Reviews: </p>
+                                            <div class="col ps-2 pt-2 section">
+                                                <p class="caption"> Recent Reviews: </p>
                                             </div>
 
 
-                                            <div class="col ps-2 pb-2 pt-1 review-info-text-section">
-                                                <span class="review-info-text"> {{game.evaluation}} </span>
-                                                <span class="review-info-number"> ({{game.positive +
+                                            <div class="col ps-2 pb-2 pt-1 section">
+                                                <span class="text"> {{game.evaluation}} </span>
+                                                <span class="number"> ({{game.positive +
                                                     game.negative}})
                                                 </span>
                                             </div>
@@ -61,97 +57,132 @@
                         </div>
                     </div>
 
-                    <div class="col review-deals-content-section">
-                        <div class="container p-0 mt-3 review-card-container">
-                            <div
-                                class="d-flex flex-wrap border-top border-1 border-black mt-5 review-card-content-header">
+                    <div class="col section">
+                        <div class="container p-0 mt-3 card-container">
+                            <div class="d-flex flex-wrap border-top border-1 border-black mt-5 header">
 
-                                <div class="col-8">
-                                    <div class="container p-0 review-content-container">
-                                        <div class="d-flex flex-column review-content-header">
+                                <div class="col-8 pe-3 section">
+                                    <div class="container p-0 content-container">
+                                        <div class="d-flex flex-column header">
 
-                                            <div class="col pt-3 pb-2 review-content-caption-section">
-                                                <span class="review-content-caption"> Most Helpful Reviews </span>
+                                            <div class="col pt-3 pb-2 section">
+                                                <span class="caption"> Most Helpful Reviews </span>
                                             </div>
 
-                                            <div class="col review-content-card-section">
-                                                <div class="container mb-3 p-0 review-card-container"
+                                            <div class="col section">
+                                                <div class="container mb-3 p-0 card-deals-container"
                                                     *ngFor="let item of game.reviews.slice(0, 15)">
-                                                    <div class="d-flex flex-wrap review-card-header">
+                                                    <div class="d-flex flex-wrap header pt-1">
 
 
-                                                        <div class="col-5 review-card-col-5-section">
-                                                            <div class="container review-text-container">
-                                                                <div class="d-flex flex-wrap review-text-header">
+                                                        <div class="col-5 section">
+                                                            <div class="container text-container">
+                                                                <div class="d-flex flex-wrap header">
 
-                                                                    <div class="col-3">
+                                                                    <div class="col-3 section">
                                                                         <span> </span>
                                                                     </div>
 
-                                                                    <div class="col-7">
-                                                                        <p class="m-0 review-text">
+                                                                    <div class="col-7 section">
+                                                                        <p class="m-0 text">
                                                                             {{item.user.username}}
                                                                         </p>
-                                                                        <p class="m-0 review-number-text"> 218 products
-                                                                            in
-                                                                            account
-                                                                        </p>
+                                                                        <p class="m-0 number-text"> 218 products in
+                                                                            account </p>
                                                                     </div>
 
                                                                 </div>
                                                             </div>
                                                         </div>
 
-                                                        <div class="col-7 review-card-col-7-section">
-                                                            <div class="container p-0 py-1 review-text-container">
-                                                                <div class="d-flex flex-column me-1 review-text-header">
+                                                        <div class="col-7 section">
+                                                            <div class="container p-0 py-1 pe-1 review-container">
+                                                                <div class="d-flex flex-column me-1 header">
 
-                                                                    <div class="d-flex flex-row review-text-recomended-header">
-                                                                        <div class="col-2"
-                                                                            *ngIf="item.is_recommended == 1">
-                                                                            <img src="../../../../assets/image/review/icon_thumbsUp_v6.png"
-                                                                                class="review-image">
-                                                                        </div>
+                                                                    <div class="col section">
+                                                                        <div class="container p-0 recomended-container">
+                                                                            <div class="d-flex flex-row header">
 
-                                                                        <div class="col-2"
-                                                                            *ngIf="item.is_recommended == 0">
-                                                                            <img src="../../../../assets/image/review/icon_thumbsDown_v6.png"
-                                                                                class="review-image">
-                                                                        </div>
+                                                                                <div class="col-2 w-auto pe-2 section"
+                                                                                    *ngIf="item.is_recommended == 1">
+                                                                                    <img src="../../../../assets/image/review/icon_thumbsUp_v6.png"
+                                                                                        class="image">
+                                                                                </div>
 
-                                                                        <div class="col-10">
-                                                                            <p class="m-0 ps-1 recommended review-label"
-                                                                                *ngIf="item.is_recommended == 1"> Is
-                                                                                Recommended
-                                                                            </p>
-                                                                            <p class="m-0 ps-1 recommended review-label"
-                                                                                *ngIf="item.is_recommended == 0"> Not
-                                                                                Recommended
-                                                                            </p>
+                                                                                <div class="col-2 w-auto pe-2 section"
+                                                                                    *ngIf="item.is_recommended == 0">
+                                                                                    <img src="../../../../assets/image/review/icon_thumbsDown_v6.png"
+                                                                                        class="image">
+                                                                                </div>
 
-                                                                            <div>
-                                                                                <p class="m-0 ps-1 review-text">
-                                                                                    {{item.hours_played}}
-                                                                                    hrs
-                                                                                    on
-                                                                                    record </p>
+                                                                                <div class="col-10 section">
+                                                                                    <p class="m-0 pt-1 ps-1 label"
+                                                                                        *ngIf="item.is_recommended == 1">
+                                                                                        Is
+                                                                                        Recommended
+                                                                                    </p>
+                                                                                    <p class="m-0 pt-1 ps-1 label"
+                                                                                        *ngIf="item.is_recommended == 0">
+                                                                                        Not
+                                                                                        Recommended
+                                                                                    </p>
+
+                                                                                    <div>
+                                                                                        <p class="m-0 ps-1 text">
+                                                                                            {{item.hours_played}}
+                                                                                            hrs
+                                                                                            on
+                                                                                            record </p>
+                                                                                    </div>
+
+                                                                                </div>
+
                                                                             </div>
-
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="d-flex flex-xl-column pb-2">
-                                                                        <div class="col">
-                                                                            <p class="posted p-0 m-0 review-date">
-                                                                                Posted {{
-                                                                                item.date | date:'dd MMM, yyyy' }} </p>
-                                                                        </div>
+
+                                                                    <div class="col pt-3 section">
+                                                                        <p class="p-0 m-0 date">
+                                                                            Posted {{
+                                                                            item.date | date:'dd MMM, yyyy' }} </p>
+                                                                    </div>
 
 
-                                                                        <div class="col">
-                                                                            <p class="review-content p-0"> {{
-                                                                                item.description}}
-                                                                            </p>
+                                                                    <div class="col pt-1 section">
+                                                                        <p class="p-0 content"> {{
+                                                                            item.description}}
+                                                                        </p>
+                                                                    </div>
+
+                                                                    <div class="col section">
+                                                                        <div class="spacer"></div>
+                                                                    </div>
+
+                                                                    <div class="col pt-2 section">
+                                                                        <p> Was this review helpful? </p>
+                                                                    </div>
+
+                                                                    <div class="col section pb-2">
+                                                                        <div class="container p-0 helpful-container">
+                                                                            <div
+                                                                                class="d-flex flex-wrap justify-content-start header">
+                                                                                <div class="col-2 w-auto pe-1 section">
+                                                                                    <button class="button"> Yes
+                                                                                    </button>
+                                                                                </div>
+                                                                                <div class="col-2 w-auto pe-1 section">
+                                                                                    <button class="button"> No </button>
+                                                                                </div>
+                                                                                <div class="col-2 w-auto pe-1 section">
+                                                                                    <button class="button"> Funny
+                                                                                    </button>
+                                                                                </div>
+                                                                                <div class="col-2 w-auto pe-1 section">
+                                                                                    <button class="button"> Award
+                                                                                    </button>
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
 
@@ -167,58 +198,127 @@
                                     </div>
                                 </div>
 
-                                <div class="col-4">
+                                <div class="col-4 section">
 
-                                    <div class="container p-0">
-                                        <div class="d-flex flex-wrap mb-2">
-                                            <div class="col p-0 mt-3">
-                                                <span class="titles"> Recently Posted </span>
+                                    <div class="container p-0 recently-container">
+                                        <div class="d-flex flex-column mb-2 header">
+
+                                            <div class="col pt-3 pb-2 section">
+                                                <span class="caption"> Recently Posted </span>
                                             </div>
-                                        </div>
-                                    </div>
 
-                                    <div class="container mb-3 p-0" *ngFor="let item of game.reviews.slice(0, 15)">
-                                        <div class="d-flex flex-column">
+                                            <div class="col section">
+                                                <div class="col section">
+                                                    <div class="container mb-3 p-0 card-deals-container"
+                                                        *ngFor="let item of game.reviews.slice(0, 15)">
+                                                        <div class="d-flex flex-wrap header">
 
-                                            <div class="container">
-                                                <div class="d-flex flex-wrap review">
 
-                                                    <div class="col-1" *ngIf="item.is_recommended == 1">
-                                                        <img src="../../../../assets/image/review/icon_thumbsUp_v6.png"
-                                                            class="img-fluid">
-                                                    </div>
+                                                            <div class="col section">
+                                                                <div class="container p-0 recently-container">
+                                                                    <div class="d-flex flex-column me-1 header">
 
-                                                    <div class="col-1" *ngIf="item.is_recommended == 0">
-                                                        <img src="../../../../assets/image/review/icon_thumbsDown_v6.png"
-                                                            class="img-fluid">
-                                                    </div>
+                                                                        <div class="col section">
+                                                                            <div
+                                                                                class="container p-0 recomended-container">
+                                                                                <div class="d-flex flex-row header">
 
-                                                    <div class="col ps-1">
-                                                        <span class="username m-0"> {{item.user.username}} </span>
-                                                    </div>
-                                                    <div class="col-5">
-                                                        <span class="hours"> {{item.hours_played}} hrs </span>
+                                                                                    <div class="col-1 section"
+                                                                                        *ngIf="item.is_recommended == 1">
+                                                                                        <img src="../../../../assets/image/review/icon_thumbsUp_v6.png"
+                                                                                            class="image">
+                                                                                    </div>
+
+                                                                                    <div class="col-1 section"
+                                                                                        *ngIf="item.is_recommended == 0">
+                                                                                        <img src="../../../../assets/image/review/icon_thumbsDown_v6.png"
+                                                                                            class="image">
+                                                                                    </div>
+
+                                                                                    <div class="col-10 ps-2 section">
+
+                                                                                        <span class="user">
+                                                                                            {{item.user.username}}
+                                                                                        </span>
+
+                                                                                        <span class="m-0 ps-1 text">
+                                                                                            {{item.hours_played}}
+                                                                                            hrs
+                                                                                            on
+                                                                                            record </span>
+
+                                                                                    </div>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="px-2 wrapper">
+                                                                            <div class="col pt-3 section">
+                                                                                <p class="p-0 m-0 date">
+                                                                                    Posted {{
+                                                                                    item.date | date:'dd MMM, yyyy' }}
+                                                                                </p>
+                                                                            </div>
+
+
+                                                                            <div class="col pt-1 section">
+                                                                                <p class="p-0 content"> {{
+                                                                                    item.description}}
+                                                                                </p>
+                                                                            </div>
+
+                                                                            <div class="col section">
+                                                                                <div class="spacer"></div>
+                                                                            </div>
+
+                                                                            <div class="col pt-2 section">
+                                                                                <p> Was this review helpful? </p>
+                                                                            </div>
+
+                                                                            <div class="col section pb-2">
+                                                                                <div
+                                                                                    class="container p-0 helpful-container">
+                                                                                    <div
+                                                                                        class="d-flex flex-wrap justify-content-start header">
+                                                                                        <div
+                                                                                            class="col-2 w-auto pe-1 section">
+                                                                                            <button class="button"> Yes
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div
+                                                                                            class="col-2 w-auto pe-1 section">
+                                                                                            <button class="button"> No
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div
+                                                                                            class="col-2 w-auto pe-1 section">
+                                                                                            <button class="button">
+                                                                                                Funny
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div
+                                                                                            class="col-2 w-auto pe-1 section">
+                                                                                            <button class="button">
+                                                                                                Award
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <div class="container">
-                                                <div class="d-flex flex-column recentReviews px-2">
-
-                                                    <div class="col mt-1 mb-2">
-                                                        <p class="posted p-0 m-0"> Posted {{ item.date | date:'dd MMM, yyyy' }}
-                                                        </p>
-                                                    </div>
-
-                                                    <div class="col">
-                                                        <p class="descriptionReview p-0"> {{ item.description}} </p>
-                                                    </div>
-
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
-
                                 </div>
 
                             </div>
@@ -227,10 +327,6 @@
 
                 </div>
             </div>
-        </div>
-
-        <div class="col">
-
         </div>
 
     </div>

@@ -14,7 +14,7 @@ export class OfferCarouselComponent {
   game: any
   skip: number = 0;
   take: number = 3;
-  itemsPerPage = 6; 
+  itemsPerPage = 3; 
   pages: number[] = []; 
   currentIndex = 0; 
 

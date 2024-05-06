@@ -1,0 +1,67 @@
+<div class="container py-3 my-3 d-block update-offer-cards-container">
+    <div class="d-flex flex-column">
+
+        <div class="container p-0">
+            <div class="d-flex flex-wrap">
+        
+                <div class="col p-0"></div>
+        
+                <div class="col-11 ps-2">
+                    <p class="titles"> Popular Titles </p>
+                </div>
+        
+                <div class="col"></div>
+        
+            </div>
+        </div>
+    
+        <div class="container content-container p-0">
+            <div class="d-flex flex-wrap">
+                <div class="col p-0">
+                </div>
+        
+                <div class="col-11 p-0 content-section">
+
+                    <div class="container card-container p-0">
+                        <div class="d-flex flex-wrap">
+
+                            <div class="col-4 py-1 px-1" *ngFor="let item of games">
+                                <div class="card p-0 border-0" (click)="goTo('../game/' + item.id)">
+                                    
+                                    <img class="img" [src]="item.images[0]?.image_path">
+                    
+                                    <div class="container text py-2">
+                                        <div class="d-flex flex-wrap">
+
+                                            <div class="col d-flex">
+                                                <div class="discountPercentage px-2">
+                                                    <span class="discountPercentage"> {{ item.discounted_percentage }}% </span>
+                                                </div>
+                                                <div class="price px-2">
+                                                    <div class="col d-flex justify-content-end">
+                                                        <span class="basePrice"> {{ item.base_price.toFixed(2) + "€" }} </span>
+                                                    </div>
+                                                    <div class="col d-flex justify-content-end">
+                                                        <span class="discountPrice"> {{ item.discounted_price.toFixed(2) + "€" }}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="col p-0">
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
