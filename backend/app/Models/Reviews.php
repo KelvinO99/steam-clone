@@ -1,5 +1,5 @@
 <?php
-//NON ELIMINARE 
+//NON ELIMINARE
 //<PLACEHOLDER> = dati da cambiare -chris
 
 namespace App\Models;
@@ -18,16 +18,25 @@ class Reviews extends Model
         'date',
         'is_recommended',
         'description',
-        'hours_played',
+        'time_played',
     ];
-    public function User(){
+    // public function User(){
 
-        return $this->hasOne(User::class, 'id', 'user_id');
-    }
+    //     return $this->hasOne(User::class, 'id', 'user_id');
+    // }
 
     public function Games(){
 
-        return $this->hasOne(Games::class, 'id', 'game_id');   
+        return $this->hasOne(Games::class, 'id', 'game_id');
+    }
+    public function Libraries(){
+
+        return $this->hasOne(Games::class, 'id', 'time_played');
+    }
+    public function User()
+    {
+        // Define the belongsTo relationship to the User model
+        return $this->belongsTo(User::class);
     }
 }
 

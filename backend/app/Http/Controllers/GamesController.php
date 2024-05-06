@@ -102,7 +102,69 @@ class GamesController extends Controller
             }
 
     //ISSET CODE
+    //REVIEW CODE
+    $evaluations = [];
 
+    for ($gameId = 1; $gameId <= $total; $gameId++) {
+        $reviews = Reviews::where('game_id', $gameId)->pluck('is_recommended');
+
+        $reviewCount = count($reviews);
+
+        $positiveCount = 0;
+        $negativeCount = 0;
+        $evaluationString = 'Error';
+        $gameReviews = 'No Reviews';
+
+        if ($reviewCount > 0) {
+
+            foreach ($reviews as $review) {
+                if ($review == 1) {
+                    $positiveCount++;
+                } else {
+                    $negativeCount++;
+                }
+            }
+
+
+            $positiveRatio = floor(($positiveCount / $reviewCount) * 100);
+
+
+            if ($positiveRatio >= 0 && $positiveRatio <= 19) {
+                $evaluationString = 'Overwhelmingly Negative Reviews';
+            } elseif ($positiveRatio >= 20 && $positiveRatio <= 39) {
+                $evaluationString = 'Mostly Negative Reviews';
+            } elseif ($positiveRatio >= 40 && $positiveRatio <= 69) {
+                $evaluationString = 'Mixed Reviews';
+            } elseif ($positiveRatio >= 70 && $positiveRatio <= 79) {
+                $evaluationString = 'Mostly Positive Reviews';
+            } elseif ($positiveRatio >= 80 && $positiveRatio <= 94) {
+                $evaluationString = 'Very Positive Reviews';
+            } elseif ($positiveRatio >= 95 && $positiveRatio <= 100) {
+                $evaluationString = 'Overwhelmingly Positive Reviews';
+            } else {
+                $evaluationString = 'Error';
+            }
+
+
+            $gameReviews = Reviews::where('game_id', $gameId)
+                                  ->with(['User' => function ($q) {
+                                      $q->select('id', 'username');
+                                  }])
+                                  ->get();
+        }
+
+        $evaluations[$gameId] = $evaluationString;
+    }
+    $game_evaluation = $game->get();
+
+    $game_evaluation->map(function ($game) use ($evaluations) {
+        $gameId = $game->id;
+        $game->evaluation = $evaluations[$gameId] ?? 'Error';
+        return $game;
+    });
+
+
+    //REVIEW CODE
             if (isset($skip)) {
                 $game = $game->skip($skip);
             }
@@ -114,8 +176,9 @@ class GamesController extends Controller
             return response()->json([
                 'status' => 200,
                 'total' => $total,
-                'count' => $game->get()->count(), //non toccare che nn funziona + nulla
-                'games' => $game->get(),          //anche qst
+                'count' => $game->get()->count(), //non toccare che non funziona + nulla
+                //'games' => $game->get(),          //anche qst
+                'games' => $game_evaluation,
             ]);
         } catch (\Exception $e) {
             return $e;
@@ -192,7 +255,7 @@ class GamesController extends Controller
                             break;
                     case $ratio>=40&&$ratio<=69:
                         $string= 'Mixed Reviews';
-                            break;                                  //tutto questo non è simmetrico!!
+                            break;
                     case $ratio>=70&&$ratio<=79:
                         $string= 'Mostly Positive Reviews';
                             break;
@@ -202,17 +265,35 @@ class GamesController extends Controller
                     case $ratio>=95&&$ratio<=100:
                         $string= 'Overwhelmingly Positive Reviews';
                     default:
-                        $string= 'Error'; //riferisci a chri
+                        $string= 'Undefined'; //riferisci a chri
                     }
 
-                $reviews = Reviews::where('game_id', $id)
-                                    ->with(['User'=>  function ($q){
-                                        $q->select('id', 'username');
-                                    }])
-                                    ->get();
-            }
+                    // $library = Libraries::find(1);
+                    //                     echo $library->time_played;
 
+                    $reviews = Reviews::where('reviews.game_id', $id)
+                                        ->join('libraries', function($join) {
+                                            $join->on('reviews.user_id', '=', 'libraries.user_id')
+                                                ->on('reviews.game_id', '=', 'libraries.game_id');
+                                        })
+                                        ->with([
+                                            'user' => function ($query) {
+                                                $query->select('id', 'username');
+                                            }
+                                        ])
+                                        ->select(
+                                            'reviews.id',
+                                            'reviews.game_id',
+                                            'reviews.user_id',
+                                            'reviews.is_recommended',
+                                            'reviews.description',
+                                            DB::raw('FORMAT(libraries.time_played / 60, 1) as hours_played')
+                                        )
+                                        ->get();
+
+            }
     //REVIEWS FUNCTION
+
             $images = Images::where('game_id', $id)->pluck('image_path');
 
             $is_dlc = $game->is_dlc;
@@ -274,7 +355,6 @@ class GamesController extends Controller
             'negative' => $negative,
             'ratio' => $ratio,
             'evaluation' => $string,
-            /* 'system_requirements' => $ */
             'reviews' => $reviews,
             'dlc' => $dlc,
             'no_users_ownership' => $no_users_ownership,
@@ -282,7 +362,6 @@ class GamesController extends Controller
             'no_users_ownership' => $no_users_ownership,
             'is_dlc' => $is_dlc,
             'dlc' => $dlc,
-            'reviews' => $reviews,
             ]);
 
         }catch(\Exception $e){
