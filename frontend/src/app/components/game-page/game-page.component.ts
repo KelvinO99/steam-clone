@@ -21,7 +21,6 @@ export class GameComponent {
     this.routeId = this.route.snapshot.params['id'];
     this.showGame();
     this.showSystemRequirements();
-    this.showSystemCharacteristics();
   }
 
   showGame() {
@@ -44,15 +43,4 @@ export class GameComponent {
       }
     })
   }
-
-  showSystemCharacteristics() {
-    this.systemService.showSystemCharacteristics(this.routeId).subscribe({
-      next: (res: any) => {
-        {
-          this.systemCharacteristics = res
-        }
-      }
-    })
-  }
-
 }

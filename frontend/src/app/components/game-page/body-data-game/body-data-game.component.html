@@ -124,7 +124,7 @@
 
                     <div class="d-flex flex-column header">
 
-                        <div class="col section">
+                        <div class="col section"> <!--pulsante di sign in-->
                             <p class="ps-3 heading"> Is this game relevant to you? </p>
                             <p class="ps-3 content"> Sign in to see reasons why you may or may not like this based on
                                 your games, friends, and curators you follow. </p>
@@ -133,7 +133,7 @@
                         </div>
 
                         <!--DA COLLEGARE AL BACKEND-->
-                        <div class="col mt-3 section">
+                        <div class="col mt-3 section"> <!--feature-->
                             <div class="d-flex flex-column p-3">
                                 <p class="d-flex justify-content-center align-items-center mb-1"> <img
                                         src="https://store.akamai.steamstatic.com/public/images/v6/ico/ico_singlePlayer.png"
@@ -169,7 +169,7 @@
                             </div> -->
                         </div>
 
-                        <div class="col mt-3 section">
+                        <div class="col mt-3 section"> <!--supporto delle lingue-->
                             <div class="d-flex flex-column p-3 header">
                                 <p class="caption"> Languages: </p>
                                 <div class="d-flex flex-wrap section">
@@ -188,16 +188,30 @@
 
                         </div>
 
-                        <div class="col section">
+                        <div class="col section"> <!--achivements-->
 
                         </div>
 
-                        <div class="col section">
-
+                        <div class="col mt-3 section"> <!--informazioni del gioco-->
+                            <div class="d-flex flex-column p-3 header">
+                                <p> <span class="caption-item"> Title: </span> <span class="text-item"> {{game?.game?.name}} </span> </p>
+                                <p> <span class="caption-item"> Genre: </span> <span class="label-item" *ngFor="let item of game.tags; let last = last"> {{item?.name}}{{last ? '' : ', '}} </span> </p>
+                                <p> <span class="caption-item"> Developer: </span> <span class="label-item"> {{game?.game?.developers_games[0]?.developers?.user?.username}} </span> </p>
+                                <p> <span class="caption-item"> Release Date: </span> <span class="label-item"> {{game.game.date | date:'dd MMM, yyyy'}} </span> </p>
+                                <p> <span class="caption-item"> Early Access Release Date: </span> <span class="text-item"> </span> </p>
+                                <button class="d-flex justify-content-start mb-1 mt-2 button"> Visit the website </button>
+                                <button class="d-flex justify-content-start mb-1 button"> {{game?.game?.name}} on Twitter </button>
+                                <button class="d-flex justify-content-start mb-1 button"> View update history </button>
+                                <button class="d-flex justify-content-start mb-1 button"> Read related news </button>
+                                <button class="d-flex justify-content-start button"> View Groups </button>
+                            </div>
                         </div>
 
-                        <div class="col section">
-
+                        <div class="col mt-3 section"> <!--pegi del gioco-->
+                            <div class="d-flex flex-column header px-2 py-2">
+                                <img [src]="game.pegi_img.image_path" class="image">
+                                <span class="label"> Rating for: PEGI </span>
+                            </div>
                         </div>
 
                     </div>

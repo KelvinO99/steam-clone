@@ -12,12 +12,14 @@
     }
 
     .header {
+
+        //col-8
         .section:nth-child(1) {
 
-            //col-8
             .header {
+
+                //la card del costo del gioco
                 .section:nth-child(1) {
-                    //la card del costo del gioco
 
                     .header {
                         background-image: linear-gradient(-60deg, rgba(226, 244, 255, 0.3) 5%, rgba(84, 107, 115, 0.3) 95%);
@@ -109,8 +111,8 @@
                     }
                 }
 
+                //descrizione del gioco
                 .section:nth-child(2) {
-                    //descrizione del gioco
                     line-height: 13px;
 
                     .heading {
@@ -134,8 +136,8 @@
                     }
                 }
 
+                //requisiti di sistema
                 .section:last-child {
-                    //requisiti di sistema
                     padding: initial;
                     line-height: 13px;
 
@@ -183,14 +185,18 @@
             }
         }
 
+        //col-4
         .section:last-child {
-            //col-4
 
             padding-left: 0.45rem;
 
             .header {
-                .section:nth-child(1) {
+                .section {
                     @include background();
+                }
+
+                //pulsante di sign in
+                .section:nth-child(1) {
 
                     .heading {
                         background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
@@ -219,19 +225,19 @@
                         cursor: pointer;
 
                         &:hover {
-                            background: linear-gradient( -60deg, #417a9b 5%,#67c1f5 95%);
+                            background: linear-gradient(-60deg, #417a9b 5%, #67c1f5 95%);
                             color: white !important;
                         }
                     }
                 }
 
+                //feature
                 .section:nth-child(2) {
-                    @include background();
 
                     button {
                         background: initial;
                         border: initial;
-                        background: rgba( 103, 193, 245, 0.1 );
+                        background: rgba(103, 193, 245, 0.1);
                         font-size: 12px;
                         color: #67c1f5;
                         font-family: Arial, Helvetica, sans-serif;
@@ -239,7 +245,7 @@
                         padding-left: 0.5rem;
 
                         &:hover {
-                            background: linear-gradient(135deg, #67c1f5 0%,#417a9b 100%);
+                            background: linear-gradient(135deg, #67c1f5 0%, #417a9b 100%);
                             color: #ffffff;
                         }
                     }
@@ -250,9 +256,8 @@
                     }
                 }
 
+                //lingue supportate
                 .section:nth-child(3) {
-                    @include background();
-
                     .caption {
                         color: #8f98a0;
                         font-size: 12px;
@@ -269,16 +274,77 @@
                                 color: #b0aeac;
                                 font-size: 12px;
                             }
-        
+
                             .caption {
                                 color: #8f98a0;
                                 font-size: 12px;
                             }
-        
+
                             .value-item {
                                 font-weight: bold;
                                 color: #67c1f5;
                             }
+                        }
+                    }
+                }
+
+                /* .section:nth-child(4) {
+
+                } */
+
+                //informazioni del gioco
+                .section:nth-child(5) {
+                    font-size: 11px;
+                    line-height: 23px;
+
+                    .header {
+                        .caption-item {
+                            color: #556772;
+                            text-transform: uppercase;
+                        }
+
+                        .text-item {
+                            color: #8f98a0;
+                        }
+
+                        .label-item {
+                            color: #67c1f5;
+
+                            &:hover {
+                                color: white;
+                                cursor: pointer;
+                            }
+                        }
+
+                        .button {
+                            background: initial;
+                            border: initial;
+                            background: rgba(103, 193, 245, 0.1);
+                            font-size: 12px;
+                            color: #67c1f5;
+                            font-family: Arial, Helvetica, sans-serif;
+                            font-weight: normal;
+                            padding-left: 0.5rem;
+
+                            &:hover {
+                                background: linear-gradient(135deg, #67c1f5 0%, #417a9b 100%);
+                                color: #ffffff;
+                            }
+                        }
+                    }
+                }
+
+                //pegi del gioco
+                .section:nth-child(6) {
+                    .header {
+                        .image {
+                            max-width: 30%;
+                            height: auto;
+                        }
+
+                        .label {
+                            font-size: 12px;
+                            color: #c6d4df;
                         }
                     }
                 }
