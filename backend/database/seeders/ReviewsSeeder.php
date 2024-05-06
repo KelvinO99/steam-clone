@@ -112,7 +112,7 @@ class ReviewsSeeder extends Seeder
                 'date' => $reviews_date,
                 'is_recommended' => $rng !== 1 ? 1 : 0,
                 'description' => $rng !== 1 ? $positive[random_int( 0, sizeof($positive)-1 )] : $negative[random_int( 0, sizeof($negative)-1 )],
-                'time_played' => $user_id,
+                //'time_played' => $user_id,
             ]);
         }
 
@@ -133,7 +133,7 @@ class ReviewsSeeder extends Seeder
                 'date' => $reviews_date,
                 'is_recommended' => $rng !== 1 ? 1 : 0,
                 'description' => $rng !== 1 ? $positive[random_int( 0, sizeof($positive)-1 )] : $negative[random_int( 0, sizeof($negative)-1 )],
-                'time_played' => $user_id,
+                //'time_played' => $user_id,
             ]);
         }
 
@@ -152,7 +152,7 @@ class ReviewsSeeder extends Seeder
                 'date' => $reviews_date,
                 'is_recommended' => $rng === 1 ? 1 : 0,
                 'description' => $rng === 1 ? $positive[random_int( 0, sizeof($positive)-1 )] : $negative[random_int( 0, sizeof($negative)-1 )],
-                'time_played' => $user_id,
+                //'time_played' => $user_id,
             ]);
         }
     }
