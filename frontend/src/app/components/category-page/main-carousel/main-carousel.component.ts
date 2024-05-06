@@ -23,7 +23,7 @@ export class MainCarouselComponent {
   }
 
   getUpdatesAndOffers() {
-    this.gameService.getGames({skip: this.skip, take: this.take, tag: this.genre }).subscribe({
+    this.gameService.getGames({skip: this.skip, take: this.take, tag: [this.genre] }).subscribe({
       next: (res: any) => {
         this.game = res.games;
         const pageCount = Math.ceil(this.game.length / this.itemsPerPage);

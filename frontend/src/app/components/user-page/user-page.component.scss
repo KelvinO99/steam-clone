@@ -1,0 +1,175 @@
+//General CSS
+
+.all-page {
+  background-image: url(../../../assets/momentary_user-page/userbackground.gif);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-color: black;
+  font-family: "Motiva Sans", Sans-serif;
+}
+
+
+.column{
+  max-width: 100%;
+}
+
+//user column
+
+.user-page {
+background: rgba(27, 40, 56, 0.7);
+max-width: 976px;
+min-width: 900px;
+}
+
+
+.profile-header-content{
+  margin-top: 20px;
+}
+
+// images
+
+.user-images{
+ display: flex;
+ justify-content: center;
+}
+
+.profile-image-group{
+  display: flex;
+  width: 210px;
+  height: 210px;
+}
+
+.user-frame{
+  width: 200px;
+  height: 200px;
+  z-index: 1;
+}
+
+.user-picture{
+  z-index: 0;
+  width: 164px;
+}
+
+// User Persona
+
+.username{
+  color: #FFFFFFFF;
+}
+
+.nationality{
+  color:#c4c4c4;
+}
+
+.description{
+  color:#c4c4c4;
+}
+
+// User Badges
+
+.user-badges{
+  color: #FFFFFFFF;
+
+  .leveldiv{
+    border-style: solid;
+    border-radius: 12312414142141268797691px;
+    -webkit-border-radius: 12312414142141268797691px;
+    -moz-border-radius: 12312414142141268797691px;
+    -ms-border-radius: 12312414142141268797691px;
+    -o-border-radius: 12312414142141268797691px;
+    border-color: #c4c4c4;
+  }
+}
+
+
+.favourite-achievement-slot{
+  height:70px;
+  width: 268px;
+  background-color: rgba(32, 32, 32, 0.6);
+  position: relative;
+  padding: 8px 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .favorite_badge_description {
+    opacity: initial;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
+  }
+
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Second Section
+
+
+.profile_leftcol {
+  width: 600px;
+
+  .leftcol-header{
+    width: 560px;
+    height: 40px;
+    font-family: "Motiva Sans", Sans-serif;
+    font-weight: 200;
+    background: linear-gradient(to right, #50975F,#4D5B4C );
+    padding: 5px 10px 5px 10px;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 30px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .recent-activity-box{
+    background: rgba(32, 32, 32, 0.6);
+    width: 560px;
+    height: 487px; //provvisorio
+    min-height: 100px;
+  }
+
+  .Comments{
+    margin-top: 100px;
+
+  }
+
+  .Comments-Box{
+    background: rgba(32, 32, 32, 0.6);
+    width: 560px;
+    height: 208px; //provvisorio
+    min-height: 100px;
+  }
+
+}
+
+.profile_rightcol{
+  color: white;
+
+  .rightcol-box{
+    background-color: #101214;
+    background-color: rgba( 0, 0, 0, 0.3 );
+    backdrop-filter: blur(20px);
+    padding: 10px;
+    border-radius: 3px;
+    width: 268px;
+    height: 941px; //provvisorio
+    float: right;
+    margin-bottom: 35px;
+  }
+
+  .user-status{
+    font-family: "Motiva Sans", Sans-serif;
+    font-weight: 200;
+    font-size: 20px;
+  }
+
+}
+

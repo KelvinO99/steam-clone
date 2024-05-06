@@ -1,4 +1,4 @@
-<div class="container py-3 my-3 d-block">
+<div class="container py-3 my-3 d-block update-offer-cards-container">
     <div class="d-flex flex-column">
 
         <div class="container p-0">
@@ -6,7 +6,7 @@
         
                 <div class="col p-0"></div>
         
-                <div class="col-11">
+                <div class="col-11 ps-2">
                     <p class="titles"> Updates and Offers </p>
                 </div>
         
@@ -15,15 +15,15 @@
             </div>
         </div>
     
-        <div class="container p-0">
+        <div class="container content-container p-0">
             <div class="d-flex flex-wrap">
                 <div class="col p-0">
                 </div>
         
-                <div class="col-11 p-0">
+                <div class="col-11 p-0 content-section">
 
-                    <div class="container p-0">
-                        <div class="row">
+                    <div class="container card-container p-0">
+                        <div class="d-flex flex-wrap">
 
                             <div class="col-4 py-1 px-1" *ngFor="let item of games">
                                 <div class="card p-0 border-0" (click)="goTo('../game/' + item.id)">

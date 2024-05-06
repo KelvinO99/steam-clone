@@ -1,0 +1,135 @@
+.category-game-table-container .header {
+    background-color: rgb(80, 95, 110);
+
+    p {
+        margin: 0;
+    }
+
+    .section {
+        .button-container .header {
+            color: #c6d4df;
+            font-size: 13px;
+
+            .section {
+                &:hover {
+                    background-color: rgba(255, 255, 255, .2);
+                    cursor: pointer;
+                }
+
+                .label {
+                    color: inherit;
+                    font-size: inherit;
+                    background-color: initial;
+                    border: initial;
+                    font-weight: initial;
+                    text-transform: uppercase;
+
+                    &:focus {
+                        border-bottom-color: white;
+                        border-bottom-style: solid;
+                        border-bottom-width: 2px;
+                    }
+                }
+            }
+        }
+
+        .card-container .header {
+            height: 110px;
+            background-color: #414a55;
+            box-shadow: 0 0 8px rgba(0,0,0,.5);
+            backdrop-filter: blur(15px);
+            cursor: pointer;
+
+            .section {
+                .image {
+                    height: 110px !important;
+                    width: 100%;
+                    height: auto;
+                }
+
+                .content-container .header {
+                    background: initial;
+                    box-shadow: initial;
+                    .section {
+                        .caption {
+                            font-size: 17px;
+                            color: white;
+                        }
+    
+                        .date {
+                            color: #a5b0b6;
+                            font-size: 11px;
+                            letter-spacing: 1px;
+                            text-transform: uppercase;
+                        }
+    
+                        .tags {
+                            color: #a5b0b6;
+                            background-color: rgba(112, 129, 137, .15);
+                            font-size: 10px;
+                        }
+    
+                        .evaluation {
+                            font-size: 12px;
+                            color: #ffffff;
+                        }
+                    }
+                }
+
+                .price-container .header {
+                    height: initial;
+                    background: initial;
+                    backdrop-filter: initial;
+
+                    .percentage-section {
+                        background: #4c6b22;
+
+                        .label {
+                            font-size: 25px;
+                            font-weight: 600;
+                            color: #beee11;
+                            word-break: keep-all;
+                        }
+                    }
+
+                    .discounted-section {
+                        background: rgba(0, 0, 0, .1);
+                        line-height: 14px;
+
+                        .base-price-label {
+                            font-size: 11px;
+                            color: #738895;
+                            text-decoration: line-through;
+                        }
+
+                        .discount-label {
+                            font-size: 15px;
+                            color: #beee11;
+                        }
+                    }
+
+                    .price-section {
+                        background: rgba(0,0,0,.1);
+                        .base-price-label {
+                            font-size: 14px;
+                            color: white;
+                        }
+                    }
+
+                    .button-section {
+                        background-image: radial-gradient(circle at top left, #85a805 10%, #6a8704 80%);
+                        border-radius: 2px;
+                        .button {
+                            background: initial;
+                            border: initial;
+                            font: initial;
+                            color: #dfe3e6;
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

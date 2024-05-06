@@ -18,6 +18,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class GamesController extends Controller
 {
@@ -27,7 +28,7 @@ class GamesController extends Controller
         try {
             $discount = $request->input("discount"); // GIOCHI CON SCONTO
             $featured = $request->input("featured"); // GIOCHI TOP SELLER
-            $tag = $request->input("tag", []);  //FILTRA IN BASE AL TAG RICHIESTO
+            $tag = $request->input("tag, []");  //FILTRA IN BASE AL TAG RICHIESTO
             $special_offer = $request->input("special_offer"); // GIOCHI CON SCONTO SUPERIORE AL 50%
             $most_reviewed = $request->input("most_reviewed"); // CALCOLO TRA NUMERO RECENSIONI E DATA DI USCITA
             $best_seller = $request->input("best_seller"); // CALCOLO SUL NUMERO DI COPIE ACQUISTATE
@@ -49,6 +50,7 @@ class GamesController extends Controller
                 foreach ($tag as $t) {
                     $game->whereHas('GamesTags.Tags', function ($q) use ($t) {
                         $q->where('name', $t);
+                        Log::info($t);
                     });
                 }
             }
@@ -91,13 +93,13 @@ class GamesController extends Controller
             }
 
 
-            // if($tag){
-            //     foreach ($tag as $t) {
-            //         $game->whereHas('GamesTags.Tags', function ($q) use($t){
-            //             $q->where('name', $t);
-            //         });
-            //     }
-            // }
+            if($tag){
+                foreach ($tag as $t) {
+                    $game->whereHas('GamesTags.Tags', function ($q) use($t){
+                        $q->where('name', $t);
+                    });
+                }
+            }
 
     //ISSET CODE
 
@@ -272,7 +274,10 @@ class GamesController extends Controller
             'negative' => $negative,
             'ratio' => $ratio,
             'evaluation' => $string,
-            'system_requirements' => $obj,
+            /* 'system_requirements' => $ */
+            'reviews' => $reviews,
+            'dlc' => $dlc,
+            'no_users_ownership' => $no_users_ownership,
             'pegi_img'=>$pegi_img,
             'no_users_ownership' => $no_users_ownership,
             'is_dlc' => $is_dlc,

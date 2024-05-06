@@ -106,3 +106,27 @@ span.basePrice {
         }
     }
 }
+
+/* @media only screen and (max-width: 1320px) {
+    .game-table-container,
+    .content-container {
+      width: max-content;
+    }
+  } */
+
+.button-label {
+    font-size: 14px;
+    color: #4f94bc;
+    background-color: #1b2838;
+    border: initial;
+    font-weight: initial;
+
+    &:hover {
+        color: white;
+    }
+
+    &:focus {
+        background-color:  #2a475e;;
+        color: white;
+    }
+}

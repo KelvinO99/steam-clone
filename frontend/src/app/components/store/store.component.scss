@@ -1,15 +1,23 @@
 .container-fluid {
-    max-width: 1600px;
+    max-width: 100rem;
 }
 
-@media only screen and (max-width: 62.5rem) {
 
-    app-sidebar,
-    .col2 {
-        display: none;
+@media only screen and (max-width: 1320px) {
+
+    .col-lg-2 {
+        display: none !important;
+    }
+
+    app-body-navbar {
+        display: none !important;
+    }
+
+    .header {
+        width: max-content;
+    }
+
+    .container-fluid {
+        width: max-content;
     }
 }
-
-/* .col-8 {
-    max-width: 1050px;
-} */

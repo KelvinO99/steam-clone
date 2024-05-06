@@ -1,0 +1,101 @@
+<div class="container category-game-table-container">
+    <div class="d-flex flex-column header">
+
+        <div class="col pt-3 ps-2 mb-1 section">
+            <div class="container p-0 button-container">
+                <div class="d-flex flex-wrap header">
+
+                    <div class="col-auto me-4 px-1 py-1 section">
+                        <button class="label"> All Items </button>
+                    </div>
+
+                    <div class="col-auto me-4 px-1 py-1 section">
+                        <button class="label"> New & Trending </button>
+                    </div>
+
+                    <div class="col-auto me-4 px-1 py-1 section">
+                        <button class="label"> Top Sellers </button>
+                    </div>
+
+                    <div class="col-auto me-4 px-1 py-1 section">
+                        <button class="label"> Top Rated </button>
+                    </div>
+
+                    <div class="col-auto me-4 px-1 py-1 section">
+                        <button class="label"> Discounted </button>
+                    </div>
+
+                    <div class="col-auto me-4 px-1 py-1 section">
+                        <button class="label"> Popular Upcoming </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col mx-2 mb-1 section" *ngFor="let item of game">
+            <div class="container p-0 card-container">
+                <div class="d-flex flex-wrap header">
+
+                    <div class="col-3 section">
+                        <img [src]="item.images[0].image_path"
+                            class="p-2 pe-3 image">
+                    </div>
+
+                    <div class="col align-items-center d-flex section">
+                        <div class="container p-0 content-container">
+                            <div class="d-flex flex-column p-2 header">
+
+                                <div class="col section">
+                                    <p class="mb-2 caption"> {{item.name}} </p>
+                                </div>
+
+                                <div class="col mb-2 section">
+                                    <span class="p-1 tags"> tags </span>
+                                </div>
+
+                                <div class="col section">
+                                    <p class="date"> {{
+                                        item.date | date:'dd MMM, yyyy' }} </p>
+                                </div>
+
+                                <div class="col section">
+                                    <p class="evaluation"> evaluation </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col mb-2 d-flex align-items-end section">
+                        <div class="container d-flex justify-content-end price-container">
+                            <div class="d-flex flex-wrap header">
+
+                                <div class="col-auto p-2 d-flex align-items-center percentage-section" *ngIf="item.discounted_percentage != null">
+                                    <span class="label"> -25% </span>
+                                </div>
+
+                                <div class="col-auto p-1 discounted-section" *ngIf="item.discounted_price != null">
+                                    <p class="d-flex justify-content-end base-price-label"> {{item.base_price.toFixed(2) + "€"}} </p>
+                                    <p class="discount-label"> {{item.discounted_price.toFixed(2)
+                                        + "€"}} </p>
+                                </div>
+
+                                <div class="col-auto p-2 price-section" *ngIf="item.discounted_price == null">
+                                    <p class="d-flex justify-content-end base-price-label"> {{item.base_price.toFixed(2) + "€"}} </p>
+                                </div>
+
+                                <div class="col d-flex align-items-center button-section">
+                                    <button class="button px-2"> Add to Cart </button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
