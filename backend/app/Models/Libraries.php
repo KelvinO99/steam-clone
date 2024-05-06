@@ -17,6 +17,7 @@ class Libraries extends Model
         'game_id',
         'is_wishlisted',
         'is_owned',
+        'time_played',
     ];
 
     public function User(){
@@ -24,6 +25,9 @@ class Libraries extends Model
     }
 
     public function Games(){
+        return $this->belongsTo(Games::class, 'game_id', 'id');
+    }
+    public function Reviews(){
         return $this->belongsTo(Games::class, 'game_id', 'id');
     }
 }
