@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Developers;
 use Illuminate\Support\Facades\Validator;
+use Spatie\Permission\Traits\HasRoles;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Facades\JWTFactory;
 
@@ -27,7 +28,7 @@ class AuthController extends Controller
     public function login(Request $request){
     	$validator = Validator::make($request->all(), [
             'username' => 'required|string',
-            'password' => 'required|string|min:6',  
+            'password' => 'required|string|min:6',
         ]);
         if ($validator->fails()) {
             return response()->json($validator->errors(), 422);
@@ -35,6 +36,7 @@ class AuthController extends Controller
         if (! $token = auth()->attempt($validator->validated())) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
+
         return $this->createNewToken($token);
     }
     /**
@@ -59,13 +61,13 @@ class AuthController extends Controller
                     $validator->validated(),
                     ['password' => bcrypt($request->password)]
                 ));
-                
+
 
         // Da qui si assegnerà il ruolo base di User
         $userRole = \App\Models\Role::where('name', 'user')->first(); // Qui metto il nome esatto del ruolo (In questo caso, user)
         $user->addRole($userRole); // Qui aggiungo il ruolo con addRole(nomeruolo) E NON attachRole()
 
-        
+
         if ($is_developer) {
             $validator = Validator::make($request->all(), [
                 'is_publisher' => 'required|boolean',
@@ -127,10 +129,20 @@ class AuthController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     protected function createNewToken($token){
+        if(auth()->user()->HasRole('user')){
+            $string = 'user';
+        }
+        if(auth()->user()->HasRole('developer/publisher')){
+            $string = 'developer/publisher';
+        }
+        if(auth()->user()->HasRole('superadmin')){
+            $string = 'superadmin';
+        }
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => auth()->factory()->getTTL() * 60,
+            'role' => $string,
             'user' => auth()->user()
         ]);
     }

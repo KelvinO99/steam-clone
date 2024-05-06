@@ -102,7 +102,76 @@ class GamesController extends Controller
             }
 
     //ISSET CODE
+    //REVIEW CODE
 
+            for($i=1;$i<=$total;$i++)
+            {
+                $no_reviews = Reviews::where('game_id', $i)->pluck('is_recommended'); //prendi la colonna is_recommended del singolo gioco
+
+                $cond = count($no_reviews); //conta quante review sono state fatte
+                if($cond == 0)
+                {
+                    $positive = 0;
+                    $negative = 0;
+                    $ratio = 0;
+                    $string = 'Error';
+                    $reviews = 'No Reviews';
+
+                }
+                else
+                {
+
+                    $positive = 0;
+                                        // inizializza variabile che verrà usata subito
+                    $negative = 0;
+                    for($i = 0; $i < $cond-1; $i++){
+                        if($no_reviews[$i] == 1)         //ciclo for che conta quante review sono positive
+                        {                             //per fare un rapporto
+                            $positive++;
+                        }
+                        else
+                        {
+                            $negative++;
+                        }
+                    }
+                    $ratio=floor(($positive/$cond)*100); //il rapporto
+                    switch($ratio) {               //switch case in base alle valutazioni
+                        case $ratio>=0&&$ratio<=19:
+                            $string= 'Overwhelmingly Negative Reviews';
+                                break;
+                        case $ratio>=20&&$ratio<=39:
+                            $string= 'Mostly Negative Reviews';
+                                break;
+                        case $ratio>=40&&$ratio<=69:
+                            $string= 'Mixed Reviews';
+                                break;                                  //tutto questo non è simmetrico!!
+                        case $ratio>=70&&$ratio<=79:
+                            $string= 'Mostly Positive Reviews';
+                                break;
+                        case $ratio>=80&&$ratio<=94:
+                            $string= 'Very Positive Reviews';
+                                break;
+                        case $ratio>=95&&$ratio<=100:
+                            $string= 'Overwhelmingly Positive Reviews';
+                        default:
+                            $string= 'Error'; //riferisci a chri
+                        }
+
+                    $reviews = Reviews::where('game_id', $i)
+                                        ->with(['User'=>  function ($q){
+                                            $q->select('id', 'username');
+                                        }])
+                                        ->get();
+                }
+            }
+            $game_evaluation = $game->get();
+            $game_evaluation->map(function ($game_evaluation) use ($string) {
+                $game_evaluation-> evaluation = $string;
+               return $game_evaluation;
+            });
+
+
+    //REVIEW CODE
             if (isset($skip)) {
                 $game = $game->skip($skip);
             }
@@ -114,8 +183,9 @@ class GamesController extends Controller
             return response()->json([
                 'status' => 200,
                 'total' => $total,
-                'count' => $game->get()->count(), //non toccare che nn funziona + nulla
-                'games' => $game->get(),          //anche qst
+                'count' => $game->get()->count(), //non toccare che non funziona + nulla
+                //'games' => $game->get(),          //anche qst
+                'games' => $game_evaluation,
             ]);
         } catch (\Exception $e) {
             return $e;
@@ -274,7 +344,6 @@ class GamesController extends Controller
             'negative' => $negative,
             'ratio' => $ratio,
             'evaluation' => $string,
-            /* 'system_requirements' => $ */
             'reviews' => $reviews,
             'dlc' => $dlc,
             'no_users_ownership' => $no_users_ownership,
