@@ -103,72 +103,71 @@ class GamesController extends Controller
 
     //ISSET CODE
     //REVIEW CODE
+    $evaluations = [];
 
-            for($i=1;$i<=$total;$i++)
-            {
-                $no_reviews = Reviews::where('game_id', $i)->pluck('is_recommended'); //prendi la colonna is_recommended del singolo gioco
+    for ($gameId = 1; $gameId <= $total; $gameId++) {
+        // Fetch all reviews for the current game ID
+        $reviews = Reviews::where('game_id', $gameId)->pluck('is_recommended');
 
-                $cond = count($no_reviews); //conta quante review sono state fatte
-                if($cond == 0)
-                {
-                    $positive = 0;
-                    $negative = 0;
-                    $ratio = 0;
-                    $string = 'Error';
-                    $reviews = 'No Reviews';
+        $reviewCount = count($reviews);
 
-                }
-                else
-                {
+        // Initialize variables
+        $positiveCount = 0;
+        $negativeCount = 0;
+        $evaluationString = 'Error';
+        $gameReviews = 'No Reviews';
 
-                    $positive = 0;
-                                        // inizializza variabile che verrà usata subito
-                    $negative = 0;
-                    for($i = 0; $i < $cond-1; $i++){
-                        if($no_reviews[$i] == 1)         //ciclo for che conta quante review sono positive
-                        {                             //per fare un rapporto
-                            $positive++;
-                        }
-                        else
-                        {
-                            $negative++;
-                        }
-                    }
-                    $ratio=floor(($positive/$cond)*100); //il rapporto
-                    switch($ratio) {               //switch case in base alle valutazioni
-                        case $ratio>=0&&$ratio<=19:
-                            $string= 'Overwhelmingly Negative Reviews';
-                                break;
-                        case $ratio>=20&&$ratio<=39:
-                            $string= 'Mostly Negative Reviews';
-                                break;
-                        case $ratio>=40&&$ratio<=69:
-                            $string= 'Mixed Reviews';
-                                break;                                  //tutto questo non è simmetrico!!
-                        case $ratio>=70&&$ratio<=79:
-                            $string= 'Mostly Positive Reviews';
-                                break;
-                        case $ratio>=80&&$ratio<=94:
-                            $string= 'Very Positive Reviews';
-                                break;
-                        case $ratio>=95&&$ratio<=100:
-                            $string= 'Overwhelmingly Positive Reviews';
-                        default:
-                            $string= 'Error'; //riferisci a chri
-                        }
-
-                    $reviews = Reviews::where('game_id', $i)
-                                        ->with(['User'=>  function ($q){
-                                            $q->select('id', 'username');
-                                        }])
-                                        ->get();
+        // If there are reviews for the game
+        if ($reviewCount > 0) {
+            // Count positive and negative reviews
+            foreach ($reviews as $review) {
+                if ($review == 1) {
+                    $positiveCount++;
+                } else {
+                    $negativeCount++;
                 }
             }
-            $game_evaluation = $game->get();
-            $game_evaluation->map(function ($game_evaluation) use ($string) {
-                $game_evaluation-> evaluation = $string;
-               return $game_evaluation;
-            });
+
+            // Calculate the positive ratio in percentage
+            $positiveRatio = floor(($positiveCount / $reviewCount) * 100);
+
+            // Determine the evaluation string based on the ratio
+            if ($positiveRatio >= 0 && $positiveRatio <= 19) {
+                $evaluationString = 'Overwhelmingly Negative Reviews';
+            } elseif ($positiveRatio >= 20 && $positiveRatio <= 39) {
+                $evaluationString = 'Mostly Negative Reviews';
+            } elseif ($positiveRatio >= 40 && $positiveRatio <= 69) {
+                $evaluationString = 'Mixed Reviews';
+            } elseif ($positiveRatio >= 70 && $positiveRatio <= 79) {
+                $evaluationString = 'Mostly Positive Reviews';
+            } elseif ($positiveRatio >= 80 && $positiveRatio <= 94) {
+                $evaluationString = 'Very Positive Reviews';
+            } elseif ($positiveRatio >= 95 && $positiveRatio <= 100) {
+                $evaluationString = 'Overwhelmingly Positive Reviews';
+            } else {
+                $evaluationString = 'Error';
+            }
+
+            // Retrieve reviews with associated user details if needed
+            $gameReviews = Reviews::where('game_id', $gameId)
+                                  ->with(['User' => function ($q) {
+                                      $q->select('id', 'username');
+                                  }])
+                                  ->get();
+        }
+
+        // Store evaluation result for the current game
+        $evaluations[$gameId] = $evaluationString;
+    }
+
+    // Retrieve all games and assign evaluations from the associative array
+    $game_evaluation = $game->get();
+
+    $game_evaluation->map(function ($game) use ($evaluations) {
+        $gameId = $game->id;
+        $game->evaluation = $evaluations[$gameId] ?? 'Error';
+        return $game;
+    });
 
 
     //REVIEW CODE
