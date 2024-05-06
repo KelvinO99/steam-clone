@@ -40,8 +40,9 @@
                                             <div class="col-1 ps-3 w-auto d-flex justify-content-end section"
                                                 *ngIf="authService.loggedIn$ | async">
                                                 <div class="dropdown p-0">
-                                                    <span class="nav-link label"> {{ username }} </span>
+                                                    <button class="nav-link label"> {{ username }} </button>
                                                     <div class="dropdown-content user-wrapper">
+                                                        <p class="label-item" routerLink="admin"> Admin access </p>
                                                         <p class="label-item" (click)="goTo('../user-page/' + username)"> Show my profile </p>
                                                         <p class="label-item"> Account details: {{ username }} </p>
                                                         <p class="label-item"> Preference of the store </p>

@@ -43,6 +43,7 @@ import { MainCarouselComponent } from './category-page/main-carousel/main-carous
 import { UserPageComponent } from './user-page/user-page.component';
 import { CategoryGameTableComponent } from './category-page/category-game-table/category-game-table.component';
 import { PopularCarouselComponent } from './category-page/popular-carousel/popular-carousel.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { PopularCarouselComponent } from './category-page/popular-carousel/popul
     UserPageComponent,
     CategoryGameTableComponent,
     PopularCarouselComponent,
+    AdminPageComponent,
 
   ],
   imports: [

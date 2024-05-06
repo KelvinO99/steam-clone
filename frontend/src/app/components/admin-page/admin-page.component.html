@@ -1,0 +1,70 @@
+<div class="container-fluid admin-page-container">
+    <div class="d-flex flex-wrap header">
+
+        <div class="col-lg-2 section"></div>
+
+        <div class="col-lg-8 section">
+            <div class="d-flex flex-wrap header">
+
+                <div class="col-8 section">
+                    <div class="d-flex flex-column card-header">
+
+                        <div class="col mb-1 primary-section">
+                            <div class="d-flex flex-wrap align-items-center p-1 header">
+
+                                <div class="col-4 section">
+                                    <input class="py-1 input" type="search" placeholder="enter search term or tag">
+                                </div>
+
+                                <div class="col-4 section">
+                                    <button class="py-1 px-2 ms-3 button"> Search </button>
+                                </div>
+
+                                <div class="col-4 d-flex justify-content-end pe-1 section">
+                                    <span class="me-1 label"> Sort by </span>
+                                    <select class="custom-select" name="filtrer">
+                                        <option value="relevance"> Relevance </option>
+                                        <option value="release-date"> Release Date </option>
+                                        <option value="name"> Name </option>
+                                        <option value="highest-price"> Highest Price </option>
+                                        <option value="user-reviews"> User Reviews </option>
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col mt-2 card-section" *ngFor="let item of games">
+                            <div class="d-flex flex-wrap header">
+
+                                <div class="col-2 section">
+                                    <img src="{{item.images[0]?.image_path}}" class="image" width="115.5" height="43.5">
+                                </div>
+
+                                <div class="col-4 ps-3 section">
+                                    <p class="label"> {{item.name}} </p>
+                                    <img src="https://store.akamai.steamstatic.com/public/images/v6/icon_platform_win.png?v=3" class="img-fluid">
+                                </div>
+
+                                <div class="col-6 d-flex justify-content-end align-items-center pe-2 section">
+                                    <button class="m-2 px-3 py-1 button"> View </button> 
+                                    <button class="px-3 py-1 button"> Edit </button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-4 section">
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-lg-2 section"></div>
+
+    </div>
+</div>

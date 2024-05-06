@@ -421,14 +421,16 @@ class GamesController extends Controller
             $game = new Games();
             $game->fill($validatedData);
             $game->save();
+
+            $develop = new DeveloperController();
+            $develop->store($request);
+
             if ($request->hasFile('game_imgs')) {
                 $request->game_id = $game->id;
                 $request->game_name = $game->name;
                 $imagesController = new ImagesController();
                 $imagesController->store($request);
-
-            }
-
+            } 
 
             return response()->json($game, 201);;
 
