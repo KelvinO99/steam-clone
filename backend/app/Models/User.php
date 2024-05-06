@@ -24,6 +24,8 @@ class User extends Authenticatable implements JWTSubject, LaratrustUser
         'password',
         'image_id',
         'wallet',
+        'country_id',
+        'language_id',
         //'role'
     ];
     /**
@@ -83,5 +85,17 @@ class User extends Authenticatable implements JWTSubject, LaratrustUser
     public function Images(){
 
         return $this->hasMany(Images::class, 'image_id', 'id');
+    }
+    public function Friendships_1(){
+
+        return $this->hasMany(Friendships::class, 'user_id_1', 'id');
+    }
+    public function Friendships_2(){
+
+        return $this->hasMany(Friendships::class, 'user_id_2', 'id');
+    }
+    public function Relationships(){
+
+        return $this->morphTo();
     }
 }

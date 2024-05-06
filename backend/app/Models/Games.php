@@ -70,4 +70,8 @@ class Games extends Model
 
         return $this->hasMany(SystemRequirements::class, 'game_id', 'id');
     }
+    public function Relationships(){
+
+        return $this->morphTo();
+    }
 }
