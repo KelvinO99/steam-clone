@@ -106,20 +106,17 @@ class GamesController extends Controller
     $evaluations = [];
 
     for ($gameId = 1; $gameId <= $total; $gameId++) {
-        // Fetch all reviews for the current game ID
         $reviews = Reviews::where('game_id', $gameId)->pluck('is_recommended');
 
         $reviewCount = count($reviews);
 
-        // Initialize variables
         $positiveCount = 0;
         $negativeCount = 0;
         $evaluationString = 'Error';
         $gameReviews = 'No Reviews';
 
-        // If there are reviews for the game
         if ($reviewCount > 0) {
-            // Count positive and negative reviews
+
             foreach ($reviews as $review) {
                 if ($review == 1) {
                     $positiveCount++;
@@ -128,10 +125,10 @@ class GamesController extends Controller
                 }
             }
 
-            // Calculate the positive ratio in percentage
+
             $positiveRatio = floor(($positiveCount / $reviewCount) * 100);
 
-            // Determine the evaluation string based on the ratio
+
             if ($positiveRatio >= 0 && $positiveRatio <= 19) {
                 $evaluationString = 'Overwhelmingly Negative Reviews';
             } elseif ($positiveRatio >= 20 && $positiveRatio <= 39) {
@@ -148,7 +145,7 @@ class GamesController extends Controller
                 $evaluationString = 'Error';
             }
 
-            // Retrieve reviews with associated user details if needed
+
             $gameReviews = Reviews::where('game_id', $gameId)
                                   ->with(['User' => function ($q) {
                                       $q->select('id', 'username');
@@ -156,11 +153,8 @@ class GamesController extends Controller
                                   ->get();
         }
 
-        // Store evaluation result for the current game
         $evaluations[$gameId] = $evaluationString;
     }
-
-    // Retrieve all games and assign evaluations from the associative array
     $game_evaluation = $game->get();
 
     $game_evaluation->map(function ($game) use ($evaluations) {
