@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
             GamesLanguagesSeeder::class,
             SystemCharacteristicsSeeder::class,
             SystemRequirementsSeeder::class,
+            FollowsSeeder::class,
         ]);
     }
 }

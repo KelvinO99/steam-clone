@@ -94,4 +94,8 @@ class User extends Authenticatable implements JWTSubject, LaratrustUser
 
         return $this->hasMany(Friendships::class, 'user_id_2', 'id');
     }
+    public function Relationships(){
+
+        return $this->morphTo();
+    }
 }
