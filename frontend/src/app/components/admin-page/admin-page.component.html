@@ -4,13 +4,16 @@
         <div class="col-lg-2 section"></div>
 
         <div class="col-lg-8 section">
+
+            <p class="my-5 first-heading"> All Product </p>
             <div class="d-flex flex-wrap header">
 
-                <div class="col-8 section">
-                    <div class="d-flex flex-column card-header">
+                <!--Sezione informazioni dei giochi-->
+                <div class="col-8 pe-2 table-section">
+                    <div class="d-flex flex-column header">
 
                         <!--parte iniziale della tabella-->
-                        <div class="col mb-1 primary-section">
+                        <div class="col primary-section">
                             <div class="d-flex flex-wrap align-items-center p-1 header">
 
                                 <div class="col-4 section">
@@ -29,7 +32,18 @@
                                         <option value="name"> Name </option>
                                         <option value="highest-price"> Highest Price </option>
                                         <option value="user-reviews"> User Reviews </option>
-                                      </select>
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!--card per l'aggiunta del gioco-->
+                        <div class="col mt-2 add-section">
+                            <div class="d-flex flex-wrap header">
+
+                                <div class="col-auto section">
+                                    <button class="m-2 p-1 px-3 button"> Add Game </button>
                                 </div>
 
                             </div>
@@ -45,12 +59,14 @@
 
                                 <div class="col-4 ps-3 section">
                                     <p class="label"> {{item.name}} </p>
-                                    <img src="https://store.akamai.steamstatic.com/public/images/v6/icon_platform_win.png?v=3" class="img-fluid">
+                                    <img src="https://store.akamai.steamstatic.com/public/images/v6/icon_platform_win.png?v=3"
+                                        class="img-fluid">
                                 </div>
 
                                 <div class="col-6 d-flex justify-content-end align-items-center pe-2 section">
-                                    <button class="m-2 px-3 py-1 button"> View </button> 
-                                    <button class="px-3 py-1 button"> Edit </button>
+                                    <button class="m-2 px-3 py-1 button" (click)="goTo('../game/' + item.id)"> View
+                                    </button>
+                                    <button class="px-3 py-1 button" (click)="goTo('../admin/' + 'edit-page/'+ item.id)"> Edit </button>
                                 </div>
 
                             </div>
@@ -59,8 +75,223 @@
                     </div>
                 </div>
 
-                <div class="col-4 section">
+                <!--Sezione filtri dei giochi-->
+                <div class="col-4 filtrer-section">
+                    <div class="d-flex flex-column header">
 
+                        <!--filtro sul prezzo-->
+                        <div class="col section">
+                            <div class="accordion accordion-flush" id="accordionPrice">
+                                <div class="accordion-item">
+                                    <button class="w-100 ps-2 d-flex justify-content-start collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#flush-collapsePrice"
+                                        aria-expanded="false" aria-controls="flush-collapsePrice">
+                                        Narrow by Price
+                                    </button>
+                                    <div id="flush-collapsePrice" class="px-2 accordion-collapse collapse"
+                                        data-bs-parent="#accordionPrice">
+                                        <p class="checkbox"> <input class="check" type="checkbox"> <span class="label">
+                                                Special Offers </span> </p>
+                                        <p class="checkbox"> <input class="check" type="checkbox"> <span class="label">
+                                                Hide to free to play items </span> </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--filtro sui Tag-->
+                        <div class="col mt-2 section">
+                            <div class="accordion accordion-flush" id="accordionTag">
+                                <div class="accordion-item">
+                                    <button class="w-100 ps-2 d-flex justify-content-start collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseTag"
+                                        aria-expanded="false" aria-controls="flush-collapseTag">
+                                        Narrow by Tag
+                                    </button>
+                                    <div id="flush-collapseTag" class="px-2 accordion-collapse collapse"
+                                        data-bs-parent="#accordionTag">
+                                        <p class="checkbox" *ngFor="let item of tags"> <input class="check" type="checkbox"> <span class="label">
+                                                {{item.name}} </span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--filtro sulle tipologie-->
+                        <div class="col mt-2 section">
+                            <div class="accordion accordion-flush" id="accordionType">
+                                <div class="accordion-item">
+                                    <button class="w-100 ps-2 d-flex justify-content-start collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseType"
+                                        aria-expanded="false" aria-controls="flush-collapseType">
+                                        Show selected types
+                                    </button>
+                                    <div id="flush-collapseType" class="px-2 accordion-collapse collapse"
+                                        data-bs-parent="#accordionType">
+                                        <p class="checkbox"> <input class="check" type="checkbox"> <span class="label">
+                                                Special Offers </span>
+                                        </p>
+                                        <p class="checkbox"> <input class="check" type="checkbox"> <span class="label">
+                                                Hide to free to play
+                                                items </span> </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--filtro sul numero di players come online, lan ecc... -->
+                        <div class="col mt-2 section">
+                            <div class="accordion accordion-flush" id="accordionNumber">
+                                <div class="accordion-item">
+                                    <button class="w-100 ps-2 d-flex justify-content-start collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseNumber"
+                                        aria-expanded="false" aria-controls="flush-collapseNumber">
+                                        Narrow by number of players
+                                    </button>
+                                    <div id="flush-collapseNumber" class="px-2 accordion-collapse collapse"
+                                        data-bs-parent="#accordionNumber">
+                                        <p class="checkbox"> <input class="check" type="checkbox"> <span class="label">
+                                                Special Offers </span>
+                                        </p>
+                                        <p class="checkbox"> <input class="check" type="checkbox"> <span class="label">
+                                                Hide to free to play
+                                                items </span> </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--filtro sulle Feature-->
+                        <div class="col mt-2 section">
+                            <div class="accordion accordion-flush" id="accordionFeature">
+                                <div class="accordion-item">
+                                    <button class="w-100 ps-2 d-flex justify-content-start collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseFeature"
+                                        aria-expanded="false" aria-controls="flush-collapseFeature">
+                                        Narrow by feature
+                                    </button>
+                                    <div id="flush-collapseFeature" class="px-2 accordion-collapse collapse"
+                                        data-bs-parent="#accordionFeature">
+                                        <p class="checkbox"> <input class="check" type="checkbox"> <span class="label">
+                                                Special Offers </span>
+                                        </p>
+                                        <p class="checkbox"> <input class="check" type="checkbox"> <span class="label">
+                                                Hide to free to play
+                                                items </span> </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--filtro sul supporto dei controller-->
+                        <div class="col mt-2 section">
+                            <div class="accordion accordion-flush" id="accordionController">
+                                <div class="accordion-item">
+                                    <button class="w-100 ps-2 d-flex justify-content-start collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseController"
+                                        aria-expanded="false" aria-controls="flush-collapseController">
+                                        Narrow by Controller Support
+                                    </button>
+                                    <div id="flush-collapseController" class="px-2 accordion-collapse collapse"
+                                        data-bs-parent="#accordionController">
+                                        <p class="checkbox"> <input class="check" type="checkbox"> <span class="label">
+                                                Special Offers </span>
+                                        </p>
+                                        <p class="checkbox"> <input class="check" type="checkbox"> <span class="label">
+                                                Hide to free to play
+                                                items </span> </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--filtro sul supporto dello steam deck-->
+                        <div class="col mt-2 section">
+                            <div class="accordion accordion-flush" id="accordionSteamDeck">
+                                <div class="accordion-item">
+                                    <button class="w-100 ps-2 d-flex justify-content-start collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseSteamDeck"
+                                        aria-expanded="false" aria-controls="flush-collapseSteamDeck">
+                                        Narrow by Deck Compatibility
+                                    </button>
+                                    <div id="flush-collapseSteamDeck" class="px-2 accordion-collapse collapse"
+                                        data-bs-parent="#accordionSteamDeck">
+                                        <p class="checkbox"> <input class="check" type="checkbox"> <span class="label">
+                                                Special Offers </span>
+                                        </p>
+                                        <p class="checkbox"> <input class="check" type="checkbox"> <span class="label">
+                                                Hide to free to play
+                                                items </span> </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--filtro sul supporto del VR-->
+                        <div class="col mt-2 section">
+                            <div class="accordion accordion-flush" id="accordionVR">
+                                <div class="accordion-item">
+                                    <button class="w-100 ps-2 d-flex justify-content-start collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseVR"
+                                        aria-expanded="false" aria-controls="flush-collapseVR">
+                                        Narrow by VR Support
+                                    </button>
+                                    <div id="flush-collapseVR" class="px-2 accordion-collapse collapse"
+                                        data-bs-parent="#accordionVR">
+                                        <p class="checkbox"> <input class="check" type="checkbox"> <span class="label">
+                                                Special Offers </span>
+                                        </p>
+                                        <p class="checkbox"> <input class="check" type="checkbox"> <span class="label">
+                                                Hide to free to play
+                                                items </span> </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--filtro sul sistema operativo-->
+                        <div class="col mt-2 section">
+                            <div class="accordion accordion-flush" id="accordionOS">
+                                <div class="accordion-item">
+                                    <button class="w-100 ps-2 d-flex justify-content-start collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseOS"
+                                        aria-expanded="false" aria-controls="flush-collapseOS">
+                                        Narrow by OS
+                                    </button>
+                                    <div id="flush-collapseOS" class="px-2 accordion-collapse collapse"
+                                        data-bs-parent="#accordionOS">
+                                        <p class="checkbox"> <input class="check" type="checkbox"> <span class="label">
+                                                Special Offers </span>
+                                        </p>
+                                        <p class="checkbox"> <input class="check" type="checkbox"> <span class="label">
+                                                Hide to free to play
+                                                items </span> </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--filtro sulle lingue-->
+                        <div class="col mt-2 section">
+                            <div class="accordion accordion-flush" id="accordionLanguage">
+                                <div class="accordion-item">
+                                    <button class="w-100 ps-2 d-flex justify-content-start collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseLanguage"
+                                        aria-expanded="false" aria-controls="flush-collapseLanguage">
+                                        Narrow by language
+                                    </button>
+                                    <div id="flush-collapseLanguage" class="px-2 accordion-collapse collapse"
+                                        data-bs-parent="#accordionLanguage">
+                                        <p class="checkbox" *ngFor="let item of languages"> <input class="check" type="checkbox"> <span class="label">
+                                                {{item.name}} </span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
 
             </div>

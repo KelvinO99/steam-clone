@@ -13,6 +13,7 @@ import { GameComponent } from './components/game-page/game-page.component';
 import { SteamDeckComponent } from './components/steam-deck/steam-deck.component';
 import { UserPageComponent } from './components/user-page/user-page.component';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
+import { EditPageComponent } from './components/admin-page/edit-page/edit-page.component';
 
 const routes: Routes = [
   
@@ -27,7 +28,8 @@ const routes: Routes = [
   { path: 'games/:genre', component: CategoryPageComponent},
   { path: 'steam-deck', component: SteamDeckComponent },
   { path: 'user-page/:username', component: UserPageComponent},
-  { path: 'admin', component: AdminPageComponent}
+  { path: 'admin', component: AdminPageComponent},
+  { path: 'admin/edit-page/:id', component: EditPageComponent}
 ];
 
 

@@ -14,16 +14,22 @@ export class GameService {
   //Costruttore per il client HTTP
   constructor(public http: HttpClient) { }
 
+  //Get index dei giochi
   getGames(params : {}) {
     return this.http.get<any>(`${this.APIUrl}games/index`,{params});
   }
 
+  //get della show del gioco
   showGame(id: number){
     return this.http.get<any>(`${this.APIUrl}games/show/${id}`);
   }
 
-  showGameLanguages(id: number){
-    return this.http.get<any>(`${this.APIUrl}games_languages/show/${id}`);
+  updateGame(updateDataGame: any) {
+    return this.http.post<any>(`${this.APIUrl}games/update/1`, updateDataGame);
+  }
+
+  storeGame(storedGameData: any) {
+    return this.http.post<any>(`${this.APIUrl}games/store`, storedGameData);
   }
 
 }

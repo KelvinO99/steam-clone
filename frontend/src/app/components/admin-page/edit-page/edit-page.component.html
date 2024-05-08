@@ -1,0 +1,6 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="gameForm">
+    <label for="gameName">Nome del gioco:</label>
+    <input type="text" id="gameName" [(ngModel)]="game?.game.name" formControlName="name">
+
+    <button type="submit">Aggiorna</button>
+</form>

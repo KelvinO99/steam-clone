@@ -6,12 +6,22 @@
     }
 
     .header .section {
+        .first-heading {
+            color: #ffffff;
+            font-size: 34px;
+            font-family: "Motiva Sans", Sans-serif;
+            font-weight: normal;
+            text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
+            text-transform: uppercase;
+        }
+
         .header {
 
             //col-8
-            .section {
-                .card-header {
+            .table-section {
+                .header {
 
+                    //parte iniziale della tabella
                     .primary-section {
                         background: #00000066;
 
@@ -24,6 +34,11 @@
                             box-shadow: 1px 1px 0px rgba(103, 193, 245, 0.15);
                             width: 14rem;
                             padding-left: 0.5rem;
+
+                            &:focus-visible {
+                                border: initial !important;
+                                outline: initial;
+                            }
                         }
 
 
@@ -58,6 +73,7 @@
                             width: initial;
                             padding: initial;
                             border: initial;
+                            border-radius: 2px;
                             background-color: #053d65e1;
                             color: #67c1f5;
                             font-size: 12px;
@@ -77,6 +93,28 @@
                         }
                     }
 
+                    //card per l'aggiunta dei giochi
+                    .add-section .header {
+                        background: rgba(0, 0, 0, 0.2);
+
+                        .button {
+                            background: initial;
+                            border: initial;
+                            color: #67c1f5;
+                            background: rgba(103, 193, 245, 0.2);
+                            font-size: 12px;
+                            border-radius: 2px;
+                            font-weight: normal;
+
+                            &:hover {
+                                background: linear-gradient(-60deg, #417a9b 5%, #67c1f5 95%);
+                                color: white;
+                            }
+                        }
+
+                    }
+
+                    //informazioni del gioco
                     .card-section {
                         .header {
                             background: rgba(0, 0, 0, 0.2);
@@ -130,9 +168,51 @@
         }
 
         //col-4
-        /* .section:last-child {
+        .filtrer-section {
+            .header {
 
-            } */
+                //Filtro sul prezzo
+                .section {
+                    .accordion {
+                        .accordion-item {
+                            background: rgba(255, 255, 255, 0.1);
+
+                            button {
+                                background: initial;
+                                border: initial;
+                                color: #c7d5e0;
+                                font-size: 12px;
+                                font-weight: normal;
+                            }
+
+                            .accordion-collapse {
+                                border: 1px solid rgba(255, 255, 255, 0.1);
+                                border-radius: 2px;
+                                background-color: #1B2838;
+
+                                .checkbox {
+                                    line-height: 28px;
+
+                                    &:hover {
+                                        color: #ffffff;
+                                        background: rgba(255, 255, 255, 0.1);
+                                        cursor: pointer;
+                                    }
+
+                                    .label {
+                                        font-size: 13px;
+                                        font-family: "Motiva Sans", Sans-serif;
+                                        font-weight: normal;
+                                        color: #9fbbcb;
+                                        white-space: nowrap;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -199,4 +279,4 @@
             }
         }
     }
-} */ 
+} */
