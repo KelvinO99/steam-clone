@@ -1,6 +1,6 @@
 <div class="container-fluid p-0 all-page">
   <div class="row">
-    <div class="col column">
+    <div class="col p-0 column">
     </div>
 
       <div class="col-7 user-page">
@@ -9,10 +9,12 @@
           <div class="row profile-header-content container-fluid p-0">
             <div class="user-images col-3">
               <div class="container">
-
-                <img class="user-picture" src="../../../assets/momentary_user-page/userimage.gif">
-                <!-- <img class="user-frame" src="../../../assets/momentary_user-page/userframe.png"> -->
-
+                <div class="user-picture">
+                  <img class="" src="../../../assets/momentary_user-page/userimage.gif">
+                </div>
+                <div class="frame-position">
+                  <img class="user-frame"src="../../../assets/momentary_user-page/userframe.png">
+                </div>
               </div>
             </div>
 
@@ -54,7 +56,19 @@
                       <h3 class="m-0">Recent Activity</h3>
                     </div>
                     <div class="recent-activity-box">
-
+                      <div class="RecentActivity-Content">
+                        <div *ngFor="let game of games" class="Game-Activity-Box">
+                          <div class="GameBox-Content row">
+                            <div class="col-4 m-2">
+                              <img class="RecentGame-Img" [src]="game.images[0]?.image_path">
+                            </div>
+                            <div class="col-3 mt-2 ml-1">
+                              <div class="Game-Title">{{ game.name }}</div>
+                            </div>
+                            <div class="col m-2 playtime"> 420 hrs on record</div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div class="Comments">
@@ -85,7 +99,7 @@
         </div>
     </div>
 
-    <div class="col">
+    <div class="col column p-0">
     </div>
 </div>
 

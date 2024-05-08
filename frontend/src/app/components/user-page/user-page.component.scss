@@ -35,21 +35,29 @@ min-width: 900px;
 }
 
 .profile-image-group{
-  display: flex;
   width: 210px;
   height: 210px;
 }
 
+.frame-position{
+  position: relative;
+  top: -195px;
+  right: 10px;
+}
 .user-frame{
-  width: 200px;
-  height: 200px;
+  position: absolute;
+  width: 210px;
+  height: 210px;
   z-index: 1;
 }
 
+
 .user-picture{
+  display: block;
   z-index: 0;
   width: 164px;
 }
+
 
 // User Persona
 
@@ -132,9 +140,41 @@ min-width: 900px;
   .recent-activity-box{
     background: rgba(32, 32, 32, 0.6);
     width: 560px;
-    height: 487px; //provvisorio
-    min-height: 100px;
+    min-height: 427px;
   }
+
+  .RecentActivity-Content{
+    padding-top: 15px;
+  }
+
+  .Game-Activity-Box{
+    margin-bottom: 15px;
+    margin-left: 15px;
+    width: 530px;
+    background: rgba(0, 0, 0, 0.4);
+
+    .GameBox-Content{
+      color: white;
+
+
+      .RecentGame-Img{
+        height: 69px;
+        width: 184px;
+      }
+
+      .Game-Title{
+        padding-top: 10px;
+      }
+
+      .playtime{
+        color: rgba(146, 144, 144, 1);
+        display: flex;
+        align-items: end;
+        justify-content: end;
+      }
+    }
+  }
+
 
   .Comments{
     margin-top: 100px;
