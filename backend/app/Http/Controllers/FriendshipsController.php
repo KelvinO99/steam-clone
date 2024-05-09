@@ -47,9 +47,10 @@ class FriendshipsController extends Controller
     }
 
 
-    public function update(Request $request): Response
+    public function update(Request $request)//: Response
     {
-        $var = Friendships::findOrFail($request->id);
+        $user = auth()->User();
+        //$var = Friendships::findOrFail($request->id);
 
         $user_sender = $request->input("user_sender");
         $user_receiver = $request->input("user_receiver");
@@ -66,42 +67,82 @@ class FriendshipsController extends Controller
         if($check>1) return response()->json(['message' => 'Illegal query'], 400);
 
 
-        $record = Friendships::where('user_sender', $user_sender) //pending & already friend check
+        $senderCheck = Friendships::where('user_sender', $user_sender) //pending & already friend check
                                   ->where('user_receiver', $user_receiver)
                                   ->first();
+        $receiverCheck = Friendships::where('user_sender', $user_receiver)
+                                    ->where('user_receiver', $user_sender)
+                                    ->first();
+        if(!empty($senderCheck)) $recordId = $senderCheck->id;
+            if(!empty($receiverCheck)) $recordId = $receiverCheck->id;
+                $friendship = Friendships::findOrFail($recordId);
+
+
+
 
 
         if(!empty($choices[1]))
-            if($choices[1]==1)
+        {
+            if($choices[1]==1) //accept
             {
-                if(/*<id dello user loggato>*/ == $record->user_receiver)
+                if($user->id = $senderCheck->user_receiver)
                 {
-                    $record->is_pending = 0;
+                    $senderCheck->is_pending = 0;
                     return response()->json(['message' => 'You are now friend with this user'], 200);
 
                 }
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
-        if ($var->update($request->all()) === false) {
-            return response(
-                "not real {$request->id}",
-                Response::HTTP_BAD_REQUEST
-            );
+            if($choices[1]==0) //decline
+            {
+                $friendship->delete();
+                return response()->json(['message' => 'You declined the friend request'], 200);
+            }
+        }
+        if(!empty($choices[2]))
+        {
+            if($choices[2]==1) //unfriend
+            {
+                $friendship->delete();
+                return response()->json(['message' => 'You are not friend with this user anymore'], 200);
+            }
+            if($choices[2]==0) //call store with 2 params
+            {
+                //store($request);
+            }
+        }
+        if(!empty($choices[3]))
+        {
+            if($choices[3]==1) //block
+            {
+                $senderCheck->is_blocked = 1;
+                return response()->json(['message' => 'You blocked this user'], 200);
+            }
+            if($choices[3]==0) //unblock
+            {
+                $senderCheck->is_blocked = 1;
+                return response()->json(['message' => 'You unblocked this user'], 200);
+            }
         }
 
-        return response($var);
+
+
+
+
+
+
+
+
+
+
+
+        // if ($var->update($request->all()) === false) {
+        //     return response(
+        //         "not real {$request->id}",
+        //         Response::HTTP_BAD_REQUEST
+        //     );
+        // }
+
+        return response("debug");
     }
 
 
@@ -116,8 +157,6 @@ class FriendshipsController extends Controller
 
         $user_sender = $request->input("user_sender");
         $user_receiver = $request->input("user_receiver");
-        //echo("user_sender".$user_sender);
-        //echo("user_receiver".$user_receiver);
 
 
         // Se non c'è un utente autenticato, restituisci un errore
@@ -134,8 +173,8 @@ class FriendshipsController extends Controller
         $senderCheck = Friendships::where('user_sender', $user_sender) //pending & already friend check
                                   ->where('user_receiver', $user_receiver)
                                   ->first();
-        $receiverCheck = Friendships::where('user_receiver', $user_receiver)
-                                    ->where('user_sender', $user_sender)
+        $receiverCheck = Friendships::where('user_sender', $user_receiver)
+                                    ->where('user_receiver', $user_sender)
                                     ->first();
 
         if(!empty($senderCheck)) $recordIdCheck = $senderCheck->id;
