@@ -65,10 +65,21 @@ class FriendshipsController extends Controller
         }
         if($check>1) return response()->json(['message' => 'Illegal query'], 400);
 
+
+        $record = Friendships::where('user_sender', $user_sender) //pending & already friend check
+                                  ->where('user_receiver', $user_receiver)
+                                  ->first();
+
+
         if(!empty($choices[1]))
             if($choices[1]==1)
             {
-                
+                if(/*<id dello user loggato>*/ == $record->user_receiver)
+                {
+                    $record->is_pending = 0;
+                    return response()->json(['message' => 'You are now friend with this user'], 200);
+
+                }
             }
 
 
