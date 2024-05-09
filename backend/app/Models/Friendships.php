@@ -14,7 +14,7 @@ class Friendships extends Model
         'user_sender',
         'user_receiver',
         'is_pending',
-        'is_blocked',
+        'user_blocked_id',
     ];
 
     public function Users_1(){

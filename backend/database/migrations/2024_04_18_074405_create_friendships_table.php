@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_sender');
             $table->unsignedBigInteger('user_receiver');
             $table->boolean('is_pending');
-            $table->boolean('is_blocked');
+            $table->unsignedBigInteger('user_blocked_id')->default(null)->nullable();
             $table->timestamps();
 
             $table->foreign('user_sender')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
