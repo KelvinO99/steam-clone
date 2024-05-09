@@ -49,91 +49,6 @@ class FriendshipsController extends Controller
 
     public function update(Request $request)//: Response
     {
-        $user = auth()->User();
-        //$var = Friendships::findOrFail($request->id);
-
-        $user_sender = $request->input("user_sender");
-        $user_receiver = $request->input("user_receiver");
-        $choices = [
-            'accept' => $request->input('accept'),
-            'unfriend' => $request->input('unfriend'),
-            'block' => $request->input('block'),
-        ];
-
-        $check = 0; //no more than 1 choice check
-        foreach ($choices as $choice) {
-            if(!empty($choice)) $check++;
-        }
-        if($check>1) return response()->json(['message' => 'Illegal operation'], 400);
-
-
-        $senderCheck = Friendships::where('user_sender', $user_sender) //pending & already friend check
-                                  ->where('user_receiver', $user_receiver)
-                                  ->first();
-        $receiverCheck = Friendships::where('user_sender', $user_receiver)
-                                    ->where('user_receiver', $user_sender)
-                                    ->first();
-        if(!empty($senderCheck)) $recordId = $senderCheck->id;
-            if(!empty($receiverCheck)) $recordId = $receiverCheck->id;
-                $friendship = Friendships::findOrFail($recordId);
-
-
-
-
-
-        if(!empty($choices[1]))
-        {
-            if($choices[1]==1) //accept
-            {
-                if($user->id = $senderCheck->user_receiver)
-                {
-                    $senderCheck->is_pending = 0;
-                    return response()->json(['message' => 'You are now friend with this user'], 200);
-
-                }
-            }
-            if($choices[1]==0) //decline
-            {
-                $friendship->delete();
-                return response()->json(['message' => 'You declined the friend request'], 200);
-            }
-        }
-        if(!empty($choices[2]))
-        {
-            if($choices[2]==1) //unfriend
-            {
-                $friendship->delete();
-                return response()->json(['message' => 'You are not friend with this user anymore'], 200);
-            }
-            if($choices[2]==0) //call store with 2 params
-            {
-                //store($request);
-            }
-        }
-        if(!empty($choices[3]))
-        {
-            if($choices[3]==1) //block
-            {
-                $senderCheck->is_blocked = 1;
-                return response()->json(['message' => 'You blocked this user'], 200);
-            }
-            if($choices[3]==0) //unblock
-            {
-                $senderCheck->is_blocked = 1;
-                return response()->json(['message' => 'You unblocked this user'], 200);
-            }
-        }
-
-
-
-
-
-
-
-
-
-
-
 
         // if ($var->update($request->all()) === false) {
         //     return response(
@@ -154,12 +69,14 @@ class FriendshipsController extends Controller
         // condizioni di fallimento:
         // utente non trovato, utente già in pending, utente già amico, utente bloccato (ultime 3 check bidirezionale)
 
+        //problemi: puoi fare decline su una amicizia + to:do is_blocked bidirezionale
+
         // Se non c'è un utente autenticato, restituisci un errore
         // if (!$auth) {
         //     return response()->json(['message' => 'Non autorizzato'], 401);
         // }
 
-        $user = auth()->User();
+        $user = auth()->user();
         $user_sender = $request->input("user_sender");
         $user_receiver = $request->input("user_receiver");
         $option = $request->input("option");
@@ -224,9 +141,11 @@ class FriendshipsController extends Controller
 
             if($option=="accept") //accept
             {
-                if($user->id == $senderCheck->user_receiver)
+                //$userId = $user->id;
+                if(/*$userId*/ 2 == $senderCheck->user_receiver && $friendship->is_pending = 1)
                 {
-                    $senderCheck->is_pending = 0;
+                    $friendship->is_pending = 0;
+                    $friendship->save();
                     return response()->json(['message' => 'You are now friend with this user'], 200);
 
                 }
@@ -237,8 +156,15 @@ class FriendshipsController extends Controller
             }
             if($option=="decline") //decline
             {
-                $friendship->delete();
-                return response()->json(['message' => 'You declined the friend request'], 200);
+                if(/*$userId*/ 2 == $senderCheck->user_receiver && $friendship->is_pending == 1)
+                {
+                    $friendship->delete();
+                    return response()->json(['message' => 'You declined the friend request'], 200);
+                }
+                else
+                {
+                    return response()->json(['message' => 'Illegal operation'], 400);
+                }
             }
             if($option=="friend") //call store with 2 params
             {
@@ -246,17 +172,27 @@ class FriendshipsController extends Controller
             }
             if($option=="unfriend") //unfriend
             {
-                $friendship->delete();
-                return response()->json(['message' => 'You are not friend with this user anymore'], 200);
+                if($friendship->is_pending == 0)
+                {
+                    $friendship->delete();
+                    return response()->json(['message' => 'You are not friend with this user anymore'], 200);
+                }
+                else
+                {
+                    return response()->json(['message' => 'Illegal operation'], 400);
+                }
             }
             if($option=="block") //block
             {
-                $senderCheck->is_blocked = 1;
+                $friendship->is_pending = 0;
+                $friendship->is_blocked = 1;
+                $friendship->save();
                 return response()->json(['message' => 'You blocked this user'], 200);
             }
             if($option=="unblock") //unblock
             {
-                $senderCheck->is_blocked = 0;
+                $friendship->is_blocked = 0;
+                $friendship->save();
                 return response()->json(['message' => 'You unblocked this user'], 200);
             }
         }
