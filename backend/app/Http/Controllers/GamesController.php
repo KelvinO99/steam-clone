@@ -92,15 +92,6 @@ class GamesController extends Controller
                 $game->orderBy('date', 'desc');
             }
 
-
-            if($tag){
-                foreach ($tag as $t) {
-                    $game->whereHas('GamesTags.Tags', function ($q) use($t){
-                        $q->where('name', $t);
-                    });
-                }
-            }
-
     //ISSET CODE
     //REVIEW CODE
     $evaluations = [];
