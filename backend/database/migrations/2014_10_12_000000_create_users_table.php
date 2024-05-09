@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('password')->default('PLACEHOLDER');
             $table->unsignedBigInteger('country_id')->default(1);
             $table->unsignedBigInteger('language_id')->default(1);
-            //$table->integer('level'); //in backlog
+            $table->unsignedBigInteger('level')->default(0);
             $table->text('description')->default('no information given');
             $table->float('wallet')->default(0.00);
             //$table->string('role')->default('user');

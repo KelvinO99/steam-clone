@@ -114,6 +114,7 @@ class UsersSeeder extends Seeder
                     'password' => Hash::make($password),
                     'country_id' => rand(1,251),
                     'language_id' => rand(1,29),
+                    'level' => rand(0,20),
                     'description' => 'no information given',
                     'wallet' => 0,
                 ]);
@@ -131,6 +132,7 @@ class UsersSeeder extends Seeder
                     'password' => 'password',
                     'country_id' => rand(1,250),
                     'language_id' => rand(1,29),
+                    'level' => rand(0,20),
                     'description' => 'no information given',
                     'wallet' => 0,
                 ]);
