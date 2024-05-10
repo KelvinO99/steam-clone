@@ -45,6 +45,9 @@ import { CategoryGameTableComponent } from './category-page/category-game-table/
 import { PopularCarouselComponent } from './category-page/popular-carousel/popular-carousel.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { EditPageComponent } from './admin-page/edit-page/edit-page.component';
+import { EditHeaderPageComponent } from './admin-page/edit-page/edit-header-page/edit-header-page.component';
+import { EditBodyPageComponent } from './admin-page/edit-page/edit-body-page/edit-body-page.component';
+import { ModalComponent } from './admin-page/edit-page/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +77,9 @@ import { EditPageComponent } from './admin-page/edit-page/edit-page.component';
     PopularCarouselComponent,
     AdminPageComponent,
     EditPageComponent,
+    EditHeaderPageComponent,
+    EditBodyPageComponent,
+    ModalComponent,
 
   ],
   imports: [

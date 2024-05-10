@@ -23,8 +23,7 @@ export class AdminPageComponent {
    }
 
   getGames() {
-
-    this.gameService.getGames({take: 10000, skip: 0}).subscribe({
+    this.gameService.getGames({take: 111111111111, skip: 0}).subscribe({
       next: (res: any) => {
 
         this.games = res.games;
