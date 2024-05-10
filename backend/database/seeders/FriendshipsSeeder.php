@@ -65,7 +65,7 @@ class FriendshipsSeeder extends Seeder
                             'user_sender' => $user_sender,
                             'user_receiver' => $user_receiver,
                             'is_pending' => $rng_pending == 1 ? 1 : 0,
-                            'is_blocked' => $rng_blocked == 1 ? 1 : 0,
+                            'user_blocked_id' => null,
                         ]);
                         dump("ho creato friendship. raw values: "
                         ."id: ".$i." user_sender: ".$user_sender." user_receiver: ".$user_receiver." rng_pending: ".$rng_pending." rng_blocked: ".$rng_blocked);
@@ -86,7 +86,7 @@ class FriendshipsSeeder extends Seeder
                     'user_sender' => $user_sender,
                     'user_receiver' => $user_receiver,
                     'is_pending' => $rng_pending == 1 ? 1 : 0,
-                    'is_blocked' => $rng_blocked == 1 ? 1 : 0,
+                    'user_blocked_id' => null,
                 ]);
                 dump("ho creato la prima friendship. raw values: "
                 ."id: ".$i." user_sender: ".$user_sender." user_receiver: ".$user_receiver." rng_pending: ".$rng_pending." rng_blocked: ".$rng_blocked);
