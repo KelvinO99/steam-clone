@@ -8,6 +8,7 @@ use App\Http\Controllers\GamesController;
 use App\Http\Controllers\AchievementsController;
 use App\Http\Controllers\DevelopersController;
 use App\Http\Controllers\DevelopersGamesController;
+use App\Http\Controllers\FriendshipsController;
 use App\Http\Controllers\GamesLanguagesController;
 use App\Http\Controllers\GamesTagsController;
 use App\Http\Controllers\ImagesController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\SystemRequirementsController;
 use App\Http\Controllers\TagsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UsersAchievementController;
+use App\Models\Friendships;
 
 /*
 |--------------------------------------------------------------------------
@@ -154,6 +156,14 @@ Route::controller(SystemCharacteristicsController::class)->prefix('system_charac
 });
 
 Route::controller(SystemRequirementsController::class)->prefix('system_requirements')->group(function($router){
+    Route::get('index','index');
+    Route::get('show/{id}','show');
+    Route::delete('destroy/{id}','destroy');
+    Route::put('update/{id}','update');
+    Route::post('store','store');
+});
+
+Route::controller(FriendshipsController::class)->prefix('friendships')->group(function($router){
     Route::get('index','index');
     Route::get('show/{id}','show');
     Route::delete('destroy/{id}','destroy');

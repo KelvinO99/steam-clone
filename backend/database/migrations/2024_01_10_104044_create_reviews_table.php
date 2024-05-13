@@ -13,15 +13,16 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('game_id');
             $table->unsignedBigInteger('language_id');
+            //$table->unsignedBigInteger('library_id');
             $table->date('date')->default('1970-01-01');
             $table->boolean('is_recommended')->default(false);
             $table->longtext('description')->default('PLACEHOLDER');
-            $table->float('hours_played')->default(0);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('language_id')->references('id')->on('languages')->onDelete('cascade')->onUpdate('cascade');
+            //$table->foreign('library_id')->references('id')->on('libraries')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

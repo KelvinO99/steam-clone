@@ -37,7 +37,8 @@ class LibrariesSeeder extends Seeder
                     'user_id' => $userId,
                     'game_id' => $gameId,
                     'is_wishlisted' => $bool,
-                    'is_owned' => !$bool
+                    'is_owned' => !$bool,
+                    'time_played' => mt_rand() / mt_getrandmax() * (10000 - 1) + 1,
                 ]);
             }
         }

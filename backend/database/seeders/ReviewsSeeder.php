@@ -78,6 +78,7 @@ class ReviewsSeeder extends Seeder
         //$this->call(GamesSeeder::class);
         //$gameSeeder = GamesSeeder::class;
 
+        $const_users = 32;
         $const_rev = (sizeof($positive)+sizeof($negative))*70;
 
         dump('--|Reputazione|--');
@@ -105,13 +106,13 @@ class ReviewsSeeder extends Seeder
 
             $rng = rand(1,5);
             DB::table('reviews')->insert([
-                'user_id' => rand(1,19),//PLACEHOLDER RNG
+                'user_id' => $user_id = rand(1,$const_users),//PLACEHOLDER RNG
                 'game_id' => $gameid_random,
                 'language_id' => rand(1,29),
                 'date' => $reviews_date,
                 'is_recommended' => $rng !== 1 ? 1 : 0,
                 'description' => $rng !== 1 ? $positive[random_int( 0, sizeof($positive)-1 )] : $negative[random_int( 0, sizeof($negative)-1 )],
-                'hours_played' => mt_rand() / mt_getrandmax() * (999 - 1) + 1,//PLACEHOLDER FLOAT RNG
+                //'time_played' => $user_id,
             ]);
         }
 
@@ -126,13 +127,13 @@ class ReviewsSeeder extends Seeder
             }
             $rng = rand(1,6);
             DB::table('reviews')->insert([
-                'user_id' => rand(1,19),//PLACEHOLDER RNG
+                'user_id' => $user_id = rand(1,$const_users),//PLACEHOLDER RNG
                 'game_id' => $luck,
                 'language_id' => rand(1,29),
                 'date' => $reviews_date,
                 'is_recommended' => $rng !== 1 ? 1 : 0,
                 'description' => $rng !== 1 ? $positive[random_int( 0, sizeof($positive)-1 )] : $negative[random_int( 0, sizeof($negative)-1 )],
-                'hours_played' => mt_rand() / mt_getrandmax() * (999 - 1) + 1,
+                //'time_played' => $user_id,
             ]);
         }
 
@@ -145,13 +146,13 @@ class ReviewsSeeder extends Seeder
             }
             $rng = rand(1,6);
             DB::table('reviews')->insert([
-                'user_id' => rand(1,19),//PLACEHOLDER RNG
+                'user_id' => $user_id = rand(1,$const_users),//PLACEHOLDER RNG
                 'game_id' => $badluck,
                 'language_id' => rand(1,29),
                 'date' => $reviews_date,
                 'is_recommended' => $rng === 1 ? 1 : 0,
                 'description' => $rng === 1 ? $positive[random_int( 0, sizeof($positive)-1 )] : $negative[random_int( 0, sizeof($negative)-1 )],
-                'hours_played' => mt_rand() / mt_getrandmax() * (999 - 1) + 1,
+                //'time_played' => $user_id,
             ]);
         }
     }

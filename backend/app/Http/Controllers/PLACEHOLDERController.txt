@@ -64,10 +64,10 @@ class PLACEHOLDERCONTROLLER extends Controller
     public function store(Request $request) {
 
         // Ottieni l'utente autenticato tramite JWT
-        $var = JWTAuth::parseToken()->authenticate();
+        $auth = JWTAuth::parseToken()->authenticate();
 
         // Se non c'è un utente autenticato, restituisci un errore
-        if (!$var) {
+        if (!$auth) {
             return response()->json(['message' => 'Non autorizzato'], 401);
         }
 

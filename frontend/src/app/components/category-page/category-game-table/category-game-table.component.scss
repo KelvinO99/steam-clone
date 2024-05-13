@@ -36,7 +36,9 @@
         .card-container .header {
             height: 110px;
             background-color: #414a55;
+            box-shadow: 0 0 8px rgba(0,0,0,.5);
             backdrop-filter: blur(15px);
+            cursor: pointer;
 
             .section {
                 .image {
@@ -45,28 +47,32 @@
                     height: auto;
                 }
 
-                .content-container .header .section {
-                    .caption {
-                        font-size: 17px;
-                        color: white;
-                    }
-
-                    .date {
-                        color: #a5b0b6;
-                        font-size: 11px;
-                        letter-spacing: 1px;
-                        text-transform: uppercase;
-                    }
-
-                    .tags {
-                        color: #a5b0b6;
-                        background-color: rgba(112, 129, 137, .15);
-                        font-size: 10px;
-                    }
-
-                    .evaluation {
-                        font-size: 12px;
-                        color: #ffffff;
+                .content-container .header {
+                    background: initial;
+                    box-shadow: initial;
+                    .section {
+                        .caption {
+                            font-size: 17px;
+                            color: white;
+                        }
+    
+                        .date {
+                            color: #a5b0b6;
+                            font-size: 11px;
+                            letter-spacing: 1px;
+                            text-transform: uppercase;
+                        }
+    
+                        .tags {
+                            color: #a5b0b6;
+                            background-color: rgba(112, 129, 137, .15);
+                            font-size: 10px;
+                        }
+    
+                        .evaluation {
+                            font-size: 12px;
+                            color: #ffffff;
+                        }
                     }
                 }
 

@@ -1,3 +1,4 @@
+import { SystemRequirementsService } from './../../../shared/services/system-requirements.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -11,6 +12,7 @@ import { GameService } from 'src/app/shared/services/game.service';
 export class BodyDataGameComponent {
   routeId!: number;
   @Input() game!: any;
+  @Input() systemRequirements!: any;
   languages!: any;
   offset = 1;
 
@@ -32,3 +34,6 @@ export class BodyDataGameComponent {
     })
   }
 }
+
+
+

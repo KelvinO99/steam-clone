@@ -16,7 +16,7 @@ export class CategoryGameTableComponent {
   }
 
   getGames() {
-    this.gameService.getGames({skip: 0, take: 5, tag: ["action"]}).subscribe({
+    this.gameService.getGames({skip: 0, take: 10, tag: ["action"]}).subscribe({
       next: (res: any) => {
         this.game = res.games;
         console.log([this.game]);
