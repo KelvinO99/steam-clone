@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GameService } from 'src/app/shared/services/game.service';
 
@@ -10,6 +11,7 @@ import { GameService } from 'src/app/shared/services/game.service';
 export class EditHeaderPageComponent {
   routeId!: number;
   @Input() game!: any;
+  @Input() gameForm!: FormGroup
   offset = 1;
 
   constructor(
@@ -18,7 +20,8 @@ export class EditHeaderPageComponent {
     public router: Router,
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   goTo(path: string) {
     this.router.navigate([path]);

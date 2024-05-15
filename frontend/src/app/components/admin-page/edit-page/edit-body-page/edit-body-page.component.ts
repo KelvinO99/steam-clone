@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { LanguageService } from 'src/app/shared/services/language.service';
@@ -10,6 +11,7 @@ import { LanguageService } from 'src/app/shared/services/language.service';
 })
 export class EditBodyPageComponent {
   routeId!: number;
+  @Input() gameForm!: FormGroup;
   @Input() game!: any;
   @Input() systemRequirements!: any;
   languages!: any;

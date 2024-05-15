@@ -11,6 +11,25 @@
         margin: 0;
     }
 
+    .edit-button {
+        background: initial;
+        border: initial;
+        font-weight: normal;
+        background: rgba(35, 70, 90, 0.74);
+        font-size: 14px;
+        line-height: 24px;
+        color: #acb2b8;
+        border-radius: 2px;
+        text-decoration: none !important;
+        color: #67c1f5 !important;
+        cursor: pointer;
+
+        &:hover {
+            background: linear-gradient(-60deg, #417a9b 5%, #67c1f5 95%);
+            color: white !important;
+        }
+    }
+
     .header {
 
         //col-8
@@ -32,80 +51,86 @@
                             }
 
                             .header {
-                                /* background-color: #000; */
+                                background: initial;
+                                .price-section {
+                                    .header {
+                                        .section {
+
+                                            background-image: initial;
+                                            background-color: initial;
+        
+                                            .percentage-price {
+                                                border-radius: 1px;
+                                                background: #4c6b22;
+                                                font-size: 25px;
+                                                font-family: "Motiva Sans", sans-serif;
+                                                font-weight: 500;
+                                                color: #BEEE11;
+                                                line-height: 34px;
+                                                border-top-left-radius: 3px;
+                                                border-bottom-left-radius: 3px;
+                                            }
+        
+                                            .base-price {
+                                                background-color: black;
+                                                color: white;
+                                                border-top-left-radius: 3px;
+                                                border-bottom-left-radius: 3px;
+                                            }
+                                        }
+        
+                                        .section:nth-child(2) {
+                                            background-color: #344654;
+                                            border-radius: 0% !important;
+        
+                                            .discounted-price {
+        
+                                                font-size: 11px;
+                                                line-height: 16px;
+                                                font-family: Arial, Helvetica, sans-serif;
+        
+                                                .label:nth-child(1) {
+                                                    font-size: inherit;
+                                                    line-height: 12px;
+                                                    color: #738895;
+                                                    text-decoration: line-through;
+                                                    font-family: Arial, Helvetica, sans-serif;
+                                                }
+        
+                                                .label:last-child {
+                                                    font-size: 15px;
+                                                    font-family: Arial, Helvetica, sans-serif;
+                                                    color: #BEEE11;
+                                                }
+                                            }
+                                        }
+        
+                                        .section:last-child {
+                                            background: linear-gradient(to right, #75b022 5%, #588a1b 95%);
+                                            color: #d2efa9;
+                                            border-radius: initial;
+                                            border-top-right-radius: 3px;
+                                            border-bottom-right-radius: 3px;
+                                            border-style: solid;
+                                            border-color: black;
+        
+                                            &:hover {
+                                                cursor: pointer;
+                                                color: white;
+                                            }
+        
+                                            .label {
+                                                font-size: 15px;
+                                                color: inherit;
+                                                text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+                                            }
+                                        } 
+                                    }
+                                }
+                               /* background-color: #000;
                                 background-image: initial;
 
-                                .section {
-
-                                    background-image: initial;
-                                    background-color: initial;
-
-                                    .percentage-price {
-                                        border-radius: 1px;
-                                        background: #4c6b22;
-                                        font-size: 25px;
-                                        font-family: "Motiva Sans", sans-serif;
-                                        font-weight: 500;
-                                        color: #BEEE11;
-                                        line-height: 34px;
-                                        border-top-left-radius: 3px;
-                                        border-bottom-left-radius: 3px;
-                                    }
-
-                                    .base-price {
-                                        background-color: black;
-                                        color: white;
-                                        border-top-left-radius: 3px;
-                                        border-bottom-left-radius: 3px;
-                                    }
-                                }
-
-                                .section:nth-child(2) {
-                                    background-color: #344654;
-                                    border-radius: 0% !important;
-
-                                    .discounted-price {
-
-                                        font-size: 11px;
-                                        line-height: 16px;
-                                        font-family: Arial, Helvetica, sans-serif;
-
-                                        .label:nth-child(1) {
-                                            font-size: inherit;
-                                            line-height: 12px;
-                                            color: #738895;
-                                            text-decoration: line-through;
-                                            font-family: Arial, Helvetica, sans-serif;
-                                        }
-
-                                        .label:last-child {
-                                            font-size: 15px;
-                                            font-family: Arial, Helvetica, sans-serif;
-                                            color: #BEEE11;
-                                        }
-                                    }
-                                }
-
-                                .section:last-child {
-                                    background: linear-gradient(to right, #75b022 5%, #588a1b 95%);
-                                    color: #d2efa9;
-                                    border-radius: initial;
-                                    border-top-right-radius: 3px;
-                                    border-bottom-right-radius: 3px;
-                                    border-style: solid;
-                                    border-color: black;
-
-                                    &:hover {
-                                        cursor: pointer;
-                                        color: white;
-                                    }
-
-                                    .label {
-                                        font-size: 15px;
-                                        color: inherit;
-                                        text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
-                                    }
-                                }
+                                */
                             }
                         }
                     }
@@ -127,7 +152,7 @@
                     }
 
                     .content {
-                        padding-top: 1rem;
+                        padding-top: 0.4rem;
                         color: #acb2b8;
                         text-transform: none;
                         font-size: 14px;

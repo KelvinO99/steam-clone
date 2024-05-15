@@ -1,3 +1,5 @@
+<app-modal [game]="game" [gameForm]="gameForm"> </app-modal>
+
 <div class="container body-data-game-container">
     <div class="d-flex header">
 
@@ -7,66 +9,93 @@
                 <div class="col-8 mt-3 section">
                     <div class="d-flex flex-column header">
 
-                        <div class="col mb-5 section"> <!--la card del costo del gioco-->
+                        <!--la card del costo del gioco-->
+                        <div class="col mb-5 section">
                             <div class="d-flex flex-column header">
 
                                 <div class="col section">
-                                    <p class="p-3 caption"> Buy {{game.game.name}} </p>
+                                    <p class="p-3 d-flex justify-content-between align-items-center caption"> <span> Buy
+                                            {{game?.game?.name}}
+                                        </span> </p>
                                 </div>
 
                                 <div class="col section">
-                                    <div class="d-flex fle-row p-2 justify-content-end header">
+                                    <div class="d-flex fle-wrap p-2 justify-content-end header">
 
-                                        <div class="col-4 w-auto d-flex align-items-center section"
-                                            *ngIf="game.game.discounted_percentage != null">
-                                            <div class="px-2 percentage-price">
-                                                {{ game.game.discounted_percentage }}%
-                                            </div>
+                                        <!--sezione del pulsante edit-->
+                                        <div class="col-6 d-flex align-items-center edit-section">
+                                            <span> <button data-bs-toggle="modal" data-bs-target="#editPriceModal"
+                                                class="bi bi-pencil-square px-2 edit-button edit-button">
+                                            </button> </span>
                                         </div>
 
-                                        <div class="col-1 w-auto px-2 d-flex justify-content-end align-items-center section"
-                                            *ngIf="game.game.discounted_price != null && game.game.base_price > 0">
-                                            <div class="discounted-price">
-                                                <p class="d-flex justify-content-end label"> {{
-                                                    game.game.base_price.toFixed(2)
-                                                    + "€" }} </p>
-                                                <p class="label"> {{ game.game.discounted_price.toFixed(2)
-                                                    +"€"}} </p>
+                                        <!--sezione del prezzo-->
+                                        <div class="col-6 d-flex justify-content-end price-section">
+                                            <div class="d-flex flex-wrap header">
+
+                                                <div class="col-4 w-auto d-flex align-items-center section"
+                                                    *ngIf="game?.game?.discounted_percentage > 0 && game?.game?.discounted_percentage != null">
+                                                    <div class="px-2 percentage-price">
+                                                        {{ game?.game?.discounted_percentage }}%
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-1 w-auto px-2 d-flex justify-content-end align-items-center section"
+                                                    *ngIf="game?.game?.discounted_price > 0 && game?.game?.base_price > 0 && game?.game?.discounted_price != null && game?.game?.base_price != null">
+                                                    <div class="discounted-price">
+                                                        <p class="d-flex justify-content-end label"> {{
+                                                            game?.game.base_price |
+                                                            currency:'EUR':'symbol':'1.2-2' }} </p>
+                                                        <p class="label"> {{ game?.game?.discounted_price |
+                                                            currency:'EUR':'symbol':'1.2-2' }} </p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-2 w-auto section"
+                                                    *ngIf="game?.game?.discounted_price == 0 || game?.game?.discounted_price == null">
+                                                    <div class="base-price">
+                                                        <p class="p-2 label"
+                                                            *ngIf="game?.game?.base_price > 0 && game?.game?.base_price != null">
+                                                            {{ game?.game?.base_price | currency:'EUR':'symbol':'1.2-2'
+                                                            }} </p>
+
+                                                        <p class="py-2 px-3 label"
+                                                            *ngIf="game?.game?.base_price == 0 || game?.game?.base_price == null">
+                                                            Free to
+                                                            Play </p>
+                                                    </div>
+                                                </div>
+
+                                                <div
+                                                    class="col-auto d-flex justify-content-center align-items-center section">
+                                                    <div class="label px-2">
+                                                        Add to Cart
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
-
-                                        <div class="col-2 w-auto section" *ngIf="game.game.discounted_price == null">
-                                            <div class="base-price">
-                                                <p class="p-2 label" *ngIf="game.game.base_price > 0"> {{
-                                                    game.game.base_price.toFixed(2)
-                                                    + "€" }} </p>
-
-                                                <p class="py-2 px-3 label" *ngIf="game.game.base_price == 0"> Free to
-                                                    Play </p>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-2 d-flex justify-content-center align-items-center section">
-                                            <div class="label">
-                                                Add to Cart
-                                            </div>
-                                        </div>
-
                                     </div>
                                 </div>
 
                             </div>
                         </div>
 
-                        <div class="col mt-2 section"> <!--descrizione del gioco-->
-                            <p class="heading"> About this Game </p>
+                        <!--descrizione del gioco-->
+                        <div class="col mt-2 section">
+                            <p class="heading"> About this Game <span> <button data-bs-toggle="modal" data-bs-target="#editLongDescriptionModal"
+                                class="bi bi-pencil-square px-2 edit-button edit-button">
+                            </button> </span> </p>
                             <img src="https://store.akamai.steamstatic.com/public/images/v6/maincol_gradient_rule.png"
                                 class="image">
-                            <p class="content"> {{game.game.long_description}} </p>
+                            <p class="content"> {{game?.game?.long_description}} </p>
                         </div>
 
-                        <div class="col mt-5 section"> <!--requisiti di sistema del gioco-->
-                            <p class="heading"> System Requirements </p>
+                        <!--requisiti di sistema del gioco-->
+                        <div class="col mt-5 section">
+                            <p class="heading"> System Requirements <span> <button data-bs-toggle="modal" data-bs-target="#editSystemRequirementsModal"
+                                class="bi bi-pencil-square px-2 edit-button edit-button">
+                            </button> </span> </p>
                             <img src="https://store.akamai.steamstatic.com/public/images/v6/maincol_gradient_rule.png"
                                 class="image">
 
@@ -76,42 +105,42 @@
                                     <p class="heading"> Minimum: </p>
                                     <p class="text-item"> Requires a 64-bit processor and operating system </p>
                                     <span class="caption-item"> OS *: </span> <span class="text-item">
-                                        {{systemRequirements.data.Windows[0].os_name}} </span> <br>
+                                        {{systemRequirements?.data?.Windows[0]?.os_name}} </span> <br>
                                     <span class="caption-item"> Processor: </span> <span class="text-item">
-                                        {{systemRequirements.data.Windows[0].cpu_name}} </span> <br>
+                                        {{systemRequirements?.data?.Windows[0]?.cpu_name}} </span> <br>
                                     <span class="caption-item"> Memory: </span> <span class="text-item">
-                                        {{systemRequirements.data.Windows[0].ram_name}} </span> <br>
+                                        {{systemRequirements?.data?.Windows[0]?.ram_name}} </span> <br>
                                     <span class="caption-item"> Graphics: </span> <span class="text-item">
-                                        {{systemRequirements.data.Windows[0].gpu_name}} </span> <br>
+                                        {{systemRequirements?.data?.Windows[0]?.gpu_name}} </span> <br>
                                     <span class="caption-item"> DirectX: </span> <span class="text-item">
-                                        {{systemRequirements.data.Windows[0].directx_name}} </span> <br>
+                                        {{systemRequirements?.data?.Windows[0]?.directx_name}} </span> <br>
                                     <span class="caption-item"> Network: </span> <span class="text-item">
-                                        {{systemRequirements.data.Windows[0].network_name}}</span> <br>
+                                        {{systemRequirements?.data?.Windows[0]?.network_name}}</span> <br>
                                     <span class="caption-item"> Storage: </span> <span class="text-item">
-                                        {{systemRequirements.data.Windows[0].storage_name}} </span> <br>
+                                        {{systemRequirements?.data?.Windows[0]?.storage_name}} </span> <br>
                                     <span class="caption-item"> Additional Notes: </span> <span class="text-item">
-                                        {{systemRequirements.data.Windows[0].audio_name}} </span>
+                                        {{systemRequirements?.data?.Windows[0]?.audio_name}} </span>
                                 </div>
 
                                 <div class="col-6 section">
                                     <p class="heading"> Reccomended: </p>
                                     <p class="text-item"> Requires a 64-bit processor and operating system </p>
                                     <span class="caption-item"> OS *: </span> <span class="text-item">
-                                        {{systemRequirements.data.Windows[1].os_name}} </span> <br>
+                                        {{systemRequirements?.data?.Windows[1]?.os_name}} </span> <br>
                                     <span class="caption-item"> Processor: </span> <span class="text-item">
-                                        {{systemRequirements.data.Windows[1].cpu_name}} </span> <br>
+                                        {{systemRequirements?.data?.Windows[1]?.cpu_name}} </span> <br>
                                     <span class="caption-item"> Memory: </span> <span class="text-item">
-                                        {{systemRequirements.data.Windows[1].ram_name}} </span> <br>
+                                        {{systemRequirements?.data?.Windows[1]?.ram_name}} </span> <br>
                                     <span class="caption-item"> Graphics: </span> <span class="text-item">
-                                        {{systemRequirements.data.Windows[1].gpu_name}} </span> <br>
+                                        {{systemRequirements?.data?.Windows[1]?.gpu_name}} </span> <br>
                                     <span class="caption-item"> DirectX: </span> <span class="text-item">
-                                        {{systemRequirements.data.Windows[1].directx_name}} </span> <br>
+                                        {{systemRequirements?.data?.Windows[1]?.directx_name}} </span> <br>
                                     <span class="caption-item"> Network: </span> <span class="text-item">
-                                        {{systemRequirements.data.Windows[1].network_name}}</span> <br>
+                                        {{systemRequirements?.data?.Windows[1]?.network_name}}</span> <br>
                                     <span class="caption-item"> Storage: </span> <span class="text-item">
-                                        {{systemRequirements.data.Windows[1].storage_name}} </span> <br>
+                                        {{systemRequirements?.data?.Windows[1]?.storage_name}} </span> <br>
                                     <span class="caption-item"> Additional Notes: </span> <span class="text-item">
-                                        {{systemRequirements.data.Windows[1].audio_name}} </span>
+                                        {{systemRequirements?.data?.Windows[1]?.audio_name}} </span>
                                 </div>
 
                             </div>
@@ -124,7 +153,8 @@
 
                     <div class="d-flex flex-column header">
 
-                        <div class="col section"> <!--pulsante di sign in-->
+                        <!--pulsante di sign in-->
+                        <div class="col section">
                             <p class="ps-3 heading"> Is this game relevant to you? </p>
                             <p class="ps-3 content"> Sign in to see reasons why you may or may not like this based on
                                 your games, friends, and curators you follow. </p>
@@ -132,8 +162,9 @@
                                 </button> </div>
                         </div>
 
+                        <!--feature-->
                         <!--DA COLLEGARE AL BACKEND-->
-                        <div class="col mt-3 section"> <!--feature-->
+                        <div class="col mt-3 section">
                             <div class="d-flex flex-column p-3">
                                 <p class="d-flex justify-content-center align-items-center mb-1"> <img
                                         src="https://store.akamai.steamstatic.com/public/images/v6/ico/ico_singlePlayer.png"
@@ -169,47 +200,69 @@
                             </div> -->
                         </div>
 
-                        <div class="col mt-3 section"> <!--supporto delle lingue-->
+                        <!--supporto delle lingue-->
+                        <div class="col mt-3 section">
                             <div class="d-flex flex-column p-3 header">
                                 <p class="caption"> Languages: </p>
                                 <div class="d-flex flex-wrap section">
                                     <div class="col-3"> </div>
-                                    <div class="col-3 d-flex justify-content-center align-items-center heading"> Interface </div>
-                                    <div class="col-3 d-flex justify-content-center align-items-center heading"> Full Audio </div>
-                                    <div class="col-3 d-flex justify-content-center align-items-center heading"> Subtitles </div>
+                                    <div class="col-3 d-flex justify-content-center align-items-center heading">
+                                        Interface </div>
+                                    <div class="col-3 d-flex justify-content-center align-items-center heading"> Full
+                                        Audio </div>
+                                    <div class="col-3 d-flex justify-content-center align-items-center heading">
+                                        Subtitles </div>
                                 </div>
                                 <div class="d-flex flex-wrap section" *ngFor="let item of languages">
-                                    <div class="col-3 justify-content-center align-content-center py-1 caption"> {{item.language.name}} </div>
-                                    <div class="col-3 d-flex justify-content-center align-items-center value-item"> <span *ngIf="item.interface == 1"> ✔ </span> </div>
-                                    <div class="col-3 d-flex justify-content-center align-items-center value-item"> <span *ngIf="item.full_audio == 1"> ✔ </span> </div>
-                                    <div class="col-3 d-flex justify-content-center align-items-center value-item"> <span *ngIf="item.subtitles == 1"> ✔ </span> </div>
+                                    <div class="col-3 justify-content-center align-content-center py-1 caption">
+                                        {{item.language.name}} </div>
+                                    <div class="col-3 d-flex justify-content-center align-items-center value-item">
+                                        <span *ngIf="item.interface == 1"> ✔ </span>
+                                    </div>
+                                    <div class="col-3 d-flex justify-content-center align-items-center value-item">
+                                        <span *ngIf="item.full_audio == 1"> ✔ </span>
+                                    </div>
+                                    <div class="col-3 d-flex justify-content-center align-items-center value-item">
+                                        <span *ngIf="item.subtitles == 1"> ✔ </span>
+                                    </div>
                                 </div>
                             </div>
 
                         </div>
 
-                        <div class="col section"> <!--achivements-->
+                        <!--achivements-->
+                        <div class="col section">
 
                         </div>
 
-                        <div class="col mt-3 section"> <!--informazioni del gioco-->
+                        <!--informazioni del gioco-->
+                        <div class="col mt-3 section">
                             <div class="d-flex flex-column p-3 header">
-                                <p> <span class="caption-item"> Title: </span> <span class="text-item"> {{game?.game?.name}} </span> </p>
-                                <p> <span class="caption-item"> Genre: </span> <span class="label-item" *ngFor="let item of game.tags; let last = last"> {{item?.name}}{{last ? '' : ', '}} </span> </p>
-                                <p> <span class="caption-item"> Developer: </span> <span class="label-item"> {{game?.game?.developers_games[0]?.developers?.user?.username}} </span> </p>
-                                <p> <span class="caption-item"> Release Date: </span> <span class="label-item"> {{game.game.date | date:'dd MMM, yyyy'}} </span> </p>
-                                <p> <span class="caption-item"> Early Access Release Date: </span> <span class="text-item"> </span> </p>
-                                <button class="d-flex justify-content-start mb-1 mt-2 button"> Visit the website </button>
-                                <button class="d-flex justify-content-start mb-1 button"> {{game?.game?.name}} on Twitter </button>
+                                <p> <span class="caption-item"> Title: </span> <span class="text-item">
+                                        {{game?.game?.name}} </span> </p>
+                                <p> <span class="caption-item"> Genre: </span> <span class="label-item"
+                                        *ngFor="let item of game?.tags; let last = last"> {{item?.name}}{{last ? '' :
+                                        ','}} </span> </p>
+                                <p> <span class="caption-item"> Developer: </span> <span class="label-item">
+                                        {{game?.game?.developers_games[0]?.developers?.user?.username}} </span> </p>
+                                <p> <span class="caption-item"> Release Date: </span> <span class="label-item">
+                                        {{game?.game?.date | date:'dd MMM, yyyy'}} </span> </p>
+                                <p> <span class="caption-item"> Early Access Release Date: </span> <span
+                                        class="text-item"> </span> </p>
+                                <button class="d-flex justify-content-start mb-1 mt-2 button"> Visit the website
+                                </button>
+                                <button class="d-flex justify-content-start mb-1 button"> {{game?.game?.name}} on
+                                    Twitter </button>
                                 <button class="d-flex justify-content-start mb-1 button"> View update history </button>
                                 <button class="d-flex justify-content-start mb-1 button"> Read related news </button>
                                 <button class="d-flex justify-content-start button"> View Groups </button>
                             </div>
                         </div>
 
-                        <div class="col mt-3 section"> <!--pegi del gioco-->
+                        <!--pegi del gioco-->
+                        <div class="col mt-3 section">
                             <div class="d-flex flex-column header px-2 py-2">
-                                <img [src]="game.pegi_img.image_path" class="image">
+                                <img [src]="game?.pegi_img?.image_path" class="image">
                                 <span class="label"> Rating for: PEGI </span>
                             </div>
                         </div>

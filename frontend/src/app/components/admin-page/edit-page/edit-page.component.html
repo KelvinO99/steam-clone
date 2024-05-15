@@ -1,9 +1,3 @@
-<!-- <form (ngSubmit)="updateGame()" [formGroup]="gameForm">
-    <label for="gameName">Nome del gioco:</label>
-    <input type="text" id="gameName" [(ngModel)]="game?.game.name" formControlName="name">
-
-    <button type="submit">Aggiorna</button>
-</form> -->
 <div class="container-fluid game-page-container">
     <div class="d-flex flex-wrap">
 
@@ -13,10 +7,10 @@
 
             <div class="d-flex flex-column header">
                 <div class="col section">
-                    <app-edit-header-page [game]="game"> </app-edit-header-page>
+                    <app-edit-header-page [game]="game" [gameForm]="gameForm"> </app-edit-header-page>
                 </div>
                 <div class="col section">
-                    <app-edit-body-page [game]="game" [systemRequirements]="systemRequirements"></app-edit-body-page>
+                    <app-edit-body-page [game]="game" [gameForm]="gameForm" [systemRequirements]="systemRequirements"></app-edit-body-page>
                 </div>
 
             </div>

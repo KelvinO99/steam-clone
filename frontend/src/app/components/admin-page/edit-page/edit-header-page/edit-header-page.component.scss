@@ -1,46 +1,4 @@
-.edit-header-page-container .header .section {
-    .heading {
-        font-family: "Motiva Sans", Sans-serif;
-        font-size: 13px;
-        opacity: 0.6;
-        color: #8f98a0;
-
-        .label {
-            &:hover {
-                cursor: pointer;
-            }
-        }
-    }
-
-    .caption {
-        font-size: 23px;
-        font-weight: normal;
-        text-overflow: ellipsis;
-        color: white;
-    }
-
-    .edit-button {
-        background: initial;
-        border: initial;
-        font-weight: normal;
-        background: rgba(103, 193, 245, 0.2);
-        font-size: 14px;
-        line-height: 24px;
-        color: #acb2b8;
-        border-radius: 2px;
-        text-decoration: none !important;
-        color: #67c1f5 !important;
-        cursor: pointer;
-
-        &:hover {
-            background: linear-gradient(-60deg, #417a9b 5%, #67c1f5 95%);
-            color: white !important;
-        }
-    }
-}
-
-
-/* //Variabili
+//Variabili
 $game-header-background-gradient: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(17, 25, 35, 1) 8%, rgba(22, 37, 43, 0.14898459383753504) 54%, rgba(23, 34, 45, 1) 88%, rgba(17, 25, 35, 1) 100%);
 $game-header-background-color: rgb(2, 0, 36);
 
@@ -51,88 +9,138 @@ $game-header-background-color: rgb(2, 0, 36);
     border-radius: 5px;
 }
 
-@mixin game-col-8-section {
-    .carousel {
-        .carousel-inner .carousel-item .carousel-image {
-            width: inherit;
-            height: auto;
-        }
-
-        .carousel-indicators .list-inline-item .carousel-sm-image {
-            max-width: 100%;
-            height: 50px;
-        }
-    }
-}
-
-@mixin game-col-4-section {
-    .game-deals-image-section .game-deals-image {
-        width: 100%;
-        height: auto;
-    }
-
-    .game-deals-content-section .game-deals-content {
-        font-size: 13px;
-        font-weight: 400;
-        line-height: 18px;
-        color: #c6d4df;
-    }
-
-    .game-deals-content-section {
-        font-size: 12px;
-
-        .game-deals-content-label {
-            font-size: 10px;
-            text-transform: uppercase;
-            color: #556772;
-        }
-
-        .game-deals-content-item {
-            color: #66C0F4;
-            padding-left: 5px
-        }
-
-        .game-deals-content-date {
-            color: #8f98a0;
-            padding-left: 5px
-        }
-
-        .game-deals-content-number {
-            color: #556772;
-        }
-    }
-}
-
 //Struttura CSS
-.header-data-game-container .header-data-game-header .header-data-game-col-11-section .game-deals-container .game-deals-header {
+.edit-header-page-container .header {
 
-    .game-deals-tag-section .game-deals-tag {
+    //Intestazione con il percorso e il titolo
+    .section {
+        .heading {
+            font-family: "Motiva Sans", Sans-serif;
+            font-size: 13px;
+            opacity: 0.6;
+            color: #8f98a0;
 
-        .tag {
+            .label {
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .caption {
+            font-size: 23px;
+            font-weight: normal;
+            text-overflow: ellipsis;
+            color: white;
+        }
+
+        .edit-button {
+            background: initial;
+            border: initial;
+            font-weight: normal;
+            background: rgba(103, 193, 245, 0.2);
+            font-size: 14px;
+            line-height: 24px;
+            color: #acb2b8;
+            border-radius: 2px;
+            text-decoration: none !important;
+            color: #67c1f5 !important;
             cursor: pointer;
-        }
-        font-family: "Motiva Sans", Sans-serif;
-        font-size: 13px;
-        opacity: 0.6;
-        color: #8f98a0;
-    }
 
-    .game-deals-caption-section .game-deals-caption {
-        font-size: 23px;
-        font-weight: normal;
-        text-overflow: ellipsis;
-        color: white;
-    }
-
-    .game-container .game-header {
-        @include game-header-background();
-
-        .game-col-8-section {
-            @include game-col-8-section()
-        }
-
-        .game-col-4-section .game-deals-container .game-deals-header {
-            @include game-col-4-section()
+            &:hover {
+                background: linear-gradient(-60deg, #417a9b 5%, #67c1f5 95%);
+                color: white !important;
+            }
         }
     }
-} */
+
+    //carosello con le immagini dell'anteprima e le sue informazioni
+    .section:nth-child(3) {
+        .header {
+            @include game-header-background();
+
+            //immagini dell'anteprima
+            .carousel-section {
+                .carousel {
+                    .carousel-inner .carousel-item .carousel-image {
+                        width: inherit;
+                        height: auto;
+                    }
+
+                    .carousel-indicators .list-inline-item .carousel-sm-image {
+                        max-width: 100%;
+                        height: 50px;
+                    }
+                }
+            }
+
+            //informazioni
+            .content-section {
+                padding-left: 0.45rem;
+
+                .header {
+                    background: initial;
+                    border-radius: 0;
+                    background-color: initial;
+
+                    .section {
+                        font-size: 12px;
+
+                        .image {
+                            max-width: 100%;
+                            height: auto;
+                        }
+
+                        .content {
+                            font-size: 13px;
+                            font-weight: 400;
+                            line-height: 18px;
+                            color: #c6d4df;
+                        }
+
+                        .caption-item {
+                            font-size: 10px;
+                            text-transform: uppercase;
+                            color: #556772;
+                        }
+
+                        .label-item {
+                            color: #66C0F4;
+                            padding-left: 5px
+                        }
+
+                        .date-label {
+                            font-size: 11px;
+                            color: #8f98a0;
+                            padding-left: 5px
+                        }
+
+                        .number-label {
+                            color: #556772;
+                        }
+
+                        .button {
+                            position: absolute;
+                            background: initial;
+                            border: initial;
+                            font-weight: normal;
+                            background: rgba(103, 193, 245, 0.2);
+                            font-size: 14px;
+                            line-height: 24px;
+                            color: #acb2b8;
+                            border-radius: 2px;
+                            text-decoration: none !important;
+                            color: #67c1f5 !important;
+                            cursor: pointer;
+                
+                            &:hover {
+                                background: linear-gradient(-60deg, #417a9b 5%, #67c1f5 95%);
+                                color: white !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

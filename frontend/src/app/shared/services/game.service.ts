@@ -24,8 +24,8 @@ export class GameService {
     return this.http.get<any>(`${this.APIUrl}games/show/${id}`);
   }
 
-  updateGame(updateDataGame: any) {
-    return this.http.post<any>(`${this.APIUrl}games/update/1`, updateDataGame);
+  updateGame(id: number, updateDataGame: any) {
+    return this.http.post<any>(`${this.APIUrl}games/update/${id}`, updateDataGame);
   }
 
   storeGame(storedGameData: any) {

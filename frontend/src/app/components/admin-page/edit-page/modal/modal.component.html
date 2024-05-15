@@ -1,25 +1,205 @@
-<!--Edit del Titolo-->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!--Modale di conferma delle modifiche-->
+<div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModal" aria-hidden="true"
+    data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form (ngSubmit)="updateGame()" [formGroup]="gameForm">
-                <p> <label for="gameName">Nome del gioco:</label></p>
-                <p> <input type="text" id="gameName" [(ngModel)]="game?.game.name" formControlName="name"> </p>
-            
-                <p> <button type="submit">Aggiorna</button> </p>
+            <form [formGroup]="gameForm">
+                <div class="d-flex p-2 flex-column header">
+
+
+                    <div class="col section">
+                        <p class="label"> are you sure you want to confirm the changes? </p>
+                    </div>
+
+                    <div class="col mt-2 section">
+                        <span class="me-2"> <button data-bs-dismiss="modal" (click)="updateGame()"> Yes
+                            </button> </span>
+                        <span> <button data-bs-dismiss="modal" (click)="close()"> No </button> </span>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
 </div>
 
-<!--             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" (click)="updateGame()">Save changes</button>
-            </div> -->
+<!--Edit del Titolo-->
+<div class="modal fade" id="editTitleModal" tabindex="-1" aria-labelledby="editTitleModal" aria-hidden="true"
+    data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form [formGroup]="gameForm">
+                <div class="d-flex p-2 flex-column header">
+
+
+                    <div class="col section">
+                        <p class="label"> Name </p>
+                        <input type="text" value="{{game?.game.name}}" formControlName="name">
+                    </div>
+
+                    <div class="col mt-2 section">
+                        <span class="me-2"> <button data-bs-dismiss="modal" data-bs-toggle="modal"
+                                data-bs-target="#confirmModal"> Update
+                            </button> </span>
+                        <span> <button data-bs-dismiss="modal" (click)="close()"> Close </button> </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--Edit del costo del gioco-->
+<div class="modal fade" id="editPriceModal" tabindex="-1" aria-labelledby="editPriceModal" aria-hidden="true"
+    data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form [formGroup]="gameForm">
+                <div class="d-flex p-2 flex-column header">
+
+                    <div class="col section">
+                        <p class="m-0 label"> Base Price </p>
+                        <input class="mb-3" type="number" value="{{game?.game?.base_price}}"
+                            formControlName="base_price">
+                        <p class="m-0 label"> Percentage Discount </p>
+                        <input class="mb-3" type="number" value="{{game?.game?.discounted_percentage}}"
+                            formControlName="discounted_percentage">
+                        <p class="m-0 label"> Discount </p>
+                        <input type="number" value="{{game?.game?.discounted_price}}"
+                            formControlName="discounted_price">
+                    </div>
+
+                    <div class="col mt-2 section">
+                        <span class="me-2"> <button data-bs-dismiss="modal" data-bs-toggle="modal"
+                                data-bs-target="#confirmModal"> Update </button> </span>
+                        <span> <button data-bs-dismiss="modal" (click)="close()"> Close </button> </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--Edit della descrizione corta-->
+<div class="modal fade" id="editShortDescriptionModal" tabindex="-1" aria-labelledby="editShortDescriptionModal"
+    aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form [formGroup]="gameForm">
+                <div class="d-flex p-2 flex-column header">
+
+
+                    <div class="col section">
+                        <p class="label"> Short description </p>
+                        <textarea type="text" minlength="120" maxlength="165" value="{{game?.game?.short_description}}"
+                            formControlName="short_description"></textarea>
+                    </div>
+
+                    <div class="col mt-2 section">
+                        <span class="me-2"> <button data-bs-dismiss="modal" data-bs-toggle="modal"
+                                data-bs-target="#confirmModal"
+                                [disabled]="gameForm.controls['short_description'].invalid"> Update </button> </span>
+                        <span> <button data-bs-dismiss="modal" (click)="close()"> Close </button> </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--Edit della descrizione lunga-->
+<div class="modal fade" id="editLongDescriptionModal" tabindex="-1" aria-labelledby="editLongDescriptionModal"
+    aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form [formGroup]="gameForm">
+                <div class="d-flex p-2 flex-column header">
+
+
+                    <div class="col section">
+                        <p class="label"> Long description </p>
+                        <textarea type="text" value="{{game?.game?.long_description}}"
+                            formControlName="long_description"></textarea>
+                    </div>
+
+                    <div class="col mt-2 section">
+                        <span class="me-2"> <button data-bs-dismiss="modal" data-bs-toggle="modal"
+                                data-bs-target="#confirmModal"> Update </button> </span>
+                        <span> <button data-bs-dismiss="modal" (click)="close()"> Close </button> </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--Edit deI requisiti di sistema-->
+<div class="modal fade" id="editSystemRequirementsModal" tabindex="-1" aria-labelledby="editSystemRequirementsModal"
+    aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form [formGroup]="gameForm">
+                <div class="d-flex p-2 flex-column header">
+
+                    <!--sezione degli imput con le modifiche-->
+                    <div class="col section">
+                        <div class="d-flex flex-wrap header">
+
+                            <div class="col-6 pe-2 section">
+                                <p class="caption"> Minimum 🠗 </p>
+                                <p class="m-0 mt-3 label"> Heading </p>
+                                <input type="text">
+                                <p class="m-0 mt-3 label"> OS </p>
+                                <input type="text">
+                                <p class="m-0 mt-3 label"> Processor </p>
+                                <input type="text">
+                                <p class="m-0 mt-3 label"> Memory </p>
+                                <input type="text">
+                                <p class="m-0 mt-3 label"> Graphics </p>
+                                <input type="text">
+                                <p class="m-0 mt-3 label"> Directx </p>
+                                <input type="text">
+                                <p class="m-0 mt-3 label"> Network </p>
+                                <input type="text">
+                                <p class="m-0 mt-3 label"> Storage </p>
+                                <input type="text">
+                                <p class="m-0 mt-3 label"> Addition </p>
+                                <input type="text">
+                            </div>
+
+                            <div class="col-6 section">
+                                <p class="caption"> Reccomended 🠗 </p>
+                                <p class="m-0 mt-3 label"> Heading </p>
+                                <input type="text">
+                                <p class="m-0 mt-3 label"> OS </p>
+                                <input type="text">
+                                <p class="m-0 mt-3 label"> Processor </p>
+                                <input type="text">
+                                <p class="m-0 mt-3 label"> Memory </p>
+                                <input type="text">
+                                <p class="m-0 mt-3 label"> Graphics </p>
+                                <input type="text">
+                                <p class="m-0 mt-3 label"> Directx </p>
+                                <input type="text">
+                                <p class="m-0 mt-3 label"> Network </p>
+                                <input type="text">
+                                <p class="m-0 mt-3 label"> Storage </p>
+                                <input type="text">
+                                <p class="m-0 mt-3 label"> Addition </p>
+                                <input type="text">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!--pulsanti di chiusura o update-->
+                    <div class="col mt-2 section">
+                        <span class="me-2"> <button data-bs-dismiss="modal" data-bs-toggle="modal"
+                                data-bs-target="#confirmModal"> Update </button> </span>
+                        <span> <button data-bs-dismiss="modal" (click)="close()"> Close </button> </span>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

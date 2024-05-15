@@ -1,5 +1,48 @@
+//Variabili
+
+//Animazioni 
+@keyframes zoomIn {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInY {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInX {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+//Mixin
+
+//Struttura CSS
 .admin-page-container {
-    max-width: 100rem;
+        max-width: 100rem;
+         /* Aggiungi l'animazione solo quando la classe "animate-open" è presente */
 
     p {
         margin: 0;
@@ -19,6 +62,7 @@
 
             //col-8
             .table-section {
+                animation: fadeIn 2s ease forwards;
                 .header {
 
                     //parte iniziale della tabella
@@ -32,7 +76,7 @@
                             border: 1px solid #000;
                             border-radius: 3px;
                             box-shadow: 1px 1px 0px rgba(103, 193, 245, 0.15);
-                            width: 14rem;
+                            width: -moz-available;
                             padding-left: 0.5rem;
 
                             &:focus-visible {
@@ -111,11 +155,11 @@
                                 color: white;
                             }
                         }
-
                     }
 
                     //informazioni del gioco
                     .card-section {
+                        animation: fadeIn 3s ease forwards;
                         .header {
                             background: rgba(0, 0, 0, 0.2);
 
@@ -126,15 +170,15 @@
                             }
                         }
 
-                        .section:nth-child(1) {
+                        .section {
                             .image {
                                 object-fit: cover;
+                                max-width: 100%;
+                                height: auto;
                             }
-                        }
 
-                        .section:nth-child(2) {
-                            .image {
-                                color: #62696e;
+                            .image-fluid {
+                                opacity: 0.3;
                             }
 
                             .label {
@@ -169,6 +213,7 @@
 
         //col-4
         .filtrer-section {
+            animation: fadeIn 3s linear;
             .header {
 
                 //Filtro sul prezzo
@@ -215,68 +260,3 @@
         }
     }
 }
-
-
-/* .admin-page-container {
-    max-width: 100rem;
-
-    p {
-        margin: 0;
-    }
-
-    .header .section {
-        .header {
-
-            //col-8
-            .section .header {
-
-                .section:nth-child(1) .header {
-                    background: rgba(0, 0, 0, 0.4);
-
-                    .input {
-                        background: initial;
-                        background-color: rgba(103, 193, 245, 0.2);
-                        color: #fff;
-                        border: 1px solid #000;
-                        border-radius: 3px;
-                        box-shadow: 1px 1px 0px rgba(103, 193, 245, 0.15);
-                        width: 14rem;
-                        padding-left: 0.5rem;
-                    }
-
-
-                    input::placeholder {
-                        opacity: 1;
-                        color: white;
-                    }
-
-                    .button {
-                        background: initial;
-                        border: initial;
-                        color: #67c1f5;
-                        background: rgba(103, 193, 245, 0.2);
-                        font-size: 12px;
-                        border-radius: 2px;
-                        font-weight: normal;
-
-                        &:hover {
-                            background: linear-gradient(-60deg, #417a9b 5%, #67c1f5 95%);
-                            color: white;
-                        }
-                    }
-
-                    .label {
-                        background: initial;
-                        font-size: 12px;
-                        color: #4c6c8c;
-                    }
-                }
-
-            }
-
-            .section:nth-child(2) {
-                background-color: red;
-            }
-        }
-    }
-} */
