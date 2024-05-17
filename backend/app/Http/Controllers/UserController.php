@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Http\Controllers\ImagesController;
+use App\Models\Friendships;
 use App\Models\Images;
 use App\Models\Libraries;
 use App\Models\Reviews;
@@ -60,10 +61,24 @@ class UserController extends Controller
             ->take(5)
             ->get();
 
-
-
             $reviews_count = Reviews::where('user_id', $id)
-                                ->count();
+                                     ->count();
+
+            $senderCheck = Friendships::where('user_sender', $id)
+            ->join('users', 'friendships.user_sender', '=', 'users.id')
+            ->join('images', 'users.id', '=', 'images.user_id')
+            ->select('users.id', 'users.username', 'users.level', 'images.image_path')
+            ->get();
+
+
+            $receiverCheck = Friendships::where('user_receiver', $id)
+            ->join('users', 'friendships.user_receiver', '=', 'users.id')
+            ->join('images', 'users.id', '=', 'images.user_id')
+            ->select('users.id', 'users.username', 'users.level', 'images.image_path')
+            ->get();
+
+            $friendships = $senderCheck->union($receiverCheck);
+
 
 
 
@@ -71,10 +86,12 @@ class UserController extends Controller
                 'status' => 200,
                 'user' => $user,
                 'images' => $images,
-                'library_count' => $library_count,
-                'library' => $library,
-                'most_played_games' => $library_most_played_games,
-                'reviews_count' => $reviews_count,
+                //'library_count' => $library_count,
+                //'library' => $library,
+                //'most_played_games' => $library_most_played_games,
+                //'reviews_count' => $reviews_count,
+                'friendships_count' => $friendships->count(),
+                'friendships' => $friendships,
             ]);
 
         }catch(\Exception $e){
