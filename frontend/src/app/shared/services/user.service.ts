@@ -26,6 +26,10 @@ export class User {
     return this.http.get<any>(`${this.APIUrl}games/show/${id}`);
   }
 
+/*   getUsers(params : {}) {
+    return this.http.get<any>()
+  } */
+
 
 }
 

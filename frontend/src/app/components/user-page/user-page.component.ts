@@ -26,8 +26,10 @@ export class UserPageComponent implements OnInit {
     this.gameService.getGames(params).subscribe({
       next: (res: any) => {
         this.games = res.games;
-        console.log(res);  // Questo stamperà la risposta nel console
+        console.log(res);
       }
     })
   }
+
+  
 }
