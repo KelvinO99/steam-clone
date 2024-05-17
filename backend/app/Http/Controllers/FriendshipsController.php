@@ -29,28 +29,49 @@ class FriendshipsController extends Controller
         $user = auth()->user();
         $userId = $user->id;
 
-        $senderCheck = Friendships::where('user_sender', $userId) //pending & already friend check
-                                      ->where('user_receiver', $id)
-                                      ->first();
+        // Check for a pending or existing friendship
+        $senderCheck = Friendships::where('user_sender', $userId)
+                                  ->where('user_receiver', $id)
+                                  ->first();
+
         $receiverCheck = Friendships::where('user_sender', $id)
-        ->where('user_receiver', $userId)
-        ->first();
+                                    ->where('user_receiver', $userId)
+                                    ->first();
 
-        if(!empty($senderCheck)) $recordIdCheck = $senderCheck->id;
-                if(!empty($receiverCheck)) $recordIdCheck = $receiverCheck->id;
-                    if(!empty($recordIdCheck)) $recordId = Friendships::find($recordIdCheck);
-                        if(!empty($recordId)) $isPending = $recordId->is_pending;
-                        if(!empty($recordId)) $userBlockedId = $recordId->user_blocked_id;
-                            $friendship = Friendships::findOrFail($recordId);
+        // Determine if there's a valid record
+        if ($senderCheck) {
+            $recordIdCheck = $senderCheck->id;
+        } elseif ($receiverCheck) {
+            $recordIdCheck = $receiverCheck->id;
+        }
+
+        if (isset($recordIdCheck)) {
+            $recordId = Friendships::find($recordIdCheck);
+            if ($recordId) {
+                $isPending = $recordId->is_pending;
+                $userBlockedId = $recordId->user_blocked_id;
+                $friendship = Friendships::findOrFail($recordId->id);
+            } else {
+                // Handle the case where the record is not found
+                return response()->json(['error' => 'Friendship record not found'], 404);
+            }
+        } else {
+            // Handle the case where no friendship record exists
+            return response()->json(['error' => 'No friendship record found'], 404);
+        }
+
+        // Further processing or return the $friendship object
 
 
+        //return response()->json($friendship);
+        //return response()->json($userBlockedId.$userId.$id);
         if(!empty($userBlockedId))
         {
             if($userBlockedId == $userId)
             {
                 return response()->json(['message' => 'This user has blocked you'], 200);
             }
-            if($userBlockedId != $id)
+            if($userBlockedId == $id)
             {
                 return response()->json(['message' => 'You blocked this user'], 200);
             }
