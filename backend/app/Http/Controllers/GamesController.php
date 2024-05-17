@@ -483,6 +483,7 @@ class GamesController extends Controller
                 'short_description'=> 'required|string|max:1024',
                 'long_description'=> 'required|string|max:8192',
                 'pegi_id' => 'required',
+                
             ]);
 
 
