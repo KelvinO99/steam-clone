@@ -29,49 +29,28 @@ class FriendshipsController extends Controller
         $user = auth()->user();
         $userId = $user->id;
 
-        // Check for a pending or existing friendship
-        $senderCheck = Friendships::where('user_sender', $userId)
-                                  ->where('user_receiver', $id)
-                                  ->first();
-
+        $senderCheck = Friendships::where('user_sender', $userId) //pending & already friend check
+                                      ->where('user_receiver', $id)
+                                      ->first();
         $receiverCheck = Friendships::where('user_sender', $id)
-                                    ->where('user_receiver', $userId)
-                                    ->first();
+        ->where('user_receiver', $userId)
+        ->first();
 
-        // Determine if there's a valid record
-        if ($senderCheck) {
-            $recordIdCheck = $senderCheck->id;
-        } elseif ($receiverCheck) {
-            $recordIdCheck = $receiverCheck->id;
-        }
-
-        if (isset($recordIdCheck)) {
-            $recordId = Friendships::find($recordIdCheck);
-            if ($recordId) {
-                $isPending = $recordId->is_pending;
-                $userBlockedId = $recordId->user_blocked_id;
-                $friendship = Friendships::findOrFail($recordId->id);
-            } else {
-                // Handle the case where the record is not found
-                return response()->json(['error' => 'Friendship record not found'], 404);
-            }
-        } else {
-            // Handle the case where no friendship record exists
-            return response()->json(['error' => 'No friendship record found'], 404);
-        }
-
-        // Further processing or return the $friendship object
+        if(!empty($senderCheck)) $recordIdCheck = $senderCheck->id;
+                if(!empty($receiverCheck)) $recordIdCheck = $receiverCheck->id;
+                    if(!empty($recordIdCheck)) $recordId = Friendships::find($recordIdCheck);
+                        if(!empty($recordId)) $isPending = $recordId->is_pending;
+                        if(!empty($recordId)) $userBlockedId = $recordId->user_blocked_id;
+                            $friendship = Friendships::findOrFail($recordId);
 
 
-        //return response()->json($friendship);
-        //return response()->json($userBlockedId.$userId.$id);
         if(!empty($userBlockedId))
         {
             if($userBlockedId == $userId)
             {
                 return response()->json(['message' => 'This user has blocked you'], 200);
             }
-            if($userBlockedId == $id)
+            if($userBlockedId != $id)
             {
                 return response()->json(['message' => 'You blocked this user'], 200);
             }
@@ -147,7 +126,7 @@ class FriendshipsController extends Controller
         // }
 
         $user = auth()->user();
-        $user_sender = $request->input("user_sender"); //to:do remove
+        //$user_sender = $request->input("user_sender"); //to:do remove
         $userId = $user->id;
         $user_receiver = $request->input("user_receiver");
         $option = $request->input("option");
@@ -182,14 +161,15 @@ class FriendshipsController extends Controller
             }
 
             $validatedData = $request->validate([
-                'user_sender' => 'required|max:255',
-                'user_receiver' => 'required|max:255',
+                //'user_sender' => 'required|max:255',
+                'user_receiver' => 'required',
                 //'is_pending' => 'required|boolean|max:255',
                 //'user_blocked_id' => 'required|boolean|max:255',
             ]);
 
             $var = new Friendships();
             $var->fill($validatedData);
+            $var->user_sender = $request->input('user_sender', $userId);
             $var->is_pending = $request->input('is_pending', 1);
             $var->user_blocked_id = $request->input('user_blocked_id', null);
 
@@ -227,15 +207,17 @@ class FriendshipsController extends Controller
             }
             if($option=="decline" && $friendship->user_blocked_id == null) //decline
             {
-                if(/*$userId*/ 2 == $senderCheck->user_receiver && $friendship->is_pending == 1)
+                if($userId == $senderCheck->user_receiver && $friendship->is_pending == 1)
                 {
                     $friendship->delete();
                     return response()->json(['message' => 'You declined the friend request'], 200);
                 }
-                else
+                if($userId == $senderCheck->user_sender && $friendship->is_pending == 1)
                 {
-                    return response()->json(['message' => 'Illegal operation'], 400);
+                    $friendship->delete();
+                    return response()->json(['message' => 'You canceled the friend request'], 400);
                 }
+                else return response()->json(['message' => 'Illegal operation'], 400);
             }
             if($option=="friend" && $friendship->user_blocked_id == null) //call store with 2 params
             {
