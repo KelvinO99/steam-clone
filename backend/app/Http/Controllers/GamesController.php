@@ -146,6 +146,15 @@ class GamesController extends Controller
 
         $evaluations[$gameId] = $evaluationString;
     }
+    //SKIPTAKE CODE
+            if (isset($skip)) {
+                $game = $game->skip($skip);
+            }
+
+            if (isset($take)) {
+                $game = $game->take($take);
+            }
+    //SKIPTAKE CODE
     $game_evaluation = $game->get();
 
     $game_evaluation->map(function ($game) use ($evaluations) {
@@ -156,18 +165,12 @@ class GamesController extends Controller
 
 
     //REVIEW CODE
-            if (isset($skip)) {
-                $game = $game->skip($skip);
-            }
 
-            if (isset($take)) {
-                $game = $game->take($take);
-            }
 
             return response()->json([
                 'status' => 200,
                 'total' => $total,
-                'count' => $game->get()->count(), //non toccare che non funziona + nulla
+                'count' => $game_evaluation->count(), //non toccare che non funziona + nulla
                 //'games' => $game->get(),          //anche qst
                 'games' => $game_evaluation,
             ]);
@@ -480,6 +483,7 @@ class GamesController extends Controller
                 'short_description'=> 'required|string|max:1024',
                 'long_description'=> 'required|string|max:8192',
                 'pegi_id' => 'required',
+                
             ]);
 
 

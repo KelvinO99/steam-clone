@@ -126,7 +126,7 @@ class FriendshipsController extends Controller
         // }
 
         $user = auth()->user();
-        $user_sender = $request->input("user_sender"); //to:do remove
+        //$user_sender = $request->input("user_sender"); //to:do remove
         $userId = $user->id;
         $user_receiver = $request->input("user_receiver");
         $option = $request->input("option");
@@ -161,14 +161,15 @@ class FriendshipsController extends Controller
             }
 
             $validatedData = $request->validate([
-                'user_sender' => 'required|max:255',
-                'user_receiver' => 'required|max:255',
+                //'user_sender' => 'required|max:255',
+                'user_receiver' => 'required',
                 //'is_pending' => 'required|boolean|max:255',
                 //'user_blocked_id' => 'required|boolean|max:255',
             ]);
 
             $var = new Friendships();
             $var->fill($validatedData);
+            $var->user_sender = $request->input('user_sender', $userId);
             $var->is_pending = $request->input('is_pending', 1);
             $var->user_blocked_id = $request->input('user_blocked_id', null);
 
@@ -206,15 +207,17 @@ class FriendshipsController extends Controller
             }
             if($option=="decline" && $friendship->user_blocked_id == null) //decline
             {
-                if(/*$userId*/ 2 == $senderCheck->user_receiver && $friendship->is_pending == 1)
+                if($userId == $senderCheck->user_receiver && $friendship->is_pending == 1)
                 {
                     $friendship->delete();
                     return response()->json(['message' => 'You declined the friend request'], 200);
                 }
-                else
+                if($userId == $senderCheck->user_sender && $friendship->is_pending == 1)
                 {
-                    return response()->json(['message' => 'Illegal operation'], 400);
+                    $friendship->delete();
+                    return response()->json(['message' => 'You canceled the friend request'], 400);
                 }
+                else return response()->json(['message' => 'Illegal operation'], 400);
             }
             if($option=="friend" && $friendship->user_blocked_id == null) //call store with 2 params
             {
