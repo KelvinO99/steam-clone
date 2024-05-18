@@ -39,7 +39,119 @@
 
 //Mixin
 
-//Struttura CSS
+//Struttura della modale dell'aggiunta dei giochi
+p{
+    margin: 0;
+}
+
+.modal {
+    .modal-dialog {
+        .modal-content {
+            background-color: #1b2838;
+            box-shadow: 0 0 5px #000;
+
+            form {
+                .header .section {
+                    
+                    .caption {
+                        font-size: 15px;
+                        font-family: sans-serif;
+                        color: white;
+                        font-weight: 500;
+                    }
+
+                    .label {
+                        font-size: 12px;
+                        font-family: sans-serif;
+                        text-transform: uppercase;
+                        color: white;
+                        font-weight: 600;
+                    }
+
+                    input {
+                        font-family: Aril, Helvetica, sans-serif;
+                        color: #c6d4df;
+                        border-radius: inherit;
+                        background-color: #316282;
+                        border-radius: 3px;
+                        border: 1px solid rgba(0, 0, 0, 0.3);
+                        box-shadow: 1px 1px 0px rgba(255, 255, 255, 0.2);
+                        color: #fff;
+                        margin: 0;
+                        width: 100%;
+                        padding: 0 !important;
+                        padding: 3px 0 3px 0.5rem !important;
+
+                        &:focus {
+                            outline: initial;
+                            border: 1px solid #4c9acc;
+                            border-radius: 3px;
+                            box-shadow: 1px 1px 0px rgba(255, 255, 255, 0.0);
+                        }
+                    }
+
+                    textarea {
+                        font-family: Aril, Helvetica, sans-serif;
+                        color: #c6d4df;
+                        border-radius: inherit;
+                        background-color: #316282;
+                        border-radius: 3px;
+                        border: 1px solid rgba(0, 0, 0, 0.3);
+                        box-shadow: 1px 1px 0px rgba(255, 255, 255, 0.2);
+                        color: #fff;
+                        margin: 0;
+                        width: 100%;
+                        padding: 0 !important;
+                        padding: 3px 0 3px 0.5rem !important;
+
+                        &:focus {
+                            outline: initial;
+                            border: 1px solid #4c9acc;
+                            border-radius: 3px;
+                            box-shadow: 1px 1px 0px rgba(255, 255, 255, 0.0);
+                        }
+                    }
+
+                    select {
+                        font-family: Aril, Helvetica, sans-serif;
+                        color: #c6d4df;
+                        border-radius: inherit;
+                        background-color: #316282;
+                        border-radius: 3px;
+                        border: 1px solid rgba(0, 0, 0, 0.3);
+                        box-shadow: 1px 1px 0px rgba(255, 255, 255, 0.2);
+                        color: #fff;
+                        margin: 0;
+                        width: 100%;
+                        padding: 0 !important;
+                        padding: 3px 0 3px 0.5rem !important;
+
+                    }
+
+                    button {
+                        background: initial;
+                        border: initial;
+                        font-weight: normal;
+                        background: rgba(103, 193, 245, 0.2);
+                        font-size: 12px;
+                        color: #67c1f5;
+                        font-size: 14px;
+                        line-height: 24px;
+                        border-radius: 2px;
+
+                        &:hover:not(:disabled) {
+                            background: linear-gradient(135deg, #67c1f5 0%, #417a9b 100%);
+                            color: #ffffff;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//Struttura CSS della pagina
 .admin-page-container {
         max-width: 100rem;
          /* Aggiungi l'animazione solo quando la classe "animate-open" è presente */
@@ -174,7 +286,7 @@
                             .image {
                                 object-fit: cover;
                                 max-width: 100%;
-                                height: auto;
+                                /* height: auto; */
                             }
 
                             .image-fluid {

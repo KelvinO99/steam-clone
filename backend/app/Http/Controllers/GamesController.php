@@ -468,9 +468,9 @@ class GamesController extends Controller
                 return response()->json(['message' => 'Non autorizzato'], 401);
             }
 
-            if(!$user->hasRole('developer/publisher')){
+            /* if(!$user->hasRole('developer/publisher')){
                 return response()->json(['message' => 'Non autorizzato, non sei un dev'], 401);
-            }
+            } */
 
             $validatedData = $request->validate([
                 'name' => 'required|string|max:100',
@@ -496,8 +496,8 @@ class GamesController extends Controller
             $game->fill($validatedData);
             $game->save();
 
-            $develop = new DeveloperController();
-            $develop->store($request);
+            /* $develop = new DeveloperController();
+            $develop->store($request); */
 
             if ($request->hasFile('game_imgs')) {
                 $request->game_id = $game->id;
