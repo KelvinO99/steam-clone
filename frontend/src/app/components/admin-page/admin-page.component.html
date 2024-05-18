@@ -1,3 +1,132 @@
+<!--Modale di conferma della eliminazione-->
+<div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModal" aria-hidden="true"
+    data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form [formGroup]="addGameForm">
+                <div class="d-flex p-2 flex-column header">
+
+
+                    <div class="col section">
+                        <p class="label"> are you sure you want to delete the game? </p>
+                    </div>
+
+                    <div class="col mt-2 section">
+                        <span class="me-2"> <button data-bs-dismiss="modal" (click)="confirmDelete()"> Yes
+                            </button> </span>
+                        <span> <button data-bs-dismiss="modal" (click)="close()"> No </button> </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--Modale di conferma delle aggiunte-->
+<div class="modal fade" id="addConfirmModal" tabindex="-1" aria-labelledby="addConfirmModal" aria-hidden="true"
+    data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form [formGroup]="addGameForm">
+                <div class="d-flex p-2 flex-column header">
+
+
+                    <div class="col section">
+                        <p class="label"> are you sure you want to confirm the changes? </p>
+                    </div>
+
+                    <div class="col mt-2 section">
+                        <span class="me-2"> <button data-bs-dismiss="modal" (click)="addGame()"> Yes
+                            </button> </span>
+                        <span> <button data-bs-dismiss="modal" (click)="close()"> No </button> </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--modale per aggiungere i giochi-->
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModal" aria-hidden="true"
+    data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form [formGroup]="addGameForm">
+
+                <div class="d-flex p-2 flex-wrap header">
+
+                    <div class="col-6 pe-3 section">
+                        <div class="d-flex flex-column header">
+
+                            <div class="col section">
+                                <p class="label"> Name </p>
+                                <input type="text" formControlName="name">
+                            </div>
+
+                            <div class="col mt-2 section">
+                                <p class="label"> Date </p>
+                                <input type="date" formControlName="date">
+                            </div>
+
+                            <div class="col mt-2 section">
+                                <p class="label"> Short Description </p>
+                                <textarea type="text" formControlName="short_description"></textarea>
+                            </div>
+
+                            <div class="col mt-2 section">
+                                <p class="label"> Long Description </p>
+                                <textarea type="text" formControlName="long_description"></textarea>
+                            </div>
+
+                            <div class="col mt-2 section">
+                                <p class="label"> Pegi Id </p>
+                                <p> <select formControlName="pegi_id">
+                                        <option value="18" selected> 18 </option>
+                                        <option> 12 </option>
+                                        <option> 7 </option>
+                                        <option> 3 </option>
+                                    </select> </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-6 section">
+
+                        <div class="col section">
+                            <p class="m-0 label"> Base Price </p>
+                            <input class="mb-3" type="number" formControlName="base_price">
+                        </div>
+
+                        <div class="col section">
+                            <p class="m-0 label"> Percentage Discount </p>
+                            <input class="mb-3" type="number" formControlName="discounted_percentage">
+                        </div>
+
+                        <div class="col section">
+                            <p class="m-0 label"> Discount </p>
+                            <input type="number" formControlName="discounted_price">
+                        </div>
+
+                    </div>
+
+                    <div class="col mt-2 section">
+                        <span class="me-2">
+                            <button type="submit" data-bs-dismiss="modal" data-bs-toggle="modal"
+                                data-bs-target="#addConfirmModal" [disabled]="!addGameForm.valid">Add</button>
+                        </span>
+                        <span>
+                            <button type="button" data-bs-dismiss="modal" (click)="close()">Close</button>
+                        </span>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--struttura pagina admin-->
 <div class="container-fluid admin-page-container">
     <div class="d-flex flex-wrap header">
 
@@ -44,7 +173,8 @@
                             <div class="d-flex flex-wrap header">
 
                                 <div class="col-auto section">
-                                    <button class="m-2 p-1 px-3 button"> Add Game </button>
+                                    <button data-bs-toggle="modal" data-bs-target="#addModal"
+                                        class="m-2 p-1 px-3 button"> Add Game </button>
                                 </div>
 
                             </div>
@@ -65,9 +195,13 @@
                                 </div>
 
                                 <div class="col-6 d-flex justify-content-end align-items-center pe-2 section">
+                                    <button class="py-1 px-3 bi bi-trash3 button" data-bs-toggle="modal"
+                                        data-bs-target="#confirmModal" (click)="setGameToDelete(item.id)">
+                                    </button>
                                     <button class="m-2 px-3 py-1 button" (click)="goTo('../game/' + item.id)"> View
                                     </button>
-                                    <button class="px-3 py-1 button" (click)="goTo('../admin/' + 'edit-page/'+ item.id)"> Edit </button>
+                                    <button class="px-3 py-1 button"
+                                        (click)="goTo('../admin/' + 'edit-page/'+ item.id)"> Edit </button>
                                 </div>
 
                             </div>
@@ -91,9 +225,11 @@
                                     </button>
                                     <div id="flush-collapsePrice" class="accordion-collapse collapse"
                                         data-bs-parent="#accordionPrice">
-                                        <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span class="label">
+                                        <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
+                                                class="label">
                                                 Special Offers </span> </p>
-                                        <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span class="label">
+                                        <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
+                                                class="label">
                                                 Hide to free to play items </span> </p>
                                     </div>
                                 </div>
@@ -111,7 +247,8 @@
                                     </button>
                                     <div id="flush-collapseTag" class="accordion-collapse collapse"
                                         data-bs-parent="#accordionTag">
-                                        <p class="px-2 checkbox" *ngFor="let item of tags"> <input class="check" type="checkbox"> <span class="label">
+                                        <p class="px-2 checkbox" *ngFor="let item of tags"> <input class="check"
+                                                type="checkbox"> <span class="label">
                                                 {{item.name}} </span>
                                         </p>
                                     </div>
@@ -130,10 +267,12 @@
                                     </button>
                                     <div id="flush-collapseType" class="accordion-collapse collapse"
                                         data-bs-parent="#accordionType">
-                                        <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span class="label">
+                                        <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
+                                                class="label">
                                                 Special Offers </span>
                                         </p>
-                                        <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span class="label">
+                                        <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
+                                                class="label">
                                                 Hide to free to play
                                                 items </span> </p>
                                     </div>
@@ -152,10 +291,12 @@
                                     </button>
                                     <div id="flush-collapseNumber" class="accordion-collapse collapse"
                                         data-bs-parent="#accordionNumber">
-                                        <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span class="label">
+                                        <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
+                                                class="label">
                                                 Special Offers </span>
                                         </p>
-                                        <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span class="label">
+                                        <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
+                                                class="label">
                                                 Hide to free to play
                                                 items </span> </p>
                                     </div>
@@ -174,10 +315,12 @@
                                     </button>
                                     <div id="flush-collapseFeature" class="accordion-collapse collapse"
                                         data-bs-parent="#accordionFeature">
-                                        <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span class="label">
+                                        <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
+                                                class="label">
                                                 Special Offers </span>
                                         </p>
-                                        <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span class="label">
+                                        <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
+                                                class="label">
                                                 Hide to free to play
                                                 items </span> </p>
                                     </div>
@@ -196,10 +339,12 @@
                                     </button>
                                     <div id="flush-collapseController" class="accordion-collapse collapse"
                                         data-bs-parent="#accordionController">
-                                        <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span class="label">
+                                        <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
+                                                class="label">
                                                 Special Offers </span>
                                         </p>
-                                        <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span class="label">
+                                        <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
+                                                class="label">
                                                 Hide to free to play
                                                 items </span> </p>
                                     </div>
@@ -218,10 +363,12 @@
                                     </button>
                                     <div id="flush-collapseSteamDeck" class="accordion-collapse collapse"
                                         data-bs-parent="#accordionSteamDeck">
-                                        <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span class="label">
+                                        <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
+                                                class="label">
                                                 Special Offers </span>
                                         </p>
-                                        <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span class="label">
+                                        <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
+                                                class="label">
                                                 Hide to free to play
                                                 items </span> </p>
                                     </div>
@@ -240,10 +387,12 @@
                                     </button>
                                     <div id="flush-collapseVR" class="accordion-collapse collapse"
                                         data-bs-parent="#accordionVR">
-                                        <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span class="label">
+                                        <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
+                                                class="label">
                                                 Special Offers </span>
                                         </p>
-                                        <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span class="label">
+                                        <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
+                                                class="label">
                                                 Hide to free to play
                                                 items </span> </p>
                                     </div>
@@ -262,10 +411,12 @@
                                     </button>
                                     <div id="flush-collapseOS" class="accordion-collapse collapse"
                                         data-bs-parent="#accordionOS">
-                                        <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span class="label">
+                                        <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
+                                                class="label">
                                                 Special Offers </span>
                                         </p>
-                                        <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span class="label">
+                                        <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
+                                                class="label">
                                                 Hide to free to play
                                                 items </span> </p>
                                     </div>
@@ -284,7 +435,8 @@
                                     </button>
                                     <div id="flush-collapseLanguage" class="accordion-collapse collapse"
                                         data-bs-parent="#accordionLanguage">
-                                        <p class="px-2 checkbox" *ngFor="let item of languages"> <input class="check" type="checkbox"> <span class="label">
+                                        <p class="px-2 checkbox" *ngFor="let item of languages"> <input class="check"
+                                                type="checkbox"> <span class="label">
                                                 {{item.name}} </span>
                                         </p>
                                     </div>

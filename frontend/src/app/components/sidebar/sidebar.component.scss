@@ -1,3 +1,14 @@
+//Animazioni
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 .container-fluid {
   background-color: #1b2838;
 }
@@ -39,7 +50,7 @@ li {
 
 
 .header {
-  color:#536f86 !important;
+  color: #536f86 !important;
   line-height: 16px;
   font-size: 14px;
   text-transform: uppercase;
@@ -49,8 +60,12 @@ li {
   cursor: none;
 }
 
-  a:hover {
-    text-decoration: none;
-    color: #66c0f4;
-    cursor: pointer;
-  }
+a:hover {
+  text-decoration: none;
+  color: #66c0f4;
+  cursor: pointer;
+}
+
+.tags-section {
+  animation: fadeIn 4s ease;
+}

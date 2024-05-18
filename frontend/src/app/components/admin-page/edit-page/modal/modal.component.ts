@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { GameService } from 'src/app/shared/services/game.service';
+import { EditPageComponent } from '../edit-page.component';
 
 @Component({
   selector: 'app-modal',
@@ -15,7 +16,7 @@ export class ModalComponent {
   systemRequirements!: any;
   languages!: any;
 
-  constructor(public route: ActivatedRoute, public gameService: GameService) {}
+  constructor(public route: ActivatedRoute, public gameService: GameService, public editPage: EditPageComponent) {}
 
   ngOnInit() {
     this.routeId = this.route.snapshot.params['id'];
@@ -27,7 +28,7 @@ export class ModalComponent {
       .subscribe((res) => {
         console.log(res);
 
-        this.game.game.name = this.gameForm.controls['name'].value;
+        /* this.game.game.name = this.gameForm.controls['name'].value;
         this.game.game.base_price = this.gameForm.controls['base_price'].value;
         this.game.game.discounted_price =
           this.gameForm.controls['discounted_price'].value;
@@ -36,8 +37,12 @@ export class ModalComponent {
         this.game.game.short_description =
           this.gameForm.controls['short_description'].value;
         this.game.game.long_description =
-          this.gameForm.controls['long_description'].value;
+          this.gameForm.controls['long_description'].value; */
       });
+
+      this.editPage.showGame()
+
+      /* this.editPage.showGame() */
   }
 
   close() {
