@@ -1,5 +1,5 @@
 .col-11 {
-    max-width: 916px;
+    max-width: 55rem;
 }
 .navbar-container .header .section {
     background-color: #171d25;
@@ -8,7 +8,7 @@
         margin: 0;
     }
 
-    .wrapper .header .section .content-container .header .section {
+    .wrapper .header .section .header .section {
         .action-container .header .section {
             .install-steam .section {
                 background-color: #6c9018;
@@ -56,12 +56,12 @@
                 }
 
                 .dropdown-content {
+                    box-shadow: 0 0 12px #000000;
                     position: absolute;
                     overflow: auto;
                     max-height: 30rem;
                     left: 0;
                     background-color: #3d4450;
-                    box-shadow: 3px 3px 5px -3px #000;
                     text-align: left;
                     z-index: 10;
                     opacity: 0;
@@ -73,7 +73,7 @@
                         text-decoration: none;
                         text-transform: none;
                         font-weight: normal;
-                        font-size: 12px;
+                        font-size: 13px;
                         color: #dcdedf;
                         padding: 0.150rem 0;
                         padding-right: 0.9375rem;
@@ -82,6 +82,10 @@
                         white-space: nowrap;
                         text-overflow: ellipsis;
                         cursor: pointer;
+
+                        .user {
+                            color: #4cb4ff;
+                        }
 
                         &:hover {
                             background-color: white;
@@ -138,7 +142,7 @@
                         text-decoration: none;
                         text-transform: none;
                         font-weight: normal;
-                        font-size: 12px;
+                        font-size: 13px;
                         color: #dcdedf;
                         padding: 0.150rem 0;
                         padding-right: 0.9375rem;

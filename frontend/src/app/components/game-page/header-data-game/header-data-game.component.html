@@ -52,31 +52,35 @@
                                         </div>
 
                                         <div class="col mt-2 game-deals-content-section">
-                                            <p class="game-deals-content"> {{game.game.short_description}} </p>
+                                            <p class="game-deals-content"> {{game?.game?.short_description}} </p>
                                         </div>
 
                                         <div class="col mt-2 game-deals-content-section">
                                             <span class="game-deals-content-label"> all reviews </span>
-                                            <span class="game-deals-content-item"> {{game.evaluation}} </span>
-                                            <span class="game-deals-content-number"> ({{game.positive + game.negative}})
+                                            <span class="game-deals-content-item"> {{game?.evaluation}} </span>
+                                            <span class="game-deals-content-number"> ({{game?.positive + game?.negative}})
                                             </span>
                                         </div>
 
                                         <div class="col game-deals-content-section">
                                             <span class="game-deals-content-label"> release date </span>
-                                            <span class="game-deals-content-date"> {{game.game.date | date:'dd MMM, yyyy'}} </span>
+                                            <span class="game-deals-content-date"> {{game?.game?.date | date:'dd MMM, yyyy'}} </span>
                                         </div>
 
                                         <div class="col mt-3 game-deals-content-section">
                                             <p class="m-0"> <span class="game-deals-content-label"> developers </span>
                                             <span class="game-deals-content-item">
-                                                {{game.game.developers_games[0].developers.user.username}}
+                                                {{game?.game?.developers_games[0]?.developers?.user?.username}}
                                             </span> </p>
                                             <p> <span class="game-deals-content-label"> publisher </span>
                                                 <span class="game-deals-content-item">
-                                                    {{game.game.developers_games[0].developers.user.username}}
+                                                    {{game?.game?.developers_games[0]?.developers?.user?.username}}
                                                 </span>
                                             </p>
+                                        </div>
+
+                                        <div class="col">
+                                            <button *ngFor="let item of game.tags" class="me-1"> {{item.name}} </button>
                                         </div>
 
                                     </div>

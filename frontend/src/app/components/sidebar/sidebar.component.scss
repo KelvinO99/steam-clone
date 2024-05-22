@@ -9,15 +9,14 @@
   }
 }
 
-.container-fluid {
-  background-color: #1b2838;
+img {
+  max-width: 85%;
+  margin-bottom: 6px;
+  cursor: pointer;
 }
 
-.header {
-  color: #536f86;
-  font-size: 14px;
-  font-weight: bolder;
-  cursor: pointer;
+.container-fluid {
+  background-color: #1b2838;
 }
 
 .topHeader {
@@ -55,9 +54,21 @@ li {
   font-size: 14px;
   text-transform: uppercase;
   font-family: "Motiva Sans", Sans-serif;
-  font-weight: normal;
   font-weight: bolder;
   cursor: none;
+}
+
+.heading {
+  color: #88bde9;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-family: "Motiva Sans", Sans-serif;
+  font-weight: bolder;
+}
+
+.heading:hover {
+  color: white !important;
+  cursor: pointer;
 }
 
 a:hover {

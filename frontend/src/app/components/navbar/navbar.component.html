@@ -14,7 +14,6 @@
                     </div>
 
                     <div class="col-11 section">
-                        <div class="container p-0 content-container">
                             <div class="d-flex flex-column header">
 
                                 <div class="col pt-1 section">
@@ -40,16 +39,16 @@
                                             <div class="col-1 ps-3 w-auto d-flex justify-content-end section"
                                                 *ngIf="authService.loggedIn$ | async">
                                                 <div class="dropdown p-0">
-                                                    <button class="nav-link label"> {{ username }} </button>
+                                                    <button class="nav-link label dropdown-toggle"> {{ username }} </button>
                                                     <div class="dropdown-content user-wrapper">
-                                                        <p class="label-item" routerLink="admin"> Admin access </p>
-                                                        <p class="label-item" (click)="goTo('../user-page/' + username)"> Show my profile </p>
-                                                        <p class="label-item"> Account details: {{ username }} </p>
-                                                        <p class="label-item"> Preference of the store </p>
-                                                        <p class="label-item"> View my Wallet </p>
-                                                        <p class="label-item"> Change the Language </p>
-                                                        <p class="label-item"> Stats </p>
-                                                        <p class="label-item" (click)="logout()"> Log out of the
+                                                        <p class="label-item mb-1" routerLink="admin" *ngIf="role == 'superadmin'"> Admin access </p>
+                                                        <p class="label-item mb-1" (click)="goTo('../user-page/' + username)"> Show my profile </p>
+                                                        <p class="label-item mb-1"> Account details: <span class="user">  {{ username }} </span> </p>
+                                                        <p class="label-item mb-1"> Preference of the store </p>
+                                                        <p class="label-item mb-1"> View my Wallet </p>
+                                                        <p class="label-item mb-1"> Change the Language </p>
+                                                        <p class="label-item mb-1"> Stats </p>
+                                                        <p class="label-item pb-1" (click)="logout()"> Log out of the
                                                             account...
                                                         </p>
                                                     </div>
@@ -62,11 +61,11 @@
                                                 <span class="label" routerLink="/login"> login </span>
                                             </div>
 
-                                            <div class="col-1 ps-3 w-auto d-flex justify-content-end section">
+                                            <div class="col-1 ps-3 w-auto d-flex justify-content-end section" *ngIf="!(authService.loggedIn$ | async)">
                                                 <div class="dropdown p-0">
                                                     <span class="nav-link dropdown-toggle label"> language </span>
                                                     <div class="dropdown-content user-language">
-                                                        <p class="label-item" *ngFor="let item of language"> {{item}} </p>
+                                                        <p class="label-item py-1 pb-1" *ngFor="let item of language"> {{item}} </p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -88,18 +87,18 @@
                                                 <div class="dropdown p-0">
                                                     <span class="nav-link label-item"> store </span>
                                                     <div class="dropdown-content store-wrapper">
-                                                        <p class="label-item" routerLink=""> Main Page </p>
-                                                        <p class="label-item"> Discovery Queue </p>
-                                                        <p class="label-item"> Wishlist </p>
-                                                        <p class="label-item"> Point store </p>
-                                                        <p class="label-item"> News </p>
-                                                        <p class="label-item"> Stats </p>
-                                                        <p class="label-item"> About </p>
+                                                        <p class="label-item py-1" routerLink=""> Main Page </p>
+                                                        <p class="label-item py-1"> Discovery Queue </p>
+                                                        <p class="label-item py-1"> Wishlist </p>
+                                                        <p class="label-item py-1"> Point store </p>
+                                                        <p class="label-item py-1"> News </p>
+                                                        <p class="label-item py-1"> Stats </p>
+                                                        <p class="label-item py-1"> About </p>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <div class="col-2 w-auto pe-3 section">
+                                            <div class="col-2 w-auto pe-2 section">
                                                 <span class="nav-link label-item"> library </span>
                                             </div>
 
@@ -107,11 +106,11 @@
                                                 <div class="dropdown p-0">
                                                     <span class="nav-link label-item"> Community </span>
                                                     <div class="dropdown-content community-wrapper">
-                                                        <p class="label-item"> Home </p>
-                                                        <p class="label-item"> Discussion </p>
-                                                        <p class="label-item"> WorkShop </p>
-                                                        <p class="label-item"> Market </p>
-                                                        <p class="label-item"> Broadcast </p>
+                                                        <p class="label-item py-1"> Home </p>
+                                                        <p class="label-item py-1"> Discussion </p>
+                                                        <p class="label-item py-1"> WorkShop </p>
+                                                        <p class="label-item py-1"> Market </p>
+                                                        <p class="label-item py-1"> Broadcast </p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -129,7 +128,6 @@
                                 </div>
 
                             </div>
-                        </div>
                     </div>
 
                     <div class="col section">

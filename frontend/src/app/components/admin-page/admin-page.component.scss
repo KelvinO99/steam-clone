@@ -5,6 +5,7 @@
     0% {
         transform: scale(0);
     }
+
     100% {
         transform: scale(1);
     }
@@ -14,6 +15,7 @@
     0% {
         transform: translateY(-100%);
     }
+
     100% {
         transform: translateY(0);
     }
@@ -23,6 +25,7 @@
     0% {
         transform: translateX(100%);
     }
+
     100% {
         transform: translateX(0);
     }
@@ -32,6 +35,7 @@
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -40,7 +44,7 @@
 //Mixin
 
 //Struttura della modale dell'aggiunta dei giochi
-p{
+p {
     margin: 0;
 }
 
@@ -52,7 +56,7 @@ p{
 
             form {
                 .header .section {
-                    
+
                     .caption {
                         font-size: 15px;
                         font-family: sans-serif;
@@ -66,6 +70,18 @@ p{
                         text-transform: uppercase;
                         color: white;
                         font-weight: 600;
+                    }
+
+                    input,
+                    textarea,
+                    select {
+                        width: 100%;
+                        padding: 10px;
+                        margin: 10px 0;
+                        border: 1px solid #555;
+                        border-radius: 5px;
+                        background-color: #3d3d3d;
+                        color: #ffffff;
                     }
 
                     input {
@@ -137,7 +153,11 @@ p{
                         color: #67c1f5;
                         font-size: 14px;
                         line-height: 24px;
-                        border-radius: 2px;
+                        padding: 5px 10px;
+                        margin-top: 10px;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: pointer;
 
                         &:hover:not(:disabled) {
                             background: linear-gradient(135deg, #67c1f5 0%, #417a9b 100%);
@@ -153,8 +173,8 @@ p{
 
 //Struttura CSS della pagina
 .admin-page-container {
-        max-width: 100rem;
-         /* Aggiungi l'animazione solo quando la classe "animate-open" è presente */
+    max-width: 100rem;
+    /* Aggiungi l'animazione solo quando la classe "animate-open" è presente */
 
     p {
         margin: 0;
@@ -175,6 +195,7 @@ p{
             //col-8
             .table-section {
                 animation: fadeIn 2s ease forwards;
+
                 .header {
 
                     //parte iniziale della tabella
@@ -272,6 +293,7 @@ p{
                     //informazioni del gioco
                     .card-section {
                         animation: fadeIn 3s ease forwards;
+
                         .header {
                             background: rgba(0, 0, 0, 0.2);
 
@@ -284,6 +306,8 @@ p{
 
                         .section {
                             .image {
+                                width: 115.5px;
+                                height: 43.5px;
                                 object-fit: cover;
                                 max-width: 100%;
                                 /* height: auto; */
@@ -326,6 +350,7 @@ p{
         //col-4
         .filtrer-section {
             animation: fadeIn 3s linear;
+
             .header {
 
                 //Filtro sul prezzo
@@ -371,4 +396,21 @@ p{
             }
         }
     }
+}
+
+.mat-paginator {
+    background-color: transparent;
+    color: white;
+}
+
+.mat-select-value-text {
+    color: white !important;
+}
+
+:host ::ng-deep .mat-select-value {
+    color: white !important;
+}
+
+:host ::ng-deep .mat-select-arrow-wrapper {
+    color: white !important;
 }

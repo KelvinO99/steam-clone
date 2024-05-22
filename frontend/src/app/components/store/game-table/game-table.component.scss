@@ -14,10 +14,11 @@
 mat-card {
     background: rgba(0, 0, 0, 0.2);
 
-    &:hover {
-        border: 1px solid rgba(139, 185, 224, 0.2);
-        background: rgba(0, 0, 0, 0.4);
-        cursor: pointer;
+    mat-card-content .mat-card-content-container {
+        &:hover {
+            background: rgba(0, 0, 0, 0.4);
+            cursor: pointer;
+        }
     }
 }
 
@@ -41,10 +42,10 @@ img.opacity {
     opacity: 0.3;
 }
 
-img.game {
-    height: 71px;
+.image {
     width: 100%;
-    object-fit: fill;
+    height: 4rem;
+    object-fit: cover;
 }
 
 span.tags {
@@ -124,7 +125,6 @@ span.basePrice {
 
     &:focus {
         background-color: #2a475e;
-        ;
         color: white;
     }
 }

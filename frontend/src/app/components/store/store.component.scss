@@ -7,27 +7,9 @@
     }
 }
 
-@keyframes zoomIn {
-    0% {
-        transform: scale(0);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
 .store-container {
     max-width: 100rem;
-    .header {
-        .section:nth-child(1) {
-            animation: fadeIn 2s ease forwards;
-        }
-        .section:nth-child(2) {
-            .header .section {
-                animation: fadeIn 3s ease forwards;
-            }
-        }
-    }
+    animation: fadeIn 3s ease forwards;
 }
 
 @media only screen and (max-width: 1320px) {

@@ -18,7 +18,7 @@ import { EditPageComponent } from './components/admin-page/edit-page/edit-page.c
 const routes: Routes = [
   
   { path: '', redirectTo: 'home/store', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent,
   children:[
@@ -27,9 +27,9 @@ const routes: Routes = [
   { path: 'game/:id', component: GameComponent},
   { path: 'games/:genre', component: CategoryPageComponent},
   { path: 'steam-deck', component: SteamDeckComponent },
-  { path: 'user-page/:username', component: UserPageComponent},
-  { path: 'admin', component: AdminPageComponent},
-  { path: 'admin/edit-page/:id', component: EditPageComponent}
+  { path: 'user-page/:username', component: UserPageComponent, canActivate: [AuthGuard]},
+  { path: 'admin', component: AdminPageComponent, canActivate: [AuthGuard]},
+  { path: 'admin/edit-page/:id', component: EditPageComponent, canActivate: [AuthGuard]}
 ];
 
 

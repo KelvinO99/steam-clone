@@ -34,7 +34,7 @@ export class AuthService {
   signIn(user: User) {
     return this.http.post<any>(`${this.APIUrl}auth/login`, user).pipe(tap( res => {
         localStorage.setItem('access_token', res.access_token);
-        localStorage.setItem('user_profile_obj', res.user);
+        localStorage.setItem('role', res.role);
         localStorage.setItem('user_profile_username', res.user['username']);
         this.loggedInSubject.next(true);
       }));
