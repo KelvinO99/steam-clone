@@ -1,15 +1,17 @@
-import { LanguageService } from './../../../shared/services/language.service';
-import { AuthService } from 'src/app/shared/services/auth.service';
 import { Component, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { LanguageService } from 'src/app/shared/services/language.service';
 
 @Component({
-  selector: 'app-body-data-game',
-  templateUrl: './body-data-game.component.html',
-  styleUrls: ['./body-data-game.component.scss']
+  selector: 'app-edit-body-page',
+  templateUrl: './edit-body-page.component.html',
+  styleUrls: ['./edit-body-page.component.scss']
 })
-export class BodyDataGameComponent {
+export class EditBodyPageComponent {
   routeId!: number;
+  @Input() gameForm!: FormGroup;
   @Input() game!: any;
   @Input() systemRequirements!: any;
   languages!: any;
@@ -33,6 +35,3 @@ export class BodyDataGameComponent {
     })
   }
 }
-
-
-

@@ -1,0 +1,91 @@
+<app-modal [game]="game" [gameForm]="gameForm"> </app-modal>
+
+<div class="container edit-header-page-container">
+    <div class="d-flex flex-column header">
+
+        <!--info sul percorso-->
+        <div class="col section">
+            <p class="search p-0 heading"> All Games > <span class="label"
+                    (click)="goTo('../games/' + game?.tags[0]?.name.toLowerCase())"> {{game?.tags[0]?.name}} </span>
+                {{game?.game?.developers_games[0]?.developers?.user?.username}} > {{game?.game?.name}} </p>
+        </div>
+
+        <!--Titolo-->
+        <div class="col section">
+            <p class="d-flex align-items-center wrapper"> <span class="caption"> {{game?.game?.name}} </span> <button
+                    data-bs-toggle="modal" data-bs-target="#editTitleModal"
+                    class="bi bi-pencil-square ms-2 px-2 edit-button"> </button> </p>
+        </div>
+
+        <!--informazioni-->
+        <div class="col section">
+            <div class="d-flex flex-wrap header">
+
+                <!--carosello con le immagini dell'anteprima-->
+                <div class="col-8 carousel-section">
+                    <div id="custCarousel" class="carousel-fade carousel" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <ng-container *ngFor="let item of game?.images.slice(1, 5); let i = index;">
+                                <div class="carousel-item" [class.active]="i === 0">
+                                    <img [src]="item" class="carousel-image">
+                                </div>
+                            </ng-container>
+                        </div>
+
+                        <ol class="carousel-indicators list-inline">
+                            <ng-container *ngFor="let item of game?.images.slice(1, 5); let i = index">
+                                <li class="list-inline-item" [class.active]="i === 0">
+                                    <a [id]="'carousel-selector' + (i + 1)" [attr.data-bs-slide-to]="i"
+                                        data-bs-target="#custCarousel">
+                                        <img [src]="item" class="carousel-sm-image">
+                                    </a>
+                                </li>
+                            </ng-container>
+                        </ol>
+
+                    </div>
+                </div>
+
+                <!--informazioni generali-->
+                <div class="col-4 content-section">
+                    <div class="d-flex flex-column header">
+
+                        <div class="col d-flex justify-content-end section">
+                             <img class="p-0 image" [src]="game?.images[0]"> 
+                            <button  data-bs-toggle="modal" data-bs-target="#editShortDescriptionModal" class="bi bi-pencil-square ms-2 px-2 mt-1 me-1 button"> </button> 
+                        </div>
+
+                        <div class="col mt-2 section">
+                            <p class="content"> {{game?.game?.short_description}} </p>
+                            <p> <span class="caption-item"> all reviews </span>
+                                <span class="label-item"> {{game.evaluation}} </span>
+                                <span class="number-label"> ({{game?.positive + game?.negative}})
+                                </span>
+                            </p>
+
+                            <p> <span class="caption-item"> release date </span>
+                                <span class="date-label"> {{game.game.date | date:'dd MMM, yyyy'}} </span>
+                            </p>
+
+                            <p class="m-0"> <span class="caption-item"> developers </span>
+                                <span class="label-item">
+                                    {{game?.game?.developers_games[0]?.developers?.user?.username}}
+                                </span>
+                            </p>
+                            <p> <span class="caption-item"> publisher </span>
+                                <span class="label-item">
+                                    {{game?.game?.developers_games[0]?.developers?.user?.username}}
+                                </span>
+                            </p>
+                        </div>
+
+                        <div class="col d-flex justify-content-end pe-1 pb-1 section">
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

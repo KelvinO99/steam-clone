@@ -12,16 +12,14 @@
 }
 
 mat-card {
-    background: #202d39;
     background: rgba(0, 0, 0, 0.2);
-    transition: 0.2s !important;
-    cursor: pointer;
-}
 
-mat-card:hover {
-    transform: scale(1.02) !important;
-    z-index: 2 !important;
-    cursor: pointer;
+    mat-card-content .mat-card-content-container {
+        &:hover {
+            background: rgba(0, 0, 0, 0.4);
+            cursor: pointer;
+        }
+    }
 }
 
 
@@ -44,10 +42,10 @@ img.opacity {
     opacity: 0.3;
 }
 
-img.game {
-    height: 71px;
+.image {
     width: 100%;
-    object-fit: fill;
+    height: 4rem;
+    object-fit: cover;
 }
 
 span.tags {
@@ -126,7 +124,7 @@ span.basePrice {
     }
 
     &:focus {
-        background-color:  #2a475e;;
+        background-color: #2a475e;
         color: white;
     }
 }

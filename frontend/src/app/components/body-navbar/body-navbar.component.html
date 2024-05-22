@@ -6,10 +6,10 @@
                 <div class="d-flex flex-column header store-header">
 
                     <div class="col label-section">
-                        <p class="label-item"> Home </p>
-                        <p class="label-item"> Recommendations </p>
-                        <p class="label-item"> Recently Viewed </p>
-                        <p class="label-item"> Steam Cutrator </p>
+                        <p> <span class="label-item"> Home </span> </p>
+                        <p> <span class="label-item"> Recommendations </span> </p>
+                        <p> <span class="label-item"> Recently Viewed </span> </p>
+                        <p> <span class="label-item"> Steam Curator </span> </p>
                     </div>
 
                 </div>
@@ -18,27 +18,27 @@
 
         <div class="col-2 w-auto dropdown-section">
             <div class="container p-0 label"> New & Noteworthy
-                <div class="d-flex flex-row header noteworthy-header">
+                <div class="d-flex flex-wrap header noteworthy-header">
 
                     <div class="col-6 label-section">
-                        <p class="caption pt-3"> Popular </p>
-                        <p class="label-item"> Top Seller </p>
-                        <p class="label-item"> Most Played </p>
+                        <p> <span class="caption pt-3"> Popular </span> </p>
+                        <p> <span class="label-item"> Top Seller </span> </p>
+                        <p> <span class="label-item"> Most Played </span> </p>
                         <p class="spacer"></p>
-                        <p class="label-item"> New Releases </p>
-                        <p class="label-item"> Upcoming Releases </p>
-                        <p class="caption pt-3"> News & Updates </p>
-                        <p class="label-item"> Recently Updated </p>
+                        <p> <span class="label-item"> New Releases </span> </p>
+                        <p> <span class="label-item"> Upcoming Releases </span> </p>
+                        <p> <span class="caption pt-3"> News & Updates </span> </p>
+                        <p> <span class="label-item"> Recently Updated </span> </p>
                     </div>
 
                     <div class="col-6 label-section">
-                        <p class="caption pt-3"> Promos & Events </p>
-                        <p class="label-item"> Special Offer </p>
-                        <p class="label-item"> Sale Event </p>
+                        <p> <span class="caption pt-3"> Promos & Events </span> </p>
+                        <p> <span class="label-item"> Special Offer </span> </p>
+                        <p> <span class="label-item"> Sale Event </span> </p>
                         <p class="spacer"> </p>
-                        <p class="label-item"> Steam Year In Review </p>
-                        <p class="label-item"> Steam Next Fest </p>
-                        <p class="label-item"> The Steam Awards </p>
+                        <p> <span class="label-item"> Steam Year In Review </span> </p>
+                        <p> <span class="label-item"> Steam Next Fest </span> </p>
+                        <p> <span class="label-item"> The Steam Awards </span> </p>
                     </div>
 
                 </div>
@@ -50,71 +50,71 @@
                 <div class="d-flex flex-row header category-header">
 
                     <div class="col-3 label-section">
-                        <p class="caption pt-3"> Special Sections </p>
-                        <p class="label-item"> Free to Play </p>
-                        <p class="label-item"> Demos </p>
-                        <p class="label-item"> Early Access </p>
+                        <p> <span class="caption pt-3"> Special Sections </span> </p>
+                        <p> <span class="label-item"> Free to Play </span> </p>
+                        <p> <span class="label-item"> Demos </span> </p>
+                        <p> <span class="label-item"> Early Access </span> </p>
                         <p class="spacer"></p>
-                        <p class="label-item"> Steam Deck </p>
-                        <p class="label-item"> Great on Deck </p>
+                        <p> <span class="label-item"> Steam Deck </span> </p>
+                        <p> <span class="label-item"> Great on Deck </span> </p>
                         <p class="spacer"></p>
-                        <p class="label-item"> Controller-Friendly </p>
-                        <p class="label-item"> Remote Play </p>
+                        <p> <span class="label-item"> Controller-Friendly </span> </p>
+                        <p> <span class="label-item"> Remote Play </span> </p>
                         <p class="spacer"></p>
-                        <p class="label-item"> Vr Titles </p>
-                        <p class="label-item"> Vr Hardware </p>
+                        <p> <span class="label-item"> VR Titles </span> </p>
+                        <p> <span class="label-item"> VR Hardware </span> </p>
                         <p class="spacer"></p>
-                        <p class="label-item"> Software </p>
-                        <p class="label-item"> SoundTrack </p>
+                        <p> <span class="label-item"> Software </span> </p>
+                        <p> <span class="label-item"> SoundTrack </span> </p>
                         <p class="spacer"></p>
-                        <p class="label-item"> macOS </p>
-                        <p class="label-item"> SteamOS + Linux </p>
-                        <p class="label-item"> Windows </p>
+                        <p> <span class="label-item"> macOS </span> </p>
+                        <p> <span class="label-item"> SteamOS + Linux </span> </p>
+                        <p> <span class="label-item"> Windows </span> </p>
                     </div>
 
                     <div class="col label-section">
-                        <p class="caption pt-3"> Genres </p>
+                        <span class="caption pt-3"> Genres </span>
                         <div class="d-flex flex-wrap">
                             <div class="col label-section">
-                                <p class="label-item" (click)="goTo('../games/' + item?.name.toLowerCase())" *ngFor="let item of tag?.slice(0, 8)">
+                                <p *ngFor="let item of tag?.slice(0, 8)"> <span class="label-item" (click)="goTo('../games/' + item?.name.toLowerCase())">
                                     {{item.name}}
-                                </p>
+                                </span> </p>
                                 <p class="spacer"></p>
-                                <p class="label-item pt-1" (click)="goTo('../games/' + item?.name.toLowerCase())" *ngFor="let item of tag?.slice(8, 16)">
+                                <p  *ngFor="let item of tag?.slice(8, 16)"> <span class="label-item pt-1" (click)="goTo('../games/' + item?.name.toLowerCase())">
                                     {{item.name}}
-                                </p>
+                                </span></p>
                             </div>
                             <div class="col-8 label-section">
-                                <p class="label-item" *ngFor="let item of tag?.slice(16, 24)">
+                                <p  *ngFor="let item of tag?.slice(16, 24)"> <span class="label-item">
                                     {{item.name}}
-                                </p>
+                                </span></p>
                                 <p class="spacer"></p>
-                                <p class="label-item pt-1" *ngFor="let item of tag?.slice(24, 32)">
+                                <p  *ngFor="let item of tag?.slice(24, 32)"> <span class="label-item pt-1">
                                     {{item.name}}
-                                </p>
+                                </span></p>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-3 label-section">
-                        <p class="caption pt-3"> <span> Themes </span> </p>
-                        <p class="label-item"> Adult Only </p>
-                        <p class="label-item"> Anime </p>
-                        <p class="label-item"> Horror </p>
-                        <p class="label-item"> Mystery & Detective </p>
-                        <p class="label-item"> Open World </p>
-                        <p class="label-item"> Sci-Fi & Cyberpunk </p>
-                        <p class="label-item"> Space </p>
-                        <p class="label-item"> Survival </p>
-                        <p class="borderStyle"></p>
-                        <p class="caption pt-1"> <span> Player Support </span> </p>
-                        <p class="label-item"> Co-Operative </p>
-                        <p class="label-item"> LAN </p>
-                        <p class="label-item"> Local & Party </p>
-                        <p class="label-item"> MMO </p>
-                        <p class="label-item"> Multiplayer </p>
-                        <p class="label-item"> Online Competitive </p>
-                        <p class="label-item"> Singleplayer </p>
+                        <p> <span class="caption pt-3"> <span> Themes </span> </span> </p>
+                        <p> <span class="label-item"> Adult Only </span> </p>
+                        <p> <span class="label-item"> Anime </span> </p>
+                        <p> <span class="label-item"> Horror </span> </p>
+                        <p> <span class="label-item"> Mystery & Detective </span> </p>
+                        <p> <span class="label-item"> Open World </span> </p>
+                        <p> <span class="label-item"> Sci-Fi & Cyberpunk </span> </p>
+                        <p> <span class="label-item"> Space </span> </p>
+                        <p> <span class="label-item"> Survival </span> </p>
+                        <p> <span class="borderStyle"></span> </p>
+                        <p> <span class="caption pt-1"> <span> Player Support </span> </span> </p>
+                        <p> <span class="label-item"> Co-Operative </span> </p>
+                        <p> <span class="label-item"> LAN </span> </p>
+                        <p> <span class="label-item"> Local & Party </span> </p>
+                        <p> <span class="label-item"> MMO </span> </p>
+                        <p> <span class="label-item"> Multiplayer </span> </p>
+                        <p> <span class="label-item"> Online Competitive </span> </p>
+                        <p> <span class="label-item"> Singleplayer </span> </p>
                     </div>
 
                 </div>

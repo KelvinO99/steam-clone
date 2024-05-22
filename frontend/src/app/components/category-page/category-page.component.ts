@@ -42,7 +42,7 @@ export class CategoryPageComponent {
       params.featured = true;
     }
 
-    this.gameService.getGames({tag: ["action"]}).subscribe({
+    this.gameService.getGames({skip: 0, take: 10}).subscribe({
       next: (res: any) => {
         this.game = res;
         console.log([this.game]);
