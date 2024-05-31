@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { GameService } from 'src/app/shared/services/game.service';
 import { EditPageComponent } from '../edit-page.component';
@@ -15,11 +15,21 @@ export class ModalComponent {
   @Input() gameForm!: FormGroup;
   systemRequirements!: any;
   languages!: any;
+  firstFormGroup!: any;
+  secondFormGroup!: any;
+  isLinear!: boolean;
 
-  constructor(public route: ActivatedRoute, public gameService: GameService, public editPage: EditPageComponent) {}
+  constructor(public route: ActivatedRoute, public gameService: GameService, public editPage: EditPageComponent, public formBuilder: FormBuilder) {}
 
   ngOnInit() {
     this.routeId = this.route.snapshot.params['id'];
+    this.firstFormGroup = this.formBuilder.group({
+      firstCtrl: [''],
+    });
+    this.secondFormGroup = this.formBuilder.group({
+      secondCtrl: [''],
+    });
+    this.isLinear = false;
   }
 
   updateGame() {
@@ -62,4 +72,5 @@ export class ModalComponent {
     
     });
   }
+
 }
