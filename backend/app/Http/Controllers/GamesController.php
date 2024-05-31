@@ -34,6 +34,8 @@ class GamesController extends Controller
             $best_seller = $request->input("best_seller"); // CALCOLO SUL NUMERO DI COPIE ACQUISTATE
             $upcoming = $request->input("upcoming"); // CALCOLO SUL NUMERO DI COPIE ACQUISTATE
             $new_release = $request->input("new_release"); // ORDINE GIOCHI RILASCIATI PRIMA
+            $name = $request->input("name");
+            $price = $request->input("price");
             $skip = $request->input("skip");
             $take = $request->input("take");
             $today = Carbon::now();
@@ -92,6 +94,11 @@ class GamesController extends Controller
                 $game->orderBy('date', 'desc');
             }
 
+
+
+
+
+
     //ISSET CODE
     //REVIEW CODE
     $evaluations = [];
@@ -146,6 +153,45 @@ class GamesController extends Controller
 
         $evaluations[$gameId] = $evaluationString;
     }
+
+
+    if ($name) {
+        if($name == "ascending") {
+
+            $game = Games::orderBy('name');
+
+        }
+        if($name == "descending") {
+
+            $game = Games::orderBy('name', 'desc');
+
+        }
+    }
+
+
+    if ($price) {
+
+        if ($price == "ascending") {
+        $game = Games::orderByRaw('
+                    CASE
+                        WHEN discounted_price IS NOT NULL THEN discounted_price
+                        ELSE base_price
+                    END ASC');
+                    //->get();
+    } elseif ($price == "descending") {
+        $game = Games::orderByRaw('
+                    CASE
+                        WHEN discounted_price IS NOT NULL THEN discounted_price
+                        ELSE base_price
+                    END DESC');
+                    //->get();
+    } else {
+        // Handle the default case or any other sorting logic
+        $game = Games::all();
+    }
+    }
+
+
     //SKIPTAKE CODE
             if (isset($skip)) {
                 $game = $game->skip($skip);
@@ -483,7 +529,7 @@ class GamesController extends Controller
                 'short_description'=> 'required|string|max:1024',
                 'long_description'=> 'required|string|max:8192',
                 'pegi_id' => 'required',
-                
+
             ]);
 
 
