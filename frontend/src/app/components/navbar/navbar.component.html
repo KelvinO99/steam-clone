@@ -42,7 +42,7 @@
                                                     <button class="nav-link label dropdown-toggle"> {{ username }} </button>
                                                     <div class="dropdown-content user-wrapper">
                                                         <p class="label-item mb-1" routerLink="admin" *ngIf="role == 'superadmin'"> Admin access </p>
-                                                        <p class="label-item mb-1" (click)="goTo('../user-page/' + username)"> Show my profile </p>
+                                                        <p class="label-item mb-1" (click)="goTo('../user-page/' + username + '/' + id)"> Show my profile </p>
                                                         <p class="label-item mb-1"> Account details: <span class="user">  {{ username }} </span> </p>
                                                         <p class="label-item mb-1"> Preference of the store </p>
                                                         <p class="label-item mb-1"> View my Wallet </p>

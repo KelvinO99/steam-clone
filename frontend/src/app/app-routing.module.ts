@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'game/:id', component: GameComponent},
   { path: 'games/:genre', component: CategoryPageComponent},
   { path: 'steam-deck', component: SteamDeckComponent },
-  { path: 'user-page/:username', component: UserPageComponent, canActivate: [AuthGuard]},
+  { path: 'user-page/:username/:id', component: UserPageComponent, canActivate: [AuthGuard]},
   { path: 'admin', component: AdminPageComponent, canActivate: [AuthGuard]},
   { path: 'admin/edit-page/:id', component: EditPageComponent, canActivate: [AuthGuard]}
 ];

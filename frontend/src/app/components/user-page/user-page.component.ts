@@ -17,10 +17,10 @@ export class UserPageComponent implements OnInit {
 
   ngOnInit() {
     this.routeId = this.route.snapshot.params['id'];
-    this.getGames();
+    this.getUser();
   }
 
-  getGames() {
+  getUser() {
 
     this.userService.getUser(this.routeId).subscribe({
       next: (res: any) => {

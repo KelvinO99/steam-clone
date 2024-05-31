@@ -11,6 +11,7 @@ export class NavbarComponent {
   [x: string]: any;
   token!: string;
   username!: string | null | undefined;
+  id!: any;
   role!: any;
 
   constructor(public authService: AuthService, public router: Router) {}
@@ -50,6 +51,7 @@ export class NavbarComponent {
     this.authService.loggedIn$.subscribe((loggedIn) => {
       if (loggedIn) {
         this.username = localStorage.getItem('user_profile_username');
+        this.id = localStorage.getItem('user_profile_id');
       } else {
         this.username = null;
       }
