@@ -9,6 +9,9 @@
   font-family: "Motiva Sans", Sans-serif;
 }
 
+.container-fluid{
+  max-width: 100rem;
+}
 
 .column{
   max-width: 100%;
@@ -41,8 +44,8 @@ min-width: 900px;
 
 .frame-position{
   position: relative;
-  top: -195px;
-  right: 10px;
+  right: 190px;
+  bottom: 25px;
 }
 .user-frame{
   position: absolute;
@@ -146,7 +149,6 @@ min-width: 900px;
 
 
 .profile_leftcol {
-  width: 600px;
 
   .leftcol-header{
     width: 560px;
@@ -253,7 +255,7 @@ min-width: 900px;
     font-family: "Motiva Sans", Sans-serif;
     font-weight: 200;
     font-size: 20px;
-    color: #898989;
+    color: #57cbde;
   }
 
   .last-online{
