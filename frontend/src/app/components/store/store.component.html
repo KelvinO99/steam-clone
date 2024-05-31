@@ -1,4 +1,4 @@
-<div class="container-fluid game-page-container">
+<div class="container-fluid store-container">
     <div class="d-flex flex-wrap header">
 
         <div class="col-lg-2 d-flex justify-content-end section">
@@ -9,8 +9,15 @@
 
             <div class="d-flex flex-column header">
                 <div class="col section"> 
-                    <app-body-navbar> </app-body-navbar>
+                    <div class="d-flex flex-wrap header">
+                        <div class="col section"></div>
+                        <div class="col-11 section">
+                            <app-body-navbar> </app-body-navbar>
+                        </div>
+                        <div class="col section"></div>
+                    </div>
                 </div>
+                
                 <div class="col section">
                     <app-offer-carousel></app-offer-carousel>
                 </div>
@@ -36,46 +43,3 @@
 
     </div>
 </div>
-
-<!-- <div class="container-fluid px-0">
-    <div class="d-flex flex-wrap">
-
-        <div class="col-lg-2 d-flex justify-content-end">
-
-            <app-sidebar> </app-sidebar>
-            
-        </div>
-
-        <div class="col-lg-8">
-
-            <div class="d-flex flex-column header">
-                <div class="col section">
-                    <app-body-navbar> </app-body-navbar>
-                </div>
-                <div class="col section">
-                    <app-offer-carousel></app-offer-carousel>
-                </div>
-                <div class="col section">
-                    <app-product-banners></app-product-banners>
-                </div>
-                <div class="col section">
-                    <app-category-carousel></app-category-carousel>
-                </div>
-                <div class="col section">
-                    <app-big-buttons></app-big-buttons>
-                </div>
-                <div class="col section">
-                    <app-game-table></app-game-table>
-                </div>
-                <div class="col section">
-                    <app-updates-offer-cards></app-updates-offer-cards>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-2">
-            
-        </div>
-    </div>
-</div>
- -->

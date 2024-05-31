@@ -59,6 +59,26 @@ $game-header-background-color: rgb(2, 0, 36);
             color: #556772;
         }
     }
+
+    button {
+        background: initial;
+        border: initial;
+        color: #67c1f5;
+        background-color: rgba(103, 193, 245, 0.2);
+        font-weight: normal;
+        border-radius: 4px;
+        font-size: 11px;
+
+        &:hover {
+            cursor: pointer;
+            background: linear-gradient(135deg, #67c1f5 0%, #417a9b 100%);
+            color: white;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
 }
 
 //Struttura CSS
@@ -69,7 +89,9 @@ $game-header-background-color: rgb(2, 0, 36);
         .tag {
             cursor: pointer;
         }
-        font-family: "Motiva Sans", Sans-serif;
+
+        font-family: "Motiva Sans",
+        Sans-serif;
         font-size: 13px;
         opacity: 0.6;
         color: #8f98a0;

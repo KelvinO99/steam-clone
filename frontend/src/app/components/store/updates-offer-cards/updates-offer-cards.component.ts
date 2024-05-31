@@ -13,7 +13,7 @@ export class UpdatesOfferCardsComponent {
 
   games: any;
   skip: number = 0;
-  take: number = 9;
+  take: number = 6;
   most_reviewed: boolean =false;
 
   constructor(public gameService:GameService, public router: Router) {
@@ -28,7 +28,7 @@ getUpdatesAndOffers(){
 
   let params: any = {};
   params.skip = 0;
-  params.take = 9;
+  params.take = 6;
 
   if (this.most_reviewed) {
     params.most_reviewed = true;

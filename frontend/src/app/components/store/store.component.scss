@@ -1,7 +1,16 @@
-.container-fluid {
-    max-width: 100rem;
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
+.store-container {
+    max-width: 100rem;
+    animation: fadeIn 3s ease forwards;
+}
 
 @media only screen and (max-width: 1320px) {
 

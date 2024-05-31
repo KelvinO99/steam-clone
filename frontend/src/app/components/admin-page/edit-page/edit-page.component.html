@@ -6,18 +6,13 @@
         <div class="col-lg-8 section">
 
             <div class="d-flex flex-column header">
-                <div class="col section"> 
-                    <app-body-navbar> </app-body-navbar>
+                <div class="col section">
+                    <app-edit-header-page [game]="game" [gameForm]="gameForm"> </app-edit-header-page>
                 </div>
                 <div class="col section">
-                    <app-header-data-game [game]="game"> </app-header-data-game>
+                    <app-edit-body-page [game]="game" [gameForm]="gameForm" [systemRequirements]="systemRequirements"></app-edit-body-page>
                 </div>
-                <div class="col section">
-                    <app-body-data-game [game]="game" [systemRequirements]="systemRequirements"></app-body-data-game>
-                </div>
-                <div class="col section">
-                    <app-reviews [game]="game"> </app-reviews>
-                </div>
+
             </div>
         </div>
 

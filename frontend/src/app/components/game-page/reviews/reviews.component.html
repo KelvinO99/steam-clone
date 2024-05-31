@@ -23,9 +23,9 @@
 
 
                                             <div class="col ps-2 pb-2 pt-1 section">
-                                                <span class="text"> {{game.evaluation}} </span>
-                                                <span class="number"> ({{game.positive +
-                                                    game.negative}})
+                                                <span class="text"> {{game?.evaluation}} </span>
+                                                <span class="number"> ({{game?.positive +
+                                                    game?.negative}})
                                                 </span>
                                             </div>
 
@@ -43,9 +43,9 @@
 
 
                                             <div class="col ps-2 pb-2 pt-1 section">
-                                                <span class="text"> {{game.evaluation}} </span>
-                                                <span class="number"> ({{game.positive +
-                                                    game.negative}})
+                                                <span class="text"> {{game?.evaluation}} </span>
+                                                <span class="number"> ({{game?.positive +
+                                                    game?.negative}})
                                                 </span>
                                             </div>
 
@@ -71,7 +71,7 @@
 
                                             <div class="col section">
                                                 <div class="container mb-3 p-0 card-deals-container"
-                                                    *ngFor="let item of game.reviews.slice(0, 15)">
+                                                    *ngFor="let item of game?.reviews?.slice(0, 15)">
                                                     <div class="d-flex flex-wrap header pt-1">
 
 
@@ -85,7 +85,7 @@
 
                                                                     <div class="col-7 section">
                                                                         <p class="m-0 text">
-                                                                            {{item.user.username}}
+                                                                            {{item?.user?.username}}
                                                                         </p>
                                                                         <p class="m-0 number-text"> 218 products in
                                                                             account </p>
@@ -104,32 +104,32 @@
                                                                             <div class="d-flex flex-row header">
 
                                                                                 <div class="col-2 w-auto pe-2 section"
-                                                                                    *ngIf="item.is_recommended == 1">
+                                                                                    *ngIf="item?.is_recommended == 1">
                                                                                     <img src="../../../../assets/image/review/icon_thumbsUp_v6.png"
                                                                                         class="image">
                                                                                 </div>
 
                                                                                 <div class="col-2 w-auto pe-2 section"
-                                                                                    *ngIf="item.is_recommended == 0">
+                                                                                    *ngIf="item?.is_recommended == 0">
                                                                                     <img src="../../../../assets/image/review/icon_thumbsDown_v6.png"
                                                                                         class="image">
                                                                                 </div>
 
                                                                                 <div class="col-10 section">
                                                                                     <p class="m-0 pt-1 ps-1 label"
-                                                                                        *ngIf="item.is_recommended == 1">
+                                                                                        *ngIf="item?.is_recommended == 1">
                                                                                         Is
                                                                                         Recommended
                                                                                     </p>
                                                                                     <p class="m-0 pt-1 ps-1 label"
-                                                                                        *ngIf="item.is_recommended == 0">
+                                                                                        *ngIf="item?.is_recommended == 0">
                                                                                         Not
                                                                                         Recommended
                                                                                     </p>
 
                                                                                     <div>
                                                                                         <p class="m-0 ps-1 text">
-                                                                                            {{item.hours_played}}
+                                                                                            {{item?.hours_played}}
                                                                                             hrs
                                                                                             on
                                                                                             record </p>
@@ -145,13 +145,13 @@
                                                                     <div class="col pt-3 section">
                                                                         <p class="p-0 m-0 date">
                                                                             Posted {{
-                                                                            item.date | date:'dd MMM, yyyy' }} </p>
+                                                                            item?.date | date:'dd MMM, yyyy' }} </p>
                                                                     </div>
 
 
                                                                     <div class="col pt-1 section">
                                                                         <p class="p-0 content"> {{
-                                                                            item.description}}
+                                                                            item?.description}}
                                                                         </p>
                                                                     </div>
 
@@ -210,7 +210,7 @@
                                             <div class="col section">
                                                 <div class="col section">
                                                     <div class="container mb-3 p-0 card-deals-container"
-                                                        *ngFor="let item of game.reviews.slice(0, 15)">
+                                                        *ngFor="let item of game?.reviews?.slice(0, 15)">
                                                         <div class="d-flex flex-wrap header">
 
 
@@ -224,13 +224,13 @@
                                                                                 <div class="d-flex flex-row header">
 
                                                                                     <div class="col-1 section"
-                                                                                        *ngIf="item.is_recommended == 1">
+                                                                                        *ngIf="item?.is_recommended == 1">
                                                                                         <img src="../../../../assets/image/review/icon_thumbsUp_v6.png"
                                                                                             class="image">
                                                                                     </div>
 
                                                                                     <div class="col-1 section"
-                                                                                        *ngIf="item.is_recommended == 0">
+                                                                                        *ngIf="item?.is_recommended == 0">
                                                                                         <img src="../../../../assets/image/review/icon_thumbsDown_v6.png"
                                                                                             class="image">
                                                                                     </div>
@@ -238,11 +238,11 @@
                                                                                     <div class="col-10 ps-2 section">
 
                                                                                         <span class="user">
-                                                                                            {{item.user.username}}
+                                                                                            {{item?.user.username}}
                                                                                         </span>
 
                                                                                         <span class="m-0 ps-1 text">
-                                                                                            {{item.hours_played}}
+                                                                                            {{item?.hours_played}}
                                                                                             hrs
                                                                                             on
                                                                                             record </span>
@@ -257,14 +257,14 @@
                                                                             <div class="col pt-3 section">
                                                                                 <p class="p-0 m-0 date">
                                                                                     Posted {{
-                                                                                    item.date | date:'dd MMM, yyyy' }}
+                                                                                    item?.date | date:'dd MMM, yyyy' }}
                                                                                 </p>
                                                                             </div>
 
 
                                                                             <div class="col pt-1 section">
                                                                                 <p class="p-0 content"> {{
-                                                                                    item.description}}
+                                                                                    item?.description}}
                                                                                 </p>
                                                                             </div>
 

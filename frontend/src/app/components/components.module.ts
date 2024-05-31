@@ -43,6 +43,11 @@ import { MainCarouselComponent } from './category-page/main-carousel/main-carous
 import { UserPageComponent } from './user-page/user-page.component';
 import { CategoryGameTableComponent } from './category-page/category-game-table/category-game-table.component';
 import { PopularCarouselComponent } from './category-page/popular-carousel/popular-carousel.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
+import { EditPageComponent } from './admin-page/edit-page/edit-page.component';
+import { EditHeaderPageComponent } from './admin-page/edit-page/edit-header-page/edit-header-page.component';
+import { EditBodyPageComponent } from './admin-page/edit-page/edit-body-page/edit-body-page.component';
+import { ModalComponent } from './admin-page/edit-page/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +75,11 @@ import { PopularCarouselComponent } from './category-page/popular-carousel/popul
     UserPageComponent,
     CategoryGameTableComponent,
     PopularCarouselComponent,
+    AdminPageComponent,
+    EditPageComponent,
+    EditHeaderPageComponent,
+    EditBodyPageComponent,
+    ModalComponent,
 
   ],
   imports: [

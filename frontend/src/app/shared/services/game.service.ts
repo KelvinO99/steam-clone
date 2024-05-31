@@ -11,19 +11,31 @@ const URL: string = `${environment.api}`;
 export class GameService {
   APIUrl = `${environment.api}/`;
 
-  //Costruttore per il client HTTP
+  //costruttore per il client HTTP
   constructor(public http: HttpClient) { }
 
+  //get index dei giochi
   getGames(params : {}) {
     return this.http.get<any>(`${this.APIUrl}games/index`,{params});
   }
 
+  //get della show del gioco
   showGame(id: number){
     return this.http.get<any>(`${this.APIUrl}games/show/${id}`);
   }
 
-  showGameLanguages(id: number){
-    return this.http.get<any>(`${this.APIUrl}games_languages/show/${id}`);
+  //aggiornamento del gioco 
+  updateGame(id: number, updateDataGame: any) {
+    return this.http.post<any>(`${this.APIUrl}games/update/${id}`, updateDataGame);
+  }
+
+  //aggiunta di un nuovo gioco
+  storeGame(storedGameData: any) {
+    return this.http.post<any>(`${this.APIUrl}games/store`, storedGameData);
+  }
+
+  deleteGame(id: number) {
+    return this.http.delete<any>(`${this.APIUrl}games/destroy/${id}`);
   }
 
 }
