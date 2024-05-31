@@ -19,10 +19,10 @@ export class PopularCarouselComponent {
     }
   
     ngOnInit(){
-  this.getUpdatesAndOffers();
+  this.getPopularGames();
     }
   
-  getUpdatesAndOffers(){
+  getPopularGames(){
   
     let params: any = {};
     params.skip = 0;

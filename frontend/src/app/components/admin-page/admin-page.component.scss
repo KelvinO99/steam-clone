@@ -1,0 +1,416 @@
+//Variabili
+
+//Animazioni 
+@keyframes zoomIn {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInY {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInX {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+//Mixin
+
+//Struttura della modale dell'aggiunta dei giochi
+p {
+    margin: 0;
+}
+
+.modal {
+    .modal-dialog {
+        .modal-content {
+            background-color: #1b2838;
+            box-shadow: 0 0 5px #000;
+
+            form {
+                .header .section {
+
+                    .caption {
+                        font-size: 15px;
+                        font-family: sans-serif;
+                        color: white;
+                        font-weight: 500;
+                    }
+
+                    .label {
+                        font-size: 12px;
+                        font-family: sans-serif;
+                        text-transform: uppercase;
+                        color: white;
+                        font-weight: 600;
+                    }
+
+                    input,
+                    textarea,
+                    select {
+                        width: 100%;
+                        padding: 10px;
+                        margin: 10px 0;
+                        border: 1px solid #555;
+                        border-radius: 5px;
+                        background-color: #3d3d3d;
+                        color: #ffffff;
+                    }
+
+                    input {
+                        font-family: Aril, Helvetica, sans-serif;
+                        color: #c6d4df;
+                        border-radius: inherit;
+                        background-color: #316282;
+                        border-radius: 3px;
+                        border: 1px solid rgba(0, 0, 0, 0.3);
+                        box-shadow: 1px 1px 0px rgba(255, 255, 255, 0.2);
+                        color: #fff;
+                        margin: 0;
+                        width: 100%;
+                        padding: 0 !important;
+                        padding: 3px 0 3px 0.5rem !important;
+
+                        &:focus {
+                            outline: initial;
+                            border: 1px solid #4c9acc;
+                            border-radius: 3px;
+                            box-shadow: 1px 1px 0px rgba(255, 255, 255, 0.0);
+                        }
+                    }
+
+                    textarea {
+                        font-family: Aril, Helvetica, sans-serif;
+                        color: #c6d4df;
+                        border-radius: inherit;
+                        background-color: #316282;
+                        border-radius: 3px;
+                        border: 1px solid rgba(0, 0, 0, 0.3);
+                        box-shadow: 1px 1px 0px rgba(255, 255, 255, 0.2);
+                        color: #fff;
+                        margin: 0;
+                        width: 100%;
+                        padding: 0 !important;
+                        padding: 3px 0 3px 0.5rem !important;
+
+                        &:focus {
+                            outline: initial;
+                            border: 1px solid #4c9acc;
+                            border-radius: 3px;
+                            box-shadow: 1px 1px 0px rgba(255, 255, 255, 0.0);
+                        }
+                    }
+
+                    select {
+                        font-family: Aril, Helvetica, sans-serif;
+                        color: #c6d4df;
+                        border-radius: inherit;
+                        background-color: #316282;
+                        border-radius: 3px;
+                        border: 1px solid rgba(0, 0, 0, 0.3);
+                        box-shadow: 1px 1px 0px rgba(255, 255, 255, 0.2);
+                        color: #fff;
+                        margin: 0;
+                        width: 100%;
+                        padding: 0 !important;
+                        padding: 3px 0 3px 0.5rem !important;
+
+                    }
+
+                    button {
+                        background: initial;
+                        border: initial;
+                        font-weight: normal;
+                        background: rgba(103, 193, 245, 0.2);
+                        font-size: 12px;
+                        color: #67c1f5;
+                        font-size: 14px;
+                        line-height: 24px;
+                        padding: 5px 10px;
+                        margin-top: 10px;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: pointer;
+
+                        &:hover:not(:disabled) {
+                            background: linear-gradient(135deg, #67c1f5 0%, #417a9b 100%);
+                            color: #ffffff;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//Struttura CSS della pagina
+.admin-page-container {
+    max-width: 100rem;
+    /* Aggiungi l'animazione solo quando la classe "animate-open" è presente */
+
+    p {
+        margin: 0;
+    }
+
+    .header .section {
+        .first-heading {
+            color: #ffffff;
+            font-size: 34px;
+            font-family: "Motiva Sans", Sans-serif;
+            font-weight: normal;
+            text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
+            text-transform: uppercase;
+        }
+
+        .header {
+
+            //col-8
+            .table-section {
+                animation: fadeIn 2s ease forwards;
+
+                .header {
+
+                    //parte iniziale della tabella
+                    .primary-section {
+                        background: #00000066;
+
+                        .input {
+                            background: initial;
+                            background-color: rgba(103, 193, 245, 0.2);
+                            color: #fff;
+                            border: 1px solid #000;
+                            border-radius: 3px;
+                            box-shadow: 1px 1px 0px rgba(103, 193, 245, 0.15);
+                            width: -moz-available;
+                            padding-left: 0.5rem;
+
+                            &:focus-visible {
+                                border: initial !important;
+                                outline: initial;
+                            }
+                        }
+
+
+                        input::placeholder {
+                            opacity: 1;
+                            color: white;
+                        }
+
+                        .button {
+                            background: initial;
+                            border: initial;
+                            color: #67c1f5;
+                            background: #67c1f533;
+                            font-size: 12px;
+                            border-radius: 2px;
+                            font-weight: normal;
+
+                            &:hover {
+                                background: linear-gradient(-60deg, #417a9b 5%, #67c1f5 95%);
+                                color: white;
+                            }
+                        }
+
+                        .label {
+                            background: initial;
+                            font-size: 12px;
+                            color: #4c6c8c;
+                        }
+
+                        .form-select {
+                            background: initial;
+                            width: initial;
+                            padding: initial;
+                            border: initial;
+                            border-radius: 2px;
+                            background-color: #053d65e1;
+                            color: #67c1f5;
+                            font-size: 12px;
+                            padding: 0.3rem;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+
+                            &:focus {
+                                box-shadow: initial;
+                                border: initial;
+                            }
+
+                            &:hover {
+                                cursor: pointer;
+                            }
+                        }
+                    }
+
+                    //card per l'aggiunta dei giochi
+                    .add-section .header {
+                        background: rgba(0, 0, 0, 0.2);
+
+                        .button {
+                            background: initial;
+                            border: initial;
+                            color: #67c1f5;
+                            background: rgba(103, 193, 245, 0.2);
+                            font-size: 12px;
+                            border-radius: 2px;
+                            font-weight: normal;
+
+                            &:hover {
+                                background: linear-gradient(-60deg, #417a9b 5%, #67c1f5 95%);
+                                color: white;
+                            }
+                        }
+                    }
+
+                    //informazioni del gioco
+                    .card-section {
+                        animation: fadeIn 3s ease forwards;
+
+                        .header {
+                            background: rgba(0, 0, 0, 0.2);
+
+                            &:hover {
+                                border: 1px solid rgba(139, 185, 224, 0.2);
+                                background: rgba(0, 0, 0, 0.4);
+                                cursor: pointer;
+                            }
+                        }
+
+                        .section {
+                            .image {
+                                width: 115.5px;
+                                height: 43.5px;
+                                object-fit: cover;
+                                max-width: 100%;
+                                /* height: auto; */
+                            }
+
+                            .image-fluid {
+                                opacity: 0.3;
+                            }
+
+                            .label {
+                                color: #c6d4df;
+                                font-size: 12px;
+                                overflow: hidden;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                            }
+                        }
+
+                        .section:last-child {
+                            .button {
+                                background: initial;
+                                border: initial;
+                                color: #67c1f5;
+                                background: rgba(103, 193, 245, 0.2);
+                                font-size: 12px;
+                                border-radius: 2px;
+                                font-weight: normal;
+
+                                &:hover {
+                                    background: linear-gradient(-60deg, #417a9b 5%, #67c1f5 95%);
+                                    color: white;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        //col-4
+        .filtrer-section {
+            animation: fadeIn 3s linear;
+
+            .header {
+
+                //Filtro sul prezzo
+                .section {
+                    .accordion {
+                        .accordion-item {
+                            background: rgba(255, 255, 255, 0.1);
+
+                            button {
+                                background: initial;
+                                border: initial;
+                                color: #c7d5e0;
+                                font-size: 12px;
+                                font-weight: normal;
+                            }
+
+                            .accordion-collapse {
+                                border: 1px solid rgba(255, 255, 255, 0.1);
+                                border-radius: 2px;
+                                background-color: #1B2838;
+
+                                .checkbox {
+                                    line-height: 28px;
+
+                                    &:hover {
+                                        color: #ffffff;
+                                        background: rgba(255, 255, 255, 0.1);
+                                        cursor: pointer;
+                                    }
+
+                                    .label {
+                                        font-size: 13px;
+                                        font-family: "Motiva Sans", Sans-serif;
+                                        font-weight: normal;
+                                        color: #9fbbcb;
+                                        white-space: nowrap;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.mat-paginator {
+    background-color: transparent;
+    color: white;
+}
+
+.mat-select-value-text {
+    color: white !important;
+}
+
+:host ::ng-deep .mat-select-value {
+    color: white !important;
+}
+
+:host ::ng-deep .mat-select-arrow-wrapper {
+    color: white !important;
+}

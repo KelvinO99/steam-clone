@@ -395,9 +395,9 @@ class GamesController extends Controller
                 return response()->json(['message' => 'Non autorizzato'], 401);
             }
 
-            if(!$user->hasRoles('developer/publisher', 'superadmin')){
+            /* if(!$user->hasRoles('developer/publisher', 'superadmin')){
                 return response()->json(['message' => 'Non autorizzato, non sei un dev'], 401);
-            }
+            } */
 
             $imagesController = new ImagesController();
             $name = $request->input('name');
@@ -468,9 +468,9 @@ class GamesController extends Controller
                 return response()->json(['message' => 'Non autorizzato'], 401);
             }
 
-            if(!$user->hasRole('developer/publisher')){
+            /* if(!$user->hasRole('developer/publisher')){
                 return response()->json(['message' => 'Non autorizzato, non sei un dev'], 401);
-            }
+            } */
 
             $validatedData = $request->validate([
                 'name' => 'required|string|max:100',
@@ -483,6 +483,7 @@ class GamesController extends Controller
                 'short_description'=> 'required|string|max:1024',
                 'long_description'=> 'required|string|max:8192',
                 'pegi_id' => 'required',
+                
             ]);
 
 
@@ -494,14 +495,16 @@ class GamesController extends Controller
             $game = new Games();
             $game->fill($validatedData);
             $game->save();
+
+            /* $develop = new DeveloperController();
+            $develop->store($request); */
+
             if ($request->hasFile('game_imgs')) {
                 $request->game_id = $game->id;
                 $request->game_name = $game->name;
                 $imagesController = new ImagesController();
                 $imagesController->store($request);
-
-            }
-
+            } 
 
             return response()->json($game, 201);;
 

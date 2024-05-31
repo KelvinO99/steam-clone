@@ -1,8 +1,18 @@
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .body {
     background-image: url('https://store.cloudflare.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    animation: fadeIn 2s ease forwards;
 }
 
 .formcontrol {
