@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GameService } from 'src/app/shared/services/game.service';
-import { Router } from '@angular/router';
+import { User } from 'src/app/shared/services/user.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-page',
@@ -8,28 +8,27 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-page.component.scss']
 })
 export class UserPageComponent implements OnInit {
-  games: any;
+  routeId!: number;
+  user: any;
   skip: number = 0;
   take: number = 4;
 
-  constructor(public gameService: GameService, public router: Router) { }
+  constructor(public userService: User, public route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.routeId = this.route.snapshot.params['id'];
     this.getGames();
   }
 
   getGames() {
-    let params: any = {};
-    params.skip = this.skip;
-    params.take = this.take;
 
-    this.gameService.getGames(params).subscribe({
+    this.userService.getUser(this.routeId).subscribe({
       next: (res: any) => {
-        this.games = res.games;
+        this.user = res;
         console.log(res);
       }
     })
   }
 
-  
+
 }

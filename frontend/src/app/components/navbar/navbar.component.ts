@@ -50,14 +50,13 @@ export class NavbarComponent {
     this.authService.loggedIn$.subscribe((loggedIn) => {
       if (loggedIn) {
         this.username = localStorage.getItem('user_profile_username');
-        this.role = localStorage.getItem('role');
       } else {
         this.username = null;
       }
     });
 
-    
-    
+
+
   }
 
   logout() {
