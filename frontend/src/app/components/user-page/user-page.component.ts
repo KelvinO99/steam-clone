@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/shared/services/user.service';
+import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -21,7 +22,7 @@ export class UserPageComponent implements OnInit {
     nationality: 'Catania, Sicilia, Italy' // Modifica secondo la tua necessità
   };
 
-  constructor(public userService: User, public route: ActivatedRoute) { }
+  constructor(public userService: User, public route: ActivatedRoute, public router: Router) { }
 
   ngOnInit() {
     this.routeId = this.route.snapshot.params['id'];
@@ -75,4 +76,10 @@ export class UserPageComponent implements OnInit {
     this.user.user.nationality = this.editData.nationality;
     this.closeModal();
   }
+
+  goTo(path: string) {
+    this.router.navigate([path]);
+    console.log(path);
+  }
+
 }

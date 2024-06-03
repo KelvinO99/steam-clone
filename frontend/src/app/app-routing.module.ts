@@ -12,6 +12,7 @@ import { SteamDeckComponent } from './components/steam-deck/steam-deck.component
 import { UserPageComponent } from './components/user-page/user-page.component';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
 import { EditPageComponent } from './components/admin-page/edit-page/edit-page.component';
+import { FederipComponent } from './components/federip/federip.component';
 
 const routes: Routes = [
 
@@ -27,7 +28,8 @@ const routes: Routes = [
   { path: 'steam-deck', component: SteamDeckComponent },
   { path: 'user-page/:username/:id', component: UserPageComponent, canActivate: [AuthGuard]},
   { path: 'admin', component: AdminPageComponent, canActivate: [AuthGuard]},
-  { path: 'admin/edit-page/:id', component: EditPageComponent, canActivate: [AuthGuard]}
+  { path: 'admin/edit-page/:id', component: EditPageComponent, canActivate: [AuthGuard]},
+  {path: 'federip', component: FederipComponent},
 ];
 
 

@@ -48,6 +48,7 @@ import { EditPageComponent } from './admin-page/edit-page/edit-page.component';
 import { EditHeaderPageComponent } from './admin-page/edit-page/edit-header-page/edit-header-page.component';
 import { EditBodyPageComponent } from './admin-page/edit-page/edit-body-page/edit-body-page.component';
 import { ModalComponent } from './admin-page/edit-page/modal/modal.component';
+import { FederipComponent } from './federip/federip.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { ModalComponent } from './admin-page/edit-page/modal/modal.component';
     EditHeaderPageComponent,
     EditBodyPageComponent,
     ModalComponent,
+    FederipComponent,
 
   ],
   imports: [
