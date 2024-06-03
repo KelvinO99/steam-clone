@@ -30,5 +30,22 @@ export class UserPageComponent implements OnInit {
     })
   }
 
+  getFirstFourGames() {
+    const uniqueGames = [];
+    const names = new Set();
+
+    for (const game of this.user.library) {
+      if (!names.has(game.name)) {
+        uniqueGames.push(game);
+        names.add(game.name);
+      }
+      if (uniqueGames.length === 4) {
+        break;
+      }
+    }
+
+    return uniqueGames;
+  }
+
 
 }

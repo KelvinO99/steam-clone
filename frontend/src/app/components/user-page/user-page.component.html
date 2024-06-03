@@ -1,4 +1,4 @@
-<div class="container-fluid p-0 all-page">
+<div class="container-fluid p-0 all-page" [style.background-image]="'url(' + user.images[2] + ')'" >
   <div class="d-flex flex-wrap">
     <div class="col"></div>
     <div class="col-8 user-page">
@@ -6,7 +6,7 @@
         <div class="header-content row w-100">
           <div class="col-3 user-images container">
             <!-- <img class="user-picture" [src]="user.image[0].image_path"> -->
-            <img class="user-picture" src="../../../assets/momentary_user-page/userimage.gif" >
+            <img class="user-picture" src="../../../assets/momentary_user-page/userimage.gif">
             <div class="frame-position">
               <!-- <img class="user-frame"  [src]="user.image[1].image_path" > -->
               <img class="user-frame" src="../../../assets/momentary_user-page/userframe.png">
@@ -42,7 +42,74 @@
           </div>
         </div>
       </div>
-      <div class="profile"></div>
+      <div class="container-fluid">
+        <div class="profile_content_inner">
+          <div class="row w-100">
+            <div class="profile_leftcol col-8 pt-4 pl-3">
+              <div class="recent-activity-box">
+                <div class="leftcol-header pb-1">
+                  <h3 class="m-0">Recent Activity</h3>
+                </div>
+                <div class="recent-activity-box">
+                  <div class="RecentActivity-Content">
+                    <div *ngFor="let item of getFirstFourGames()" class="Game-Activity-Box">
+                      <div class="GameBox-Content row">
+                        <div class="col-4 m-2">
+                          <img class="RecentGame-Img" [src]="item.image_path">
+                        </div>
+                        <div class="col-3 mt-2 ml-1">
+                          <div class="Game-Title">{{item.name}}</div>
+                        </div>
+                        <div class="col m-2 playtime"> {{item.time_played}} hrs on record</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="Comments">
+                <div class="leftcol-header pb-1">
+                  <h3 class="m-0">Comments</h3>
+                </div>
+                <div class="Comments-Box">
+                  <img class="memeimg" src="../../../assets/momentary_user-page/maxresdefault.jpg">
+                </div>
+              </div>
+            </div>
+            <div id="rightcol" class="profile_rightcol col-4 pt-4">
+            
+                <div class="rightcol-box">
+                  <div class="user-status">
+                    <div>Currently Online</div>
+                  </div>
+                  <div class="link-area">
+                    <div class="profile-count-link ellipsis">
+                      <span class="link">Games</span>
+                      <span class="total">{{user.library_count}}</span>
+                    </div>
+                    <div class="profile-count-link ellipsis link"> Inventory </div>
+                    <div class="profile-count-link ellipsis link"> Screenshots </div>
+                    <div class="profile-count-link ellipsis link"> Videos </div>
+                    <div class="profile-count-link ellipsis link"> Workshop Items </div>
+                    <div class="profile-count-link ellipsis link">
+                      <span class="link">Reviews</span>
+                      <span class="total">{{user.reviews_count}}</span>
+                    </div>
+                    <div class="profile-count-link ellipsis link"> Guides </div>
+                    <div class="profile-count-link ellipsis link"> Artwork </div>
+                    <div class="profile-count-link ellipsis">
+                      <span class="link">Friends</span>
+                      <span class="total">{{user.friendships_count}}</span>
+                    </div>
+                  </div>
+                </div>
+              
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
     </div>
     <div class="col"></div>
   </div>

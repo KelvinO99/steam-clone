@@ -7,6 +7,8 @@
   background-position: top;
   background-color: black;
   font-family: "Motiva Sans", Sans-serif;
+  min-height: 100vh;
+  min-width: 99vw;
 }
 
 .container-fluid{
@@ -22,7 +24,8 @@
 .user-page {
 background: rgba(47, 47, 76, 0.7);
 max-width: 976px;
-min-width: 900px;
+min-width: 976px;
+min-height: 100vh;
 }
 
 
@@ -233,6 +236,10 @@ min-width: 900px;
     border-bottom-right-radius: 3px
   }
 
+}
+
+#rightcol{
+  padding-right: 24px;
 }
 
 .profile_rightcol{
