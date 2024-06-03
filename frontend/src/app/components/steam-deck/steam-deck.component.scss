@@ -4,13 +4,15 @@
 
 .fontPage{
     font-family: "Motiva Sans", sans-serif !important;
+    max-width: 99vw;
 }
 
 .test2{
     background-image: url('../../../assets/steamdeck/sd_header_750.gif');
     background-repeat: no-repeat;
     background-size: cover;
-    height: 750px;
+    min-height: 754px;
+    background-position: top;
 
 }
 
