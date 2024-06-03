@@ -36,7 +36,29 @@
             </div>
             <div class="edit-profile">
               <div class="edit-button">
-                <span class="edit">Edit Profile</span>
+                <span class="edit" (click)="openModal()">Edit Profile</span>
+              </div>
+            </div>
+            <!-- Struttura della modale -->
+            <div class="modal" [ngClass]="{'show': isModalOpen}">
+              <div class="modal-content">
+                <span class="close" (click)="closeModal()">&times;</span>
+                <h2 class="modal-title">Edit Profile</h2>
+                <form (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" [(ngModel)]="editData.username" name="username">
+                  </div>
+                  <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea id="description" [(ngModel)]="editData.description" name="description"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="nationality">Nationality:</label>
+                    <input type="text" id="nationality" [(ngModel)]="editData.nationality" name="nationality">
+                  </div>
+                  <button type="submit">Save Changes</button>
+                </form>
               </div>
             </div>
           </div>
@@ -114,139 +136,3 @@
     <div class="col"></div>
   </div>
 </div>
-
-<!-- <div class="container-fluid p-0 all-page">
-  <div class="row w-100">
-    <div class="col p-0 column">
-    </div>
-
-    <div class="col-7 user-page">
-      <div class="profile-header container-fluid p-0 m-0">
-
-        <div class="row profile-header-content container-fluid p-0">
-          <div class="user-images col-3">
-            <div class="container">
-              <div class="user-picture">
-                <img class="" src="../../../assets/momentary_user-page/userimage.gif">
-              </div>
-              <div class="frame-position">
-                <img class="user-frame" src="../../../assets/momentary_user-page/userframe.png">
-              </div>
-            </div>
-          </div>
-
-          <div class="user-persona col-5 p-0">
-            <div class="container">
-              <span class="persona-section1 row">
-                <h2 class="username m-0">{{user.user.username}}</h2>
-                <h4 class="nationality ellipsis m-0">Catania, Sicilia, Italy</h4>
-              </span>
-              <span class="persona-section2 row">
-                <h4 class="description mt-4">{{user.user.description}}.</h4>
-              </span>
-            </div>
-
-          </div>
-
-          <div class="user-badges col-3">
-            <div class="d-flex flex-wrap">
-              <div class="col-8 w-auto">
-                <h2 class="m-0"> Level </h2>
-              </div>
-              <div class="col-4 justify-content-center d-flex">
-                <h2 class="m-0 level-border leveldiv px-3">  {{user.user.level}} </h2>
-              </div>
-            </div>
-            <div class="favourite-achievement-slot mt-3">
-              <img src="../../../assets/momentary_user-page/10_54.png">
-              <div class="favourite_badge_description">Adept Accumulator</div>
-              <div class="xp">175 XP</div>
-            </div>
-            <div class="edit-profile">
-              <div class="edit-button">
-                <span class="edit">Edit Profile</span>
-              </div>
-
-            </div>
-          </div>
-
-          <div class="profile_content_inner">
-            <div class="row">
-              <div class="profile_leftcol col-8 pt-4 ps-4">
-
-                <div class="recent-activity-box">
-                  <div class="leftcol-header pb-1">
-                    <h3 class="m-0">Recent Activity</h3>
-                  </div>
-                  <div class="recent-activity-box">
-                    <div class="RecentActivity-Content">
-                      <div *ngFor="let game of" class="Game-Activity-Box">
-                        <div class="GameBox-Content row">
-                          <div class="col-4 m-2">
-                            <img class="RecentGame-Img" [src]="game.images[0]?.image_path">
-                          </div>
-                          <div class="col-3 mt-2 ml-1">
-                            <div class="Game-Title">{{ game.name }}</div>
-                          </div>
-                          <div class="col m-2 playtime"> 164 hrs on record</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="Comments">
-                  <div class="leftcol-header pb-1">
-                    <h3 class="m-0">Comments</h3>
-                  </div>
-                  <div class="Comments-Box">
-                    <img class="memeimg" src="../../../assets/momentary_user-page/maxresdefault.jpg">
-                  </div>
-                </div>
-              </div>
-
-              <div class="profile_rightcol col-4 pt-4">
-                <div class="rightcol-box">
-                  <div class="user-status">
-                    <div>Currently Online</div>
-                  </div>
-                  <div class="link-area">
-                    <div class="profile-count-link ellipsis">
-                      <span class="link">Games</span>
-                      <span class="total">{{user.library_count}}</span>
-                    </div>
-                    <div class="profile-count-link ellipsis link"> Inventory </div>
-                    <div class="profile-count-link ellipsis link"> Screenshots </div>
-                    <div class="profile-count-link ellipsis link"> Videos </div>
-                    <div class="profile-count-link ellipsis link"> Workshop Items </div>
-                    <div class="profile-count-link ellipsis link">
-                      <span class="link">Reviews</span>
-                      <span class="total">{{user.reviews_count}}</span>
-                    </div>
-                    <div class="profile-count-link ellipsis link"> Guides </div>
-                    <div class="profile-count-link ellipsis link"> Artwork </div>
-                    <div class="profile-count-link ellipsis">
-                      <span class="link">Friends</span>
-                      <span class="total">{{user.friendships_count}}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-        </div>
-        <div class="row">
-
-        </div>
-
-      </div>
-    </div>
-
-    <div class="col column p-0">
-    </div>
-  </div>
-
-
-</div>
- -->
