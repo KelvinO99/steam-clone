@@ -14,7 +14,6 @@ class SystemRequirementsSeeder extends Seeder
         $no_characteristics = 6;
         $no_additional_characteristics = 6;
 
-        //finisce con 10 tutto ok!!
         $os = (1 * $no_characteristics) + 1; //7
         $cpu = (2 * $no_characteristics) + 1; //13
         $ram = (3 * $no_characteristics) + 1; //19

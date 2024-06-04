@@ -161,14 +161,6 @@ class ImagesSeeder extends Seeder
                         ]);
             }
         }
-
-
-
-        // DB::table('images')
-        //     ->where('id', 1)
-        //     ->delete([
-        //         ''
-        //     ]);
     }
 }
 

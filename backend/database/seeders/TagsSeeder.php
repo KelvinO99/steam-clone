@@ -100,7 +100,6 @@ class TagsSeeder extends Seeder
             DB::table('tags')->insert([
                 'name' => $names[$i],//PLACEHOLDER RNGNAME FROM ARRAY
                 'is_genre' => $isgenre[$i],
-                //'image_id' => 1, //DA CAMBIARE AL PIU' PRESTO
             ]);
         }
     }
