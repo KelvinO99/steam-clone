@@ -10,16 +10,6 @@ use Carbon\Carbon;
 
 class GamesTagsSeeder extends Seeder
 {
-    /*public function run(): void
-    {
-        for($i=0;$i<19;$i++)
-        {
-            DB::table('games_tags')->insert([
-                'game_id' => rand(1,19),//PLACEHOLDER RNG
-                'tag_id' => rand(1,19),//PLACEHOLDER RNG
-            ]);
-        }
-    }*/
     public function run(): void
     {
         DB::table('games_tags')->insert([
@@ -74,10 +64,6 @@ class GamesTagsSeeder extends Seeder
             'game_id' => '6',
             'tag_id' => '1',
         ]);
-        /*DB::table('games_tags')->insert([
-            'game_id' => '6',
-            'tag_id' => '21',
-        ]);*/
         DB::table('games_tags')->insert([
             'game_id' => '7',
             'tag_id' => '1',
@@ -138,10 +124,6 @@ class GamesTagsSeeder extends Seeder
             'game_id' => '13',
             'tag_id' => '8',
         ]);
-        /*DB::table('games_tags')->insert([
-            'game_id' => '13',
-            'tag_id' => '21',
-        ]);*/
         DB::table('games_tags')->insert([
             'game_id' => '14',
             'tag_id' => '5',
@@ -239,7 +221,6 @@ class GamesTagsSeeder extends Seeder
             'game_id' => '26',
             'tag_id' => '7',
         ]);
-
         DB::table('games_tags')->insert([
             'game_id' => '27',
             'tag_id' => '1',
@@ -252,7 +233,6 @@ class GamesTagsSeeder extends Seeder
             'game_id' => '27',
             'tag_id' => '14',
         ]);
-
         DB::table('games_tags')->insert([
             'game_id' => '28',
             'tag_id' => '1',
@@ -265,7 +245,6 @@ class GamesTagsSeeder extends Seeder
             'game_id' => '28',
             'tag_id' => '10',
         ]);
-
         DB::table('games_tags')->insert([
             'game_id' => '29',
             'tag_id' => '1',
@@ -278,7 +257,6 @@ class GamesTagsSeeder extends Seeder
             'game_id' => '29',
             'tag_id' => '13',
         ]);
-
         DB::table('games_tags')->insert([
             'game_id' => '30',
             'tag_id' => '2',
@@ -287,7 +265,6 @@ class GamesTagsSeeder extends Seeder
             'game_id' => '30',
             'tag_id' => '16',
         ]);
-
         DB::table('games_tags')->insert([
             'game_id' => '31',
             'tag_id' => '1',
@@ -304,7 +281,6 @@ class GamesTagsSeeder extends Seeder
             'game_id' => '31',
             'tag_id' => '7',
         ]);
-
         DB::table('games_tags')->insert([
             'game_id' => '32',
             'tag_id' => '2',
@@ -317,7 +293,6 @@ class GamesTagsSeeder extends Seeder
             'game_id' => '32',
             'tag_id' => '7',
         ]);
-
         DB::table('games_tags')->insert([
             'game_id' => '33',
             'tag_id' => '1',
@@ -330,7 +305,6 @@ class GamesTagsSeeder extends Seeder
             'game_id' => '33',
             'tag_id' => '15',
         ]);
-
         DB::table('games_tags')->insert([
             'game_id' => '34',
             'tag_id' => '1',
@@ -347,7 +321,6 @@ class GamesTagsSeeder extends Seeder
             'game_id' => '34',
             'tag_id' => '8',
         ]);
-
         DB::table('games_tags')->insert([
             'game_id' => '35',
             'tag_id' => '1',
@@ -360,12 +333,10 @@ class GamesTagsSeeder extends Seeder
             'game_id' => '35',
             'tag_id' => '7',
         ]);
-
         DB::table('games_tags')->insert([
             'game_id' => '36',
             'tag_id' => '4',
         ]);
-
         DB::table('games_tags')->insert([
             'game_id' => '37',
             'tag_id' => '1',
@@ -386,7 +357,6 @@ class GamesTagsSeeder extends Seeder
             'game_id' => '38',
             'tag_id' => '11',
         ]);
-
         DB::table('games_tags')->insert([
             'game_id' => '39',
             'tag_id' => '1',
