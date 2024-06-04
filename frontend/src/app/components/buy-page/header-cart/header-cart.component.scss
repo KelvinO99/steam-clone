@@ -186,3 +186,78 @@
 
     
 }
+
+.modal .modal-dialog .modal-content {
+    background-color: #1b2838;
+    box-shadow: 0 0 5px #000;
+
+    .modal-header {
+        border: initial;
+
+        .modal-title {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: white;
+        }
+
+        .label {
+            text-transform: none;
+            letter-spacing: normal;
+            font-size: 16px !important;
+        }
+    }
+
+
+    /* .modal-body {} */
+
+    .modal-footer {
+        border: initial;
+    }
+}
+
+select {
+    color: white;
+    background-color: rgb(27, 40, 56);
+}
+
+#mat-input-6 {
+    background-color: rgb(27, 40, 56);
+}
+
+textarea {
+    color: white;
+}
+
+mat-stepper {
+    background-color: #1b2838;
+    box-shadow: 0 0 5px #000;
+}
+.save {
+    background: rgba(103, 193, 245, 0.2);
+    color: #67c1f5;
+}
+
+:host ::ng-deep .mat-focus-indicator.mat-stepper-next.mat-button.mat-button-base {
+    background-color: white;
+}
+
+:host ::ng-deep .mat-focus-indicator.mat-stepper-previous.mat-button.mat-button-base {
+    background-color: white;
+}
+
+:host ::ng-deep .mat-step-text-label.ng-star-inserted {
+    color: white;
+}
+
+:host ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-label {
+    color: #67c1f5;
+}
+
+input {
+    color: white;
+}
+
+.ng-tns-c76-1.ng-star-inserted.mat-stepper-vertical {
+    background-color: #1b2838;
+    box-shadow: 0 0 5px #000;
+}
