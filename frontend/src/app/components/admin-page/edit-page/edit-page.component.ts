@@ -42,6 +42,7 @@ export class EditPageComponent {
       discounted_percentage: 0,
       short_description: ['', Validators.minLength(120)],
       long_description: '',
+      pegi_id: 0,
     });
   }
 
@@ -60,6 +61,7 @@ export class EditPageComponent {
             discounted_percentage: this.game.game.discounted_percentage > 0 ? this.game.game.discounted_percentage : 0,
             short_description: this.game.game.short_description,
             long_description: this.game.game.long_description,
+            pegi_id: this.game.game.pegi_id,
           })
         }
       },

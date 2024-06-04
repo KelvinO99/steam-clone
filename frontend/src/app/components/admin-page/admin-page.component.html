@@ -46,8 +46,110 @@
     </div>
 </div>
 
-<!--modale per aggiungere i giochi-->
 <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModal" aria-hidden="true"
+    data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form [formGroup]="addGameForm">
+                <div class="d-flex flex-column header">
+
+                    <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+                        <mat-step [stepControl]="addGameForm">
+                            <form [formGroup]="addGameForm">
+                                <ng-template matStepLabel>Fill out your information</ng-template>
+                                <mat-form-field class="w-100">
+                                    <mat-label> name </mat-label>
+                                    <input matInput formControlName="name">
+                                </mat-form-field>
+
+                                <mat-form-field class="w-100">
+                                    <mat-label> date </mat-label>
+                                    <input type="date" matInput formControlName="date">
+                                </mat-form-field>
+
+                                <mat-form-field>
+                                    <mat-label> Pegi </mat-label>
+                                    <select formControlName="pegi_id" matNativeControl required>
+                                        <option value="18"> 18 </option>
+                                        <option value="16"> 16 </option>
+                                        <option value="12"> 12 </option>
+                                        <option value="7"> 7 </option>
+                                        <option value="3"> 3 </option>
+                                    </select>
+                                </mat-form-field>
+
+                                <div>
+                                    <button mat-button matStepperNext>Next</button>
+                                </div>
+                            </form>
+                        </mat-step>
+                        <mat-step [stepControl]="addGameForm">
+                            <form [formGroup]="addGameForm">
+                                <ng-template matStepLabel>Fill out your description</ng-template>
+                                <mat-form-field class="w-100">
+                                    <mat-label>short description</mat-label>
+                                    <textarea matInput formControlName="short_description"></textarea>
+                                </mat-form-field>
+
+                                <mat-form-field class="w-100">
+                                    <mat-label>long description</mat-label>
+                                    <textarea matInput formControlName="long_description"></textarea>
+                                </mat-form-field>
+                                <div>
+                                    <button class="me-2" mat-button matStepperPrevious>Back</button>
+                                    <button mat-button matStepperNext>Next</button>
+                                </div>
+                            </form>
+                        </mat-step>
+                        <!-- <mat-step [stepControl]="addGameForm">
+                            <form [formGroup]="addGameForm">
+                                <ng-template matStepLabel>Fill out your image</ng-template>
+                                <input type="file" formControlName="game_imgs">
+                                <mat-form-field class="w-100">
+                                    <mat-label>image</mat-label>
+                                    <input typ matInput>
+                                </mat-form-field>
+                                
+                                <div>
+                                    <button class="me-2" mat-button matStepperPrevious>Back</button>
+                                    <button mat-button matStepperNext>Next</button>
+                                </div>
+                            </form>
+                        </mat-step> -->
+                        <mat-step>
+                            <ng-template matStepLabel> Fill out your price </ng-template>
+                            <mat-form-field class="w-100">
+                                <mat-label> base price </mat-label>
+                                <input matInput formControlName="base_price">
+                            </mat-form-field>
+
+                            <mat-form-field class="w-100">
+                                <mat-label> discounted percentage </mat-label>
+                                <input matInput formControlName="discounted_percentage">
+                            </mat-form-field>
+
+                            <mat-form-field class="w-100">
+                                <mat-label> discounted price </mat-label>
+                                <input matInput formControlName="discounted_price">
+                            </mat-form-field>
+
+                            <div>
+                                <span> <button type="button" mat-raised-button class="main-font me-2"
+                                        data-bs-dismiss="modal" (click)="close()"> Close </button> </span>
+                                <span> <button type="button" mat-raised-button class="main-font save"
+                                        data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#addConfirmModal">
+                                        Save </button> </span>
+                            </div>
+                        </mat-step>
+                    </mat-stepper>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--modale per aggiungere i giochi-->
+<!-- <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModal" aria-hidden="true"
     data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -57,36 +159,6 @@
 
                     <div class="col-6 pe-3 section">
                         <div class="d-flex flex-column header">
-
-                            <div class="col section">
-                                <p class="label"> Name </p>
-                                <input type="text" formControlName="name" placeholder="empty">
-                            </div>
-
-                            <div class="col mt-2 section">
-                                <p class="label"> Date </p>
-                                <input type="date" formControlName="date" placeholder="empty">
-                            </div>
-
-                            <div class="col mt-2 section">
-                                <p class="label"> Short Description </p>
-                                <textarea type="text" formControlName="short_description"
-                                    placeholder="empty"></textarea>
-                            </div>
-
-                            <div class="col mt-2 section">
-                                <p class="label"> Long Description </p>
-                                <textarea type="text" formControlName="long_description" placeholder="empty"></textarea>
-                            </div>
-
-                            <div class="col mt-2 section">
-                                <p class="label"> Pegi Id </p>
-                                <p> <select formControlName="pegi_id">
-                                        <option selected> 18 </option>
-                                        <option> 12 </option>
-                                        <option> 7 </option>
-                                        <option> 3 </option>
-                                    </select> </p>
                             </div>
 
                         </div>
@@ -126,7 +198,7 @@
             </form>
         </div>
     </div>
-</div>
+</div> -->
 
 <!--struttura pagina admin-->
 <div class="container-fluid admin-page-container">
@@ -153,7 +225,7 @@
                                     <div class="d-flex flex-wrap align-items-center p-1 header">
 
                                         <div class="col-4 section">
-                                            <input class="py-1 input" type="search"
+                                            <input class="py-1 input" type="search" [(ngModel)]="searchText"
                                                 placeholder="enter search term or tag">
                                         </div>
 
@@ -340,12 +412,32 @@
                                                 data-bs-parent="#accordionFeature">
                                                 <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
                                                         class="label">
-                                                        Special Offers </span>
+                                                        Additional High-Quality Audio </span>
                                                 </p>
                                                 <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
                                                         class="label">
-                                                        Hide to free to play
-                                                        items </span> </p>
+                                                        Steam Achievements </span> </p>
+                                                <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
+                                                        class="label">
+                                                        Tracked Controller Support </span> </p>
+                                                <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
+                                                        class="label">
+                                                        Steam Trading Cards </span> </p>
+                                                <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
+                                                        class="label">
+                                                        Caption available</span> </p>
+                                                <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
+                                                        class="label">
+                                                        Steam WorkShop </span> </p>
+                                                <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
+                                                        class="label">
+                                                        SteamVR Collectibles </span> </p>
+                                                <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
+                                                        class="label">
+                                                        Steam Cloud </span> </p>
+                                                <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
+                                                        class="label">
+                                                        Valve Anti-Cheat anabled </span> </p>
                                             </div>
                                         </div>
                                     </div>
@@ -365,12 +457,23 @@
                                                 data-bs-parent="#accordionController">
                                                 <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
                                                         class="label">
-                                                        Special Offers </span>
+                                                        Gamepad Prefered </span>
                                                 </p>
                                                 <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
                                                         class="label">
-                                                        Hide to free to play
-                                                        items </span> </p>
+                                                        Full Controller Support </span> </p>
+                                                <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
+                                                        class="label">
+                                                        Xbox Controller Support </span> </p>
+                                                <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
+                                                        class="label">
+                                                        DualShock Controller Support </span> </p>
+                                                <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
+                                                        class="label">
+                                                        DualSense Controller Support </span> </p>
+                                                <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
+                                                        class="label">
+                                                        Steam Input API Support </span> </p>
                                             </div>
                                         </div>
                                     </div>
@@ -390,12 +493,11 @@
                                                 data-bs-parent="#accordionSteamDeck">
                                                 <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
                                                         class="label">
-                                                        Special Offers </span>
+                                                        Verified </span>
                                                 </p>
                                                 <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
                                                         class="label">
-                                                        Hide to free to play
-                                                        items </span> </p>
+                                                        Playable </span> </p>
                                             </div>
                                         </div>
                                     </div>
@@ -415,12 +517,11 @@
                                                 data-bs-parent="#accordionVR">
                                                 <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
                                                         class="label">
-                                                        Special Offers </span>
+                                                        VR Only </span>
                                                 </p>
                                                 <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
                                                         class="label">
-                                                        Hide to free to play
-                                                        items </span> </p>
+                                                        VR Supported </span> </p>
                                             </div>
                                         </div>
                                     </div>
@@ -440,12 +541,14 @@
                                                 data-bs-parent="#accordionOS">
                                                 <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
                                                         class="label">
-                                                        Special Offers </span>
+                                                        Windows </span>
                                                 </p>
                                                 <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
                                                         class="label">
-                                                        Hide to free to play
-                                                        items </span> </p>
+                                                        MacOS </span> </p>
+                                                <p class="px-2 checkbox"> <input class="check" type="checkbox"> <span
+                                                        class="label">
+                                                        SteamOS + Linux </span> </p>
                                             </div>
                                         </div>
                                     </div>

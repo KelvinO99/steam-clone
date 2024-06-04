@@ -13,6 +13,8 @@ export class BodyDataGameComponent {
   @Input() game!: any;
   @Input() systemRequirements!: any;
   languages!: any;
+  username!: any;
+  role!: any;
   offset = 1;
 
   constructor(public route: ActivatedRoute, public languageService: LanguageService, public authService: AuthService){}
@@ -21,6 +23,15 @@ export class BodyDataGameComponent {
   ngOnInit() {
     this.routeId = this.route.snapshot.params['id'];
     this.showGameLanguages();
+
+    this.authService.loggedIn$.subscribe((loggedIn) => {
+      if (loggedIn) {
+        this.username = localStorage.getItem('user_profile_username');
+        this.role = localStorage.getItem('role');
+      } else {
+        this.username = null;
+      }
+    });
   }
   
   showGameLanguages() {
