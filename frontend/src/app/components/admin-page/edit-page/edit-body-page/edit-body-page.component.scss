@@ -52,13 +52,14 @@
 
                             .header {
                                 background: initial;
+
                                 .price-section {
                                     .header {
                                         .section {
 
                                             background-image: initial;
                                             background-color: initial;
-        
+
                                             .percentage-price {
                                                 border-radius: 1px;
                                                 background: #4c6b22;
@@ -70,7 +71,7 @@
                                                 border-top-left-radius: 3px;
                                                 border-bottom-left-radius: 3px;
                                             }
-        
+
                                             .base-price {
                                                 background-color: black;
                                                 color: white;
@@ -78,17 +79,17 @@
                                                 border-bottom-left-radius: 3px;
                                             }
                                         }
-        
+
                                         .section:nth-child(2) {
                                             background-color: #344654;
                                             border-radius: 0% !important;
-        
+
                                             .discounted-price {
-        
+
                                                 font-size: 11px;
                                                 line-height: 16px;
                                                 font-family: Arial, Helvetica, sans-serif;
-        
+
                                                 .label:nth-child(1) {
                                                     font-size: inherit;
                                                     line-height: 12px;
@@ -96,7 +97,7 @@
                                                     text-decoration: line-through;
                                                     font-family: Arial, Helvetica, sans-serif;
                                                 }
-        
+
                                                 .label:last-child {
                                                     font-size: 15px;
                                                     font-family: Arial, Helvetica, sans-serif;
@@ -104,7 +105,7 @@
                                                 }
                                             }
                                         }
-        
+
                                         .section:last-child {
                                             background: linear-gradient(to right, #75b022 5%, #588a1b 95%);
                                             color: #d2efa9;
@@ -113,21 +114,22 @@
                                             border-bottom-right-radius: 3px;
                                             border-style: solid;
                                             border-color: black;
-        
+
                                             &:hover {
                                                 cursor: pointer;
                                                 color: white;
                                             }
-        
+
                                             .label {
                                                 font-size: 15px;
                                                 color: inherit;
                                                 text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
                                             }
-                                        } 
+                                        }
                                     }
                                 }
-                               /* background-color: #000;
+
+                                /* background-color: #000;
                                 background-image: initial;
 
                                 */
@@ -349,6 +351,9 @@
                             font-family: Arial, Helvetica, sans-serif;
                             font-weight: normal;
                             padding-left: 0.5rem;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
 
                             &:hover {
                                 background: linear-gradient(135deg, #67c1f5 0%, #417a9b 100%);

@@ -29,13 +29,13 @@ div.price {
 
 .title {
     color: #c7d5e0;
-    font-size: 13px;
+    font-size: clamp(7px, 0.846vw, 13px);
 }
 
 .price {
     color: #BEEE11;
     line-height: 16px;
-    font-size: 13px;
+    font-size: clamp(7px, 0.846vw, 13px);
 }
 
 img.opacity {
@@ -55,7 +55,7 @@ span.tags {
 
 span.free {
     color: white;
-    font-size: 14px;
+    font-size: clamp(7px, 0.911vw, 14px);
 }
 
 span.discount {
@@ -104,13 +104,6 @@ span.basePrice {
         }
     }
 }
-
-/* @media only screen and (max-width: 1320px) {
-    .game-table-container,
-    .content-container {
-      width: max-content;
-    }
-  } */
 
 .button-label {
     font-size: 14px;

@@ -1,49 +1,51 @@
 <!--Modale di conferma delle modifiche-->
-<div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModal" aria-hidden="true"
-    data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog">
+<div class="modal fade" id="confirmModal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <form [formGroup]="gameForm">
-                <div class="d-flex p-2 flex-column header">
-
-
-                    <div class="col section">
-                        <p class="label"> are you sure you want to confirm the changes? </p>
-                    </div>
-
-                    <div class="col mt-2 section">
-                        <span class="me-2"> <button data-bs-dismiss="modal" (click)="updateGame()"> Yes
-                            </button> </span>
-                        <span> <button data-bs-dismiss="modal" (click)="close()"> No </button> </span>
-                    </div>
-                </div>
-            </form>
+            <div class="modal-header py-0 py-2">
+                <p class="modal-title label fs-5" id="exampleModalLabel"> are you sure you want to confirm the changes?
+                </p>
+            </div>
+            <img class="ps-3" src="https://store.akamai.steamstatic.com/public/images/v6/maincol_gradient_rule.png">
+            <div class="modal-footer">
+                <span> <button type="button" mat-raised-button class="main-font" data-bs-dismiss="modal"
+                        (click)="close()"> No </button> </span>
+                <span> <button type="button" mat-raised-button class="main-font save" data-bs-dismiss="modal"
+                        data-bs-toggle="modal" data-bs-target="#confirmModal" (click)="updateGame()"> Yes </button>
+                </span>
+                <!-- function al click -->
+            </div>
         </div>
     </div>
 </div>
 
 <!--Edit del Titolo-->
-<div class="modal fade" id="editTitleModal" tabindex="-1" aria-labelledby="editTitleModal" aria-hidden="true"
-    data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog">
+<div class="modal fade" id="editTitleModal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <form [formGroup]="gameForm">
-                <div class="d-flex p-2 flex-column header">
+            <div class="modal-header py-0 py-2">
+                <h1 class="modal-title fs-5" id="exampleModalLabel"> Edit </h1>
+            </div>
+            <img class="ps-3" src="https://store.akamai.steamstatic.com/public/images/v6/maincol_gradient_rule.png">
+            <div class="modal-body">
+                <form class="d-flex flex-column" [formGroup]="gameForm">
+                    <mat-form-field class="w-100">
+                        <mat-label> Name </mat-label>
+                        <input matInput formControlName="name" type="text">
+                    </mat-form-field>
 
-
-                    <div class="col section">
-                        <p class="label"> Name </p>
-                        <input type="text" value="{{game?.game.name}}" formControlName="name">
-                    </div>
-
-                    <div class="col mt-2 section">
-                        <span class="me-2"> <button data-bs-dismiss="modal" data-bs-toggle="modal"
-                                data-bs-target="#confirmModal"> Update
-                            </button> </span>
-                        <span> <button data-bs-dismiss="modal" (click)="close()"> Close </button> </span>
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
+            <img class="ps-3" src="https://store.akamai.steamstatic.com/public/images/v6/maincol_gradient_rule.png">
+            <div class="modal-footer">
+                <span> <button type="button" mat-raised-button class="main-font" data-bs-dismiss="modal"
+                        (click)="close()"> Close </button> </span>
+                <span> <button type="button" mat-raised-button class="main-font save" data-bs-dismiss="modal"
+                        data-bs-toggle="modal" data-bs-target="#confirmModal"> Save </button> </span>
+                <!-- function al click -->
+            </div>
         </div>
     </div>
 </div>
@@ -54,9 +56,51 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <form [formGroup]="gameForm">
-                <div class="d-flex p-2 flex-column header">
+                <div class="d-flex flex-column header">
 
-                    <div class="col section">
+                    <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+                        <mat-step [stepControl]="gameForm">
+                            <form [formGroup]="gameForm">
+                                <ng-template matStepLabel>Fill out your base price</ng-template>
+                                <mat-form-field class="w-100">
+                                    <mat-label> base price </mat-label>
+                                    <input matInput formControlName="base_price">
+                                </mat-form-field>
+                                <div>
+                                    <button mat-button matStepperNext>Next</button>
+                                </div>
+                            </form>
+                        </mat-step>
+                        <mat-step [stepControl]="gameForm">
+                            <form [formGroup]="gameForm">
+                                <ng-template matStepLabel>Fill out your scount</ng-template>
+                                <mat-form-field class="w-100">
+                                    <mat-label>scount</mat-label>
+                                    <input matInput formControlName="discounted_percentage">
+                                </mat-form-field>
+                                <div>
+                                    <button class="me-2" mat-button matStepperPrevious>Back</button>
+                                    <button mat-button matStepperNext>Next</button>
+                                </div>
+                            </form>
+                        </mat-step>
+                        <mat-step>
+                            <ng-template matStepLabel> Fill out your discounted price </ng-template>
+                            <mat-form-field class="w-100">
+                                <mat-label> discounted price </mat-label>
+                                <input matInput formControlName="discounted_price">
+                            </mat-form-field>
+                            <div>
+                                <span> <button type="button" mat-raised-button class="main-font me-2"
+                                        data-bs-dismiss="modal" (click)="close()"> Close </button> </span>
+                                <span> <button type="button" mat-raised-button class="main-font save"
+                                        data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#confirmModal">
+                                        Save </button> </span>
+                            </div>
+                        </mat-step>
+                    </mat-stepper>
+
+                    <!--   <div class="col section">
                         <p class="m-0 label"> Base Price </p>
                         <input class="mb-3" type="number" value="{{game?.game?.base_price}}"
                             formControlName="base_price">
@@ -72,7 +116,7 @@
                         <span class="me-2"> <button data-bs-dismiss="modal" data-bs-toggle="modal"
                                 data-bs-target="#confirmModal"> Update </button> </span>
                         <span> <button data-bs-dismiss="modal" (click)="close()"> Close </button> </span>
-                    </div>
+                    </div> -->
                 </div>
             </form>
         </div>
@@ -80,54 +124,61 @@
 </div>
 
 <!--Edit della descrizione corta-->
-<div class="modal fade" id="editShortDescriptionModal" tabindex="-1" aria-labelledby="editShortDescriptionModal"
-    aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog">
+<div class="modal fade" id="editShortDescriptionModal" tabindex="-1" data-bs-backdrop="static"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <form [formGroup]="gameForm">
-                <div class="d-flex p-2 flex-column header">
+            <div class="modal-header py-0 py-2">
+                <h1 class="modal-title fs-5" id="exampleModalLabel"> Edit </h1>
+            </div>
+            <img class="ps-3" src="https://store.akamai.steamstatic.com/public/images/v6/maincol_gradient_rule.png">
+            <div class="modal-body">
+                <form class="d-flex flex-column" [formGroup]="gameForm">
+                    <mat-form-field class="w-100">
+                        <mat-label> Short Description </mat-label>
+                        <textarea matInput formControlName="short_description" type="text"></textarea>
+                    </mat-form-field>
 
-
-                    <div class="col section">
-                        <p class="label"> Short description </p>
-                        <textarea type="text" minlength="120" maxlength="165" value="{{game?.game?.short_description}}"
-                            formControlName="short_description"></textarea>
-                    </div>
-
-                    <div class="col mt-2 section">
-                        <span class="me-2"> <button data-bs-dismiss="modal" data-bs-toggle="modal"
-                                data-bs-target="#confirmModal"
-                                [disabled]="gameForm.controls['short_description'].invalid"> Update </button> </span>
-                        <span> <button data-bs-dismiss="modal" (click)="close()"> Close </button> </span>
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
+            <img class="ps-3" src="https://store.akamai.steamstatic.com/public/images/v6/maincol_gradient_rule.png">
+            <div class="modal-footer">
+                <span> <button type="button" mat-raised-button class="main-font" data-bs-dismiss="modal"
+                        (click)="close()"> Close </button> </span>
+                <span> <button type="button" mat-raised-button class="main-font save" data-bs-dismiss="modal"
+                        data-bs-toggle="modal" data-bs-target="#confirmModal"> Save </button> </span>
+                <!-- function al click -->
+            </div>
         </div>
     </div>
 </div>
 
 <!--Edit della descrizione lunga-->
-<div class="modal fade" id="editLongDescriptionModal" tabindex="-1" aria-labelledby="editLongDescriptionModal"
-    aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog">
+<div class="modal fade" id="editLongDescriptionModal" tabindex="-1" data-bs-backdrop="static"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <form [formGroup]="gameForm">
-                <div class="d-flex p-2 flex-column header">
+            <div class="modal-header py-0 py-2">
+                <h1 class="modal-title fs-5" id="exampleModalLabel"> Edit </h1>
+            </div>
+            <img class="ps-3" src="https://store.akamai.steamstatic.com/public/images/v6/maincol_gradient_rule.png">
+            <div class="modal-body">
+                <form class="d-flex flex-column" [formGroup]="gameForm">
+                    <mat-form-field class="w-100">
+                        <mat-label> Long Description </mat-label>
+                        <textarea matInput formControlName="long_description" type="text"></textarea>
+                    </mat-form-field>
 
-
-                    <div class="col section">
-                        <p class="label"> Long description </p>
-                        <textarea type="text" value="{{game?.game?.long_description}}"
-                            formControlName="long_description"></textarea>
-                    </div>
-
-                    <div class="col mt-2 section">
-                        <span class="me-2"> <button data-bs-dismiss="modal" data-bs-toggle="modal"
-                                data-bs-target="#confirmModal"> Update </button> </span>
-                        <span> <button data-bs-dismiss="modal" (click)="close()"> Close </button> </span>
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
+            <img class="ps-3" src="https://store.akamai.steamstatic.com/public/images/v6/maincol_gradient_rule.png">
+            <div class="modal-footer">
+                <span> <button type="button" mat-raised-button class="main-font" data-bs-dismiss="modal"
+                        (click)="close()"> Close </button> </span>
+                <span> <button type="button" mat-raised-button class="main-font save" data-bs-dismiss="modal"
+                        data-bs-toggle="modal" data-bs-target="#confirmModal"> Save </button> </span>
+                <!-- function al click -->
+            </div>
         </div>
     </div>
 </div>
@@ -200,6 +251,41 @@
 
                 </div>
             </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editPegi" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header py-0 py-2">
+                <h1 class="modal-title fs-5" id="exampleModalLabel"> Edit </h1>
+            </div>
+            <img class="ps-3" src="https://store.akamai.steamstatic.com/public/images/v6/maincol_gradient_rule.png">
+            <div class="modal-body">
+                <form class="d-flex flex-column" [formGroup]="gameForm">
+                    <mat-form-field>
+                        <mat-label> Pegi </mat-label>
+                        <select formControlName="pegi_id" matNativeControl required>
+                            <option value="18"> 18 </option>
+                            <option value="16"> 16 </option>
+                            <option value="12"> 12 </option>
+                            <option value="7"> 7 </option>
+                            <option value="3"> 3 </option>
+                        </select>
+                    </mat-form-field>
+
+                </form>
+            </div>
+            <img class="ps-3" src="https://store.akamai.steamstatic.com/public/images/v6/maincol_gradient_rule.png">
+            <div class="modal-footer">
+                <span> <button type="button" mat-raised-button class="main-font" data-bs-dismiss="modal"
+                        (click)="close()"> Close </button> </span>
+                <span> <button type="button" mat-raised-button class="main-font save" data-bs-dismiss="modal"
+                        data-bs-toggle="modal" data-bs-target="#confirmModal"> Save </button> </span>
+                <!-- function al click -->
+            </div>
         </div>
     </div>
 </div>

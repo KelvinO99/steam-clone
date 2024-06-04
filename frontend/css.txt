@@ -141,3 +141,8 @@ Ordine delle regole
 
     Altro:
         Tutti gli altri attributi CSS che non rientrano nelle categorie precedenti.
+
+
+RESPONSIVE DESIGN
+font size responsive:
+clamp(minimum, preferred, maximum);
