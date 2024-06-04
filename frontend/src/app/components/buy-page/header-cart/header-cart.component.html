@@ -1,3 +1,21 @@
+<div class="modal fade" id="purchase" tabindex="-1" data-bs-backdrop="static" aria-labelledby="purchase"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header py-0 py-2">
+                <p class="modal-title label fs-5" id="exampleModalLabel"> 
+                    Thank you for your purchase!
+                </p>
+            </div>
+            <img class="ps-3" src="https://store.akamai.steamstatic.com/public/images/v6/maincol_gradient_rule.png">
+            <div class="modal-footer">
+                <span> <button type="button" mat-raised-button class="main-font" data-bs-dismiss="modal"> No </button> </span>
+                <!-- function al click -->
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container header-cart-container">
     <div class="d-flex flex-column header">
         <div class="col mt-4 section">
@@ -75,7 +93,7 @@
                         <div class="col section">
                             <p class="justify-content-between d-flex boxtitle"> <span> Estimated Total </span> <span class="purchase-price">  {{game?.game?.discounted_price.toFixed(2) + "€"}} </span> </p>
                             <p class="pt-2 pb-2 purchase-caption"> Sales tax will be calculated during checkout where applicable </p>
-                            <p class="d-flex justify-content-center"> <button class=" purchasebutton mt-2  w-100"> Purchase </button> </p>
+                            <p class="d-flex justify-content-center"> <button class=" purchasebutton mt-2  w-100" data-bs-toggle="modal" data-bs-target="#purchase"> Purchase </button> </p>
                         </div>
                     </div>
                 </div>
