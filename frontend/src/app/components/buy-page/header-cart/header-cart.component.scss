@@ -5,44 +5,63 @@
     
     mat-card {
         background: rgba(0, 0, 0, 0.2);
-    
-        mat-card-content .mat-card-content-container {
-            &:hover {
-                background: rgba(0, 0, 0, 0.4);
-                cursor: pointer;
-            }
-        }
+        height: 144px ;
     }
     
     
+    .home{
+        color: white;
+        cursor: pointer;
+
+    }
+
+    .second{
+        color: #56707f;
+    }
+
+    .caption{
+        color: white;
+        font-weight: 800;
+        margin-top: 5px;
+    }
+
+
     div.price {
         padding-right: 15px !important;
     }
     
     .title {
-        color: #c7d5e0;
-        font-size: clamp(7px, 0.846vw, 13px);
+        position: relative;
+        left: 25px;
+        font-size: 16px;
+        line-height: 20px;
+        color: #fff;
+        font-weight: 500
+        
     }
     
     .price {
         color: #BEEE11;
         line-height: 16px;
         font-size: clamp(7px, 0.846vw, 13px);
+        position: relative;
+        top: 60px;
+        left: 20px;
     }
     
     img.opacity {
-        opacity: 0.3;
+        opacity: 1;
+        position: relative;
+        left: 25px;
     }
     
     .image {
-        width: 100%;
-        height: 4rem;
-        object-fit: cover;
-    }
-    
-    span.tags {
-        color: #384959;
-        font-size: 12px;
+        max-width: 100%;
+        height: 93px;
+        width: 200px;
+        position: relative;
+        left: 20px;
+        top: 20px;
     }
     
     span.free {
@@ -51,25 +70,14 @@
     }
     
     span.discount {
-        font-size: 14px;
-        color: #BEEE11;
+        font-size: 16px;
+        color: white;
     }
     
     span.basePriceDiscount {
         color: #738895;
-        font-size: 11px;
+        font-size: 13px;
         text-decoration: line-through
-    }
-    
-    div.discountPercentage {
-        font-size: 16px;
-        align-items: center;
-        display: flex;
-        padding: 0 4px;
-        border-radius: 1px;
-        font-weight: 500;
-        color: #BEEE11;
-        background: #4c6b22;
     }
     
     span.basePrice {
@@ -112,6 +120,66 @@
             background-color: #2a475e;
             color: white;
         }
+    }
+
+
+    .purchasebox{
+        background-color: #15202E;
+        border-radius: 4px;
+    }
+
+    .boxtitle{
+        color: white;    
+    }
+    
+    .purchase-caption{
+        color: #c6d4df;
+        font-size: 12px;
+    }
+
+    .purchasebutton{
+        padding: 5px;
+        background-color: #007bff;
+        border: none;
+        color: white;
+        cursor: pointer;
+        border-radius: 3pxx ;
+
+    &:hover {
+      background: linear-gradient(to right, #47bfff 0%, #1a44c2 60%);
+      background-position: 25%;
+      background-size: 330% 100%;
+    }
+    }
+
+    .Continue-Shopping{
+        box-sizing: content-box;
+    border: 0;
+    font: inherit;
+    overflow: visible;
+    padding: 0;
+    margin: 2px 0;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    display: block;
+    line-height: 32px;
+    color: #dfe3e6;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 2px;
+    cursor: pointer;
+    width: 100%;
+    transition-property: opacity, background, color, box-shadow;
+    transition-duration: .2s;
+    transition-timing-function: ease-out;
+    background: #3d4450;
+    background-position: 99% 1%;
+    background-size: 300% 300%;
+    position: relative;
+    width: 172px;
+    margin-top: 10px;
     }
 
     
