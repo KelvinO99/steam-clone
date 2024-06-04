@@ -13,6 +13,7 @@ import { UserPageComponent } from './components/user-page/user-page.component';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
 import { EditPageComponent } from './components/admin-page/edit-page/edit-page.component';
 import { FederipComponent } from './components/federip/federip.component';
+import { BuyPageComponent } from './components/buy-page/buy-page.component';
 
 const routes: Routes = [
 
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'admin', component: AdminPageComponent, canActivate: [AuthGuard]},
   { path: 'admin/edit-page/:id', component: EditPageComponent, canActivate: [AuthGuard]},
   {path: 'federip', component: FederipComponent},
+  {path: 'buy-page/:id', component: BuyPageComponent}
 ];
 
 
