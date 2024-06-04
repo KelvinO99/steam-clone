@@ -31,7 +31,7 @@ const routes: Routes = [
   { path: 'admin', component: AdminPageComponent, canActivate: [AuthGuard]},
   { path: 'admin/edit-page/:id', component: EditPageComponent, canActivate: [AuthGuard]},
   {path: 'federip', component: FederipComponent},
-  {path: 'buy-page/:id', component: BuyPageComponent}
+  {path: 'cart/:id', component: BuyPageComponent}
 ];
 
 

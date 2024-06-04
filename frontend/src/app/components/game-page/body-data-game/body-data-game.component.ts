@@ -1,7 +1,7 @@
 import { LanguageService } from './../../../shared/services/language.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { Component, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-body-data-game',
@@ -17,7 +17,7 @@ export class BodyDataGameComponent {
   role!: any;
   offset = 1;
 
-  constructor(public route: ActivatedRoute, public languageService: LanguageService, public authService: AuthService){}
+  constructor(public route: ActivatedRoute, public languageService: LanguageService, public authService: AuthService, public router: Router){}
 
 
   ngOnInit() {
@@ -43,6 +43,12 @@ export class BodyDataGameComponent {
       }
     })
   }
+
+  goTo(path: string) {
+    this.router.navigate([path]);
+    console.log(path);
+  }
+
 }
 
 
