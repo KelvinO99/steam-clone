@@ -23,8 +23,3 @@ return new class extends Migration
     }
 };
 
-/*
-    $table->string('PLACEHOLDER_COLUMN_NAME');
-    $table->integer('PLACEHOLDER_COLUMN_NAME');
-    $table->boolean('PLACEHOLDER_COLUMN_NAME');
-*/

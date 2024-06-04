@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             CountriesSeeder::class,
             LanguagesSeeder::class,
             UsersSeeder::class,
-            //FriendshipsSeeder::class,
+            FriendshipsSeeder::class,
             DevelopersSeeder::class,
             LibrariesSeeder::class,
             GamesTagsSeeder::class,

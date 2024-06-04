@@ -142,9 +142,7 @@ class UsersSeeder extends Seeder
             }
 
             $j++;
-
-            // Opcional: Puoi anche rimuovere l'email dall'array se vuoi
-            }
+        }
     }
 }
 }

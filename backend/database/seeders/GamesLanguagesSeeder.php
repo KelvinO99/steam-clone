@@ -13,8 +13,6 @@ class GamesLanguagesSeeder extends Seeder
     public function run(): void
     {
 
-        //implementa catanese/siciliano
-
         for($i=1;$i<=42;$i++)
         {
             DB::table('games_languages')->insert([

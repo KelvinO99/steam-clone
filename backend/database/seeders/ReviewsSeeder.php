@@ -74,10 +74,7 @@ class ReviewsSeeder extends Seeder
             'Filippo.'
         ];
 
-        //$games = Games::all();
-        //$this->call(GamesSeeder::class);
-        //$gameSeeder = GamesSeeder::class;
-
+        
         $const_users = 32;
         $const_rev = (sizeof($positive)+sizeof($negative))*70;
 

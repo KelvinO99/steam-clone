@@ -237,15 +237,6 @@ class GamesController extends Controller
         }])->first();
 
 
-
-        // $devPublish = $game->DevelopersGames->pluck('Developers.is_publisher');
-        // $devName = $game->DevelopersGames->pluck('Developers.User.username');
-        // for ($i = 0; $i < count($devPublish); $i++) {
-        // $dev['isPublisher'] = $devPublish;}
-        //  $dev['username'] = $devName;
-
-
-        //return $game;
     //DEVELOPERS FUNCTION
 
 
@@ -550,7 +541,7 @@ class GamesController extends Controller
                 $request->game_name = $game->name;
                 $imagesController = new ImagesController();
                 $imagesController->store($request);
-            } 
+            }
 
             return response()->json($game, 201);;
 
