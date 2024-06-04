@@ -12,3 +12,32 @@
 .Titolo{
     background-color: white;
 }
+
+.Sottotitolo{
+    text-align: center;
+    color:white;
+}
+
+.raspButtonF{
+    background-color: #ae5cf2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.raspButtonS{
+    background-color: #5c67f2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
