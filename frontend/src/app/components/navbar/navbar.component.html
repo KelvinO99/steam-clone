@@ -42,7 +42,7 @@
                                                     <button class="nav-link label dropdown-toggle"> {{ username }} </button>
                                                     <div class="dropdown-content user-wrapper">
                                                         <p class="label-item mb-1" routerLink="admin" *ngIf="role == 'superadmin'"> Admin access </p>
-                                                        <p class="label-item mb-1" (click)="goTo('../user-page/' + username)"> Show my profile </p>
+                                                        <p class="label-item mb-1" (click)="goTo('../user-page/' + username + '/' + id)"> Show my profile </p>
                                                         <p class="label-item mb-1"> Account details: <span class="user">  {{ username }} </span> </p>
                                                         <p class="label-item mb-1"> Preference of the store </p>
                                                         <p class="label-item mb-1"> View my Wallet </p>
@@ -80,7 +80,7 @@
 
                                             <div class="col-2 pe-3 section">
                                                 <img class="image" routerLink=""
-                                                    src="https://store.cloudflare.steamstatic.com/public/shared/images/header/logo_steam.svg?t=962016">
+                                                    src="../../../assets/momentary_user-page/logo_steam.png">
                                             </div>
 
                                             <div class="col-1 pe-3 section">

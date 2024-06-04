@@ -24,7 +24,7 @@ export class GameService {
     return this.http.get<any>(`${this.APIUrl}games/show/${id}`);
   }
 
-  //aggiornamento del gioco 
+  //aggiornamento del gioco
   updateGame(id: number, updateDataGame: any) {
     return this.http.post<any>(`${this.APIUrl}games/update/${id}`, updateDataGame);
   }

@@ -6,17 +6,16 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { StoreComponent } from './components/store/store.component';
 import { AuthGuard } from './shared/services/auth.guard';
-import { User } from './shared/services/user.service';
 import { CategoryPageComponent } from './components/category-page/category-page.component';
-import { GameTableComponent } from './components/store/game-table/game-table.component';
 import { GameComponent } from './components/game-page/game-page.component';
 import { SteamDeckComponent } from './components/steam-deck/steam-deck.component';
 import { UserPageComponent } from './components/user-page/user-page.component';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
 import { EditPageComponent } from './components/admin-page/edit-page/edit-page.component';
+import { FederipComponent } from './components/federip/federip.component';
 
 const routes: Routes = [
-  
+
   { path: '', redirectTo: 'home/store', pathMatch: 'full' },
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent },
@@ -27,9 +26,10 @@ const routes: Routes = [
   { path: 'game/:id', component: GameComponent},
   { path: 'games/:genre', component: CategoryPageComponent},
   { path: 'steam-deck', component: SteamDeckComponent },
-  { path: 'user-page/:username', component: UserPageComponent, canActivate: [AuthGuard]},
+  { path: 'user-page/:username/:id', component: UserPageComponent, canActivate: [AuthGuard]},
   { path: 'admin', component: AdminPageComponent, canActivate: [AuthGuard]},
-  { path: 'admin/edit-page/:id', component: EditPageComponent, canActivate: [AuthGuard]}
+  { path: 'admin/edit-page/:id', component: EditPageComponent, canActivate: [AuthGuard]},
+  {path: 'federip', component: FederipComponent},
 ];
 
 

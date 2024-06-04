@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { GameService } from 'src/app/shared/services/game.service';
+import { User } from 'src/app/shared/services/user.service';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-page',
@@ -8,26 +9,77 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-page.component.scss']
 })
 export class UserPageComponent implements OnInit {
-  games: any;
+  routeId!: number;
+  user: any;
   skip: number = 0;
   take: number = 4;
 
-  constructor(public gameService: GameService, public router: Router) { }
+  // Variabili per la modale
+  isModalOpen = false;
+  editData = {
+    username: '',
+    description: '',
+    nationality: 'Catania, Sicilia, Italy' // Modifica secondo la tua necessità
+  };
+
+  constructor(public userService: User, public route: ActivatedRoute, public router: Router) { }
 
   ngOnInit() {
-    this.getGames();
+    this.routeId = this.route.snapshot.params['id'];
+    this.getUser();
   }
 
-  getGames() {
-    let params: any = {};
-    params.skip = this.skip;
-    params.take = this.take;
-
-    this.gameService.getGames(params).subscribe({
+  getUser() {
+    this.userService.getUser(this.routeId).subscribe({
       next: (res: any) => {
-        this.games = res.games;
-        console.log(res);  // Questo stamperà la risposta nel console
+        this.user = res;
+        console.log(res);
+
+        // Inizializzare editData con i dati dell'utente
+        this.editData.username = this.user.user.username;
+        this.editData.description = this.user.user.description;
+        this.editData.nationality = this.user.user.nationality || 'Catania, Sicilia, Italy';
       }
     })
   }
+
+  getFirstFourGames() {
+    const uniqueGames = [];
+    const names = new Set();
+
+    for (const game of this.user.library) {
+      if (!names.has(game.name)) {
+        uniqueGames.push(game);
+        names.add(game.name);
+      }
+      if (uniqueGames.length === 4) {
+        break;
+      }
+    }
+
+    return uniqueGames;
+  }
+
+  // Funzioni per la modale
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+  }
+
+  onSubmit() {
+    // Logica per salvare le modifiche
+    this.user.user.username = this.editData.username;
+    this.user.user.description = this.editData.description;
+    this.user.user.nationality = this.editData.nationality;
+    this.closeModal();
+  }
+
+  goTo(path: string) {
+    this.router.navigate([path]);
+    console.log(path);
+  }
+
 }

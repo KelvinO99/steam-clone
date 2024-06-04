@@ -1,43 +1,32 @@
-<div class="container-fluid p-0 all-page">
-  <div class="row">
-    <div class="col p-0 column">
-    </div>
-
-    <div class="col-7 user-page">
-      <div class="profile-header container-fluid p-0 m-0">
-
-        <div class="row profile-header-content container-fluid p-0">
-          <div class="user-images col-3">
-            <div class="container">
-              <div class="user-picture">
-                <img class="" src="../../../assets/momentary_user-page/userimage.gif">
-              </div>
-              <div class="frame-position">
-                <img class="user-frame" src="../../../assets/momentary_user-page/userframe.png">
-              </div>
+<div class="container-fluid p-0 all-page" [style.background-image]="'url(' + user.images[2] + ')'" >
+  <div class="d-flex flex-wrap">
+    <div class="col"></div>
+    <div class="col-8 user-page">
+      <div class="profile-header container-fluid mt-5">
+        <div class="header-content row w-100">
+          <div class="col-3 user-images container">
+            <!-- <img class="user-picture" [src]="user.image[0].image_path"> -->
+            <img class="user-picture" src="../../../assets/momentary_user-page/userimage.gif">
+            <div class="frame-position">
+              <!-- <img class="user-frame"  [src]="user.image[1].image_path" > -->
+              <img class="user-frame" src="../../../assets/momentary_user-page/userframe.png">
             </div>
           </div>
-
-          <div class="user-persona col-5 p-0">
-            <div class="container">
-              <span class="persona-section1 row">
-                <h2 class="username m-0">hidetakeda</h2>
-                <h4 class="nationality ellipsis m-0">Catania, Sicilia, Italy</h4>
-              </span>
-              <span class="persona-section2 row">
-                <h4 class="description mt-4">No information given.</h4>
-              </span>
-            </div>
-
+          <div class="col-5 user-persona">
+            <span class="persona-section1">
+              <h2 class="username">{{user.user.username}}</h2>
+              <h4 class="nationality"><!-- {{user.user.nationality}} -->Catania, Sicilia, Italy</h4>
+            </span>
+            <span class="persona-section2"></span>
+            <span class="description">{{user.user.description}}.</span>
           </div>
-
-          <div class="user-badges col-3">
+          <div class="col-4 user-badges">
             <div class="d-flex flex-wrap">
               <div class="col-8 w-auto">
                 <h2 class="m-0"> Level </h2>
               </div>
               <div class="col-4 justify-content-center d-flex">
-                <h2 class="m-0 level-border leveldiv px-3"> 6 </h2>
+                <h2 class="m-0 level-border leveldiv px-3"> {{user.user.level}} </h2>
               </div>
             </div>
             <div class="favourite-achievement-slot mt-3">
@@ -47,94 +36,103 @@
             </div>
             <div class="edit-profile">
               <div class="edit-button">
-                <span class="edit">Edit Profile</span>
+                <span class="edit" (click)="openModal()">Edit Profile</span>
               </div>
-
+            </div>
+            <!-- Struttura della modale -->
+            <div class="modal" [ngClass]="{'show': isModalOpen}">
+              <div class="modal-content">
+                <span class="close d-flex justify-content-end" (click)="closeModal()">&times;</span>
+                <h2 class="modal-title">Edit Profile</h2>
+                <form (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" [(ngModel)]="editData.username" name="username">
+                  </div>
+                  <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea id="description" [(ngModel)]="editData.description" name="description"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="nationality">Nationality:</label>
+                    <input type="text" id="nationality" [(ngModel)]="editData.nationality" name="nationality">
+                  </div>
+                  <button type="submit">Save Changes</button>
+                </form>
+              </div>
             </div>
           </div>
-
-          <div class="profile_content_inner">
-            <div class="row">
-              <div class="profile_leftcol col pt-4 ps-4">
-
-                <div class="Recent-Activity-Box">
-                  <div class="leftcol-header pb-1">
-                    <h3 class="m-0">Recent Activity</h3>
-                  </div>
-                  <div class="recent-activity-box">
-                    <div class="RecentActivity-Content">
-                      <div *ngFor="let game of games" class="Game-Activity-Box">
-                        <div class="GameBox-Content row">
-                          <div class="col-4 m-2">
-                            <img class="RecentGame-Img" [src]="game.images[0]?.image_path">
-                          </div>
-                          <div class="col-3 mt-2 ml-1">
-                            <div class="Game-Title">{{ game.name }}</div>
-                          </div>
-                          <div class="col m-2 playtime"> 164 hrs on record</div>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="profile_content_inner">
+          <div class="row w-100">
+            <div class="profile_leftcol col-8 pt-4 pl-3">
+              <div class="recent-activity-box">
+                <div class="leftcol-header pb-1">
+                  <h3 class="m-0">Recent Activity</h3>
+                </div>
+                <div class="recent-activity-box">
+                  <div class="RecentActivity-Content">
+                    <div *ngFor="let item of getFirstFourGames()" class="Game-Activity-Box">
+                      <div class="GameBox-Content row">
+                        <div class="col-4 m-2">
+                          <img class="RecentGame-Img" [src]="item.image_path">
                         </div>
+                        <div class="col-3 mt-2 ml-1">
+                          <div class="Game-Title">{{item.name}}</div>
+                        </div>
+                        <div class="col m-2 playtime"> {{item.time_played}} hrs on record</div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="Comments">
-                  <div class="leftcol-header pb-1">
-                    <h3 class="m-0">Comments</h3>
-                  </div>
-                  <div class="Comments-Box">
-                    <img class="memeimg" src="../../../assets/momentary_user-page/maxresdefault.jpg">
-                  </div>
+              </div>
+              <div class="Comments">
+                <div class="leftcol-header pb-1">
+                  <h3 class="m-0">Comments</h3>
+                </div>
+                <div class="Comments-Box">
+                  <img class="memeimg" src="../../../assets/momentary_user-page/maxresdefault.jpg">
                 </div>
               </div>
-
-              <div class="profile_rightcol col-3 pt-4">
+            </div>
+            <div id="rightcol" class="profile_rightcol col-4 pt-4">
+            
                 <div class="rightcol-box">
                   <div class="user-status">
-                    <div>Currently Offline</div>
-                    <h4 class="last-online">Last Online 39 hrs, 32 mins ago</h4>
-
+                    <div>Currently Online</div>
                   </div>
                   <div class="link-area">
                     <div class="profile-count-link ellipsis">
-                      <span class="link">Badges</span>
-                      <span class="total">6</span>
-                    </div>
-                    <div class="profile-count-link ellipsis">
                       <span class="link">Games</span>
-                      <span class="total">18</span>
+                      <span class="total">{{user.library_count}}</span>
                     </div>
                     <div class="profile-count-link ellipsis link"> Inventory </div>
-                    <div class="profile-count-link ellipsis link"> Screenshots </div>
+                    <div class="profile-count-link ellipsis link" (click)="goTo('../federip')"> Screenshots</div>
                     <div class="profile-count-link ellipsis link"> Videos </div>
                     <div class="profile-count-link ellipsis link"> Workshop Items </div>
                     <div class="profile-count-link ellipsis link">
                       <span class="link">Reviews</span>
-                      <span class="total">1</span>
+                      <span class="total">{{user.reviews_count}}</span>
                     </div>
                     <div class="profile-count-link ellipsis link"> Guides </div>
                     <div class="profile-count-link ellipsis link"> Artwork </div>
                     <div class="profile-count-link ellipsis">
                       <span class="link">Friends</span>
-                      <span class="total">20</span>
+                      <span class="total">{{user.friendships_count}}</span>
                     </div>
                   </div>
                 </div>
-              </div>
+              
             </div>
           </div>
 
 
-        </div>
-        <div class="row">
 
         </div>
-
       </div>
     </div>
-
-    <div class="col column p-0">
-    </div>
+    <div class="col"></div>
   </div>
-
-
 </div>
