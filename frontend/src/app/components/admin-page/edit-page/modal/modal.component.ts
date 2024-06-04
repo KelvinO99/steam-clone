@@ -18,6 +18,7 @@ export class ModalComponent {
   firstFormGroup!: any;
   secondFormGroup!: any;
   isLinear!: boolean;
+  selected = 'option1';
 
   constructor(public route: ActivatedRoute, public gameService: GameService, public editPage: EditPageComponent, public formBuilder: FormBuilder) {}
 
@@ -69,7 +70,7 @@ export class ModalComponent {
           : 0,
       short_description: this.game.game.short_description,
       long_description: this.game.game.long_description,
-    
+      pegi_id: this.game.game.pegi_id    
     });
   }
 

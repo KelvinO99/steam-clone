@@ -25,8 +25,8 @@
                                         <!--sezione del pulsante edit-->
                                         <div class="col-6 d-flex align-items-center edit-section">
                                             <span> <button data-bs-toggle="modal" data-bs-target="#editPriceModal"
-                                                class="bi bi-pencil-square px-2 edit-button edit-button">
-                                            </button> </span>
+                                                    class="bi bi-pencil-square px-2 edit-button edit-button">
+                                                </button> </span>
                                         </div>
 
                                         <!--sezione del prezzo-->
@@ -83,9 +83,10 @@
 
                         <!--descrizione del gioco-->
                         <div class="col mt-2 section">
-                            <p class="heading"> About this Game <span> <button data-bs-toggle="modal" data-bs-target="#editLongDescriptionModal"
-                                class="bi bi-pencil-square px-2 edit-button edit-button">
-                            </button> </span> </p>
+                            <p class="heading"> About this Game <span> <button data-bs-toggle="modal"
+                                        data-bs-target="#editLongDescriptionModal"
+                                        class="bi bi-pencil-square px-2 edit-button edit-button">
+                                    </button> </span> </p>
                             <img src="https://store.akamai.steamstatic.com/public/images/v6/maincol_gradient_rule.png"
                                 class="image">
                             <p class="content"> {{game?.game?.long_description}} </p>
@@ -93,9 +94,9 @@
 
                         <!--requisiti di sistema del gioco-->
                         <div class="col mt-5 section">
-                            <p class="heading"> System Requirements <span> <button data-bs-toggle="modal" data-bs-target="#editSystemRequirementsModal"
+                            <p class="heading"> System Requirements <!-- <span> <button data-bs-toggle="modal" data-bs-target="#editSystemRequirementsModal"
                                 class="bi bi-pencil-square px-2 edit-button edit-button">
-                            </button> </span> </p>
+                            </button> </span> --> </p>
                             <img src="https://store.akamai.steamstatic.com/public/images/v6/maincol_gradient_rule.png"
                                 class="image">
 
@@ -264,6 +265,11 @@
                             <div class="d-flex flex-column header px-2 py-2">
                                 <img [src]="game?.pegi_img?.image_path" class="image">
                                 <span class="label"> Rating for: PEGI </span>
+                                <div class="col d-flex justify-content-end">
+                                    <button data-bs-toggle="modal" data-bs-target="#editPegi"
+                                        class="bi bi-pencil-square px-2 edit-button edit-button">
+                                    </button>
+                                </div>
                             </div>
                         </div>
 

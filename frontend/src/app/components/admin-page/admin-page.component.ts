@@ -16,6 +16,10 @@ export class AdminPageComponent implements OnInit {
   languages!: any; // index delle lingue
   addGameForm!: FormGroup; // form per aggiungere i giochi
   gameToDeleteId!: any;
+  searchText!: any;
+  firstFormGroup!: any;
+  secondFormGroup!: any;
+  isLinear!: boolean;
   // variabili per la paginazione
   games: any[] = [];
   length = 0;
@@ -43,11 +47,24 @@ export class AdminPageComponent implements OnInit {
       pegi_id: [0],
       date: [Date],
       base_price: [0],
+      game_imgs: [],
       discounted_percentage: [0, [Validators.min(0), Validators.max(100)]],
       discounted_price: [0, [Validators.min(0), Validators.max(100)]],
       short_description: ['', [Validators.required, Validators.maxLength(1024)]],
       long_description: ['', [Validators.required, Validators.maxLength(1024)]],
+      
     });
+
+    this.firstFormGroup = this.formBuilder.group({
+      firstCtrl: [''],
+    });
+    this.secondFormGroup = this.formBuilder.group({
+      secondCtrl: [''],
+    });
+    this.isLinear = false;
+
+    console.log(this.addGameForm.controls["game_imgs"].value);
+    
   }
 
   addGame() {

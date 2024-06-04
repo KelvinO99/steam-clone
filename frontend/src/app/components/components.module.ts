@@ -19,6 +19,7 @@ import { MatCardModule} from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatSelectModule} from '@angular/material/select';
 
 //Component
 import { BaseComponent } from './base/base.component';
@@ -103,6 +104,7 @@ import { ModalComponent } from './admin-page/edit-page/modal/modal.component';
     MatTabsModule,
     MatButtonModule,
     MatStepperModule,
+    MatSelectModule,
   ],
   exports: [CommonModule, TranslateModule, BaseComponent],
 })

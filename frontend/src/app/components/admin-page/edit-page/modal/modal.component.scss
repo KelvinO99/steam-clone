@@ -19,11 +19,24 @@
     }
 
 
-    .modal-body {}
+    /* .modal-body {} */
 
     .modal-footer {
         border: initial;
     }
+}
+
+select {
+    color: white;
+    background-color: rgb(27, 40, 56);
+}
+
+#mat-input-6 {
+    background-color: rgb(27, 40, 56);
+}
+
+textarea {
+    color: white;
 }
 
 mat-stepper {
