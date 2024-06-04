@@ -38,17 +38,6 @@ export class ModalComponent {
       .updateGame(this.routeId, this.gameForm.value)
       .subscribe((res) => {
         console.log(res);
-
-        /* this.game.game.name = this.gameForm.controls['name'].value;
-        this.game.game.base_price = this.gameForm.controls['base_price'].value;
-        this.game.game.discounted_price =
-          this.gameForm.controls['discounted_price'].value;
-        this.game.game.discounted_percentage =
-          this.gameForm.controls['discounted_percentage'].value;
-        this.game.game.short_description =
-          this.gameForm.controls['short_description'].value;
-        this.game.game.long_description =
-          this.gameForm.controls['long_description'].value; */
       });
 
       this.editPage.showGame()
