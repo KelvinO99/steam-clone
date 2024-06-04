@@ -51,6 +51,8 @@ import { EditHeaderPageComponent } from './admin-page/edit-page/edit-header-page
 import { EditBodyPageComponent } from './admin-page/edit-page/edit-body-page/edit-body-page.component';
 import { ModalComponent } from './admin-page/edit-page/modal/modal.component';
 import { FederipComponent } from './federip/federip.component';
+import { BuyPageComponent } from './buy-page/buy-page.component';
+import { HeaderCartComponent } from './buy-page/header-cart/header-cart.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +86,8 @@ import { FederipComponent } from './federip/federip.component';
     EditBodyPageComponent,
     ModalComponent,
     FederipComponent,
+    BuyPageComponent,
+    HeaderCartComponent,
 
   ],
   imports: [

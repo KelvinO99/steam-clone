@@ -52,6 +52,7 @@ export class NavbarComponent {
       if (loggedIn) {
         this.username = localStorage.getItem('user_profile_username');
         this.id = localStorage.getItem('user_profile_id');
+        this.role = localStorage.getItem('role');
       } else {
         this.username = null;
       }

@@ -79,24 +79,13 @@
                                     <input matInput formControlName="discounted_percentage">
                                 </mat-form-field>
                                 <div>
-                                    <button class="me-2" mat-button matStepperPrevious>Back</button>
-                                    <button mat-button matStepperNext>Next</button>
+                                    <span> <button type="button" mat-raised-button class="main-font me-2"
+                                            data-bs-dismiss="modal" (click)="close()"> Close </button> </span>
+                                    <span> <button type="button" mat-raised-button class="main-font save"
+                                            data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#confirmModal">
+                                            Save </button> </span>
                                 </div>
                             </form>
-                        </mat-step>
-                        <mat-step>
-                            <ng-template matStepLabel> Fill out your discounted price </ng-template>
-                            <mat-form-field class="w-100">
-                                <mat-label> discounted price </mat-label>
-                                <input matInput formControlName="discounted_price">
-                            </mat-form-field>
-                            <div>
-                                <span> <button type="button" mat-raised-button class="main-font me-2"
-                                        data-bs-dismiss="modal" (click)="close()"> Close </button> </span>
-                                <span> <button type="button" mat-raised-button class="main-font save"
-                                        data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#confirmModal">
-                                        Save </button> </span>
-                            </div>
                         </mat-step>
                     </mat-stepper>
 
