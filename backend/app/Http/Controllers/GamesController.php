@@ -443,7 +443,7 @@ class GamesController extends Controller
             $parent_id = $request->input('parent_id');
             $base_price = $request->input('base_price');
             $discounted_price = $request->input('discounted_price');
-            $discounted_percentage = $request->input('discounted_percentage');
+            //$discounted_percentage = $request->input('discounted_percentage');
             $short_description = $request->input('short_description');
             $long_description = $request->input('long_description');
             $pegi_id = $request->input('pegi_id');
@@ -458,10 +458,7 @@ class GamesController extends Controller
                 );
             }
 
-            // Controlla che il gioco non abbia lo stesso nome di un'altro - Salvo
-            /*if (Games::where('name', $name)->exists()) {
-                return response()->json(['message' => 'Un gioco con lo stesso nome esiste già'], 409);
-            }*/
+            $discounted_percentage = ( $discounted_price / $base_price ) * 100;
 
             if($name) $game->update(['name' => $name]);
             if($is_dlc) {
@@ -472,8 +469,8 @@ class GamesController extends Controller
             }
             if($date) $game->update(['date'=> $date]);
             if($base_price) $game->update(['base_price'=> $base_price]);
-            if($discounted_price) $game->update(['discounted_price'=> $discounted_price]);
             if($discounted_percentage) $game->update(['discounted_percentage'=> $discounted_percentage]);
+            if($discounted_price) $game->update(['discounted_price'=> $discounted_price]);
             if($short_description) $game->update(['short_description'=> $short_description]);
             if($long_description) $game->update(['long_description'=> $long_description]);
             if($pegi_id) $game->update(['pegi_id'=> $pegi_id]);
@@ -482,6 +479,8 @@ class GamesController extends Controller
                 $request->game_name = $game->name;
                 $imagesController->update($request);
             }
+
+
 
             return response()->json($game, 201);
 
@@ -509,6 +508,12 @@ class GamesController extends Controller
                 return response()->json(['message' => 'Non autorizzato, non sei un dev'], 401);
             } */
 
+            $base_price = $request->base_price;
+            $discounted_price = $request->discounted_price;
+
+            $discounted_percentage = ( $discounted_price / $base_price ) * 100;
+
+
             $validatedData = $request->validate([
                 'name' => 'required|string|max:100',
                 'date'=> 'required|date',
@@ -522,6 +527,10 @@ class GamesController extends Controller
                 'pegi_id' => 'required',
 
             ]);
+
+
+
+
 
 
             // Controlla che il gioco non abbia lo stesso nome di un'altro - Salvo
