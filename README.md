@@ -1,93 +1,209 @@
-# Progetto-Pilota-Steam
+# 🎮 Steam Clone
 
+A full-stack web application inspired by the Steam gaming platform, built as an apprenticeship project during the final year of technical school (ITIS Marconi, Catania).
 
+**Backend:** Laravel (PHP) · **Frontend:** Angular · **Auth:** JWT · **DB:** MySQL
 
-## Getting started
+---
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+## 📋 Features
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+### Backend (Laravel REST API)
+- **JWT Authentication** — register, login, logout, token refresh, user profile
+- **Role-based access control** — user / developer / admin roles via Spatie/Laratrust permissions
+- **Games catalogue** — full CRUD with advanced filtering:
+  - Filter by tag (multi-tag support)
+  - Best sellers, most reviewed, discounted, special offers, upcoming releases
+  - Pagination and search by name/price
+- **User library** — purchase and manage owned games
+- **Reviews** — create and manage game reviews
+- **Achievements** — per-game achievements and user progress tracking
+- **Friendships** — send, accept, and manage friend requests
+- **Developers** — developer profiles linked to games
+- **Media** — image upload and management for games
+- **System requirements** — min/recommended specs per game
+- **Localization** — multi-language support per game (languages table)
 
-## Add your files
+### Frontend (Angular)
+- **Store page** — featured games, carousels, offers, category browsing
+- **Game page** — full game details, reviews, system requirements, buy button
+- **User page** — profile, library, achievements, friends
+- **Admin panel** — manage games, developers, tags
+- **Cart / Buy page** — purchase flow
+- **Category page** — browse by genre with filters
+- **Steam Deck page** — dedicated landing page
+- **i18n** — Italian and English support (`ngx-translate`)
+- **Auth guard** — protected routes with JWT interceptor
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+---
 
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Backend | PHP 8, Laravel 10 |
+| Frontend | Angular 15, TypeScript, SCSS |
+| Database | MySQL |
+| Authentication | JWT (`tymon/jwt-auth`) |
+| Permissions | Spatie Laratrust |
+| Enums | `spatie/laravel-enum` |
+| API | RESTful JSON API |
+| Version control | Git (750+ commits) |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- PHP >= 8.0
+- Composer
+- MySQL
+- Node.js >= 16 + npm
+- Angular CLI
+
+### Backend Setup
+
+```bash
+cd backend
+
+# Install dependencies
+composer install
+composer dump-autoload
+
+# Environment
+cp .env.example .env
+# Edit .env with your DB credentials, then:
+php artisan key:generate
+php artisan jwt:secret
+
+# Database
+php artisan migrate
+php artisan db:seed   # seed all via DatabaseSeeder
+
+# Start server
+php artisan serve
 ```
-cd existing_repo
-git remote add origin https://gitlab.com/Sandomer/progetto-pilota-steam.git
-git branch -M main
-git push -uf origin main
+
+### Frontend Setup
+
+```bash
+cd frontend
+npm install
+ng serve
 ```
 
-## Integrate with your tools
+The app will be available at `http://localhost:4200`, API at `http://localhost:8000`.
 
-- [ ] [Set up project integrations](https://gitlab.com/Sandomer/progetto-pilota-steam/-/settings/integrations)
+---
 
-## Collaborate with your team
+## 🔄 Useful Laravel Commands
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+### Migrations & Seeding
+```bash
+php artisan make:migration create_table_name   # create a migration
+php artisan migrate                             # run migrations
+php artisan migrate:fresh                       # drop all tables and re-migrate
 
-## Test and Deploy
+php artisan make:seeder NameSeeder             # create a seeder
+php artisan db:seed                            # seed all (via DatabaseSeeder)
+php artisan db:seed --class=NameSeeder         # seed a specific class
 
-Use the built-in continuous integration in GitLab.
+php artisan make:factory NameFactory           # create a factory
+```
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+### Models, Controllers, Routes
+```bash
+php artisan make:model ModelName              # create a model
+php artisan make:controller NameController    # create a controller
+php artisan make:controller NameController --resource  # controller with CRUD methods
+```
 
-***
+### Route & Config Cache (run after changing routes)
+```bash
+composer dump-autoload
+php artisan config:clear
+php artisan route:clear
+php artisan route:cache
+php artisan serve
+```
 
-# Editing this README
+> ⚠️ Always stop the server before clearing routes, then restart with `php artisan serve`.
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+### JWT Setup
+```bash
+composer require tymon/jwt-auth
+php artisan jwt:secret    # generates JWT_SECRET in .env
+php artisan make:controller AuthController
+```
 
-## Suggestions for a good README
+### Roles & Permissions (Laratrust)
+```bash
+composer require santigarcor/laratrust
+composer dump-autoload
+```
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+Check user roles in code:
+```php
+$user->hasRole('admin');
+$user->hasRole(['admin', 'developer']);  // true if user has any of these
+```
 
-## Name
-Choose a self-explaining name for your project.
+### Enums (Spatie)
+```bash
+composer require spatie/laravel-enum
+composer dump-autoload
+```
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+Enum files go in `app/Enums/`.
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+---
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+## 📡 API Endpoints
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+All endpoints are prefixed with `/api`.
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+### Auth (`/api/auth`)
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/login` | Login and get JWT token |
+| POST | `/register` | Register new user (or developer) |
+| POST | `/logout` | Invalidate token |
+| POST | `/refresh` | Refresh JWT token |
+| GET | `/user-profile` | Get authenticated user info |
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+### Games (`/api/games`)
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/index` | List games (filters: `tag`, `best_seller`, `most_reviewed`, `discount`, `upcoming`, `new_release`, `name`, `price`, `skip`, `take`) |
+| GET | `/show/{id}` | Get single game |
+| POST | `/store` | Create game |
+| POST | `/update/{id}` | Update game |
+| DELETE | `/destroy/{id}` | Delete game |
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+Other resource endpoints follow the same CRUD pattern:
+`/achievements`, `/developers`, `/libraries`, `/reviews`, `/tags`, `/users`, `/images`, `/languages`, `/system_requirements`, `/friendships`
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+---
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+## 👥 Team
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+This was a team project. I ([@KelvinO99](https://github.com/KelvinO99)) worked on the **backend**: API design, database schema, controllers, authentication, and query logic.
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+The frontend was built by teammates. Some backend contributions also appear in the frontend integration layer.
 
-## License
-For open source projects, say how it is licensed.
+---
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+## 📚 Resources
+
+- [Laravel Seeding Docs](https://laravel.com/docs/10.x/seeding)
+- [Laravel CRUD with Resource Controllers](https://aulab.it/guide/132/model-resource-controller-e-crud-in-laravel)
+- [Laravel JWT Authentication Tutorial](https://www.positronx.io/laravel-jwt-authentication-tutorial-user-login-signup-api/)
+- [Laratrust Roles & Permissions](https://laratrust.santigarcor.me/docs/6.x/)
+
+---
+
+## 📝 Notes
+
+- This is a school apprenticeship project — not intended for production use
+- `.env` is not committed; use `.env.example` as a starting point
+- Some comments in Italian are leftovers from the development process
