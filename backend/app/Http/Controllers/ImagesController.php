@@ -95,14 +95,14 @@ class ImagesController extends Controller
             $game_name = preg_replace('/_+/', '_', $game_name);
             $i = Images::where('game_id', $request->game_id)->count();
             foreach($files as $file){
-            if($i == 24)return response()->json(['message'=>'image limit reached',]);
-            $image = new Images(); //crea record images -kel
-            $filename =$game_name.'_'.$i.'.'.$file->getClientOriginalExtension();
-            $path = $file->storeAs( 'game_images/'.$game_name, $filename, 'public');
-            $image->game_id = $request->game_id;
-            $image->image_path = $path; //salva il record -kel
-            $image->save();
-            $i++;
+                if($i == 24)return response()->json(['message'=>'image limit reached',]);
+                $image = new Images(); //crea record images -kel
+                $filename =$game_name.'_'.$i.'.'.$file->getClientOriginalExtension();
+                $path = $file->storeAs( 'game_images/'.$game_name, $filename, 'public');
+                $image->game_id = $request->game_id;
+                $image->image_path = $path; //salva il record -kel
+                $image->save();
+                $i++;
             }
         }
         return response($image);

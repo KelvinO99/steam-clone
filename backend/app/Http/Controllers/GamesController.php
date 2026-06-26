@@ -95,7 +95,8 @@ class GamesController extends Controller
             }
 
 
-
+1
+1
 
 
 
@@ -447,7 +448,7 @@ class GamesController extends Controller
             $short_description = $request->input('short_description');
             $long_description = $request->input('long_description');
             $pegi_id = $request->input('pegi_id');
-            $img_id = $request->input('img_id');
+            $img_id = $request->input('img_id');x
 
             $game = Games::findOrFail($request->id);
 
