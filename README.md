@@ -6,6 +6,14 @@ A full-stack web application inspired by the Steam gaming platform, built as an 
 
 ---
 
+## 👥 Team
+
+This was a team project. I ([@KelvinO99](https://github.com/KelvinO99)) worked on the **backend**: API design, database schema, controllers, authentication, and query logic.
+
+The frontend was built by teammates. Some backend contributions also appear in the frontend integration layer.
+
+---
+
 ## 📋 Features
 
 ### Backend (Laravel REST API)
@@ -182,14 +190,6 @@ All endpoints are prefixed with `/api`.
 
 Other resource endpoints follow the same CRUD pattern:
 `/achievements`, `/developers`, `/libraries`, `/reviews`, `/tags`, `/users`, `/images`, `/languages`, `/system_requirements`, `/friendships`
-
----
-
-## 👥 Team
-
-This was a team project. I ([@KelvinO99](https://github.com/KelvinO99)) worked on the **backend**: API design, database schema, controllers, authentication, and query logic.
-
-The frontend was built by teammates. Some backend contributions also appear in the frontend integration layer.
 
 ---
 
